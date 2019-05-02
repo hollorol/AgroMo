@@ -1,0 +1,12 @@
+{
+    "sections" : {
+	"weather" : "MET_INPUT",
+	"soil" :
+	"mgm" :
+    },
+
+    "outputName" : {
+	
+    } "OUTPUT_CONTROL",
+    "numYears"
+}

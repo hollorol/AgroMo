@@ -1,0 +1,29 @@
+colNum,Variable,ylab,TimeFrame,GroupFun,plotType,conversionFactor
+1,leaf_DM, carbon content of leaf dry matter,day,identity,line,1
+2,leaflitr_DM, carbon content of leaf litter dry matter,day,identity,line,1
+3,froot_DM, carbon content of fine roots dry matter,day,identity,line,1
+4,fruit_DM, carbon content of fruits dry matter,day,identity,line,10
+5,softstem_DM, carbon content of softstems dry matter,day,identity,line,1
+6,proj_lai, live projected leaf area index,day,identity,line,1
+7,cum_evap, cumulative SUM of evaporation over a year,day,identity,line,1
+8,cum_trans, cumulative SUM of transpiration over a year,day,identity,line,1
+9,rooting_depth, actual depth of the rooting zone,day,identity,line,1
+10,daily_gpp, daily gpp,day,identity,line,1
+11,daily_tr,daily transpiration,day,identity,line,1
+12,daily_nee,daily nee,day,identity,line,1
+13,tsoil_0,soil temperature in layer 0             ,day,identity,line,1
+14,tsoil_1,soil temperature in layer 1             ,day,identity,line,1
+15,tsoil_2,soil temperature in layer 2             ,day,identity,line,1
+16,tsoil_3,soil temperature in layer 3             ,day,identity,line,1
+17,tsoil_4,soil temperature in layer 4             ,day,identity,line,1
+18,tsoil_5,soil temperature in layer 5             ,day,identity,line,1
+19,tsoil_6,soil temperature in layer 6             ,day,identity,line,1
+20,vwc_0,volumetric water content in soil layer 0,day,identity,line,1
+21,vwc_1,volumetric water content in soil layer 1,day,identity,line,1
+22,vwc_2,volumetric water content in soil layer 2,day,identity,line,1
+23,vwc_3,volumetric water content in soil layer 3,day,identity,line,1
+24,vwc_4,volumetric water content in soil layer 4,day,identity,line,1
+25,vwc_5,volumetric water content in soil layer 5,day,identity,line,1
+26,vwc_6,volumetric water content in soil layer 6,day,identity,line,1
+27,tsoil-profil,temperature of the current layer,none,identity,profile,1
+28,vwc-profil,volumetric water content of the current layer,none,identity,profile,1

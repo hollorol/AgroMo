@@ -1,0 +1,57 @@
+SOILPROP FILE - MuSo6, site/cell: 166
+--------------------------------------------------------------------------------------------
+NITROGEN AND DECOMPOSITION PARAMETERS
+0.02      (prop.)   denitrification rate per g of CO2 respiration of SOM
+0.2       (prop.)   nitrification coefficient 1
+0.07      (prop.)   nitrification coefficient 2
+0.02      (prop.)   coefficient of N2O emission of nitrification
+0.1       (prop.)   NH4 mobilen proportion
+1.0       (prop.)   NO3 mobilen proportion
+10        (m)       e-folding depth of decomposition rate depth scalar
+0.002     (prop.)   fraction of dissolved part of SOIL1 organic matter
+0.002     (prop.)   fraction of dissolved part of SOIL2 organic matter
+0.002     (prop.)   fraction of dissolved part of SOIL3 organic matter
+0.002     (prop.)   fraction of dissolved part of SOIL4 organic matter
+--------------------------------------------------------------------------------------------
+RATE SCALARS
+0.44      (prop)    respiration fractions for fluxes between compartments (l1s1)
+0.51      (prop)    respiration fractions for fluxes between compartments (l2s2)
+0.33      (prop)    respiration fractions for fluxes between compartments (l4s3)
+0.33      (prop)    respiration fractions for fluxes between compartments (s1s2)
+0.51      (prop)    respiration fractions for fluxes between compartments (s2s3)
+0.61      (prop)    respiration fractions for fluxes between compartments (s3s4)
+0.7       (1/day)   rate constant scalar of  labile litter pool
+0.07      (1/day)   rate constant scalar of cellulose litter pool
+0.014     (1/day)   rate constant scalar of lignin litter pool
+0.07      (1/day)   rate constant scalar of  fast microbial recycling pool
+0.014     (1/day)   rate constant scalar of  medium microbial recycling pool
+0.0014    (1/day)   rate constant scalar of  slow microbial recycling pool
+0.0001    (1/day)   rate constant scalar of  recalcitrant SOM (humus) pool
+0.001     (1/day)   rate constant scalar of  physical fragmentation of coarse woody debris
+--------------------------------------------------------------------------------------------
+CH4 PARAMETERS
+212.5     (DIM)     soil CH4 emission bulk density dependence parameter1
+1.81      (DIM)     soil CH4 emission bulk density dependence parameter2
+-1.353    (DIM)     soil CH4 emission soil water content dependence parameter1
+0.2       (DIM)     soil CH4 emission soil water content dependence parameter2
+1.781     (DIM)     soil CH4 emission soil water content dependence parameter3
+6.786     (DIM)     soil CH4 emission soil water content dependence parameter4
+0.010     (DIM)     soil CH4 emission soil temperature dependence parameter1
+--------------------------------------------------------------------------------------------
+SOIL PARAMETERS
+3.00      (m)       depth of soil
+0.6       (DIM)     ratio of bare soil evaporation and pot.evaporation
+0.0       (mm)      maximum height of pond water
+60        (dimless) measured runoff curve number (-9999: no measured data, model estimation)
+--------------------------------------------------------------------------------------------
+SOIL COMPOSITION AND CHARACTERISTIC VALUES (-9999: no measured data)
+85      85      85      89      85      84      84      84      84      84          (%) sand percentage by volume in rock-free soil
+11      11      11      7       9       9       9       9       9       9           (%) silt percentage by volume in rock-free soil
+7.40    7.40    7.40    7.70    8.00    8.10    8.10    8.10    8.10    8.10        (dimless) soil pH
+1.40    1.40    1.40    1.45    1.47    1.49    1.49    1.49    1.49    1.49        (g/cm3) bulk density
+0.485   0.485   0.485   0.460   0.450   0.450   0.450   0.450   0.450   0.450       (m3/m3) SWC at saturation
+0.273   0.273   0.273   0.245   0.225   0.215   0.215   0.215   0.215   0.215       (m3/m3) SWC at field capacity
+0.123   0.123   0.123   0.125   0.115   0.110   0.110   0.110   0.110   0.110       (m3/m3) SWC at wilting point
+0.005   0.005   0.005   0.005   0.005   0.005   0.005   0.005   0.005   0.005       (m3/m3) SWC at hygroscopic water content
+0.72    0.72    0.72    0.74    0.71    0.71    0.71    0.71    0.71    0.71        (dimless) drainage coefficient
+216.30  216.30  216.30  224.70  214.80  212.70  212.70  212.70  212.70  212.70      (cm/day) hydraulic condictivity at saturation
