@@ -24,7 +24,9 @@ agroMoSiteUI <- function(id){
   tags$div(id = ns(id),
            tagList(
              createInputs(baseTable),
-             checkboxInput(ns("stationp"), label = "Station data only", value = TRUE),
+             tags$div(
+                    id=paste0(ns("stationp"),"_container"),checkboxInput(ns("stationp"), label = "Station data only", value = TRUE)
+                  ),
              checkboxInput(ns("sitep"), label = "Site data only", value = TRUE),
              tags$div(id="manModuls","management modules"),
              tags$div(id="shiftIn","shift in ..."),

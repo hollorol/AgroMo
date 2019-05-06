@@ -1,95 +1,98 @@
 /* Suggestions: I would suggest to use posinition: absolute css declaration in every
                 place. The positions starts at the top-left corner of the root window,
                 which is the window except the banner. */
-#site-stationp {
+#sitediv-stationp_container{
+    position: absolute;
+    top: 200px;
+    right: 100px;
+    
+}
+
+#sitediv-sitep_container{
 
     
 }
-#site-sitep {
+#sitediv-manModuls_container{
 
     
 }
-#site-manModuls {
+#sitediv-shiftIn_container{
 
     
 }
-#site-shiftIn {
-
-    
-}
-#site-planting{
+#sitediv-planting_container{
 
     
              }
-#site-harvest{
+#sitediv-harvest_container{
 
     
              }
-#site-fertilization{
+#sitediv-fertilization_container{
 
     
              }
-#site-irrigation{
+#sitediv-irrigation_container{
 
     
              }
-#site-cultivation{
+#sitediv-cultivation_container{
 
     
              }
-#site-grazing{
+#sitediv-grazing_container{
 
     
              }
-#site-mowing{
+#sitediv-mowing_container{
 
     
              }
-#site-thinning{
+#sitediv-thinning_container{
 
     
              }
-#site-outputFile{
+#sitediv-outputFile_container{
 
     
 }
-#site-Buttons{
+#sitediv-Buttons_container{
 
     
 }
-#site-popRun{
+#sitediv-popRun_container{
 
     
 }
-#site-Show{
+#sitediv-Show_container{
 
     
 }
-#site-planshift_date{
+#sitediv-planshift_date_container{
 
     
 }
-#site-planshift_density{
+#sitediv-planshift_density_container{
 
     
 }
-#site-harvshift_date{
+#sitediv-harvshift_date_container{
 
     
 }
-#site-fertshift_date{
+#sitediv-fertshift_date_container{
 
     
 }
-#site-irrshift_date{
+#sitediv-irrshift_date_container{
 
     
 }
-#site-fertshift_amount{
+#sitediv-fertshift_amount_container{
 
     
 }
-#site-irrshift_amount{
+#sitediv-irrshift_amount_container{
 
     
 }
