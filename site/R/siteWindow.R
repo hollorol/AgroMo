@@ -24,10 +24,29 @@ agroMoSiteUI <- function(id){
   tags$div(id = ns(id),
            tagList(
              createInputs(baseTable),
+             checkboxInput(ns("stationp"), label = "Station data only", value = TRUE),
+             checkboxInput(ns("sitep"), label = "Site data only", value = TRUE),
+             tags$div(id="manModuls","management modules"),
+             tags$div(id="shiftIn","shift in ..."),
+             selectInput(ns("planting"),"planting",NA),
+             selectInput(ns("harvest"),"harvest",NA),
+             selectInput(ns("fertilization"),"fertilization",NA),
+             selectInput(ns("irrigation"),"irrigation",NA),
+             selectInput(ns("cultivation"),"cultivation",NA),
+             selectInput(ns("grazing"),"grazing",NA),
+             selectInput(ns("mowing"),"mowing",NA),
+             selectInput(ns("thinning"),"thinning",NA),
              uiOutput(ns("outputFile")),
              tags$div(id = ns("Buttons"),
              runAndPlotUI(ns("popRun"),label = "Run"),
-             actionButton(ns("Show"),label="Show"))
+             actionButton(ns("Show"),label="Show")),
+             numericInput(ns("planshift_date"), "date (day):", 0),
+             numericInput(ns("planshift_density"), "density (p/m2):", 0),
+             numericInput(ns("harvshift_date"), "date (day):", 0),
+             numericInput(ns("fertshift_date"), "date (day):", 0),
+             numericInput(ns("irrshift_date"), "date (day):", 0),
+             numericInput(ns("fertshift_amount"), "amount (kg/ha):", 0),
+             numericInput(ns("irrshift_amount"), "amount (mm):", 0)
            )
            )}
 

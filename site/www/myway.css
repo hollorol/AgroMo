@@ -1,11 +1,4 @@
 
-#hun img {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  width: 75px;
-}
-
 .base-baseInputs {
     margin-top: 56px;
 
@@ -16,32 +9,24 @@
     top: 0px;
     left: 0px;
 }
+
 .banner:not(#Base-banner-div) {
+    /* Do not edit this block, it preserves functionality not just pure style */
     cursor: pointer;
 }
-#eng img {
-  position: absolute;
-  top: 15px;
-  left: 100px;
-  width: 75px;
-}
 
-#mainSideBarTools {
-    font-weight: 700;
-    font-size: 24px;
-    color: black;
-}
 
-.mainSideBar {
 
-    width: 200px;
-    font-size: 20px;
-    max-width: 200px;
-    white-space: normal;
-    word-wrap: break-word;
-    font-weight: 700;
+/* .mainSideBar { */
 
-}
+/*     width: 200px; */
+/*     font-size: 20px; */
+/*     max-width: 200px; */
+/*     white-space: normal; */
+/*     word-wrap: break-word; */
+/*     font-weight: 700; */
+
+/* } */
 
 #plotWindow {
   position: absolute;
