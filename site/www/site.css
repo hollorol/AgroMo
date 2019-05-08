@@ -3,15 +3,25 @@
                 which is the window except the banner. */
 #sitediv-stationp_container{
     position: absolute;
-    top: 120px;
-    right: 80px;
-    
+    top: 250px;
+    right: -60px;
+    font-size: 18px;
 }
 
 #sitediv-sitep_container{
+  position: absolute;
+  top: 368px;
+  right: -60px;
+  font-size: 18px;
 
     
 }
+
+/* #sitediv-planting_container .control-label {
+	position: absolute;
+	left: 10px;
+}*/
+
 #sitediv-manModuls_container{
 
     
@@ -52,19 +62,19 @@
 
     
              }
-#sitediv-outputFile_container{
+#sitediv-outputFile{
 
     
 }
-#sitediv-Buttons_container{
+#sitediv-Buttons{
 
     
 }
-#sitediv-popRun_container{
+#sitediv-popRun{
 
     
 }
-#sitediv-Show_container{
+#sitediv-Show{
 
     
 }
