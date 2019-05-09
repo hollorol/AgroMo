@@ -17,20 +17,16 @@
     
 }
 
-/* #sitediv-planting_container .control-label {
-	position: absolute;
-	left: 10px;
-}*/
 
-#sitediv-manModuls_container{
+#manModuls_container{
   position: absolute;
   top: 460px;
   left: 2px;
-  font-size: 16px
+  font-size: 16px;
 
     
 }
-#sitediv-shiftIn_container{
+#shiftIn_container{
   position: absolute;
   top: 460px;
   right: 15px;
@@ -41,6 +37,12 @@
 
     
              }
+             
+/* #sitediv-planting_container .control-label {
+	position: absolute;
+	left: 10px;
+}*/
+             
 #sitediv-harvest_container{
 
     
