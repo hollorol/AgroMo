@@ -85,26 +85,26 @@
 }
 
 .inFile, .selectize-input {
-  font-size: 24px;
-  line-height: 24px;
+  font-size: 16px;
+  line-height: 16px;
 }
 .inFile, .selectize-dropdown {
-font-size: 20px;
-line-height: 26px;
+font-size: 16px;
+line-height: 18px;
 }
 .inFile, .selectize-dropdown-content {
 padding: 0;
 }
 .inFile {
-    padding-top: 50px;
-    padding-left: 50px;
-    padding-right: 50px;
+    padding-top: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
 
 
 .inFile, control-label {
-    font-size: 24px;
+    font-size: 16px;
     color: black;
 }
 
