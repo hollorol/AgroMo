@@ -1,5 +1,6 @@
 mainMenu <- function(name,relVals){
   shinyjs::hide("base")
+  shinyjs::hide("base-tools")  
   shinyjs::show(sprintf("%sdiv-%sdiv",name,name))
   shinyjs::hide(selector = ".banner")
   shinyjs::show(sprintf("%s-banner-div",gsub("(^[[:alpha:]])", "\\U\\1", name, perl=TRUE)))

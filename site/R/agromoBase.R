@@ -7,7 +7,9 @@ agromoBaseUI <- function(id){
                         actionButton("map","",  class = "mainMenu", style = ("background: url('img/map.svg')")))
                
                ),
-               tags$div(class= "mainSideBar",
+               tags$div(
+                 id = ns("tools"), #base-tools
+                 class= "mainSideBar",
                         tags$div(id="mainSideBarTools", "tools"),
                         actionButton("parSweep","PARAMETER SWEEP", class = "mainSideBar"),
                         actionButton("sensitivity","SENSITIVITY ANALYSIS", class = "mainSideBar"),
