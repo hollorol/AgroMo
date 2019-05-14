@@ -87,10 +87,14 @@
 .inFile, .selectize-input {
   font-size: 16px;
   line-height: 16px;
+  width: 900px;
+/*  position: absolute;
+  top: -20px;
+  left: -1px; */
 }
 .inFile, .selectize-dropdown {
 font-size: 16px;
-line-height: 18px;
+line-height: 16px;
 }
 .inFile, .selectize-dropdown-content {
 padding: 0;
