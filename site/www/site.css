@@ -17,14 +17,14 @@
 
 #manModuls{
   position: absolute;
-  top: 390px;
+  top: 310px;
   left: 2px;
   font-size: 16px;
 }
 
 #shiftIn{
   position: absolute;
-  top: 390px;
+  top: 310px;
   right: -60px;
   font-size: 16px;
 }
@@ -35,13 +35,14 @@
              
 #sitediv-planting_container .control-label {
   position: absolute;
-  top: 400px;
+  top: 320px;
+  right: 730px;
 }
 
 #sitediv-planting_container .selectize-control.single .selectize-input {
   position: absolute;
-  top: -40px;
-  left: 100px;
+  top: 113px;
+  left: 105px;
   width: 450px;
 }
 
@@ -51,13 +52,14 @@
              }*/ 
 #sitediv-harvest_container .control-label{
   position: absolute;
-  top: 450px;
+  top: 357px;
+  right: 730px;
 }
 
 #sitediv-harvest_container .selectize-control.single .selectize-input{
   position: absolute;
-  top: 10px;
-  left: 100px;
+  top: 150px;
+  left: 105px;
   width: 450px;
 }
 
@@ -68,13 +70,14 @@
 
 #sitediv-fertilization_container .control-label{
   position: absolute;
-  top: 500px;
+  top: 394px;
+  right: 730px;
 }
 
 #sitediv-fertilization_container .selectize-control.single .selectize-input{
   position: absolute;
-  top: 60px;
-  left: 100px;
+  top: 187px;
+  left: 105px;
   width: 450px;
 }
 
@@ -85,13 +88,14 @@
 
 #sitediv-irrigation_container .control-label{
   position: absolute;
-  top: 550px;
+  top: 431px;
+  right: 730px;
 }
 
 #sitediv-irrigation_container .selectize-control.single .selectize-input{
   position: absolute;
-  top: 110px;
-  left: 100px;
+  top: 224px;
+  left: 105px;
   width: 450px;
 }
 
@@ -102,13 +106,14 @@
 
 #sitediv-cultivation_container .control-label{
   position: absolute;
-  top: 600px;
+  top: 468px;
+  right: 730px;
 }
 
 #sitediv-cultivation_container .selectize-control.single .selectize-input{
   position: absolute;
-  top: 160px;
-  left: 100px;
+  top: 261px;
+  left: 105px;
   width: 450px;
 }
 
@@ -119,13 +124,14 @@
 
 #sitediv-grazing_container .control-label{
   position: absolute;
-  top: 650px;
+  top: 505px;
+  right: 730px;
 }
 
 #sitediv-grazing_container .selectize-control.single .selectize-input{
   position: absolute;
-  top: 210px;
-  left: 100px;
+  top: 298px;
+  left: 105px;
   width: 450px;
 }
 
@@ -136,12 +142,13 @@
 
 #sitediv-mowing_container .control-label{
   position: absolute;
-  top: 700px;
+  top: 542px;
+  right: 730px;
 }
 
 #sitediv-mowing_container .selectize-control.single .selectize-input{
-  top: 260px;
-  left: 100px;
+  top: 335px;
+  left: 105px;
   width: 450px;
 }
 
@@ -152,13 +159,14 @@
 
 #sitediv-thinning_container .control-label{
   position: absolute;
-  top: 750px;
+  top: 579px;
+  right: 730px;
 }
 
 #sitediv-thinning_container .selectize-control.single .selectize-input{
   position: absolute;
-  top: 260px;
-  left: 100px;
+  top: 317px;
+  left: 105px;
   width: 450px;
 }
 
