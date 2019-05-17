@@ -173,7 +173,7 @@
 
 #sitediv-thinning_container .selectize-control.single .selectize-input{
   position: absolute;
-  top: 319px;
+  top: 320px;
   left: 105px;
   width: 450px;
 }
@@ -192,13 +192,13 @@
 #sitediv-popRun-runModel{
   position: absolute;
   left:0px;
-  width:450px;
+  width:435px;
 }
 
 #sitediv-Show{
   position: absolute;
   left:465px;
-  width:450px;
+  width:435px;
 }
 
 #sitediv-planshift_date_container .form-control{
@@ -211,7 +211,7 @@
 
 #sitediv-planshift_date_container label{
   position: absolute;
-  top: 342px;
+  top: 341px;
   left: 570px;
    
 }
@@ -225,7 +225,7 @@
 
 #sitediv-planshift_density_container label{
   position: absolute;
-  top: 342px;
+  top: 341px;
   right: 2px;
 }
 
@@ -239,7 +239,7 @@
 
 #sitediv-harvshift_date_container label{
   position: absolute;
-  top: 380px;
+  top: 379px;
   left: 570px;
 }
 
@@ -253,7 +253,7 @@
 
 #sitediv-fertshift_date_container label{
   position: absolute;
-  top: 420px;
+  top: 417px;
   left: 570px;
 }
 
@@ -267,7 +267,7 @@
 
 #sitediv-irrshift_date_container label{
   position: absolute;
-  top: 460px;
+  top: 453px;
   left: 570px;
 }
 
@@ -281,7 +281,7 @@
 
 #sitediv-fertshift_amount_container label{
   position: absolute;
-  top: 420px;
+  top: 417px;
   right: 2px;
 }
 
@@ -295,7 +295,7 @@
 
 #sitediv-irrshift_amount_container label{
   position: absolute;
-  top: 460px;
+  top: 453px;
   right: 2px;
 }
 

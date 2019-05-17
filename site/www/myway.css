@@ -173,12 +173,12 @@ showdiv-outSelector > .checkbox {
     width: 190px
 }
 #site-div button {
-    with: 400px;
+/*    with: 400px;*/
     margin: 20px;
 }
 
 #sitediv-Buttons button {
-    width: 365px;
+/*    width: 365px; */
     height: 50px;
     font-size: 24px;
     font-weight: bold;
