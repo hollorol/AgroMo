@@ -19,7 +19,7 @@
   position: absolute;
   top: 308px;
   left: 2px;
-  font-size: 50px;
+  font-size: 16px;
 }
 
 #shiftIn{
@@ -180,119 +180,122 @@
 
 #sitediv-outputFile{
   position: absolute;
-  top: 800px;
+  top: 620px;
+  width:900px;
 }
 
 #sitediv-Buttons{
   position: absolute;
-  top: 900px;
+  top: 710px;
 }
 
-#sitediv-popRun{
+#sitediv-popRun-runModel{
   position: absolute;
-  top: 900px;
+  left:0px;
+  width:450px;
 }
 
 #sitediv-Show{
   position: absolute;
-  top: 0px;
+  left:465px;
+  width:450px;
 }
 
 #sitediv-planshift_date_container .form-control{
   position: absolute;
-  top: 340px;
-  left: 680px;
-  width: 80px;
+  top: 335px;
+  left: 645px;
+   width: 65px;
 }
 
 
 #sitediv-planshift_date_container label{
   position: absolute;
-  top: 340px;
-  left: 600px;
+  top: 342px;
+  left: 570px;
    
 }
 
 #sitediv-planshift_density_container .form-control{
   position: absolute;
-  top: 340px;
-  left: 820px;
-  width: 80px;
+  top: 335px;
+  right: -65px;
+  width: 65px;
 }
 
 #sitediv-planshift_density_container label{
   position: absolute;
-  top: 340px;
-  left: 700px;
+  top: 342px;
+  right: 2px;
 }
 
 
 #sitediv-harvshift_date_container .form-control{
   position: absolute;
-  top: 450px;
-  left: 680px;
-  width: 80px;
+  top: 372px;
+  left: 645px;
+  width: 65px;
 }
 
 #sitediv-harvshift_date_container label{
   position: absolute;
   top: 380px;
-  left: 600px;
+  left: 570px;
 }
 
 
 #sitediv-fertshift_date_container .form-control{
   position: absolute;
-  top: 500px;
-  left: 680px;
-  width: 80px;
+  top: 409px;
+  left: 645px;
+  width: 65px;
 }
 
 #sitediv-fertshift_date_container label{
   position: absolute;
   top: 420px;
-  left: 600px;
+  left: 570px;
 }
 
 
 #sitediv-irrshift_date_container .form-control{
   position: absolute;
-  top: 550px;
-  left: 680px;
-  width: 80px;
+  top: 446px;
+  left: 645px;
+  width: 65px;
 }
 
 #sitediv-irrshift_date_container label{
   position: absolute;
   top: 460px;
-  left: 600px;
+  left: 570px;
 }
 
 
 #sitediv-fertshift_amount_container .form-control{
   position: absolute;
-  top: 500px;
-  left: 820px;
-  width: 80px;
+  top: 409px;
+  right: -65px;
+  width: 65px;
 }
 
 #sitediv-fertshift_amount_container label{
   position: absolute;
   top: 420px;
-  left: 700px;
+  right: 2px;
 }
 
 
 #sitediv-irrshift_amount_container .form-control{
   position: absolute;
-  top: 550px;
-  left: 820px;
-  width: 80px;
+  top: 446px;
+  right: -65px;
+  width: 65px;
 }
 
 #sitediv-irrshift_amount_container label{
   position: absolute;
   top: 460px;
-  left: 700px;
+  right: 2px;
 }
 
