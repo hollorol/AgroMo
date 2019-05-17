@@ -17,14 +17,14 @@
 
 #manModuls{
   position: absolute;
-  top: 310px;
+  top: 308px;
   left: 2px;
-  font-size: 16px;
+  font-size: 50px;
 }
 
 #shiftIn{
   position: absolute;
-  top: 310px;
+  top: 308px;
   right: -60px;
   font-size: 16px;
 }
@@ -37,11 +37,12 @@
   position: absolute;
   top: 320px;
   right: 730px;
+  font-size: 17px;
 }
 
 #sitediv-planting_container .selectize-control.single .selectize-input {
   position: absolute;
-  top: 113px;
+  top: 115px;
   left: 105px;
   width: 450px;
 }
@@ -54,11 +55,12 @@
   position: absolute;
   top: 357px;
   right: 730px;
+  font-size: 17px;
 }
 
 #sitediv-harvest_container .selectize-control.single .selectize-input{
   position: absolute;
-  top: 150px;
+  top: 152px;
   left: 105px;
   width: 450px;
 }
@@ -72,11 +74,12 @@
   position: absolute;
   top: 394px;
   right: 730px;
+  font-size: 17px;
 }
 
 #sitediv-fertilization_container .selectize-control.single .selectize-input{
   position: absolute;
-  top: 187px;
+  top: 189px;
   left: 105px;
   width: 450px;
 }
@@ -90,11 +93,12 @@
   position: absolute;
   top: 431px;
   right: 730px;
+  font-size: 17px;
 }
 
 #sitediv-irrigation_container .selectize-control.single .selectize-input{
   position: absolute;
-  top: 224px;
+  top: 226px;
   left: 105px;
   width: 450px;
 }
@@ -108,11 +112,12 @@
   position: absolute;
   top: 468px;
   right: 730px;
+  font-size: 17px;
 }
 
 #sitediv-cultivation_container .selectize-control.single .selectize-input{
   position: absolute;
-  top: 261px;
+  top: 263px;
   left: 105px;
   width: 450px;
 }
@@ -126,11 +131,12 @@
   position: absolute;
   top: 505px;
   right: 730px;
+  font-size: 17px;
 }
 
 #sitediv-grazing_container .selectize-control.single .selectize-input{
   position: absolute;
-  top: 298px;
+  top: 300px;
   left: 105px;
   width: 450px;
 }
@@ -144,10 +150,11 @@
   position: absolute;
   top: 542px;
   right: 730px;
+  font-size: 17px;
 }
 
 #sitediv-mowing_container .selectize-control.single .selectize-input{
-  top: 335px;
+  top: 337px;
   left: 105px;
   width: 450px;
 }
@@ -161,11 +168,12 @@
   position: absolute;
   top: 579px;
   right: 730px;
+  font-size: 17px;
 }
 
 #sitediv-thinning_container .selectize-control.single .selectize-input{
   position: absolute;
-  top: 317px;
+  top: 319px;
   left: 105px;
   width: 450px;
 }
@@ -192,7 +200,7 @@
 
 #sitediv-planshift_date_container .form-control{
   position: absolute;
-  top: 400px;
+  top: 340px;
   left: 680px;
   width: 80px;
 }
@@ -200,21 +208,21 @@
 
 #sitediv-planshift_date_container label{
   position: absolute;
-  top: 400px;
+  top: 340px;
   left: 600px;
    
 }
 
 #sitediv-planshift_density_container .form-control{
   position: absolute;
-  top: 400px;
+  top: 340px;
   left: 820px;
   width: 80px;
 }
 
 #sitediv-planshift_density_container label{
   position: absolute;
-  top: 400px;
+  top: 340px;
   left: 700px;
 }
 
@@ -228,7 +236,7 @@
 
 #sitediv-harvshift_date_container label{
   position: absolute;
-  top: 450px;
+  top: 380px;
   left: 600px;
 }
 
@@ -242,7 +250,7 @@
 
 #sitediv-fertshift_date_container label{
   position: absolute;
-  top: 500px;
+  top: 420px;
   left: 600px;
 }
 
@@ -256,7 +264,7 @@
 
 #sitediv-irrshift_date_container label{
   position: absolute;
-  top: 550px;
+  top: 460px;
   left: 600px;
 }
 
@@ -270,7 +278,7 @@
 
 #sitediv-fertshift_amount_container label{
   position: absolute;
-  top: 500px;
+  top: 420px;
   left: 700px;
 }
 
@@ -284,7 +292,7 @@
 
 #sitediv-irrshift_amount_container label{
   position: absolute;
-  top: 550px;
+  top: 460px;
   left: 700px;
 }
 
