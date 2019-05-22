@@ -1,30 +1,84 @@
 /* Suggestions: I would suggest to use posinition: absolute css declaration in every
                 place. The positions starts at the top-left corner of the root window,
                 which is the window except the banner. */
+#sitediv-iniFile_container .control-label{
+    position: absolute;
+    top: 20px;
+    
+}
+
+#sitediv-iniFile_container .selectize-control.shinyjs-resettable.single .selectize-input{
+    position: absolute;
+    top: 25px;
+    
+}
+
+
+
+#sitediv-weatherFile_container .control-label{
+    position: absolute;
+    top: 95px;
+    
+   
+}
+
+#sitediv-weatherFile_container .selectize-control.shinyjs-resettable.single .selectize-input{
+    position: absolute;
+    top: 100px;
+    
+   
+}
+
+#sitediv-soilFile_container .control-label{
+    position: absolute;
+    top: 165px;
+    
+   
+}
+
+#sitediv-soilFile_container .selectize-control.shinyjs-resettable.single .selectize-input{
+    position: absolute;
+    top: 170px;
+    
+   
+}
+#sitediv-managementFile_container .control-label{
+    position: absolute;
+    top: 235px;
+    
+    
+}
+#sitediv-managementFile_container .selectize-control.shinyjs-resettable.single .selectize-input{
+    position: absolute;
+    top: 240px;
+    
+    
+}
+
 #sitediv-stationp_container{
     position: absolute;
-    top: 115px;
+    top: 80px;
     right: -190px;
     font-size: 17px;
 }
 
 #sitediv-sitep_container{
   position: absolute;
-  top: 217px;
+  top: 150px;
   right: -190px;
   font-size: 17px;
 }
 
 #manModuls{
   position: absolute;
-  top: 308px;
+  top: 298px;
   left: 2px;
   font-size: 16px;
 }
 
 #shiftIn{
   position: absolute;
-  top: 308px;
+  top: 298px;
   right: -60px;
   font-size: 16px;
 }
@@ -35,14 +89,14 @@
              
 #sitediv-planting_container .control-label {
   position: absolute;
-  top: 320px;
+  top: 327px;
   right: 730px;
   font-size: 17px;
 }
 
 #sitediv-planting_container .selectize-control.single .selectize-input {
   position: absolute;
-  top: 115px;
+  top: 309px;
   left: 105px;
   width: 450px;
 }
@@ -53,14 +107,14 @@
              }*/ 
 #sitediv-harvest_container .control-label{
   position: absolute;
-  top: 357px;
+  top: 367px;
   right: 730px;
   font-size: 17px;
 }
 
 #sitediv-harvest_container .selectize-control.single .selectize-input{
   position: absolute;
-  top: 152px;
+  top: 347px;
   left: 105px;
   width: 450px;
 }
@@ -72,14 +126,14 @@
 
 #sitediv-fertilization_container .control-label{
   position: absolute;
-  top: 394px;
+  top: 405px;
   right: 730px;
   font-size: 17px;
 }
 
 #sitediv-fertilization_container .selectize-control.single .selectize-input{
   position: absolute;
-  top: 189px;
+  top: 385px;
   left: 105px;
   width: 450px;
 }
@@ -91,14 +145,14 @@
 
 #sitediv-irrigation_container .control-label{
   position: absolute;
-  top: 431px;
+  top: 443px;
   right: 730px;
   font-size: 17px;
 }
 
 #sitediv-irrigation_container .selectize-control.single .selectize-input{
   position: absolute;
-  top: 226px;
+  top: 423px;
   left: 105px;
   width: 450px;
 }
@@ -110,14 +164,14 @@
 
 #sitediv-cultivation_container .control-label{
   position: absolute;
-  top: 468px;
+  top: 481px;
   right: 730px;
   font-size: 17px;
 }
 
 #sitediv-cultivation_container .selectize-control.single .selectize-input{
   position: absolute;
-  top: 263px;
+  top: 461px;
   left: 105px;
   width: 450px;
 }
@@ -129,14 +183,14 @@
 
 #sitediv-grazing_container .control-label{
   position: absolute;
-  top: 505px;
+  top: 519px;
   right: 730px;
   font-size: 17px;
 }
 
 #sitediv-grazing_container .selectize-control.single .selectize-input{
   position: absolute;
-  top: 300px;
+  top: 499px;
   left: 105px;
   width: 450px;
 }
@@ -148,13 +202,13 @@
 
 #sitediv-mowing_container .control-label{
   position: absolute;
-  top: 542px;
+  top: 557px;
   right: 730px;
   font-size: 17px;
 }
 
 #sitediv-mowing_container .selectize-control.single .selectize-input{
-  top: 337px;
+  top: 537px;
   left: 105px;
   width: 450px;
 }
@@ -166,14 +220,14 @@
 
 #sitediv-thinning_container .control-label{
   position: absolute;
-  top: 579px;
+  top: 595px;
   right: 730px;
   font-size: 17px;
 }
 
 #sitediv-thinning_container .selectize-control.single .selectize-input{
   position: absolute;
-  top: 320px;
+  top: 521px;
   left: 105px;
   width: 450px;
 }
@@ -203,7 +257,7 @@
 
 #sitediv-planshift_date_container .form-control{
   position: absolute;
-  top: 335px;
+  top: 324px;
   left: 645px;
    width: 65px;
 }
@@ -211,91 +265,103 @@
 
 #sitediv-planshift_date_container label{
   position: absolute;
-  top: 341px;
+  top: 328px;
   left: 570px;
    
 }
 
 #sitediv-planshift_density_container .form-control{
   position: absolute;
-  top: 335px;
+  top: 324px;
   right: -65px;
   width: 65px;
 }
 
 #sitediv-planshift_density_container label{
   position: absolute;
-  top: 341px;
+  top: 328px;
   right: 2px;
 }
 
 
 #sitediv-harvshift_date_container .form-control{
   position: absolute;
-  top: 372px;
+  top: 360px;
   left: 645px;
   width: 65px;
 }
 
 #sitediv-harvshift_date_container label{
   position: absolute;
-  top: 379px;
+  top: 367px;
   left: 570px;
 }
 
 
 #sitediv-fertshift_date_container .form-control{
   position: absolute;
-  top: 409px;
+  top: 396px;
   left: 645px;
   width: 65px;
 }
 
 #sitediv-fertshift_date_container label{
   position: absolute;
-  top: 417px;
+  top: 405px;
   left: 570px;
 }
 
 
 #sitediv-irrshift_date_container .form-control{
   position: absolute;
-  top: 446px;
+  top: 432px;
   left: 645px;
   width: 65px;
 }
 
 #sitediv-irrshift_date_container label{
   position: absolute;
-  top: 453px;
+  top: 443px;
   left: 570px;
 }
 
 
 #sitediv-fertshift_amount_container .form-control{
   position: absolute;
-  top: 409px;
+  top: 396px;
   right: -65px;
   width: 65px;
 }
 
 #sitediv-fertshift_amount_container label{
   position: absolute;
-  top: 417px;
+  top: 405px;
   right: 2px;
 }
 
 
 #sitediv-irrshift_amount_container .form-control{
   position: absolute;
-  top: 446px;
+  top: 432px;
   right: -65px;
   width: 65px;
 }
 
 #sitediv-irrshift_amount_container label{
   position: absolute;
-  top: 453px;
+  top: 443px;
   right: 2px;
+}
+
+#sitediv-outFile_container .control-label{
+    position: absolute;
+    top: 30px;
+    
+}
+
+#sitediv-outFile_container .selectize-control.shinyjs-resettable.single .selectize-input{
+    position: absolute;
+    top: 40px;
+    
 }
 
