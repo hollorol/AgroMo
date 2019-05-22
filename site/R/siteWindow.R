@@ -2,9 +2,9 @@
 createInputElements <- function(baseTable){
     apply(baseTable, 1,function (x){
         if(!grepl("management",x[1])){
-            selectInput(x[1],x[2],basename(grep(list.files(x[3]), pattern = x[4], value = TRUE)),width = "100%")
+            tags$div(id = paste0(x[1],"_container"), selectInput(x[1],x[2],basename(grep(list.files(x[3]), pattern = x[4], value = TRUE)),width = "100%"))
         } else {
-            selectInput(x[1],x[2],c(basename(grep(list.files(x[3]), pattern = x[4], value = TRUE)),"no management"),width = "100%")
+            tags$div(id = paste0(x[1],"_container"), selectInput(x[1],x[2],c(basename(grep(list.files(x[3]), pattern = x[4], value = TRUE)),"no management"),width = "100%"))
         }
     })
 }
