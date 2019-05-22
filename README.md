@@ -8,6 +8,5 @@ A graphical user interface (GUI) has been developed for providing easy and user 
 
 ### AgroMo Base
 
-Inline-style:
-![alt text](https://github.com/hollorol/AgroMo/Base GUI.png "AgroMo Base")
+![alt text](basegui.png "AgroMo Base")
 
