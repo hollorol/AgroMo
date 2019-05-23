@@ -83,15 +83,15 @@
   margin-right: auto;
   height: 100%;
 }
-
+/*
 .inFile, .selectize-input {
   font-size: 16px;
   line-height: 16px;
   width: 900px;
-/*  position: absolute;
-  top: -20px;
-  left: -1px; */
+
 }
+
+*/
 
 
 /*.inFile, .selectize-input.items.full.has-options.has-items {
@@ -101,7 +101,7 @@ position: absolute;
   left: -1px;
 } */
 
-.inFile, .selectize-dropdown {
+/*.inFile, .selectize-dropdown {
 font-size: 16px;
 line-height: 16px;
 }
@@ -113,7 +113,7 @@ padding: 0;
     padding-left: 0px;
     padding-right: 0px;
 }
-
+*/
 
 
 .inFile, control-label {
@@ -147,8 +147,8 @@ padding: 0;
 }
 
 .control-label {
-    margin-top: 20px;
-    margin-bottom: 15px;
+    margin-top: 5px;
+    margin-bottom: 25px;
 }
 
 #showdiv-refresh {
