@@ -13,6 +13,6 @@ A graphical user interface (GUI) has been developed for providing easy and user 
 ![alt text](basegui.png "AgroMo Base")
 
 - [ ] You may choose the main directory where your data files are located (in a fixed subdirectory system) by clicking the [CHOOSE] button
-- [x] You may go the site specific component by clicking the [SITE] button
+- [x] You may go to the site specific component by clicking the [SITE] button
 
 
