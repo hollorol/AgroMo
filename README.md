@@ -8,6 +8,3 @@ A graphical user interface (GUI) has been developed for providing easy and user 
 
 ### AgroMo Base
 
-
-
-
