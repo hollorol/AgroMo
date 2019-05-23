@@ -10,6 +10,7 @@
 #sitediv-iniFile_container .selectize-control.shinyjs-resettable.single .selectize-input{
     position: absolute;
     top: 25px;
+    left:-1px;
     
 }
 
@@ -25,6 +26,7 @@
 #sitediv-weatherFile_container .selectize-control.shinyjs-resettable.single .selectize-input{
     position: absolute;
     top: 100px;
+    left:-1px;
     
    
 }
@@ -39,6 +41,7 @@
 #sitediv-soilFile_container .selectize-control.shinyjs-resettable.single .selectize-input{
     position: absolute;
     top: 170px;
+    left:-1px;
     
    
 }
@@ -51,20 +54,21 @@
 #sitediv-managementFile_container .selectize-control.shinyjs-resettable.single .selectize-input{
     position: absolute;
     top: 240px;
+    left:-1px;
     
     
 }
 
 #sitediv-stationp_container{
     position: absolute;
-    top: 80px;
+    top: 79px;
     right: -190px;
     font-size: 17px;
 }
 
 #sitediv-sitep_container{
   position: absolute;
-  top: 150px;
+  top: 149px;
   right: -190px;
   font-size: 17px;
 }
@@ -234,30 +238,34 @@
 
 #sitediv-outputFile{
   position: absolute;
-  top: 620px;
+  top: 638px;
   width:900px;
 }
 
-#sitediv-Buttons{
+/*#sitediv-Buttons{
   position: absolute;
   top: 710px;
-}
+} */
 
 #sitediv-popRun-runModel{
   position: absolute;
+  top:700px;
   left:0px;
   width:435px;
+  background-color: gainsboro;
 }
 
 #sitediv-Show{
   position: absolute;
+  top:700px;
   left:465px;
   width:435px;
+  background-color: gainsboro;
 }
 
 #sitediv-planshift_date_container .form-control{
   position: absolute;
-  top: 324px;
+  top: 321px;
   left: 645px;
    width: 65px;
 }
@@ -265,28 +273,28 @@
 
 #sitediv-planshift_date_container label{
   position: absolute;
-  top: 328px;
+  top: 327px;
   left: 570px;
    
 }
 
 #sitediv-planshift_density_container .form-control{
   position: absolute;
-  top: 324px;
+  top: 321px;
   right: -65px;
   width: 65px;
 }
 
 #sitediv-planshift_density_container label{
   position: absolute;
-  top: 328px;
+  top: 327px;
   right: 2px;
 }
 
 
 #sitediv-harvshift_date_container .form-control{
   position: absolute;
-  top: 360px;
+  top: 361px;
   left: 645px;
   width: 65px;
 }
@@ -300,7 +308,7 @@
 
 #sitediv-fertshift_date_container .form-control{
   position: absolute;
-  top: 396px;
+  top: 399px;
   left: 645px;
   width: 65px;
 }
@@ -314,7 +322,7 @@
 
 #sitediv-irrshift_date_container .form-control{
   position: absolute;
-  top: 432px;
+  top: 437px;
   left: 645px;
   width: 65px;
 }
@@ -328,7 +336,7 @@
 
 #sitediv-fertshift_amount_container .form-control{
   position: absolute;
-  top: 396px;
+  top: 399px;
   right: -65px;
   width: 65px;
 }
@@ -342,7 +350,7 @@
 
 #sitediv-irrshift_amount_container .form-control{
   position: absolute;
-  top: 432px;
+  top: 437px;
   right: -65px;
   width: 65px;
 }
@@ -353,15 +361,15 @@
   right: 2px;
 }
 
-#sitediv-outFile_container .control-label{
+/*#sitediv-outFile .control-label{
     position: absolute;
-    top: 30px;
+    top: 550px;
     
 }
 
 #sitediv-outFile_container .selectize-control.shinyjs-resettable.single .selectize-input{
     position: absolute;
-    top: 40px;
+    top: 560px;
     
-}
+}/*
 
