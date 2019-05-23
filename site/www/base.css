@@ -26,8 +26,13 @@ button#map {
     font-weight: 700;
     font-size: 24px;
     color: black;
+    position: absolute;
+    top: 20px;
+    left: 800px;
 }
-button.mainSideBar {
+.mainSideBar {
     /*Tool buttons in base*/
+    position: absolute;
+    top: 80px;
 }
 
