@@ -20,4 +20,4 @@ A graphical user interface (GUI) has been developed for providing easy and user 
 
 ### AgroMo Site
 
-
+![alt text](sitegui.png "AgroMo Site")
