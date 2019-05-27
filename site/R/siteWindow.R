@@ -21,49 +21,50 @@ agroMoSiteUI <- function(id){
                          place <- c("input/initialization/", "input/weather", "input/soil", "input/management"),
                          pattern <- c("*.ini","*.wth","*.soi","*.mgm"))
 
+  
   tags$div(id = ns(id),
            tagList(
              createInputs(baseTable),
              tags$div(
                     id = paste0(ns("stationp"),"_container"),
-                    checkboxInput(ns("stationp"), label = "Station data only", value = TRUE)
+                    checkboxInput(ns("stationp"), label = "Observed data only", value = TRUE)
                   ),
              tags$div(
                     id =paste0(ns("sitep"),"_container"),
                     checkboxInput(ns("sitep"), label = "Site data only", value = TRUE)
                   ),
-             tags$div(id="manModuls","management modules"),
+             tags$div(id="manModuls","management options:"),
              tags$div(id="shiftIn","shift in ..."),
              tags$div(
-                    id = paste0(ns("planting"),"_container"),
+                    id = paste0(ns("planting:"),"_container"),
                selectInput(ns("planting"),"planting",NA)
              ),
              tags$div(
-                    id = paste0(ns("harvest"),"_container"),
+                    id = paste0(ns("harvest:"),"_container"),
                selectInput(ns("harvest"),"harvest",NA)
              ),
              tags$div(
-                    id = paste0(ns("fertilization"),"_container"),
+                    id = paste0(ns("fertilization:"),"_container"),
                selectInput(ns("fertilization"),"fertilization",NA)
              ),
              tags$div(
-                    id = paste0(ns("irrigation"),"_container"),
+                    id = paste0(ns("irrigation:"),"_container"),
                selectInput(ns("irrigation"),"irrigation",NA)
              ),
              tags$div(
-                    id = paste0(ns("cultivation"),"_container"),
+                    id = paste0(ns("cultivation:"),"_container"),
                selectInput(ns("cultivation"),"cultivation",NA)
              ),
              tags$div(
-                    id = paste0(ns("grazing"),"_container"),
+                    id = paste0(ns("grazing:"),"_container"),
                selectInput(ns("grazing"),"grazing",NA)
              ),
              tags$div(
-                    id = paste0(ns("mowing"),"_container"),
+                    id = paste0(ns("mowing:"),"_container"),
                selectInput(ns("mowing"),"mowing",NA)
              ),
              tags$div(
-                    id = paste0(ns("thinning"),"_container"),
+                    id = paste0(ns("thinning:"),"_container"),
                selectInput(ns("thinning"),"thinning",NA)
              ),
              uiOutput(ns("outputFile")),
@@ -96,7 +97,8 @@ agroMoSiteUI <- function(id){
              ),
              tags$div(
                     id = paste0(ns("irrshift_amount"),"_container"),
-               numericInput(ns("irrshift_amount"), "amount (mm):", 0)
+               numericInput(ns("irrshift_amount"), "amount (mm):", 0),
+               tags$hr(id=ns("littleblackline"))
              )
            )
            )}
@@ -110,7 +112,7 @@ agroMoSite <- function(input, output, session, outFile){
     ns <- session$ns
     modellOutputs <- c(ls(readRDS("output/outputs.RDS")),input$iniFile)
     tagList(
-      tags$div(id = "outputF", class = "inFile", selectizeInput(ns("outFile"),"OUTPUT:",modellOutputs,selected = iniFile(),options = list(create = TRUE)))
+      tags$div(id = "outputF", class = "inFile", selectizeInput(ns("outFile"),"OUTPUT FILE:",modellOutputs,selected = iniFile(),options = list(create = TRUE)))
     )
     })
 

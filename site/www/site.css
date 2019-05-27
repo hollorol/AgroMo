@@ -9,7 +9,7 @@
 
 #sitediv-iniFile_container .selectize-control.shinyjs-resettable.single .selectize-input{
     position: absolute;
-    top: 25px;
+    top: 2px;
     left:-1px;
     
 }
@@ -25,7 +25,7 @@
 
 #sitediv-weatherFile_container .selectize-control.shinyjs-resettable.single .selectize-input{
     position: absolute;
-    top: 100px;
+    top: 77px;
     left:-1px;
     
    
@@ -40,7 +40,7 @@
 
 #sitediv-soilFile_container .selectize-control.shinyjs-resettable.single .selectize-input{
     position: absolute;
-    top: 170px;
+    top: 147px;
     left:-1px;
     
    
@@ -360,6 +360,13 @@
   top: 443px;
   right: 2px;
 }
+
+#littleblackline {
+  position: absolute;
+  top: 595px;
+  width:60%;
+}
+
 
 /*#sitediv-outFile .control-label{
     position: absolute;

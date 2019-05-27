@@ -15,6 +15,5 @@ agromoBaseUI <- function(id){
                         actionButton("sensitivity","SENSITIVITY ANALYSIS", class = "mainSideBar"),
                         actionButton("calibration","CALIBRATION", class = "mainSideBar"),
                         actionButton("storEditor","STORYLINE EDITOR",  class = "mainSideBar"))
-        
-    )
+           )
 }
