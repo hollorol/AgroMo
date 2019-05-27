@@ -21,4 +21,5 @@ A graphical user interface (GUI) has been developed for providing easy and user 
 ### AgroMo Site
 
 ![alt text](sitegui.png "AgroMo Site")
-
+- [x] The dropdown menus display the content of the corresponding directories within the input folder:
+  - INI file: ./input/initialization/*.ini
