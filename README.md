@@ -24,3 +24,5 @@ A graphical user interface (GUI) has been developed for providing easy and user 
 - [x] The dropdown menus display the content of the corresponding directories within the input folder:
   - INI file: ./input/initialization/*.ini
   - WEATHER file: ./input/initialization/*.ini
+   - WEATHER file (extension: .wth): ./input/weather/site/
+ - SOIL file (extension: .soi): ./input/soil/site/
