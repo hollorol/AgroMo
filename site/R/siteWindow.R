@@ -36,36 +36,36 @@ agroMoSiteUI <- function(id){
              tags$div(id="manModuls","management options:"),
              tags$div(id="shiftIn","shift in ..."),
              tags$div(
-                    id = paste0(ns("planting:"),"_container"),
-               selectInput(ns("planting"),"planting",NA)
+                    id = paste0(ns("planting"),"_container"),
+               selectInput(ns("planting"),"planting:",NA)
              ),
              tags$div(
-                    id = paste0(ns("harvest:"),"_container"),
-               selectInput(ns("harvest"),"harvest",NA)
+                    id = paste0(ns("harvest"),"_container"),
+               selectInput(ns("harvest"),"harvest:",NA)
              ),
              tags$div(
-                    id = paste0(ns("fertilization:"),"_container"),
-               selectInput(ns("fertilization"),"fertilization",NA)
+                    id = paste0(ns("fertilization"),"_container"),
+               selectInput(ns("fertilization"),"fertilization:",NA)
              ),
              tags$div(
-                    id = paste0(ns("irrigation:"),"_container"),
-               selectInput(ns("irrigation"),"irrigation",NA)
+                    id = paste0(ns("irrigation"),"_container"),
+               selectInput(ns("irrigation"),"irrigation:",NA)
              ),
              tags$div(
-                    id = paste0(ns("cultivation:"),"_container"),
-               selectInput(ns("cultivation"),"cultivation",NA)
+                    id = paste0(ns("cultivation"),"_container"),
+               selectInput(ns("cultivation"),"cultivation:",NA)
              ),
              tags$div(
-                    id = paste0(ns("grazing:"),"_container"),
-               selectInput(ns("grazing"),"grazing",NA)
+                    id = paste0(ns("grazing"),"_container"),
+               selectInput(ns("grazing"),"grazing:",NA)
              ),
              tags$div(
-                    id = paste0(ns("mowing:"),"_container"),
-               selectInput(ns("mowing"),"mowing",NA)
+                    id = paste0(ns("mowing"),"_container"),
+               selectInput(ns("mowing"),"mowing:",NA)
              ),
              tags$div(
-                    id = paste0(ns("thinning:"),"_container"),
-               selectInput(ns("thinning"),"thinning",NA)
+                    id = paste0(ns("thinning"),"_container"),
+               selectInput(ns("thinning"),"thinning:",NA)
              ),
              uiOutput(ns("outputFile")),
              tags$div(id = ns("Buttons"),
@@ -73,31 +73,31 @@ agroMoSiteUI <- function(id){
              actionButton(ns("Show"),label="Show")),
              tags$div(
                     id = paste0(ns("planshift_date"),"_container"),
-               numericInput(ns("planshift_date"), "date (day):", 0)
+               textInput(ns("planshift_date"), "date (day):", 0)
              ),
              tags$div(
                     id = paste0(ns("planshift_density"),"_container"),
-               numericInput(ns("planshift_density"), "density (p/m2):", 0)
+                    textInput(ns("planshift_density"), "density (p/m2):", 0)
              ),
              tags$div(
                     id = paste0(ns("harvshift_date"),"_container"),
-               numericInput(ns("harvshift_date"), "date (day):", 0)
+                    textInput(ns("harvshift_date"), "date (day):", 0)
              ),
              tags$div(
                     id = paste0(ns("fertshift_date"),"_container"),
-               numericInput(ns("fertshift_date"), "date (day):", 0)
+                    textInput(ns("fertshift_date"), "date (day):", 0)
              ),
              tags$div(
                     id = paste0(ns("irrshift_date"),"_container"),
-               numericInput(ns("irrshift_date"), "date (day):", 0)
+                    textInput(ns("irrshift_date"), "date (day):", 0)
              ),
              tags$div(
                     id = paste0(ns("fertshift_amount"),"_container"),
-               numericInput(ns("fertshift_amount"), "amount (kg/ha):", 0)
+                    textInput(ns("fertshift_amount"), "amount (kg/ha):", 0)
              ),
              tags$div(
                     id = paste0(ns("irrshift_amount"),"_container"),
-               numericInput(ns("irrshift_amount"), "amount (mm):", 0),
+                    textInput(ns("irrshift_amount"), "amount (mm):", 0),
                tags$hr(id=ns("littleblackline"))
              )
            )

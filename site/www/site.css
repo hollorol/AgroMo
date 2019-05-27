@@ -9,7 +9,7 @@
 
 #sitediv-iniFile_container .selectize-control.shinyjs-resettable.single .selectize-input{
     position: absolute;
-    top: 2px;
+    top: 25px;
     left:-1px;
     
 }
@@ -25,7 +25,7 @@
 
 #sitediv-weatherFile_container .selectize-control.shinyjs-resettable.single .selectize-input{
     position: absolute;
-    top: 77px;
+    top: 100px;
     left:-1px;
     
    
@@ -40,7 +40,7 @@
 
 #sitediv-soilFile_container .selectize-control.shinyjs-resettable.single .selectize-input{
     position: absolute;
-    top: 147px;
+    top: 170px;
     left:-1px;
     
    
@@ -62,27 +62,27 @@
 #sitediv-stationp_container{
     position: absolute;
     top: 79px;
-    right: -190px;
+    right: -165px;
     font-size: 17px;
 }
 
 #sitediv-sitep_container{
   position: absolute;
   top: 149px;
-  right: -190px;
+  right: -165px;
   font-size: 17px;
 }
 
 #manModuls{
   position: absolute;
-  top: 298px;
+  top: 295px;
   left: 2px;
   font-size: 16px;
 }
 
 #shiftIn{
   position: absolute;
-  top: 298px;
+  top: 295px;
   right: -60px;
   font-size: 16px;
 }
@@ -361,10 +361,14 @@
   right: 2px;
 }
 
-#littleblackline {
+#sitediv-littleblackline {
   position: absolute;
-  top: 595px;
-  width:60%;
+  top: 295px;
+  height: 1px;
+  background-color: black;
+  width: 900px;
+  color: black;
+  
 }
 
 
