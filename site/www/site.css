@@ -267,7 +267,7 @@
   position: absolute;
   top: 321px;
   left: 645px;
-   width: 65px;
+   width: 55px;
 }
 
 
@@ -282,7 +282,7 @@
   position: absolute;
   top: 321px;
   right: -65px;
-  width: 65px;
+  width: 55px;
 }
 
 #sitediv-planshift_density_container label{
@@ -296,7 +296,7 @@
   position: absolute;
   top: 361px;
   left: 645px;
-  width: 65px;
+  width: 55px;
 }
 
 #sitediv-harvshift_date_container label{
@@ -310,7 +310,7 @@
   position: absolute;
   top: 399px;
   left: 645px;
-  width: 65px;
+  width: 55px;
 }
 
 #sitediv-fertshift_date_container label{
@@ -324,7 +324,7 @@
   position: absolute;
   top: 437px;
   left: 645px;
-  width: 65px;
+  width: 55px;
 }
 
 #sitediv-irrshift_date_container label{
@@ -338,7 +338,7 @@
   position: absolute;
   top: 399px;
   right: -65px;
-  width: 65px;
+  width: 55px;
 }
 
 #sitediv-fertshift_amount_container label{
@@ -352,7 +352,7 @@
   position: absolute;
   top: 437px;
   right: -65px;
-  width: 65px;
+  width: 55px;
 }
 
 #sitediv-irrshift_amount_container label{
@@ -380,6 +380,34 @@
   width: 324px;
   color: black;
   
+}
+#sitediv-base_bb {
+  position:absolute;
+  top: 630px;
+  left: -99px;
+  max-width: 6%;
+}
+
+#sitediv-map_bb {
+  position:absolute;
+  left: -99px;
+  top: 240px;
+  max-width: 6%;
+  
+}
+
+#sitediv-show_bb {
+  position:absolute;
+  left: -99px;
+  top: 500px;
+  max-width:6%;
+}
+
+#sitediv-grid_bb {
+  position:absolute;
+  left: -99px;
+  top: 370px;
+  max-width:6%;
 }
 /*#sitediv-outFile .control-label{
     position: absolute;

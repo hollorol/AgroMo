@@ -24,6 +24,10 @@ agroMoSiteUI <- function(id){
   
   tags$div(id = ns(id),
            tagList(
+             tags$img(id = ns("base_bb"),src="img/base_banner_button.svg"),
+             tags$img(id = ns("map_bb"),src="img/map_banner_button.svg"),
+             tags$img(id = ns("grid_bb"),src="img/grid_banner_button.svg"),
+             tags$img(id = ns("show_bb"),src="img/show_banner_button.svg"),
              createInputs(baseTable),
              tags$div(
                     id = paste0(ns("stationp"),"_container"),
@@ -102,7 +106,8 @@ agroMoSiteUI <- function(id){
                tags$hr(id=ns("littleblacklinetwo"))
              )
            )
-           )}
+  )
+  }
 
 
 
