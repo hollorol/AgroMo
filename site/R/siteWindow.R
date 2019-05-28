@@ -98,7 +98,8 @@ agroMoSiteUI <- function(id){
              tags$div(
                     id = paste0(ns("irrshift_amount"),"_container"),
                     textInput(ns("irrshift_amount"), "amount (mm):", 0),
-               tags$hr(id=ns("littleblackline"))
+               tags$hr(id=ns("littleblackline")),
+               tags$hr(id=ns("littleblacklinetwo"))
              )
            )
            )}

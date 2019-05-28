@@ -83,7 +83,7 @@
 #shiftIn{
   position: absolute;
   top: 295px;
-  right: -60px;
+  left: 570px;
   font-size: 16px;
 }
 /*#sitediv-planting_container{
@@ -366,12 +366,21 @@
   top: 295px;
   height: 1px;
   background-color: black;
-  width: 900px;
+  width: 552px;
   color: black;
   
 }
 
-
+#sitediv-littleblacklinetwo {
+  position: absolute;
+  top: 295px;
+  left: 570px;
+  height: 1px;
+  background-color: black;
+  width: 324px;
+  color: black;
+  
+}
 /*#sitediv-outFile .control-label{
     position: absolute;
     top: 550px;
