@@ -13,6 +13,7 @@
     position: absolute;
     top: 70px;
     left: 310px;
+    filter: grayscale(100%);
 }
 
 #show {
@@ -27,25 +28,53 @@
     position: absolute;
     top: 400px;
     left: 310px;
+    filter: grayscale(100%);
 }
 
 #components {
     /*The "components" label*/
     position: absolute;
+    font-weight: 700;
     top: 20px;
-    left: 290px;
+    left: 0px;
     font-size: 24px;
+    color: black;
+    background-color: darkgray;
+    width: 650px;
+    text-align: center;
 }
 
 #mainSideBarTools {
+    /* This is the "Tools" label in the sidebar. */
+    position: absolute;
+    font-weight: 700;
+    top: 20px;
+    left: 680px;
+    font-size: 24px;
+    color: black;
+    background-color: darkgray;
+    width: 250px;
+    text-align: center;
+}
+
+#mainSideBarDirectory {
     /* This is the "Tools" label in the sidebar. */
     font-weight: 700;
     font-size: 24px;
     color: black;
     position: absolute;
-    top: 50px;
-    left: 800px;
+    top: 700px;
+
 }
+
+#choose {
+    position: absolute;
+    top: 700px;
+    left: 705px;
+    width: 220px;
+    height: 60px;
+}
+
 
 #parSweep {
     position: absolute;
