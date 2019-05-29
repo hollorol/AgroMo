@@ -34,3 +34,5 @@ A graphical user interface (GUI) has been developed for providing easy and user 
      - grazing management option (extension: .grz): .\input\management\grazing\
      - mowing management option (extension: .mow): .\input\management\mowing\
      - thinning management option (extension: .thn): .\input\management\thinning\
+- [x] Plant specific input files (extension: .pla) are stored in the .\input\plant\ folder. These files are referred to in the planting files
+
