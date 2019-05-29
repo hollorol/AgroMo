@@ -25,4 +25,5 @@ A graphical user interface (GUI) has been developed for providing easy and user 
   - INI file (extension: .ini): .\input\initialization\
   - WEATHER file (extension: .wth): .\input\weather\site\
   - SOIL file (extension: .soi): .\input\soil\site\
-  
+  - MANAGEMENT file (extension: .mgm): .\input\management\
+     - planting management option (extension: .plt): .\input\management\planting\
