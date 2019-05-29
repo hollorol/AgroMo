@@ -27,3 +27,10 @@ A graphical user interface (GUI) has been developed for providing easy and user 
   - SOIL file (extension: .soi): .\input\soil\site\
   - MANAGEMENT file (extension: .mgm): .\input\management\
      - planting management option (extension: .plt): .\input\management\planting\
+     - harvest management option (extension: .hrv): .\input\management\harvest\
+     - fertilization management option (extension: .frt): .\input\management\fertilization\
+     - irrigation management option (extension: .irr): .\input\management\irrigation\
+     - cultivation management option (extension: .cul): .\input\management\cultivation\
+     - grazing management option (extension: .grz): .\input\management\grazing\
+     - mowing management option (extension: .mow): .\input\management\mowing\
+     - thinning management option (extension: .thn): .\input\management\thinning\
