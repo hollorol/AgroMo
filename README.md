@@ -26,13 +26,15 @@ A graphical user interface (GUI) has been developed for providing easy and user 
   - WEATHER file (extension: .wth): .\input\weather\site\
   - SOIL file (extension: .soi): .\input\soil\site\
   - MANAGEMENT file (extension: .mgm): .\input\management\
-     - planting management option (extension: .plt): .\input\management\planting\
-     - harvest management option (extension: .hrv): .\input\management\harvest\
-     - fertilization management option (extension: .frt): .\input\management\fertilization\
-     - irrigation management option (extension: .irr): .\input\management\irrigation\
-     - cultivation management option (extension: .cul): .\input\management\cultivation\
-     - grazing management option (extension: .grz): .\input\management\grazing\
-     - mowing management option (extension: .mow): .\input\management\mowing\
-     - thinning management option (extension: .thn): .\input\management\thinning\
-- [x] Plant specific input files (extension: .pla) are stored in the .\input\plant\ folder. These files are referred to in the planting files
+     - planting management option file (extension: .plt): .\input\management\planting\
+     - harvest management option file (extension: .hrv): .\input\management\harvest\
+     - fertilization management option file (extension: .frt): .\input\management\fertilization\
+     - irrigation management optio file (extension: .irr): .\input\management\irrigation\
+     - cultivation management option file (extension: .cul): .\input\management\cultivation\
+     - grazing management option file (extension: .grz): .\input\management\grazing\
+     - mowing management option file (extension: .mow): .\input\management\mowing\
+     - thinning management option file (extension: .thn): .\input\management\thinning\
+  - PLANT specific input files (extension: .pla; folder: .\input\plant\) are referred to in the planting management option files
+- [x] Upon selecting an INI file the WEATHER, SOIL and MANAGEMENT files that are referred to in the INI file are automatically selected from the corresponding dropdown menus, but those could be changed freely
+
 
