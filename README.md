@@ -38,5 +38,5 @@ A graphical user interface (GUI) has been developed for providing easy and user 
 - [x] Upon selecting an INI file the WEATHER, SOIL and MANAGEMENT files that are referred to in the INI file are automatically selected from the corresponding dropdown menus, but those could be changed freely
 - [ ] Upon selecting a MANAGEMENT file the management option files that are referred to in the MANAGEMENT file are automatically selected from the corresponding dropdown menus, but those could be changed freely
 - [ ] The most important parameters of the management options could be changed without accessing the management option file by adjusting the parameter values using the corresponding textboxes within the 'shift in...' section 
-
+- [ ] OUTPUT file name could be entered in the corresponding textbox. Output data are stored in the '.\output\site\' folder in an .RDS file. 
 
