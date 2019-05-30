@@ -39,4 +39,6 @@ A graphical user interface (GUI) has been developed for providing easy and user 
 - [ ] Upon selecting a MANAGEMENT file the management option files that are referred to in the MANAGEMENT file are automatically selected from the corresponding dropdown menus, but those could be changed freely
 - [ ] The most important parameters of the management options could be changed without accessing the management option file by adjusting the parameter values using the corresponding textboxes within the 'shift in...' section 
 - [ ] OUTPUT id could be entered in the corresponding textbox. Output data are stored in the '.\output\site\' folder in an .RDS file, each run with different id 
+- [ ] After selecting the desired input files and set up the changes in the 'shift in...' section the simulation can be started by clicking the [RUN] button
+
 
