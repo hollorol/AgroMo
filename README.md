@@ -40,7 +40,6 @@ A graphical user interface (GUI) has been developed for providing easy and user 
 - [ ] The most important parameters of the management options could be changed without accessing the management option file by adjusting the parameter values using the corresponding textboxes within the 'shift in...' section 
 - [ ] OUTPUT id could be entered in the corresponding textbox. Output data are stored in the '.\output\site\' folder in an .RDS file, each run with different id 
 - [ ] After selecting the desired input files and set up the changes in the 'shift in...' section the simulation can be started by clicking the [RUN] button
-- [ ] An activity indicator show 
-
-
+- [x] An activity indicator is on while the simulation is running. 
+- [x] The simulation results can be presented on different type of graphs after clicking the [PLOT] button
 
