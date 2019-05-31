@@ -17,7 +17,7 @@ agroMoSiteUI <- function(id){
   ns <- NS(id)
 
   baseTable<- data.frame(selectorId <- c(ns("iniFile"), ns("weatherFile"), ns("soilFile"), ns("managementFile")),
-                         label <- c("INI FILE:", "WEATHER FILE:", "SOIL FILE:", "MANAGEMENT FILE:"),
+                         label <- c("INI file:", "WEATHER file:", "SOIL file:", "MANAGEMENT file:"),
                          place <- c("input/initialization/", "input/weather", "input/soil", "input/management"),
                          pattern <- c("*.ini","*.wth","*.soi","*.mgm"))
 
@@ -35,7 +35,7 @@ agroMoSiteUI <- function(id){
                   ),
              tags$div(
                     id =paste0(ns("sitep"),"_container"),
-                    checkboxInput(ns("sitep"), label = "Site data only", value = TRUE)
+                    checkboxInput(ns("sitep"), label = "Observed data only", value = TRUE)
                   ),
              tags$div(id="manModuls","management options:"),
              tags$div(id="shiftIn","shift in ..."),
@@ -73,8 +73,8 @@ agroMoSiteUI <- function(id){
              ),
              uiOutput(ns("outputFile")),
              tags$div(id = ns("Buttons"),
-             runAndPlotUI(ns("popRun"),label = "Run"),
-             actionButton(ns("Show"),label="Show")),
+             runAndPlotUI(ns("popRun"),label = "RUN"),
+             actionButton(ns("Show"),label="PLOT")),
              tags$div(
                     id = paste0(ns("planshift_date"),"_container"),
                textInput(ns("planshift_date"), "date (day):", 0)
@@ -118,7 +118,7 @@ agroMoSite <- function(input, output, session, outFile){
     ns <- session$ns
     modellOutputs <- c(ls(readRDS("output/outputs.RDS")),input$iniFile)
     tagList(
-      tags$div(id = "outputF", class = "inFile", selectizeInput(ns("outFile"),"OUTPUT FILE:",modellOutputs,selected = iniFile(),options = list(create = TRUE)))
+      tags$div(id = "outputF", class = "inFile", selectizeInput(ns("outFile"),"OUTPUT id:",modellOutputs,selected = iniFile(),options = list(create = TRUE)))
     )
     })
 
