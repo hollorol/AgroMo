@@ -18,7 +18,8 @@ agromoBaseUI <- function(id){
                         actionButton("parSweep","PARAMETER SWEEP", class = "mainSideBar"),
                         actionButton("sensitivity","SENSITIVITY ANALYSIS", class = "mainSideBar"),
                         actionButton("calibration","CALIBRATION", class = "mainSideBar"),
-                        actionButton("storEditor","STORYLINE EDITOR",  class = "mainSideBar"))
+                        actionButton("storEditor","STORYLINE EDITOR",  class = "mainSideBar"),
+                        actionButton("fileMan","INPUT FILE MANAGER",  class = "mainSideBar"))
            )
    
    
