@@ -21,7 +21,7 @@ A graphical user interface (GUI) has been developed for providing easy and user 
 ### AgroMo Site
 
 ![alt text](sitegui.png "AgroMo Site")
-- [x] The dropdown menus display the content of the corresponding directories within the input folder:
+- [x] The dropdown menus display the content, files only with the prescribed extension, of the corresponding directories within the input folder:
   - INI file (extension: .ini): .\input\initialization\
   - WEATHER file (extension: .wth): .\input\weather\site\
   - SOIL file (extension: .soi): .\input\soil\site\
