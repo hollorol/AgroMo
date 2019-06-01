@@ -48,4 +48,4 @@ A graphical user interface (GUI) has been developed for providing easy and user 
 ### AgroMo Plot
 
 ![alt text](plotgui.png "AgroMo Plot")
-- [ ] Select a maximum of 5 simulation results from the left side list by clicking the items. Clicking again deselect the item.
+- [ ] Select a maximum of 5 simulation results from the left side list by clicking the items. Clicking again deselects the item.
