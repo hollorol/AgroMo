@@ -44,3 +44,8 @@ A graphical user interface (GUI) has been developed for providing easy and user 
 - [x] The simulation results can be presented on different type of graphs after clicking the [PLOT] button.
 - [ ] Any other AgroMo component can be accessed directly by clicking the corresponding vertical label on the left side banner.
 - [ ] WEATHER and SOIL input files containing artificial data (estimated or generated) can be indicated in the file name by including the 'art' string in the file name (e.g. Chicago_NOAA_station-art.wth). Files with observed values in the WEATHER and SOIL folder can be filtered out by checking in the corresponding check boxes. In case an 'observed data only' check box is checked input only the input files that does NOT include the 'art' string are presented in the WEATHER and/or SOIL dropdown menu.
+
+### AgroMo Plot
+
+![alt text](plotgui.png "AgroMo Plot")
+- [x] The 
