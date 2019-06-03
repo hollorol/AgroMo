@@ -49,4 +49,4 @@ A graphical user interface (GUI) has been developed for providing easy and user 
 
 ![alt text](plotgui.png "AgroMo Plot")
 - [ ] Select a maximum of 5 simulation results from the left side list by clicking the items. Clicking again deselects the item.
-- [ ] Observed data could be added to the plots by selecting the 
+- [ ] Observed data could be added to the plots by selecting the EXPERIMENT and TREATMENT IDs from the corrresponding dropdown lists. NOTE, that data in the observed data tables should be structured according to the prescribed rules.
