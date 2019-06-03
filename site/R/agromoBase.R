@@ -9,11 +9,16 @@ agromoBaseUI <- function(id){
                ),
            
            
+           
                  tags$div(
                  id = ns("tools"), #base-tools
                  class= "mainSideBar",
                         tags$div(id="mainSideBarDirectory", "MAIN DIRECTORY"),
                         actionButton("choose","CHOOSE", class = "mainSideBar"),
+                        textInput("mdd",""),
+                        tags$hr(id="lineComp",""),
+                        tags$hr(id="lineTool",""),
+                        tags$hr(id="lineMain",""),
                         tags$div(id="mainSideBarTools", "TOOLS"),
                         actionButton("parSweep","PARAMETER SWEEP", class = "mainSideBar"),
                         actionButton("sensitivity","SENSITIVITY ANALYSIS", class = "mainSideBar"),

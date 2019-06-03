@@ -9,9 +9,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="76.729164mm"
-   height="76.729172mm"
-   viewBox="0 0 76.729164 76.729172"
+   width="79.375008mm"
+   height="79.375mm"
+   viewBox="0 0 79.375008 79.375"
    version="1.1"
    id="svg7012"
    inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
@@ -25,9 +25,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.979899"
-     inkscape:cx="212.26412"
-     inkscape:cy="120.16484"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="12.937583"
+     inkscape:cy="-19.247448"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -44,7 +44,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -52,7 +52,7 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-46.000754,-81.553562)">
+     transform="translate(-46.002382,-78.907738)">
     <g
        inkscape:label="site"
        id="layer1-8-9"
@@ -315,31 +315,31 @@
          style="opacity:1;fill:#00aeef;fill-opacity:1;stroke:#00aeef;stroke-width:0.46991271;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     </g>
     <g
-       id="g408"
-       transform="matrix(0.99999999,0,0,0.99238426,-1.9462457e-4,1.20544)">
+       id="g2354"
+       transform="translate(84.72444,-17.907058)">
       <rect
-         style="opacity:0;stroke-width:0.79899436"
-         y="81.553574"
-         x="46.052341"
-         height="76.729164"
-         width="76.677765"
+         style="opacity:0;stroke-width:0.82654595"
+         y="96.814796"
+         x="-38.668888"
+         height="79.375"
+         width="79.321838"
          id="rect3723-8" />
       <ellipse
-         ry="2.7191837"
-         rx="2.7493315"
-         cy="108.61812"
-         cx="62.756596"
+         ry="2.8129487"
+         rx="2.8441365"
+         cy="124.8126"
+         cx="-21.388624"
          id="path4558-1"
-         style="opacity:0;fill:#e74a4a;fill-opacity:1;stroke-width:2.06065178;stroke-miterlimit:4;stroke-dasharray:none" />
+         style="opacity:0;fill:#e74a4a;fill-opacity:1;stroke-width:2.13170886;stroke-miterlimit:4;stroke-dasharray:none" />
       <rect
-         y="81.660934"
-         x="46.697155"
-         height="75.336754"
-         width="75.336754"
+         y="97.637634"
+         x="-38.007465"
+         height="77.228416"
+         width="77.424545"
          id="rect1603-8"
-         style="opacity:1;fill:#d6d6d6;fill-opacity:1;stroke:#d6d6d6;stroke-width:1.39241183;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+         style="opacity:1;fill:#d6d6d6;fill-opacity:1;stroke:#d6d6d6;stroke-width:1.42918575;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
       <g
-         transform="matrix(0.79872672,0,0,0.79926218,45.676146,81.52906)"
+         transform="matrix(0.82626917,0,0,0.82682294,-39.058057,96.789439)"
          id="g886-6">
         <path
            style="opacity:1;fill:none;stroke:#000000;stroke-width:2.18834639;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
@@ -398,7 +398,7 @@
            inkscape:connector-curvature="0" />
       </g>
       <g
-         transform="matrix(0.79872672,0,0,0.79926218,45.676146,97.423816)"
+         transform="matrix(0.82626917,0,0,0.82682294,-39.058057,113.23229)"
          id="g1011-1">
         <path
            style="fill:none;stroke:#e74a4a;stroke-width:1.75748026;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
@@ -500,7 +500,7 @@
         </g>
       </g>
       <g
-         transform="matrix(0.79872672,0,0,0.79926218,46.128256,89.793133)"
+         transform="matrix(0.82626917,0,0,0.82682294,-38.590357,105.33848)"
          id="g1550-3">
         <path
            style="fill:none;stroke:#4789c6;stroke-width:1.75748026;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
@@ -599,7 +599,6 @@
         </g>
       </g>
       <g
-         transform="matrix(0.96666649,0,0,0.96666667,83.432261,-12.034065)"
          id="text2288"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.11111069px;line-height:1.25;font-family:'Montserrat Alternates';-inkscape-font-specification:'Montserrat Alternates';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
          aria-label="plot">
