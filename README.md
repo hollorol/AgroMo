@@ -29,7 +29,7 @@ A graphical user interface (GUI) has been developed for providing easy and user 
      - planting management option file (extension: .plt): .\input\management\planting\
      - harvest management option file (extension: .hrv): .\input\management\harvest\
      - fertilization management option file (extension: .frt): .\input\management\fertilization\
-     - irrigation management optio file (extension: .irr): .\input\management\irrigation\
+     - irrigation management option file (extension: .irr): .\input\management\irrigation\
      - cultivation management option file (extension: .cul): .\input\management\cultivation\
      - grazing management option file (extension: .grz): .\input\management\grazing\
      - mowing management option file (extension: .mow): .\input\management\mowing\
@@ -49,4 +49,5 @@ A graphical user interface (GUI) has been developed for providing easy and user 
 
 ![alt text](plotgui.png "AgroMo Plot")
 - [ ] Select a maximum of 5 simulation results from the left side list by clicking the items. Clicking again deselects the item.
-- [ ] Observed data could be added to the plots by selecting the EXPERIMENT and TREATMENT IDs from the corrresponding dropdown lists. NOTE, that data in the observed data tables should be structured according to the prescribed rules.
+- [ ] Observed data could be added to the plots by selecting the EXPERIMENT and TREATMENT IDs from the corrresponding dropdown lists. NOTE, that data in the observed data tables should be structured according to the prescribed rules. Observed (experimental) data should be stored in the '.\observation\' folder in a SQLite data table. Observed data available in multiple repetitions could be presented on the plot in two ways: 1) each repetiton as separate data point, or 2) one single data point representing the mean of the repetitions. Leaving the EXPERIMENT ID dropdown list empty results in presenting simulation results only on the plot(s).
+
