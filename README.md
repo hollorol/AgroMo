@@ -53,8 +53,8 @@ A graphical user interface (GUI) has been developed for providing easy and user 
 - [ ] Select variable(s) from the right side list for presenting them on the plot(s).
 - [ ] For each selected variable select:
   - a |time step| for which the daily data are to be aggregated into one single value (e.g. for presenting annual values the 'year' option should be selected).
-  - a |function| that defines the aggregation (e.g. for presenting the final yield the 'max' option should be selected)
+  - a |function| that defines the aggregation (e.g. for presenting the final yield for each year the 'max' option should be selected)
   - a |plot type| 
-  
+  - [ ] Options in the |time step|, |function| and |plot type| columns can selected via circular menus operated by clicking/scrolling in the corresponding cells.
   
   
