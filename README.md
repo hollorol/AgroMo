@@ -57,7 +57,7 @@ A graphical user interface (GUI) has been developed for providing easy and user 
   - a |plot type| 
 - [ ] Options in the |time step|, |function| and |plot type| columns can be selected via circular menus operated by clicking/scrolling in the corresponding cells.
 - [ ] Having all the desired options selected plots can be created by clicking the [PLOT] button.
-- [ ] Data defining the plots can be exported into various file formats (e.g. xlsx, csv, etc.).
+- [ ] Data defining the plots can be exported into various file formats (e.g. xlsx, csv, etc.) by clicking the [EXPORT] button.
 
 ### AgroMo Grid
   
