@@ -20,7 +20,7 @@ agromoBaseUI <- function(id){
                         tags$hr(id="lineTool",""),
                         tags$hr(id="lineMain",""),
                         tags$div(id="mainSideBarTools", "TOOLS"),
-                        actionButton("parSweep","PARAMETER SWEEP", class = "mainSideBar"),
+                        actionButton("parSweep","PARAMETER SWEEP", class = "mainSideBar",title="Do you feel the power?"),
                         actionButton("sensitivity","SENSITIVITY ANALYSIS", class = "mainSideBar"),
                         actionButton("calibration","CALIBRATION", class = "mainSideBar"),
                         actionButton("storEditor","STORYLINE EDITOR",  class = "mainSideBar"),
