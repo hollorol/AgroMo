@@ -2,16 +2,23 @@ agroMoShowUI <- function(id){
   ns <- NS(id)
   tags$div(id = ns(id),
            tagList(
+             tags$img(id = ns("base_bb"),src="img/base_banner_button.svg"),
+             tags$img(id = ns("map_bb"),src="img/map_banner_button.svg"),
+             tags$img(id = ns("grid_bb"),src="img/grid_banner_button.svg"),
+             tags$img(id = ns("show_bb"),src="img/show_banner_button.svg"),
              column(4,
-                    checkboxGroupInput(ns("outSelector"),label = "Choose output",choices = NULL),
-                    actionButton(ns("refresh"), label = "refresh")
+                    checkboxGroupInput(ns("outSelector"),label = "SIMULATION RESULTS:",choices = NULL)
                     ),
              column(8,
-                    selectInput(ns("experimentID"), "experiment ID",choices = 'NULL'),
-                    selectInput(ns("treatment"), "treatment ID",choices = 'NULL'),
-                    checkboxInput(ns("averagep"),"Average repetitions?", value = TRUE),
+                    checkboxGroupInput(ns("obsevations"),label = "OBSERVATIONS:",choices = NULL),
+                    selectInput(ns("experimentID"), "EXPERIMENT ID:",choices = 'NULL'),
+                    selectInput(ns("treatment"), "TREATMENT ID:",choices = 'NULL'),
+                    checkboxInput(ns("averagep"),"Repetitions averaged", value = TRUE),
+                    checkboxGroupInput(ns("createPlot"),label = "CREATE PLOT WITH:",choices = NULL),
+                    #dataTableOutput(ns("createPlot"),label = "CREATE PLOT WITH:",choices = NULL),
                     graphControlUI(ns("mainControl")), 
-                    actionButton(ns("show"),"Show!")
+                    actionButton(ns("show"),"PLOT"),
+                    actionButton(ns("export"),"EXPORT")
                     )
            )
        )
@@ -24,6 +31,7 @@ agroMoShow <- function(input, output, session){
   modellOutputNames <- ls(dat$dataenv)
   measurement <- fread("observations/observations.csv") 
   updateCheckboxGroupInput(session,"outSelector",choices = modellOutputNames)
+  #dataTableOutput(session,"outSelector",choices = modellOutputNames)
   updateSelectInput(session,"experimentID", choices = unique(measurement$experiment))
   updateSelectInput(session,"treatment", choices = unique(measurement$treatment))
   dataTable <- callModule(graphControl,"mainControl",reactive({input$show}))
