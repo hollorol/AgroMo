@@ -2,12 +2,9 @@ agroMoShowUI <- function(id){
   ns <- NS(id)
   tags$div(id = ns(id),
            tagList(
-             tags$img(id = ns("base_bb"),src="img/base_banner_button.svg"),
-             tags$img(id = ns("map_bb"),src="img/map_banner_button.svg"),
-             tags$img(id = ns("grid_bb"),src="img/grid_banner_button.svg"),
-             tags$img(id = ns("show_bb"),src="img/show_banner_button.svg"),
              column(4,
-                    checkboxGroupInput(ns("outSelector"),label = "SIMULATION RESULTS:",choices = NULL)
+                    ## checkboxGroupInput(ns("outSelector"),label = "SIMULATION RESULTS:",choices = NULL)
+                    DT::dataTableOutput(ns("outputSelection"))
                     ),
              column(8,
                     checkboxGroupInput(ns("obsevations"),label = "OBSERVATIONS:",choices = NULL),
@@ -23,14 +20,21 @@ agroMoShowUI <- function(id){
            )
        )
 }
-
 agroMoShow <- function(input, output, session){
   ns <- session$ns
   dat <- reactiveValues()
   dat[["dataenv"]] <-readRDS("output/outputs.RDS")
   modellOutputNames <- ls(dat$dataenv)
   measurement <- fread("observations/observations.csv") 
-  updateCheckboxGroupInput(session,"outSelector",choices = modellOutputNames)
+  ## updateCheckboxGroupInput(session,"outSelector",choices = modellOutputNames)
+
+  output$outputSelection <- DT::renderDataTable({
+
+    DT::datatable(data.frame(outputName = modellOutputNames), options = list(autowidth = TRUE))
+
+
+  })
+
   #dataTableOutput(session,"outSelector",choices = modellOutputNames)
   updateSelectInput(session,"experimentID", choices = unique(measurement$experiment))
   updateSelectInput(session,"treatment", choices = unique(measurement$treatment))

@@ -44,6 +44,7 @@ server <- function(input, output, session) {
   onclick("Site-banner-div",{
     shinyjs::hide("sitediv-sitediv")
     shinyjs::show("base")
+    shinyjs::show("base-tools")
     shinyjs::hide(selector = ".banner")
     shinyjs::show("Base-banner-div")
   })
@@ -51,6 +52,7 @@ server <- function(input, output, session) {
   onclick("Show-banner-div",{
     shinyjs::hide("showdiv-showdiv")
     shinyjs::show("base")
+    shinyjs::show("base-tools")
     shinyjs::hide(selector = ".banner")
     shinyjs::show("Base-banner-div")
   })
