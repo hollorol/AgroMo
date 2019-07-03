@@ -1,3 +1,94 @@
-#bla{
+#showdiv-show{
+  position:absolute;
+  top: 690px;
+  left:0px;
+  width:260px;
+  height: 60px;
+  background-color: gainsboro;
+  font-size: 20px;
+  font-weight: bold;
+    
+}
+
+#showdiv-export{
+  position:absolute;
+  top: 690px;
+  left:280px;
+  width:260px;
+  height: 60px;
+  background-color: gainsboro;
+  font-size: 20px;
+  font-weight: bold;
     
 } 
+
+#simres {
+  position: absolute;
+  top: 12px;
+  left: -300px;
+  font-weight: bold;
+  font-size: 16px;
+} 
+
+#observations {
+  position: absolute;
+  top: 12px;
+  left: 15px;
+  font-weight: bold;
+  font-size: 16px;
+} 
+
+#createplot {
+  position: absolute;
+  top: 160px;
+  left: 15px;
+  font-weight: bold;
+  font-size: 16px;
+} 
+
+#repavg {
+  position: absolute;
+  top: 130px;
+  left: 170px;
+  font-size: 16px;
+} 
+
+#showdiv-averagep {
+  position: absolute;
+  top: -19px;
+  left: 150px;
+} 
+
+#experimentid {
+  position: absolute;
+  top: 45px;
+} 
+
+#treat {
+  position: absolute;
+  top: 80px;
+} 
+
+
+#DataTables_Table_0_filter.dataTables_filter{
+  position:absolute;
+  top:723px;
+  left: -50px;
+}
+
+/*.dataTables_scrollBody{
+  height:400px;
+}
+
+#DataTables_Table_0.display.dataTables.nofooter{
+  position:absolute;
+  top:500px;
+}
+
+#showdiv-mainControl-tablein.rhandsontable.html-widget.html-widget-output.shiny-bound-output.handsontable.htColumnHeaders{
+  width:500px;
+}*/
+
+/*#showdiv .selectize-input {
+  width:300px;
+} */
