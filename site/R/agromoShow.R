@@ -38,7 +38,7 @@ agroMoShow <- function(input, output, session){
 
   output$outputSelection <- DT::renderDataTable({
 
-    DT::datatable(data.frame(outputName = modellOutputNames), options = list(width = "200%", paginate = FALSE, scrollY = 400))
+    DT::datatable(data.frame(outputName = modellOutputNames), options = list(autowidth = TRUE, paginate = FALSE, scrollY = 700))
     #DT::datatable(data.frame(outputName = modellOutputNames), options = list(autowidth = TRUE, paginate = FALSE, scrollY = 300))
     
 

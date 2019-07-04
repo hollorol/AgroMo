@@ -1,7 +1,7 @@
 #showdiv-show{
   position:absolute;
   top: 690px;
-  left:0px;
+  left:5px;
   width:260px;
   height: 60px;
   background-color: gainsboro;
@@ -24,7 +24,7 @@
 
 #simres {
   position: absolute;
-  top: 12px;
+  top: 10px;
   left: -300px;
   font-weight: bold;
   font-size: 16px;
@@ -32,53 +32,97 @@
 
 #observations {
   position: absolute;
-  top: 12px;
-  left: 15px;
+  top: 10px;
+  left:15px;
   font-weight: bold;
   font-size: 16px;
 } 
 
 #createplot {
   position: absolute;
-  top: 160px;
-  left: 15px;
+  top: 150px;
+  left:15px;
   font-weight: bold;
   font-size: 16px;
 } 
 
 #repavg {
   position: absolute;
-  top: 130px;
-  left: 170px;
+  top: 105px;
+  left: 155px;
   font-size: 16px;
 } 
 
 #showdiv-averagep {
   position: absolute;
-  top: -19px;
-  left: 150px;
+  top: 32px;
+  left: 137px;
 } 
 
 #experimentid {
   position: absolute;
-  top: 45px;
+  top: 36px;
+  right:430px;
+  font-size:16px;
 } 
 
 #treat {
   position: absolute;
-  top: 80px;
+  top: 70px;
+  right:430px;
+  font-size:16px;
 } 
 
 
 #DataTables_Table_0_filter.dataTables_filter{
   position:absolute;
-  top:723px;
+  top:685px;
   left: -50px;
 }
 
-/*.dataTables_scrollBody{
-  height:400px;
+#DataTables_Table_0_info.dataTables_info{
+  position:absolute;
+  top:600px;
+  left: -50px;
 }
+
+#showdiv-mainControl-tablein{
+  position:absolute;
+  top:190px;
+}
+
+#mainWindow.baseWindow .selectize-input.items.full.has-options.has-items {
+  width:440px;
+  position: absolute;
+  left:115px;
+} 
+
+.sorting{
+  display:none;
+}
+
+#showdiv-outputSelection{
+position:absolute;
+top: 40px;
+}
+
+.dataTables_scrollBody{
+  position:absolute;
+  left: 0px;
+  top:-10px;
+}
+
+.dataTables_scroll{
+  position:absolute;
+  left: -40px;
+  top:-30px;
+}
+
+
+/*#DataTables_Table_0_wrapper.dataTables_wrapper.no-footer{
+  height:700px
+}
+
 
 #DataTables_Table_0.display.dataTables.nofooter{
   position:absolute;
