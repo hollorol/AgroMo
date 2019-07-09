@@ -21,7 +21,7 @@ function DT(tableID, classID, columnOptions){
           $(this).text(cicleArrays(columnOptions,colIndex,currName,-1));
 
       }
-      e.preventDefault();
+      e.preventDefault ? e.preventDefault() : (e.returnValue = false); // The later option is for safari and IE
      }
 
 });

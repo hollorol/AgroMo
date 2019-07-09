@@ -3,9 +3,9 @@ agroMoShowUI <- function(id){
   tags$div(id = ns(id),
            tagList(
             column(4,
-                    ## checkboxGroupInput(ns("outSelector"),label = "SIMULATION RESULTS:",choices = NULL)
-                    DT::dataTableOutput(ns("outputSelection"), width="100%")
-                    ),
+                   tableOutput(ns("outputSelection"))
+                   #tags$script(src="outputSelector.js") ## This js file generates a DataTable into the #showdiv-table-output_container div. See the sourcecode for further information.
+                                       ),
              column(8,
                     tags$div(id="observations","OBSERVATIONS:"),
                     tags$div(id="simres","SIMULATION RESULTS:"),
@@ -18,6 +18,7 @@ agroMoShowUI <- function(id){
                     #checkboxGroupInput(ns("createPlot"),label = "CREATE PLOT WITH:",choices = NULL),
                     tags$div(id=ns("table-output_container")), 
                     tags$script(src="showTableOutput.js"), ## This js file generates a DataTable into the #showdiv-table-output_container div. See the sourcecode for further information.
+                    tags$script(src="outputSelector.js"), ## This js file generates a DataTable into the #showdiv-table-output_container div. See the sourcecode for further information.
                     actionButton(ns("show"),"PLOT"),
                     actionButton(ns("export"),"EXPORT")
                                         )
@@ -32,13 +33,8 @@ agroMoShow <- function(input, output, session){
   measurement <- fread("observations/observations.csv") 
   ## updateCheckboxGroupInput(session,"outSelector",choices = modellOutputNames)
 
-  output$outputSelection <- DT::renderDataTable({
-
-    DT::datatable(data.frame(outputName = modellOutputNames), options = list(autowidth = TRUE, paginate = FALSE, scrollY = 700, searching = TRUE, info = FALSE, scroller = TRUE))
-    #DT::datatable(data.frame(outputName = modellOutputNames), options = list(autowidth = TRUE, paginate = FALSE, scrollY = 300))
+  output$outputSelection <- renderTable(data.frame(outputName = modellOutputNames))
     
-
-  })
 
   #dataTableOutput(session,"outSelector",choices = modellOutputNames)
   updateSelectInput(session,"experimentID", choices = unique(measurement$experiment))

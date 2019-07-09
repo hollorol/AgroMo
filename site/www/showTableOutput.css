@@ -1,3 +1,13 @@
+/*#showdiv-outputSelection {
+  color:red;
+}*/
+
+.selected-rows_showdiv-outputSelection {
+  background-color: #0019FF;
+  border: 0;
+}
+
+
 .selected-rows_showdiv_table_output {
   background-color: #0019FF;
   border: 0;

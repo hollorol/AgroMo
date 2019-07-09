@@ -1,0 +1,1 @@
+$("#showdiv-outputSelection").ready(DT("#showdiv-outputSelection", "selected-rows_showdiv-outputSelection"));
