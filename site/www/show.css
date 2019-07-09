@@ -1,143 +1,168 @@
-#showdiv-show{
-  position:absolute;
-  top: 690px;
-  left:5px;
-  width:320px;
-  height: 60px;
-  background-color: gainsboro;
-  font-size: 20px;
-  font-weight: bold;
+
+#showdiv-experimentID_container .selectize-control.shinyjs-resettable.single .selectize-input{
+    width: 440px;
+    /* position: absolute; */
+    /* top: 100px; */
+    /* left:-1px; */
+}
+
+#showdiv-treatmentID_container .selectize-control.shinyjs-resettable.single .selectize-input{
+    width: 440px;
+    /* position: absolute; */
+    /* top: 100px; */
+    /* left:-1px; */
+}
+
+#showdiv-experimentID .control-label{
+    position: absolute;
+    top: 95px;
+}
+
+#showdiv-treatmentID .control-label{
+    position: absolute;
+    top: 95px;
+}
+
+/* #showdiv-show{ */
+/*   position:absolute; */
+/*   top: 690px; */
+/*   left:5px; */
+/*   width:320px; */
+/*   height: 60px; */
+/*   background-color: gainsboro; */
+/*   font-size: 20px; */
+/*   font-weight: bold; */
     
-}
+/* } */
 
-#showdiv-export{
-  position:absolute;
-  top: 690px;
-  left:340px;
-  width:220px;
-  height: 60px;
-  background-color: gainsboro;
-  font-size: 20px;
-  font-weight: bold;
+/* #showdiv-export{ */
+/*   position:absolute; */
+/*   top: 690px; */
+/*   left:340px; */
+/*   width:220px; */
+/*   height: 60px; */
+/*   background-color: gainsboro; */
+/*   font-size: 20px; */
+/*   font-weight: bold; */
     
-} 
+/* }  */
 
-#simres {
-  position: absolute;
-  top: 10px;
-  left: -300px;
-  font-weight: bold;
-  font-size: 16px;
-} 
+/* #simres { */
+/*   position: absolute; */
+/*   top: 10px; */
+/*   left: -300px; */
+/*   font-weight: bold; */
+/*   font-size: 16px; */
+/* }  */
 
-#observations {
-  position: absolute;
-  top: 10px;
-  left:15px;
-  font-weight: bold;
-  font-size: 16px;
-} 
+/* #observations { */
+/*   position: absolute; */
+/*   top: 10px; */
+/*   left:15px; */
+/*   font-weight: bold; */
+/*   font-size: 16px; */
+/* }  */
 
-#createplot {
-  position: absolute;
-  top: 150px;
-  left:15px;
-  font-weight: bold;
-  font-size: 16px;
-} 
+/* #createplot { */
+/*   position: absolute; */
+/*   top: 150px; */
+/*   left:15px; */
+/*   font-weight: bold; */
+/*   font-size: 16px; */
+/* }  */
 
-#repavg {
-  position: absolute;
-  top: 105px;
-  left: 155px;
-  font-size: 16px;
-} 
+/* #repavg { */
+/*   position: absolute; */
+/*   top: 105px; */
+/*   left: 155px; */
+/*   font-size: 16px; */
+/* }  */
 
-#showdiv-averagep {
-  position: absolute;
-  top: 32px;
-  left: 137px;
-} 
+/* #showdiv-averagep { */
+/*   position: absolute; */
+/*   top: 32px; */
+/*   left: 137px; */
+/* }  */
 
-#experimentid {
-  position: absolute;
-  top: 36px;
-  right:430px;
-  font-size:16px;
-} 
+/* #experimentid { */
+/*   position: absolute; */
+/*   top: 36px; */
+/*   right:430px; */
+/*   font-size:16px; */
+/* }  */
 
-#treat {
-  position: absolute;
-  top: 70px;
-  right:430px;
-  font-size:16px;
-} 
-
-
-#DataTables_Table_0_filter.dataTables_filter{
-  position:absolute;
-  top:685px;
-  left: -50px;
-}
-
-#DataTables_Table_0_info.dataTables_info{
-  position:absolute;
-  top:600px;
-  left: -50px;
-}
-
-#showdiv-mainControl-tablein{
-  position:absolute;
-  top:190px;
-}
-
-#mainWindow.baseWindow .selectize-input.items.full.has-options.has-items {
-  width:440px;
-  position: absolute;
-  left:115px;
-} 
-
-.sorting{
-  display:none;
-}
+/* #treat { */
+/*   position: absolute; */
+/*   top: 70px; */
+/*   right:430px; */
+/*   font-size:16px; */
+/* }  */
 
 
-#showdiv-outputSelection{
-position:absolute;
-top: 40px;
-}
+/* #DataTables_Table_0_filter.dataTables_filter{ */
+/*   position:absolute; */
+/*   top:685px; */
+/*   left: -50px; */
+/* } */
 
-.dataTables_scrollBody{
-  position:absolute;
-  left: 0px;
-  top:-10px;
-}
+/* #DataTables_Table_0_info.dataTables_info{ */
+/*   position:absolute; */
+/*   top:600px; */
+/*   left: -50px; */
+/* } */
 
-.dataTables_scroll{
-  position:absolute;
-  left: -40px;
-  top:-30px;
-}
+/* #showdiv-mainControl-tablein{ */
+/*   position:absolute; */
+/*   top:190px; */
+/* } */
+
+/* #mainWindow.baseWindow .selectize-input.items.full.has-options.has-items { */
+/*   width:440px; */
+/*   position: absolute; */
+/*   left:115px; */
+/* }  */
+
+/* .sorting{ */
+/*   display:none; */
+/* } */
 
 
-/*#DataTables_Table_0_wrapper.dataTables_wrapper.no-footer{
-  height:700px
-}
+/* #showdiv-outputSelection{ */
+/* position:absolute; */
+/* top: 40px; */
+/* } */
 
-.display-dataTable.no-footer{
-  border-bottom: 0px;
-  border-collapse: collapse;
-}
+/* .dataTables_scrollBody{ */
+/*   position:absolute; */
+/*   left: 0px; */
+/*   top:-10px; */
+/* } */
 
-#DataTables_Table_0.display.dataTables.nofooter{
-  position:absolute;
-  top:500px;
-}
+/* .dataTables_scroll{ */
+/*   position:absolute; */
+/*   left: -40px; */
+/*   top:-30px; */
+/* } */
 
-#showdiv-mainControl-tablein.rhandsontable.html-widget.html-widget-output.shiny-bound-output.handsontable.htColumnHeaders{
-  width:500px;
-}*/
 
-/*#showdiv .selectize-input {
-  width:300px;
-} */
+/* /\*#DataTables_Table_0_wrapper.dataTables_wrapper.no-footer{ */
+/*   height:700px */
+/* } */
+
+/* .display-dataTable.no-footer{ */
+/*   border-bottom: 0px; */
+/*   border-collapse: collapse; */
+/* } */
+
+/* #DataTables_Table_0.display.dataTables.nofooter{ */
+/*   position:absolute; */
+/*   top:500px; */
+/* } */
+
+/* #showdiv-mainControl-tablein.rhandsontable.html-widget.html-widget-output.shiny-bound-output.handsontable.htColumnHeaders{ */
+/*   width:500px; */
+/* }*\/ */
+
+/* /\*#showdiv .selectize-input { */
+/*   width:300px; */
+/* } *\/ */

@@ -11,13 +11,8 @@ agroMoShowUI <- function(id){
                     tags$div(id="simres","SIMULATION RESULTS:"),
                     tags$div(id="createplot","CREATE PLOT WITH:"),
                     tags$div(id="repavg","Repetitions averaged"),
-                    tags$div(id="experimentid","EXPERIMENT ID:"),
-                    tags$div(id="treat","TREATMENT ID:"),
-                    #checkboxGroupInput(ns("observations"),label = "OBSERVATIONS:",choices = NULL),
-                    tags$div(id="experimentID",selectInput(ns("experimentID"), "",choices = 'NULL')),
-                    #selectInput(ns("experimentID"), "EXPERIMENT ID:",choices = 'NULL'),
-                    #selectInput(ns("treatment"), "TREATMENT ID:",choices = 'NULL'),
-                    selectInput(ns("treatment"), "",choices = 'NULL'),
+                    tags$div(id=ns("experimentID_container"),selectInput(ns("experimentID"), "EXPERIMENT ID:",choices = 'NULL')),
+                    tags$div(id=ns("treatmentID_container"),selectInput(ns("treatmentID"), "TREATMENT ID:",choices = 'NULL')),
                     checkboxInput(ns("averagep"),"", value = TRUE),
                     #checkboxInput(ns("averagep"),"Repetitions averaged", value = TRUE),
                     #checkboxGroupInput(ns("createPlot"),label = "CREATE PLOT WITH:",choices = NULL),
@@ -38,7 +33,7 @@ agroMoShow <- function(input, output, session){
 
   output$outputSelection <- DT::renderDataTable({
 
-    DT::datatable(data.frame(outputName = modellOutputNames), options = list(autowidth = TRUE, paginate = FALSE, scrollY = 700, searching = FALSE, info = FALSE, scroller = TRUE))
+    DT::datatable(data.frame(outputName = modellOutputNames), options = list(autowidth = TRUE, paginate = FALSE, scrollY = 700, searching = TRUE, info = FALSE, scroller = TRUE))
     #DT::datatable(data.frame(outputName = modellOutputNames), options = list(autowidth = TRUE, paginate = FALSE, scrollY = 300))
     
 
