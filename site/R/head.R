@@ -3,6 +3,8 @@ baseHead<-function(){
             tags$link(rel = "stylesheet", type = "text/css", href = "site.css"),
             tags$link(rel = "stylesheet", type = "text/css", href = "base.css"),
             tags$link(rel = "stylesheet", type = "text/css", href = "show.css"),
+            tags$link(rel = "stylesheet", type = "text/css", href = "showTableOutput.css"),
+            tags$script(src = "jsTable.js"),
             tags$script(src = "customFunctions.js"),
-            tags$script(src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"))
+            tags$script(src="jquery-ui-min.js"))
 }

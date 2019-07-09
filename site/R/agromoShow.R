@@ -16,7 +16,8 @@ agroMoShowUI <- function(id){
                     checkboxInput(ns("averagep"),"", value = TRUE),
                     #checkboxInput(ns("averagep"),"Repetitions averaged", value = TRUE),
                     #checkboxGroupInput(ns("createPlot"),label = "CREATE PLOT WITH:",choices = NULL),
-                    graphControlUI(ns("mainControl")), 
+                    tags$div(id=ns("table-output_container")), 
+                    tags$script(src="showTableOutput.js"), ## This js file generates a DataTable into the #showdiv-table-output_container div. See the sourcecode for further information.
                     actionButton(ns("show"),"PLOT"),
                     actionButton(ns("export"),"EXPORT")
                                         )
@@ -42,7 +43,7 @@ agroMoShow <- function(input, output, session){
   #dataTableOutput(session,"outSelector",choices = modellOutputNames)
   updateSelectInput(session,"experimentID", choices = unique(measurement$experiment))
   updateSelectInput(session,"treatment", choices = unique(measurement$treatment))
-  dataTable <- callModule(graphControl,"mainControl",reactive({input$show}))
+  ## dataTable <- callModule(graphControl,"mainControl",reactive({input$show}))
 
   observeEvent(input$show,{
     print(dataTable$data)

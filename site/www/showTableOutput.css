@@ -1,0 +1,91 @@
+.selected-rows_showdiv_table_output {
+  background-color: #0019FF;
+  border: 0;
+}
+
+#showdiv-table-output:not(.selected-rows_showdiv_table_output) {
+    background-color: #FFFFFF
+}
+
+#showdiv-table-output {
+    border-collapse: collapse;
+}
+
+#showdiv-table-output_container {
+    height: 300px;
+    overflow-y: scroll;
+    width:500px;
+}
+
+#showdiv-table-output td {
+  padding-bottom: 10px;
+  font-size: 18px;
+}
+
+#showdiv-table-output th {
+    border-bottom: solid;
+    font-size: 21px;
+    text-align:left;
+}
+
+/* #show-table-output  td:nth-child(1) { */
+#showdiv-table-output:not(th:nth-child(1)),td:nth-child(1) {
+  width: 250px;
+  border-right: solid;
+}
+
+
+#showdiv-table-output td:not(:nth-child(1)) {  
+  padding-left: 10px;
+  width: 150px;
+}
+
+#showdiv-table-output td {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+#showdiv-table-output th:nth-child(1) {
+  cursor: pointer;
+}
+
+#showdiv-table-output td {
+  cursor: pointer;
+}
+
+#showdiv-table-output tr:nth-child(even):not(.selected-rows_showdiv_table_output) {
+    background-color: #f9f9f9;
+    border-top-color: #dddddd;
+    border-bottom-color: #dddddd;
+    border-top: solid;
+    border-bottom: solid;
+}
+
+#show-table-output th {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+
+
+/* // Alternative row selections : The first is part of my css model, It is faster than the original. 
+
+.rowHR-4 .colHR-2 {
+  background-color : #AAFF00;
+}
+
+tr:nth-child(4) td:nth-child(2) {
+  background-color : blue;
+}
+*/
+#show-table-output tr:nth-child(even){background: #CCC}
