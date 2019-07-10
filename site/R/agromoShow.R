@@ -3,7 +3,8 @@ agroMoShowUI <- function(id){
   tags$div(id = ns(id),
            tagList(
             column(4,
-                   tableOutput(ns("outputSelection"))
+                   #tableOutput(ns("outputSelection"))
+                   DT::dataTableOutput(ns("outputSelection"), width="100%")
                    #tags$script(src="outputSelector.js") ## This js file generates a DataTable into the #showdiv-table-output_container div. See the sourcecode for further information.
                                        ),
              column(8,
@@ -33,9 +34,10 @@ agroMoShow <- function(input, output, session){
   measurement <- fread("observations/observations.csv") 
   ## updateCheckboxGroupInput(session,"outSelector",choices = modellOutputNames)
 
-  output$outputSelection <- renderTable(data.frame(outputName = modellOutputNames))
+  output$outputSelection <- DT::renderDataTable({
     
-
+  DT::datatable(data.frame(outputName = modellOutputNames), options = list(autowidth = TRUE, paginate = FALSE, scrollY = 600, searching = FALSE, info = FALSE, scroller = TRUE, header=FALSE))
+  })
   #dataTableOutput(session,"outSelector",choices = modellOutputNames)
   updateSelectInput(session,"experimentID", choices = unique(measurement$experiment))
   updateSelectInput(session,"treatment", choices = unique(measurement$treatment))

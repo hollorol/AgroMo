@@ -1,172 +1,172 @@
 var musoVariablesToPlot =
     [
   {
-    "Variable names": "leaf dry matter",
-    "Time frame": "day",
-    "Grouping function": "identity",
-    "Plot type": "line"
+    "VARIABLE": "leaf dry matter",
+    "TIME STEP": "day",
+    "FUNCTION": "identity",
+    "PLOT TYPE": "line"
   },
   {
-    "Variable names": "leaf dry matter in litter",
-    "Time frame": "day",
-    "Grouping function": "identity",
-    "Plot type": "line"
+    "VARIABLE": "leaf dry matter in litter",
+    "TIME STEP": "day",
+    "FUNCTION": "identity",
+    "PLOT TYPE": "line"
   },
   {
-    "Variable names": "fine root dry matter",
-    "Time frame": "day",
-    "Grouping function": "identity",
-    "Plot type": "line"
+    "VARIABLE": "fine root dry matter",
+    "TIME STEP": "day",
+    "FUNCTION": "identity",
+    "PLOT TYPE": "line"
   },
   {
-    "Variable names": "yield",
-    "Time frame": "day",
-    "Grouping function": "identity",
-    "Plot type": "line"
+    "VARIABLE": "yield",
+    "TIME STEP": "day",
+    "FUNCTION": "identity",
+    "PLOT TYPE": "line"
   },
   {
-    "Variable names": "soft stem dry matter",
-    "Time frame": "day",
-    "Grouping function": "identity",
-    "Plot type": "line"
+    "VARIABLE": "soft stem dry matter",
+    "TIME STEP": "day",
+    "FUNCTION": "identity",
+    "PLOT TYPE": "line"
   },
   {
-    "Variable names": "projected lai",
-    "Time frame": "day",
-    "Grouping function": "identity",
-    "Plot type": "line"
+    "VARIABLE": "projected lai",
+    "TIME STEP": "day",
+    "FUNCTION": "identity",
+    "PLOT TYPE": "line"
   },
   {
-    "Variable names": "cum. evapotranspiration",
-    "Time frame": "day",
-    "Grouping function": "identity",
-    "Plot type": "line"
+    "VARIABLE": "cum. evapotranspiration",
+    "TIME STEP": "day",
+    "FUNCTION": "identity",
+    "PLOT TYPE": "line"
   },
   {
-    "Variable names": "cum_trans",
-    "Time frame": "day",
-    "Grouping function": "identity",
-    "Plot type": "line"
+    "VARIABLE": "cum_trans",
+    "TIME STEP": "day",
+    "FUNCTION": "identity",
+    "PLOT TYPE": "line"
   },
   {
-    "Variable names": "rooting_depth",
-    "Time frame": "day",
-    "Grouping function": "identity",
-    "Plot type": "line"
+    "VARIABLE": "rooting_depth",
+    "TIME STEP": "day",
+    "FUNCTION": "identity",
+    "PLOT TYPE": "line"
   },
   {
-    "Variable names": "daily_gpp",
-    "Time frame": "day",
-    "Grouping function": "identity",
-    "Plot type": "line"
+    "VARIABLE": "daily_gpp",
+    "TIME STEP": "day",
+    "FUNCTION": "identity",
+    "PLOT TYPE": "line"
   },
   {
-    "Variable names": "daily_tr",
-    "Time frame": "day",
-    "Grouping function": "identity",
-    "Plot type": "line"
+    "VARIABLE": "daily_tr",
+    "TIME STEP": "day",
+    "FUNCTION": "identity",
+    "PLOT TYPE": "line"
   },
   {
-    "Variable names": "daily_nee",
-    "Time frame": "day",
-    "Grouping function": "identity",
-    "Plot type": "line"
+    "VARIABLE": "daily_nee",
+    "TIME STEP": "day",
+    "FUNCTION": "identity",
+    "PLOT TYPE": "line"
   },
   {
-    "Variable names": "tsoil_0",
-    "Time frame": "day",
-    "Grouping function": "identity",
-    "Plot type": "line"
+    "VARIABLE": "tsoil_0",
+    "TIME STEP": "day",
+    "FUNCTION": "identity",
+    "PLOT TYPE": "line"
   },
   {
-    "Variable names": "tsoil_1",
-    "Time frame": "day",
-    "Grouping function": "identity",
-    "Plot type": "line"
+    "VARIABLE": "tsoil_1",
+    "TIME STEP": "day",
+    "FUNCTION": "identity",
+    "PLOT TYPE": "line"
   },
   {
-    "Variable names": "tsoil_2",
-    "Time frame": "day",
-    "Grouping function": "identity",
-    "Plot type": "line"
+    "VARIABLE": "tsoil_2",
+    "TIME STEP": "day",
+    "FUNCTION": "identity",
+    "PLOT TYPE": "line"
   },
   {
-    "Variable names": "tsoil_3",
-    "Time frame": "day",
-    "Grouping function": "identity",
-    "Plot type": "line"
+    "VARIABLE": "tsoil_3",
+    "TIME STEP": "day",
+    "FUNCTION": "identity",
+    "PLOT TYPE": "line"
   },
   {
-    "Variable names": "tsoil_4",
-    "Time frame": "day",
-    "Grouping function": "identity",
-    "Plot type": "line"
+    "VARIABLE": "tsoil_4",
+    "TIME STEP": "day",
+    "FUNCTION": "identity",
+    "PLOT TYPE": "line"
   },
   {
-    "Variable names": "tsoil_5",
-    "Time frame": "day",
-    "Grouping function": "identity",
-    "Plot type": "line"
+    "VARIABLE": "tsoil_5",
+    "TIME STEP": "day",
+    "FUNCTION": "identity",
+    "PLOT TYPE": "line"
   },
   {
-    "Variable names": "tsoil_6",
-    "Time frame": "day",
-    "Grouping function": "identity",
-    "Plot type": "line"
+    "VARIABLE": "tsoil_6",
+    "TIME STEP": "day",
+    "FUNCTION": "identity",
+    "PLOT TYPE": "line"
   },
   {
-    "Variable names": "vwc_0",
-    "Time frame": "day",
-    "Grouping function": "identity",
-    "Plot type": "line"
+    "VARIABLE": "vwc_0",
+    "TIME STEP": "day",
+    "FUNCTION": "identity",
+    "PLOT TYPE": "line"
   },
   {
-    "Variable names": "vwc_1",
-    "Time frame": "day",
-    "Grouping function": "identity",
-    "Plot type": "line"
+    "VARIABLE": "vwc_1",
+    "TIME STEP": "day",
+    "FUNCTION": "identity",
+    "PLOT TYPE": "line"
   },
   {
-    "Variable names": "vwc_2",
-    "Time frame": "day",
-    "Grouping function": "identity",
-    "Plot type": "line"
+    "VARIABLE": "vwc_2",
+    "TIME STEP": "day",
+    "FUNCTION": "identity",
+    "PLOT TYPE": "line"
   },
   {
-    "Variable names": "vwc_3",
-    "Time frame": "day",
-    "Grouping function": "identity",
-    "Plot type": "line"
+    "VARIABLE": "vwc_3",
+    "TIME STEP": "day",
+    "FUNCTION": "identity",
+    "PLOT TYPE": "line"
   },
   {
     "Variable names": "vwc_4",
-    "Time frame": "day",
-    "Grouping function": "identity",
-    "Plot type": "line"
+    "TIME STEP": "day",
+    "FUNCTION": "identity",
+    "PLOT TYPE": "line"
   },
   {
-    "Variable names": "vwc_5",
-    "Time frame": "day",
-    "Grouping function": "identity",
-    "Plot type": "line"
+    "VARIABLE": "vwc_5",
+    "TIME STEP": "day",
+    "FUNCTION": "identity",
+    "PLOT TYPE": "line"
   },
   {
-    "Variable names": "vwc_6",
-    "Time frame": "day",
-    "Grouping function": "identity",
-    "Plot type": "line"
+    "VARIABLE": "vwc_6",
+    "TIME STEP": "day",
+    "FUNCTION": "identity",
+    "PLOT TYPE": "line"
   },
   {
-    "Variable names": "tsoil-profil",
-    "Time frame": "none",
-    "Grouping function": "identity",
-    "Plot type": "line"
+    "VARIABLE": "tsoil-profil",
+    "TIME STEP": "none",
+    "FUNCTION": "identity",
+    "PLOT TYPE": "line"
   },
   {
-    "Variable names": "vwc-profil",
-    "Time frame": "none",
-    "Grouping function": "identity",
-    "Plot type": "line"
+    "VARIABLE": "vwc-profil",
+    "TIME STEP": "none",
+    "FUNCTION": "identity",
+    "PLOT TYPE": "line"
   }
 ]
 
