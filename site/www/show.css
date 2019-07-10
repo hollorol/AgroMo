@@ -23,7 +23,7 @@
 #simres {
   position: absolute;
   top: 10px;
-  left: -300px;
+  left: -312px;
   font-weight: bold;
   font-size: 16px;
 } 
@@ -47,13 +47,13 @@
 #repavg {
   position: absolute;
   top: 112px;
-  left: 160px;
+  left: 155px;
   font-size: 16px;
 } 
 
 #showdiv-averagep {
   position: absolute;
-  top: 95px;
+  top: 98px;
   left: 142px;
 }
 
@@ -69,6 +69,19 @@
     position: absolute;
     top: 60px;
     left:120px;
+}
+
+#showdiv-groupID_container .selectize-control.shinyjs-resettable.single .selectize-input{
+    width: 485px;
+    position: absolute;
+    top: 620px;
+    left:140px;
+}
+
+#showdiv-groupID_container .control-label{
+    position: absolute;
+    top: 642px;
+    right: 405px;
 }
 
 #showdiv-experimentID_container .control-label{

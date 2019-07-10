@@ -14,6 +14,7 @@ agroMoShowUI <- function(id){
                     tags$div(id="repavg","Repetitions averaged"),
                     tags$div(id=ns("experimentID_container"),selectInput(ns("experimentID"), "EXPERIMENT ID:",choices = 'NULL')),
                     tags$div(id=ns("treatmentID_container"),selectInput(ns("treatmentID"), "TREATMENT ID:",choices = 'NULL')),
+                    tags$div(id=ns("groupID_container"),selectInput(ns("groupID"), "GROUP FUNCTION:",choices = 'NULL')),
                     checkboxInput(ns("averagep"),"", value = TRUE),
                     #checkboxInput(ns("averagep"),"Repetitions averaged", value = TRUE),
                     #checkboxGroupInput(ns("createPlot"),label = "CREATE PLOT WITH:",choices = NULL),
