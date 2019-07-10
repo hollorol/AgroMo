@@ -36,7 +36,7 @@ agroMoShow <- function(input, output, session){
 
   output$outputSelection <- DT::renderDataTable({
     
-  DT::datatable(data.frame(outputName = modellOutputNames), options = list(autowidth = TRUE, paginate = FALSE, scrollY = 600, searching = FALSE, info = FALSE, scroller = TRUE, header=FALSE))
+  DT::datatable(data.frame(outputName = modellOutputNames), options = list(autowidth = TRUE, paginate = FALSE, scrollY = 600, scrollX = FALSE, searching = TRUE, info = FALSE, header=FALSE,rownames=FALSE))
   })
   #dataTableOutput(session,"outSelector",choices = modellOutputNames)
   updateSelectInput(session,"experimentID", choices = unique(measurement$experiment))
