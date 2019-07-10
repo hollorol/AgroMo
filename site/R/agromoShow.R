@@ -17,6 +17,7 @@ agroMoShowUI <- function(id){
                     checkboxInput(ns("averagep"),"", value = TRUE),
                     #checkboxInput(ns("averagep"),"Repetitions averaged", value = TRUE),
                     #checkboxGroupInput(ns("createPlot"),label = "CREATE PLOT WITH:",choices = NULL),
+                    tags$div(id=ns("table-header_container")), 
                     tags$div(id=ns("table-output_container")), 
                     tags$script(src="showTableOutput.js"), ## This js file generates a DataTable into the #showdiv-table-output_container div. See the sourcecode for further information.
                     tags$script(src="outputSelector.js"), ## This js file generates a DataTable into the #showdiv-table-output_container div. See the sourcecode for further information.

@@ -1,4 +1,4 @@
-function DT(tableID, classID, columnOptions){
+function DT(tableID, classID, columnOptions, selectAllTriggerElementID){
   $(tableID + ' td').on('click', function() {
     // circular menu implementation with click events
     currName = $(this).text();
@@ -25,16 +25,17 @@ function DT(tableID, classID, columnOptions){
      }
 
 });
-  $(tableID + " th:nth-child(1)").on('click',function(){
-    // Select all elements or none by clicking to the first element in the header
-    if($(".selected").length == 0){
-        $("tr :not(th)").addClass(classID);   
+  $(selectAllTriggerElementID).on('click',function(e){
+      //Select all elements or none by clicking to the first element in the header
+      if($("." + classID).length === 0){
+        $(tableID + " tr:not(th)").addClass(classID);   
     } else {
-        $(".selected").each(function(){
+        console.log("Te marha!");
+        $("." + classID).each(function(){
             $(this).removeClass(classID);
-        });
+         });
     }
-}); 
+});
 }
 function getWheelDelta(event) {
   //Retuns with a mousewheel-delta. browser indipendently
@@ -50,21 +51,23 @@ function cicleArrays(argArrays,rowIndex,choosenOne,direction){
                 numberOfOptions) % numberOfOptions]; 
     }
 }
-function putObjectAsTable(tableObject, containerID, tableID){
+function putObjectAsTable(tableObject, containerID, tableID, headerID, headerContainerID){
     // Creating The main table
-    var colNames = Object.keys(tableObject[0]);
-    var nCols = colNames.length;
-    var nRows = tableObject.length;
-    $(containerID).append("<table id = " + "\"" + tableID + "\">" + "</table>");
+    const colNames = Object.keys(tableObject[0]);
+    const nCols = colNames.length;
+    const nRows = tableObject.length;
+    $(headerContainerID).append("<table id = " + "\"" + headerID + "\">" + "</table>");
     //Making header
-    $("#" + tableID).append("<thead></thead>");
-    $("#" + tableID + " thead").append("<tr></tr>");
-    for(i=0;i<nCols;i++){
-        $("#" + tableID + " thead tr").append("<th>"+colNames[i]+"</th>");
+    $("#" + headerID).append("<thead></thead>");
+    $("#" + headerID + " thead").append("<tr></tr>");
+    for(let i=0;i<nCols;i++){
+        $("#" + headerID + " thead tr").append("<th>"+colNames[i]+"</th>");
     }
+
+    $(containerID).append("<table id = " + "\"" + tableID + "\">" + "</table>");
     //Making body
     $("#" + tableID).append("<tbody></tbody>");
-    for(i=0;i<nRows;i++){
+    for(let i=0;i<nRows;i++){
         var rowClass = i + "-rowHR";
         $("#" + tableID + " tbody").append("<tr class=\""+rowClass+"\"></tr>");
         for(j=0;j<nCols;j++){
@@ -74,10 +77,11 @@ function putObjectAsTable(tableObject, containerID, tableID){
     }
 
 }
+
 function getJSONFromDataTable(){
 
-    Json = [];
-    attributes = [];
+    const Json = [];
+    const attributes = [];
     $('th').each(function(){
         attributes.push($(this).html());
     });

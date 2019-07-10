@@ -170,10 +170,10 @@ var musoVariablesToPlot =
   }
 ]
 
-putObjectAsTable(musoVariablesToPlot,"#showdiv-table-output_container","showdiv-table-output");
+putObjectAsTable(musoVariablesToPlot,"#showdiv-table-output_container","showdiv-table-output","showdiv-table-output-header","#showdiv-table-header_container");
 
 var columnOptions = [["day","month","year","decade"],
               ["identity","var","min","max","mean","median","modus"],
                ["bar","line","scatter"]];
 
-DT("#showdiv-table-output", "selected-rows_showdiv_table_output", columnOptions);
+DT("#showdiv-table-output", "selected-rows_showdiv_table_output", columnOptions, "#showdiv-table-header_container th:nth-child(1)");

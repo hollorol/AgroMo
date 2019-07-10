@@ -50,10 +50,20 @@
 }
 
 #showdiv-table-output_container {
-    height: 480px;
+    height: 450px;
     overflow-y: scroll;
     width:640px;
-    }
+}
+
+#showdiv-table-output-header {
+    position: absolute;
+    width: 640px;
+    top: 185px;
+}
+
+#showdiv-table-output-header th:nth-child(1){
+    cursor: pointer;
+}
 
 #showdiv-table-output td {
   text-align: left;
@@ -152,3 +162,7 @@ tr:nth-child(4) td:nth-child(2) {
 }
 */
 #show-table-output tr:nth-child(even){background: #CCC}
+
+#showdiv-table-output_container {
+	  margin-top: 30px;
+}
