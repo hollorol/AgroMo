@@ -1,13 +1,14 @@
 agroMoShowUI <- function(id){
+  #DT <- "shinyjs.dTable = function(){DT(\"#showdiv-outputSelection\", \"selected-rows_showdiv-outputSelection\")}"
   ns <- NS(id)
   tags$div(id = ns(id),
            tagList(
-            column(4,
-                   #tableOutput(ns("outputSelection"))
-                   DT::dataTableOutput(ns("outputSelection"))
-                   #DT::dataTableOutput(ns("outputSelection"), width = "200%")
-                   #tags$script(src="outputSelector.js") ## This js file generates a DataTable into the #showdiv-table-output_container div. See the sourcecode for further information.
-                                       ),
+             column(4,
+                    tableOutput(ns("outputSelection"))#,
+                    #extendShinyjs(text = DT)
+                    #DT::dataTableOutput(ns("outputSelection"), width = "100%")
+                    #tags$script(src="outputSelector.js") ## This js file generates a DataTable into the #showdiv-table-output_container div. See the sourcecode for further information.
+             ),
              column(8,
                     tags$div(id="observations","OBSERVATIONS:"),
                     tags$div(id="simres","SIMULATION RESULTS:"),
@@ -25,9 +26,9 @@ agroMoShowUI <- function(id){
                     tags$script(src="outputSelector.js"), ## This js file generates a DataTable into the #showdiv-table-output_container div. See the sourcecode for further information.
                     actionButton(ns("show"),"PLOT"),
                     actionButton(ns("export"),"EXPORT")
-                                        )
+             )
            )
-       )
+  )
 }
 agroMoShow <- function(input, output, session){
   ns <- session$ns
@@ -36,28 +37,39 @@ agroMoShow <- function(input, output, session){
   modellOutputNames <- ls(dat$dataenv)
   measurement <- fread("observations/observations.csv") 
   ## updateCheckboxGroupInput(session,"outSelector",choices = modellOutputNames)
-
-  output$outputSelection <- DT::renderDataTable({
-    
-  DT::datatable(data.frame(outputName = modellOutputNames), options = list(paginate = FALSE, scrollX = FALSE, scrollY = 600, searching = TRUE, info = FALSE, header=FALSE,rownames=FALSE))
-  })
+  
+  # output$outputSelection <- DT::renderDataTable({
+  # 
+  # DT::datatable(data.frame(outputName = modellOutputNames), options = list(paginate = FALSE))
+  # })
   #DT::datatable(data.frame(outputName = modellOutputNames), options = list(autowidth = TRUE, paginate = FALSE, scrollY = 600, scrollX = FALSE, searching = TRUE, info = FALSE, header=FALSE,rownames=FALSE))
-  #dataTableOutput(session,"outSelector",choices = modellOutputNames)
+  # dataTableOutput(session,"outSelector",choices = modellOutputNames)
+  output$outputSelection <- renderTable(data.frame(outputName = modellOutputNames))
+  # js$dTable()
+  
+  # session$onFlushed(function() {
+  #   session$sendCustomMessage(type = "jsCode",list(value =
+  #                                                    "DT(\"#showdiv-outputSelection\", \"selected-rows_showdiv-outputSelection\");"
+  #                                                    ))
+  # })
+  
   updateSelectInput(session,"experimentID", choices = unique(measurement$experiment))
   updateSelectInput(session,"treatment", choices = unique(measurement$treatment))
   ## dataTable <- callModule(graphControl,"mainControl",reactive({input$show}))
-
+  
   observeEvent(input$show,{
     print(dataTable$data)
     showModal(multiPlotUI(ns("plotka"))) 
     callModule(multiPlot,"plotka",dat$dataenv,reactive({measurement}),reactive({input$outSelector}),reactive({dataTable$data}),
                reactive({input$experimentID}),reactive({input$treatment}),repetAvg = reactive({input$averagep}))
   })
-
-
-    observeEvent(input$refresh,{
-      dat[["dataenv"]] <-readRDS("output/outputs.RDS")
-      modellOutputNames <- ls(dat$dataenv)
+  
+  
+  
+  
+  observeEvent(input$refresh,{
+    dat[["dataenv"]] <-readRDS("output/outputs.RDS")
+    modellOutputNames <- ls(dat$dataenv)
     updateCheckboxGroupInput(session,"outSelector",choices = modellOutputNames)
   })
 }
