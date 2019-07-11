@@ -4,7 +4,7 @@ agroMoShowUI <- function(id){
            tagList(
             column(4,
                    #tableOutput(ns("outputSelection"))
-                   DT::dataTableOutput(ns("outputSelection"), width="100%")
+                   DT::dataTableOutput(ns("outputSelection"), width = "100%")
                    #tags$script(src="outputSelector.js") ## This js file generates a DataTable into the #showdiv-table-output_container div. See the sourcecode for further information.
                                        ),
              column(8,
@@ -12,9 +12,9 @@ agroMoShowUI <- function(id){
                     tags$div(id="simres","SIMULATION RESULTS:"),
                     tags$div(id="createplot","CREATE PLOT WITH:"),
                     tags$div(id="repavg","Repetitions averaged"),
-                    tags$div(id=ns("experimentID_container"),selectInput(ns("experimentID"), "EXPERIMENT ID:",choices = 'NULL')),
-                    tags$div(id=ns("treatmentID_container"),selectInput(ns("treatmentID"), "TREATMENT ID:",choices = 'NULL')),
-                    tags$div(id=ns("groupID_container"),selectInput(ns("groupID"), "GROUP FUNCTION:",choices = 'NULL')),
+                    tags$div(id=ns("experimentID_container"),selectInput(ns("experimentID"), "EXPERIMENT ID:",choices = 'NILL')),
+                    tags$div(id=ns("treatmentID_container"),selectInput(ns("treatmentID"), "TREATMENT ID:",choices = 'NILL')),
+                    tags$div(id=ns("groupID_container"),selectInput(ns("groupID"), "GROUP FUNCTION:",choices = 'NILL')),
                     checkboxInput(ns("averagep"),"", value = TRUE),
                     #checkboxInput(ns("averagep"),"Repetitions averaged", value = TRUE),
                     #checkboxGroupInput(ns("createPlot"),label = "CREATE PLOT WITH:",choices = NULL),
@@ -38,8 +38,9 @@ agroMoShow <- function(input, output, session){
 
   output$outputSelection <- DT::renderDataTable({
     
-  DT::datatable(data.frame(outputName = modellOutputNames), options = list(autowidth = TRUE, paginate = FALSE, scrollY = 600, scrollX = FALSE, searching = TRUE, info = FALSE, header=FALSE,rownames=FALSE))
+  DT::datatable(data.frame(outputName = modellOutputNames), options = list(paginate = FALSE))
   })
+  #DT::datatable(data.frame(outputName = modellOutputNames), options = list(autowidth = TRUE, paginate = FALSE, scrollY = 600, scrollX = FALSE, searching = TRUE, info = FALSE, header=FALSE,rownames=FALSE))
   #dataTableOutput(session,"outSelector",choices = modellOutputNames)
   updateSelectInput(session,"experimentID", choices = unique(measurement$experiment))
   updateSelectInput(session,"treatment", choices = unique(measurement$treatment))

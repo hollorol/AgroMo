@@ -1,10 +1,7 @@
-/*
-}*/
-
 #DataTables_Table_0_wrapper .dataTables_wrapper.no-footer {
   position: absolute;
-  left: -15px;
-  width: 280px;
+  left: 0px;
+  width: 600px;
 }
 
 .dataTables_scrollHead {
@@ -13,35 +10,48 @@
 
 .dataTables_scrollBody {
   border-bottom: 0px !important;
-  height: 670px;
+  height: 680px !important;
+  width: 300px !important;
+}
+
+.dataTables_scroll {
+  border-bottom: 0px !important;
+  height: 680px !important;
+  width: 300px !important;
 }
 
 #showdiv-outputSelection {
   position: absolute;
-  top: 35px;
-  left: -35px;
-  height: 670px !important;
+  top: 30px;
+  left: -40px;
+  height: 680px !important;
+  width: 300px !important;
 }
 
+/*#showdiv-outputSelection td:nth-child(2) {
+  height: 30px;
+  width: 300px;
+}*/
+
+/*szelessegre nem reagel*/
+#DataTables_Table_0 td:nth-child(2) {
+  height: 20px;
+  width:500px;
+  
+}
 
 #DataTables_Table_0 {
   position: absolute;
-  top: 35px;
-  left: -35px;
-  /*height: 670px !important;*/
+  top: 0px;
+  left: 0px;
+  height: 680px !important;
 }
 
 #DataTables_Table_0 tbody {
-  height: 20px;
-  width: 200px;
+  height: 680px;
+  width: 500px;
 }
 
-/*#DataTables_Table_0 {
-  position: absolute;
-  top: 30px;
-  background-color: white;
-  border-collapse: collapse;
-}*/
 
 #DataTables_Table_0_filter.dataTables_filter {
  position: absolute;
@@ -49,15 +59,25 @@
  left: 0px;
 }
 
+/*nemcsinal semmit*/
+.table.dataTable.display tbody td {
+  color:red;
+}
+
 /*sorszamozast kiszedi*/
 #DataTables_Table_0 td:nth-child(1) {
   display:none;
 }
-/*.table.dataTable tr.selected td*/
+/*.table.dataTable tr.selected td
 .table.dataTable td.selected {
+  background-color: rgb(166,202,240) !important;
+}*/
+
+.table.dataTable tr.selected td {
   background-color: rgb(166,202,240) !important;
 }
 
+/* #########Innentol van a jobb oldali tablazat*/
 
 .selected-rows_showdiv_table_output {
   background-color: rgb(166,202,240);
@@ -88,9 +108,15 @@
 
 #showdiv-table-output-header th:nth-child(1){
     cursor: pointer;
-    width: 265px;
+    width: 300px;
     padding-left: 10px;
 }
+
+/*#showdiv-table-output-header th:nth-child(2){
+    cursor: pointer;
+    width: 265px;
+    padding-left: 10px;
+}*/
 
 #showdiv-table-output td {
   text-align: left;
@@ -121,24 +147,24 @@
 
 #showdiv-table-output td {  
   padding-left: 10px;
-  width: 150px;
+  /*width: 150px;*/
 }
 #showdiv-table-output td:nth-child(1) {  
   padding-left: 10px;
   width: 310px;
 }
-/*#showdiv-table-output td:nth-child(1) {  
+#showdiv-table-output td:nth-child(2) {  
   padding-left: 10px;
-  width: 300px;
+  width: 110px;
 }
-#showdiv-table-output td:nth-child(1) {  
+#showdiv-table-output td:nth-child(3) {  
   padding-left: 10px;
-  width: 300px;
+  width: 110px;
 }
-#showdiv-table-output td:nth-child(1) {  
+#showdiv-table-output td:nth-child(4) {  
   padding-left: 10px;
-  width: 300px;
-}*/
+  width: 110px;
+}
 
 #showdiv-table-output td {
     -webkit-touch-callout: none; /* iOS Safari */
