@@ -5,6 +5,7 @@ agroMoShowUI <- function(id){
             column(4,
                    #tableOutput(ns("outputSelection"))
                    DT::dataTableOutput(ns("outputSelection"))
+                   #tags$div(id=ns("outputSelection_container"),DT::dataTableOutput(ns("outputSelection")))
                    #DT::dataTableOutput(ns("outputSelection"), width = "200%")
                    #tags$script(src="outputSelector.js") ## This js file generates a DataTable into the #showdiv-table-output_container div. See the sourcecode for further information.
                                        ),
@@ -39,7 +40,7 @@ agroMoShow <- function(input, output, session){
 
   output$outputSelection <- DT::renderDataTable({
     
-  DT::datatable(data.frame(outputName = modellOutputNames), options = list(paginate = FALSE, scrollX = FALSE, scrollY = 600, searching = TRUE, info = FALSE, header=FALSE,rownames=FALSE))
+  DT::datatable(data.frame(outputName = modellOutputNames), options = list(autowidth = FALSE, paginate = FALSE, scrollX = FALSE, scrollY = 600, searching = TRUE, info = FALSE, header=FALSE,rownames=FALSE))
   })
   #DT::datatable(data.frame(outputName = modellOutputNames), options = list(autowidth = TRUE, paginate = FALSE, scrollY = 600, scrollX = FALSE, searching = TRUE, info = FALSE, header=FALSE,rownames=FALSE))
   #dataTableOutput(session,"outSelector",choices = modellOutputNames)

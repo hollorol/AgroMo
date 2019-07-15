@@ -1,9 +1,9 @@
 #showdiv-show{
   position:absolute;
-  top: 690px;
-  left:5px;
-  width:370px;
-  height: 60px;
+  top: 695px;
+  left:70px;
+  width:320px;
+  height: 55px;
   background-color: gainsboro;
   font-size: 20px;
   font-weight: bold;
@@ -11,10 +11,10 @@
 
 #showdiv-export{
   position:absolute;
-  top: 690px;
-  left:390px;
-  width:265px;
-  height: 60px;
+  top: 695px;
+  left: 405px;
+  width: 250px;
+  height: 55px;
   background-color: gainsboro;
   font-size: 20px;
   font-weight: bold;
@@ -22,7 +22,7 @@
 
 #simres {
   position: absolute;
-  top: 10px;
+  top: 15px;
   left: -312px;
   font-weight: bold;
   font-size: 16px;
@@ -30,16 +30,16 @@
 
 #observations {
   position: absolute;
-  top: 10px;
-  left:15px;
+  top: 15px;
+  left:70px;
   font-weight: bold;
   font-size: 16px;
 } 
 
 #createplot {
   position: absolute;
-  top: 150px;
-  left:15px;
+  top: 155px;
+  left:70px;
   font-weight: bold;
   font-size: 16px;
 } 
@@ -47,56 +47,63 @@
 #repavg {
   position: absolute;
   top: 115px;
-  left: 160px;
+  left: 230px;
   font-size: 16px;
 } 
 
 #showdiv-averagep {
   position: absolute;
   top: 98px;
-  left: 142px;
+  left: 210px;
 }
 
 #showdiv-experimentID_container .selectize-control.shinyjs-resettable.single .selectize-input{
-    width: 518px;
+    width: 450px;
     position: absolute;
-    top: 18px;
-    left:120px;
+    top: 23px;
+    left:187px;
+  font-size: 16px;
 }
 
 #showdiv-treatmentID_container .selectize-control.shinyjs-resettable.single .selectize-input{
-    width: 518px;
+    width: 450px;
     position: absolute;
     top: 60px;
-    left:120px;
+    left:187px;
+  font-size: 16px;
 }
 
 #showdiv-groupID_container .selectize-control.shinyjs-resettable.single .selectize-input{
-    width: 500px;
+    width: 435px;
     position: absolute;
-    top: 620px;
-    left:140px;
+    top: 628px;
+    left:208px;
+  font-size: 16px;
 }
 
 #showdiv-groupID_container .control-label{
     position: absolute;
-    top: 642px;
-    right: 405px;
+    top: 648px;
+    left: 70px;
+  font-size: 16px;
 }
 
 #showdiv-experimentID_container .control-label{
     position: absolute;
-    top: 40px;
-    right: 421px;
+    top: 45px;
+    right: 354px;
+  font-size: 16px;
 }
 
 #showdiv-treatmentID_container .control-label{
     position: absolute;
     top: 80px;
-    right: 421px;
+    right: 354px;
+  font-size: 16px;
 }
 
 #showdiv-table-output_container{
   position: absolute;
   top: 180px;
+  left: 70px;
 }
