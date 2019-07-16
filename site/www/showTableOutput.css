@@ -81,10 +81,17 @@ nemcsinal semmit
 
 /*szelessegre nem reagal*/
 #DataTables_Table_0 td:nth-child(2) {
- background-color:white;
  border-top: none;
 /* row-gap: 0px;*/
  height: 5px;
+}
+
+#DataTables_Table_0 tr:nth-child(even) {
+ background-color: rgb(249,249,249);
+}
+
+#DataTables_Table_0 tr:nth-child(odd) {
+ background-color: white;
 }
 
 #DataTables_Table_0 {
@@ -154,7 +161,7 @@ nemcsinal semmit
     height: 25px;
     top: 185px;
   left: 70px;
-    background-color: darkgrey;
+    background-color: rgb(192,192,192);
     border-top: 1px;
     border-right: 0px;
     border-bottom: 0px;

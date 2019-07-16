@@ -288,7 +288,7 @@
 #sitediv-planshift_density_container label{
   position: absolute;
   top: 327px;
-  right: 2px;
+  right: -4px;
 }
 
 
@@ -344,7 +344,7 @@
 #sitediv-fertshift_amount_container label{
   position: absolute;
   top: 405px;
-  right: 2px;
+  right: -4px;
 }
 
 
@@ -358,7 +358,7 @@
 #sitediv-irrshift_amount_container label{
   position: absolute;
   top: 443px;
-  right: 2px;
+  right: -4px;
 }
 
 #sitediv-littleblackline {
