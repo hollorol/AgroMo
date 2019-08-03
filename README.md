@@ -2,7 +2,7 @@
 
 ## Introduction
 
-AgroMo is an Integrated Assessment and Modelling software that integrates the a CERES based crop model, the BiomeBGC-MuSo biogeochemical and a simple agro-economical model in order to support decision makers at multiple scales.
+AgroMo is an Integrated Assessment and Modelling software that integrates 4M (ref) a CERES based crop model, the BiomeBGC-MuSo biogeochemical and a simple agro-economical model in order to support decision makers at multiple scales.
 
 ## AgroMo User Interface
 
@@ -60,4 +60,10 @@ A graphical user interface (GUI) has been developed for providing easy and user 
 - [ ] Data defining the plots can be exported into various file formats (e.g. xlsx, csv, etc.) by clicking the [EXPORT] button.
 
 ### AgroMo Grid
+
+#### Queries:
+NOTES: 1) in case no depth info is provided in a soil related query, by default it referes to the top soil (0-30 cm depth) 
+- sandy soils
+- soils with SOM greater than 2%
+
   
