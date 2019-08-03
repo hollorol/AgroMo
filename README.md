@@ -57,13 +57,17 @@ A graphical user interface (GUI) has been developed for providing easy and user 
   - a |plot type| 
 - [ ] Options in the |time step|, |function| and |plot type| columns can be selected via circular menus operated by clicking/scrolling in the corresponding cells.
 - [ ] Having all the desired options selected plots can be created by clicking the [PLOT] button.
-- [ ] Data defining the plots can be exported into various file formats (e.g. xlsx, csv, etc.) by clicking the [EXPORT] button.
+- [ ] Data defining the plots can be exported into various file formats (e.g. xlsx, csv) by clicking the [EXPORT] button.
 
 ### AgroMo Grid
 
 #### Queries:
-NOTES: 1) in case no depth info is provided in a soil related query, by default it referes to the top soil (0-30 cm depth) 
+NOTES: 1) in case no depth info is provided in a soil related query, by default it referes to the top soil (0-30 cm depth); 2) time slice dependent queries with no indication of the time period, by default refere to the baseline period (1981-2010); 
 - sandy soils
 - soils with SOM greater than 2%
+- places 200 m above sea level
+- arable lands
+- places with average temperature greater then 10 °C
+
 
   
