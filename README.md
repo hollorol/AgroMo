@@ -68,6 +68,7 @@ NOTES: 1) in case no depth info is provided in a soil related query, by default 
 - places 200 m above sea level
 - arable lands
 - places with average temperature greater then 10 °C
+- average/minimum/maximum/10th/90th percentile yield
 
 
   
