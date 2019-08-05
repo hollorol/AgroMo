@@ -63,12 +63,13 @@ A graphical user interface (GUI) has been developed for providing easy and user 
 
 #### Queries:
 NOTES: 1) in case no depth info is provided in a soil related query, by default it referes to the top soil (0-30 cm depth); 2) time slice dependent queries with no indication of the time period, by default refere to the baseline period (1981-2010); 
-- sandy soils
-- soils with SOM greater than 2%
-- places 200 m above sea level
-- arable lands
-- places with average temperature greater then 10 °C
-- average/minimum/maximum/10th/90th percentile yield
+- sandy soils | homok talajok
+- soils with SOM greater than 2% | >2% szervesanyag-tartalmű talajok
+- places 200+ m above sea level | a tengerszint felett 200 m-nél magasabban fekvő területek
+- arable lands | szántó területek
+- places with average temperature greater then 10 °C | 10 °C-nél magasabb átlaghőmérsékletű területek
+- average/minimum/maximum/10th/90th percentile yield | a termés átlaga/minimuma/maximuma/10-ik/90-ik percentilise
+- 0-3 cm soil layer mean temperature in May in the 2071-2100 period | 0-3 cm talajréteg májusi átlaghőmérséklete a 2071-2100 időszakban
 
 
   
