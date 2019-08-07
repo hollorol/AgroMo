@@ -6,7 +6,6 @@
     top: 10px;   
     font-size: 16px;
 }
-
 #griddiv-gridres_container .selectize-input.items.full.has-options.has-items {
     width: 210px;
     position: absolute;
@@ -19,7 +18,6 @@
     left: 240px;
     font-size: 16px;
 }
-
 #griddiv-climproj_container .selectize-input.items.full.has-options.has-items {
     width: 350px;
     position: absolute;
@@ -32,7 +30,6 @@
     left: 620px;
     font-size: 16px;
 }
-
 #griddiv-inidir_container .selectize-input.items.full.has-options.has-items {
     width: 300px;
     position: absolute;
@@ -45,13 +42,11 @@
     left: 495px;
 }
 
-
 #griddiv-algosel_container {
     position: absolute;
     top: 85px;
     font-size: 16px;
 }
-
 #griddiv-algosel_container .selectize-input.items.full.has-options.has-items {
     width: 590px;
     position: absolute;
@@ -64,7 +59,6 @@
     left: 620px;
     font-size: 16px;
 }
-
 #griddiv-story_container .selectize-input.items.full.has-options.has-items {
     width: 300px;
     position: absolute;
@@ -82,7 +76,6 @@
     top: 155px;
     font-size: 16px;
 }
-
 #griddiv-outsq_container .form-control.shinyjs-resettable.shiny-bound-input {
     width: 920px;
     position: absolute;
@@ -122,7 +115,6 @@
     position: absolute;
     top: 22px;
 }
-
 
 #griddiv-time_container {
     position: absolute;
@@ -225,9 +217,67 @@
     top: 17px;
     right: 80px;
 }
-
 #griddiv-spaggr_container .selectize-input.items.full.has-options.has-items{
     position: absolute;
     right: -122px;
     width: 195px;
 }
+
+#query{
+    position: absolute;
+    font-size: 16px;
+    font-weight: bold;
+    top: 225px;
+}
+
+#griddiv-queryTable .dataTables_scrollBody {
+  height: 225px !important;
+  width: 920px !important;
+  background-color: white;
+  font-size: 16px;
+  position: absolute;
+  top: 250px;
+}
+
+
+#griddiv-queryTable .dataTables_scrollBody td:nth-child(1){
+  display:none;
+}
+
+#griddiv-queryTable .dataTables_scrollBody td:nth-child(2){
+  border-color:white;
+}
+#DataTables_Table_1_filter.dataTables_filter {
+ position: absolute;
+ top: 480px;
+ left: 585px;
+  width: 335px;
+}
+/*
+#griddiv-queryTable .dataTables_scrollBody thead{
+  display:none;
+}
+
+#DataTables_Table_1_filter.dataTables_filter {
+ position: absolute;
+ top: 480px;
+ left: 585px;
+  width: 335px;
+}
+
+#griddiv-queryTable .dataTables_scrollBody {
+  border-bottom: 0px !important;
+  border-bottom-color: lightgrey !important;
+  border-bottom-style: solid;
+  border-bottom: 1px;
+  height: 245px !important;
+  width: 920px !important;
+  background-color: white;
+  font-size: 16px;
+  border: 1px;
+  border-color: lightgrey;
+  border-style: solid;
+  overflow-y: scroll !important;
+    position: absolute;
+    top: 220px;
+}*/

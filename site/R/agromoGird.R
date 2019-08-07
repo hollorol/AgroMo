@@ -2,7 +2,6 @@
     ns <- NS(id)
     tags$div(id = ns(id),
 
-
     tags$div(
     id = paste0(ns("ensclim"),"_container"),
     checkboxInput(ns("ensclim"), label = "Ensemble", value = FALSE)
@@ -11,8 +10,6 @@
     id =paste0(ns("ensalg"),"_container"),
     checkboxInput(ns("ensalg"), label = "Ensemble", value = FALSE)
     ),         
-    
-    
     tags$div(
       id = paste0(ns("gridres"),"_container"),
       selectInput(ns("gridres"),"GRID RESOLUTION:",NA)
@@ -33,8 +30,6 @@
       id = paste0(ns("story"),"_container"),
       selectInput(ns("story"),"STORY-LINE FILE:",NA)
     ),     
-   
-    
     tags$div(
       id = paste0(ns("outsq"),"_container"),
       textInput(ns("outsq"),"OUTPUT SQLite TABLE:",NA)
@@ -72,20 +67,20 @@
     ),
     tags$div(
       id = paste0(ns("aggrfunc"),"_container"),
-      selectInput(ns("aggrfunc"),"AGGREGATION FUNCTION ;<Af>:",NA)
+      selectInput(ns("aggrfunc"),"AGGREGATION FUNCTION <Af>:",NA)
     ),
     tags$div(
       id = paste0(ns("spaggr"),"_container"),
       selectInput(ns("spaggr"),"SPATIAL AGGREGATION |SA|:",NA)
-    )    
-             
-    #    TagList(
-    # DT::dataTableOutput(ns("queryTable"))
-    # )             
-             
-             
-             
-    )           
+    ),    
+
+tags$div(id="query","QUERY:"),
+
+## Itt is a funkcionalitas erosen kerdeses
+tagList(
+         DT::dataTableOutput(ns("queryTable"))
+  )  
+    )
                           
   }
   
@@ -93,11 +88,14 @@
     ns <- session$ns
     dat <- reactiveValues()
     dat[["dataenv"]] <-readRDS("output/outputs.RDS")
-#    modellOutputNames <- ls(dat$dataenv)
+    queryNames <- ls(dat$dataenv)
     
-    #    output$queryTable <- DT::renderDataTable({
+    tabe=data.frame(c(">T< termés <Af> a(z) [T-T] idõszakra", "LAI <Af> a(z) [T-T] idõszakra", ">S< talajréteg >T< <Vf> hõmérsékletének <Af> a(z) [T-T] idõszakra"))
+    output$queryTable <- DT::renderDataTable (tabe,options = list(autowidth = FALSE, paginate = FALSE, scrollX = FALSE, scrollY = FALSE, searching = TRUE, info = FALSE, header=FALSE,rownames=FALSE))
+    
+#    output$queryTable <- DT::renderDataTable({
       
-    # DT::datatable(data.frame(outputName = modellOutputNames), options = list(autowidth = FALSE, paginate = FALSE, scrollX = FALSE, scrollY = 600, searching = TRUE, info = FALSE, header=FALSE,rownames=FALSE))
+    # DT::datatable(data.frame(outputName = queryNames), options = list(autowidth = FALSE, paginate = FALSE, scrollX = FALSE, scrollY = 600, searching = TRUE, info = FALSE, header=FALSE,rownames=FALSE))
     #}) 
     
   }
