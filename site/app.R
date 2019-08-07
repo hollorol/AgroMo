@@ -21,7 +21,8 @@ ui <- fluidPage(
     baseWindow(
     agromoBaseUI(id= "base"), #
     hidden(agroMoSiteUI(id = "sitediv")),
-    hidden(agroMoShowUI(id = "showdiv"))
+    hidden(agroMoShowUI(id = "showdiv")),
+    hidden(agroMoGridUI(id = "griddiv"))
     )
 )
 
@@ -37,10 +38,11 @@ server <- function(input, output, session) {
              }
 
   datas <- reactiveValues(dataenv = dataenv)
-  relVals <- reactiveValues(siteRun = 0, showRun = 0, dataenv = dataenv)
+  relVals <- reactiveValues(siteRun = 0, showRun = 0, gridRun=0, dataenv = dataenv)
   renderBanner(output)
   observeEvent(input$site,mainMenu("site",relVals)) # there exist a modul called agroMoSiteUI, and  agroMoSite, with id sitediv
-  observeEvent(input$show,mainMenu("show",relVals)) 
+  observeEvent(input$show,mainMenu("show",relVals))
+  observeEvent(input$grid,mainMenu("grid",relVals))
   onclick("Site-banner-div",{
     shinyjs::hide("sitediv-sitediv")
     shinyjs::show("base")
@@ -57,6 +59,13 @@ server <- function(input, output, session) {
     shinyjs::show("Base-banner-div")
   })
 
+  onclick("Grid-banner-div",{
+    shinyjs::hide("griddiv-griddiv")
+    shinyjs::show("base")
+    shinyjs::show("base-tools")
+    shinyjs::hide(selector = ".banner")
+    shinyjs::show("Base-banner-div")
+  })
 
 }
 
