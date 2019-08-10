@@ -49,7 +49,7 @@ agroMoShowUI <- function(id){
 }
 agroMoShow <- function(input, output, session){
   ns <- session$ns
-  dat <- reactiveValues()
+  dat <- new.env()
   dat[["dataenv"]] <-readRDS("output/outputs.RDS")
   modellOutputNames <- ls(dat$dataenv)
   measurement <- fread("observations/observations.csv") 

@@ -28,28 +28,27 @@ ui <- fluidPage(
 )
 
 server <- function(input, output, session) {
-## Comming Soons
-  ##   observeEvent(input$first,{commingSoon()})#+FROM: commingSoon.r
-  ##REACTIVE VALUES
 
+  ## INITIALIZATION OF THE ENVIRONMENT
   dataenv <- if(file.exists("outputs.RDS")) {
                readRDS("output/outputs.RDS")
              } else {
                new.env()
              }
 
-  datas <- reactiveValues(dataenv = dataenv)
-  relVals <- reactiveValues(siteRun = 0, showRun = 0, gridRun=0, dataenv = dataenv)
+  datas <- reactiveValues(dataenv = dataenv, baseDir = "./")
   renderBanner(output)
 
-  observeEvent(input$choose,{
-    baseDir <- tcltk::tk_choose.dir()
-    output$mdd <- renderText({baseDir})
-  })
+  {
+    observeEvent(input$choose,{
+      baseDir <- tcltk::tk_choose.dir()
+      datas$baseDir <- baseDir
+      output$mdd <- renderText({baseDir})
+    })
+  }
+  renderBanner(output)
 
-  observeEvent(input$site,mainMenu("site",relVals)) # there exist a modul called agroMoSiteUI, and  agroMoSite, with id sitediv
-  observeEvent(input$show,mainMenu("show",relVals))
-  observeEvent(input$grid,mainMenu("grid",relVals))
+  ##BASE "MODULE"
 
   onclick("Site-banner-div",{
     shinyjs::hide("sitediv-sitediv")
@@ -74,7 +73,35 @@ server <- function(input, output, session) {
     shinyjs::hide(selector = ".banner")
     shinyjs::show("Base-banner-div")
   })
+  ## SITE MODULE
+  {
+  callModule(agroMoSite,"sitediv",isolate(input$iniFile)) 
+  }
 
+  observeEvent(input$site,{
+    shinyjs::hide("base")
+    shinyjs::hide("base-tools")
+    shinyjs::show("sitediv-sitediv")
+    shinyjs::hide(selector = ".banner")
+    shinyjs::show("Site-banner-div")
+  })
+
+  ## SHOW MODUL
+  {
+  callModule(agroMoShow,"showdiv",reactive({datas})) 
+  }
+
+  observeEvent(input$show,{
+    shinyjs::hide("base")
+    shinyjs::hide("base-tools")
+    shinyjs::show("showdiv-showdiv")
+    shinyjs::hide(selector = ".banner")
+    shinyjs::show("Show-banner-div")
+  })
+
+  ## observeEvent(input$site,mainMenu("site",relVals)) # there exist a modul called agroMoSiteUI, and  agroMoSite, with id sitediv
+  ## observeEvent(input$show,mainMenu("show",relVals))
+  ## observeEvent(input$grid,mainMenu("grid",relVals))
 }
 
 ## Run the application
