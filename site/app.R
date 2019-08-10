@@ -30,12 +30,11 @@ ui <- fluidPage(
 server <- function(input, output, session) {
 
   ## INITIALIZATION OF THE ENVIRONMENT
-  dataenv <- if(file.exists("outputs.RDS")) {
+  dataenv <- if(file.exists("output/outputs.RDS")) {
                readRDS("output/outputs.RDS")
              } else {
                new.env()
              }
-
   datas <- reactiveValues(dataenv = dataenv, baseDir = "./")
   renderBanner(output)
 
@@ -43,6 +42,7 @@ server <- function(input, output, session) {
     observeEvent(input$choose,{
       baseDir <- tcltk::tk_choose.dir()
       datas$baseDir <- baseDir
+      print(ls(datas$dataenv))
       output$mdd <- renderText({baseDir})
     })
   }
@@ -75,7 +75,13 @@ server <- function(input, output, session) {
   })
   ## SITE MODULE
   {
-  callModule(agroMoSite,"sitediv",isolate(input$iniFile)) 
+  dat <- callModule(agroMoSite,"sitediv",dataenv = reactive(datas$dataenv)) 
+  observeEvent(dat$trigger,{
+    if(dat$trigger > 0){
+      ## browser()
+      datas$dataenv <- dat$dataenv()
+    }
+  })
   }
 
   observeEvent(input$site,{

@@ -4,11 +4,12 @@ runAndPlotUI <- function(id, label){
 }
 
 
-runAndPlot <- function(input, output, session, iniFile, weatherFile, soilFile, managementFile, outputName){
+runAndPlot <- function(input, output, session, iniFile, weatherFile, soilFile, managementFile, outputName, dataenv){
   ##preparation
-dat<-reactiveValues(dataenv = NULL)
+dat<-reactiveValues(dataenv = NULL,trigger =0)
 ###if output is already done
   observeEvent(input$runModel,{
+    dat$dataenv <- dataenv()
     readAndChangeIni(iniFile(), weatherFile(), soilFile(), managementFile())
     settings <- setupGUI(iniFile())
     runModel <- reactive({future(runMuso(isolate(iniFile())))})
@@ -29,9 +30,9 @@ dat<-reactiveValues(dataenv = NULL)
       easyClose = TRUE
     ))
     )
-   return(dat)
+    dat$trigger <- dat$trigger + 1
   })
-
+return(dat)
 }
 
 runMuso <- function(iniFile){
