@@ -88,7 +88,7 @@ server <- function(input, output, session) {
 
   ## SHOW MODUL
   {
-  callModule(agroMoShow,"showdiv",reactive({datas})) 
+  callModule(agroMoShow,"showdiv")#,reactive({datas})) 
   }
 
   observeEvent(input$show,{

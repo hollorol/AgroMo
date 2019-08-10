@@ -134,16 +134,6 @@ agroMoSite <- function(input, output, session, relVals){
 
    })
 
-  output$plots <- renderUI({
-    plot_output_list <- lapply(1:13, function(i) {##14 is hardcode for now
-      plotname <- paste("plot", i, sep="")
-      plotlyOutput(plotname)
-    })
-
-                                        # Convert the list to a tagList - this is necessary for the list of items
-                                        # to display properly.
-    do.call(tagList, plot_output_list)
-  })
 
 observeEvent(input$Run,{print(input$outFile)})
 

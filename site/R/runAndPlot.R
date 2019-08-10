@@ -29,12 +29,6 @@ dat<-reactiveValues(dataenv = NULL)
       easyClose = TRUE
     ))
     )
-    ## showModal(
-    ##   modalDialog(
-    ##     renderText("joska"),
-    ##     renderText({"Fut a model fut"})
-    ##   ,easyClose = TRUE)
-    ## )
    return(dat)
   })
 
