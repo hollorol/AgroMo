@@ -37,10 +37,12 @@ function DT(tableID, classID, columnOptions, selectAllTriggerElementID){
     }
 });
 }
+
 function getWheelDelta(event) {
   //Retuns with a mousewheel-delta. browser indipendently
     return event.wheelDelta || -event.detail || event.originalEvent.wheelDelta || -event.originalEvent.detail || -(event.originalEvent.deltaY) || null;
 }
+
 function cicleArrays(argArrays,rowIndex,choosenOne,direction){
 
     var numberOfOptions = argArrays[rowIndex].length;
@@ -81,11 +83,12 @@ function putObjectAsTable(tableObject, containerID, tableID, headerID, headerCon
 function getJSONFromDataTable(){
 
     const Json = [];
-    const attributes = [];
-    $('th').each(function(){
-        attributes.push($(this).html());
-    });
-    $(".selected").each(function(){
+    const attributes = ["variable","time_step","function","plot_type"];
+    // $('th').each(function(){
+    //     attributes.push($(this).html());
+    // });
+
+    $(".selected-rows_showdiv_table_output").each(function(){
         tempObject = {};
         $(this).find("td").each(function(index,value){
             tempObject[attributes[index]] = $(this).html();

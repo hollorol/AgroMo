@@ -3,67 +3,137 @@ NORMAL RUN
 VEGETATION TYPE
 biome type          - NON-WOODY
 woody type          - DECIDUOUS
-photosyn.type       - C4 PSN
+photosyn.type       - C3 PSN
  
 CALCULATION METHODS
 hydrology           - DSSAT
 temperature         - MuSo
-photosynthesis      - DSSAT
+photosynthesis      - Farquhar
 evapotranspiration  - Penman-Montieth
 radiation           - based on SWabs
 soilstress          - based on VWC
-transfer period     - EPC
+transfer period     - GDD
 q10 value           - temperature dependent
 photosyn. acclim.   - yes
 respiration acclim. - yes
 CO2 conduct. effect - reduction
  
 DATA SOURCES
-SGS data - model estimation (with GSI method)
-EGS data - model estimation (with GSI method)
+SGS data - planting date from planting file
+EGS data - harvesting date from harvesting file
 WPM data - constant 
 MSC data - constant
-management  - NO
+management  - YES
 groundwater - NO
  
 CRITICAL VWC (m3/m3) AND PSI (MPa) VALUES OF TOP SOIL LAYER 
-saturation:                           0.474     -0.0055
-field capacity:                       0.323     -0.1279
-wilting point:                        0.173     -1.9647
+saturation:                           0.480     -0.0052
+field capacity:                       0.349     -0.1303
+wilting point:                        0.208     -1.1618
 hygroscopic water:                    0.005   -158.4893
-bulk density:                         1.410
-Clapp-Hornberger b parameter:         8.560
+bulk density:                         1.380
+Clapp-Hornberger b parameter:        10.450
  
 LIMITATION VALUES OF SWC (m3/m3) IN TOP SOIL LAYER 
-SWC (limit1 and limit2):         0.323        0.466
+SWC (limit1 and limit2):         0.304        0.473
  
 INFORMATION ABOUT SGS AND EGS VALUES (yday of onday and offday)
-SGS value (min and max):     52    120
-EGS value (min and max):    276    321
+SGS value (min and max):    109    109
+EGS value (min and max):    282    282
  
- 
+START OF PHENPHASES (MM/DD)
+04/20 04/21 04/30 05/29 07/09 07/15 09/06  
+04/20 04/21 04/26 05/26 07/08 07/15 09/01  
+04/20 04/21 05/01 06/02 07/09 07/16 09/18  
+04/20 04/21 05/05 06/02 07/11 07/19 09/13  
+04/20 04/21 05/02 06/05 07/18 07/24 09/28  
+04/20 04/21 05/03 06/01 07/14 07/21 09/15  
+04/20 04/21 04/28 06/02 07/07 07/13 09/11  
+04/20 04/21 05/03 05/22 07/04 07/12 09/02  
+04/20 04/21 05/03 05/30 07/12 07/18 09/17  
+04/20 04/21 05/09 06/03 07/15 07/21 09/27  
+04/20 04/21 04/29 06/01 07/11 07/18 09/17  
+04/20 04/21 04/26 05/28 07/16 07/23 09/16  
+04/20 04/21 04/26 05/23 07/02 07/08 08/27  
+04/20 04/21 04/30 06/01 07/06 07/14 09/10  
+04/20 04/21 05/08 06/04 07/17 07/24 10/03  
+04/20 04/21 04/27 05/20 07/07 07/15 09/14  
+04/20 04/21 05/03 05/29 07/10 07/16 09/07  
+04/20 04/21 04/26 05/19 06/30 07/07 09/05  
+04/20 04/21 04/29 05/19 07/05 07/13 09/10  
+04/20 04/21 04/27 05/31 07/11 07/19 09/15  
+04/20 04/21 05/01 05/23 07/07 07/14 09/05  
+04/20 04/21 05/03 05/29 07/09 07/16 09/10  
+04/20 04/21 05/01 05/27 07/09 07/16 09/12  
+04/20 04/21 05/01 06/02 07/20 07/29 09/25  
+04/20 04/21 05/02 05/24 07/06 07/13 09/09  
+04/20 04/21 05/05 06/03 07/16 07/22 10/07  
+04/20 04/21 04/30 05/24 07/09 07/17 09/26  
+04/20 04/21 05/01 06/04 07/23 07/31  
+04/20 04/21 05/02 05/28 07/05 07/14 09/19  
+04/20 04/21 05/08 06/11 07/26 08/02  
+04/20 04/21 05/08 06/01 07/12 07/19 09/26  
+04/20 04/21 05/07 05/30 07/13 07/19 09/12  
+04/20 04/21 04/27 05/21 07/05 07/11 09/03  
+04/20 04/21 05/05 06/03 07/22 07/31 10/09  
+04/20 04/21 05/07 05/29 07/19 07/26 10/01  
+04/20 04/21 04/26 05/20 07/02 07/09 09/05  
+04/20 04/21 05/02 06/05 07/13 07/19 09/21  
+04/20 04/21 05/02 05/30 07/11 07/19 09/17  
+04/20 04/21 04/29 05/28 07/11 07/19 09/24  
+04/20 04/21 05/03 05/26 07/12 07/20 09/24  
+04/20 04/21 05/04 06/10 07/17 07/24 09/29  
+04/20 04/21 04/29 05/24 07/07 07/15 08/29  
+04/20 04/21 04/27 05/19 06/29 07/06 09/02  
+04/20 04/21 04/28 05/26 07/07 07/14 08/30  
+04/20 04/21 04/27 05/29 07/09 07/15 09/09  
+04/20 04/21 04/27 05/19 07/02 07/09 09/11  
+04/20 04/21 05/02 05/22 07/08 07/16 09/12  
+04/20 04/21 04/29 05/30 07/10 07/18 09/12  
+04/20 04/21 04/29 05/29 07/06 07/12 09/09  
+04/20 04/21 04/26 05/18 06/27 07/05 08/26  
+04/20 04/21 04/30 05/25 07/10 07/16 09/08  
+04/20 04/21 04/29 05/21 06/29 07/06 08/25  
+04/20 04/21 04/29 05/19 06/25 07/02 08/20  
+04/20 04/21 04/29 05/31 07/12 07/20 09/17  
+04/20 04/21 05/02 05/29 07/11 07/18 09/13  
+04/20 04/21 04/26 05/24 07/07 07/13 09/07  
+04/20 04/21 04/28 05/23 06/27 07/04 08/21  
+04/20 04/21 04/30 05/27 07/03 07/10 09/01  
+04/20 04/21 04/29 05/22 07/05 07/12 08/29  
+04/20 04/21 04/29 05/26 07/06 07/13 09/02  
+04/20 04/21 04/27 05/25 07/04 07/10 08/30  
+04/20 04/21 04/29 05/23 07/01 07/06 08/23  
+04/20 04/21 04/26 05/16 06/30 07/07 08/24  
+04/20 04/21 04/27 05/25 07/06 07/13 09/03  
+04/20 04/21 04/28 05/24 07/04 07/09 08/23  
+04/20 04/21 05/04 05/31 07/07 07/14 09/07  
+04/20 04/21 05/02 05/27 07/02 07/09 08/26  
+04/20 04/21 04/26 05/16 06/22 07/01 08/16  
  
 SOME IMPORTANT ANNUAL OUTPUTS FROM LAST SIMULATION YEAR
-Cumulative sum of  GPP (gC/m2/year):                             0.0
-Cumulative sum of  NEE (gC/m2/year):                            61.8
-Cumulative sum of  ET  (kgH2O/m2/year):                        246.0
-Cumulative sum of N2O flux (gN/m2/year):                         3.9
-Maximum projected LAI (m2/m2):                                  0.00
-Humus carbon content (0-10 cm) (gC/kg soil):                     1.2
-SOM carbon content (0-10 cm) (gC/kg soil):                       1.2
-SOM nitrogen content (0-10 cm) (gN/kg soil):                     1.4
-Soil ammonium content (0-10 cm) (mgN/kg soil):                  15.1
+Cumulative sum of  GPP (gC/m2/year):                           279.0
+Cumulative sum of  NEE (gC/m2/year):                           -48.3
+Cumulative sum of  ET  (kgH2O/m2/year):                        291.9
+Cumulative sum of N2O flux (gN/m2/year):                         1.2
+Maximum projected LAI (m2/m2):                                  0.42
+Humus carbon content (0-10 cm) (gC/kg soil):                     3.8
+SOM carbon content (0-10 cm) (gC/kg soil):                       4.6
+SOM nitrogen content (0-10 cm) (gN/kg soil):                     1.7
+Soil ammonium content (0-10 cm) (mgN/kg soil):                  17.6
 Soil nitrate content (0-10 cm) (mgN/kg soil):                    3.3
-VWC of rootzone on last simulation day (m3/m3):                0.295
+VWC of rootzone on last simulation day (m3/m3):                0.323
  
-10-base logarithm of the maximum carbon balance diff.:          -14.1
+10-base logarithm of the maximum carbon balance diff.:          -13.8
 10-base logarithm of the maximum nitrogen balance diff.:        -15.2
-10-base logarithm of the maximum water balance diff.:           -10.9
-10-base logarithm of the C-N calc. numbering error:             -13.8
+10-base logarithm of the maximum water balance diff.:           -10.8
+10-base logarithm of the C-N calc. numbering error:             -11.6
  
 WARNINGS 
 Limited genetically programmed leaf senescence
 Limited maintanance respiration 
+In case of planting model-defined phenology is not possible (firstday:planting, lastday:harvesting)
+In case of user-defined phenology GSI calculation is not possible
 
 SIMULATION STATUS [0 - failure; 1 - success]
 1

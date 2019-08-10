@@ -139,7 +139,7 @@ var musoVariablesToPlot =
     "PLOT TYPE": "line"
   },
   {
-    "Variable names": "vwc_4",
+    "VARIABLE": "vwc_4",
     "TIME STEP": "day",
     "FUNCTION": "identity",
     "PLOT TYPE": "line"

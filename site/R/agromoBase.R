@@ -15,7 +15,7 @@ agromoBaseUI <- function(id){
                  class= "mainSideBar",
                         tags$div(id="mainSideBarDirectory", "MAIN DIRECTORY"),
                         actionButton("choose","CHOOSE", class = "mainSideBar"),
-                        textInput("mdd",""),
+                        textOutput("mdd"),##mdd is not a good name
                         tags$hr(id="lineComp",""),
                         tags$hr(id="lineTool",""),
                         tags$hr(id="lineMain",""),

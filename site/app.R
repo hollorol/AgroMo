@@ -5,8 +5,9 @@ library(promises)
 library(future)
 library(data.table)
 library(rhandsontable)
-plan(multisession)
 library(gtools)
+
+plan(multisession)
 sapply(paste0("R/",list.files("R","\\.R$")), source) #sourcing all R files inside the R directory.
 
 if(!file.exists("output/outputs.RDS")){
@@ -40,16 +41,23 @@ server <- function(input, output, session) {
   datas <- reactiveValues(dataenv = dataenv)
   relVals <- reactiveValues(siteRun = 0, showRun = 0, gridRun=0, dataenv = dataenv)
   renderBanner(output)
+
+  observeEvent(input$choose,{
+    baseDir <- tcltk::tk_choose.dir()
+    output$mdd <- renderText({baseDir})
+  })
+
   observeEvent(input$site,mainMenu("site",relVals)) # there exist a modul called agroMoSiteUI, and  agroMoSite, with id sitediv
   observeEvent(input$show,mainMenu("show",relVals))
   observeEvent(input$grid,mainMenu("grid",relVals))
+
   onclick("Site-banner-div",{
     shinyjs::hide("sitediv-sitediv")
     shinyjs::show("base")
     shinyjs::show("base-tools")
     shinyjs::hide(selector = ".banner")
     shinyjs::show("Base-banner-div")
-  })
+  }) ## How to put these segments into a function?
 
   onclick("Show-banner-div",{
     shinyjs::hide("showdiv-showdiv")

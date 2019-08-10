@@ -112,7 +112,7 @@ agroMoSiteUI <- function(id){
 
 
 
-agroMoSite <- function(input, output, session, outFile){
+agroMoSite <- function(input, output, session, relVals){
   dat <- reactiveValues()
   output$outputFile <- renderUI({
     ns <- session$ns

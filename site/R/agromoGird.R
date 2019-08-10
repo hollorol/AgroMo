@@ -38,6 +38,8 @@
       id = paste0(ns("queryalias"),"_container"),
       textInput(ns("queryalias"), "QUERY ALIAS:",NA)
     ),
+
+
     
 #itt a funkcionalitas kerdeses    
     tags$div(id = ns("Buttons"),
@@ -90,7 +92,7 @@ tagList(
     dat[["dataenv"]] <-readRDS("output/outputs.RDS")
     queryNames <- ls(dat$dataenv)
     
-    tabe=data.frame(c(">T< termés <Af> a(z) [T-T] idõszakra", "LAI <Af> a(z) [T-T] idõszakra", ">S< talajréteg >T< <Vf> hõmérsékletének <Af> a(z) [T-T] idõszakra"))
+    tabe=data.frame(c(">T< termes <Af> a(z) [T-T] idoszakra", "LAI <Af> a(z) [T-T] idoszakra", ">S< talajreteg >T< <Vf> homersekletenek <Af> a(z) [T-T] idoszakra"))
     output$queryTable <- DT::renderDataTable (tabe,options = list(autowidth = FALSE, paginate = FALSE, scrollX = FALSE, scrollY = FALSE, searching = TRUE, info = FALSE, header=FALSE,rownames=FALSE))
     
 #    output$queryTable <- DT::renderDataTable({

@@ -1,5 +1,9 @@
+## tryScript <- "
+##     $('.even').css('color','green');
+## "
 agroMoShowUI <- function(id){
   ns <- NS(id)
+  nsq <- function(.) glue::glue('"{ns(.)}"')
   tags$div(id = ns(id),
            tagList(
             column(4,
@@ -7,8 +11,8 @@ agroMoShowUI <- function(id){
                    DT::dataTableOutput(ns("outputSelection"))
                    #tags$div(id=ns("outputSelection_container"),DT::dataTableOutput(ns("outputSelection")))
                    #DT::dataTableOutput(ns("outputSelection"), width = "200%")
-                   #tags$script(src="outputSelector.js") ## This js file generates a DataTable into the #showdiv-table-output_container div. See the sourcecode for further information.
-                                       ),
+                                        #tags$script(src="outputSelector.js") ## This js file generates a DataTable into the #showdiv-table-output_container div. See the sourcecode for further information.
+                   ),
              column(8,
                     tags$div(id="observations","OBSERVATIONS:"),
                     tags$div(id="simres","SIMULATION RESULTS:"),
@@ -22,8 +26,21 @@ agroMoShowUI <- function(id){
                     #checkboxGroupInput(ns("createPlot"),label = "CREATE PLOT WITH:",choices = NULL),
                     tags$div(id=ns("table-header_container")), 
                     tags$div(id=ns("table-output_container")), 
+                    tags$script(HTML('Shiny.addCustomMessageHandler("jsCode", function(message) { eval(message.value); });')),
                     tags$script(src="showTableOutput.js"), ## This js file generates a DataTable into the #showdiv-table-output_container div. See the sourcecode for further information.
                     tags$script(src="outputSelector.js"), ## This js file generates a DataTable into the #showdiv-table-output_container div. See the sourcecode for further information.
+
+                    tags$script(HTML(
+                    sprintf("
+                            Shiny.addCustomMessageHandler('getTable', function(message) {
+                             Shiny.onInputChange('%s',JSON.stringify(getJSONFromDataTable()));
+                        console.log(getJSONFromDataTable());
+                      });
+", ns("outTable")
+)
+                    )),
+
+                    ## This js file generates a DataTable into the #showdiv-table-output_container div. See the sourcecode for further information.
                     actionButton(ns("show"),"PLOT"),
                     actionButton(ns("export"),"EXPORT")
                                         )
@@ -38,23 +55,43 @@ agroMoShow <- function(input, output, session){
   measurement <- fread("observations/observations.csv") 
   ## updateCheckboxGroupInput(session,"outSelector",choices = modellOutputNames)
 
+  ## session$onFlushed(function() {
+  ##   session$sendCustomMessage(type='jsCode', list(value = tryScript))
+  ## })
+
   output$outputSelection <- DT::renderDataTable({
-    
-  DT::datatable(data.frame(outputName = modellOutputNames), options = list(autowidth = FALSE, paginate = FALSE, scrollX = FALSE, scrollY = 600, searching = TRUE, info = FALSE, header=FALSE,rownames=FALSE))
+    DT::datatable(data.frame(outputName = modellOutputNames), options = list(autowidth = FALSE, paginate = FALSE, scrollX = FALSE, scrollY = 600, searching = TRUE, info = FALSE, header=FALSE,rownames=FALSE))
   })
-  #DT::datatable(data.frame(outputName = modellOutputNames), options = list(autowidth = TRUE, paginate = FALSE, scrollY = 600, scrollX = FALSE, searching = TRUE, info = FALSE, header=FALSE,rownames=FALSE))
+
+   #DT::datatable(data.frame(outputName = modellOutputNames), options = list(autowidth = TRUE, paginate = FALSE, scrollY = 600, scrollX = FALSE, searching = TRUE, info = FALSE, header=FALSE,rownames=FALSE))
   #dataTableOutput(session,"outSelector",choices = modellOutputNames)
   updateSelectInput(session,"experimentID", choices = unique(measurement$experiment))
-  updateSelectInput(session,"treatment", choices = unique(measurement$treatment))
+  updateSelectInput(session,"treatmentID", choices = unique(measurement$treatment))
   ## dataTable <- callModule(graphControl,"mainControl",reactive({input$show}))
-
+  
   observeEvent(input$show,{
-    print(dataTable$data)
-    showModal(multiPlotUI(ns("plotka"))) 
-    callModule(multiPlot,"plotka",dat$dataenv,reactive({measurement}),reactive({input$outSelector}),reactive({dataTable$data}),
-               reactive({input$experimentID}),reactive({input$treatment}),repetAvg = reactive({input$averagep}))
+    session$sendCustomMessage(type="getTable","")
+    ## if(is.null(input$outTable)){
+    ##   baba <- "nanemar"
+    ## } else {
+    ##   print(jsonlite::fromJSON(input$outTable))
+    ## }
+    ## print(dataTable$data)
+    ## showModal(multiPlotUI(ns("plotka")))
+    ## callModule(multiPlot,"plotka",dat$dataenv,reactive({measurement}),reactive({input$outSelector}),reactive({dataTable$data}),
+    ##            reactive({input$experimentID}),reactive({input$treatment}),repetAvg = reactive({input$averagep}))
+
   })
 
+  observeEvent(input$outTable,{
+    tableForPlot <- jsonlite::fromJSON(input$outTable)
+    ## print(tableForPlot)
+    runIdentifiers <- modellOutputNames[input$outputSelection_rows_selected]
+    ## print(runIdentifiers)
+    showModal(multiPlotUI(ns("plotka"))) 
+    callModule(multiPlot,"plotka",dat$dataenv,reactive({measurement}),reactive({runIdentifiers}),reactive({tableForPlot}),
+               reactive({input$experimentID}),reactive({input$treatmentID}),repetAvg = reactive({input$averagep}))
+  })
 
     observeEvent(input$refresh,{
       dat[["dataenv"]] <-readRDS("output/outputs.RDS")

@@ -33,7 +33,7 @@ plotSingle <- function(outputNames = NULL, dataenv = readRDS("output/outputs.RDS
 
   dataenv[[outputNames[1]]] <- data.table(dataenv[[outputNames[1]]])
 
-
+## browser()
   pd <- dataenv[[outputNames[1]]][,eval(quote(conversionFactor))*get(groupFun)(get(varName)),match.fun(eval(quote(timeFrame)))(date)]
   colnames(pd)<- c(timeFrame, paste0(varName,"_",groupFun))
   p <- plot_ly()
