@@ -116,7 +116,7 @@ agroMoSite <- function(input, output, session, dataenv){
   dat <- reactiveValues(dataenv = dataenv,trigger = 0)
   output$outputFile <- renderUI({
     ns <- session$ns
-    modellOutputs <- c(ls(dataenv()),input$iniFile)
+    modellOutputs <- c(dataenv(),input$iniFile)
     tagList(
       tags$div(id = "outputF", class = "inFile", selectizeInput(ns("outFile"),"OUTPUT id:",modellOutputs,selected = iniFile(),options = list(create = TRUE)))
     )
@@ -135,19 +135,7 @@ agroMoSite <- function(input, output, session, dataenv){
    })
 
 
-  ## observeEvent(input$RunModel,{
-  ##   print("Mi a viharért nem fut le másképp?")
-  ## })
-  {
-    blub <- callModule(runAndPlot,"popRun", reactive({input$iniFile}), reactive({input$weatherFile}), reactive({input$soilFile}), reactive({input$managementFile}),reactive({input$outFile}),reactive(dat$dataenv))
-    observeEvent(blub$trigger,{
-      ## browser()
-      if(blub$trigger > 0){
-        dat$dataenv <- blub$dataenv
-        dat$trigger <- dat$trigger + 1
-      }
-    })
-  }
+    callModule(runAndPlot,"popRun", reactive({input$iniFile}), reactive({input$weatherFile}), reactive({input$soilFile}), reactive({input$managementFile}),reactive({input$outFile}))#,reactive(dat$dataenv))
   
    return(dat)
 }

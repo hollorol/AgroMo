@@ -5,11 +5,8 @@ agromoBaseUI <- function(id){
                         actionButton("grid","", class = "mainMenu", style = ("background: url('img/grid.svg')")),
                         actionButton("show","", class = "mainMenu", style = ("background: url('img/show.svg')")),
                         actionButton("map","",  class = "mainMenu", style = ("background: url('img/map.svg')")))
-               
                ),
-           
-           
-           
+
                  tags$div(
                  id = ns("tools"), #base-tools
                  class= "mainSideBar",
@@ -26,6 +23,4 @@ agromoBaseUI <- function(id){
                         actionButton("storEditor","STORYLINE EDITOR",  class = "mainSideBar"),
                         actionButton("fileMan","INPUT FILE MANAGER",  class = "mainSideBar"))
            )
-   
-   
 }

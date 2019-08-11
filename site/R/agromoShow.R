@@ -3,7 +3,6 @@
 ## "
 agroMoShowUI <- function(id){
   ns <- NS(id)
-  nsq <- function(.) glue::glue('"{ns(.)}"')
   tags$div(id = ns(id),
            tagList(
             column(4,
@@ -47,21 +46,25 @@ agroMoShowUI <- function(id){
            )
        )
 }
-agroMoShow <- function(input, output, session){
+agroMoShow <- function(input, output, session, dataenv){
   ns <- session$ns
-  dat <- new.env()
-  dat[["dataenv"]] <-readRDS("output/outputs.RDS")
-  modellOutputNames <- ls(dat$dataenv)
-  measurement <- fread("observations/observations.csv") 
+  ## dat <- new.env()
+  ## dat[["dataenv"]] <-readRDS("output/outputs.RDS")
+  ## modellOutputNames <- ls(dat$dataenv)
+  measurement <- fread("observations/observations.csv")
+  initData <- reactiveValues(data = NULL)
+  observe({
+    initData$data <- dataenv()
+  })
   ## updateCheckboxGroupInput(session,"outSelector",choices = modellOutputNames)
 
   ## session$onFlushed(function() {
   ##   session$sendCustomMessage(type='jsCode', list(value = tryScript))
   ## })
+    output$outputSelection <- renderDataTable({
+      DT::datatable(data.frame(outputName = initData$data), options = list(autowidth = FALSE, paginate = FALSE, scrollX = FALSE, scrollY = 600, searching = TRUE, info = FALSE, header=FALSE,rownames=FALSE))
+    })
 
-  output$outputSelection <- DT::renderDataTable({
-    DT::datatable(data.frame(outputName = modellOutputNames), options = list(autowidth = FALSE, paginate = FALSE, scrollX = FALSE, scrollY = 600, searching = TRUE, info = FALSE, header=FALSE,rownames=FALSE))
-  })
 
    #DT::datatable(data.frame(outputName = modellOutputNames), options = list(autowidth = TRUE, paginate = FALSE, scrollY = 600, scrollX = FALSE, searching = TRUE, info = FALSE, header=FALSE,rownames=FALSE))
   #dataTableOutput(session,"outSelector",choices = modellOutputNames)
@@ -70,6 +73,7 @@ agroMoShow <- function(input, output, session){
   ## dataTable <- callModule(graphControl,"mainControl",reactive({input$show}))
   
   observeEvent(input$show,{
+    browser()
     session$sendCustomMessage(type="getTable","")
     ## if(is.null(input$outTable)){
     ##   baba <- "nanemar"
@@ -80,7 +84,6 @@ agroMoShow <- function(input, output, session){
     ## showModal(multiPlotUI(ns("plotka")))
     ## callModule(multiPlot,"plotka",dat$dataenv,reactive({measurement}),reactive({input$outSelector}),reactive({dataTable$data}),
     ##            reactive({input$experimentID}),reactive({input$treatment}),repetAvg = reactive({input$averagep}))
-
   })
 
   observeEvent(input$outTable,{

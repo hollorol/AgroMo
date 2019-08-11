@@ -4,12 +4,11 @@ runAndPlotUI <- function(id, label){
 }
 
 
-runAndPlot <- function(input, output, session, iniFile, weatherFile, soilFile, managementFile, outputName, dataenv){
+runAndPlot <- function(input, output, session, iniFile, weatherFile, soilFile, managementFile, outputName){
   ##preparation
-dat<-reactiveValues(dataenv = NULL,trigger =0)
+dat<-reactiveValues(dataenv = NULL)
 ###if output is already done
   observeEvent(input$runModel,{
-    dat$dataenv <- dataenv()
     readAndChangeIni(iniFile(), weatherFile(), soilFile(), managementFile())
     settings <- setupGUI(iniFile())
     runModel <- reactive({future(runMuso(isolate(iniFile())))})
@@ -30,9 +29,14 @@ dat<-reactiveValues(dataenv = NULL,trigger =0)
       easyClose = TRUE
     ))
     )
-    dat$trigger <- dat$trigger + 1
+    ## showModal(
+    ##   modalDialog(
+    ##     renderText("joska"),
+    ##     renderText({"Fut a model fut"})
+    ##   ,easyClose = TRUE)
+    ## )
   })
-return(dat)
+
 }
 
 runMuso <- function(iniFile){

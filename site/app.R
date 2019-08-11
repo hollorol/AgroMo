@@ -4,8 +4,7 @@ library(plotly)
 library(promises)
 library(future)
 library(data.table)
-library(rhandsontable)
-library(gtools)
+library(DT)
 
 plan(multisession)
 sapply(paste0("R/",list.files("R","\\.R$")), source) #sourcing all R files inside the R directory.
@@ -18,7 +17,7 @@ if(!file.exists("output/outputs.RDS")){
 ## Define UI
 ui <- fluidPage(
     baseHead(), #+FROM: head.R
-  useShinyjs(), 
+  useShinyjs(),
     baseWindow(
     agromoBaseUI(id= "base"), #
     hidden(agroMoSiteUI(id = "sitediv")),
@@ -31,10 +30,14 @@ server <- function(input, output, session) {
 
   ## INITIALIZATION OF THE ENVIRONMENT
   dataenv <- if(file.exists("output/outputs.RDS")) {
-               readRDS("output/outputs.RDS")
+               ls(readRDS("output/outputs.RDS"))
              } else {
-               new.env()
+               dataenv <- new.env()
+               writeRDS("output/outputs.RDS")
+               character(0)
              }
+
+  gc(verbose = FALSE)
   datas <- reactiveValues(dataenv = dataenv, baseDir = "./")
   renderBanner(output)
 
@@ -42,10 +45,10 @@ server <- function(input, output, session) {
     observeEvent(input$choose,{
       baseDir <- tcltk::tk_choose.dir()
       datas$baseDir <- baseDir
-      print(ls(datas$dataenv))
       output$mdd <- renderText({baseDir})
     })
   }
+
   renderBanner(output)
 
   ##BASE "MODULE"
@@ -73,16 +76,21 @@ server <- function(input, output, session) {
     shinyjs::hide(selector = ".banner")
     shinyjs::show("Base-banner-div")
   })
+
+
   ## SITE MODULE
   {
-  dat <- callModule(agroMoSite,"sitediv",dataenv = reactive(datas$dataenv)) 
+  dat <- callModule(agroMoSite,"sitediv",dataenv = reactive(datas$dataenv))
   observeEvent(dat$trigger,{
+    ## browser()
     if(dat$trigger > 0){
       ## browser()
       datas$dataenv <- dat$dataenv()
     }
+    print(datas$dataenv)
   })
   }
+
 
   observeEvent(input$site,{
     shinyjs::hide("base")
@@ -93,9 +101,8 @@ server <- function(input, output, session) {
   })
 
   ## SHOW MODUL
-  {
-  callModule(agroMoShow,"showdiv")#,reactive({datas})) 
-  }
+  callModule(agroMoShow,"showdiv",dataenv = reactive(datas$dataenv))
+
 
   observeEvent(input$show,{
     shinyjs::hide("base")
@@ -103,6 +110,8 @@ server <- function(input, output, session) {
     shinyjs::show("showdiv-showdiv")
     shinyjs::hide(selector = ".banner")
     shinyjs::show("Show-banner-div")
+    datas$dataenv <- ls(readRDS("output/outputs.RDS"))
+    gc(verbose = FALSE)
   })
 
   ## observeEvent(input$site,mainMenu("site",relVals)) # there exist a modul called agroMoSiteUI, and  agroMoSite, with id sitediv
