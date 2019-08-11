@@ -43,6 +43,9 @@ musoDate <- function(startYear, endYears = NULL, numYears, combined = TRUE, leap
 }
 
 setupGUI <- function(iniName){
+
+  settings <- new.env()
+
  if(length(iniName)==0){
    return("")
  }
@@ -61,29 +64,38 @@ setupGUI <- function(iniName){
 
    }
 
- ini <- readLines(paste0("input/","initialization/",iniName))
+  ini <- readLines(paste0("input/","initialization/",iniName))
+  settings[["epc"]] <- basename(searchBellow(ini,"EPC_FILE"))
+  settings[["meteo"]] <- basename(searchBellow(ini,"MET_INPUT"))
+  settings[["soil"]] <- basename(searchBellow(ini,"SOILPROP_FILE"))
+  settings[["mgm"]] <- basename(searchBellow(ini,"MANAGEMENT_FILE",management = TRUE))
+  settings[["outputName"]]<- basename(searchBellow(ini,"OUTPUT_CONTROL"))
+  settings[["numYears"]] <- searchBellow(ini,"TIME_DEFINE",FALSE,2)
+  settings[["startYear"]] <- searchBellow(ini,"TIME_DEFINE",FALSE,3)
+  settings[["numOutVars"]] <- 26# It is faster than using a function for it. (length(variableNames))
+  settings[["numLayers"]] <- 7
+  settings[["variableNames"]] <- c("leaf_DM", "leaflitr_DM", "froot_DM", "fruit_DM", "softstem_DM", "proj_lai", "cum_evap", "cum_trans", "rooting_depth", "daily_gpp", "daily_tr", "daily_nee", "tsoil_0", "tsoil_1", "tsoil_2", "tsoil_3", "tsoil_4", "tsoil_5", "tsoil_6", "vwc_0", "vwc_1", "vwc_2", "vwc_3", "vwc_4", "vwc_5", "vwc_6")
 
- epc <- basename(searchBellow(ini,"EPC_FILE"))
- meteo <- basename(searchBellow(ini,"MET_INPUT"))
- soil <- basename(searchBellow(ini,"SOILPROP_FILE"))
-   mgm <- basename(searchBellow(ini,"MANAGEMENT_FILE",management = TRUE))
-   outputName<- basename(searchBellow(ini,"OUTPUT_CONTROL"))
-   numYears <- searchBellow(ini,"TIME_DEFINE",FALSE,2)
-   startYear <- searchBellow(ini,"TIME_DEFINE",FALSE,3)
- numOutVars <- 26# It is faster than using a function for it. (length(variableNames))
-   numLayers <- 7
- variableNames <- c("leaf_DM", "leaflitr_DM", "froot_DM", "fruit_DM", "softstem_DM", "proj_lai", "cum_evap", "cum_trans", "rooting_depth", "daily_gpp", "daily_tr", "daily_nee", "tsoil_0", "tsoil_1", "tsoil_2", "tsoil_3", "tsoil_4", "tsoil_5", "tsoil_6", "vwc_0", "vwc_1", "vwc_2", "vwc_3", "vwc_4", "vwc_5", "vwc_6")
+  mgm <- with(settings,{
+    if(mgm != "no management"){
+      readLines(paste0("input/","initialization/",mgm))
+    } else {
+      NA
+    }
+  })
+  ## manTypes <- c("planting","harvest","fertilization","irrigation","cultivation","grazing","mowing","thinning")
 
-   list(epc = epc,
-        meteo = meteo,
-        soil = soil,
-        mgm = mgm ,
-        outputName =  outputName,
-        startYear =  startYear,
-        numYears  = numYears,
-        variableNames =  variableNames,
-        numData = numOutVars*365*numYears # This 365 hardfix have to be changed when the model can handle leap years.
-        )
+  ## if(is.na(mgm)){
+  ##   Map(function(x,y){assign(x,y,envir=settings)},manTypes,rep(NA,8))
+  ## } else {
+    
+  ##   Map(function(x,y){assign(x,y,envir=settings)},manTypes,manResults)
+  ## }
+
+
+
+  settings[["numData"]] <- with(settings,numOutVars * 365 * numYears)
+  return(settings)
 }
 
 

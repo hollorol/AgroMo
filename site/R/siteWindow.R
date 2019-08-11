@@ -9,13 +9,14 @@ createInputElements <- function(baseTable){
     })
 }
 
+managementTypes <- c("planting", "harvest", "fertilization", "irrigation", "cultivation", "grazing", "mowing", "thinning")
+
 createInputs <- function(baseTable){
   tags$div(id = "fileOutput", class="inFile",createInputElements(baseTable = baseTable))
 }
 
 agroMoSiteUI <- function(id){
   ns <- NS(id)
-
   baseTable<- data.frame(selectorId <- c(ns("iniFile"), ns("weatherFile"), ns("soilFile"), ns("managementFile")),
                          label <- c("INI file:", "WEATHER file:", "SOIL file:", "MANAGEMENT file:"),
                          place <- c("input/initialization/", "input/weather", "input/soil", "input/management"),
@@ -23,6 +24,7 @@ agroMoSiteUI <- function(id){
 
   
   tags$div(id = ns(id),
+
            tagList(
              tags$img(id = ns("base_bb"),src="img/base_banner_button.svg"),
              tags$img(id = ns("map_bb"),src="img/map_banner_button.svg"),
@@ -39,38 +41,18 @@ agroMoSiteUI <- function(id){
                   ),
              tags$div(id="manModuls","management options:"),
              tags$div(id="shiftIn","shift in ..."),
-             tags$div(
-                    id = paste0(ns("planting"),"_container"),
-               selectInput(ns("planting"),"planting:",NA)
-             ),
-             tags$div(
-                    id = paste0(ns("harvest"),"_container"),
-               selectInput(ns("harvest"),"harvest:",NA)
-             ),
-             tags$div(
-                    id = paste0(ns("fertilization"),"_container"),
-               selectInput(ns("fertilization"),"fertilization:",NA)
-             ),
-             tags$div(
-                    id = paste0(ns("irrigation"),"_container"),
-               selectInput(ns("irrigation"),"irrigation:",NA)
-             ),
-             tags$div(
-                    id = paste0(ns("cultivation"),"_container"),
-               selectInput(ns("cultivation"),"cultivation:",NA)
-             ),
-             tags$div(
-                    id = paste0(ns("grazing"),"_container"),
-               selectInput(ns("grazing"),"grazing:",NA)
-             ),
-             tags$div(
-                    id = paste0(ns("mowing"),"_container"),
-               selectInput(ns("mowing"),"mowing:",NA)
-             ),
-             tags$div(
-                    id = paste0(ns("thinning"),"_container"),
-               selectInput(ns("thinning"),"thinning:",NA)
-             ),
+
+             lapply(managementTypes,function(man){
+               choices <- basename(grep(man,list.files("./",recursive=TRUE),value = TRUE))
+               if(length(choices)==0){
+                choices <- NA 
+               }
+               tags$div(
+                      id = paste0(ns(man),"_container"),
+                      selectInput(ns(man),paste0(man,":"),choices)
+                    )
+             }),
+
              uiOutput(ns("outputFile")),
              tags$div(id = ns("Buttons"),
              runAndPlotUI(ns("popRun"),label = "RUN"),
@@ -112,7 +94,16 @@ agroMoSiteUI <- function(id){
 
 
 
+
 agroMoSite <- function(input, output, session, dataenv){
+  managementExt <- c("planting" = "plt", "harvest" = "hrv",
+                     "fertilization" = "frt",
+                     "irrigation" = "irr",
+                     "grazing" = "grz",
+                     "mowing" = "mow",
+                     "thinning" = "thn")
+  manReactive <- reactiveValues(included=NULL)
+  managementRows <- c("plt" = 5, "thn" =  9, "mow" = 13, "grz"= 17, "hrv"= 21, "plo" = 25, "frt" = 29, "irr" = 33)
   dat <- reactiveValues(dataenv = dataenv,trigger = 0)
   output$outputFile <- renderUI({
     ns <- session$ns
@@ -123,16 +114,43 @@ agroMoSite <- function(input, output, session, dataenv){
     })
 
   iniFile <- reactive({input$iniFile})
+  mgmFile <- reactive({input$managementFile})
   observe({
      settings <- setupGUI(iniFile())
      print(iniFile())
-     if(settings[[1]] != ""){
+     if(settings$epc != ""){
        updateSelectInput(session,"soilFile", selected = settings$soil)
        updateSelectInput(session,"weatherFile", selected = settings$meteo)
        updateSelectInput(session,"managementFile", selected = settings$mgm)
      }
 
    })
+
+  observe({
+    manReactive$included <- sapply(names(managementExt),function(manName){
+      if(mgmFile()=="no management"){
+        mgmF <- ""
+      } else  {
+        mgmF<- readLines(sprintf("input/management/%s",mgmFile()))
+      }
+      included <- grep(sprintf("\\.%s$",managementExt[manName]), mgmF, value = TRUE)
+      if(length(included)==0){
+        return(NA)
+      } else {
+        return(basename(included))
+      }
+    })
+  })
+ manType <- reactive({manReactive$included}) 
+  observe({
+    updateSelectInput(session,"planting", selected = manType()[1])
+    updateSelectInput(session,"harvest", selected = manType()[2])
+    updateSelectInput(session,"fertilization", selected = manType()[3])
+    updateSelectInput(session,"irrigation", selected = manType()[4])
+    updateSelectInput(session,"grazing", selected = manType()[5])
+    updateSelectInput(session,"mowing", selected = manType()[6])
+    updateSelectInput(session,"thinning", selected = manType()[7])
+  })
 
 
     callModule(runAndPlot,"popRun", reactive({input$iniFile}), reactive({input$weatherFile}), reactive({input$soilFile}), reactive({input$managementFile}),reactive({input$outFile}))#,reactive(dat$dataenv))

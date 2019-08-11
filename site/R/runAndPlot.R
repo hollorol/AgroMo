@@ -29,12 +29,6 @@ dat<-reactiveValues(dataenv = NULL)
       easyClose = TRUE
     ))
     )
-    ## showModal(
-    ##   modalDialog(
-    ##     renderText("joska"),
-    ##     renderText({"Fut a model fut"})
-    ##   ,easyClose = TRUE)
-    ## )
   })
 
 }
@@ -46,12 +40,30 @@ runMuso <- function(iniFile){
 
 readAndChangeIni <- function(iniFile, weatherFile, soilFile, managementFile, lines = c(4,40,46)){
   print(iniFile)
-  managementPath <- if(managementFile == "no management"){managementFile} else {sprintf("input/management/%s", managementFile)}
+  managementPath <- if(managementFile == "no management"){managementFile} else {sprintf("input/management/tmp/%s", managementFile)}
   soilPath <- sprintf("input/soil/%s",soilFile)
   weatherPath <- sprintf("input/weather/%s",weatherFile)
   init <- tryCatch(readLines(sprintf("input/initialization/%s",iniFile)), error = function (e) "Cannot run the smodel")
   paths <- c(weatherPath,soilPath, managementPath)
   init[lines] <- paths
   dir.create("input/initialization/tmp/",showWarnings = FALSE)
+  dir.create("input/management/tmp/",showWarnings = FALSE)
+  managementTypes <- c("planting", "harvest", "fertilization", "irrigation", "cultivation", "grazing", "mowing", "thinning")
+  sapply(managementTypes,function(man){
+    dir.create(sprintf("input/management/%s/tmp/",man),showWarnings = FALSE)
+  })
+
   writeLines(init,sprintf("input/initialization/tmp/%s",iniFile))
+}
+
+shiftFile <- function(manFile, destFile, shiftDate, varName, shiftVar){
+
+  manDT <- fread(manFile) 
+  manDT[,DATE:=format.Date(as.Date(DATE,format="%Y.%m.%d")+shiftDate,format="%Y.%m.%d")]
+  if(is.null(varName)){
+    fwrite(manDT,destFile,sep = " ")
+  } else {
+    manDT[,eval(varName):=eval(parse(text = varName))+shiftVar]
+    fwrite(manDT,destFile,sep = " ")
+  }
 }
