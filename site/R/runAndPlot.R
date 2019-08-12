@@ -83,7 +83,7 @@ shiftFile <- function(manFile, destFile, shiftDate, varCol=NULL, shiftVar=NULL){
 ## browser()
   manDT <- fread(manFile)
   manDT[,DATE:=format.Date(as.Date(DATE,format="%Y.%m.%d")+as.numeric(shiftDate),format="%Y.%m.%d")]
-  if(is.null(varName)){
+  if(is.null(varCol)){
     fwrite(manDT,destFile,sep = " ")
   } else {
     varName <- colnames(manDT)[varCol]
