@@ -33,9 +33,10 @@ agroMoShowUI <- function(id){
                     sprintf("
                             Shiny.addCustomMessageHandler('getTable', function(message) {
                              Shiny.onInputChange('%s',JSON.stringify(getJSONFromDataTable()));
+                             Shiny.setInputValue('%s',Math.random());
                         console.log(getJSONFromDataTable());
                       });
-", ns("outTable")
+", ns("outTable"),ns("showChanged")
 )
                     )),
 
@@ -52,6 +53,7 @@ agroMoShow <- function(input, output, session, dataenv){
   ## dat[["dataenv"]] <-readRDS("output/outputs.RDS")
   ## modellOutputNames <- ls(dat$dataenv)
   measurement <- fread("observations/observations.csv")
+  datas<- reactiveValues(show=0)
   initData <- reactiveValues(data = NULL)
   observe({
     initData$data <- dataenv()
@@ -76,8 +78,9 @@ agroMoShow <- function(input, output, session, dataenv){
     session$sendCustomMessage(type="getTable","")
   })
 
-  observeEvent(input$outTable,{
+  observeEvent(input$showChanged,{
     modellOutputNames <- dataenv()
+    print(input$showChanged)
     dat <- readRDS("output/outputs.RDS")
     tableForPlot <- jsonlite::fromJSON(input$outTable)
     ## print(tableForPlot)
