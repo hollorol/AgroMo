@@ -73,26 +73,18 @@ agroMoShow <- function(input, output, session, dataenv){
   ## dataTable <- callModule(graphControl,"mainControl",reactive({input$show}))
   
   observeEvent(input$show,{
-    browser()
     session$sendCustomMessage(type="getTable","")
-    ## if(is.null(input$outTable)){
-    ##   baba <- "nanemar"
-    ## } else {
-    ##   print(jsonlite::fromJSON(input$outTable))
-    ## }
-    ## print(dataTable$data)
-    ## showModal(multiPlotUI(ns("plotka")))
-    ## callModule(multiPlot,"plotka",dat$dataenv,reactive({measurement}),reactive({input$outSelector}),reactive({dataTable$data}),
-    ##            reactive({input$experimentID}),reactive({input$treatment}),repetAvg = reactive({input$averagep}))
   })
 
   observeEvent(input$outTable,{
+    modellOutputNames <- dataenv()
+    dat <- readRDS("output/outputs.RDS")
     tableForPlot <- jsonlite::fromJSON(input$outTable)
     ## print(tableForPlot)
     runIdentifiers <- modellOutputNames[input$outputSelection_rows_selected]
     ## print(runIdentifiers)
     showModal(multiPlotUI(ns("plotka"))) 
-    callModule(multiPlot,"plotka",dat$dataenv,reactive({measurement}),reactive({runIdentifiers}),reactive({tableForPlot}),
+    callModule(multiPlot,"plotka",dat,reactive({measurement}),reactive({runIdentifiers}),reactive({tableForPlot}),
                reactive({input$experimentID}),reactive({input$treatmentID}),repetAvg = reactive({input$averagep}))
   })
 

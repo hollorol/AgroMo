@@ -89,6 +89,18 @@ server <- function(input, output, session) {
     }
     print(datas$dataenv)
   })
+
+  observeEvent(dat$show,{
+    if(dat$show > 0){
+
+      shinyjs::hide("sitediv-sitediv")
+      shinyjs::show("showdiv-showdiv")
+      shinyjs::hide(selector = ".banner")
+      shinyjs::show("Show-banner-div")
+      datas$dataenv <- ls(readRDS("output/outputs.RDS"))
+      gc(verbose = FALSE)
+    }
+  })
   }
 
 

@@ -31,6 +31,7 @@ plotSingle <- function(outputNames = NULL, dataenv = readRDS("output/outputs.RDS
     timeFrame <- "identity" # This gaves us back the current date, it will create numDays separate groups. The group function will also the identity
   }
 
+  ## browser()
   dataenv[[outputNames[1]]] <- data.table(dataenv[[outputNames[1]]])
 
 ## browser()

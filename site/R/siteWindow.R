@@ -45,11 +45,11 @@ agroMoSiteUI <- function(id){
              lapply(managementTypes,function(man){
                choices <- basename(grep(man,list.files("./",recursive=TRUE),value = TRUE))
                if(length(choices)==0){
-                choices <- NA 
+                 choices <- NULL
                }
                tags$div(
                       id = paste0(ns(man),"_container"),
-                      selectInput(ns(man),paste0(man,":"),choices)
+                      selectInput(ns(man),paste0(man,":"),c("none",choices))
                     )
              }),
 
@@ -102,9 +102,10 @@ agroMoSite <- function(input, output, session, dataenv){
                      "grazing" = "grz",
                      "mowing" = "mow",
                      "thinning" = "thn")
+
   manReactive <- reactiveValues(included=NULL)
   managementRows <- c("plt" = 5, "thn" =  9, "mow" = 13, "grz"= 17, "hrv"= 21, "plo" = 25, "frt" = 29, "irr" = 33)
-  dat <- reactiveValues(dataenv = dataenv,trigger = 0)
+  dat <- reactiveValues(dataenv = dataenv, trigger = 0, show = 0)
   output$outputFile <- renderUI({
     ns <- session$ns
     modellOutputs <- c(dataenv(),input$iniFile)
@@ -125,7 +126,7 @@ agroMoSite <- function(input, output, session, dataenv){
      }
 
    })
-
+  updateSelectInput(session,"cultivation",selected = NA)
   observe({
     manReactive$included <- sapply(names(managementExt),function(manName){
       if(mgmFile()=="no management"){
@@ -152,8 +153,25 @@ agroMoSite <- function(input, output, session, dataenv){
     updateSelectInput(session,"thinning", selected = manType()[7])
   })
 
+  observeEvent(input$Show,{
+    dat$show <- dat$show + 1
+  })
 
-    callModule(runAndPlot,"popRun", reactive({input$iniFile}), reactive({input$weatherFile}), reactive({input$soilFile}), reactive({input$managementFile}),reactive({input$outFile}))#,reactive(dat$dataenv))
-  
+
+  callModule(runAndPlot,"popRun", reactive({input$iniFile}),
+             reactive({input$weatherFile}), reactive({input$soilFile}),
+             reactive({input$managementFile}), reactive({input$outFile}),
+             reactive({input$planting}), reactive({input$harvest}),
+             reactive({input$fertilization}), reactive({input$irrigation}),
+             reactive({input$grazing}), reactive({input$mowing}),
+             reactive({input$thinning}),
+             reactive({input$planshift_date}),
+             reactive({input$planshift_density}),
+             reactive({input$harvshift_date}),
+             reactive({input$fertshift_date}),
+             reactive({input$irrshift_date}),
+             reactive({input$fertshift_amount}),
+             reactive({input$irrshift_amount}))
+ 
    return(dat)
 }
