@@ -14,7 +14,7 @@
     position: absolute;
     top: 25px;
     left:-1px;
-    width: 750px;
+    width: 800px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -37,7 +37,7 @@
     position: absolute;
     top: 100px;
     left:-1px;
-    width: 750px;
+    width: 800px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -58,7 +58,7 @@
     position: absolute;
     top: 170px;
     left:-1px;
-    width: 750px;
+    width: 800px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -78,7 +78,7 @@
     position: absolute;
     top: 240px;
     left:-1px;
-    width: 750px;
+    width: 800px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -88,7 +88,7 @@
 #sitediv-stationp_container{
     position: absolute;
     top: 79px;
-    right: -45px;
+    right: -95px;
     font-size: 17px;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -99,7 +99,7 @@
 #sitediv-sitep_container{
   position: absolute;
   top: 149px;
-  right: -45px;
+  right: -95px;
   font-size: 17px;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -580,7 +580,8 @@
 #sitediv-refresh {
   position:absolute;
   top: 20px;
-  left: 850px;
+  left: 825px;
+  width:70px;
 }
 /*#sitediv-outFile .control-label{
     position: absolute;
