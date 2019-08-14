@@ -49,7 +49,7 @@ nemcsinal semmit
   border-bottom-color: lightgrey !important;
   border-bottom-style: solid;
   border-bottom: 1px;
-  height: 675px !important;
+  height: 630px !important;
   width: 335px !important;
   background-color: white;
   font-size: 16px;
@@ -57,6 +57,10 @@ nemcsinal semmit
   border-color: lightgrey;
   border-style: solid;
   overflow-y: scroll !important;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .dataTables_scrollBody td{
@@ -66,6 +70,7 @@ nemcsinal semmit
   white-space: nowrap !important;
   padding-top: 0px !important;
   padding-bottom: 0px !important;
+  cursor: pointer;
 }
 
 .dataTables_scrollBody thead{
@@ -102,13 +107,17 @@ nemcsinal semmit
 }
 
 #DataTables_Table_0_filter.dataTables_filter {
- position: absolute;
+  position: absolute;
  top: 685px;
- left: 0px;
-  width: 335px;
+  left: 0px;
+  width: 330px;
+  font-size:16px;
+  text-transform: uppercase;
+ border-radius: 4px;
+  text-align: center;
 }
 
-#DataTables_Table_0_filter.dataTables_filter label {
+/*#DataTables_Table_0_filter.dataTables_filter label {
  font-size:16px;
   position: absolute;
   left: 0px;
@@ -118,7 +127,7 @@ nemcsinal semmit
 #DataTables_Table_0_filter.dataTables_filter input {
  width: 255px;
  border-radius: 4px;
-}
+}*/
 
 /*sorszamozast kiszedi*/
 #DataTables_Table_0 td:nth-child(1) {
@@ -191,17 +200,17 @@ nemcsinal semmit
 
 #showdiv-table-output-header th:nth-child(2){
     position: absolute;
-  left: 295px;
+  left: 280px;
 }
 
 #showdiv-table-output-header th:nth-child(3){
     position: absolute;
-  left: 382px;
+  left: 370px;
 }
 
 #showdiv-table-output-header th:nth-child(4){
     position: absolute;
-  left: 464px;
+  left: 454px;
 }
 
 
@@ -238,7 +247,7 @@ nemcsinal semmit
 }
 #showdiv-table-output td:nth-child(1) {  
   padding-left: 10px;
-  width: 300px;
+  width: 280px;
 }
 #showdiv-table-output td:nth-child(2) {  
   padding-left: 10px;

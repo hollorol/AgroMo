@@ -26,6 +26,10 @@
   left: -312px;
   font-weight: bold;
   font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 } 
 
 #observations {
@@ -34,6 +38,10 @@
   left:70px;
   font-weight: bold;
   font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 } 
 
 #createplot {
@@ -42,6 +50,10 @@
   left:70px;
   font-weight: bold;
   font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 } 
 
 #repavg {
@@ -49,6 +61,10 @@
   top: 115px;
   left: 230px;
   font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 } 
 
 #showdiv-averagep {
@@ -86,6 +102,10 @@
     top: 648px;
     left: 70px;
   font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 #showdiv-experimentID_container .control-label{
@@ -93,6 +113,10 @@
     top: 45px;
     right: 354px;
   font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 #showdiv-treatmentID_container .control-label{
@@ -100,6 +124,10 @@
     top: 80px;
     right: 354px;
   font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 #showdiv-table-output_container{
