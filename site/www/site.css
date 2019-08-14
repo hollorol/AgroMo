@@ -579,9 +579,10 @@
 
 #sitediv-refresh {
   position:absolute;
-  top: 20px;
+  top: 40px;
   left: 825px;
   width:70px;
+  height: 248px;
 }
 /*#sitediv-outFile .control-label{
     position: absolute;

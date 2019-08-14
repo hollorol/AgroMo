@@ -49,7 +49,7 @@ nemcsinal semmit
   border-bottom-color: lightgrey !important;
   border-bottom-style: solid;
   border-bottom: 1px;
-  height: 630px !important;
+  height: 655px !important;
   width: 335px !important;
   background-color: white;
   font-size: 16px;
@@ -114,13 +114,17 @@ nemcsinal semmit
   font-size:16px;
   text-transform: uppercase;
  border-radius: 4px;
-  text-align: center;
+  text-align: left;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
 
+#DataTables_Table_0_filter.dataTables_filter input {
+ width: 250px;
+ border-radius: 4px;
+}
 /*#DataTables_Table_0_filter.dataTables_filter label {
  font-size:16px;
   position: absolute;
