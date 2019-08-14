@@ -583,6 +583,7 @@
   left: 825px;
   width:70px;
   height: 248px;
+  cursor: pointer;
 }
 /*#sitediv-outFile .control-label{
     position: absolute;
