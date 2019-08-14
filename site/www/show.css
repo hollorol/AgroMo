@@ -79,6 +79,10 @@
     top: 23px;
     left:187px;
   font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 #showdiv-treatmentID_container .selectize-control.shinyjs-resettable.single .selectize-input{
@@ -87,6 +91,10 @@
     top: 60px;
     left:187px;
   font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 #showdiv-groupID_container .selectize-control.shinyjs-resettable.single .selectize-input{
@@ -95,6 +103,10 @@
     top: 628px;
     left:208px;
   font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 #showdiv-groupID_container .control-label{

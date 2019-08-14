@@ -4,14 +4,21 @@
 #sitediv-iniFile_container .control-label{
     position: absolute;
     top: 20px;
-    
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 #sitediv-iniFile_container .selectize-control.shinyjs-resettable.single .selectize-input{
     position: absolute;
     top: 25px;
     left:-1px;
-    
+    width: 750px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 
@@ -19,7 +26,10 @@
 #sitediv-weatherFile_container .control-label{
     position: absolute;
     top: 95px;
-    
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
    
 }
 
@@ -27,14 +37,20 @@
     position: absolute;
     top: 100px;
     left:-1px;
-    
-   
+    width: 750px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;   
 }
 
 #sitediv-soilFile_container .control-label{
     position: absolute;
     top: 165px;
-    
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;    
    
 }
 
@@ -42,35 +58,53 @@
     position: absolute;
     top: 170px;
     left:-1px;
-    
+    width: 750px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;    
    
 }
 #sitediv-managementFile_container .control-label{
     position: absolute;
     top: 235px;
-    
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;    
     
 }
 #sitediv-managementFile_container .selectize-control.shinyjs-resettable.single .selectize-input{
     position: absolute;
     top: 240px;
     left:-1px;
-    
-    
+    width: 750px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 #sitediv-stationp_container{
     position: absolute;
     top: 79px;
-    right: -165px;
+    right: -45px;
     font-size: 17px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;    
 }
 
 #sitediv-sitep_container{
   position: absolute;
   top: 149px;
-  right: -165px;
+  right: -45px;
   font-size: 17px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
 }
 
 #manModuls{
@@ -78,6 +112,11 @@
   top: 295px;
   left: 2px;
   font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  
 }
 
 #shiftIn{
@@ -85,6 +124,10 @@
   top: 295px;
   left: 570px;
   font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 /*#sitediv-planting_container{
   position: absolute;
@@ -96,6 +139,10 @@
   top: 327px;
   right: 730px;
   font-size: 17px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
 }
 
 #sitediv-planting_container .selectize-control.single .selectize-input {
@@ -103,6 +150,10 @@
   top: 309px;
   left: 105px;
   width: 450px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
 }
 
 /*#sitediv-harvest_container{
@@ -114,6 +165,10 @@
   top: 367px;
   right: 730px;
   font-size: 17px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
 }
 
 #sitediv-harvest_container .selectize-control.single .selectize-input{
@@ -121,6 +176,10 @@
   top: 347px;
   left: 105px;
   width: 450px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
 }
 
 /*#sitediv-fertilization_container{
@@ -133,6 +192,10 @@
   top: 405px;
   right: 730px;
   font-size: 17px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
 }
 
 #sitediv-fertilization_container .selectize-control.single .selectize-input{
@@ -140,6 +203,10 @@
   top: 385px;
   left: 105px;
   width: 450px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
 }
 
 /*#sitediv-irrigation_container{
@@ -152,6 +219,10 @@
   top: 443px;
   right: 730px;
   font-size: 17px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
 }
 
 #sitediv-irrigation_container .selectize-control.single .selectize-input{
@@ -159,6 +230,10 @@
   top: 423px;
   left: 105px;
   width: 450px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
 }
 
 /*#sitediv-cultivation_container{
@@ -171,6 +246,10 @@
   top: 481px;
   right: 730px;
   font-size: 17px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
 }
 
 #sitediv-cultivation_container .selectize-control.single .selectize-input{
@@ -178,6 +257,10 @@
   top: 461px;
   left: 105px;
   width: 450px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
 }
 
 /*#sitediv-grazing_container{
@@ -190,6 +273,10 @@
   top: 519px;
   right: 730px;
   font-size: 17px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
 }
 
 #sitediv-grazing_container .selectize-control.single .selectize-input{
@@ -197,6 +284,10 @@
   top: 499px;
   left: 105px;
   width: 450px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
 }
 
 /*#sitediv-mowing_container{
@@ -209,12 +300,20 @@
   top: 557px;
   right: 730px;
   font-size: 17px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
 }
 
 #sitediv-mowing_container .selectize-control.single .selectize-input{
   top: 537px;
   left: 105px;
   width: 450px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
 }
 
 /* #sitediv-thinning_container{
@@ -227,6 +326,10 @@
   top: 595px;
   right: 730px;
   font-size: 17px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
 }
 
 #sitediv-thinning_container .selectize-control.single .selectize-input{
@@ -234,12 +337,20 @@
   top: 521px;
   left: 105px;
   width: 450px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
 }
 
 #sitediv-outputFile{
   position: absolute;
   top: 638px;
   width:900px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
 }
 
 /*#sitediv-Buttons{
@@ -268,6 +379,10 @@
   top: 321px;
   left: 645px;
    width: 55px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;   
 }
 
 
@@ -275,6 +390,10 @@
   position: absolute;
   top: 327px;
   left: 570px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
    
 }
 
@@ -283,12 +402,20 @@
   top: 321px;
   right: -65px;
   width: 55px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
 }
 
 #sitediv-planshift_density_container label{
   position: absolute;
   top: 327px;
   right: -4px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
 }
 
 
@@ -297,12 +424,20 @@
   top: 361px;
   left: 645px;
   width: 55px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
 }
 
 #sitediv-harvshift_date_container label{
   position: absolute;
   top: 367px;
   left: 570px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
 }
 
 
@@ -311,12 +446,20 @@
   top: 399px;
   left: 645px;
   width: 55px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
 }
 
 #sitediv-fertshift_date_container label{
   position: absolute;
   top: 405px;
   left: 570px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
 }
 
 
@@ -325,12 +468,20 @@
   top: 437px;
   left: 645px;
   width: 55px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
 }
 
 #sitediv-irrshift_date_container label{
   position: absolute;
   top: 443px;
   left: 570px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
 }
 
 
@@ -339,12 +490,20 @@
   top: 399px;
   right: -65px;
   width: 55px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
 }
 
 #sitediv-fertshift_amount_container label{
   position: absolute;
   top: 405px;
   right: -4px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
 }
 
 
@@ -353,12 +512,20 @@
   top: 437px;
   right: -65px;
   width: 55px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
 }
 
 #sitediv-irrshift_amount_container label{
   position: absolute;
   top: 443px;
   right: -4px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
 }
 
 #sitediv-littleblackline {
@@ -408,6 +575,12 @@
   left: -99px;
   top: 370px;
   max-width:6%;
+}
+
+#sitediv-refresh {
+  position:absolute;
+  top: 20px;
+  left: 850px;
 }
 /*#sitediv-outFile .control-label{
     position: absolute;
