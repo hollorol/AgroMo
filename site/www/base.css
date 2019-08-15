@@ -72,6 +72,19 @@
     text-align: center;
 }
 
+#mainSideBarLang {
+    /* This is the "Tools" label in the sidebar. */
+    position: absolute;
+    font-weight: 700;
+    top: 425px;
+    left: 665px;
+    font-size: 20px;
+    color: black;
+    background-color: darkgray;
+    width: 265px;
+    text-align: center;
+}
+
 #mainSideBarDirectory {
     /* This is the "Main Directory" label in the sidebar. */
     font-weight: 700;
@@ -162,7 +175,15 @@
     left: 665px;
     background-color: darkgray;
     width: 2px;
-    height: 645px;
+    height: 385px;
+}
+#lineLang {
+    position: absolute;
+    top: 410px;
+    left: 665px;
+    background-color: darkgray;
+    width: 2px;
+    height: 225px;
 }
 
 #lineComp {
@@ -182,6 +203,25 @@
     width: 2px;
     height: 73px;
 }
+
+
+#base-huFlag {
+    position: absolute;
+    top: 470px;
+    left: 675px;
+    }
+
+#base-ukFlag {
+    position: absolute;
+    top: 470px;
+    left: 763px;
+    }
+#base-gerFlag {
+    position: absolute;
+    top: 470px;
+    left: 851px;
+    }
+
  /*.mainSideBar {
    Tool buttons in base
     position: absolute;
