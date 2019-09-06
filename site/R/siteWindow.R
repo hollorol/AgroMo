@@ -26,20 +26,20 @@ agroMoSiteUI <- function(id){
   tags$div(id = ns(id),
 
            tagList(
-             tags$img(id = ns("base_bb"),src="img/base_banner_button.svg"),
-             tags$img(id = ns("map_bb"),src="img/map_banner_button.svg"),
-             tags$img(id = ns("grid_bb"),src="img/grid_banner_button.svg"),
-             tags$img(id = ns("show_bb"),src="img/show_banner_button.svg"),
+             #tags$img(id = ns("base_bb"),src="img/base_banner_button.svg"),
+             #tags$img(id = ns("map_bb"),src="img/map_banner_button.svg"),
+             #tags$img(id = ns("grid_bb"),src="img/grid_banner_button.svg"),
+             #tags$img(id = ns("show_bb"),src="img/show_banner_button.svg"),
              tags$img(id = ns("refresh"),src="img/refresh_button.svg", draggable = FALSE),
              createInputs(baseTable),
-             tags$div(
-                    id = paste0(ns("stationp"),"_container"),
-                    checkboxInput(ns("stationp"), label = "Observed data only", value = TRUE)
-                  ),
-             tags$div(
-                    id =paste0(ns("sitep"),"_container"),
-                    checkboxInput(ns("sitep"), label = "Observed data only", value = TRUE)
-                  ),
+             #tags$div(
+             #id = paste0(ns("stationp"),"_container"),
+             #      checkboxInput(ns("stationp"), label = "Observed data only", value = TRUE)
+             #    ),
+             #tags$div(
+             #      id =paste0(ns("sitep"),"_container"),
+             #      checkboxInput(ns("sitep"), label = "Observed data only", value = TRUE)
+             #    ),
              tags$div(id="manModuls","management options:"),
              tags$div(id="shiftIn","shift in ..."),
 
