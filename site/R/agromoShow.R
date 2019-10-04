@@ -7,7 +7,8 @@ agroMoShowUI <- function(id){
            tagList(
             column(4,
                    #tableOutput(ns("outputSelection"))
-                   DT::dataTableOutput(ns("outputSelection"))
+                   DT::dataTableOutput(ns("outputSelection")),
+                   DT::dataTableOutput(ns("gridoutputSelection"))
                    #tags$div(id=ns("outputSelection_container"),DT::dataTableOutput(ns("outputSelection")))
                    #DT::dataTableOutput(ns("outputSelection"), width = "200%")
                                         #tags$script(src="outputSelector.js") ## This js file generates a DataTable into the #showdiv-table-output_container div. See the sourcecode for further information.
@@ -17,9 +18,16 @@ agroMoShowUI <- function(id){
                     tags$div(id="simres","SIMULATION RESULTS:"),
                     tags$div(id="createplot","CREATE PLOT WITH:"),
                     tags$div(id="repavg","Repetitions averaged"),
+                    tags$div(id="gridsimres","GRID SIMULATION RESULTS:"),
+                    tags$div(
+                      id = paste0(ns("cellid"),"_container"),
+                      textInput(ns("cellid"), "CELL ID(s):", '222, 777, 1028')
+                    ),
                     tags$div(id=ns("experimentID_container"),selectInput(ns("experimentID"), "EXPERIMENT ID:",choices = 'NILL')),
                     tags$div(id=ns("treatmentID_container"),selectInput(ns("treatmentID"), "TREATMENT ID:",choices = 'NILL')),
-                    tags$div(id=ns("groupID_container"),selectInput(ns("groupID"), "GROUP FUNCTION:",choices = 'NILL')),
+                    tags$div(id=ns("compfunc_container"),selectInput(ns("compfunc"), "Compare function:",choices = 'NILL')),
+                    tags$div(id=ns("compbase_container"),selectInput(ns("compbase"), "Compare base:",choices = 'NILL')),
+                    tags$div(id=ns("varset_container"),selectInput(ns("varset"), "variable set:",choices = 'NILL')),
                     checkboxInput(ns("averagep"),"", value = TRUE),
                     #checkboxInput(ns("averagep"),"Repetitions averaged", value = TRUE),
                     #checkboxGroupInput(ns("createPlot"),label = "CREATE PLOT WITH:",choices = NULL),
@@ -42,7 +50,8 @@ agroMoShowUI <- function(id){
 
                     ## This js file generates a DataTable into the #showdiv-table-output_container div. See the sourcecode for further information.
                     actionButton(ns("show"),"PLOT"),
-                    actionButton(ns("export"),"EXPORT")
+                    actionButton(ns("export"),"EXPORT"),
+                    actionButton(ns("del"),"DELETE SELECTED")
                                         )
            )
        )
@@ -64,10 +73,14 @@ agroMoShow <- function(input, output, session, dataenv){
   ##   session$sendCustomMessage(type='jsCode', list(value = tryScript))
   ## })
     output$outputSelection <- renderDataTable({
-      DT::datatable(data.frame(outputName = initData$data), options = list(autowidth = FALSE, paginate = FALSE, scrollX = FALSE, scrollY = 600, searching = TRUE, info = FALSE, header=FALSE,rownames=FALSE))
+      DT::datatable(data.frame(outputName = initData$data), options = list(autowidth = FALSE, paginate = FALSE, scrollX = FALSE, scrollY = 300, searching = TRUE, info = FALSE, header=FALSE,rownames=FALSE))
+      #DT::datatable(data.frame(outputName = initData$data), options = list(autowidth = FALSE, paginate = FALSE, scrollX = FALSE, scrollY = 300, searching = TRUE, info = FALSE, header=FALSE,rownames=FALSE)) 
     })
 
-
+    output$gridoutputSelection <- renderDataTable({
+      DT::datatable(data.frame(outputName = ''), options = list(autowidth = FALSE, paginate = FALSE, scrollX = FALSE, scrollY = 100, searching = TRUE, info = FALSE, header=FALSE,rownames=FALSE))
+    })
+    
    #DT::datatable(data.frame(outputName = modellOutputNames), options = list(autowidth = TRUE, paginate = FALSE, scrollY = 600, scrollX = FALSE, searching = TRUE, info = FALSE, header=FALSE,rownames=FALSE))
   #dataTableOutput(session,"outSelector",choices = modellOutputNames)
   updateSelectInput(session,"experimentID", choices = unique(measurement$experiment))

@@ -44,12 +44,12 @@ nemcsinal semmit
   display: none;
 }
 
-.dataTables_scrollBody {
+#showdiv-outputSelection .dataTables_scrollBody {
   /*border-bottom: 0px !important;*/
   border-bottom-color: lightgrey !important;
   border-bottom-style: solid;
   border-bottom: 1px;
-  height: 710px !important;
+  height: 380px !important;
   width: 335px !important;
   background-color: white;
   font-size: 16px;
@@ -91,11 +91,26 @@ nemcsinal semmit
  height: 5px;
 }
 
+#DataTables_Table_1 td:nth-child(2) {
+ border-top: none;
+/* row-gap: 0px;*/
+ height: 5px;
+}
+
+
 #DataTables_Table_0 tr:nth-child(even) {
  background-color: rgb(249,249,249);
 }
 
+#DataTables_Table_1 tr:nth-child(even) {
+ background-color: rgb(249,249,249);
+}
+
 #DataTables_Table_0 tr:nth-child(odd) {
+ background-color: white;
+}
+
+#DataTables_Table_1 tr:nth-child(odd) {
  background-color: white;
 }
 
@@ -106,7 +121,30 @@ nemcsinal semmit
   /*ezzel elojohez yscroll height: 680px !important;*/
 }
 
+#DataTables_Table_1 {
+  position: absolute;
+  top: 5px;
+  left: 0px;
+  /*ezzel elojohez yscroll height: 680px !important;*/
+}
+
 #DataTables_Table_0_filter.dataTables_filter {
+  display:none;
+/*  position: absolute;
+ top: 685px;
+  left: 0px;
+  width: 330px;
+  font-size:16px;
+  text-transform: uppercase;
+ border-radius: 4px;
+  text-align: left;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;*/
+}
+
+#DataTables_Table_1_filter.dataTables_filter {
   display:none;
 /*  position: absolute;
  top: 685px;
@@ -144,6 +182,36 @@ nemcsinal semmit
   height:5px;
 }
 
+#DataTables_Table_1 td:nth-child(1) {
+  display:none;
+  height:5px;
+}
+
+#showdiv-gridoutputSelection {
+  position: absolute;
+  top: 540px;
+  left: -35px;
+}
+
+#showdiv-gridoutputSelection .dataTables_scrollBody {
+  /*border-bottom: 0px !important;*/
+  border-bottom-color: lightgrey !important;
+  border-bottom-style: solid;
+  border-bottom: 1px;
+  height: 160px !important;
+  width: 335px !important;
+  background-color: white;
+  font-size: 16px;
+  border: 1px;
+  border-color: lightgrey;
+  border-style: solid;
+  overflow-y: scroll !important;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
 /* #########Innentol van a jobb oldali tablazat#############*/
 
 .selected-rows_showdiv_table_output {
@@ -161,7 +229,7 @@ nemcsinal semmit
 }
 
 #showdiv-table-output_container {
-    height: 420px;
+    height: 390px;
     overflow-y: scroll;
     width:585px;
     border-left: 1px;
