@@ -36,6 +36,7 @@ A graphical user interface (GUI) has been developed for providing easy and user 
      - thinning management option file (extension: .thn): .\input\management\thinning\
   - PLANT specific input files (extension: .pla; folder: .\input\plant\) are referred to in the planting management option files
 - [x] When selecting an INI file the WEATHER, SOIL and MANAGEMENT files that are referred to in the INI file are automatically selected from the corresponding dropdown menus, but those could be changed freely.
+- [x] In case new INI, WEATHER, SOIL or MANAGEMENT files are placed to the corresponding folders of the file system, click the green [REFRESH] button to see the files in the corresponding dropdown menus.
 - [x] When selecting a MANAGEMENT file the management option files that are referred to in the MANAGEMENT file are automatically selected from the corresponding dropdown menus, but those could be changed freely.
 - [x] The most important parameters of the management options could be changed without accessing the management option file by adjusting the parameter values using the corresponding textboxes within the 'shift in...' section. The values can be set by typing or using the mouse scroll.
 - [x] OUTPUT id could be entered in the corresponding textbox. Output data are stored in a SQLite datatable named after the OUTPUT id.
