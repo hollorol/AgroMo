@@ -2,15 +2,15 @@
 
 ## Introduction
 
-AgroMo is an Integrated Assessment and Modelling software that integrates 4M (ref) a CERES based crop model, the BiomeBGC-MuSo biogeochemical and a simple agro-economical model in order to support decision makers at multiple scales.
+AgroMo is an Integrated Assessment and Modelling software that integrates 4M (Fodor et al. 2014) a CERES based crop model, the BiomeBGC-MuSo (Hidy et al. 2016) biogeochemical and a simple agro-economical model in order to support decision makers at multiple scales.
 
 ## AgroMo User Interface
 
-A graphical user interface (GUI) has been developed for providing easy and user freindly access to the functions of the AgroMo system. When lunching the AgroMo App the user meets the AgroMo Base form first.
+A graphical user interface (GUI) has been developed for providing easy and user friendly access to the functions of the AgroMo system. When lunching the AgroMo App the user meets the AgroMo Base form first.
 
 ### AgroMo Base
 
-![alt text](basegui.png "AgroMo Base")
+![alt text](base_gui.png "AgroMo Base")
 
 - [ ] You may choose the main directory where your data files are located (in a fixed subdirectory system) by clicking the [CHOOSE] button.
 - [x] You may go to the site specific component by clicking the [SITE] button.
