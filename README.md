@@ -28,7 +28,7 @@ A graphical user interface (GUI) has been developed for providing easy and user 
   - MANAGEMENT file (extension: .mgm): .\input\management\
      - planting management option file (extension: .plt): .\input\management\planting\
      - harvest management option file (extension: .hrv): .\input\management\harvest\
-     - fertilization management option file (extension: .frt): .\input\management\fertilization\
+     - fertilization management option file (extension: .frz): .\input\management\fertilization\
      - irrigation management option file (extension: .irr): .\input\management\irrigation\
      - cultivation management option file (extension: .cul): .\input\management\cultivation\
      - grazing management option file (extension: .grz): .\input\management\grazing\
