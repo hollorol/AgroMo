@@ -1,6 +1,10 @@
-## tryScript <- "
-##     $('.even').css('color','green');
-## "
+#' agroMoShowUI
+#' 
+#' Bla
+#' @importFrom shiny NS tagList tags column checkboxInput HTML actionButton
+#' @importFrom DT renderDT DTOutput
+
+
 agroMoShowUI <- function(id){
   ns <- NS(id)
   tags$div(id = ns(id),
@@ -9,9 +13,6 @@ agroMoShowUI <- function(id){
                    #tableOutput(ns("outputSelection"))
                    DT::dataTableOutput(ns("outputSelection")),
                    DT::dataTableOutput(ns("gridoutputSelection"))
-                   #tags$div(id=ns("outputSelection_container"),DT::dataTableOutput(ns("outputSelection")))
-                   #DT::dataTableOutput(ns("outputSelection"), width = "200%")
-                                        #tags$script(src="outputSelector.js") ## This js file generates a DataTable into the #showdiv-table-output_container div. See the sourcecode for further information.
                    ),
              column(8,
                     tags$div(id="observations","OBSERVATIONS:"),
@@ -56,57 +57,51 @@ agroMoShowUI <- function(id){
            )
        )
 }
+
 agroMoShow <- function(input, output, session, dataenv){
   ns <- session$ns
-  ## dat <- new.env()
-  ## dat[["dataenv"]] <-readRDS("output/outputs.RDS")
-  ## modellOutputNames <- ls(dat$dataenv)
   measurement <- fread("observations/observations.csv")
   datas<- reactiveValues(show=0)
   initData <- reactiveValues(data = NULL)
   observe({
     initData$data <- dataenv()
   })
-  ## updateCheckboxGroupInput(session,"outSelector",choices = modellOutputNames)
-
-  ## session$onFlushed(function() {
-  ##   session$sendCustomMessage(type='jsCode', list(value = tryScript))
-  ## })
-    output$outputSelection <- renderDataTable({
+  
+    output$outputSelection <- renderDT({
       DT::datatable(data.frame(outputName = initData$data), options = list(autowidth = FALSE, paginate = FALSE, scrollX = FALSE, scrollY = 300, searching = TRUE, info = FALSE, header=FALSE,rownames=FALSE))
       #DT::datatable(data.frame(outputName = initData$data), options = list(autowidth = FALSE, paginate = FALSE, scrollX = FALSE, scrollY = 300, searching = TRUE, info = FALSE, header=FALSE,rownames=FALSE)) 
     })
-
-    output$gridoutputSelection <- renderDataTable({
-      DT::datatable(data.frame(outputName = ''), options = list(autowidth = FALSE, paginate = FALSE, scrollX = FALSE, scrollY = 100, searching = TRUE, info = FALSE, header=FALSE,rownames=FALSE))
-    })
-    
-   #DT::datatable(data.frame(outputName = modellOutputNames), options = list(autowidth = TRUE, paginate = FALSE, scrollY = 600, scrollX = FALSE, searching = TRUE, info = FALSE, header=FALSE,rownames=FALSE))
-  #dataTableOutput(session,"outSelector",choices = modellOutputNames)
-  updateSelectInput(session,"experimentID", choices = unique(measurement$experiment))
-  updateSelectInput(session,"treatmentID", choices = unique(measurement$treatment))
-  ## dataTable <- callModule(graphControl,"mainControl",reactive({input$show}))
-  
-  observeEvent(input$show,{
-    session$sendCustomMessage(type="getTable","")
-  })
-
-  observeEvent(input$showChanged,{
-    modellOutputNames <- dataenv()
-    print(input$showChanged)
-    dat <- readRDS("output/outputs.RDS")
-    tableForPlot <- jsonlite::fromJSON(input$outTable)
-    ## print(tableForPlot)
-    runIdentifiers <- modellOutputNames[input$outputSelection_rows_selected]
-    ## print(runIdentifiers)
-    showModal(multiPlotUI(ns("plotka"))) 
-    callModule(multiPlot,"plotka",dat,reactive({measurement}),reactive({runIdentifiers}),reactive({tableForPlot}),
-               reactive({input$experimentID}),reactive({input$treatmentID}),repetAvg = reactive({input$averagep}))
-  })
-
-    observeEvent(input$refresh,{
-      dat[["dataenv"]] <-readRDS("output/outputs.RDS")
-      modellOutputNames <- ls(dat$dataenv)
-    updateCheckboxGroupInput(session,"outSelector",choices = modellOutputNames)
-  })
+  #
+  #   output$gridoutputSelection <- renderDataTable({
+  #     DT::datatable(data.frame(outputName = ''), options = list(autowidth = FALSE, paginate = FALSE, scrollX = FALSE, scrollY = 100, searching = TRUE, info = FALSE, header=FALSE,rownames=FALSE))
+  #   })
+  #   
+  #  #DT::datatable(data.frame(outputName = modellOutputNames), options = list(autowidth = TRUE, paginate = FALSE, scrollY = 600, scrollX = FALSE, searching = TRUE, info = FALSE, header=FALSE,rownames=FALSE))
+  # #dataTableOutput(session,"outSelector",choices = modellOutputNames)
+  # updateSelectInput(session,"experimentID", choices = unique(measurement$experiment))
+  # updateSelectInput(session,"treatmentID", choices = unique(measurement$treatment))
+  # ## dataTable <- callModule(graphControl,"mainControl",reactive({input$show}))
+  #
+  # observeEvent(input$show,{
+  #   session$sendCustomMessage(type="getTable","")
+  # })
+  #
+  # observeEvent(input$showChanged,{
+  #   modellOutputNames <- dataenv()
+  #   print(input$showChanged)
+  #   dat <- readRDS("output/outputs.RDS")
+  #   tableForPlot <- jsonlite::fromJSON(input$outTable)
+  #   ## print(tableForPlot)
+  #   runIdentifiers <- modellOutputNames[input$outputSelection_rows_selected]
+  #   ## print(runIdentifiers)
+  #   showModal(multiPlotUI(ns("plotka"))) 
+  #   callModule(multiPlot,"plotka",dat,reactive({measurement}),reactive({runIdentifiers}),reactive({tableForPlot}),
+  #              reactive({input$experimentID}),reactive({input$treatmentID}),repetAvg = reactive({input$averagep}))
+  # })
+  #
+  #   observeEvent(input$refresh,{
+  #     dat[["dataenv"]] <-readRDS("output/outputs.RDS")
+  #     modellOutputNames <- ls(dat$dataenv)
+  #   updateCheckboxGroupInput(session,"outSelector",choices = modellOutputNames)
+  # })
 }
