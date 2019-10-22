@@ -1,0 +1,149 @@
+#showdiv-show{
+  position:absolute;
+  top: 695px;
+  left:70px;
+  width:320px;
+  height: 55px;
+  background-color: gainsboro;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#showdiv-export{
+  position:absolute;
+  top: 695px;
+  left: 405px;
+  width: 250px;
+  height: 55px;
+  background-color: gainsboro;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#simres {
+  position: absolute;
+  top: 15px;
+  left: -312px;
+  font-weight: bold;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+} 
+
+#observations {
+  position: absolute;
+  top: 15px;
+  left:70px;
+  font-weight: bold;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+} 
+
+#createplot {
+  position: absolute;
+  top: 155px;
+  left:70px;
+  font-weight: bold;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+} 
+
+#repavg {
+  position: absolute;
+  top: 115px;
+  left: 230px;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+} 
+
+#showdiv-averagep {
+  position: absolute;
+  top: 98px;
+  left: 210px;
+}
+
+#showdiv-experimentID_container .selectize-control.shinyjs-resettable.single .selectize-input{
+    width: 450px;
+    position: absolute;
+    top: 23px;
+    left:187px;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#showdiv-treatmentID_container .selectize-control.shinyjs-resettable.single .selectize-input{
+    width: 450px;
+    position: absolute;
+    top: 60px;
+    left:187px;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#showdiv-groupID_container .selectize-control.shinyjs-resettable.single .selectize-input{
+    width: 430px;
+    position: absolute;
+    top: 628px;
+    left:208px;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#showdiv-groupID_container .control-label{
+    position: absolute;
+    top: 648px;
+    left: 70px;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#showdiv-experimentID_container .control-label{
+    position: absolute;
+    top: 45px;
+    right: 354px;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#showdiv-treatmentID_container .control-label{
+    position: absolute;
+    top: 80px;
+    right: 354px;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#showdiv-table-output_container{
+  position: absolute;
+  top: 180px;
+  left: 70px;
+}

@@ -1,0 +1,230 @@
+/* Suggestions: I would suggest to use posinition: absolute css declaration in every
+                place. The positions starts at the top-left corner of the root window,
+                which is the window except the banner. */
+
+
+
+#site {
+    /*Site button */
+    position: absolute;
+    top: 60px;
+    left: -30px;
+    height: 290px;
+    width: 290px;
+    border: 4px solid gray;
+}
+
+#grid {
+    /*Grid button */
+    position: absolute;
+    top: 60px;
+    left: 300px;
+    filter: grayscale(100%);
+    height: 290px;
+    width: 290px;
+    border: 4px solid gray;
+}
+
+#show {
+    /*show button */
+    position: absolute;
+    top: 370px;
+    left: -30px;
+    height: 290px;
+    width: 290px;
+    border: 4px solid gray;
+}
+
+#map {
+    /*map button */
+    position: absolute;
+    top: 370px;
+    left: 300px;
+    filter: grayscale(100%);
+    height: 290px;
+    width: 290px;
+    border: 4px solid gray;
+}
+
+#components {
+    /*The "components" label*/
+    position: absolute;
+    font-weight: 700;
+    top: 15px;
+    left: -24px;
+    font-size: 20px;
+    color: black;
+    background-color: darkgray;
+    width: 660px;
+    text-align: center;
+}
+
+#mainSideBarTools {
+    /* This is the "Tools" label in the sidebar. */
+    position: absolute;
+    font-weight: 700;
+    top: 15px;
+    left: 665px;
+    font-size: 20px;
+    color: black;
+    background-color: darkgray;
+    width: 265px;
+    text-align: center;
+}
+
+#mainSideBarLang {
+    /* This is the "Tools" label in the sidebar. */
+    position: absolute;
+    font-weight: 700;
+    top: 425px;
+    left: 665px;
+    font-size: 20px;
+    color: black;
+    background-color: darkgray;
+    width: 265px;
+    text-align: center;
+}
+
+#mainSideBarDirectory {
+    /* This is the "Main Directory" label in the sidebar. */
+    font-weight: 700;
+    font-size: 20px;
+    color: black;
+    background-color: darkgray;
+    width: 950px;
+    text-align: center;
+    position: absolute;
+    top: 680px;
+    left: -24px;
+
+}
+
+#choose {
+    position: absolute;
+    top: 718px;
+    left: 780px;
+    width: 145px;
+    height: 35px;
+    font-weight: 700;
+    background-color: gainsboro;
+}
+
+#mdd {
+    position: absolute;
+    top: 718px;
+    left: -15px;
+    width: 780px;
+    height: 35px;
+    background-color: gainsboro;
+    font-size: 20px;
+}
+
+#parSweep {
+    position: absolute;
+    top: 55px;
+    left: 680px;
+    width: 250px;
+    height: 60px;
+    font-weight: 700;
+    background-color: gainsboro;
+}
+
+#sensitivity {
+    position: absolute;
+    top: 125px;
+    left: 680px;
+    width: 250px;
+    height: 60px;
+    font-weight: 700;
+    background-color: gainsboro;
+}
+
+#calibration {
+    position: absolute;
+    top: 195px;
+    left: 680px;
+    width: 250px;
+    height: 60px;
+    font-weight: 700;
+    background-color: gainsboro;
+}
+
+#storEditor {
+    position: absolute;
+    top: 265px;
+    left: 680px;
+    width: 250px;
+    height: 60px;
+    font-weight: 700;
+    background-color: gainsboro;
+}
+
+#fileMan {
+    position: absolute;
+    top: 335px;
+    left: 680px;
+    width: 250px;
+    height: 60px;
+    font-weight: 700;
+    background-color: gainsboro;
+}
+
+#lineTool {
+    position: absolute;
+    top: -6px;
+    left: 665px;
+    background-color: darkgray;
+    width: 2px;
+    height: 385px;
+}
+#lineLang {
+    position: absolute;
+    top: 410px;
+    left: 665px;
+    background-color: darkgray;
+    width: 2px;
+    height: 225px;
+}
+
+#lineComp {
+    position: absolute;
+    top: -6px;
+    left: -24px;
+    background-color: darkgray;
+    width: 2px;
+    height: 645px;
+}
+
+#lineMain {
+    position: absolute;
+    top: 659px;
+    left: -24px;
+    background-color: darkgray;
+    width: 2px;
+    height: 73px;
+}
+
+
+#base-huFlag {
+    position: absolute;
+    top: 470px;
+    left: 675px;
+    }
+
+#base-ukFlag {
+    position: absolute;
+    top: 470px;
+    left: 763px;
+    }
+#base-gerFlag {
+    position: absolute;
+    top: 470px;
+    left: 851px;
+    }
+
+ /*.mainSideBar {
+   Tool buttons in base
+    position: absolute;
+    top: 80px;
+}*/
+
