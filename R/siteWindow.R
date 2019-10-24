@@ -1,4 +1,4 @@
-#' agromositeui
+#' agroMoSiteUI
 #'
 #' this function defines the user interface of the site window
 #' @param id the id of the site window

@@ -1,139 +1,183 @@
-#debug(setupGUI)
-createInputElements <- function(baseTable){
-    apply(baseTable, 1,function (x){
-        if(!grepl("management",x[1])){
-            tags$div(id = paste0(x[1],"_container"), selectInput(x[1],x[2],basename(grep(list.files(x[3]), pattern = x[4], value = TRUE)),width = "100%"))
-        } else {
-            tags$div(id = paste0(x[1],"_container"), selectInput(x[1],x[2],c(basename(grep(list.files(x[3]), pattern = x[4], value = TRUE)),"no management"),width = "100%"))
-        }
-    })
-}
-
-managementTypes <- c("planting", "harvest", "fertilization", "irrigation", "cultivation", "grazing", "mowing", "thinning")
-
-createInputs <- function(baseTable){
-  tags$div(id = "fileOutput", class="inFile",createInputElements(baseTable = baseTable))
-}
-
+#' agroMoSiteUI
+#'
+#' this function defines the user interface of the site window
+#' @param id the id of the site window
+#' @importFrom shiny NS textInput checkboxInput selectInput uiOutput
+#' @keywords internal
 agroMoSiteUI <- function(id){
   ns <- NS(id)
+  baseDir <- "defaultDir"
   baseTable<- data.frame(selectorId <- c(ns("iniFile"), ns("weatherFile"), ns("soilFile"), ns("managementFile")),
                          label <- c("INI file:", "WEATHER file:", "SOIL file:", "MANAGEMENT file:"),
-                         place <- c("input/initialization/", "input/weather", "input/soil", "input/management"),
+                         place <- file.path(baseDir,c("input/initialization/site", "input/weather/site", "input/soil/site", "input/management")),
                          pattern <- c("*.ini","*.wth","*.soi","*.mgm"))
 
-  
-  tags$div(id = ns(id),
+  managementTypes <- c("planting", "harvest", "fertilization", "irrigation", "cultivation", "grazing", "mowing", "thinning")
+
+
+  dropdownElements <- shiny::tags$div(id = "fileOutput", class="inFile",
+                               apply(baseTable, 1,function (x){
+                                 if(!grepl("management",x[1])){
+                                   shiny::tags$div(id = paste0(x[1],"_container"), selectInput(x[1],x[2],basename(grep(list.files(x[3]), pattern = x[4], value = TRUE)),width = "100%"))
+                                 } else {
+                                   shiny::tags$div(id = paste0(x[1],"_container"), selectInput(x[1],x[2],c(basename(grep(list.files(x[3],recursive = TRUE), pattern = x[4], value = TRUE)),"none"),width = "100%"))
+                                 }
+                               })
+                               )
+
+
+  shiny::tags$div(id = ns(id),
 
            tagList(
-             #tags$img(id = ns("base_bb"),src="img/base_banner_button.svg"),
-             #tags$img(id = ns("map_bb"),src="img/map_banner_button.svg"),
-             #tags$img(id = ns("grid_bb"),src="img/grid_banner_button.svg"),
-             #tags$img(id = ns("show_bb"),src="img/show_banner_button.svg"),
-             tags$img(id = ns("refresh"),src="img/refresh_button.svg", draggable = FALSE),
-             createInputs(baseTable),
-             #tags$div(
-             #id = paste0(ns("stationp"),"_container"),
-             #      checkboxInput(ns("stationp"), label = "Observed data only", value = TRUE)
-             #    ),
-             #tags$div(
-             #      id =paste0(ns("sitep"),"_container"),
-             #      checkboxInput(ns("sitep"), label = "Observed data only", value = TRUE)
-             #    ),
-             tags$div(id="manModuls","management options:"),
-             tags$div(id="shiftIn","shift in ..."),
-
+             shiny::tags$img(id = ns("base_bb"),src="www/img/base_banner_button.svg"),
+             shiny::tags$img(id = ns("map_bb"),src="www/img/map_banner_button.svg"),
+             shiny::tags$img(id = ns("grid_bb"),src="www/img/grid_banner_button.svg"),
+             shiny::tags$img(id = ns("show_bb"),src="www/img/show_banner_button.svg"),
+             shiny::tags$img(id = ns("refresh"),src="www/img/refresh_button.svg", draggable = FALSE),
+             dropdownElements,
+             shiny::tags$div(
+                    id = paste0(ns("stationp"),"_container"),
+                    checkboxInput(ns("stationp"), label = "Observed data only", value = TRUE)
+                  ),
+             shiny::tags$div(
+                    id =paste0(ns("sitep"),"_container"),
+                    checkboxInput(ns("sitep"), label = "Observed data only", value = TRUE)
+                  ),
+             shiny::tags$div(id="manModuls","management options:"),
+             shiny::tags$div(id="shiftIn","shift in ..."),
              lapply(managementTypes,function(man){
                choices <- basename(grep(man,list.files("./",recursive=TRUE),value = TRUE))
                if(length(choices)==0){
                  choices <- NULL
                }
-               tags$div(
+               shiny::tags$div(
                       id = paste0(ns(man),"_container"),
                       selectInput(ns(man),paste0(man,":"),c("none",choices))
                     )
              }),
 
              uiOutput(ns("outputFile")),
-             tags$div(id = ns("Buttons"),
+             shiny::tags$div(id = ns("Buttons"),
              runAndPlotUI(ns("popRun"),label = "RUN"),
              actionButton(ns("Show"),label="PLOT")),
-             tags$div(
+             shiny::tags$div(
                     id = paste0(ns("planshift_date"),"_container"),
                textInput(ns("planshift_date"), "date (day):", 0)
              ),
-             tags$div(
+             shiny::tags$div(
                     id = paste0(ns("planshift_density"),"_container"),
                     textInput(ns("planshift_density"), "density (p/m2):", 0)
              ),
-             tags$div(
+             shiny::tags$div(
                     id = paste0(ns("harvshift_date"),"_container"),
                     textInput(ns("harvshift_date"), "date (day):", 0)
              ),
-             tags$div(
+             shiny::tags$div(
                     id = paste0(ns("fertshift_date"),"_container"),
                     textInput(ns("fertshift_date"), "date (day):", 0)
              ),
-             tags$div(
+             shiny::tags$div(
                     id = paste0(ns("irrshift_date"),"_container"),
                     textInput(ns("irrshift_date"), "date (day):", 0)
              ),
-             tags$div(
+             shiny::tags$div(
                     id = paste0(ns("fertshift_amount"),"_container"),
                     textInput(ns("fertshift_amount"), "amount (kg/ha):", 0)
              ),
-             tags$div(
+             shiny::tags$div(
                     id = paste0(ns("irrshift_amount"),"_container"),
                     textInput(ns("irrshift_amount"), "amount (mm):", 0),
-               tags$hr(id=ns("littleblackline")),
-               tags$hr(id=ns("littleblacklinetwo"))
+               shiny::tags$hr(id=ns("littleblackline")),
+               shiny::tags$hr(id=ns("littleblacklinetwo"))
              )
            )
   )
-  }
+}
+
+#' agroMoSite
+#'
+#' This function provides the server-logic for the SITE window
+#' @param input environment which provides the results of the user input
+#' @param output environment where the server output goes
+#' @param session environment to get information about the current session
+#' @param dataenv The central datastructure of the AgroMo
+#' @param baseDir baseDir is the base directory for the modell inputs/outputs
+#' @importFrom shiny reactive updateSelectInput observe textInput renderUI reactiveValues callModule observeEvent isolate 
+#' @importFrom jsonlite read_json
+#' @keywords internal
 
 
-
-
-
-agroMoSite <- function(input, output, session, dataenv){
+agroMoSite <- function(input, output, session, dataenv, baseDir, connection){
   managementExt <- c("planting" = "plt", "harvest" = "hrv",
-                     "fertilization" = "frt",
+                     "fertilization" = "frz",
                      "irrigation" = "irr",
                      "grazing" = "grz",
                      "mowing" = "mow",
                      "thinning" = "thn")
-
+  centralData <- read_json(system.file("data/centralData.json",package="agromR"),simplifyVector = TRUE)
   manReactive <- reactiveValues(included=NULL)
-  managementRows <- c("plt" = 5, "thn" =  9, "mow" = 13, "grz"= 17, "hrv"= 21, "plo" = 25, "frt" = 29, "irr" = 33)
-  dat <- reactiveValues(dataenv = dataenv, trigger = 0, show = 0)
+  managementRows <- c("plt" = 5, "thn" =  9, "mow" = 13, "grz"= 17, "hrv"= 21, "plo" = 25, "frz" = 29, "irr" = 33)
+  dat <- reactiveValues(dataenv = dataenv, trigger = 0, show = 0, baseDir = baseDir)
+  ## browser()
   output$outputFile <- renderUI({
     ns <- session$ns
-    modellOutputs <- c(dataenv(),input$iniFile)
+    odellOutputs <- c(dataenv(),input$iniFile)
     tagList(
-      tags$div(id = "outputF", class = "inFile", selectizeInput(ns("outFile"),"OUTPUT id:",modellOutputs,selected = iniFile(),options = list(create = TRUE)))
+      shiny::tags$div(id = "outputF", class = "inFile",
+
+               ## selectizeInput(ns("outFile"),"OUTPUT id:",modellOutputs,selected = iniFile(),options = list(create = TRUE))
+               textInput(ns("outFile"),"OUTPUT id:",strsplit(input$iniFile,split = "\\.")[[1]][1])
+               )
+
     )
     })
-
+  observe({
+    updateSelectInput(session,"iniFile", choices = grep("*.ini",list.files(file.path(baseDir(),"input/initialization/site")),value = TRUE))
+  })
   iniFile <- reactive({input$iniFile})
   mgmFile <- reactive({input$managementFile})
   observe({
-     settings <- setupGUI(iniFile())
-     print(iniFile())
-     if(settings$epc != ""){
+     # browser()
+     settings <- setupGUI(iniFile(),isolate(baseDir()), centralData)
+     # sapply(ls(settings),function(x){print(settings$x)})
+     # browser()
+     if(!is.null(settings) && settings$epc != ""){
        updateSelectInput(session,"soilFile", selected = settings$soil)
        updateSelectInput(session,"weatherFile", selected = settings$meteo)
+       ## browser()
        updateSelectInput(session,"managementFile", selected = settings$mgm)
      }
 
    })
+
+  observe({
+     #  print(baseDir())
+     # browser()
+      updateSelectInput(session,"soilFile",
+                        choices = basename(grep("*.soi",
+                                       list.files(file.path(baseDir(),"input","soil","site"),recursive = TRUE),value = TRUE)))
+
+      updateSelectInput(session,"weatherFile",
+                        choices = basename(grep("*.wth",
+                                                list.files(file.path(
+                                                  baseDir(),"input","weather","site")
+                                                 ,recursive = TRUE),value = TRUE)))
+      updateSelectInput(session,"managementFile",
+                        choices = basename(grep("*.mgm",
+                                                list.files(file.path(
+                                                  baseDir(),"input","management")
+                                                 ,recursive = TRUE),value = TRUE)))
+
+
+  })
   updateSelectInput(session,"cultivation",selected = NA)
   observe({
     manReactive$included <- sapply(names(managementExt),function(manName){
-      if(mgmFile()=="no management"){
+      if(mgmFile()=="none"){
         mgmF <- ""
       } else  {
-        mgmF<- readLines(sprintf("input/management/%s",mgmFile()))
+        ## browser()
+        mgmF<- readLines(file.path(isolate(baseDir()),"input","management",mgmFile()))
       }
       included <- grep(sprintf("\\.%s$",managementExt[manName]), mgmF, value = TRUE)
       if(length(included)==0){
@@ -143,7 +187,7 @@ agroMoSite <- function(input, output, session, dataenv){
       }
     })
   })
- manType <- reactive({manReactive$included}) 
+ manType <- reactive({manReactive$included})
   observe({
     updateSelectInput(session,"planting", selected = manType()[1])
     updateSelectInput(session,"harvest", selected = manType()[2])
@@ -158,8 +202,27 @@ agroMoSite <- function(input, output, session, dataenv){
     dat$show <- dat$show + 1
   })
 
+  onclick("refresh",{
 
-  callModule(runAndPlot,"popRun", reactive({input$iniFile}),
+    ## browser()
+    updateSelectInput(session,"soilFile",
+                      choices = basename(grep("*.soi",
+                                              list.files(file.path(baseDir(),"input","soil","site"),recursive = TRUE),value = TRUE)))
+
+    updateSelectInput(session,"weatherFile",
+                      choices = basename(grep("*.wth",
+                                              list.files(file.path(baseDir(),"input","weather","site"),recursive = TRUE),value = TRUE)))
+
+    updateSelectInput(session,"managementFile",
+                      choices = basename(grep("*.mgm",
+                                              list.files(file.path(
+                                                baseDir(),"input","management")
+                                               ,recursive = TRUE),value = TRUE)))
+  })
+  observe({
+    print(input$outFile)
+  })
+  callModule(runAndPlot,"popRun",baseDir, reactive({input$iniFile}),
              reactive({input$weatherFile}), reactive({input$soilFile}),
              reactive({input$managementFile}), reactive({input$outFile}),
              reactive({input$planting}), reactive({input$harvest}),
@@ -172,7 +235,8 @@ agroMoSite <- function(input, output, session, dataenv){
              reactive({input$fertshift_date}),
              reactive({input$irrshift_date}),
              reactive({input$fertshift_amount}),
-             reactive({input$irrshift_amount}))
- 
-   return(dat)
-}
+             reactive({input$irrshift_amount}),
+  reactive({connection}),reactive({centralData}))
+
+    return(dat)
+ }
