@@ -1,68 +1,36 @@
-
-/home/hollorol/projects/agromR/R//agromoBase.R,21
-aagromoBaseUI7,180
-
-/home/hollorol/projects/agromR/R//agromoGird.R,40
- agroMoGridUI1,0
- agroMoGrid89,2513
-
-/home/hollorol/projects/agromR/R//app.R,56
-aagroUI8,185
-aagroServer29,804
-llaunchApp144,4091
-
-/home/hollorol/projects/agromR/R//atStart.R,16
-..onAttach1,0
-
-/home/hollorol/projects/agromR/R//head.R,17
-bbaseHead8,125
-
-/home/hollorol/projects/agromR/R//layout.R,21
-ccreateLayout8,149
-
-/home/hollorol/projects/agromR/R//modelConnection.R,80
-mmusoDate1,0
-ssetupGUI53,1734
-rrunMuso96,3402
-rreadAndChangeIni101,3537
-
-/home/hollorol/projects/agromR/R//modelOutputs.R,100
-ddbConnection16,729
-wwriteDataToDB19,800
-iiniName24,893
-bbaseDir25,944
-ccentralData26,988
-
-/home/hollorol/projects/agromR/R//multiplot.R,82
-mmultiPlotUI1,0
-vvariableMap12,187
-cconversionMap21,972
-mmultiPlot32,1500
-
-/home/hollorol/projects/agromR/R//otherFuns.R,19
-llist.filesND1,0
-
-/home/hollorol/projects/agromR/R//plotSingle.R,105
-pplotSingle1,0
-pplotMeasuredLayers61,2490
-ddecade81,3282
-ffDate86,3350
-ggetFilteredData99,3633
-
-/home/hollorol/projects/agromR/R//profilPlot.R,18
-pplotProfile1,0
-
-/home/hollorol/projects/agromR/R//runAndPlot.R,199
-rrunAndPlotUI1,0
-rrunAndPlot7,93
-rrunMuso56,2241
-rreadAndChangeFiles65,2454
-sshiftFile92,4339
-mmanagementTemplate105,4778
-mmanagementRows106,5288
-cchangingMGM107,5401
-wwrap154,7760
-
-/home/hollorol/projects/agromR/R//siteWindow.R,43
-aagroMoSiteUI7,212
-aagroMoSite109,5297
+.onAttach	./atStart.R	/^.onAttach <- function(libname, pkgname) {$/;"
+agroMoGrid	./agromoGird.R	/^  agroMoGrid <- function(input, output, session){$/;"
+agroMoGridUI	./agromoGird.R	/^  agroMoGridUI <- function(id){$/;"
+agroMoSite	./siteWindow.R	/^agroMoSite <- function(input, output, session, dataenv, baseDir){$/;"
+agroMoSiteUI	./siteWindow.R	/^agroMoSiteUI <- function(id){$/;"
+agroServer	./app.R	/^agroServer <- function(input, output, session) {$/;"
+agroUI	./app.R	/^agroUI <- function(){$/;"
+agromoBaseUI	./agromoBase.R	/^agromoBaseUI <- function(id){$/;"
+baseHead	./head.R	/^baseHead<-function(){$/;"
+changingMGM	./runAndPlot.R	/^changingMGM <- function(mgmFile, baseDir, planting=NULL, harvest=NULL, fertilization=NULL, irrigation=NULL, grazing=NULL, mowing=NULL, thinning=NULL,$/;"
+conversionMap	./multiplot.R	/^conversionMap <- new.env()$/;"
+createLayout	./layout.R	/^createLayout <- function(...){$/;"
+decade	./plotSingle.R	/^decade <- function(datetime){$/;"
+fDate	./plotSingle.R	/^fDate <- function(dat, timeFrame){$/;"
+getFilteredData	./plotSingle.R	/^getFilteredData <- function(measurement, treatment, experiment, repetationsAveraged){$/;"
+launchApp	./app.R	/^launchApp <- function(...){$/;"
+list.filesND	./otherFuns.R	/^list.filesND <- function(path){$/;"
+managementRows	./runAndPlot.R	/^managementRows <- c("plt" = 5, "thn" =  9, "mow" = 13, "grz"= 17, "hrv"= 21, "plo" = 25, "frz" = 29, "irr" = 33)$/;"
+managementTemplate	./runAndPlot.R	/^managementTemplate <- c("MANAGEMENT_INFORMATION MuSo6", "-", "PLANTING", "1", "input\/management\/planting\/maize_mono.plt", "-", "THINNING", "1", "blubancsek.thn", "-", "MOWING", "1", "input\/mowing\/mow\/mov.mow", "-", "GRAZING", "1", "input\/management\/grazin\/bla.grz", "-", "HARVESTING", "1", "input\/management\/harvest\/maize_mono.hrv", "-", "PLOUGHING", "1", "bibcsek.plt", "-", "FERTILIZING", "1", "input\/management\/fertilization\/maize_mono.frt", "-", "IRRIGATING", "1", "input\/management\/irrigation\/maize.irr")$/;"
+multiPlot	./multiplot.R	/^multiPlot <- function(input, output, session, dataenv, measurement, outputNames, outputTable, experimentID, treatmentID,repetAvg = TRUE){$/;"
+multiPlotUI	./multiplot.R	/^multiPlotUI <- function(id){$/;"
+musoDate	./modelConnection.R	/^musoDate <- function(startYear, endYears = NULL, numYears, combined = TRUE, leapYearHandling = FALSE, prettyOut = FALSE){$/;"
+plotMeasuredLayers	./plotSingle.R	/^plotMeasuredLayers <- function(p,measurement,timeFrame,experiment_id, treatment){$/;"
+plotProfile	./profilPlot.R	/^plotProfile <- function(outputNames,dataenv=readRDS("output\/outputs.RDS"),selectedDate,profileName = "vwc-profile"){$/;"
+plotSingle	./plotSingle.R	/^plotSingle <- function(outputNames = NULL, dataenv = readRDS("output\/outputs.RDS"), varName, timeFrame, groupFun, plotT = "scatter", conversionFactor = 1, measurement, experiment_id, treatment, repetationsAveraged){ #, measurement, experiment_id, treatment, repetationsAveraged$/;"
+readAndChangeFiles	./runAndPlot.R	/^readAndChangeFiles <- function(baseDir, iniFile, weatherFile, soilFile, managementFile,$/;"
+readAndChangeIni	./modelConnection.R	/^readAndChangeIni <- function(iniFile, weatherFile, soilFile, managementFile, lines = c(4,40,46)){$/;"
+runAndPlot	./runAndPlot.R	/^runAndPlot <- function(input, output, session,baseDir,$/;"
+runAndPlotUI	./runAndPlot.R	/^runAndPlotUI <- function(id, label){$/;"
+runMuso	./modelConnection.R	/^runMuso <- function(iniFile){$/;"
+runMuso	./runAndPlot.R	/^runMuso <- function(iniFile,baseDir){$/;"
+setupGUI	./modelConnection.R	/^setupGUI <- function(iniName,baseDir){$/;"
+shiftFile	./runAndPlot.R	/^shiftFile <- function(manFile, destFile, shiftDate, varCol=NULL, shiftVar=NULL){$/;"
+variableMap	./multiplot.R	/^variableMap <- new.env()$/;"
+wrap	./runAndPlot.R	/^wrap<- function(x){$/;"
+writeDataToEnv	./modelOutputs.R	/^writeDataToEnv <- function(settings, envir,binaryName, outFile = "output\/outputs.RDS", outputName){$/;"
