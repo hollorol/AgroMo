@@ -10,16 +10,24 @@ agroMoShowUI <- function(id){
   tags$div(id = ns(id),
            tagList(
             column(4,
-                   DTOutput(ns("outputSelection"))
+                   DTOutput(ns("outputSelection")),
+                   DT::dataTableOutput(ns("gridoutputSelection"))
                    ),
              column(8,
                     tags$div(id="observations","OBSERVATIONS:"),
                     tags$div(id="simres","SIMULATION RESULTS:"),
                     tags$div(id="createplot","CREATE PLOT WITH:"),
                     tags$div(id="repavg","Repetitions averaged"),
+                    tags$div(id="gridsimres","GRID SIMULATION RESULTS:"),
+                    tags$div(
+                      id = paste0(ns("cellid"),"_container"),
+                      textInput(ns("cellid"), "CELL ID(s):", '222, 777, 1028')
+                    ),
                     tags$div(id=ns("experimentID_container"),selectInput(ns("experimentID"), "EXPERIMENT ID:",choices = 'NILL')),
                     tags$div(id=ns("treatmentID_container"),selectInput(ns("treatmentID"), "TREATMENT ID:",choices = 'NILL')),
-                    tags$div(id=ns("groupID_container"),selectInput(ns("groupFUN"), "GROUP FUNCTION:",choices = c('NILL','minimum','maxum','variance','euclidean distance','difference'))),
+                    tags$div(id=ns("compfunc_container"),selectInput(ns("compfunc"), "Compare function:",choices = 'NILL')),
+                    tags$div(id=ns("compbase_container"),selectInput(ns("compbase"), "Compare base:",choices = 'NILL')),
+                    tags$div(id=ns("varset_container"),selectInput(ns("varset"), "variable set:",choices = 'NILL')),
                     checkboxInput(ns("averagep"),"", value = TRUE),
                     tags$div(id=ns("table-header_container")),
                     tags$div(id=ns("table-output_container")),
@@ -35,12 +43,15 @@ agroMoShowUI <- function(id){
                         console.log(getJSONFromDataTable());
                       });
 ", ns("outTable"),ns("showChanged")
+
+
 )
                     )),
 
                     ## This js file generates a DataTable into the #showdiv-table-output_container div. See the sourcecode for further information.
                     actionButton(ns("show"),"PLOT"),
-                    actionButton(ns("export"),"EXPORT")
+                    actionButton(ns("export"),"EXPORT"),
+                    actionButton(ns("del"),"DELETE SELECTED")
                                         )
            )
        )
@@ -53,7 +64,7 @@ agroMoShowUI <- function(id){
 #' @importFrom shiny reactiveValues updateSelectInput NS tagList tags column checkboxInput HTML actionButton
 #' @importFrom data.table fread
 #' @importFrom DT renderDT
-#' @importFrom DBI dbListTables
+#' @importFrom DBI dbListTables dbGetQuery dbSendQuery
 
 agroMoShow <- function(input, output, session, dataenv, baseDir, connection){
   ns <- session$ns
@@ -68,6 +79,18 @@ agroMoShow <- function(input, output, session, dataenv, baseDir, connection){
   })
     output$outputSelection <- renderDT({
       DT::datatable(data.frame(outputName = initData$data), options = list(autowidth = FALSE, paginate = FALSE, scrollX = FALSE, scrollY = 600, searching = TRUE, info = FALSE, header=FALSE,rownames=FALSE))
+    
+      DT::datatable(data.frame(outputName = initData$data), options = list(autowidth = FALSE, paginate = FALSE, scrollX = FALSE, scrollY = 300, searching = TRUE, info = FALSE, header=FALSE,rownames=FALSE)) 
+    })
+
+  observeEvent(input$del,{
+                   tablesToDelete <- dbListTables(connection())[input$outputSelection_rows_selected]
+                   if(length(tablesToDelete)!=0){
+                       sapply(tablesToDelete,function(sqlTable){
+                            dbSendQuery(connection(),sprintf("DROP TABLE IF EXISTS %s",sqlTable))   # It is sad that in SQLite DROP TABLE a,b,c; not working...  
+                       })
+                       initData$data <- setdiff(initData$data, tablesToDelete)
+                   }
     })
   #
   # observe({

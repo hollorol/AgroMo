@@ -20,9 +20,169 @@
   font-weight: bold;
 }
 
+#showdiv-plotka-dateInput .control-label{
+  position: absolute;
+  top: 448px;
+  font-weight: bold;
+}
+
+#showdiv-plotka-ddec {
+  position: absolute;
+  top: 440px;
+  left: 60px;
+}
+
+#showdiv-plotka-dinc {
+  position: absolute;
+  top: 440px;
+  left: 352px;
+}
+
+.svg-container{
+  position: absolute;
+  top: 60px; 
+}
+
+#showdiv-plotka-dateInput .form-control.shinyjs-resettable{
+  position: absolute;
+  top: 440px;
+  left: 140px;
+  width: 200px;
+}
+
+
+#showdiv-del{
+  position:absolute;
+  top: 435px;
+  left: -310px;
+  width: 332px;
+  height: 55px;
+  background-color: gainsboro;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#showdiv-varset_container {
+  position: absolute;
+  top: 135px;
+  left:-310px;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+} 
+
+#showdiv-varset_container .control-label{
+  position: absolute;
+  top: 15px;
+    left: 650px;
+  width: 200px;
+  font-weight: normal;
+} 
+
+#showdiv-varset_container .selectize-input{
+  position: absolute;
+   left: 745px;
+  width: 220px;
+} 
+
+
+
+#showdiv-cellid_container {
+  position: absolute;
+  top: 720px;
+  left:-310px;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+} 
+
+
+#showdiv-cellid_container .form-control {
+  position: absolute;
+  top: -4px;
+  left: 85px;
+  width: 235px;
+  font-size: 16px;
+} 
+
+#showdiv-cellid_container .shiny-input-container label {
+  font-weight: normal;
+} 
+
+
+#showdiv-compfunc_container {
+  position: absolute;
+  top: 600px;
+  left:-310px;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+} 
+
+#showdiv-compfunc_container .control-label{
+    position: absolute;
+    top: 15px;
+    left: 385px;
+  font-weight: normal;
+  width: 300px;
+}
+
+#showdiv-compfunc_container .has-options{
+    position: absolute;
+    top: 0px;
+    left: 525px;
+    width: 440px;
+}
+
+#showdiv-compbase_container {
+  position: absolute;
+  top: 640px;
+  left:-310px;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+} 
+
+#showdiv-compbase_container .control-label{
+    position: absolute;
+    top: 15px;
+    left: 408px;
+  font-weight: normal;
+  width: 300px;
+}
+
+#showdiv-compbase_container .has-options{
+    position: absolute;
+    left: 525px;
+    width: 440px;
+}
+
+
 #simres {
   position: absolute;
   top: 15px;
+  left: -312px;
+  font-weight: bold;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+} 
+
+
+
+#gridsimres {
+  position: absolute;
+  top: 515px;
   left: -312px;
   font-weight: bold;
   font-size: 16px;
@@ -125,6 +285,7 @@
     top: 45px;
     right: 354px;
   font-size: 16px;
+  font-weight: normal;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -136,6 +297,7 @@
     top: 80px;
     right: 354px;
   font-size: 16px;
+  font-weight: normal;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
