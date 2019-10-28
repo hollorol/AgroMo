@@ -65,7 +65,7 @@ setupGUI <- function(iniName, baseDir, centralData){
              as.numeric(unlist(strsplit(inFile[grep(key,inFile,perl=TRUE)+n],split = "\\s+"))[1])
          }
  }
-
+#  browser()
   ini <- readLines(file.path(baseDir,"input","initialization","site",iniName))
   getFirstNumber <- function(rowNum) {
     as.numeric(gsub("([0-9]*).*","\\1", ini[rowNum]))

@@ -138,15 +138,17 @@ agroMoSite <- function(input, output, session, dataenv, baseDir, connection){
   mgmFile <- reactive({input$managementFile})
   observe({
      # browser()
-     settings <- setupGUI(iniFile(),isolate(baseDir()), centralData)
-     # sapply(ls(settings),function(x){print(settings$x)})
-     # browser()
-     if(!is.null(settings) && settings$epc != ""){
-       updateSelectInput(session,"soilFile", selected = settings$soil)
-       updateSelectInput(session,"weatherFile", selected = settings$meteo)
-       ## browser()
-       updateSelectInput(session,"managementFile", selected = settings$mgm)
-     }
+      if(iniFile()!=""){
+          settings <- setupGUI(iniFile(),isolate(baseDir()), centralData)
+          # sapply(ls(settings),function(x){print(settings$x)})
+          # browser()
+          if(!is.null(settings) && settings$epc != ""){
+              updateSelectInput(session,"soilFile", selected = settings$soil)
+              updateSelectInput(session,"weatherFile", selected = settings$meteo)
+              ## browser()
+              updateSelectInput(session,"managementFile", selected = settings$mgm)
+          }
+      }
 
    })
 

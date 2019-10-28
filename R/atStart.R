@@ -3,10 +3,10 @@
   print("This is AgroMo")
   shiny::addResourcePath('defaultDir',
                          system.file('defaultDir',
-                                      package = 'agromR'))
+                                      package = 'AgroMo'))
 print(system.file('www',
-                                     package = 'agromR'))
+                                     package = 'AgroMo'))
   shiny::addResourcePath('www',
                          system.file('www',
-                                     package = 'agromR'))
+                                     package = 'AgroMo'))
 }

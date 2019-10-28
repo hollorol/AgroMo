@@ -2,7 +2,7 @@
 % Please edit documentation in R/siteWindow.R
 \name{agroMoSiteUI}
 \alias{agroMoSiteUI}
-\title{agromositeui}
+\title{agroMoSiteUI}
 \usage{
 agroMoSiteUI(id)
 }

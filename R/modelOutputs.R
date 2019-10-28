@@ -9,8 +9,8 @@
 
 writeDataToDB <- function(settings, dbConnection, binaryName, outputName){
 
+#  browser()
   con <- file(binaryName,"rb")
-# browser()
   dayoutput <- matrix(readBin(con,"double",size=8,n=(settings$numData)),(settings$numYears*365),byrow=TRUE)
   close(con)
   dayoutput <- cbind.data.frame(musoDate(startYear = settings$startYear,
