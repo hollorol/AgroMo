@@ -27,7 +27,7 @@ agroMoShowUI <- function(id){
                     tags$div(id=ns("treatmentID_container"),selectInput(ns("treatmentID"), "TREATMENT ID:",choices = 'NILL')),
                     tags$div(id=ns("compfunc_container"),selectInput(ns("compfunc"), "Compare function:",choices = 'NILL')),
                     tags$div(id=ns("compbase_container"),selectInput(ns("compbase"), "Compare base:",choices = 'NILL')),
-                    tags$div(id=ns("varset_container"),selectInput(ns("varset"), "variable set:",choices = 'NILL')),
+                    tags$div(id=ns("varset_container"),selectInput(ns("varset"), "variable set:",choices = c("full","reduced"))),
                     checkboxInput(ns("averagep"),"", value = TRUE),
                     tags$div(id=ns("table-header_container")),
                     tags$div(id=ns("table-output_container")),
@@ -48,6 +48,24 @@ agroMoShowUI <- function(id){
 )
                     )),
 
+
+                   tags$script(HTML(
+                                         " 
+                                        Shiny.addCustomMessageHandler('hideHR',function(message){
+                                        $(message).addClass('hidden');
+                                        }
+                                        )  
+                                         " 
+                                          )),
+
+                    tags$script(HTML(
+                                         " 
+                                        Shiny.addCustomMessageHandler('showHR',function(message){
+                                        $(message).removeClass('hidden');
+                                        }
+                                        )  
+                                         " 
+                                          )),
                     ## This js file generates a DataTable into the #showdiv-table-output_container div. See the sourcecode for further information.
                     actionButton(ns("show"),"PLOT"),
                     actionButton(ns("export"),"EXPORT"),
@@ -65,6 +83,8 @@ agroMoShowUI <- function(id){
 #' @importFrom data.table fread
 #' @importFrom DT renderDT
 #' @importFrom DBI dbListTables dbGetQuery dbSendQuery
+#' @importFrom shinyjs addClass removeClass
+
 
 agroMoShow <- function(input, output, session, dataenv, baseDir, connection){
   ns <- session$ns
@@ -92,6 +112,24 @@ agroMoShow <- function(input, output, session, dataenv, baseDir, connection){
                        initData$data <- setdiff(initData$data, tablesToDelete)
                    }
     })
+
+  varSet <- list()
+  #Defining set of variables
+  varSet[["full"]] <- 0:55
+  varSet[["reduced"]] <- c(6,10,26:30,36:39)
+
+  observe({
+      print(input$varset)
+
+       varsShow <- input$varset 
+       session$sendCustomMessage(type="hideHR",
+                   paste0(".",0:55,"-rowHR",collapse=",")
+                                 )
+       session$sendCustomMessage(type="showHR",
+                   paste0(".",varSet[[input$varset]],"-rowHR",collapse=",")
+                                 )
+      })
+
   #
   # observe({
   #   initData$measurement <- fread(file.path(baseDir(),"observation/observations.csv"))
