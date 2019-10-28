@@ -27,7 +27,7 @@ agroMoShowUI <- function(id){
                     tags$div(id=ns("treatmentID_container"),selectInput(ns("treatmentID"), "TREATMENT ID:",choices = 'NILL')),
                     tags$div(id=ns("compfunc_container"),selectInput(ns("compfunc"), "Compare function:",choices = 'NILL')),
                     tags$div(id=ns("compbase_container"),selectInput(ns("compbase"), "Compare base:",choices = 'NILL')),
-                    tags$div(id=ns("varset_container"),selectInput(ns("varset"), "variable set:",choices = c("full","reduced"))),
+                    tags$div(id=ns("varset_container"),selectInput(ns("varset"), "variable set:",choices = c("full","selected","reduced","first ten"))),
                     checkboxInput(ns("averagep"),"", value = TRUE),
                     tags$div(id=ns("table-header_container")),
                     tags$div(id=ns("table-output_container")),
@@ -54,6 +54,14 @@ agroMoShowUI <- function(id){
                                         Shiny.addCustomMessageHandler('hideHR',function(message){
                                         $(message).addClass('hidden');
                                         }
+                                        )  
+                                         " 
+                                          )),
+                   tags$script(HTML(
+                                         " 
+                                        Shiny.addCustomMessageHandler('showSelectionHR',function(message){
+                                            $('.selected-rows_showdiv_table_output').removeClass('hidden');
+                                         }
                                         )  
                                          " 
                                           )),
@@ -115,15 +123,21 @@ agroMoShow <- function(input, output, session, dataenv, baseDir, connection){
 
   varSet <- list()
   #Defining set of variables
-  varSet[["full"]] <- 0:55
+  varSet[["full"]] <- 0:56
   varSet[["reduced"]] <- c(6,10,26:30,36:39)
+  varSet[["first ten"]] <- 1:10
 
   observe({
       print(input$varset)
+      if(input$varset == "selected"){
+          session$sendCustomMessage(type="hideHR",
+           paste0(".",0:56,"-rowHR",collapse=","))
+          session$sendCustomMessage(type="showSelectionHR","")
+      }
 
        varsShow <- input$varset 
        session$sendCustomMessage(type="hideHR",
-                   paste0(".",0:55,"-rowHR",collapse=",")
+                   paste0(".",0:56,"-rowHR",collapse=",")
                                  )
        session$sendCustomMessage(type="showHR",
                    paste0(".",varSet[[input$varset]],"-rowHR",collapse=",")
