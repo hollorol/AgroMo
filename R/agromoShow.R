@@ -1,7 +1,7 @@
 #' agroMoShowUI
 #' 
-#' Bla
-#' @importFrom shiny NS tagList tags column checkboxInput HTML actionButton
+#' agroMoShowUI
+#' @importFrom shiny NS tagList tags column checkboxInput HTML actionButton dataTableOutput tableOutput renderDataTable
 #' @importFrom DT renderDT DTOutput
 
 
@@ -10,8 +10,9 @@ agroMoShowUI <- function(id){
   tags$div(id = ns(id),
            tagList(
             column(4,
-                   DTOutput(ns("outputSelection")),
-                   DT::dataTableOutput(ns("gridoutputSelection"))
+                   tags$div(id=ns("outputSelection-container"),
+                            tableOutput(ns("outputSelection"))),
+                   dataTableOutput(ns("gridoutputSelection"))
                    ),
              column(8,
                     tags$div(id="observations","OBSERVATIONS:"),
@@ -66,6 +67,20 @@ agroMoShowUI <- function(id){
                                         )  
                                          " 
                                           )),
+                   tags$script(HTML(
+                                         " $('#simres').on('click', function(){
+                                               $('#showdiv-outputSelection td').removeClass('showdiv-selected-vars');
+                                           })
+                                         " 
+                                          )),
+                   tags$script(HTML( sprintf(
+                                         "
+                                         $('#%s').on('click','td', function(){
+                                            $(this).toggleClass('showdiv-selected-vars')
+                                         })
+                                        
+                                         ",ns("outputSelection"))
+                                          )),
 
                     tags$script(HTML(
                                          " 
@@ -88,7 +103,7 @@ agroMoShowUI <- function(id){
 #' agroMoShow
 #' 
 #' Bla
-#' @importFrom shiny reactiveValues updateSelectInput NS tagList tags column checkboxInput HTML actionButton
+#' @importFrom shiny reactiveValues updateSelectInput NS tagList tags column checkboxInput HTML actionButton renderDataTable
 #' @importFrom data.table fread
 #' @importFrom DT renderDT
 #' @importFrom DBI dbListTables dbGetQuery dbSendQuery
@@ -106,11 +121,9 @@ agroMoShow <- function(input, output, session, dataenv, baseDir, connection){
      initData$data <- dataenv()
   # browser()
   })
-    output$outputSelection <- renderDT({
-      DT::datatable(data.frame(outputName = initData$data), options = list(autowidth = FALSE, paginate = FALSE, scrollX = FALSE, scrollY = 600, searching = TRUE, info = FALSE, header=FALSE,rownames=FALSE))
-    
-      DT::datatable(data.frame(outputName = initData$data), options = list(autowidth = FALSE, paginate = FALSE, scrollX = FALSE, scrollY = 300, searching = TRUE, info = FALSE, header=FALSE,rownames=FALSE)) 
-    })
+  observe({
+    output$outputSelection <- renderTable(data.frame(outputName=initData$data), width="100%", align="l")
+  })
 
   observeEvent(input$del,{
                    tablesToDelete <- dbListTables(connection())[input$outputSelection_rows_selected]

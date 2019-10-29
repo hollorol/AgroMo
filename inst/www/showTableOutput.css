@@ -76,27 +76,38 @@ nemcsinal semmit
 .dataTables_scrollBody thead{
   display:none;
 }
+
 #showdiv-outputSelection {
   position: absolute;
   top: 40px;
   left: -35px;
-  height: 680px !important;
+  height: 400px !important;
   width: 335px !important;
+  overflow-y: scroll;
+  background-color: white;
+}
+#showdiv-outputSelection thead {
+    display: none;
 }
 
-/*szelessegre nem reagal*/
-#DataTables_Table_0 td:nth-child(2) {
- border-top: none;
-/* row-gap: 0px;*/
- height: 5px;
+#showdiv-outputSelection td {
+    user-select: none;
+    cursor: pointer;
+    font-size: 16px;
 }
 
-#DataTables_Table_0 tr:nth-child(even) {
- background-color: rgb(249,249,249);
-}
+/* #showdiv-outSelection tr:nth-child(even) { */
+/*  background-color: rgb(249,249,249); */
+/* } */
+/*  */
+/* #showdiv-outSelection tr:nth-child(odd) { */
+/*  background-color: white; */
+/* } */
+/*  */
 
-#DataTables_Table_0 tr:nth-child(odd) {
- background-color: white;
+.showdiv-selected-vars {
+    background-color: blue !important;
+
 }
 
 #DataTables_Table_0 {
