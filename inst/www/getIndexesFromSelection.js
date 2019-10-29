@@ -1,7 +1,7 @@
-function getIndexesForSelection(){
+function getIndexesForSelection(selectionClass){
   var a = [];
-  $(".selected").each(function(){
-    a.push($("tr").index(this));
+  $(selectionClass).each(function(){
+    a.push($("td").index(this));
   })
-  return a;
+  return a.map(x => x+1);
 }

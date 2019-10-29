@@ -77,9 +77,11 @@ agroMoShowUI <- function(id){
                                          "
                                          $('#%s').on('click','td', function(){
                                             $(this).toggleClass('showdiv-selected-vars')
+                                            Shiny.onInputChange('%s',getIndexesForSelection('.showdiv-selected-vars'))    
+                                            console.log(getIndexesForSelection('.showdiv-selected-vars'))
                                          })
                                         
-                                         ",ns("outputSelection"))
+                                         ",ns("outputSelection"),ns("tableList"))
                                           )),
 
                     tags$script(HTML(
@@ -126,7 +128,8 @@ agroMoShow <- function(input, output, session, dataenv, baseDir, connection){
   })
 
   observeEvent(input$del,{
-                   tablesToDelete <- dbListTables(connection())[input$outputSelection_rows_selected]
+                   tablesToDelete <- dbListTables(connection())[input$tableList]
+                   print(input$tableList)
                    if(length(tablesToDelete)!=0){
                        sapply(tablesToDelete,function(sqlTable){
                             dbSendQuery(connection(),sprintf("DROP TABLE IF EXISTS %s",sqlTable))   # It is sad that in SQLite DROP TABLE a,b,c; not working...  
