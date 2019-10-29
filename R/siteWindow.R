@@ -46,6 +46,7 @@ agroMoSiteUI <- function(id){
              shiny::tags$div(id="manModuls","management options:"),
              shiny::tags$div(id="shiftIn","shift in ..."),
              lapply(managementTypes,function(man){
+                        # browser()
                choices <- basename(grep(man,list.files("./",recursive=TRUE),value = TRUE))
                if(length(choices)==0){
                  choices <- NULL

@@ -16,5 +16,6 @@ baseHead<-function(){
                    href = "www/showTableOutput.css"),
          shiny::tags$script(src = "www/jsTable.js"),
          shiny::tags$script(src = "www/customFunctions.js"),
+         shiny::tags$script(src = "www/getIndexesForSelection.js"),
          shiny::tags$script(src="www/jquery-ui-min.js"))
 }

@@ -6,6 +6,7 @@
 #' @importFrom shiny fluidPage 
 #' @keywords internal
 agroUI <- function(){
+    setwd(system.file("defaultDir", package = "AgroMo")) # The user interface function runs at first, not the server... horrible
     fluidPage(
         baseHead(),
         useShinyjs(),
@@ -29,14 +30,12 @@ agroUI <- function(){
 #' @importFrom RSQLite SQLite
 #' @keywords internal
 agroServer <- function(input, output, session) {
-    
-    setwd(system.file("defaultDir", package = "AgroMo"))
-    baseDir <- normalizePath(system.file("defaultDir", package = "AgroMo"))
+
+    baseDir <- system.file("defaultDir", package = "AgroMo")
     setwd(baseDir)
     database <- file.path(baseDir,"output/outputs.db")
     baseConnection <- dbConnect(SQLite(),database)
     datas <- reactiveValues(baseDir = baseDir, connection=baseConnection)
-    
     {
         observeEvent(input$choose,{
             choosenDir <- tcltk::tk_choose.dir()
@@ -48,13 +47,11 @@ agroServer <- function(input, output, session) {
                 datas$baseDir <- choosenDir
                 dbDisconnect(datas$connection)
                 database <- file.path(choosenDir, "output/outputs.db")
-                dbDisconnect(data$connection)
                 datas$connection <- dbConnect(SQLite(), database)
             }
             
         })
     }
-    
     ## BASE "MODULE"
     onclick("Site-banner-div",{
         hide("sitediv-sitediv")
@@ -83,6 +80,7 @@ agroServer <- function(input, output, session) {
 
     # SITE MODULE
 {
+    # browser()
     dat <- callModule(agroMoSite,"sitediv",
                       dataenv = reactive(datas$dataenv),
                       baseDir = reactive({datas$baseDir}),
