@@ -61,6 +61,7 @@ agroMoShowUI <- function(id){
                                          " 
                                         Shiny.addCustomMessageHandler('showSelectionHR',function(message){
                                             $('.selected-rows_showdiv_table_output').removeClass('hidden');
+                                            $('#showdiv-table-output>tbody>').not('.selected-rows_showdiv_table_output').addClass('hidden');
                                          }
                                         )  
                                          " 
@@ -130,10 +131,8 @@ agroMoShow <- function(input, output, session, dataenv, baseDir, connection){
   observe({
       print(input$varset)
       if(input$varset == "selected"){
-          session$sendCustomMessage(type="hideHR",
-           paste0(".",0:56,"-rowHR",collapse=","))
           session$sendCustomMessage(type="showSelectionHR","")
-      }
+      } else {
 
        varsShow <- input$varset 
        session$sendCustomMessage(type="hideHR",
@@ -142,6 +141,7 @@ agroMoShow <- function(input, output, session, dataenv, baseDir, connection){
        session$sendCustomMessage(type="showHR",
                    paste0(".",varSet[[input$varset]],"-rowHR",collapse=",")
                                  )
+      }
       })
 
   #
