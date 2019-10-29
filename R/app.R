@@ -30,8 +30,8 @@ agroUI <- function(){
 #' @keywords internal
 agroServer <- function(input, output, session) {
     
-    setwd(system.file("defaultDir", package = "agromR"))
-    baseDir <- normalizePath(system.file("defaultDir", package = "agromR"))
+    setwd(system.file("defaultDir", package = "AgroMo"))
+    baseDir <- normalizePath(system.file("defaultDir", package = "AgroMo"))
     setwd(baseDir)
     database <- file.path(baseDir,"output/outputs.db")
     baseConnection <- dbConnect(SQLite(),database)
@@ -48,6 +48,7 @@ agroServer <- function(input, output, session) {
                 datas$baseDir <- choosenDir
                 dbDisconnect(datas$connection)
                 database <- file.path(choosenDir, "output/outputs.db")
+                dbDisconnect(data$connection)
                 datas$connection <- dbConnect(SQLite(), database)
             }
             
