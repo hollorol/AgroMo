@@ -8,6 +8,7 @@ function DT(tableID, classID, columnOptions, selectAllTriggerElementID){
     } else {
         $(this).closest('tr').toggleClass(classID);
       Shiny.onInputChange("dataTable", getJSONFromDataTable());
+      // Shiny.onInputChange("showdiv-selection-list", getIndexesForSelection());
     }
 });
   $(tableID + " td").bind("wheel",function(e){

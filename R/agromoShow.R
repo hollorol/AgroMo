@@ -26,9 +26,12 @@ agroMoShowUI <- function(id){
                     ),
                     tags$div(id=ns("experimentID_container"),selectInput(ns("experimentID"), "EXPERIMENT ID:",choices = 'NILL')),
                     tags$div(id=ns("treatmentID_container"),selectInput(ns("treatmentID"), "TREATMENT ID:",choices = 'NILL')),
-                    tags$div(id=ns("compfunc_container"),selectInput(ns("compfunc"), "Compare function:",choices = 'NILL')),
-                    tags$div(id=ns("compbase_container"),selectInput(ns("compbase"), "Compare base:",choices = 'NILL')),
-                    tags$div(id=ns("varset_container"),selectInput(ns("varset"), "variable set:",choices = c("full","selected","reduced","first ten"))),
+                    tags$div(id=ns("compfunc_container"),selectInput(ns("compfunc"), "Compare function:",choices = c('difference','square error'))),
+                    tags$div(id=ns("compbase_container"),selectInput(ns("compbase"), "Compare base:",choices = 'experiment')),
+                    tags$div(id=ns("varset_container"),selectInput(ns("varset"), "variable set:",
+                                        choices = c("all","user selected", "plant related","soil related","water related","carbon related","greenhouse gas","profiles"))),
+                    
+
                     checkboxInput(ns("averagep"),"", value = TRUE),
                     tags$div(id=ns("table-header_container")),
                     tags$div(id=ns("table-output_container")),
@@ -76,9 +79,15 @@ agroMoShowUI <- function(id){
                    tags$script(HTML( sprintf(
                                          "
                                          $('#%s').on('click','td', function(){
-                                            $(this).toggleClass('showdiv-selected-vars')
-                                            Shiny.onInputChange('%s',getIndexesForSelection('.showdiv-selected-vars'))    
-                                            console.log(getIndexesForSelection('.showdiv-selected-vars'))
+                                            $(this).toggleClass('showdiv-selected-vars');
+                                            let selections = getIndexesForSelection('.showdiv-selected-vars');
+                                            if(selections.length <= 5){
+                                                Shiny.onInputChange('%s',selections);
+                                            } else {
+                                                $(this).toggleClass('showdiv-selected-vars');
+
+                                            }
+                                            // console.log(getIndexesForSelection('.showdiv-selected-vars'))
                                          })
                                         
                                          ",ns("outputSelection"),ns("tableList"))
@@ -121,7 +130,6 @@ agroMoShow <- function(input, output, session, dataenv, baseDir, connection){
   initData <- reactiveValues(data = NULL,measurement = NULL)
   observe({
      initData$data <- dataenv()
-  # browser()
   })
   observe({
     output$outputSelection <- renderTable(data.frame(outputName=initData$data), width="100%", align="l")
@@ -140,19 +148,24 @@ agroMoShow <- function(input, output, session, dataenv, baseDir, connection){
 
   varSet <- list()
   #Defining set of variables
-  varSet[["full"]] <- 0:56
-  varSet[["reduced"]] <- c(6,10,26:30,36:39)
-  varSet[["first ten"]] <- 1:10
+  varSet[["all"]] <- 0:75
+  varSet[["plant related"]] <- c(2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 36, 37, 38, 39, 40, 41, 44, 45, 46, 47, 48, 49, 50, 51, 52)
+  varSet[["soil related"]] <- c(16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 42, 43, 54, 55, 56, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68)
+  varSet[["water related"]] <- c(26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 13, 14, 15)
+  varSet[["carbon related"]] <- c(7, 8, 9,  36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 57, 58)
+  varSet[["greenhouse gas"]]  <- c(69, 70, 40, 41, 42, 43, 44, 49, 50, 51, 52)
+  varSet[["profiles"]]  <- 71:75
 
-  observe({
+
+       observe({
       print(input$varset)
-      if(input$varset == "selected"){
+      if(input$varset == "user selected"){
           session$sendCustomMessage(type="showSelectionHR","")
       } else {
 
        varsShow <- input$varset 
        session$sendCustomMessage(type="hideHR",
-                   paste0(".",0:56,"-rowHR",collapse=",")
+                   paste0(".",0:75,"-rowHR",collapse=",")
                                  )
        session$sendCustomMessage(type="showHR",
                    paste0(".",varSet[[input$varset]],"-rowHR",collapse=",")
@@ -160,12 +173,19 @@ agroMoShow <- function(input, output, session, dataenv, baseDir, connection){
       }
       })
 
-  #
-  # observe({
-  #   initData$measurement <- fread(file.path(baseDir(),"observation/observations.csv"))
-  #   updateSelectInput(session,"experimentID", choices = unique(initData$measurement$experiment))
-  #   updateSelectInput(session,"treatmentID", choices = unique(initData$measurement$treatment))
-  # })
+  
+   observe({
+     initData$measurement <- fread(file.path(baseDir(),"observation/observation.csv"))
+     updateSelectInput(session,"experimentID", choices = unique(initData$measurement$experiment))
+     updateSelectInput(session,"treatmentID", choices = unique(initData$measurement$treatment))
+   })
+
+  observe({
+      if(length(input$tableList) > 0){
+          updateSelectInput(session,"compbase",choices=c("none","experiment",initData$data[input$tableList]))
+      } 
+  })
+
   #
   # observeEvent(input$show,{
   #   session$sendCustomMessage(type="getTable","")
