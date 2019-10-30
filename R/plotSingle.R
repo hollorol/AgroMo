@@ -1,5 +1,13 @@
-plotSingle <- function(outputNames = NULL, dataenv = readRDS("output/outputs.RDS"), varName, timeFrame, groupFun, plotT = "scatter", conversionFactor = 1, measurement, experiment_id, treatment, repetationsAveraged){ #, measurement, experiment_id, treatment, repetationsAveraged
+#' plotSingle
+#' 
+#' plotSingle
+#' @param outputName blucs
+#' @importFrom data.table data.table set year month
+#' @importFrom plotly plot_ly add_trace layout '%>%'
 
+
+plotSingle <- function(outputNames = NULL, dataenv, varName, timeFrame, groupFun, plotT = "scatter", conversionFactor = 1, measurement, experiment_id, treatment, repetationsAveraged){ #, measurement, experiment_id, treatment, repetationsAveraged
+print(ls(dataenv))
   plotType <- plotT
   plotMode <- NULL
 
@@ -33,8 +41,9 @@ plotSingle <- function(outputNames = NULL, dataenv = readRDS("output/outputs.RDS
 
   ## browser()
   dataenv[[outputNames[1]]] <- data.table(dataenv[[outputNames[1]]])
+  dataenv[[outputNames[1]]][,year:=as.Date(date)]
 
-## browser()
+  # browser()
   pd <- dataenv[[outputNames[1]]][,eval(quote(conversionFactor))*get(groupFun)(get(varName)),match.fun(eval(quote(timeFrame)))(date)]
   colnames(pd)<- c(timeFrame, paste0(varName,"_",groupFun))
   p <- plot_ly()

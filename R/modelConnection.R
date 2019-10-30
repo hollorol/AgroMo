@@ -26,10 +26,10 @@ musoDate <- function(startYear, endYears = NULL, numYears, combined = TRUE, leap
    } else {
         dates <- dates[format(dates,"%m%d")!="0229"]
        if(prettyOut){
-           return(data.frame(date = as.Date(format(dates,"%Y-%m-%d")),
+           return(data.frame(date = as.character(format(dates,"%Y-%m-%d")),
                              day = as.numeric(format(dates,"%d")),
                              month = as.numeric(format(dates,"%m")),
-                             year = as.numeric(format(dates,"%Y"))))
+                             year = as.numeric(format(dates,"%Y")),stringsAsFactors=FALSE))
        }
 
 

@@ -106,8 +106,8 @@ nemcsinal semmit
 /*  */
 
 .showdiv-selected-vars {
-    background-color: blue !important;
-
+    background-color: #b0bed9;
+    border: 0;
 }
 
 #DataTables_Table_0 {

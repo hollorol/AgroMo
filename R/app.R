@@ -32,6 +32,7 @@ agroUI <- function(){
 agroServer <- function(input, output, session) {
 
     baseDir <- system.file("defaultDir", package = "AgroMo")
+    centralData <- read_json(system.file("centralData.json",package="AgroMo"),simplifyVector = TRUE)
     setwd(baseDir)
     database <- file.path(baseDir,"output/outputs.db")
     baseConnection <- dbConnect(SQLite(),database)
@@ -84,7 +85,7 @@ agroServer <- function(input, output, session) {
     dat <- callModule(agroMoSite,"sitediv",
                       dataenv = reactive(datas$dataenv),
                       baseDir = reactive({datas$baseDir}),
-                      reactive({datas$connection}))
+                      reactive({datas$connection}),centralData=centralData)
 
     observeEvent(dat$show,{
       if(dat$show > 0){
@@ -109,7 +110,7 @@ agroServer <- function(input, output, session) {
 }
     ## ##  SHOW MODUL
 {
-    callModule(agroMoShow,"showdiv",dataenv = reactive(datas$dataenv),baseDir = reactive(datas$baseDir), connection = reactive({datas$connection}))
+    callModule(agroMoShow,"showdiv",dataenv = reactive(datas$dataenv),baseDir = reactive(datas$baseDir), connection = reactive({datas$connection}),centralData=centralData)
 
 
       observeEvent(input$show,{

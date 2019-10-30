@@ -108,14 +108,14 @@ agroMoSiteUI <- function(id){
 #' @keywords internal
 
 
-agroMoSite <- function(input, output, session, dataenv, baseDir, connection){
+agroMoSite <- function(input, output, session, dataenv, baseDir, connection,centralData){
   managementExt <- c("planting" = "plt", "harvest" = "hrv",
                      "fertilization" = "frz",
                      "irrigation" = "irr",
                      "grazing" = "grz",
                      "mowing" = "mow",
                      "thinning" = "thn")
-  centralData <- read_json(system.file("data/centralData.json",package="agromR"),simplifyVector = TRUE)
+  # centralData <- read_json(system.file("data/centralData.json",package="agromR"),simplifyVector = TRUE)
   manReactive <- reactiveValues(included=NULL)
   managementRows <- c("plt" = 5, "thn" =  9, "mow" = 13, "grz"= 17, "hrv"= 21, "plo" = 25, "frz" = 29, "irr" = 33)
   dat <- reactiveValues(dataenv = dataenv, trigger = 0, show = 0, baseDir = baseDir)

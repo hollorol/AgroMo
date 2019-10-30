@@ -16,8 +16,7 @@ writeDataToDB <- function(settings, dbConnection, binaryName, outputName){
   dayoutput <- cbind.data.frame(musoDate(startYear = settings$startYear,
                                          numYears = settings$numYears,
                                          combined = FALSE, prettyOut = TRUE),
-                                dayoutput, outputName)
-  # browser()
+                                dayoutput, outputName,stringsAsFactors=FALSE)
   colnames(dayoutput) <- as.character(c("udate","uday","umonth","uyear",unlist(settings$variableNames),"outputName"))
   conn <- dbConnection()
   dbWriteTable(conn, outputName, dayoutput,  overwrite = TRUE)

@@ -28,7 +28,7 @@ agroMoShowUI <- function(id){
                     tags$div(id=ns("treatmentID_container"),selectInput(ns("treatmentID"), "TREATMENT ID:",choices = 'NILL')),
                     tags$div(id=ns("compfunc_container"),selectInput(ns("compfunc"), "Compare function:",choices = c('difference','square error'))),
                     tags$div(id=ns("compbase_container"),selectInput(ns("compbase"), "Compare base:",choices = 'experiment')),
-                    tags$div(id=ns("varset_container"),selectInput(ns("varset"), "variable set:",
+                    tags$div(id=ns("varset_container"),selectInput(ns("varset"), "filter to:",
                                         choices = c("all","user selected", "plant related","soil related","water related","carbon related","greenhouse gas","profiles"))),
                     
 
@@ -121,7 +121,7 @@ agroMoShowUI <- function(id){
 #' @importFrom shinyjs addClass removeClass
 
 
-agroMoShow <- function(input, output, session, dataenv, baseDir, connection){
+agroMoShow <- function(input, output, session, dataenv, baseDir, connection,centralData){
   ns <- session$ns
   ## dat <- new.env()
   ## dat[["dataenv"]] <-readRDS("output/outputs.RDS")
@@ -186,26 +186,19 @@ agroMoShow <- function(input, output, session, dataenv, baseDir, connection){
       } 
   })
 
-  #
-  # observeEvent(input$show,{
-  #   session$sendCustomMessage(type="getTable","")
-  # })
-  #
-  # observeEvent(input$showChanged,{
-  #   modellOutputNames <- dataenv()
-  #   print(input$showChanged)
-  #   dat <- readRDS(file.path(baseDir(),"output/outputs.RDS"))
-  #   tableForPlot <- jsonlite::fromJSON(input$outTable)
-  #   runIdentifiers <- modellOutputNames[input$outputSelection_rows_selected]
-  #   showModal(multiPlotUI(ns("plotka"))) 
-  #
-  #   callModule(multiPlot,"plotka",dat,reactive(initData$measurement),reactive({runIdentifiers}),reactive({tableForPlot}),
-  #              reactive({input$experimentID}),reactive({input$treatmentID}),repetAvg = reactive({input$averagep}))
-  # })
-  #
-  #   observeEvent(input$refresh,{
-  #     dat[["dataenv"]] <-readRDS(file.path(baseDir(),"output/outputs.RDS"))
-  #     modellOutputNames <- ls(dat$dataenv)
-  #   updateCheckboxGroupInput(session,"outSelector",choices = modellOutputNames)
-  # })
+
+  observeEvent(input$show,{
+    session$sendCustomMessage(type="getTable","")
+  })
+  observeEvent(input$showChanged,{
+      modellOutputNames <- initData$data[input$tableList]
+      print(input$showChanged)
+      tableForPlot <- jsonlite::fromJSON(input$outTable)
+      if(length(tableForPlot!=0) && (length(input$tableList)!=0)){
+          showModal(multiPlotUI(ns("plotka"))) 
+          # browser() 
+          callModule(multiPlot,"plotka",reactive(initData$measurement),isolate(modellOutputNames),reactive({tableForPlot}),
+              reactive({input$experimentID}),reactive({input$treatmentID}),repetAvg = reactive({input$averagep}),connection=connection,centralData=centralData)
+      }
+   })
 }
