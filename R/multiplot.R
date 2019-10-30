@@ -41,7 +41,8 @@ multiPlot <- function(input, output, session, measurement, outputNames, outputTa
 
   ## browser()
   ## simplePlots <- simplePlots[simplePlots$select==TRUE,]
-  profPlots <- outputTable()[grep("prof",outputTable()$variable),]
+  profPlots <- outputTable()[grep("profile",outputTable()$variable),]
+  colnames(dataenv[[tableName]])[1:4] <- c("date","day","month","year")
   numProfile<- nrow(profPlots)
   numSimplePlots <- nrow(simplePlots)
   
@@ -97,13 +98,13 @@ print(sprintf("Number of simple plots: %s",numSimplePlots))
 #
 #       ## plotProfile <- function(outputNames,dataenv=readRDS("output/outputs.RDS"),selectedDate,profileName = "vwc-profile"){
 #       if(numProfile!=0){
-#         grepvwc <- grep("vwc",profPlots[,1])
-#         greptsoil <- grep("soiltemp",profPlots[,1])
+#         grepvwc <- grep("SWC",profPlots[,1])
+#         greptsoil <- grep("T",profPlots[,1])
 #         if(length(grepvwc)!=0){
-#           output$vwc <-  renderPlotly({plotProfile(outputNames(), dataenv = dataenv, selectedDate = input$dateInput, profileName = "vwc-profile")})
+#           output$vwc <-  renderPlotly({plotProfile(outputNames, dataenv = dataenv, selectedDate = input$dateInput, profileName = "SWC profile")})
 #         }
 #         if(length(greptsoil)!=0){
-#           output$tsoil <- renderPlotly({plotProfile(outputNames(), dataenv = dataenv, selectedDate = input$dateInput, profileName = "tsoil-profile")})
+#           output$tsoil <- renderPlotly({plotProfile(outputNames, dataenv = dataenv, selectedDate = input$dateInput, profileName = "T profile")})
 #         }
 #
 #       }

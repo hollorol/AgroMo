@@ -133,7 +133,7 @@ agroMoSite <- function(input, output, session, dataenv, baseDir, connection,cent
     )
     })
   observe({
-    updateSelectInput(session,"iniFile", choices = grep("*.ini",list.files(file.path(baseDir(),"input/initialization/site")),value = TRUE))
+    updateSelectInput(session,"iniFile", choices = grep("spinup",grep("*.ini",list.files(file.path(baseDir(),"input/initialization/site")),value = TRUE),invert=TRUE, value=TRUE))
   })
   iniFile <- reactive({input$iniFile})
   mgmFile <- reactive({input$managementFile})
