@@ -43,8 +43,9 @@ print(ls(dataenv))
   dataenv[[outputNames[1]]] <- data.table(dataenv[[outputNames[1]]])
   dataenv[[outputNames[1]]][,year:=as.Date(date)]
 
-  # browser()
-  pd <- dataenv[[outputNames[1]]][,eval(quote(conversionFactor))*get(groupFun)(get(varName)),match.fun(eval(quote(timeFrame)))(date)]
+   # browser()
+  timeFrameF <- match.fun(timeFrame)
+  pd <- dataenv[[outputNames[1]]][,eval(quote(conversionFactor))*get(groupFun)(get(varName)),timeFrameF(date)]
   colnames(pd)<- c(timeFrame, paste0(varName,"_",groupFun))
   p <- plot_ly()
   p <- add_trace(p,x = fDate(unlist(pd[,timeFrame,with = FALSE]),timeFrame), y =  unlist(pd[,paste0(varName,"_",groupFun),with = FALSE]), type = plotType, mode = plotMode, name = outputNames[1])
@@ -52,7 +53,7 @@ print(ls(dataenv))
   if(length(outputNames) >= 2){
     for(i in 2:length(outputNames)){
       dataenv[[outputNames[i]]] <- data.table(dataenv[[outputNames[i]]])
-      pd <- dataenv[[outputNames[i]]][,eval(quote(conversionFactor))*get(groupFun)(get(varName)),match.fun(eval(quote(timeFrame)))(date)]
+      pd <- dataenv[[outputNames[i]]][,eval(quote(conversionFactor))*get(groupFun)(get(varName)),timeFrameF(date)]
       colnames(pd)<- c(timeFrame, paste0(varName,"_",groupFun))
       print(str(pd))
       p <- add_trace(p, x = fDate(unlist(pd[,timeFrame, with = FALSE]),timeFrame), y =  unlist(pd[,paste0(varName,"_",groupFun),with = FALSE]), name = outputNames[i],type = plotType, mode = plotMode)

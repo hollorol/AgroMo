@@ -18,6 +18,7 @@ multiPlotUI <- function(id){
 #' multiPlot
 #' @importFrom plotly renderPlotly plotlyOutput
 #' @importFrom shiny renderUI
+#' @importFrom DBI dbReadTable
 #' @param input sdfasdf
 
 multiPlot <- function(input, output, session, measurement, outputNames, outputTable, experimentID, treatmentID,repetAvg = TRUE,connection,centralData){
@@ -42,7 +43,7 @@ multiPlot <- function(input, output, session, measurement, outputNames, outputTa
   ## browser()
   ## simplePlots <- simplePlots[simplePlots$select==TRUE,]
   profPlots <- outputTable()[grep("profile",outputTable()$variable),]
-  colnames(dataenv[[tableName]])[1:4] <- c("date","day","month","year")
+  # colnames(dataenv[[tableName]])[1:4] <- c("date","day","month","year")
   numProfile<- nrow(profPlots)
   numSimplePlots <- nrow(simplePlots)
   
