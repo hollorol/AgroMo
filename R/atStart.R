@@ -1,4 +1,4 @@
-.onAttach <- function(libname, pkgname) {
+.onLoad <- function(libname, pkgname) {
   ## future::plan(multisession)
   print("This is AgroMo")
   shiny::addResourcePath('defaultDir',
