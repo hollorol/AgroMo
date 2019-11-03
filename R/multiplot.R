@@ -47,10 +47,10 @@ multiPlot <- function(input, output, session, measurement, outputNames, outputTa
   numProfile<- nrow(profPlots)
   numSimplePlots <- nrow(simplePlots)
   
-print(sprintf("Number of simple plots: %s",numSimplePlots))
+# print(sprintf("Number of simple plots: %s",numSimplePlots))
   if(numSimplePlots != 0){
     output$plots <- renderUI({
-      print(simplePlots[,1])
+      # print(simplePlots[,1])
       if(numSimplePlots!=0){
         plot_output_list <- lapply(simplePlots[,1],function(variab){
           plotlyOutput(ns(variab))
@@ -61,8 +61,8 @@ print(sprintf("Number of simple plots: %s",numSimplePlots))
   }
   ## browser()
 #plotSingle(outputNames, dataenv, "fruit_DM","year","max",plotT="line",10000,repetationsAveraged=TRUE, measurement,experimentID,treatment)
-  print(simplePlots)
-  print(numSimplePlots)
+  # print(simplePlots)
+  # print(numSimplePlots)
   if(numSimplePlots != 0)(
       for(i in 1:numSimplePlots){
           # print(ls(dataenv))

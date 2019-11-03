@@ -27,9 +27,9 @@ runAndPlot <- function(input, output, session,baseDir,
   ##preparation
 dat<-reactiveValues(dataenv = NULL)
 ###if output is already done
-  observe({
-    print(irrshift_amount())
-})
+#   observe({
+#     print(irrshift_amount())
+# })
   observeEvent(input$runModel,{
 
     
@@ -91,7 +91,7 @@ readAndChangeFiles <- function(baseDir, iniFile, weatherFile, soilFile, manageme
                                grazing=NULL, mowing=NULL, thinning=NULL,
                                planshift_date, planshift_density, harvshift_date, fertshift_date, irrshift_date, fertshift_amount, irrshift_amount
                                ){
-  print(file.path(baseDir,"input","initialization","site",iniFile))
+  # print(file.path(baseDir,"input","initialization","site",iniFile))
   managementPath <- if(managementFile == "none"){managementFile} else {
                                    file.path("input/management/tmp", managementFile)}
   ## managementPath <- "none"
@@ -162,9 +162,9 @@ changingMGM <- function(mgmFile, baseDir, planting=NULL, harvest=NULL, fertiliza
  delRows <- setdiff(managementRows, choosenRows)
  managementTemplate[delRows-1] <- 0
  managementTemplate[choosenRows] <- destFiles 
-  print(destFiles)
+  # print(destFiles)
  toWrite <- managementTemplate #[-delRows]
-  print(toWrite)
+  # print(toWrite)
   writeLines(toWrite,file.path(baseDir,"/input/management/tmp/",mgmFile))
 
   plantFile <- grep("plt$",destFiles,value = TRUE)

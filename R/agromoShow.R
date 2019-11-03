@@ -137,7 +137,7 @@ agroMoShow <- function(input, output, session, dataenv, baseDir, connection,cent
 
   observeEvent(input$del,{
                    tablesToDelete <- dbListTables(connection())[input$tableList]
-                   print(input$tableList)
+                   # print(input$tableList)
                    if(length(tablesToDelete)!=0){
                        sapply(tablesToDelete,function(sqlTable){
                             dbSendQuery(connection(),sprintf("DROP TABLE IF EXISTS %s",sqlTable))   # It is sad that in SQLite DROP TABLE a,b,c; not working...  
@@ -158,7 +158,7 @@ agroMoShow <- function(input, output, session, dataenv, baseDir, connection,cent
 
 
        observe({
-      print(input$varset)
+      # print(input$varset)
       if(input$varset == "user selected"){
           session$sendCustomMessage(type="showSelectionHR","")
       } else {
@@ -192,7 +192,7 @@ agroMoShow <- function(input, output, session, dataenv, baseDir, connection,cent
   })
   observeEvent(input$showChanged,{
       modellOutputNames <- initData$data[input$tableList]
-      print(input$showChanged)
+      # print(input$showChanged)
       tableForPlot <- jsonlite::fromJSON(input$outTable)
       if(length(tableForPlot!=0) && (length(input$tableList)!=0)){
           showModal(multiPlotUI(ns("plotka"))) 

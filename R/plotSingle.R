@@ -7,7 +7,7 @@
 
 
 plotSingle <- function(outputNames = NULL, dataenv, varName, timeFrame, groupFun, plotT = "scatter", conversionFactor = 1, measurement, experiment_id, treatment, repetationsAveraged){ #, measurement, experiment_id, treatment, repetationsAveraged
-print(ls(dataenv))
+# print(ls(dataenv))
   plotType <- plotT
   plotMode <- NULL
 
@@ -55,7 +55,7 @@ print(ls(dataenv))
       dataenv[[outputNames[i]]] <- data.table(dataenv[[outputNames[i]]])
       pd <- dataenv[[outputNames[i]]][,eval(quote(conversionFactor))*get(groupFun)(get(varName)),timeFrameF(date)]
       colnames(pd)<- c(timeFrame, paste0(varName,"_",groupFun))
-      print(str(pd))
+      # print(str(pd))
       p <- add_trace(p, x = fDate(unlist(pd[,timeFrame, with = FALSE]),timeFrame), y =  unlist(pd[,paste0(varName,"_",groupFun),with = FALSE]), name = outputNames[i],type = plotType, mode = plotMode)
 
     }
@@ -95,7 +95,7 @@ decade <- function(datetime){
 
 fDate <- function(dat, timeFrame){
   if(timeFrame == "identity"){
-    print(typeof(dat))
+    # print(typeof(dat))
     return(as.Date(dat,origin = "1970-01-01"))
   } else {
     if(timeFrame == "month"){
@@ -118,3 +118,8 @@ getFilteredData <- function(measurement, treatment, experiment, repetationsAvera
     }
     
 }
+
+# getDataFromDBTable <- function(conn,timeFrame,groupFun,tableName){
+#    groupFunPairs <- list(min="MIN",max="MAX",mean="AVG",median="MEDIAN",var="STDEV",)
+#    
+# }

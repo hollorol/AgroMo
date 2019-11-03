@@ -102,7 +102,7 @@ runMuso <- function(iniFile){
 }
 
 readAndChangeIni <- function(iniFile, weatherFile, soilFile, managementFile, lines = c(4,40,46)){
- print(iniFile)
+#  print(iniFile)
  init <- tryCatch(readLines(sprintf("input/initialization/%s",iniFile)), error = function (e) "Cannot run the smodel")
  paths <- c(sprintf("input/weather/%s",weatherFile),sprintf("input/soil/site/%s",soilFile),sprintf("input/management/%s", managementFile))
  init[lines] <- paths

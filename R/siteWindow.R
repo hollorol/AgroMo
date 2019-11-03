@@ -180,7 +180,7 @@ agroMoSite <- function(input, output, session, dataenv, baseDir, connection,cent
         mgmF <- ""
       } else  {
         ## browser()
-        mgmF<- readLines(file.path(isolate(baseDir()),"input","management",mgmFile()))
+        mgmF<- suppressWarnings(readLines(file.path(isolate(baseDir()),"input","management",mgmFile())))
       }
       included <- grep(sprintf("\\.%s$",managementExt[manName]), mgmF, value = TRUE)
       if(length(included)==0){
@@ -222,9 +222,9 @@ agroMoSite <- function(input, output, session, dataenv, baseDir, connection,cent
                                                 baseDir(),"input","management")
                                                ,recursive = TRUE),value = TRUE)))
   })
-  observe({
-    print(input$outFile)
-  })
+  # observe({
+  #   print(input$outFile)
+  # })
   callModule(runAndPlot,"popRun",baseDir, reactive({input$iniFile}),
              reactive({input$weatherFile}), reactive({input$soilFile}),
              reactive({input$managementFile}), reactive({input$outFile}),
