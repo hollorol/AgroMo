@@ -18,6 +18,7 @@ writeDataToDB <- function(settings, dbConnection, binaryName, outputName){
                                          combined = FALSE, prettyOut = TRUE),
                                 dayoutput, outputName,stringsAsFactors=FALSE)
   colnames(dayoutput) <- as.character(c("udate","uday","umonth","uyear",unlist(settings$variableNames),"outputName"))
+  # browser()
   conn <- dbConnection()
   dbWriteTable(conn, outputName, dayoutput,  overwrite = TRUE)
 }

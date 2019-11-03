@@ -119,7 +119,20 @@ getFilteredData <- function(measurement, treatment, experiment, repetationsAvera
     
 }
 
-# getDataFromDBTable <- function(conn,timeFrame,groupFun,tableName){
-#    groupFunPairs <- list(min="MIN",max="MAX",mean="AVG",median="MEDIAN",var="STDEV",)
-#    
-# }
+getDataFromDBTable <- function(conn,timeFrame,groupFun,tableName,variableName, conversionFactor){
+   groupFunPairs <- list(min="MIN",max="MAX",mean="AVG",median="MEDIAN",var="STDEV",)
+   timeFramePairs <- list(year="\"%Y\"", month="\"%Y%m\"", day="\"%Y%m%d\"")
+   timeFrameS <- timeFramePairs[[timeFrame]]
+   groupFunS <- groupFunPairs[[groupFun]]
+   querySentence <- sprintf("SELECT STRFTIME(%s,Date(udate)) AS %s,%s(%s)*%f AS %s FROM %s GROUP BY STRFTIME(%s,DATE(udate))",
+                            timeFrameS,
+                            timeFrame,
+                            groupFunS,
+                            variableName,
+                            conversionFactor,
+                            variableName,
+                            tableName,
+                            timeFrameS)
+   queryRes <- dbGetQuery(conn,querySentence)
+   queryRes
+}

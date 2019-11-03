@@ -75,7 +75,8 @@ setupGUI <- function(iniName, baseDir, centralData){
   if(length(startOutSection) != 0){
     numOutVars <- getFirstNumber(startOutSection + 1)
     varCodes <- sapply(seq(from=(startOutSection + 2),length=numOutVars), getFirstNumber)
-    centralData <- centralData[unlist(centralData["VARCODE"]) %in% varCodes,]
+    centralData <- centralData[sapply(varCodes,function(cod){which(centralData[,"VARCODE"] == cod)}),]
+    # centraldata <- centralData[ord,]
   } 
   # browser()
   settings[["epc"]] <- tryCatch(basename(searchBellow(ini,"EPC_FILE")), error = function(e){""})
