@@ -83,6 +83,7 @@
 
 #showdiv-varset_container .selectize-input{
   position: absolute;
+  top: 0px;
    left: 745px;
   width: 220px;
 } 
@@ -104,7 +105,7 @@
 #showdiv-cellid_container .form-control {
   position: absolute;
   top: -4px;
-  left: 85px;
+  left: 70px;
   width: 235px;
   font-size: 16px;
 } 
@@ -114,11 +115,12 @@
 } 
 
 
-#showdiv-compfunc_container {
+#showdiv-compfunc_container .selectize-input {
   position: absolute;
-  top: 600px;
-  left:-310px;
+  top: 590px;
+  left:195px;
   font-size: 16px;
+  width: 440px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -127,8 +129,9 @@
 
 #showdiv-compfunc_container .control-label{
     position: absolute;
-    top: 15px;
-    left: 390px;
+    top: 610px;
+    left: 78px;
+  font-size: 16px;
   font-weight: normal;
   width: 300px;
 }
@@ -140,11 +143,12 @@
     width: 440px;
 }
 
-#showdiv-compbase_container {
+#showdiv-compbase_container .selectize-input {
   position: absolute;
-  top: 640px;
-  left:-310px;
+  top: 630px;
+  left:195px;
   font-size: 16px;
+  width: 440px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -153,15 +157,15 @@
 
 #showdiv-compbase_container .control-label{
     position: absolute;
-    top: 15px;
-    left: 410px;
+    top: 650px;
+    left: 100px;
+  font-size: 16px;
   font-weight: normal;
   width: 300px;
 }
 
 #showdiv-compbase_container .has-options{
     position: absolute;
-    left: 525px;
     width: 440px;
 }
 

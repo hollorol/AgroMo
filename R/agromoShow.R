@@ -22,12 +22,12 @@ agroMoShowUI <- function(id){
                     tags$div(id="gridsimres","GRID SIMULATION RESULTS:"),
                     tags$div(
                       id = paste0(ns("cellid"),"_container"),
-                      textInput(ns("cellid"), "Cell ID(s):",)
+                      textInput(ns("cellid"), "cell ID(s):",)
                     ),
-                    tags$div(id=ns("experimentID_container"),selectInput(ns("experimentID"), "Experiment ID:",choices = 'NILL')),
-                    tags$div(id=ns("treatmentID_container"),selectInput(ns("treatmentID"), "Treatment ID:",choices = 'NILL')),
-                    tags$div(id=ns("compfunc_container"),selectInput(ns("compfunc"), "Compare function:",),
-                    tags$div(id=ns("compbase_container"),selectInput(ns("compbase"), "Compare base:",)),
+                    tags$div(id=ns("experimentID_container"),selectInput(ns("experimentID"), "experiment ID:",choices = '')),
+                    tags$div(id=ns("treatmentID_container"),selectInput(ns("treatmentID"), "treatment ID:",choices = '')),
+                    tags$div(id=ns("compfunc_container"),selectInput(ns("compfunc"), "compare function:",,choices = '')),
+                    tags$div(id=ns("compbase_container"),selectInput(ns("compbase"), "compare base:",,choices = '')),
                     tags$div(id=ns("varset_container"),selectInput(ns("varset"), "filter to:",
                                         choices = c("all","user selected", "plant related","soil related","water related","carbon related","greenhouse gas","profiles"))),
                     
@@ -176,13 +176,13 @@ agroMoShow <- function(input, output, session, dataenv, baseDir, connection,cent
   
    observe({
      initData$measurement <- fread(file.path(baseDir(),"observation/observation.csv"))
-     updateSelectInput(session,"experimentID", choices = unique(initData$measurement$experiment))
-     updateSelectInput(session,"treatmentID", choices = unique(initData$measurement$treatment))
+     updateSelectInput(session,"experimentID", choices = '')
+     updateSelectInput(session,"treatmentID", choices = '')
    })
 
   observe({
       if(length(input$tableList) > 0){
-          updateSelectInput(session,"compbase",choices=c("none","experiment",initData$data[input$tableList]))
+          updateSelectInput(session,"compbase",choices='')
       } 
   })
 
