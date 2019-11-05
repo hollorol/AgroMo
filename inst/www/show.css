@@ -76,8 +76,8 @@
 #showdiv-varset_container .control-label{
   position: absolute;
   top: 15px;
-    left: 650px;
-  width: 200px;
+    left: 687px;
+  width: 60px;
   font-weight: normal;
 } 
 
@@ -128,7 +128,7 @@
 #showdiv-compfunc_container .control-label{
     position: absolute;
     top: 15px;
-    left: 385px;
+    left: 390px;
   font-weight: normal;
   width: 300px;
 }
@@ -154,7 +154,7 @@
 #showdiv-compbase_container .control-label{
     position: absolute;
     top: 15px;
-    left: 408px;
+    left: 410px;
   font-weight: normal;
   width: 300px;
 }

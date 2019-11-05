@@ -22,12 +22,12 @@ agroMoShowUI <- function(id){
                     tags$div(id="gridsimres","GRID SIMULATION RESULTS:"),
                     tags$div(
                       id = paste0(ns("cellid"),"_container"),
-                      textInput(ns("cellid"), "CELL ID(s):", '222, 777, 1028')
+                      textInput(ns("cellid"), "Cell ID(s):",)
                     ),
-                    tags$div(id=ns("experimentID_container"),selectInput(ns("experimentID"), "EXPERIMENT ID:",choices = 'NILL')),
-                    tags$div(id=ns("treatmentID_container"),selectInput(ns("treatmentID"), "TREATMENT ID:",choices = 'NILL')),
-                    tags$div(id=ns("compfunc_container"),selectInput(ns("compfunc"), "Compare function:",choices = c('difference','square error'))),
-                    tags$div(id=ns("compbase_container"),selectInput(ns("compbase"), "Compare base:",choices = 'experiment')),
+                    tags$div(id=ns("experimentID_container"),selectInput(ns("experimentID"), "Experiment ID:",choices = 'NILL')),
+                    tags$div(id=ns("treatmentID_container"),selectInput(ns("treatmentID"), "Treatment ID:",choices = 'NILL')),
+                    tags$div(id=ns("compfunc_container"),selectInput(ns("compfunc"), "Compare function:",),
+                    tags$div(id=ns("compbase_container"),selectInput(ns("compbase"), "Compare base:",)),
                     tags$div(id=ns("varset_container"),selectInput(ns("varset"), "filter to:",
                                         choices = c("all","user selected", "plant related","soil related","water related","carbon related","greenhouse gas","profiles"))),
                     

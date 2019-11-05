@@ -240,6 +240,7 @@ nemcsinal semmit
     border-width:1px;
     border-color: gray;
   font-size: 16px;
+  padding: 2px;
 }
 
 #showdiv-table-output th {
