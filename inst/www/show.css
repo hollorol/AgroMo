@@ -62,7 +62,7 @@
   font-weight: bold;
 }
 
-#showdiv-varset_container {
+/*#showdiv-varset_container {
   position: absolute;
   top: 135px;
   left:-310px;
@@ -71,7 +71,7 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-} 
+} */
 
 #showdiv-varset_container .control-label{
   position: absolute;
