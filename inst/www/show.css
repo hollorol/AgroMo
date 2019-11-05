@@ -222,8 +222,8 @@
 
 #repavg {
   position: absolute;
-  top: 115px;
-  left: 230px;
+  top: 113px;
+  left: 221px;
   font-size: 16px;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -286,7 +286,7 @@
 
 #showdiv-experimentID_container .control-label{
     position: absolute;
-    top: 45px;
+    top: 43px;
     right: 354px;
   font-size: 16px;
   font-weight: normal;

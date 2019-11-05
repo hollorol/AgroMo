@@ -97,7 +97,7 @@ nemcsinal semmit
 }
 
  #showdiv-outputSelection tr:nth-child(even) { 
-  background-color: rgb(239,239,239); 
+  background-color: rgb(245,245,245); 
  } 
 
  #showdiv-outputSelection tr:nth-child(odd) { 
@@ -243,6 +243,11 @@ nemcsinal semmit
   padding: 2px;
 }
 
+#showdiv-outputSelection td {
+padding:2px;
+}
+
+
 #showdiv-table-output th {
     border-right: solid;
     border-width:1px;
@@ -300,8 +305,11 @@ nemcsinal semmit
   cursor: pointer;
 }
 
+
+
 #showdiv-table-output tr:nth-child(even):not(.selected-rows_showdiv_table_output) {
-    background-color: #f9f9f9;
+    /*background-color: #f9f9f9;*/
+    background-color: rgb(245,245,245);
     border-top-color: #dddddd;
     border-bottom-color: #dddddd;
    /* border-top: solid;

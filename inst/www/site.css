@@ -355,6 +355,7 @@
 
 #sitediv-outFile {
   font-size:16px;
+  color:black;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -384,8 +385,8 @@
 
 #sitediv-planshift_date_container .form-control{
   position: absolute;
-  top: 321px;
-  left: 652px;
+  top: 324px;
+  left: 650px;
    width: 55px;
    height: 33px;
    font-size: 16px;
@@ -411,8 +412,8 @@
 
 #sitediv-planshift_density_container .form-control{
   position: absolute;
-  top: 321px;
-  right: -60px;
+  top: 324px;
+  right: -62px;
   width: 55px;
   height: 33px;
   font-size: 16px;
@@ -437,8 +438,8 @@
 
 #sitediv-harvshift_date_container .form-control{
   position: absolute;
-  top: 361px;
-  left: 652px;
+  top: 363px;
+  left: 650px;
   width: 55px;
   height: 33px;
   font-size: 16px;
@@ -463,8 +464,8 @@
 
 #sitediv-fertshift_date_container .form-control{
   position: absolute;
-  top: 399px;
-  left: 652px;
+  top: 401px;
+  left: 650px;
   width: 55px;
   height: 33px;
   font-size: 16px;
@@ -489,8 +490,8 @@
 
 #sitediv-irrshift_date_container .form-control{
   position: absolute;
-  top: 437px;
-  left: 652px;
+  top: 439px;
+  left: 650px;
   width: 55px;
   height: 33px;
   font-size: 16px;
@@ -515,8 +516,8 @@
 
 #sitediv-fertshift_amount_container .form-control{
   position: absolute;
-  top: 399px;
-  right: -60px;
+  top: 401px;
+  right: -62px;
   width: 55px;
   height: 33px;
   font-size: 16px;
@@ -541,8 +542,8 @@
 
 #sitediv-irrshift_amount_container .form-control{
   position: absolute;
-  top: 437px;
-  right: -60px;
+  top: 439px;
+  right: -62px;
   width: 55px;
   height: 33px;
   font-size: 16px;

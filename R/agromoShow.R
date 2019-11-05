@@ -18,7 +18,7 @@ agroMoShowUI <- function(id){
                     tags$div(id="observations","OBSERVATIONS:"),
                     tags$div(id="simres","SIMULATION RESULTS:"),
                     tags$div(id="createplot","CREATE PLOT WITH:"),
-                    tags$div(id="repavg","Repetitions averaged"),
+                    tags$div(id="repavg","repetitions averaged"),
                     tags$div(id="gridsimres","GRID SIMULATION RESULTS:"),
                     tags$div(
                       id = paste0(ns("cellid"),"_container"),
