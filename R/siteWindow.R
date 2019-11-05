@@ -29,20 +29,20 @@ agroMoSiteUI <- function(id){
   shiny::tags$div(id = ns(id),
 
            tagList(
-             shiny::tags$img(id = ns("base_bb"),src="www/img/base_banner_button.svg"),
-             shiny::tags$img(id = ns("map_bb"),src="www/img/map_banner_button.svg"),
-             shiny::tags$img(id = ns("grid_bb"),src="www/img/grid_banner_button.svg"),
-             shiny::tags$img(id = ns("show_bb"),src="www/img/show_banner_button.svg"),
+             #shiny::tags$img(id = ns("base_bb"),src="www/img/base_banner_button.svg"),
+             #shiny::tags$img(id = ns("map_bb"),src="www/img/map_banner_button.svg"),
+             #shiny::tags$img(id = ns("grid_bb"),src="www/img/grid_banner_button.svg"),
+             #shiny::tags$img(id = ns("show_bb"),src="www/img/show_banner_button.svg"),
              shiny::tags$img(id = ns("refresh"),src="www/img/refresh_button.svg", draggable = FALSE),
              dropdownElements,
-             shiny::tags$div(
-                    id = paste0(ns("stationp"),"_container"),
-                    checkboxInput(ns("stationp"), label = "Observed data only", value = TRUE)
-                  ),
-             shiny::tags$div(
-                    id =paste0(ns("sitep"),"_container"),
-                    checkboxInput(ns("sitep"), label = "Observed data only", value = TRUE)
-                  ),
+             #shiny::tags$div(
+             #        id = paste0(ns("stationp"),"_container"),
+             #      checkboxInput(ns("stationp"), label = "Observed data only", value = TRUE)
+             #      ),
+             #shiny::tags$div(
+             #        id =paste0(ns("sitep"),"_container"),
+             #        checkboxInput(ns("sitep"), label = "Observed data only", value = TRUE)
+             #      ),
              shiny::tags$div(id="manModuls","management options:"),
              shiny::tags$div(id="shiftIn","shift in ..."),
              lapply(managementTypes,function(man){

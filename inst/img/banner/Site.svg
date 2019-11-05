@@ -9,15 +9,43 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="52.054779mm"
+   height="204.1902mm"
+   viewBox="0 0 52.054779 204.1902"
    version="1.1"
-   id="svg10"
-   width="196.74248"
-   height="771.74249"
-   viewBox="0 0 196.74248 771.74249"
-   sodipodi:docname="Site_banner.svg"
-   inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
+   id="svg8"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   sodipodi:docname="Site1.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="406.62543"
+     inkscape:cy="360.53761"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1">
+    <sodipodi:guide
+       position="124.94206,-7.216558"
+       orientation="1,0"
+       id="guide1012"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
   <metadata
-     id="metadata16">
+     id="metadata5">
     <rdf:RDF>
       <cc:Work
          rdf:about="">
@@ -28,40 +56,20 @@
       </cc:Work>
     </rdf:RDF>
   </metadata>
-  <defs
-     id="defs14" />
-  <sodipodi:namedview
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1"
-     objecttolerance="10"
-     gridtolerance="10"
-     guidetolerance="10"
-     inkscape:pageopacity="0"
-     inkscape:pageshadow="2"
-     inkscape:window-width="1920"
-     inkscape:window-height="1017"
-     id="namedview12"
-     showgrid="false"
-     inkscape:zoom="0.78076374"
-     inkscape:cx="-472.84295"
-     inkscape:cy="432.72414"
-     inkscape:window-x="-8"
-     inkscape:window-y="-8"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="svg10" />
   <g
-     id="g278"
-     transform="translate(855.57253,21.773551)">
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-14.03809,-14.232284)">
     <rect
-       y="-19.902313"
-       x="-853.70129"
-       height="768"
-       width="193"
+       y="14.727383"
+       x="14.533189"
+       height="203.2"
+       width="51.064583"
        id="rect20"
-       style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:3.74247646;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+       style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.99019688;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     <g
-       transform="translate(-1107.7013,-19.902314)"
+       transform="matrix(0.26458333,0,0,0.26458333,-52.670979,14.727382)"
        id="g1054">
       <path
          d="m 349.59525,76.66854 h -47.63877 l 21.62062,21.620697 c 28.72988,28.729813 29.46276,28.729813 58.19257,0 l 3.88441,-3.884416 C 377.29898,83.631123 364.25329,76.66854 349.59525,76.66854 Z"
@@ -90,7 +98,7 @@
          inkscape:connector-curvature="0" />
     </g>
     <g
-       transform="translate(-1145.7013,-19.902314)"
+       transform="matrix(0.26458333,0,0,0.26458333,-52.670972,14.727382)"
        id="g1047">
       <g
          id="text1000"
@@ -157,7 +165,7 @@
       </g>
     </g>
     <g
-       transform="translate(-855.57252,-21.773552)"
+       transform="matrix(0.26458333,0,0,0.26458333,14.038094,14.232284)"
        id="text1541"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:57.34523392px;line-height:1.25;font-family:'Montserrat Alternates';-inkscape-font-specification:'Montserrat Alternates';letter-spacing:0px;word-spacing:0px;fill:#b07655;fill-opacity:1;stroke:none;stroke-width:1.4336307"
        aria-label="site">

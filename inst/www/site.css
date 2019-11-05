@@ -85,11 +85,11 @@
   user-select: none;
 }
 
-#sitediv-stationp_container{
+/*#sitediv-stationp_container{
     position: absolute;
     top: 79px;
     right: -95px;
-    font-size: 17px;
+    font-size: 16px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -100,12 +100,12 @@
   position: absolute;
   top: 149px;
   right: -95px;
-  font-size: 17px;
+  font-size: 16px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;  
-}
+}*/
 
 #manModuls{
   position: absolute;
@@ -138,7 +138,7 @@
   position: absolute;
   top: 327px;
   right: 730px;
-  font-size: 17px;
+  font-size: 16px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -164,7 +164,7 @@
   position: absolute;
   top: 367px;
   right: 730px;
-  font-size: 17px;
+  font-size: 16px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -191,7 +191,7 @@
   position: absolute;
   top: 405px;
   right: 730px;
-  font-size: 17px;
+  font-size: 16px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -218,7 +218,7 @@
   position: absolute;
   top: 443px;
   right: 730px;
-  font-size: 17px;
+  font-size: 16px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -245,7 +245,7 @@
   position: absolute;
   top: 481px;
   right: 730px;
-  font-size: 17px;
+  font-size: 16px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -272,7 +272,7 @@
   position: absolute;
   top: 519px;
   right: 730px;
-  font-size: 17px;
+  font-size: 16px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -299,7 +299,7 @@
   position: absolute;
   top: 557px;
   right: 730px;
-  font-size: 17px;
+  font-size: 16px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -325,7 +325,7 @@
   position: absolute;
   top: 595px;
   right: 730px;
-  font-size: 17px;
+  font-size: 16px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -347,6 +347,14 @@
   position: absolute;
   top: 638px;
   width:900px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
+}
+
+#sitediv-outFile {
+  font-size:16px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -377,8 +385,10 @@
 #sitediv-planshift_date_container .form-control{
   position: absolute;
   top: 321px;
-  left: 645px;
+  left: 652px;
    width: 55px;
+   height: 33px;
+   font-size: 16px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -390,6 +400,8 @@
   position: absolute;
   top: 327px;
   left: 570px;
+  font-size: 16px;
+  font-weight: normal;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -400,8 +412,10 @@
 #sitediv-planshift_density_container .form-control{
   position: absolute;
   top: 321px;
-  right: -65px;
+  right: -60px;
   width: 55px;
+  height: 33px;
+  font-size: 16px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -412,6 +426,8 @@
   position: absolute;
   top: 327px;
   right: -4px;
+  font-size: 16px;
+  font-weight: normal;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -422,8 +438,10 @@
 #sitediv-harvshift_date_container .form-control{
   position: absolute;
   top: 361px;
-  left: 645px;
+  left: 652px;
   width: 55px;
+  height: 33px;
+  font-size: 16px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -434,6 +452,8 @@
   position: absolute;
   top: 367px;
   left: 570px;
+  font-size: 16px;
+  font-weight: normal;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -444,8 +464,10 @@
 #sitediv-fertshift_date_container .form-control{
   position: absolute;
   top: 399px;
-  left: 645px;
+  left: 652px;
   width: 55px;
+  height: 33px;
+  font-size: 16px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -456,6 +478,8 @@
   position: absolute;
   top: 405px;
   left: 570px;
+  font-size: 16px;
+  font-weight: normal;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -466,8 +490,10 @@
 #sitediv-irrshift_date_container .form-control{
   position: absolute;
   top: 437px;
-  left: 645px;
+  left: 652px;
   width: 55px;
+  height: 33px;
+  font-size: 16px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -478,6 +504,8 @@
   position: absolute;
   top: 443px;
   left: 570px;
+  font-size: 16px;
+  font-weight: normal;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -488,8 +516,10 @@
 #sitediv-fertshift_amount_container .form-control{
   position: absolute;
   top: 399px;
-  right: -65px;
+  right: -60px;
   width: 55px;
+  height: 33px;
+  font-size: 16px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -500,6 +530,8 @@
   position: absolute;
   top: 405px;
   right: -4px;
+  font-size: 16px;
+  font-weight: normal;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -510,8 +542,10 @@
 #sitediv-irrshift_amount_container .form-control{
   position: absolute;
   top: 437px;
-  right: -65px;
+  right: -60px;
   width: 55px;
+  height: 33px;
+  font-size: 16px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -522,6 +556,8 @@
   position: absolute;
   top: 443px;
   right: -4px;
+  font-size: 16px;
+  font-weight: normal;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -529,26 +565,25 @@
 }
 
 #sitediv-littleblackline {
-  position: absolute;
-  top: 295px;
-  height: 1px;
-  background-color: black;
-  width: 552px;
-  color: black;
-  
+position: absolute;
+top: 297px;
+height: 1px;
+background-color: #A9A9A9;
+width: 552px;
+color: #A9A9A9;  
 }
 
 #sitediv-littleblacklinetwo {
   position: absolute;
-  top: 295px;
+  top: 297px;
   left: 570px;
   height: 1px;
-  background-color: black;
+  background-color: #A9A9A9;
   width: 324px;
-  color: black;
+  color: #A9A9A9;
   
 }
-#sitediv-base_bb {
+/*#sitediv-base_bb {
   position:absolute;
   top: 630px;
   left: -99px;
@@ -575,7 +610,7 @@
   left: -99px;
   top: 370px;
   max-width:6%;
-}
+}*/
 
 #sitediv-refresh {
   position:absolute;
