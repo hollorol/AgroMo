@@ -6,7 +6,7 @@
 #' @importFrom shiny fluidPage 
 #' @keywords internal
 agroUI <- function(){
-    setwd(system.file("defaultDir", package = "AgroMo")) # The user interface function runs at first, not the server... horrible
+    setwd(getShinyOption("AgroMoData")) # The user interface function runs at first, not the server... horrible
     fluidPage(
         baseHead(),
         useShinyjs(),
@@ -31,7 +31,7 @@ agroUI <- function(){
 #' @keywords internal
 agroServer <- function(input, output, session) {
 
-    baseDir <- system.file("defaultDir", package = "AgroMo")
+    baseDir <- getShinyOption("AgroMoData")
     centralData <- read_json(system.file("centralData.json",package="AgroMo"),simplifyVector = TRUE)
     setwd(baseDir)
     database <- file.path(baseDir,"output/outputs.db")
@@ -130,6 +130,13 @@ agroServer <- function(input, output, session) {
 #' @param ... Other parameters for shinyApp function
 #' @importFrom shiny shinyApp
 #' @export
-launchApp <- function(...){
-    shinyApp(ui = agroUI(), server = agroServer, options = list(...))
+launchApp <- function(directory = NULL,...){
+
+    dataDir <- new.env()      
+    if(is.null(directory)){
+        shinyOptions(AgroMoData = system.file("defaultDir", package = "AgroMo"))
+    } else {
+        shinyOptions(AgroMoData = directory)
+    }
+        shinyApp(ui = agroUI(), server = agroServer, options = list(...))
 }
