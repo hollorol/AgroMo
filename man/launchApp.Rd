@@ -4,7 +4,7 @@
 \alias{launchApp}
 \title{launchApp}
 \usage{
-launchApp(...)
+launchApp(directory = NULL, ...)
 }
 \arguments{
 \item{...}{Other parameters for shinyApp function}

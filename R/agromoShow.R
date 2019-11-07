@@ -123,9 +123,6 @@ agroMoShowUI <- function(id){
 
 agroMoShow <- function(input, output, session, dataenv, baseDir, connection,centralData){
   ns <- session$ns
-  ## dat <- new.env()
-  ## dat[["dataenv"]] <-readRDS("output/outputs.RDS")
-  ## modellOutputNames <- ls(dat$dataenv)
   datas<- reactiveValues(show=0)
   initData <- reactiveValues(data = NULL,measurement = NULL)
   observe({

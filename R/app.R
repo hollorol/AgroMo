@@ -3,7 +3,7 @@
 #' This is the main UI function for the agromo modell
 #' @importFrom shinyjs useShinyjs
 #' @importFrom shinyjs hidden
-#' @importFrom shiny fluidPage 
+#' @importFrom shiny fluidPage getShinyOption
 #' @keywords internal
 agroUI <- function(){
     setwd(getShinyOption("AgroMoData")) # The user interface function runs at first, not the server... horrible
@@ -28,8 +28,16 @@ agroUI <- function(){
 #' @importFrom shinyjs hide show onclick
 #' @importFrom DBI dbConnect dbDisconnect
 #' @importFrom RSQLite SQLite
+#' @importFrom jsonlite read_json
 #' @keywords internal
 agroServer <- function(input, output, session) {
+
+    observeEvent(input$exit,{
+        if(Sys.info()["sysname"] == "Windows"){
+            system("tskill nw")
+        }
+        stopApp() 
+    })
 
     baseDir <- getShinyOption("AgroMoData")
     centralData <- read_json(system.file("centralData.json",package="AgroMo"),simplifyVector = TRUE)
@@ -128,9 +136,9 @@ agroServer <- function(input, output, session) {
 #'
 #' launchApp launch the shiny app
 #' @param ... Other parameters for shinyApp function
-#' @importFrom shiny shinyApp
+#' @importFrom shiny shinyApp shinyOptions
 #' @export
-launchApp <- function(directory = NULL,...){
+launchApp <- function(directory = NULL,...){ 
 
     dataDir <- new.env()      
     if(is.null(directory)){

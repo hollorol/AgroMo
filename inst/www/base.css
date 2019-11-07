@@ -228,3 +228,11 @@
     top: 80px;
 }*/
 
+button#exit {
+    position: absolute;
+    top: 539px;
+    left: 725px;
+    width: 150px;
+    height: 100px;
+    font-size: xx-large;
+}
