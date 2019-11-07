@@ -36,19 +36,19 @@ A graphical user interface (GUI) has been developed for providing easy and user 
      - grazing management option file (extension: .grz): .\input\management\grazing\
      - mowing management option file (extension: .mow): .\input\management\mowing\
      - thinning management option file (extension: .thn): .\input\management\thinning\
-  - PLANT specific input files (extension: .pla; folder: .\input\plant\) are referred to in the planting management option files
+  - PLANT specific input files (extension: .epc; folder: .\input\plant\) are referred to in the planting files
 - [x] When selecting an INI file the WEATHER, SOIL and MANAGEMENT files that are referred to in the INI file are automatically selected from the corresponding dropdown menus, but those could be changed freely.
-- [x] In case new INI, WEATHER, SOIL or MANAGEMENT files are placed to the corresponding folders of the file system, click the green [REFRESH] button to see the files in the corresponding dropdown menus.
+- [x] In case new INI, WEATHER, SOIL, MANAGEMENT or management option files are placed to the corresponding folders of the file system, click the green [REFRESH] button to see the new files in the corresponding dropdown menus.
 - [x] When selecting a MANAGEMENT file the management option files that are referred to in the MANAGEMENT file are automatically selected from the corresponding dropdown menus, but those could be changed freely.
-- [x] The most important parameters of the management options could be changed without accessing the management option file by adjusting the parameter values using the corresponding textboxes within the 'shift in...' section. The values can be set by typing or using the mouse scroll.
-- [x] OUTPUT id could be entered in the corresponding textbox. Output data are stored in a SQLite datatable named after the OUTPUT id.
-- [x] After selecting the desired input files and set up the changes in the 'shift in...' section the simulation can be started by clicking the [RUN] button.
+- [x] The most important parameters of the management options could be changed without accessing the management option file by adjusting the parameter values using the corresponding textboxes within the 'shift in...' section. Pay attention to add sign (+/-) to the values.
+- [x] Give a name to the simulation run in the 'OUTPUT id' textbox. Output data are stored in a SQLite datatable named after the 'OUTPUT id's.
+- [x] After selecting the desired input files and optionally set up the changes in the 'shift in...' simulation starts by clicking the [RUN] button.
 - [x] An activity indicator is on while the simulation is running. 
-- [x] The simulation results can be presented on different type of graphs after clicking the [PLOT] button.
+- [x] To see simulation results on graphs click the [PLOT] button.
 
 ### AgroMo Plot
 
-![alt text](plotgui.png "AgroMo Plot")
+![alt text](plot_gui.png "AgroMo Plot")
 - [ ] Select a maximum of 5 simulation results from the left side list by clicking the items. Clicking again deselects the item.
 - [ ] Observed data could be added to the plots by selecting the EXPERIMENT and TREATMENT IDs from the corrresponding dropdown lists. NOTE, that data in the observed data tables should be structured according to the prescribed rules. Observed (experimental) data should be stored in the '.\observation\' folder in SQLite data tables: one table for one experiment. Observed data available in multiple repetitions could be presented on the plot in two ways: 1) each repetition as separate data point, or 2) one single data point representing the mean of the repetitions. Leaving the EXPERIMENT ID dropdown list empty results in presenting simulation results only on the plot(s).
 - [ ] Select variable(s) from the right side list for presenting them on the plot(s).
