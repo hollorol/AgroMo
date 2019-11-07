@@ -42,6 +42,7 @@ agroServer <- function(input, output, session) {
     baseDir <- getShinyOption("AgroMoData")
     centralData <- read_json(system.file("centralData.json",package="AgroMo"),simplifyVector = TRUE)
     setwd(baseDir)
+    browser()
     database <- file.path(baseDir,"output/outputs.db")
     baseConnection <- dbConnect(SQLite(),database)
     datas <- reactiveValues(baseDir = baseDir, connection=baseConnection)
