@@ -33,6 +33,7 @@ agroUI <- function(){
 agroServer <- function(input, output, session) {
 
     observeEvent(input$exit,{
+                     browser()
         if(Sys.info()["sysname"] == "Windows"){
             system("tskill nw")
         }
