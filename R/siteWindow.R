@@ -227,7 +227,7 @@ agroMoSite <- function(input, output, session, dataenv, baseDir, connection,cent
   # })
   callModule(runAndPlot,"popRun",baseDir, reactive({input$iniFile}),
              reactive({input$weatherFile}), reactive({input$soilFile}),
-             reactive({input$managementFile}), reactive({input$outFile}),
+             reactive({input$managementFile}), reactive({stringSanitizer(input$outFile)}),
              reactive({input$planting}), reactive({input$harvest}),
              reactive({input$fertilization}), reactive({input$irrigation}),
              reactive({input$grazing}), reactive({input$mowing}),
