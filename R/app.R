@@ -32,21 +32,26 @@ agroUI <- function(){
 #' @keywords internal
 agroServer <- function(input, output, session) {
 
-    observeEvent(input$exit,{
-        browser()
-        if(Sys.info()["sysname"] == "Windows"){
-            system("taskkill /IM nw.exe /F")
-        }
-        stopApp() 
-    })
-
     baseDir <- getShinyOption("AgroMoData")
     centralData <- read_json(system.file("centralData.json",package="AgroMo"),simplifyVector = TRUE)
+    print(baseDir)
     setwd(baseDir)
     database <- file.path(baseDir,"output/outputs.db")
     dir.create(dirname(database), showWarnings = FALSE)
     baseConnection <- dbConnect(SQLite(),database)
     datas <- reactiveValues(baseDir = baseDir, connection=baseConnection)
+
+    observeEvent(input$exit,{
+        if(Sys.info()["sysname"] == "Windows"){
+            system("taskkill /IM nw.exe /F")
+        }
+        try(dbDisconnect(baseConnection),silent=TRUE)
+        setwd(getShinyOption("workdir"))
+        stopApp() 
+    })
+
+    
+
     {
         observeEvent(input$choose,{
             choosenDir <- tcltk::tk_choose.dir()
@@ -141,8 +146,7 @@ agroServer <- function(input, output, session) {
 #' @importFrom shiny shinyApp shinyOptions
 #' @export
 launchApp <- function(directory = NULL,...){ 
-
-    dataDir <- new.env()      
+    shinyOptions(workdir = getwd())
     if(is.null(directory)){
         shinyOptions(AgroMoData = system.file("defaultDir", package = "AgroMo"))
     } else {
