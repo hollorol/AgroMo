@@ -34,10 +34,10 @@ agroServer <- function(input, output, session) {
 
     observeEvent(input$exit,{
         browser()
-        # if(Sys.info()["sysname"] == "Windows"){
-        #     system("tskill nw")
-        # }
-        # stopApp() 
+        if(Sys.info()["sysname"] == "Windows"){
+            system("taskkill /IM nw.exe /F")
+        }
+        stopApp() 
     })
 
     baseDir <- getShinyOption("AgroMoData")
