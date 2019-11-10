@@ -38,10 +38,10 @@
   left: 352px;
 }
 
-.svg-container{
-  position: absolute;
-  top: 60px; 
-}
+/* .svg-container{ */
+/*   position: absolute; */
+/*   top: 60px;  */
+/* } */
 
 #showdiv-plotka-dateInput .form-control.shinyjs-resettable{
   position: absolute;
@@ -312,4 +312,8 @@
   position: absolute;
   top: 180px;
   left: 70px;
+}
+
+.modal-lg {
+    width: 95%;
 }

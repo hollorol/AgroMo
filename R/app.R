@@ -1,9 +1,8 @@
-#' agroUI
+#' ntebHV
 #'
 #' This is the main UI function for the agromo modell
 #' @importFrom shinyjs useShinyjs
 #' @importFrom shinyjs hidden
-#' @importFrom shiny fluidPage getShinyOption
 #' @keywords internal
 agroUI <- function(){
     setwd(getShinyOption("AgroMoData")) # The user interface function runs at first, not the server... horrible
@@ -40,6 +39,8 @@ agroServer <- function(input, output, session) {
     dir.create(dirname(database), showWarnings = FALSE)
     baseConnection <- dbConnect(SQLite(),database)
     datas <- reactiveValues(baseDir = baseDir, connection=baseConnection)
+    
+   session$onSessionEnded(stopApp)
 
     observeEvent(input$exit,{
         if(Sys.info()["sysname"] == "Windows"){

@@ -28,7 +28,8 @@ multiPlot <- function(input, output, session, measurement, outputNames, outputTa
 
   if(dim(simplePlots)[1]!=0){
     centralDataIndex <-   centralData[,"LABEL NAME"] %in% simplePlots[,"variable"]
-    simplePlots$variable <- centralData[centralDataIndex,"VARIABLE"]
+    filteredCentData <- centralData[centralDataIndex,]
+    simplePlots$variable <- filteredCentData[,"VARIABLE"]
     simplePlots <- cbind.data.frame(simplePlots,centralData[centralDataIndex,"convFactor"]) 
     simplePlots[,5]<- as.numeric(as.character(simplePlots[,5]))
   }
@@ -53,12 +54,13 @@ multiPlot <- function(input, output, session, measurement, outputNames, outputTa
       # print(simplePlots[,1])
       if(numSimplePlots!=0){
         plot_output_list <- lapply(simplePlots[,1],function(variab){
-          plotlyOutput(ns(variab))
+          plotlyOutput(ns(variab),height="600px")
         })
         return(do.call(tagList,plot_output_list))}
       return(plotlyOutput(ns("csacsi")))
     })
   }
+
   ## browser()
 #plotSingle(outputNames, dataenv, "fruit_DM","year","max",plotT="line",10000,repetationsAveraged=TRUE, measurement,experimentID,treatment)
   # print(simplePlots)
@@ -68,6 +70,8 @@ multiPlot <- function(input, output, session, measurement, outputNames, outputTa
           # print(ls(dataenv))
         local({
           my_i <- i
+          mesUnit <- ifelse(filteredCentData[i,4]=="NA","dimless",filteredCentData[i,4])
+          yTitle <- sprintf("<b>%s[%s]</br> </b>",filteredCentData[i,2],mesUnit)
           output[[simplePlots[my_i,1]]] <- renderPlotly({plotSingle(outputNames = outputNames,
                                                                     dataenv = dataenv,
                                                                     varName = simplePlots[my_i,1],
@@ -78,7 +82,7 @@ multiPlot <- function(input, output, session, measurement, outputNames, outputTa
                                                                     repetationsAveraged = repetAvg(),
                                                                     measurement = measurement(),
                                                                     experiment_id = experimentID(),
-                                                                    treatment = treatmentID())})})
+                                                                    treatment = treatmentID(),yTitle)})})
       }
     )
 #   if(numProfile > 0){

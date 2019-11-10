@@ -3,10 +3,10 @@
 #' plotSingle
 #' @param outputName blucs
 #' @importFrom data.table data.table set year month
-#' @importFrom plotly plot_ly add_trace layout '%>%'
+#' @importFrom plotly plot_ly add_trace layout '%>%' toRGB
 
 
-plotSingle <- function(outputNames = NULL, dataenv, varName, timeFrame, groupFun, plotT = "scatter", conversionFactor = 1, measurement, experiment_id, treatment, repetationsAveraged){ #, measurement, experiment_id, treatment, repetationsAveraged
+plotSingle <- function(outputNames = NULL, dataenv, varName, timeFrame, groupFun, plotT = "scatter", conversionFactor = 1, measurement, experiment_id, treatment, repetationsAveraged, yTitle){ 
 # print(ls(dataenv))
   plotType <- plotT
   plotMode <- NULL
@@ -19,6 +19,19 @@ plotSingle <- function(outputNames = NULL, dataenv, varName, timeFrame, groupFun
     plotType<- "scatter"
     plotMode <- "line"
   }
+
+  titlefont <- list(
+    family = "Arial",
+    size = 26,
+    color = "black"
+  )
+
+# Parameters of the axis labels:
+  tickfont <- list(
+    family = "Arial",
+    size = 22,
+    color = "black" # to set scientific format use: exponentformat = "E"
+  )
 ## browser()
   measurement[,date:=as.Date(datetime)]
   set(measurement, i=which(measurement[["parameter"]]=="yield"), j="parameter", value="fruit_DM")
@@ -42,13 +55,50 @@ plotSingle <- function(outputNames = NULL, dataenv, varName, timeFrame, groupFun
   ## browser()
   dataenv[[outputNames[1]]] <- data.table(dataenv[[outputNames[1]]])
   dataenv[[outputNames[1]]][,year:=as.Date(date)]
-
+  print(yTitle)
    # browser()
   timeFrameF <- match.fun(timeFrame)
   pd <- dataenv[[outputNames[1]]][,eval(quote(conversionFactor))*get(groupFun)(get(varName)),timeFrameF(date)]
   colnames(pd)<- c(timeFrame, paste0(varName,"_",groupFun))
   p <- plot_ly()
-  p <- add_trace(p,x = fDate(unlist(pd[,timeFrame,with = FALSE]),timeFrame), y =  unlist(pd[,paste0(varName,"_",groupFun),with = FALSE]), type = plotType, mode = plotMode, name = outputNames[1])
+  p <- add_trace(p,x = fDate(unlist(pd[,timeFrame,with = FALSE]),timeFrame), y =  unlist(pd[,paste0(varName,"_",groupFun),with = FALSE]), type = plotType, mode = plotMode, name = outputNames[1],line = list( width = 2,
+              xaxs = "i", yaxs = "i") ) %>%
+     # title = "<b>x tengely</b>", # bold title, to get itali title use <i>
+     #                    titlefont = titlefont,
+    layout(autosize=TRUE,
+           # height="500px",
+           margin =  list(l=150, r=20, b=50, t=50),
+           xaxis = list(ticks = "outside",
+                        ticklen = 10,
+                        tickwidth = 2,
+                        tickcolor = toRGB("grey40"),
+                        showticklabels = TRUE,
+                        tickangle = 0,
+                        tickfont = tickfont,
+                        # zeroline = TRUE, # to highlight the line at x=0
+                        # zerolinecolor = toRGB("red"),
+                        # zerolinewidth = 2,
+                        gridcolor = toRGB("grey80"),
+                        gridwidth = 1,
+                        mirror = "ticks", # to get lines around the plot
+                        linecolor = toRGB("grey40"),
+                        linewidth = 2),
+
+           yaxis = list(ticks = "outside",
+                        title = yTitle, # bold title, to get itali title use <i>
+                        titlefont = titlefont,
+                        ticklen = 10,
+                        tickwidth = 2,
+                        tickcolor = toRGB("grey40"),
+                        showticklabels = TRUE,
+                        tickangle = 0,
+                        tickfont = tickfont,
+                        gridcolor = toRGB("grey80"),
+                        gridwidth = 1,
+                        mirror = "ticks", # to get borders around the plot
+                        linecolor = toRGB("grey40"),
+                        linewidth = 2))
+
 
   if(length(outputNames) >= 2){
     for(i in 2:length(outputNames)){
@@ -56,7 +106,8 @@ plotSingle <- function(outputNames = NULL, dataenv, varName, timeFrame, groupFun
       pd <- dataenv[[outputNames[i]]][,eval(quote(conversionFactor))*get(groupFun)(get(varName)),timeFrameF(date)]
       colnames(pd)<- c(timeFrame, paste0(varName,"_",groupFun))
       # print(str(pd))
-      p <- add_trace(p, x = fDate(unlist(pd[,timeFrame, with = FALSE]),timeFrame), y =  unlist(pd[,paste0(varName,"_",groupFun),with = FALSE]), name = outputNames[i],type = plotType, mode = plotMode)
+      p <- add_trace(p, x = fDate(unlist(pd[,timeFrame, with = FALSE]),timeFrame), y =  unlist(pd[,paste0(varName,"_",groupFun),with = FALSE]), name = outputNames[i],type = plotType, mode = plotMode, line = list( width = 2,
+              xaxs = "i", yaxs = "i") )
 
     }
   }
@@ -65,13 +116,15 @@ plotSingle <- function(outputNames = NULL, dataenv, varName, timeFrame, groupFun
     p <- plotMeasuredLayers(p,filtMeasured,timeFrame, experiment_id,treatment)
 
   }
-  p %>% layout(yaxis=list(title=sprintf("%s|%s|%s", varName, timeFrame, groupFun)))
+    # p %>% layout(yaxis=list(title=sprintf("%s|%s|%s", varName, timeFrame, groupFun))) # %>% toWebGL()
+    p 
 }
 
 plotMeasuredLayers <- function(p,measurement,timeFrame,experiment_id, treatment){
 
   if(is.null(measurement$repetition)){
-    p <- add_trace(p,x = unlist(get(timeFrame)(measurement$date)),y = unlist(measurement$value), name = sprintf("%s-%s (mean)",experiment_id,treatment))
+    p <- add_trace(p,x = unlist(get(timeFrame)(measurement$date)),y = unlist(measurement$value), name = sprintf("%s-%s (mean)",experiment_id,treatment),line = list( width = 2,
+              xaxs = "i", yaxs = "i") )
   } else {
     repetitions<- unique(measurement$repetition)
     if(length(repetitions) >= 5)
@@ -79,7 +132,9 @@ plotMeasuredLayers <- function(p,measurement,timeFrame,experiment_id, treatment)
     for(i in 1:length(repetitions)){
       actRep <- repetitions[i]
       p<- add_trace(p,x = unlist(get(timeFrame)(measurement[repetition == eval(quote(actRep))]$date)),
-                    y = as.numeric(unlist(measurement[repetition == eval(quote(actRep))]$value)),name = sprintf("%s-%s#%d",experiment_id,treatment,actRep))
+                    y = as.numeric(unlist(measurement[repetition == eval(quote(actRep))]$value)), name = sprintf("%s-%s#%d",experiment_id,treatment,actRep),line = list( width = 2,
+              xaxs = "i", yaxs = "i") )
+
     }
   }
 return(p)
