@@ -1,9 +1,9 @@
 #' agroUI
 #'
 #' This is the main UI function for the agromo modell
-#' @importFrom shinyjs useShinyjs
-#' @importFrom shinyjs hidden
-#' @keywords internal
+#' @importFrom shinyjs useShinyjs hidden
+#' @importFrom shiny fluidPage getShinyOption
+#' @keywords internal 
 agroUI <- function(){
     setwd(getShinyOption("AgroMoData")) # The user interface function runs at first, not the server... horrible
     fluidPage(

@@ -45,7 +45,7 @@ agroMoSiteUI <- function(id){
              shiny::tags$div(id="shiftIn","shift in ..."),
              lapply(managementTypes,function(man){
                         # browser()
-               if(man=="planting") browser()
+               # if(man=="planting") browser()
                choices <- basename(grep(man,list.files("./",recursive=TRUE),value = TRUE))
                if(length(choices)==0){
                  choices <- NULL
