@@ -13,8 +13,6 @@ agroMoSiteUI <- function(id){
                          pattern <- c("*.ini","*.wth","*.soi","*.mgm"))
 
   managementTypes <- c("planting", "harvest", "fertilization", "irrigation", "cultivation", "grazing", "mowing", "thinning")
-
-
   dropdownElements <- shiny::tags$div(id = "fileOutput", class="inFile",
                                apply(baseTable, 1,function (x){
                                  if(!grepl("management",x[1])){
@@ -47,6 +45,7 @@ agroMoSiteUI <- function(id){
              shiny::tags$div(id="shiftIn","shift in ..."),
              lapply(managementTypes,function(man){
                         # browser()
+               if(man=="planting") browser()
                choices <- basename(grep(man,list.files("./",recursive=TRUE),value = TRUE))
                if(length(choices)==0){
                  choices <- NULL
@@ -182,6 +181,7 @@ agroMoSite <- function(input, output, session, dataenv, baseDir, connection,cent
         ## browser()
         mgmF<- suppressWarnings(readLines(file.path(isolate(baseDir()),"input","management",mgmFile())))
       }
+      # if(manName=="planting") browser()
       included <- grep(sprintf("\\.%s$",managementExt[manName]), mgmF, value = TRUE)
       if(length(included)==0){
         return(NA)
@@ -217,10 +217,10 @@ agroMoSite <- function(input, output, session, dataenv, baseDir, connection,cent
                                               list.files(file.path(baseDir(),"input","weather","site"),recursive = TRUE),value = TRUE)))
 
     updateSelectInput(session,"managementFile",
-                      choices = basename(grep("*.mgm",
-                                              list.files(file.path(
-                                                baseDir(),"input","management")
-                                               ,recursive = TRUE),value = TRUE)))
+                      choices = c("none",basename(grep("*.mgm",
+                                               list.files(file.path(
+                                                                    baseDir(),"input","management")
+                                               ,recursive = TRUE),value = TRUE))))
   })
   # observe({
   #   print(input$outFile)

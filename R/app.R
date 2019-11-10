@@ -1,4 +1,4 @@
-#' ntebHV
+#' agroUI
 #'
 #' This is the main UI function for the agromo modell
 #' @importFrom shinyjs useShinyjs
@@ -17,7 +17,7 @@ agroUI <- function(){
         )
     )
 }
-
+    
 #' agroServer
 #'
 #' This is the server function for the agromo modell
@@ -30,7 +30,6 @@ agroUI <- function(){
 #' @importFrom jsonlite read_json
 #' @keywords internal
 agroServer <- function(input, output, session) {
-
     baseDir <- getShinyOption("AgroMoData")
     centralData <- read_json(system.file("centralData.json",package="AgroMo"),simplifyVector = TRUE)
     print(baseDir)
@@ -151,7 +150,7 @@ launchApp <- function(directory = NULL,...){
     if(is.null(directory)){
         shinyOptions(AgroMoData = system.file("defaultDir", package = "AgroMo"))
     } else {
-        shinyOptions(AgroMoData = directory)
+        shinyOptions(AgroMoData = normalizePath(directory))
     }
         shinyApp(ui = agroUI(), server = agroServer, options = list(...))
 }
