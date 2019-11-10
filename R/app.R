@@ -27,6 +27,7 @@ agroUI <- function(){
 #' @importFrom shinyjs hide show onclick
 #' @importFrom DBI dbConnect dbDisconnect
 #' @importFrom RSQLite SQLite
+#' @importFrom shiny getShinyOption
 #' @importFrom jsonlite read_json
 #' @keywords internal
 agroServer <- function(input, output, session) {
