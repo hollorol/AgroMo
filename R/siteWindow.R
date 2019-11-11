@@ -218,19 +218,26 @@ agroMoSite <- function(input, output, session, dataenv, baseDir, connection,cent
   onclick("refresh",{
 
     ## browser()
+    iniState <- input$iniFile
+    soilState <- input$soilFile
+    weatherState <- input$weatherFile
+    mgmState <- input$managementFile
+    
+    updateSelectInput(session,"iniFile", choices = grep("spinup",grep("*.ini",list.files(file.path(baseDir(),"input/initialization/site")),value = TRUE),invert=TRUE, value=TRUE),selected = iniState)
+    
     updateSelectInput(session,"soilFile",
                       choices = basename(grep("*.soi",
-                                              list.files(file.path(baseDir(),"input","soil","site"),recursive = TRUE),value = TRUE)))
+                                              list.files(file.path(baseDir(),"input","soil","site"),recursive = TRUE),value = TRUE)), selected = soilState)
 
     updateSelectInput(session,"weatherFile",
                       choices = basename(grep("*.wth",
-                                              list.files(file.path(baseDir(),"input","weather","site"),recursive = TRUE),value = TRUE)))
+                                              list.files(file.path(baseDir(),"input","weather","site"),recursive = TRUE),value = TRUE)), selected = weatherState)
 
     updateSelectInput(session,"managementFile",
                       choices = c("none",basename(grep("*.mgm",
                                                list.files(file.path(
                                                                     baseDir(),"input","management")
-                                               ,recursive = TRUE),value = TRUE))))
+                                               ,recursive = TRUE),value = TRUE))), selected = mgmState)
   })
   # observe({
   #   print(input$outFile)
