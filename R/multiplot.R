@@ -71,7 +71,7 @@ multiPlot <- function(input, output, session, measurement, outputNames, outputTa
         local({
           my_i <- i
           mesUnit <- ifelse(filteredCentData[i,4]=="NA","dimless",filteredCentData[i,4])
-          yTitle <- sprintf("<b>%s[%s]</br> </b>",filteredCentData[i,2],mesUnit)
+          yTitle <- sprintf("<b>%s [%s]</br> </b>",filteredCentData[i,2],mesUnit)
           output[[simplePlots[my_i,1]]] <- renderPlotly({plotSingle(outputNames = outputNames,
                                                                     dataenv = dataenv,
                                                                     varName = simplePlots[my_i,1],
