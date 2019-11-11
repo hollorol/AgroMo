@@ -183,7 +183,7 @@
     left: 665px;
     background-color: darkgray;
     width: 2px;
-    height: 225px;
+    height: 95px;
 }
 
 #lineComp {
@@ -233,12 +233,12 @@
 
 #exit {
     position: absolute;
-    top: 539px;
-    left: 725px;
-    width: 150px;
-    height: 100px;
-    border: 4px solid gray;
-    border-radius:20px;
+    top: 581px;
+    left: 670px;
+    width: 260px;
+    height: 70px;
+    border: 1px solid gray;
+    border-radius:4px;
     /* opacity:0; */
 }
 #base-exit_z {

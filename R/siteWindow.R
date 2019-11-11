@@ -9,15 +9,24 @@ agroMoSiteUI <- function(id){
   baseDir <- "defaultDir"
   baseTable<- data.frame(selectorId <- c(ns("iniFile"), ns("weatherFile"), ns("soilFile"), ns("managementFile")),
                          label <- c("INI file:", "WEATHER file:", "SOIL file:", "MANAGEMENT file:"),
-                         place <- file.path(baseDir,c("input/initialization/site", "input/weather/site", "input/soil/site", "input/management")),
+                         place <- c("input/initialization/site", "input/weather/site", "input/soil/site", "input/management"                          ),
                          pattern <- c("*.ini","*.wth","*.soi","*.mgm"))
 
   managementTypes <- c("planting", "harvest", "fertilization", "irrigation", "cultivation", "grazing", "mowing", "thinning")
+
+  managementExt <- c("planting" = "plt", "harvest" = "hrv",
+                     "fertilization" = "frz",
+                     "irrigation" = "irr",
+                     "grazing" = "grz",
+                     "mowing" = "mow",
+                     "thinning" = "thn")
+
   dropdownElements <- shiny::tags$div(id = "fileOutput", class="inFile",
                                apply(baseTable, 1,function (x){
                                  if(!grepl("management",x[1])){
                                    shiny::tags$div(id = paste0(x[1],"_container"), selectInput(x[1],x[2],basename(grep(list.files(x[3]), pattern = x[4], value = TRUE)),width = "100%"))
                                  } else {
+                                      # browser()
                                    shiny::tags$div(id = paste0(x[1],"_container"), selectInput(x[1],x[2],c(basename(grep(list.files(x[3],recursive = TRUE), pattern = x[4], value = TRUE)),"none"),width = "100%"))
                                  }
                                })
@@ -46,7 +55,7 @@ agroMoSiteUI <- function(id){
              lapply(managementTypes,function(man){
                         # browser()
                # if(man=="planting") browser()
-               choices <- basename(grep(man,list.files("./",recursive=TRUE),value = TRUE))
+               choices <- basename(grep(paste0(managementExt[man],"$"),list.files("./",recursive=TRUE),value = TRUE))
                if(length(choices)==0){
                  choices <- NULL
                }
@@ -132,6 +141,27 @@ agroMoSite <- function(input, output, session, dataenv, baseDir, connection,cent
     )
     })
   observe({
+     #  print(baseDir())
+     # browser()
+      updateSelectInput(session,"soilFile",
+                        choices = basename(grep("*.soi",
+                                       list.files(file.path(baseDir(),"input","soil","site"),recursive = TRUE),value = TRUE)))
+
+      updateSelectInput(session,"weatherFile",
+                        choices = basename(grep("*.wth",
+                                                list.files(file.path(
+                                                  baseDir(),"input","weather","site")
+                                                 ,recursive = TRUE),value = TRUE)))
+      updateSelectInput(session,"managementFile",
+                        choices = c("none",basename(grep("*.mgm",
+                                                 list.files(file.path(
+                                                                      baseDir(),"input","management")
+                                                 ,recursive = TRUE),value = TRUE))))
+
+
+  })
+
+  observe({
     updateSelectInput(session,"iniFile", choices = grep("spinup",grep("*.ini",list.files(file.path(baseDir(),"input/initialization/site")),value = TRUE),invert=TRUE, value=TRUE))
   })
   iniFile <- reactive({input$iniFile})
@@ -152,26 +182,6 @@ agroMoSite <- function(input, output, session, dataenv, baseDir, connection,cent
 
    })
 
-  observe({
-     #  print(baseDir())
-     # browser()
-      updateSelectInput(session,"soilFile",
-                        choices = basename(grep("*.soi",
-                                       list.files(file.path(baseDir(),"input","soil","site"),recursive = TRUE),value = TRUE)))
-
-      updateSelectInput(session,"weatherFile",
-                        choices = basename(grep("*.wth",
-                                                list.files(file.path(
-                                                  baseDir(),"input","weather","site")
-                                                 ,recursive = TRUE),value = TRUE)))
-      updateSelectInput(session,"managementFile",
-                        choices = basename(grep("*.mgm",
-                                                list.files(file.path(
-                                                  baseDir(),"input","management")
-                                                 ,recursive = TRUE),value = TRUE)))
-
-
-  })
   updateSelectInput(session,"cultivation",selected = NA)
   observe({
     manReactive$included <- sapply(names(managementExt),function(manName){
@@ -240,6 +250,5 @@ agroMoSite <- function(input, output, session, dataenv, baseDir, connection,cent
              reactive({input$fertshift_amount}),
              reactive({input$irrshift_amount}),
   reactive({connection}),reactive({centralData}))
-
     return(dat)
  }

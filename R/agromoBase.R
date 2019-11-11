@@ -34,7 +34,7 @@ agromoBaseUI <- function(id){
                         shiny::tags$img(id = ns("gerFlag"),src="www/img/GERflag_s.png", title = "Sprechen Sie Deutsch?"),
                         # shiny::tags$img(id = ns("exit_z"),src="www/img/exit.png", title = "EXIT"),
                  actionButton("exit", "",onclick="function(){window.close()}", title="EXIT",
-                              style=("background: url('www/img/exit.png'); background-size: 150px 100px;")),
+                              style=("background: url('www/img/exit.png'); background-size: 260px 70px;")),
 #                        actionButton("exit", src="www/img/exit.svg",
 #                                     onclick="function(){window.close()}", title="EXIT"),
                         actionButton("parSweep","PARAMETER SWEEP",
