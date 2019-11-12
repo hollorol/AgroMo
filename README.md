@@ -14,7 +14,7 @@ Download the installer using the URL: https://owncloud.agrar.mta.hu/owncloud/ind
 
 ### Using pure R
 
-You can use agromo from your browser with your curent R installation. In can easily install the package int the following way:
+You can use agromo from your browser with your curent R installation. You can easily install the package int the following way:
 ```{r}
 install.packages("remotes") # if you have already installed devtools or remotes, skip this...
 remotes::install_github("hollorol/AgroMo", upgrade = "never") # You can replace remotes with devtools.
