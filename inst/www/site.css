@@ -1,0 +1,642 @@
+/* Suggestions: I would suggest to use posinition: absolute css declaration in every
+                place. The positions starts at the top-left corner of the root window,
+                which is the window except the banner. */
+#sitediv-iniFile_container .control-label{
+    position: absolute;
+    top: 20px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#sitediv-iniFile_container .selectize-control.shinyjs-resettable.single .selectize-input{
+    position: absolute;
+    top: 25px;
+    left:-1px;
+    width: 800px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+
+
+#sitediv-weatherFile_container .control-label{
+    position: absolute;
+    top: 95px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+   
+}
+
+#sitediv-weatherFile_container .selectize-control.shinyjs-resettable.single .selectize-input{
+    position: absolute;
+    top: 100px;
+    left:-1px;
+    width: 800px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;   
+}
+
+#sitediv-soilFile_container .control-label{
+    position: absolute;
+    top: 165px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;    
+   
+}
+
+#sitediv-soilFile_container .selectize-control.shinyjs-resettable.single .selectize-input{
+    position: absolute;
+    top: 170px;
+    left:-1px;
+    width: 800px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;    
+   
+}
+#sitediv-managementFile_container .control-label{
+    position: absolute;
+    top: 235px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;    
+    
+}
+#sitediv-managementFile_container .selectize-control.shinyjs-resettable.single .selectize-input{
+    position: absolute;
+    top: 240px;
+    left:-1px;
+    width: 800px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/*#sitediv-stationp_container{
+    position: absolute;
+    top: 79px;
+    right: -95px;
+    font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;    
+}
+
+#sitediv-sitep_container{
+  position: absolute;
+  top: 149px;
+  right: -95px;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
+}*/
+
+#manModuls{
+  position: absolute;
+  top: 295px;
+  left: 2px;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  
+}
+
+#shiftIn{
+  position: absolute;
+  top: 295px;
+  left: 570px;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+/*#sitediv-planting_container{
+  position: absolute;
+  top: 400px; 
+  }*/
+             
+#sitediv-planting_container .control-label {
+  position: absolute;
+  top: 327px;
+  right: 730px;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
+}
+
+#sitediv-planting_container .selectize-control.single .selectize-input {
+  position: absolute;
+  top: 309px;
+  left: 105px;
+  width: 450px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
+}
+
+/*#sitediv-harvest_container{
+  position: absolute;
+  top: 450px;
+             }*/ 
+#sitediv-harvest_container .control-label{
+  position: absolute;
+  top: 367px;
+  right: 730px;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
+}
+
+#sitediv-harvest_container .selectize-control.single .selectize-input{
+  position: absolute;
+  top: 347px;
+  left: 105px;
+  width: 450px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
+}
+
+/*#sitediv-fertilization_container{
+  position: absolute;
+  top: 500px;
+} */
+
+#sitediv-fertilization_container .control-label{
+  position: absolute;
+  top: 405px;
+  right: 730px;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
+}
+
+#sitediv-fertilization_container .selectize-control.single .selectize-input{
+  position: absolute;
+  top: 385px;
+  left: 105px;
+  width: 450px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
+}
+
+/*#sitediv-irrigation_container{
+  position: absolute;
+  top: 550px;
+} */
+
+#sitediv-irrigation_container .control-label{
+  position: absolute;
+  top: 443px;
+  right: 730px;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
+}
+
+#sitediv-irrigation_container .selectize-control.single .selectize-input{
+  position: absolute;
+  top: 423px;
+  left: 105px;
+  width: 450px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
+}
+
+/*#sitediv-cultivation_container{
+  position: absolute;
+  top: 600px;
+} */
+
+#sitediv-cultivation_container .control-label{
+  position: absolute;
+  top: 481px;
+  right: 730px;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
+}
+
+#sitediv-cultivation_container .selectize-control.single .selectize-input{
+  position: absolute;
+  top: 461px;
+  left: 105px;
+  width: 450px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
+}
+
+/*#sitediv-grazing_container{
+  position: absolute;
+  top: 650px;
+} */
+
+#sitediv-grazing_container .control-label{
+  position: absolute;
+  top: 519px;
+  right: 730px;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
+}
+
+#sitediv-grazing_container .selectize-control.single .selectize-input{
+  position: absolute;
+  top: 499px;
+  left: 105px;
+  width: 450px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
+}
+
+/*#sitediv-mowing_container{
+  position: absolute;
+  top: 700px;
+} */
+
+#sitediv-mowing_container .control-label{
+  position: absolute;
+  top: 557px;
+  right: 730px;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
+}
+
+#sitediv-mowing_container .selectize-control.single .selectize-input{
+  top: 537px;
+  left: 105px;
+  width: 450px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
+}
+
+/* #sitediv-thinning_container{
+  position: absolute;
+  top: 750px;
+} */
+
+#sitediv-thinning_container .control-label{
+  position: absolute;
+  top: 595px;
+  right: 730px;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
+}
+
+#sitediv-thinning_container .selectize-control.single .selectize-input{
+  position: absolute;
+  top: 521px;
+  left: 105px;
+  width: 450px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
+}
+
+#sitediv-outputFile{
+  position: absolute;
+  top: 638px;
+  width:900px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
+}
+
+#sitediv-outFile {
+  font-size:16px;
+  color:black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
+}
+
+/*#sitediv-Buttons{
+  position: absolute;
+  top: 710px;
+} */
+
+#sitediv-popRun-runModel{
+  position: absolute;
+  top:700px;
+  left:0px;
+  width:435px;
+  background-color: gainsboro;
+}
+
+#sitediv-Show{
+  position: absolute;
+  top:700px;
+  left:465px;
+  width:435px;
+  background-color: gainsboro;
+}
+
+#sitediv-planshift_date_container .form-control{
+  position: absolute;
+  top: 324px;
+  left: 650px;
+   width: 55px;
+   height: 33px;
+   font-size: 16px;
+   padding-bottom:10px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;   
+}
+
+
+#sitediv-planshift_date_container label{
+  position: absolute;
+  top: 327px;
+  left: 570px;
+  font-size: 16px;
+  font-weight: normal;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
+   
+}
+
+#sitediv-planshift_density_container .form-control{
+  position: absolute;
+  top: 324px;
+  right: -62px;
+  width: 55px;
+  height: 33px;
+  font-size: 16px;
+  padding-bottom:10px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
+}
+
+#sitediv-planshift_density_container label{
+  position: absolute;
+  top: 327px;
+  right: -4px;
+  font-size: 16px;
+  font-weight: normal;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
+}
+
+
+#sitediv-harvshift_date_container .form-control{
+  position: absolute;
+  top: 363px;
+  left: 650px;
+  width: 55px;
+  height: 33px;
+  font-size: 16px;
+  padding-bottom:10px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
+}
+
+#sitediv-harvshift_date_container label{
+  position: absolute;
+  top: 367px;
+  left: 570px;
+  font-size: 16px;
+  font-weight: normal;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
+}
+
+
+#sitediv-fertshift_date_container .form-control{
+  position: absolute;
+  top: 401px;
+  left: 650px;
+  width: 55px;
+  height: 33px;
+  font-size: 16px;
+  padding-bottom:10px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
+}
+
+#sitediv-fertshift_date_container label{
+  position: absolute;
+  top: 405px;
+  left: 570px;
+  font-size: 16px;
+  font-weight: normal;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
+}
+
+
+#sitediv-irrshift_date_container .form-control{
+  position: absolute;
+  top: 439px;
+  left: 650px;
+  width: 55px;
+  height: 33px;
+  font-size: 16px;
+  padding-bottom:10px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
+}
+
+#sitediv-irrshift_date_container label{
+  position: absolute;
+  top: 443px;
+  left: 570px;
+  font-size: 16px;
+  font-weight: normal;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
+}
+
+
+#sitediv-fertshift_amount_container .form-control{
+  position: absolute;
+  top: 401px;
+  right: -62px;
+  width: 55px;
+  height: 33px;
+  font-size: 16px;
+  padding-bottom:10px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
+}
+
+#sitediv-fertshift_amount_container label{
+  position: absolute;
+  top: 405px;
+  right: -4px;
+  font-size: 16px;
+  font-weight: normal;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
+}
+
+
+#sitediv-irrshift_amount_container .form-control{
+  position: absolute;
+  top: 439px;
+  right: -62px;
+  width: 55px;
+  height: 33px;
+  font-size: 16px;
+  padding-bottom:10px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
+}
+
+#sitediv-irrshift_amount_container label{
+  position: absolute;
+  top: 443px;
+  right: -4px;
+  font-size: 16px;
+  font-weight: normal;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
+}
+
+#sitediv-littleblackline {
+position: absolute;
+top: 297px;
+height: 1px;
+background-color: #A9A9A9;
+width: 552px;
+color: #A9A9A9;  
+}
+
+#sitediv-littleblacklinetwo {
+  position: absolute;
+  top: 297px;
+  left: 570px;
+  height: 1px;
+  background-color: #A9A9A9;
+  width: 324px;
+  color: #A9A9A9;
+  
+}
+/*#sitediv-base_bb {
+  position:absolute;
+  top: 630px;
+  left: -99px;
+  max-width: 6%;
+}
+
+#sitediv-map_bb {
+  position:absolute;
+  left: -99px;
+  top: 240px;
+  max-width: 6%;
+  
+}
+
+#sitediv-show_bb {
+  position:absolute;
+  left: -99px;
+  top: 500px;
+  max-width:6%;
+}
+
+#sitediv-grid_bb {
+  position:absolute;
+  left: -99px;
+  top: 370px;
+  max-width:6%;
+}*/
+
+#sitediv-refresh {
+  position:absolute;
+  top: 40px;
+  left: 825px;
+  width:70px;
+  height: 248px;
+  cursor: pointer;
+}
+/*#sitediv-outFile .control-label{
+    position: absolute;
+    top: 550px;
+    
+}
+
+#sitediv-outFile_container .selectize-control.shinyjs-resettable.single .selectize-input{
+    position: absolute;
+    top: 560px;
+    
+}/*
+

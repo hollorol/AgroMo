@@ -1,0 +1,3 @@
+#!/bin/bash
+
+find input/initialization/grid/10km -name "*_normal.ini" -exec sed -i -E  '107s/2(.*)/1\1/' {} +

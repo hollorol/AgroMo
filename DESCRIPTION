@@ -1,0 +1,28 @@
+Package: AgroMo
+Title: The AgroMo GUI provider
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Roland",
+           family = "Hollós",
+           role = c("aut", "cre"),
+           email = "hollorol@gmail.com")
+Description: This package is provides the R-code and the model executable for running AgroMo GUI
+Imports:
+  shiny,
+  pool,
+  shinyBS,
+  shinyjs,
+  plotly,
+  promises,
+  future,
+  data.table,
+  DT,
+  DBI,
+  RSQLite
+Suggests: testhat,
+  rmarkdown,
+  knitr
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.1

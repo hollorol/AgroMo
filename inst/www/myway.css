@@ -1,0 +1,206 @@
+
+.base-baseInputs {
+    margin-top: 56px;
+
+}
+ 
+.banner {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.banner:not(#Base-banner-div) {
+    /* Do not edit this block, it preserves functionality not just pure style */
+    cursor: pointer;
+}
+
+
+
+/* .mainSideBar { */
+
+/*     width: 200px; */
+/*     font-size: 20px; */
+/*     max-width: 200px; */
+/*     white-space: normal; */
+/*     word-wrap: break-word; */
+/*     font-weight: 700; */
+
+/* } */
+
+#plotWindow {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 1024px;
+  height: 768px;
+  background-color: #e3e7ed;
+}
+
+#plotContainer {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 1024px;
+  height: 600px;
+  overflow-y: auto;
+  background-color: #e3e7ed;
+}
+
+.baseWindow {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  width: 1200px;
+  height: 768px;
+  background-color: #e3e7ed;
+  margin-top: 
+}
+
+.container-fluid {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.innerGui {
+  position: absolute;
+  top: 0px;
+  left: 193px;
+  width: 831px;
+ /* display: flex;
+  justify-content: center;*/
+  margin-left: 50px;
+  margin-top: 50px
+  margin-right: auto;
+  height: 100%;
+}
+/*
+.inFile, .selectize-input {
+  font-size: 16px;
+  line-height: 16px;
+  width: 900px;
+
+}
+
+*/
+
+
+/*.inFile, .selectize-input.items.full.has-options.has-items {
+
+position: absolute;
+  top: -15px;
+  left: -1px;
+} */
+
+/*.inFile, .selectize-dropdown {
+font-size: 16px;
+line-height: 16px;
+}
+/*.inFile, .selectize-dropdown-content {
+padding: 0;
+}
+.inFile {
+    padding-top: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+<<<<<<< HEAD:site/www/myway.css
+}
+*/
+=======
+}*/
+
+>>>>>>> devel:inst/www/myway.css
+
+
+.inFile, control-label {
+    font-size: 16px;
+    color: black;
+}
+
+
+.inFile > .form-group.shiny-input-container {
+    width: 100%;
+    height: 40px;
+
+}
+
+.removable {
+    display: none;
+}
+
+.mainMenu {
+    width: 300px;
+    height: 300px;
+    border-radius: 21px;
+    margin-left: 30px;
+    margin-bottom: 30px;
+    flex: 9;
+}
+
+#baseMain {
+    display: inline;
+
+}
+
+<<<<<<< HEAD:site/www/myway.css
+.control-label {
+    margin-top: 5px;
+    margin-bottom: 25px;
+}
+=======
+/*.control-label {
+    margin-top: 20px;
+    margin-bottom: 15px;
+}*/
+>>>>>>> devel:inst/www/myway.css
+
+#showdiv-refresh {
+    width: 250px;
+}
+
+
+.shiny-options-group {
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #cccccc;
+    width: 250px;
+}
+
+
+showdiv-outSelector > .checkbox {
+    margin-left: 10px;
+}
+
+#runIndicator .modal-dialog {
+    width: 190px
+}
+#site-div button {
+/*    with: 400px;*/
+    margin: 20px;
+}
+
+#sitediv-Buttons button {
+/*    width: 365px; */
+    height: 50px;
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+}
+
+#sitediv-Buttons {
+	  padding-left: 50px;
+}
+
+/*.rhandsontable table.htCore {
+    width: 535px;
+}*/

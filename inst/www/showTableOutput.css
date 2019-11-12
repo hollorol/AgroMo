@@ -1,0 +1,344 @@
+/*
+.dataTables_scrollBody td{
+  height: 10px !important;
+  width: 365px !important;
+  font-size: 16px;
+  padding: 0px; !important
+  white-space: nowrap;
+}
+
+#DataTables_Table_0_wrapper .dataTables_wrapper.no-footer {
+  position: absolute;
+  left: 0px;
+  width: 600px;
+}
+
+.dataTables_scroll {
+  border-bottom: 0px !important;
+  height: 680px !important;
+  width: 325px !important;
+}
+
+#showdiv-outputSelection td:nth-child(2) {
+  height: 30px;
+  width: 300px;
+}
+
+#DataTables_Table_0 tbody {
+  height: 680px;
+  width: 500px;
+}
+
+nemcsinal semmit
+.table.dataTable.display tbody td {
+  color:red;
+}
+
+.table.dataTable tr.selected td {
+  background-color: rgb(166,202,240) !important;
+}
+*/
+
+
+.dataTables_scrollHead {
+  display: none;
+}
+
+.dataTables_scrollBody {
+  /*border-bottom: 0px !important;*/
+  border-bottom-color: lightgrey !important;
+  border-bottom-style: solid;
+  border-bottom: 1px;
+  height: 710px !important;
+  width: 335px !important;
+  background-color: white;
+  font-size: 16px;
+  border: 1px;
+  border-color: lightgrey;
+  border-style: solid;
+  overflow-y: scroll !important;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.dataTables_scrollBody td{
+  height: 5px !important;
+  width: 335px !important;
+  font-size: 16px;
+  white-space: nowrap !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  cursor: pointer;
+}
+
+.dataTables_scrollBody thead{
+  display:none;
+}
+
+#showdiv-outputSelection {
+  position: absolute;
+  top: 40px;
+  left: -35px;
+  height: 400px !important;
+  width: 335px !important;
+  overflow-y: scroll;
+  background-color: white;
+}
+#showdiv-outputSelection thead {
+    display: none;
+}
+
+#showdiv-outputSelection td {
+    user-select: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+ #showdiv-outputSelection tr:nth-child(even) { 
+  background-color: rgb(245,245,245); 
+ } 
+
+ #showdiv-outputSelection tr:nth-child(odd) { 
+  background-color: white; 
+ } 
+/*  */
+
+.showdiv-selected-vars {
+    background-color: #b0bed9;
+    border: 0;
+}
+
+#DataTables_Table_0 {
+  position: absolute;
+  top: 5px;
+  left: 0px;
+  /*ezzel elojohez yscroll height: 680px !important;*/
+}
+
+#DataTables_Table_0_filter.dataTables_filter {
+  display:none;
+/*  position: absolute;
+ top: 685px;
+  left: 0px;
+  width: 330px;
+  font-size:16px;
+  text-transform: uppercase;
+ border-radius: 4px;
+  text-align: left;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;*/
+}
+
+/*#DataTables_Table_0_filter.dataTables_filter input {
+ width: 250px;
+ border-radius: 4px;
+}
+#DataTables_Table_0_filter.dataTables_filter label {
+ font-size:16px;
+  position: absolute;
+  left: 0px;
+  text-transform: uppercase;
+}
+
+#DataTables_Table_0_filter.dataTables_filter input {
+ width: 255px;
+ border-radius: 4px;
+}*/
+
+/*sorszamozast kiszedi*/
+#DataTables_Table_0 td:nth-child(1) {
+  display:none;
+  height:5px;
+}
+
+/* #########Innentol van a jobb oldali tablazat#############*/
+
+.selected-rows_showdiv_table_output {
+  /*background-color: rgb(166,202,240);*/
+  background-color: #b0bed9;
+  border: 0;
+}
+
+#showdiv-table-output:not(.selected-rows_showdiv_table_output) {
+    background-color: #FFFFFF
+}
+
+#showdiv-table-output {
+    border-collapse: collapse;
+}
+
+#showdiv-table-output_container {
+    height: 390px;
+    overflow-y: scroll;
+    width:585px;
+    border-left: 1px;
+    border-bottom: 1px;
+    border-right: 1px;
+    border-top: 0px;
+  border-color: lightgrey;
+  border-style: solid;
+
+}
+
+#showdiv-table-output-header {
+    position: absolute;
+    width: 585px;
+    height: 25px;
+    top: 185px;
+  left: 70px;
+    background-color: rgb(192,192,192);
+    border-top: 1px;
+    border-right: 0px;
+    border-bottom: 0px;
+    border-left: 0px;
+  border-color: lightgrey;
+  border-style: solid;
+  font-size:16px;
+}
+
+/*#showdiv-table-output-header th:nth-child(1){
+    cursor: pointer;
+    width: 300px;
+    padding-left: 10px;
+}
+
+#showdiv-table-output-header th:nth-child(2){
+    cursor: pointer;
+    width: 265px;
+    padding-left: 10px;
+}*/
+
+#showdiv-table-output-header th:nth-child(1){
+    cursor: pointer;
+  position: absolute;
+  left:10px;
+}
+
+#showdiv-table-output-header th:nth-child(2){
+    position: absolute;
+  left: 282px;
+}
+
+#showdiv-table-output-header th:nth-child(3){
+    position: absolute;
+  left: 370px;
+}
+
+#showdiv-table-output-header th:nth-child(4){
+    position: absolute;
+  left: 454px;
+}
+
+
+#showdiv-table-output td {
+  text-align: left;
+  border-right: solid;
+    border-width:1px;
+    border-color: gray;
+  font-size: 16px;
+  padding: 2px;
+}
+
+#showdiv-outputSelection td {
+padding:2px;
+}
+
+
+#showdiv-table-output th {
+    border-right: solid;
+    border-width:1px;
+    border-color: gray;
+    font-size: 16px;
+    text-align:left;
+    background-color: rgb(192,192,192);
+    height: 30px;
+    padding-left: 5px;
+    
+}
+
+/* #show-table-output  td:nth-child(1) {
+#showdiv-table-output:not(th:nth-child(1)),td:nth-child(1) {
+  width: 250px;
+  border-right: solid;
+}*/
+
+
+#showdiv-table-output td {  
+  padding-left: 10px;
+  /*width: 150px;*/
+}
+#showdiv-table-output td:nth-child(1) {  
+  padding-left: 10px;
+  width: 280px;
+}
+#showdiv-table-output td:nth-child(2) {  
+  padding-left: 10px;
+  width: 85px;
+}
+#showdiv-table-output td:nth-child(3) {  
+  padding-left: 10px;
+  width: 85px;
+}
+#showdiv-table-output td:nth-child(4) {  
+  padding-left: 10px;
+  width: 109px;
+}
+
+#showdiv-table-output td {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */ /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+#showdiv-table-output th:nth-child(1) {
+  cursor: pointer;
+}
+
+#showdiv-table-output td {
+  cursor: pointer;
+}
+
+
+
+#showdiv-table-output tr:nth-child(even):not(.selected-rows_showdiv_table_output) {
+    /*background-color: #f9f9f9;*/
+    background-color: rgb(245,245,245);
+    border-top-color: #dddddd;
+    border-bottom-color: #dddddd;
+   /* border-top: solid;
+    border-bottom: solid;*/
+}
+
+#show-table-output th {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */ /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+
+
+/* // Alternative row selections : The first is part of my css model, It is faster than the original. 
+
+.rowHR-4 .colHR-2 {
+  background-color : #AAFF00;
+}
+
+tr:nth-child(4) td:nth-child(2) {
+  background-color : blue;
+}
+*/
+#show-table-output tr:nth-child(even){background: #CCC}
+
+#showdiv-table-output_container {
+	  margin-top: 30px;
+}

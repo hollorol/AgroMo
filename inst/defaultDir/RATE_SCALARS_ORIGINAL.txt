@@ -1,0 +1,14 @@
+0.39 	(DIM) respiration fractions for fluxes between compartments (l1s1)
+0.55 	(DIM) respiration fractions for fluxes between compartments (l2s2)
+0.29 	(DIM) respiration fractions for fluxes between compartments (l4s3)
+0.28 	(DIM) respiration fractions for fluxes between compartments (s1s2)
+0.46 	(DIM) respiration fractions for fluxes between compartments (s2s3)
+0.55 	(DIM) respiration fractions for fluxes between compartments (s3s4)
+0.7     (DIM) rate constant scalar of  labile litter pool
+0.07    (DIM) rate constant scalar of cellulose litter pool
+0.014   (DIM) rate constant scalar of lignin litter pool
+0.07    (DIM) rate constant scalar of  fast microbial recycling pool
+0.014   (DIM) rate constant scalar of  medium microbial recycling pool 
+0.0014  (DIM) rate constant scalar of  slow microbial recycling pool
+0.0001  (DIM) rate constant scalar of  recalcitrant SOM (humus) pool
+0.001   (DIM) rate constant scalar of  physical fragmentation of coarse woody debris

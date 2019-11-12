@@ -1,0 +1,319 @@
+#showdiv-show{
+  position:absolute;
+  top: 695px;
+  left:70px;
+  width:320px;
+  height: 55px;
+  background-color: gainsboro;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#showdiv-export{
+  position:absolute;
+  top: 695px;
+  left: 405px;
+  width: 250px;
+  height: 55px;
+  background-color: gainsboro;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#showdiv-plotka-dateInput .control-label{
+  position: absolute;
+  top: 448px;
+  font-weight: bold;
+}
+
+#showdiv-plotka-ddec {
+  position: absolute;
+  top: 440px;
+  left: 60px;
+}
+
+#showdiv-plotka-dinc {
+  position: absolute;
+  top: 440px;
+  left: 352px;
+}
+
+/* .svg-container{ */
+/*   position: absolute; */
+/*   top: 60px;  */
+/* } */
+
+#showdiv-plotka-dateInput .form-control.shinyjs-resettable{
+  position: absolute;
+  top: 440px;
+  left: 140px;
+  width: 200px;
+}
+
+
+#showdiv-del{
+  position:absolute;
+  top: 448px;
+  left: -312px;
+  width: 335px;
+  height: 55px;
+  background-color: gainsboro;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/*#showdiv-varset_container {
+  position: absolute;
+  top: 135px;
+  left:-310px;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+} */
+
+#showdiv-varset_container .control-label{
+  position: absolute;
+  top: 151px;
+    left: 407px;
+  width: 60px;
+  font-weight: normal;
+} 
+
+#showdiv-varset_container .selectize-input{
+  position: absolute;
+  top: 130px;
+   left: 445px;
+  width: 195px;
+} 
+
+
+
+#showdiv-cellid_container {
+  position: absolute;
+  top: 720px;
+  left:-310px;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+} 
+
+
+#showdiv-cellid_container .form-control {
+  position: absolute;
+  top: -4px;
+  left: 70px;
+  width: 235px;
+  font-size: 16px;
+} 
+
+#showdiv-cellid_container .shiny-input-container label {
+  font-weight: normal;
+} 
+
+
+#showdiv-compfunc_container .selectize-input {
+  position: absolute;
+  top: 590px;
+  left:195px;
+  font-size: 16px;
+  width: 440px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+} 
+
+#showdiv-compfunc_container .control-label{
+    position: absolute;
+    top: 610px;
+    left: 78px;
+  font-size: 16px;
+  font-weight: normal;
+  width: 300px;
+}
+
+#showdiv-compfunc_container .has-options{
+    position: absolute;
+    top: 0px;
+    left: 525px;
+    width: 440px;
+}
+
+#showdiv-compbase_container .selectize-input {
+  position: absolute;
+  top: 630px;
+  left:195px;
+  font-size: 16px;
+  width: 440px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+} 
+
+#showdiv-compbase_container .control-label{
+    position: absolute;
+    top: 650px;
+    left: 100px;
+  font-size: 16px;
+  font-weight: normal;
+  width: 300px;
+}
+
+#showdiv-compbase_container .has-options{
+    position: absolute;
+    width: 440px;
+}
+
+
+#simres {
+  position: absolute;
+  top: 15px;
+  left: -312px;
+  font-weight: bold;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+} 
+
+
+
+#gridsimres {
+  position: absolute;
+  top: 515px;
+  left: -312px;
+  font-weight: bold;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+} 
+
+#observations {
+  position: absolute;
+  top: 15px;
+  left:70px;
+  font-weight: bold;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+} 
+
+#createplot {
+  position: absolute;
+  top: 155px;
+  left:70px;
+  font-weight: bold;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+} 
+
+#repavg {
+  position: absolute;
+  top: 113px;
+  left: 221px;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+} 
+
+#showdiv-averagep {
+  position: absolute;
+  top: 98px;
+  left: 210px;
+}
+
+#showdiv-experimentID_container .selectize-control.shinyjs-resettable.single .selectize-input{
+    width: 450px;
+    position: absolute;
+    top: 23px;
+    left:187px;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#showdiv-treatmentID_container .selectize-control.shinyjs-resettable.single .selectize-input{
+    width: 450px;
+    position: absolute;
+    top: 60px;
+    left:187px;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#showdiv-groupID_container .selectize-control.shinyjs-resettable.single .selectize-input{
+    width: 430px;
+    position: absolute;
+    top: 628px;
+    left:208px;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#showdiv-groupID_container .control-label{
+    position: absolute;
+    top: 648px;
+    left: 70px;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#showdiv-experimentID_container .control-label{
+    position: absolute;
+    top: 43px;
+    right: 354px;
+  font-size: 16px;
+  font-weight: normal;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#showdiv-treatmentID_container .control-label{
+    position: absolute;
+    top: 80px;
+    right: 354px;
+  font-size: 16px;
+  font-weight: normal;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#showdiv-table-output_container{
+  position: absolute;
+  top: 180px;
+  left: 70px;
+}
+
+.modal-lg {
+    width: 95%;
+}
