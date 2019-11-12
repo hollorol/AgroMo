@@ -10,7 +10,7 @@ A graphical user interface (GUI) has been developed for providing easy and user 
 
 ### AgroMo Base
 
-![alt text](base_gui.png "AgroMo Base")
+![alt text](img/base_gui.png "AgroMo Base")
 
 - [x] Choose/change the main directory where your data files are located (in a fixed subdirectory system) by clicking the [CHOOSE] button.
 - [x] Run the model for a specific site/plot by clicking the [SITE] button.
