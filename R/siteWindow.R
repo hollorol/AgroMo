@@ -40,6 +40,7 @@ agroMoSiteUI <- function(id){
              #shiny::tags$img(id = ns("map_bb"),src="www/img/map_banner_button.svg"),
              #shiny::tags$img(id = ns("grid_bb"),src="www/img/grid_banner_button.svg"),
              #shiny::tags$img(id = ns("show_bb"),src="www/img/show_banner_button.svg"),
+             #shiny::tags$img(id = ns("home-button"),src="www/img/home.png"),
              shiny::tags$img(id = ns("refresh"),src="www/img/refresh_button.svg", draggable = FALSE),
              dropdownElements,
              #shiny::tags$div(
