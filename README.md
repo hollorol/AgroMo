@@ -9,12 +9,8 @@ AgroMo is an Integrated Assessment and Modelling software that integrates 4M (Fo
 ### Using Installer
 
 Download the installer using the URL: https://owncloud.agrar.mta.hu/owncloud/index.php/s/eapDFwX9djQ6hpb
- 
- 
-Bárhová  menthető a gépen.
-Indítása után meg kell adni egy telepítési könyvtárat (ami nem kell hogy létezzen), vagy egyszerűen begépelve, vagy a Módosít ikonra kattintással feltűnő könyvtárrendszerből történő választással
-A program a későbbiekben innen lesz indítható az AgroMo_Launch.exe alkalmazással
-
+- [x] Choose installation folder by clicking the Modify icon or leave the default unaltered. If the folder does not exist the installer will create it.
+- [x] AgroMo can be started from this folder by launching the AgroMo_Launch.exe application.
 
 ### Using R-portable or R-studio
 
