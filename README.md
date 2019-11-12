@@ -22,7 +22,7 @@ A graphical user interface (GUI) has been developed for providing easy and user 
 
 ### AgroMo Site
 
-![alt text](site_gui.png "AgroMo Site")
+![alt text](img/site_gui.png "AgroMo Site")
 - [x] The dropdown menus display the content, files only with the prescribed extension, of the corresponding directories within the input folder:
   - INI file (extension: .ini): .\input\initialization\
   - WEATHER file (extension: .wth): .\input\weather\site\
@@ -48,7 +48,7 @@ A graphical user interface (GUI) has been developed for providing easy and user 
 
 ### AgroMo Plot
 
-![alt text](plot_gui.png "AgroMo Plot")
+![alt text](img/plot_gui.png "AgroMo Plot")
 - [x] Select a maximum of 5 simulation results from the left side list by clicking the items. Clicking again deselects the item.
 - [x] Select variable(s) from the right side list for presenting them on the plot(s).
 - [ ] Observed data could be added to the plots by selecting the EXPERIMENT and TREATMENT ids from the corrresponding dropdown lists. NOTE, that data in the observed data tables should be structured according to the prescribed rules. Observed (experimental) data should be stored in the '.\observation\' folder in a SQLite database: one table for one experiment. Observed data available in multiple repetitions could be presented on the plot in two ways: 1) each repetition as separate data point, or 2) one single data point representing the mean of the repetitions. Leaving the EXPERIMENT ID dropdown list empty results in presenting simulation results only on the plot(s).
