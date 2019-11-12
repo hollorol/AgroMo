@@ -15,9 +15,9 @@ A graphical user interface (GUI) has been developed for providing easy and user 
 - [x] Choose/change the main directory where your data files are located (in a fixed subdirectory system) by clicking the [CHOOSE] button.
 - [x] Run the model for a specific site/plot by clicking the [SITE] button.
 - [x] Create plots of the simulation results by clicking the [PLOT] button.
-- [x] Make gridded model runds by clicking the [GRID] button.
-- [x] Present the results of a gridded simulation on a map by clicking the [MAP] button.
-- [x] Create, open, edit and save your input files by clicking the [INPUT FILE MANAGER] button.
+- [ ] Make gridded model runds by clicking the [GRID] button.
+- [ ] Present the results of a gridded simulation on a map by clicking the [MAP] button.
+- [ ] Create, open, edit and save your input files by clicking the [INPUT FILE MANAGER] button.
 
 
 ### AgroMo Site
@@ -51,7 +51,7 @@ A graphical user interface (GUI) has been developed for providing easy and user 
 ![alt text](plot_gui.png "AgroMo Plot")
 - [x] Select a maximum of 5 simulation results from the left side list by clicking the items. Clicking again deselects the item.
 - [x] Select variable(s) from the right side list for presenting them on the plot(s).
-- [x] Observed data could be added to the plots by selecting the EXPERIMENT and TREATMENT ids from the corrresponding dropdown lists. NOTE, that data in the observed data tables should be structured according to the prescribed rules. Observed (experimental) data should be stored in the '.\observation\' folder in a SQLite database: one table for one experiment. Observed data available in multiple repetitions could be presented on the plot in two ways: 1) each repetition as separate data point, or 2) one single data point representing the mean of the repetitions. Leaving the EXPERIMENT ID dropdown list empty results in presenting simulation results only on the plot(s).
+- [ ] Observed data could be added to the plots by selecting the EXPERIMENT and TREATMENT ids from the corrresponding dropdown lists. NOTE, that data in the observed data tables should be structured according to the prescribed rules. Observed (experimental) data should be stored in the '.\observation\' folder in a SQLite database: one table for one experiment. Observed data available in multiple repetitions could be presented on the plot in two ways: 1) each repetition as separate data point, or 2) one single data point representing the mean of the repetitions. Leaving the EXPERIMENT ID dropdown list empty results in presenting simulation results only on the plot(s).
 - [x] For each selected variable select:
   - a |time step| for which the daily data are to be aggregated into one single value (e.g. for presenting annual values the 'year' option should be selected).
   - a |function| that defines the aggregation (e.g. for presenting the final yield for each year the 'max' option should be selected)
