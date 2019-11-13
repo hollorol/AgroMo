@@ -4,6 +4,7 @@
 #sitediv-iniFile_container .control-label{
     position: absolute;
     top: 20px;
+    font-size: 16px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -15,6 +16,7 @@
     top: 25px;
     left:-1px;
     width: 800px;
+    font-size: 16px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -26,6 +28,7 @@
 #sitediv-weatherFile_container .control-label{
     position: absolute;
     top: 95px;
+    font-size: 16px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -38,6 +41,7 @@
     top: 100px;
     left:-1px;
     width: 800px;
+    font-size: 16px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -47,6 +51,7 @@
 #sitediv-soilFile_container .control-label{
     position: absolute;
     top: 165px;
+    font-size: 16px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -59,6 +64,7 @@
     top: 170px;
     left:-1px;
     width: 800px;
+    font-size: 16px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -68,6 +74,7 @@
 #sitediv-managementFile_container .control-label{
     position: absolute;
     top: 235px;
+    font-size: 16px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -79,6 +86,7 @@
     top: 240px;
     left:-1px;
     width: 800px;
+    font-size: 16px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -150,6 +158,7 @@
   top: 309px;
   left: 105px;
   width: 450px;
+  font-size: 16px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -176,6 +185,7 @@
   top: 347px;
   left: 105px;
   width: 450px;
+  font-size: 16px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -203,6 +213,7 @@
   top: 385px;
   left: 105px;
   width: 450px;
+  font-size: 16px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -230,6 +241,7 @@
   top: 423px;
   left: 105px;
   width: 450px;
+  font-size: 16px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -257,6 +269,7 @@
   top: 461px;
   left: 105px;
   width: 450px;
+  font-size: 16px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -284,6 +297,7 @@
   top: 499px;
   left: 105px;
   width: 450px;
+  font-size: 16px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -310,6 +324,7 @@
   top: 537px;
   left: 105px;
   width: 450px;
+  font-size: 16px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -337,6 +352,7 @@
   top: 521px;
   left: 105px;
   width: 450px;
+  font-size: 16px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -345,8 +361,21 @@
 
 #sitediv-outputFile{
   position: absolute;
-  top: 638px;
+  top: 632px;
   width:900px;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
+}
+
+#outputid-label {
+  font-size:16px;
+  color:black;
+  position: absolute;
+  top: 635px;
+  font-weight: bold;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
