@@ -40,6 +40,7 @@ agroMoSiteUI <- function(id){
              #shiny::tags$img(id = ns("map_bb"),src="www/img/map_banner_button.svg"),
              #shiny::tags$img(id = ns("grid_bb"),src="www/img/grid_banner_button.svg"),
              #shiny::tags$img(id = ns("show_bb"),src="www/img/show_banner_button.svg"),
+             #shiny::tags$img(id = ns("home-button"),src="www/img/home.png"),
              shiny::tags$img(id = ns("refresh"),src="www/img/refresh_button.svg", draggable = FALSE),
              dropdownElements,
              #shiny::tags$div(
@@ -52,6 +53,7 @@ agroMoSiteUI <- function(id){
              #      ),
              shiny::tags$div(id="manModuls","management options:"),
              shiny::tags$div(id="shiftIn","shift in ..."),
+             shiny::tags$div(id="outputid-label","OUTPUT id:"),
              lapply(managementTypes,function(man){
                         # browser()
                # if(man=="planting") browser()
@@ -135,7 +137,8 @@ agroMoSite <- function(input, output, session, dataenv, baseDir, connection,cent
       shiny::tags$div(id = "outputF", class = "inFile",
 
                ## selectizeInput(ns("outFile"),"OUTPUT id:",modellOutputs,selected = iniFile(),options = list(create = TRUE))
-               textInput(ns("outFile"),"OUTPUT id:",strsplit(input$iniFile,split = "\\.")[[1]][1])
+               textInput(ns("outFile"),"",strsplit(input$iniFile,split = "\\.")[[1]][1])
+               #textInput(ns("outFile"),"OUTPUT id:",strsplit(input$iniFile,split = "\\.")[[1]][1])
                )
 
     )

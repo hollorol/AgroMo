@@ -1,6 +1,6 @@
 Package: AgroMo
 Title: The AgroMo GUI provider
-Version: 0.0.0.9000
+Version: 0.1.2
 Authors@R: 
     person(given = "Roland",
            family = "Hollós",
