@@ -57,6 +57,10 @@
     background-color: darkgray;
     width: 660px;
     text-align: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 #mainSideBarTools {
@@ -70,6 +74,10 @@
     background-color: darkgray;
     width: 265px;
     text-align: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 #mainSideBarLang {
@@ -83,6 +91,10 @@
     background-color: darkgray;
     width: 265px;
     text-align: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 #mainSideBarDirectory {
@@ -96,7 +108,10 @@
     position: absolute;
     top: 680px;
     left: -24px;
-
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 #choose {
@@ -107,6 +122,10 @@
     height: 35px;
     font-weight: 700;
     background-color: gainsboro;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 #mdd {
@@ -117,6 +136,10 @@
     height: 35px;
     background-color: gainsboro;
     font-size: 20px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 #parSweep {
@@ -127,6 +150,10 @@
     height: 60px;
     font-weight: 700;
     background-color: gainsboro;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 #sensitivity {
@@ -137,6 +164,10 @@
     height: 60px;
     font-weight: 700;
     background-color: gainsboro;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 #calibration {
@@ -147,6 +178,10 @@
     height: 60px;
     font-weight: 700;
     background-color: gainsboro;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 #storEditor {
@@ -157,6 +192,10 @@
     height: 60px;
     font-weight: 700;
     background-color: gainsboro;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 #fileMan {
@@ -167,6 +206,10 @@
     height: 60px;
     font-weight: 700;
     background-color: gainsboro;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 #lineTool {

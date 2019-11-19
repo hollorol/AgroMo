@@ -1,4 +1,34 @@
   agroMoMapUI <- function(id){
+    
+    paletteAlias <- data.frame(src=c(
+      "www/img/palette_samples/Greens.png",
+      "www/img/palette_samples/Greys.png",
+      "www/img/palette_samples/Reds.png",
+      "www/img/palette_samples/Yellow-Green-Blue.png",
+      "www/img/palette_samples/Yellow-Orange-Brown.png",
+      "www/img/palette_samples/Blues.png",
+      "www/img/palette_samples/Red-Blue.png",
+      "www/img/palette_samples/Red-Yellow-Blue.png",
+      "www/img/palette_samples/Red-Yellow-Green.png",
+      "www/img/palette_samples/Spectral.png",
+      "www/img/palette_samples/Yellow-Green.png"
+    ),
+    alias=c(
+      "Greens", "Greys", "Reds", "Yellow-Green-Blue", 
+      "Yellow-Orange-Brown", "Blues",  "Red-Blue", "Red-Yellow-Blue", 
+      "Red-Yellow-Green", "Spectral", "Yellow-Green"
+    ))
+    
+    paletteAliasMask <- data.frame(src=c(
+      "www/img/palette_samples/palettes3.png",
+      "www/img/palette_samples/palettes2.png",
+      "www/img/palette_samples/palettes.png"
+      ),
+    alias=c(
+      "Grey", "Black", "White"
+    ))
+    
+    
     ns <- NS(id)
     tags$div(id = ns(id),
 
@@ -6,6 +36,8 @@
     id = paste0(ns("invert"),"_container"),
     checkboxInput(ns("invert"), label = "inverted", value = FALSE)
     ),
+    tags$img(id = ns("greysc"),src="www/img/palette_samples/palettes3.png", draggable = FALSE),
+    tags$img(id = ns("greensc"),src="www/img/palette_samples/Greens.png", draggable = FALSE),
     tags$div(
       id = paste0(ns("countrycont"),"_container"),
       checkboxInput(ns("countrycont"), label = "add country contour to the background", value = TRUE)
@@ -16,11 +48,10 @@
     ),
     tags$div(
       id = paste0(ns("palette"),"_container"),
-      selectInput(ns("palette"),"palette:",NA)
-    ),
+      selectInput(ns("palette"),"palette:",choices= paletteAlias[,2])),
     tags$div(
       id = paste0(ns("colnumb"),"_container"),
-      selectInput(ns("colnumb"),"number of colours:",NA)
+      selectInput(ns("colnumb"),"number of colours:",choices=c(2,4,8,16,32))
     ),
     tags$div(
       id = paste0(ns("min"),"_container"),
@@ -28,7 +59,7 @@
     ),
     tags$div(
       id = paste0(ns("minprec"),"_container"),
-      selectInput(ns("minprec"),"precision of rounding:",NA)
+      selectInput(ns("minprec"),"precision of rounding:",choices=c(0,1,2,3,4,5))
     ),
         tags$div(
       id = paste0(ns("max"),"_container"),
@@ -36,11 +67,11 @@
     ),
     tags$div(
       id = paste0(ns("maxprec"),"_container"),
-      selectInput(ns("maxprec"),"precision of rounding:",NA)
+      selectInput(ns("maxprec"),"precision of rounding:",choices=c(0,1,2,3,4,5))
     ),
     tags$div(
       id = paste0(ns("maskcol"),"_container"),
-      selectInput(ns("maskcol"),"mask colour:",NA)
+      selectInput(ns("maskcol"),"mask colour:",choices=paletteAliasMask[,2])
     ),
     
     tags$div(
@@ -53,10 +84,78 @@
 #itt a funkcionalitas kerdeses    
     tags$div(id = ns("Buttons"),
     actionButton(ns("create"),label = "CREATE MAP"),
-    actionButton(ns("save"),label="SAVE to FILE"))             
-    )
+    actionButton(ns("save"),label="SAVE to FILE")),
+tags$script(HTML("
+           let palette = {
+\"src\":[\"www/img/palette_samples/Greens.png\",
+         \"www/img/palette_samples/Greys.png\",
+        \"www/img/palette_samples/Reds.png\",
+        \"www/img/palette_samples/YlGnBu.png\",
+        \"www/img/palette_samples/YlOrBr.png\",
+        \"www/img/palette_samples/Blues.png\",
+        \"www/img/palette_samples/RdBu.png\",
+        \"www/img/palette_samples/RdYlBu.png\",
+        \"www/img/palette_samples/RdYlGr.png\",
+        \"www/img/palette_samples/Spectral.png\",
+        \"www/img/palette_samples/YlGn.png\"
+       ],
+ \"colorscheme\" : [      \"Greens\", \"Greys\", \"Reds\", \"Yellow-Green-Blue\", 
+      \"Yellow-Orange-Brown\", \"Blues\",  \"Red-Blue\", \"Red-Yellow-Blue\", 
+      \"Red-Yellow-Green\", \"Spectral\", \"Yellow-Green\"
+       ]
 
+           }
+                 
+        Shiny.addCustomMessageHandler ('palletteChanger', function(message) {
+console.log(\"Itt vagyok!\");
+        $(\"#mapdiv-greensc\").attr(\"src\", palette.src[palette.colorscheme.indexOf(message)])
+        }
+
+        )         
+                 
+                 
+                 
+                 
+                 
+                 ")),
+
+tags$script(HTML("
+           let paletteMask = {
+                 \"src\":[\"www/img/palette_samples/palettes3.png\",
+                 \"www/img/palette_samples/palettes2.png\",
+                 \"www/img/palette_samples/palettes.png\"
+                 ],
+                 \"colorscheme\" : [      \"Grey\", \"Black\", \"White\"
+                 ]
+                 
+  }
+                 
+                 Shiny.addCustomMessageHandler ('palletteChangerMask', function(message) {
+                 console.log(\"Itt vagyok!\");
+                 $(\"#mapdiv-greysc\").attr(\"src\", paletteMask.src[paletteMask.colorscheme.indexOf(message)])
+                 }
+                 
+                 )         
+                 
+                 
+                 
+                 
+                 
+                 "))
+
+
+
+    )
   }
   
   agroMoMap <- function(input, output, session){
-  }
+    
+    observe({
+    session$sendCustomMessage(type="palletteChanger",input$palette)
+    })
+    observe({
+      session$sendCustomMessage(type="palletteChangerMask",input$maskcol)
+    })
+    
+      }
+  
