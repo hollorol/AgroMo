@@ -12,8 +12,9 @@ agroUI <- function(){
         createLayout(
             agromoBaseUI(id= "base"),
             hidden(agroMoSiteUI(id = "sitediv")),
-            hidden(agroMoShowUI(id = "showdiv"))#,
-           # hidden(agroMoGridUI(id = "griddiv"))
+            hidden(agroMoShowUI(id = "showdiv")),
+            hidden(agroMoGridUI(id = "griddiv")),
+            hidden(agroMoMapUI(id = "mapdiv"))
         )
     )
 }
@@ -86,14 +87,21 @@ agroServer <- function(input, output, session) {
       shinyjs::show("Base-banner-div")
     })
 
-    ## onclick("Grid-banner-div",{
-    ##   shinyjs::hide("griddiv-griddiv")
-    ##   shinyjs::show("base")
-    ##   shinyjs::show("base-tools")
-    ##   shinyjs::hide(selector = ".banner")
-    ##   shinyjs::show("Base-banner-div")
-    ## })
-
+   onclick("Grid-banner-div",{
+       shinyjs::hide("griddiv-griddiv")
+       shinyjs::show("base")
+       shinyjs::show("base-tools")
+       shinyjs::hide(selector = ".banner")
+       shinyjs::show("Base-banner-div")
+     })
+   
+   onclick("Map-banner-div",{
+     shinyjs::hide("mapdiv-mapdiv")
+     shinyjs::show("base")
+     shinyjs::show("base-tools")
+     shinyjs::hide(selector = ".banner")
+     shinyjs::show("Base-banner-div")
+   })
 
     # SITE MODULE
 {
@@ -108,6 +116,8 @@ agroServer <- function(input, output, session) {
 
         shinyjs::hide("sitediv-sitediv")
         shinyjs::show("showdiv-showdiv")
+        shinyjs::hide("griddiv-griddiv")
+        shinyjs::hide("mapdiv-mapdiv")
         shinyjs::hide(selector = ".banner")
         shinyjs::show("Show-banner-div")
         datas$dataenv <- dbListTables(datas$connection) 
@@ -123,7 +133,37 @@ agroServer <- function(input, output, session) {
         shinyjs::hide(selector = ".banner")
         shinyjs::show("Site-banner-div")
     })
-}
+  }
+   
+  ## GRID
+   {
+     # browser()
+     # dat <- callModule(agroMoGrid,"griddiv",
+     #                   dataenv = reactive(datas$dataenv),
+     #                   baseDir = reactive({datas$baseDir}),
+     #                   reactive({datas$connection}),centralData=centralData)
+     callModule(agroMoGrid,"griddiv")
+     observeEvent(input$grid,{
+       shinyjs::hide("base")
+       shinyjs::hide("base-tools")
+       shinyjs::show("griddiv-griddiv")
+       shinyjs::hide(selector = ".banner")
+       shinyjs::show("Grid-banner-div")
+     })
+   }
+  
+   ## MAP
+   {
+     callModule(agroMoMap,"mapdiv")
+     observeEvent(input$map,{
+       shinyjs::hide("base")
+       shinyjs::hide("base-tools")
+       shinyjs::show("mapdiv-mapdiv")
+       shinyjs::hide(selector = ".banner")
+       shinyjs::show("Map-banner-div")
+     })
+   }
+   
     ## ##  SHOW MODUL
 {
     callModule(agroMoShow,"showdiv",dataenv = reactive(datas$dataenv),baseDir = reactive(datas$baseDir), connection = reactive({datas$connection}),centralData=centralData)
@@ -138,7 +178,22 @@ agroServer <- function(input, output, session) {
         datas$dataenv <- dbListTables(datas$connection) 
       })
      }
+   ## ##  GRID MODUL
+   ##{
+   ##callModule(agroMoGrid,"griddiv",dataenv = reactive(datas$dataenv),baseDir = reactive(datas$baseDir), connection = reactive({datas$connection}),centralData=centralData)
+   ## 
+   ##
+   ##observeEvent(input$grid,{
+   ##  shinyjs::hide("base")
+   ##  shinyjs::hide("base-tools")
+   ##  shinyjs::show("griddiv-griddiv")
+   ##  shinyjs::hide(selector = ".banner")
+   ##  shinyjs::show("Grid-banner-div")
+   ##  datas$dataenv <- dbListTables(datas$connection) 
+   ##})
+   ##}
 }
+
 
 #' launchApp
 #'

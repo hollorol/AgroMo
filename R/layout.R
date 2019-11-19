@@ -17,6 +17,10 @@ createLayout <- function(...){
                         hidden(shiny::tags$div(id = "Show-banner-div", class = "banner",
                                    shiny::tags$img("",src = "www/img/banner/Show.png"))),
                         hidden(shiny::tags$div(id = "Site-banner-div", class = "banner",
-                                   shiny::tags$img("",src="www/img/banner/Site.png"))))),
+                                   shiny::tags$img("",src="www/img/banner/Site.png"))),
+                        hidden(shiny::tags$div(id = "Map-banner-div", class = "banner",
+                                  shiny::tags$img("",src="www/img/banner/Map.svg"))),
+                        hidden(shiny::tags$div(id = "Grid-banner-div", class = "banner",
+                                    shiny::tags$img("",src="www/img/banner/Grid.svg"))))),
              fluidRow(class= "innerGui", shiny::tags$div(id = "root",args))))
 }

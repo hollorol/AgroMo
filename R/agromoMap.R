@@ -45,7 +45,7 @@
     
     tags$div(
       id = paste0(ns("maptitle"),"_container"),
-      textInput(ns("maptitle"), "map title:",)
+      textInput(ns("maptitle"), "map title:")
     ),
     tags$div(id="maskpreview","mask preview:"),
     tags$div(id="palettepreview","palette preview:"),
@@ -53,9 +53,10 @@
 #itt a funkcionalitas kerdeses    
     tags$div(id = ns("Buttons"),
     actionButton(ns("create"),label = "CREATE MAP"),
-    actionButton(ns("save"),label="SAVE to FILE")),             
-       
+    actionButton(ns("save"),label="SAVE to FILE"))             
+    )
 
   }
   
-  
+  agroMoMap <- function(input, output, session){
+  }
