@@ -11,21 +11,36 @@
       "www/img/palette_samples/Red-Yellow-Blue.png",
       "www/img/palette_samples/Red-Yellow-Green.png",
       "www/img/palette_samples/Spectral.png",
-      "www/img/palette_samples/Yellow-Green.png"
+      "www/img/palette_samples/Yellow-Green.png",
+      "www/img/palette_samples/Greens_reverse.png",
+      "www/img/palette_samples/Greys_reverse.png",
+      "www/img/palette_samples/Reds_reverse.png",
+      "www/img/palette_samples/Yellow-Green-Blue_reverse.png",
+      "www/img/palette_samples/Yellow-Orange-Brown_reverse.png",
+      "www/img/palette_samples/Blues_reverse.png",
+      "www/img/palette_samples/Red-Blue_reverse.png",
+      "www/img/palette_samples/Red-Yellow-Blue_reverse.png",
+      "www/img/palette_samples/Red-Yellow-Green_reverse.png",
+      "www/img/palette_samples/Spectral_reverse.png",
+      "www/img/palette_samples/Yellow-Green_reverse.png"
     ),
     alias=c(
       "Greens", "Greys", "Reds", "Yellow-Green-Blue", 
       "Yellow-Orange-Brown", "Blues",  "Red-Blue", "Red-Yellow-Blue", 
-      "Red-Yellow-Green", "Spectral", "Yellow-Green"
+      "Red-Yellow-Green", "Spectral", "Yellow-Green",
+      "Greens_inverse", "Greys_inverse", "Reds_inverse", "Yellow-Green-Blue_inverse", 
+      "Yellow-Orange-Brown_inverse", "Blues_inverse",  "Red-Blue_inverse", "Red-Yellow-Blue_inverse", 
+      "Red-Yellow-Green_inverse", "Spectral_inverse", "Yellow-Green_inverse"
     ))
     
     paletteAliasMask <- data.frame(src=c(
-      "www/img/palette_samples/palettes3.png",
-      "www/img/palette_samples/palettes2.png",
-      "www/img/palette_samples/palettes.png"
+      "www/img/palette_samples/LightGre_mask.png",
+      "www/img/palette_samples/DarkGre_mask.png",
+      "www/img/palette_samples/Black_mask.png",
+      "www/img/palette_samples/White_mask.png"
       ),
     alias=c(
-      "Grey", "Black", "White"
+      "Light Grey", "Dark Grey", "Black", "White"
     ))
     
     
@@ -36,7 +51,7 @@
     id = paste0(ns("invert"),"_container"),
     checkboxInput(ns("invert"), label = "inverted", value = FALSE)
     ),
-    tags$img(id = ns("greysc"),src="www/img/palette_samples/palettes3.png", draggable = FALSE),
+    tags$img(id = ns("greysc"),src="www/img/palette_samples/LightGre_mask.png", draggable = FALSE),
     tags$img(id = ns("greensc"),src="www/img/palette_samples/Greens.png", draggable = FALSE),
     tags$div(
       id = paste0(ns("countrycont"),"_container"),
@@ -97,11 +112,25 @@ tags$script(HTML("
         \"www/img/palette_samples/RdYlBu.png\",
         \"www/img/palette_samples/RdYlGr.png\",
         \"www/img/palette_samples/Spectral.png\",
-        \"www/img/palette_samples/YlGn.png\"
+        \"www/img/palette_samples/YlGn.png\",
+        \"www/img/palette_samples/Greens_reverse.png\",
+         \"www/img/palette_samples/Greys_reverse.png\",
+        \"www/img/palette_samples/Reds_reverse.png\",
+        \"www/img/palette_samples/YlGnBu_reverse.png\",
+        \"www/img/palette_samples/YlOrBr_reverse.png\",
+        \"www/img/palette_samples/Blues_reverse.png\",
+        \"www/img/palette_samples/RdBu_reverse.png\",
+        \"www/img/palette_samples/RdYlBu_reverse.png\",
+        \"www/img/palette_samples/RdYlGr_reverse.png\",
+        \"www/img/palette_samples/Spectral_reverse.png\",
+        \"www/img/palette_samples/YlGn_reverse.png\"
        ],
  \"colorscheme\" : [      \"Greens\", \"Greys\", \"Reds\", \"Yellow-Green-Blue\", 
       \"Yellow-Orange-Brown\", \"Blues\",  \"Red-Blue\", \"Red-Yellow-Blue\", 
-      \"Red-Yellow-Green\", \"Spectral\", \"Yellow-Green\"
+      \"Red-Yellow-Green\", \"Spectral\", \"Yellow-Green\",
+      \"Greens_inverse\", \"Greys_inverse\", \"Reds_inverse\", \"Yellow-Green-Blue_inverse\", 
+      \"Yellow-Orange-Brown_inverse\", \"Blues_inverse\",  \"Red-Blue_inverse\", \"Red-Yellow-Blue_inverse\", 
+                 \"Red-Yellow-Green_inverse\", \"Spectral_inverse\", \"Yellow-Green_inverse\"
        ]
 
            }
@@ -121,11 +150,12 @@ console.log(\"Itt vagyok!\");
 
 tags$script(HTML("
            let paletteMask = {
-                 \"src\":[\"www/img/palette_samples/palettes3.png\",
-                 \"www/img/palette_samples/palettes2.png\",
-                 \"www/img/palette_samples/palettes.png\"
+                 \"src\":[\"www/img/palette_samples/LightGre_mask.png\",
+                 \"www/img/palette_samples/DarkGre_mask.png\",
+                 \"www/img/palette_samples/Black_mask.png\",
+                 \"www/img/palette_samples/White_mask.png\"
                  ],
-                 \"colorscheme\" : [      \"Grey\", \"Black\", \"White\"
+                 \"colorscheme\" : [      \"Light Grey\", \"Dark Grey\", \"Black\", \"White\"
                  ]
                  
   }
