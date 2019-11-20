@@ -5,6 +5,7 @@
     position: absolute;
     top: 10px;   
     font-size: 16px;
+    color: black;
 }
 #griddiv-gridres_container .selectize-input.items.full.has-options.has-items {
     width: 210px;
@@ -17,6 +18,7 @@
     top: 10px;
     left: 240px;
     font-size: 16px;
+    color: black;
 }
 #griddiv-climproj_container .selectize-input.items.full.has-options.has-items {
     width: 350px;
@@ -29,6 +31,7 @@
     top: 10px;
     left: 620px;
     font-size: 16px;
+    color: black;
 }
 #griddiv-inidir_container .selectize-input.items.full.has-options.has-items {
     width: 300px;
@@ -46,6 +49,7 @@
     position: absolute;
     top: 85px;
     font-size: 16px;
+    color: black;
 }
 #griddiv-algosel_container .selectize-input.items.full.has-options.has-items {
     width: 590px;
@@ -58,6 +62,7 @@
     top: 85px;
     left: 620px;
     font-size: 16px;
+    color: black;
 }
 #griddiv-story_container .selectize-input.items.full.has-options.has-items {
     width: 300px;
@@ -75,6 +80,7 @@
     position: absolute;
     top: 155px;
     font-size: 16px;
+    color: black;
 }
 #griddiv-outsq_container .form-control.shinyjs-resettable.shiny-bound-input {
     width: 920px;
@@ -89,6 +95,7 @@
     height: 60px;
     width: 480px;
     font-size: 20px;
+    color: black;
     font-weight: bold;
     background-color: gainsboro;
 }
@@ -100,6 +107,7 @@
     height: 60px;
     width: 480px;
     font-size: 20px;
+    color: black;
     font-weight: bold;
     background-color: gainsboro;
 }
@@ -109,6 +117,7 @@
     top: 558px;
     left: 435px;
     font-size: 16px;
+    color: black;
 }
 #griddiv-queryalias_container .form-control.shinyjs-resettable.shiny-bound-input {
     width: 480px;
@@ -124,11 +133,15 @@
     position: absolute;
     top:15px;
     right:80px;
+    font-size: 16px;
+    color: black;
 }
 #griddiv-time_container .selectize-input.items.full.has-options.has-items{
     position: absolute;
     right: -17px;
     width: 90px;
+    font-size: 16px;
+    color: black;
 }
 
 #griddiv-until_container {
@@ -140,11 +153,15 @@
     position: absolute;
     top:15px;
     right:294px;
+    font-size: 16px;
+    color: black;
 }
 #griddiv-until_container .selectize-input.items.full.has-options.has-items{
     position: absolute;
     right: 198px;
     width: 90px;
+    font-size: 16px;
+    color: black;
 }
 
 #griddiv-tempfocus_container {
@@ -155,11 +172,15 @@
     position: absolute;
     right: 80px;
     top: 17px;
+    font-size: 16px;
+    color: black;
 }
 #griddiv-tempfocus_container .selectize-input.items.full.has-options.has-items{
     position: absolute;
     right: -122px;
     width: 195px;
+    font-size: 16px;
+    color: black;
 }
 
 #griddiv-spatfocus_container {
@@ -170,11 +191,15 @@
     position: absolute;
     right: 80px;
     top: 17px;
+    font-size: 16px;
+    color: black;
 }
 #griddiv-spatfocus_container .selectize-input.items.full.has-options.has-items{
     position: absolute;
     right: -122px;
     width: 195px;
+    font-size: 16px;
+    color: black;
 }
 
 #griddiv-varfunc_container {
@@ -185,11 +210,15 @@
     position: absolute;
     top: 17px;
     right: 80px;
+    font-size: 16px;
+    color: black;
 }
 #griddiv-varfunc_container .selectize-input.items.full.has-options.has-items{
     position: absolute;
     right: -122px;
     width: 195px;
+    font-size: 16px;
+    color: black;
 }
 
 #griddiv-aggrfunc_container {
@@ -200,12 +229,16 @@
 #griddiv-aggrfunc_container .control-label {
     position: absolute;
     top: 17px;
-    right: 75px;
+    right: 80px;
+    font-size: 16px;
+    color: black;
 }
 #griddiv-aggrfunc_container .selectize-input.items.full.has-options.has-items{
     position: absolute;
     right: -122px;
     width: 195px;
+    font-size: 16px;
+    color: black;
 }
 
 #griddiv-spaggr_container {
@@ -216,16 +249,21 @@
     position: absolute;
     top: 17px;
     right: 80px;
+    font-size: 16px;
+    color: black;
 }
 #griddiv-spaggr_container .selectize-input.items.full.has-options.has-items{
     position: absolute;
     right: -122px;
     width: 195px;
+    font-size: 16px;
+    color: black;
 }
 
 #query{
     position: absolute;
     font-size: 16px;
+    color: black;
     font-weight: bold;
     top: 225px;
 }
@@ -235,6 +273,7 @@
   width: 920px !important;
   background-color: white;
   font-size: 16px;
+  color: black;
   position: absolute;
   top: 250px;
 }

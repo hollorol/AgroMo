@@ -49,7 +49,7 @@
           
     tags$div(
       id = paste0(ns("time"),"_container"),
-      selectInput(ns("time"),"TIME SLICE [T-T]:",NA)
+      selectInput(ns("time"),"TIME SLICE [START-END]:",NA)
     ),                
     tags$div(
       id = paste0(ns("until"),"_container"),
@@ -57,23 +57,23 @@
     ),  
     tags$div(
       id = paste0(ns("tempfocus"),"_container"),
-      selectInput(ns("tempfocus"),"TEMPORAL FOCUS >T<:",NA)
+      selectInput(ns("tempfocus"),"{1}:",choices=c("mean", "maximum", "minimum"))
     ),
     tags$div(
       id = paste0(ns("spatfocus"),"_container"),
-      selectInput(ns("spatfocus"),"SPATIAL FOCUS >S<:",NA)
+      selectInput(ns("spatfocus"),"{2}:",NA)
     ),
     tags$div(
       id = paste0(ns("varfunc"),"_container"),
-      selectInput(ns("varfunc"),"VARIABLE FUNCTION <Vf>:",NA)
+      selectInput(ns("varfunc"),"{3}:",NA)
     ),
     tags$div(
       id = paste0(ns("aggrfunc"),"_container"),
-      selectInput(ns("aggrfunc"),"AGGREGATION FUNCTION <Af>:",NA)
+      selectInput(ns("aggrfunc"),"{4}:",NA)
     ),
     tags$div(
       id = paste0(ns("spaggr"),"_container"),
-      selectInput(ns("spaggr"),"SPATIAL AGGREGATION |SA|:",NA)
+      selectInput(ns("spaggr"),"{5}:",NA)
     ),    
 
 tags$div(id="query","QUERY:"),
