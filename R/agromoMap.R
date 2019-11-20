@@ -11,26 +11,12 @@
       "www/img/palette_samples/Red-Yellow-Blue.png",
       "www/img/palette_samples/Red-Yellow-Green.png",
       "www/img/palette_samples/Spectral.png",
-      "www/img/palette_samples/Yellow-Green.png",
-      "www/img/palette_samples/Greens_reverse.png",
-      "www/img/palette_samples/Greys_reverse.png",
-      "www/img/palette_samples/Reds_reverse.png",
-      "www/img/palette_samples/Yellow-Green-Blue_reverse.png",
-      "www/img/palette_samples/Yellow-Orange-Brown_reverse.png",
-      "www/img/palette_samples/Blues_reverse.png",
-      "www/img/palette_samples/Red-Blue_reverse.png",
-      "www/img/palette_samples/Red-Yellow-Blue_reverse.png",
-      "www/img/palette_samples/Red-Yellow-Green_reverse.png",
-      "www/img/palette_samples/Spectral_reverse.png",
-      "www/img/palette_samples/Yellow-Green_reverse.png"
+      "www/img/palette_samples/Yellow-Green.png"
     ),
     alias=c(
       "Greens", "Greys", "Reds", "Yellow-Green-Blue", 
       "Yellow-Orange-Brown", "Blues",  "Red-Blue", "Red-Yellow-Blue", 
-      "Red-Yellow-Green", "Spectral", "Yellow-Green",
-      "Greens_inverse", "Greys_inverse", "Reds_inverse", "Yellow-Green-Blue_inverse", 
-      "Yellow-Orange-Brown_inverse", "Blues_inverse",  "Red-Blue_inverse", "Red-Yellow-Blue_inverse", 
-      "Red-Yellow-Green_inverse", "Spectral_inverse", "Yellow-Green_inverse"
+      "Red-Yellow-Green", "Spectral", "Yellow-Green"
     ))
     
     paletteAliasMask <- data.frame(src=c(
@@ -177,15 +163,22 @@ tags$script(HTML("
 
     )
   }
-  
-  agroMoMap <- function(input, output, session){
+
+    
+agroMoMap <- function(input, output, session){
     
     observe({
-    session$sendCustomMessage(type="palletteChanger",input$palette)
-    })
-    observe({
-      session$sendCustomMessage(type="palletteChangerMask",input$maskcol)
-    })
-    
+      if(input$invert==TRUE){# funny
+          paletteList <- paste0(input$palette,"_inverse")
+      } else {
+          paletteList <- input$palette
       }
+        session$sendCustomMessage(type="palletteChanger",paletteList)
+    })
+  
+    observe({
+        session$sendCustomMessage(type="palletteChangerMask",input$maskcol)
+    })
+    
+}
   
