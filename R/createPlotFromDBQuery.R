@@ -46,7 +46,8 @@ readQueryFromDB <- function(dbName, query, attachedDBS=NULL,
 #' @param center A number around which diverging colorscales will be centralised
 #' @param minim Minium value of the visualised dataset
 #' @param maxim Maximum value of the visualised dataset
-#' @importFrom colorRampPalette brewer.pal brewer.pal.info RColorBrewer
+#' @importFrom RColorBrewer brewer.pal brewer.pal.info 
+#' @importFrom grDevices colorRampPalette
 #' @return
 #' @export
 
@@ -106,9 +107,10 @@ trimColorSet <- function(minim, maxim, center=NULL, nticks=6, roundPrecision=NUL
 #' @param fileTitle File name of the plot, if NULL no graphics will be created.
 #' @param minim Minium value of the visualised dataset
 #' @param maxim Maximum value of the visualised dataset
-#' @importFrom map from maps
-#' @importFrom image.plot from fields
-#' @importFrom colorRampPalette brewer.pal from RColorBrewer
+#' @importFrom maps map
+#' @importFrom fields image.plot 
+#' @importFrom RColorBrewer brewer.pal 
+#' @importFrom grDevices colorRampPalette
 #' @return
 #' @export
 
@@ -257,39 +259,39 @@ agroMap <- function(dbName, query, attachedDBS = NULL,
                 center=center, plotTitle=plotTitle, fileTitle=fileTitle, lonlat=lonlat)
 }
 
-
-query <- "SELECT {groupfun}(maxCumTrans)
-          FROM (
-                SELECT MAX(cum_trans) AS maxCumTrans, plotid, year
-                FROM agromo
-                WHERE year >= {startyear} AND year <= {endyear}
-                GROUP BY year, plotid)
-          GROUP BY plotid"
-# query <- "SELECT {groupfun}(maxCumTrans) FROM (SELECT MAX(cumtrans) AS maxCumTrans, plotid, year FROM agromo WHERE year >= {startyear} AND year <= {endyear} GROUP BY year, plotid) GROUP BY plotid"
-
-queryModifiers <- list(
-  groupfun="AVG",
-  startyear=2010,
-  endyear=2018
-)
-
-dbName <- "/data4/DB/agronew.db"
-
-agroMap(dbName, query, queryModifiers=queryModifiers, nticks=6, colorSet="RdYlGn",reverseColorScale = TRUE)
-#agroMap(dbName, query, queryModifiers=queryModifiers, minimum=0 ,maximum = 420,binwidth = 20,colorSet="RdYlGn")
-
-query2 <-"
-    SELECT AVG(plantResp)
-	FROM (
-	     SELECT AVG(dmresp+dgresp) AS plantResp, plotid, year
-		 FROM agromo
-		 WHERE year >= {startyear} AND year <= {endyear}
-		 GROUP BY year, plotid)
-	GROUP BY plotid
-"
-queryModifiers2 <- list(
-  startyear=2010,
-  endyear=2018
-)
+#
+# query <- "SELECT {groupfun}(maxCumTrans)
+#           FROM (
+#                 SELECT MAX(cum_trans) AS maxCumTrans, plotid, year
+#                 FROM agromo
+#                 WHERE year >= {startyear} AND year <= {endyear}
+#                 GROUP BY year, plotid)
+#           GROUP BY plotid"
+# # query <- "SELECT {groupfun}(maxCumTrans) FROM (SELECT MAX(cumtrans) AS maxCumTrans, plotid, year FROM agromo WHERE year >= {startyear} AND year <= {endyear} GROUP BY year, plotid) GROUP BY plotid"
+#
+# queryModifiers <- list(
+#   groupfun="AVG",
+#   startyear=2010,
+#   endyear=2018
+# )
+#
+# dbName <- "/data4/DB/agronew.db"
+#
+# agroMap(dbName, query, queryModifiers=queryModifiers, nticks=6, colorSet="RdYlGn",reverseColorScale = TRUE)
+# #agroMap(dbName, query, queryModifiers=queryModifiers, minimum=0 ,maximum = 420,binwidth = 20,colorSet="RdYlGn")
+#
+# query2 <-"
+#     SELECT AVG(plantResp)
+# 	FROM (
+# 	     SELECT AVG(dmresp+dgresp) AS plantResp, plotid, year
+# 		 FROM agromo
+# 		 WHERE year >= {startyear} AND year <= {endyear}
+# 		 GROUP BY year, plotid)
+# 	GROUP BY plotid
+# "
+# queryModifiers2 <- list(
+#   startyear=2010,
+#   endyear=2018
+# )
 
 #agroMap(dbName, query, queryModifiers=queryModifiers,nticks=6, colorSet="RdYlGn",roundPrecision = 0) 

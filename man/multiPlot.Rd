@@ -4,8 +4,19 @@
 \alias{multiPlot}
 \title{multiPlot}
 \usage{
-multiPlot(input, output, session, measurement, outputNames, outputTable,
-  experimentID, treatmentID, repetAvg = TRUE, connection, centralData)
+multiPlot(
+  input,
+  output,
+  session,
+  measurement,
+  outputNames,
+  outputTable,
+  experimentID,
+  treatmentID,
+  repetAvg = TRUE,
+  connection,
+  centralData
+)
 }
 \arguments{
 \item{input}{sdfasdf}

@@ -4,8 +4,7 @@
 \alias{agroMoSite}
 \title{agroMoSite}
 \usage{
-agroMoSite(input, output, session, dataenv, baseDir, connection,
-  centralData)
+agroMoSite(input, output, session, dataenv, baseDir, connection, centralData)
 }
 \arguments{
 \item{input}{environment which provides the results of the user input}

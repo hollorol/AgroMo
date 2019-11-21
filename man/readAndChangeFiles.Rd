@@ -4,11 +4,27 @@
 \alias{readAndChangeFiles}
 \title{readAndChangeFiles}
 \usage{
-readAndChangeFiles(baseDir, iniFile, weatherFile, soilFile, managementFile,
-  planting = NULL, harvest = NULL, fertilization = NULL,
-  irrigation = NULL, grazing = NULL, mowing = NULL,
-  thinning = NULL, planshift_date, planshift_density, harvshift_date,
-  fertshift_date, irrshift_date, fertshift_amount, irrshift_amount)
+readAndChangeFiles(
+  baseDir,
+  iniFile,
+  weatherFile,
+  soilFile,
+  managementFile,
+  planting = NULL,
+  harvest = NULL,
+  fertilization = NULL,
+  irrigation = NULL,
+  grazing = NULL,
+  mowing = NULL,
+  thinning = NULL,
+  planshift_date,
+  planshift_density,
+  harvshift_date,
+  fertshift_date,
+  irrshift_date,
+  fertshift_amount,
+  irrshift_amount
+)
 }
 \arguments{
 \item{baseDir}{a}
