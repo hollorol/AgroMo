@@ -74,7 +74,7 @@
 #mapdiv-colnumb_container .form-group.shiny-input-container label{
     position: absolute;
     top: 150px;
-    right: 295px;
+    right: 340px;
     font-size: 16px;
     font-weight: normal;
     color: black;
@@ -86,8 +86,8 @@
 #mapdiv-colnumb_container .selectize-control{
     position: absolute;
     top: 145px;
-    left: 540px;
-    width: 250px;
+    left: 492px;
+    width: 150px;
     font-size: 16px;
     color: black;
   -webkit-user-select: none;
@@ -111,7 +111,7 @@
     position: absolute;
     top: 185px;
     left: 200px;
-    width: 160px;
+    width: 150px;
     font-size: 16px;
     color: black;
   -webkit-user-select: none;
@@ -122,7 +122,7 @@
 #mapdiv-minprec_container .form-group.shiny-input-container label{
     position: absolute;
     top: 190px;
-    right: 295px;
+    right: 15px;
     font-size: 16px;
     font-weight: normal;
     color: black;
@@ -134,7 +134,7 @@
 #mapdiv-minprec_container .selectize-control{
     position: absolute;
     top: 185px;
-    left: 540px;
+    left: 820px;
     width: 100px;
     font-size: 16px;
     color: black;
@@ -145,8 +145,8 @@
 }
 #mapdiv-max_container .form-group.shiny-input-container label{
     position: absolute;
-    top: 230px;
-    right: 635px;
+    top: 190px;
+    right: 340px;
     font-size: 16px;
     font-weight: normal;
     color: black;
@@ -157,9 +157,9 @@
 }
 #mapdiv-max_container .form-control.shinyjs-resettable{
     position: absolute;
-    top: 225px;
-    left: 200px;
-    width: 160px;
+    top: 185px;
+    left: 492px;
+    width: 150px;
     font-size: 16px;
     color: black;
   -webkit-user-select: none;
