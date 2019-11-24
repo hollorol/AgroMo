@@ -66,10 +66,10 @@
       id = paste0(ns("max"),"_container"),
       textInput(ns("max"),"maximum value:",NA)
     ),
-    tags$div(
-      id = paste0(ns("maxprec"),"_container"),
-      selectInput(ns("maxprec"),"precision of rounding:",choices=c(0,1,2,3,4,5))
-    ),
+#    tags$div(
+#      id = paste0(ns("maxprec"),"_container"),
+#      selectInput(ns("maxprec"),"precision of rounding:",choices=c(0,1,2,3,4,5))
+#    ),
     tags$div(
       id = paste0(ns("maskcol"),"_container"),
       selectInput(ns("maskcol"),"mask colour:",choices=paletteAliasMask[,2])
