@@ -45,7 +45,7 @@
     ),
       tags$div(
       id = paste0(ns("datasource"),"_container"),
-      selectInput(ns("datasource"),"data source:",NA)
+      selectInput(ns("datasource"),"data source:","")
     ),
     tags$div(
       id = paste0(ns("palette"),"_container"),
@@ -127,6 +127,7 @@ console.log(\"Itt vagyok!\");
         }
 
         )         
+
                  
                  
                  
@@ -157,7 +158,10 @@ tags$script(HTML("
                  
                  
                  
-                 "))
+                 ")),
+    plotOutput(ns("map_left"), width="358px",height="230px"),
+    plotOutput(ns("map_right"),width="358px",height="230px")
+
 
 
 
@@ -165,7 +169,26 @@ tags$script(HTML("
   }
 
     
-agroMoMap <- function(input, output, session){
+agroMoMap <- function(input, output, session, baseDir){
+    datas <- reactiveValues(numPlots = 1)
+    myColors <- data.frame(
+    codes=c("Greens","Greys","Reds","YlGnBu","YlOrBr","Blues","RdBu","RdYlBu","RdYlGn","Spectral","YlGn"), 
+    alias=c(
+      "Greens", "Greys", "Reds", "Yellow-Green-Blue", 
+      "Yellow-Orange-Brown", "Blues",  "Red-Blue", "Red-Yellow-Blue", 
+      "Red-Yellow-Green", "Spectral", "Yellow-Green"
+           )
+    )
+    ns <- session$ns
+    observe({
+        dir.create(sprintf("%s/output/queries", baseDir()), showWarnings = FALSE)
+        dir.create(sprintf("%s/output/map_data", baseDir()), showWarnings = FALSE)
+        updateSelectInput(session, "datasource", 
+            choices = list.files(sprintf("%s/output/queries/",baseDir())),
+            selected = head(list.files(sprintf("%s/output/queries/",baseDir())),n=1)
+        )
+        # print(list.files(sprintf("%s/output/queries/",baseDir())))
+    })
     
     observe({
       if(input$invert==TRUE){# funny
@@ -179,6 +202,49 @@ agroMoMap <- function(input, output, session){
     observe({
         session$sendCustomMessage(type="palletteChangerMask",input$maskcol)
     })
+    
+    observeEvent(input$create,{
+      palette <- myColors$codes[myColors$alias==input$palette]
+      # browser()
+      if(file.exists(sprintf("%s/output/DB/HU-10km.db",baseDir())) ||
+          file.exists("~/AgroMoDB/HU-10km.db")){
+
+          if(file.exists(sprintf("%s/output/DB/HU-10km.db",baseDir()))){
+            dbName <- sprintf("%s/output/DB/HU-10km.db",baseDir())
+          } else {
+            dbName <- "~/AgroMoDB/HU-10km.db"
+          }
+          
+              if(length(input$datasource)>0) {
+                  sqlName <- sprintf("%s/output/queries/%s",baseDir(),input$datasource)
+                  sqlString <- readChar(sqlName,file.info(sqlName)["size"])
+              }
+
+              mapData <- basename(tools::file_path_sans_ext(sqlName))
+              mapData <- sprintf("%s/output/map_data/%s.csv",baseDir(),mapData)
+
+              if(file.exists(mapData)){
+                 plot.new()
+                 dev.control("enable") 
+                  agroMap(dbName, myData=mapData, nticks=6,
+                    reverseColorScale=input$invert,colorSet=input$palette, plotTitle=input$maptitle) 
+                 leftPlot <- recordPlot()
+                 dev.off()
+              } else {
+                 plot.new()
+                 dev.control("enable") 
+                  agroMap(dbName, query=sqlString, nticks=6,
+                    reverseColorScale=input$invert,colorSet=input$palette, plotTitle=input$maptitle,
+                    outFile=mapData) 
+                 leftPlot <- recordPlot()
+                 dev.off()
+              }
+
+          output$map_left <- renderPlot({replayPlot(leftPlot)})
+          output$map_right <- renderPlot({replayPlot(leftPlot)})
+      }
+
+       }) 
     
 }
   

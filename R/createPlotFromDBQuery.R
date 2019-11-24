@@ -12,13 +12,13 @@ readQueryFromDB <- function(dbName, query, attachedDBS=NULL,
   if(is.null(attachedDBS)) {
     connection <- dbConnect(RSQLite::SQLite(),dbName)
     ## Copy to grid!
-    # if(!is.null(queryModifiers)){
-    #   sapply(names(queryModifiers),function(keys){
-    #     query <<- gsub(pattern = sprintf("\\{%s\\}",keys),
-    #                    sprintf("%s",queryModifiers[[keys]]),
-    #                    query)
-    #   })
-    # }
+    if(!is.null(queryModifiers)){
+      sapply(names(queryModifiers),function(keys){
+        query <<- gsub(pattern = sprintf("\\{%s\\}",keys),
+                       sprintf("%s",queryModifiers[[keys]]),
+                       query)
+      })
+    }
 
     res <- dbGetQuery(connection,query)[,1]
     dbDisconnect(connection)
@@ -248,12 +248,20 @@ agroMapVector <- function(data, nticks=NULL, binwidth=NULL, minimum=NULL, maximu
 
 #agroMapVector(data=readQueryFromDB("DB/agronew.db",query = query),minimum = 0,maximum = 0.12,binwidth = 0.01,colorSet = "Greens", lonlat = TRUE, fileTitle = "kiraly.png")
 
-agroMap <- function(dbName, query, attachedDBS = NULL,
+agroMap <- function(dbName, query=NULL, myData=NULL, attachedDBS = NULL,
                     queryModifiers=NULL,nticks=NULL, binwidth=NULL,
                     minimum=NULL, maximum=NULL, roundPrecision=NULL,
                     reverseColorScale=FALSE,colorSet="RdYlGn", center=NULL,
-                    plotTitle=NULL, fileTitle=NULL, lonlat=FALSE) {
-  agroVector <- readQueryFromDB(dbName, query, attachedDBS = attachedDBS,queryModifiers = queryModifiers)
+                    plotTitle=NULL, fileTitle=NULL, lonlat=FALSE, outFile=NULL) {
+    if(!is.null(query)){
+
+        agroVector <- readQueryFromDB(dbName, query, attachedDBS = attachedDBS,queryModifiers = queryModifiers)
+    } else {
+        agroVector <- myData
+    }
+    if(!is.null(outFile)){
+        write.csv(agroVector, outFile)
+    }
   agroMapVector(agroVector, nticks=nticks, binwidth=binwidth, minimum=minimum, maximum=maximum,
                 roundPrecision=roundPrecision, reverseColorScale=reverseColorScale, colorSet=colorSet,
                 center=center, plotTitle=plotTitle, fileTitle=fileTitle, lonlat=lonlat)

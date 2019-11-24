@@ -305,3 +305,15 @@
  width: 720px;
 height: 30px;
 }
+
+#mapdiv-map_right img {
+    position: absolute;
+    top: 425px;
+    left: 511px;
+}
+
+#mapdiv-map_left img {
+    position: absolute;
+    top: 425px;
+    left: 100px;
+}
