@@ -217,8 +217,6 @@ agroMoMap <- function(input, output, session, baseDir){
     observeEvent(input$create,{
       palette <- myColors$codes[myColors$alias==input$palette]
       # browser()
-      if(file.exists(sprintf("%s/output/DB/HU-10km.db",baseDir())) ||
-          file.exists("~/AgroMoDB/HU-10km.db")){
 
           if(file.exists(sprintf("%s/output/DB/HU-10km.db",baseDir()))){
             dbName <- sprintf("%s/output/DB/HU-10km.db",baseDir())
@@ -235,6 +233,9 @@ agroMoMap <- function(input, output, session, baseDir){
               mapData <- sprintf("%s/output/map_data/%s.csv",baseDir(),mapData)
               mapImage <- basename(tools::file_path_sans_ext(sqlName))
               mapImage <- sprintf("%s/output/map_image/%s.png",baseDir(),mapImage)
+      if(file.exists(sprintf("%s/output/DB/HU-10km.db",baseDir())) ||
+          file.exists("~/AgroMoDB/HU-10km.db")||
+          file.exists(mapData)){
 
 
 # browser()
