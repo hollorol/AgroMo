@@ -20,7 +20,8 @@ Imports:
   DBI,
   RSQLite,
   RColorBrewer,
-  grDevices
+  grDevices,
+  fields
 Suggests: testhat,
   rmarkdown,
   knitr
