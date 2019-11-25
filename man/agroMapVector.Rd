@@ -16,7 +16,7 @@ agroMapVector(
   colorSet = "RdYlGn",
   center = NULL,
   plotTitle = NULL,
-  fileTitle = NULL,
+  imageTitle = NULL,
   lonlat = FALSE
 )
 }
@@ -33,7 +33,7 @@ agroMapVector(
 
 \item{plotTitle}{Main title can added to the plot}
 
-\item{fileTitle}{File name of the plot, if NULL no graphics will be created.}
+\item{imageTitle}{File name of the plot, if NULL no graphics will be created.}
 
 \item{lonlat}{Geographical latitudes and longitudes per 1° can be addded to the plot}
 

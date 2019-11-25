@@ -1,3 +1,9 @@
+#' agroMoMapUI
+#'
+#' Bla
+#' @param id id
+#' @importFrom shiny NS tags checkboxInput selectInput textInput actionButton plotOutput updateSelectInput observe imageOutput
+
   agroMoMapUI <- function(id){
     
     paletteAlias <- data.frame(src=c(
@@ -122,7 +128,6 @@ tags$script(HTML("
            }
                  
         Shiny.addCustomMessageHandler ('palletteChanger', function(message) {
-console.log(\"Itt vagyok!\");
         $(\"#mapdiv-greensc\").attr(\"src\", palette.src[palette.colorscheme.indexOf(message)])
         }
 
@@ -148,19 +153,19 @@ tags$script(HTML("
   }
                  
                  Shiny.addCustomMessageHandler ('palletteChangerMask', function(message) {
-                 console.log(\"Itt vagyok!\");
                  $(\"#mapdiv-greysc\").attr(\"src\", paletteMask.src[paletteMask.colorscheme.indexOf(message)])
                  }
-                 
                  )         
                  
-                 
-                 
-                 
-                 
                  ")),
-    plotOutput(ns("map_left"), width="358px",height="230px"),
-    plotOutput(ns("map_right"),width="358px",height="230px")
+    imageOutput(ns("map_left"), width="358px",height="230px"),
+    imageOutput(ns("map_right"),width="358px",height="230px"),
+    tags$script(HTML("$('#mapdiv-map_left').on('click','img',function(){
+                                  $(this).toggleClass('tozoom')
+  })")),
+    tags$script(HTML("$('#mapdiv-map_right').on('click','img',function(){
+                                  $(this).toggleClass('tozoom')
+  })"))
 
 
 
@@ -168,21 +173,27 @@ tags$script(HTML("
     )
   }
 
+#' agroMoMap 
+#' 
+#' asdfasfd
+#' @param input input
+#' @importFrom shiny reactiveValues observe updateSelectInput observe renderPlot renderImage
     
 agroMoMap <- function(input, output, session, baseDir){
-    datas <- reactiveValues(numPlots = 1)
+    datas <- reactiveValues(numPlots = 1,oldImage="")
     myColors <- data.frame(
     codes=c("Greens","Greys","Reds","YlGnBu","YlOrBr","Blues","RdBu","RdYlBu","RdYlGn","Spectral","YlGn"), 
     alias=c(
       "Greens", "Greys", "Reds", "Yellow-Green-Blue", 
       "Yellow-Orange-Brown", "Blues",  "Red-Blue", "Red-Yellow-Blue", 
       "Red-Yellow-Green", "Spectral", "Yellow-Green"
-           )
+           ), stringsAsFactors=FALSE
     )
     ns <- session$ns
     observe({
         dir.create(sprintf("%s/output/queries", baseDir()), showWarnings = FALSE)
         dir.create(sprintf("%s/output/map_data", baseDir()), showWarnings = FALSE)
+        dir.create(sprintf("%s/output/map_image", baseDir()), showWarnings = FALSE)
         updateSelectInput(session, "datasource", 
             choices = list.files(sprintf("%s/output/queries/",baseDir())),
             selected = head(list.files(sprintf("%s/output/queries/",baseDir())),n=1)
@@ -202,7 +213,7 @@ agroMoMap <- function(input, output, session, baseDir){
     observe({
         session$sendCustomMessage(type="palletteChangerMask",input$maskcol)
     })
-    
+    oldImage <- ""
     observeEvent(input$create,{
       palette <- myColors$codes[myColors$alias==input$palette]
       # browser()
@@ -222,29 +233,35 @@ agroMoMap <- function(input, output, session, baseDir){
 
               mapData <- basename(tools::file_path_sans_ext(sqlName))
               mapData <- sprintf("%s/output/map_data/%s.csv",baseDir(),mapData)
+              mapImage <- basename(tools::file_path_sans_ext(sqlName))
+              mapImage <- sprintf("%s/output/map_image/%s.png",baseDir(),mapImage)
 
+
+# browser()
               if(file.exists(mapData)){
-                 plot.new()
-                 dev.control("enable") 
-                  agroMap(dbName, myData=mapData, nticks=6,
-                    reverseColorScale=input$invert,colorSet=input$palette, plotTitle=input$maptitle) 
-                 leftPlot <- recordPlot()
-                 dev.off()
+                  agroMap(dbName, myData=read.csv(mapData)[,2], nticks=6,
+                    reverseColorScale=input$invert,colorSet=myColors[myColors[,2]==input$palette,1], imageTitle=mapImage, plotTitle=input$maptitle) 
               } else {
-                 plot.new()
-                 dev.control("enable") 
                   agroMap(dbName, query=sqlString, nticks=6,
-                    reverseColorScale=input$invert,colorSet=input$palette, plotTitle=input$maptitle,
+                    reverseColorScale=input$invert,colorSet=myColors[myColors[,2]==input$palette,1], imageTitle=mapImage, plotTitle=input$maptitle,
                     outFile=mapData) 
-                 leftPlot <- recordPlot()
-                 dev.off()
               }
 
-          output$map_left <- renderPlot({replayPlot(leftPlot)})
-          output$map_right <- renderPlot({replayPlot(leftPlot)})
+          output$map_left <- renderImage({
+              list(src=mapImage)
+          },deleteFile=FALSE)
+          if(isolate(datas$oldImage)!=""){
+          print(isolate(datas$oldImage))
+             output$map_right <-  renderImage({
+                 sourceList <- list(src=isolate(datas$oldImage))
+                 datas$oldImage <- mapImage
+                 return(sourceList)
+             },deleteFile=FALSE)
+          } else {
+            datas$oldImage <- mapImage  
+          }
       }
 
        }) 
     
 }
-  

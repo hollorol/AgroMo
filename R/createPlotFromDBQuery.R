@@ -52,10 +52,11 @@ readQueryFromDB <- function(dbName, query, attachedDBS=NULL,
 #' @export
 
 trimColorSet <- function(minim, maxim, center=NULL, nticks=6, roundPrecision=NULL, reverseColorScale=FALSE, colorSet="RdYlGn") {
+#  browser() 
   
-  
+    print(colorSet)
   if (!is.element(colorSet,rownames(brewer.pal.info))) {
-    stop(sprintf("Invalid colorset, please choose from the followings:\n %s", paste(availableColors, collapse=", ")))
+    stop(sprintf("Invalid colorset, please choose from the followings:\n %s", paste(rownames(brewer.pal.info), collapse=", ")))
   }
   
   numBaseColors <- brewer.pal.info[colorSet,1]
@@ -104,7 +105,7 @@ trimColorSet <- function(minim, maxim, center=NULL, nticks=6, roundPrecision=NUL
 #' @param center A number around which diverging colorscales will be centralised
 #' @param lonlat Geographical latitudes and longitudes per 1° can be addded to the plot
 #' @param plotTitle Main title can added to the plot
-#' @param fileTitle File name of the plot, if NULL no graphics will be created.
+#' @param imageTitle File name of the plot, if NULL no graphics will be created.
 #' @param minim Minium value of the visualised dataset
 #' @param maxim Maximum value of the visualised dataset
 #' @importFrom maps map
@@ -115,7 +116,7 @@ trimColorSet <- function(minim, maxim, center=NULL, nticks=6, roundPrecision=NUL
 #' @export
 
 agroMapVector <- function(data, nticks=NULL, binwidth=NULL, minimum=NULL, maximum=NULL, roundPrecision=NULL, reverseColorScale=FALSE,
-                    colorSet="RdYlGn", center=NULL, plotTitle=NULL, fileTitle=NULL, lonlat=FALSE) {
+                    colorSet="RdYlGn", center=NULL, plotTitle=NULL, imageTitle=NULL, lonlat=FALSE) {
 
   if(missing(nticks) & missing(binwidth))  {
      stop("Please, choose the number of colors (nticks) or the bin width (binwidth).\n
@@ -189,8 +190,8 @@ agroMapVector <- function(data, nticks=NULL, binwidth=NULL, minimum=NULL, maximu
   if (is.null(binwidth)) {
     colorbar <- trimColorSet(min(data),max(data),center=center, nticks=nticks,
                                roundPrecision=roundPrecision, reverseColorScale=reverseColorScale, colorSet=colorSet)
-    if(!is.null(fileTitle)){
-      png(fileTitle, units="in", width=14, height=9, pointsize=14, res=100)    
+    if(!is.null(imageTitle)){
+      png(imageTitle, units="in", width=14, height=9, pointsize=14, res=100)    
     }
 
     # windows()
@@ -210,7 +211,7 @@ agroMapVector <- function(data, nticks=NULL, binwidth=NULL, minimum=NULL, maximu
       axis(2, at=seq(46,48,1), labels=c("46°N","47°N","48°N"), cex.axis=1.2, las=2)
       axis(2, at=seq(46,48,0.5), labels=FALSE, tck=-0.01)
       map("world", xlim=c(lon[1],lon[length(lon)]), ylim=c(lat[1],lat[length(lat)]), add=TRUE)
-      if(!is.null(fileTitle)){
+      if(!is.null(imageTitle)){
         graphics.off()
       }
 
@@ -226,8 +227,8 @@ agroMapVector <- function(data, nticks=NULL, binwidth=NULL, minimum=NULL, maximu
     }
     
    #png(fileTitle, units="in", width=14, height=9, pointsize=14, res=100)
-    if(!is.null(fileTitle)){
-      png(fileTitle, units="in", width=14, height=9, pointsize=14, res=100)    
+    if(!is.null(imageTitle)){
+      png(imageTitle, units="in", width=14, height=9, pointsize=14, res=300)    
     }
       image.plot(lon, lat, grid_array, xaxt="n", yaxt="n", ann=FALSE, col=colorbar, breaks=brks, lab.breaks=brks)#, asp=1.5555555555)
       if(lonlat==TRUE) {
@@ -239,7 +240,7 @@ agroMapVector <- function(data, nticks=NULL, binwidth=NULL, minimum=NULL, maximu
       axis(2, at=seq(46,48,1), labels=c("46°N","47°N","48°N"), cex.axis=1.2, las=2)
       axis(2, at=seq(46,48,0.5), labels=FALSE, tck=-0.01)
       map("world", xlim=c(lon[1],lon[length(lon)]), ylim=c(lat[1],lat[length(lat)]), add=TRUE)#, asp=1.55555)
-      if(!is.null(fileTitle)){
+      if(!is.null(imageTitle)){
         graphics.off()
       }
  #     graphics.off()
@@ -252,7 +253,8 @@ agroMap <- function(dbName, query=NULL, myData=NULL, attachedDBS = NULL,
                     queryModifiers=NULL,nticks=NULL, binwidth=NULL,
                     minimum=NULL, maximum=NULL, roundPrecision=NULL,
                     reverseColorScale=FALSE,colorSet="RdYlGn", center=NULL,
-                    plotTitle=NULL, fileTitle=NULL, lonlat=FALSE, outFile=NULL) {
+                    plotTitle=NULL, imageTitle=NULL, lonlat=FALSE, outFile=NULL) {
+    # browser()
     if(!is.null(query)){
 
         agroVector <- readQueryFromDB(dbName, query, attachedDBS = attachedDBS,queryModifiers = queryModifiers)
@@ -264,7 +266,7 @@ agroMap <- function(dbName, query=NULL, myData=NULL, attachedDBS = NULL,
     }
   agroMapVector(agroVector, nticks=nticks, binwidth=binwidth, minimum=minimum, maximum=maximum,
                 roundPrecision=roundPrecision, reverseColorScale=reverseColorScale, colorSet=colorSet,
-                center=center, plotTitle=plotTitle, fileTitle=fileTitle, lonlat=lonlat)
+                center=center, plotTitle=plotTitle, imageTitle=imageTitle, lonlat=lonlat)
 }
 
 #
