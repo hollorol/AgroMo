@@ -326,10 +326,15 @@ height: 30px;
     position: fixed !important;
     display: block;
     top: 0 !important;
-    margin-left: auto;
+    /*margin-left: auto;*/
     z-index: 9;
     height: 100vh !important;
-    margin-right: auto;
+    /*margin-right: auto;*/
     /* left: unset !important; */
     cursor: zoom-out !important;
+    margin: 0 auto !important;
+    margin-top: 0px !important;
+    margin-right: 0px !important;
+    margin-bottom: 0px !important;
+    left: 0px !important;
 }
