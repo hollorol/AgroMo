@@ -4,10 +4,10 @@
 \alias{readQueryFromDB}
 \title{readQueryFromDB}
 \usage{
-readQueryFromDB(dbName, query, attachedDBS = NULL, queryModifiers = NULL)
+readQueryFromDB(connection, query, attachedDBS = NULL, queryModifiers = NULL)
 }
 \arguments{
-\item{dbName}{Database name and location from which data are plotted}
+\item{connection}{Database connection}
 
 \item{query}{SQL query on the given database}
 

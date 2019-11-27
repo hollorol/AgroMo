@@ -177,10 +177,12 @@ tags$script(HTML("
 #' 
 #' asdfasfd
 #' @param input input
-#' @importFrom shiny reactiveValues observe updateSelectInput observe renderPlot renderImage
+#' @importFrom shiny reactiveValues observe updateSelectInput observe renderPlot renderImage 
+#' @importFrom DBI dbConnect
+
     
 agroMoMap <- function(input, output, session, baseDir){
-    datas <- reactiveValues(numPlots = 1,oldImage="")
+    datas <- reactiveValues(numPlots = 1,oldImage="",connection=NULL,agromoDB = NULL, soilDB = NULL)
     myColors <- data.frame(
     codes=c("Greens","Greys","Reds","YlGnBu","YlOrBr","Blues","RdBu","RdYlBu","RdYlGn","Spectral","YlGn"), 
     alias=c(
@@ -199,6 +201,32 @@ agroMoMap <- function(input, output, session, baseDir){
             selected = head(list.files(sprintf("%s/output/queries/",baseDir())),n=1)
         )
         # print(list.files(sprintf("%s/output/queries/",baseDir())))
+
+          if(file.exists(sprintf("%s/output/DB/HU-10km.db",baseDir()))){
+            datas$agromoDB<- sprintf("%s/output/DB/HU-10km.db",baseDir())
+            datas$connection <- dbConnect(RSQLite::SQLite(), datas$agromoDB)
+          } else {
+            datas$agromoDB <- "~/AgroMoDB/HU-10km.db"
+            if(file.exists(datas$agromoDB)){
+                datas$connection <- dbConnect(RSQLite::SQLite(), datas$agromoDB)
+            }
+          }
+          
+          if(file.exists(sprintf("%s/output/DB/SOIL.db",baseDir()))){
+            datas$soilDB <- sprintf("%s/output/DB/SOIL.db",baseDir())
+            if(!is.null(datas$connection)){
+                dbSendQuery(datas$connection,sprintf("ATTACH DATABASE '%s' AS soil", normalizePath(datas$soilDB)))
+            }
+          } else {
+            datas$soilDB <- "~/AgroMoDB/SOIL.db"
+            if(file.exists(datas$soilDB)) {
+                if(!is.null(datas$connection)){
+                    # browser()
+                    dbSendQuery(datas$connection,sprintf("ATTACH DATABASE '%s' AS soil", normalizePath(datas$soilDB)))
+                }
+            }
+          }
+
     })
     
     observe({
@@ -218,12 +246,6 @@ agroMoMap <- function(input, output, session, baseDir){
       palette <- myColors$codes[myColors$alias==input$palette]
       # browser()
 
-          if(file.exists(sprintf("%s/output/DB/HU-10km.db",baseDir()))){
-            dbName <- sprintf("%s/output/DB/HU-10km.db",baseDir())
-          } else {
-            dbName <- "~/AgroMoDB/HU-10km.db"
-          }
-          
               if(length(input$datasource)>0) {
                   sqlName <- sprintf("%s/output/queries/%s",baseDir(),input$datasource)
                   sqlString <- readChar(sqlName,file.info(sqlName)["size"])
@@ -233,17 +255,15 @@ agroMoMap <- function(input, output, session, baseDir){
               mapData <- sprintf("%s/output/map_data/%s.csv",baseDir(),mapData)
               mapImage <- basename(tools::file_path_sans_ext(sqlName))
               mapImage <- sprintf("%s/output/map_image/%s.png",baseDir(),mapImage)
-      if(file.exists(sprintf("%s/output/DB/HU-10km.db",baseDir())) ||
-          file.exists("~/AgroMoDB/HU-10km.db")||
+
+      if(!is.null(datas$connection) ||
           file.exists(mapData)){
-
-
-# browser()
               if(file.exists(mapData)){
-                  agroMap(dbName, myData=read.csv(mapData)[,2], nticks=6,
-                    reverseColorScale=input$invert,colorSet=myColors[myColors[,2]==input$palette,1], imageTitle=mapImage, plotTitle=input$maptitle) 
+                  agroMap(myData=read.csv(mapData)[,2], nticks=6,
+                    reverseColorScale=input$invert,colorSet=myColors[myColors[,2]==input$palette,1], imageTitle=mapImage, plotTitle=input$maptitle
+                  ) 
               } else {
-                  agroMap(dbName, query=sqlString, nticks=6,
+                  agroMap(datas$connection, query=sqlString, nticks=6,
                     reverseColorScale=input$invert,colorSet=myColors[myColors[,2]==input$palette,1], imageTitle=mapImage, plotTitle=input$maptitle,
                     outFile=mapData) 
               }

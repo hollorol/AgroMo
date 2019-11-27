@@ -1,16 +1,16 @@
 #' readQueryFromDB
 #'
 #' This function reads the database file with a given query, results a vector with 1104 elements
-#' @param dbName Database name and location from which data are plotted
+#' @param connection Database connection
 #' @param query SQL query on the given database
 #' @param attachedDBS Further databases which can be joined
 #' @importFrom RSQLite SQLite
 #' @importFrom DBI dbConnect dbGetQuery
 #' @export
-readQueryFromDB <- function(dbName, query, attachedDBS=NULL,
+readQueryFromDB <- function(connection, query, attachedDBS=NULL,
                             queryModifiers=NULL){
+
   if(is.null(attachedDBS)) {
-    connection <- dbConnect(RSQLite::SQLite(),dbName)
     ## Copy to grid!
     if(!is.null(queryModifiers)){
       sapply(names(queryModifiers),function(keys){
@@ -19,9 +19,9 @@ readQueryFromDB <- function(dbName, query, attachedDBS=NULL,
                        query)
       })
     }
-
+    
     res <- dbGetQuery(connection,query)[,1]
-    dbDisconnect(connection)
+    # dbDisconnect(connection)
 
    #Check the result
     if((length(res)!=1104 ) ||  (!is.numeric(res))){
@@ -249,15 +249,14 @@ agroMapVector <- function(data, nticks=NULL, binwidth=NULL, minimum=NULL, maximu
 
 #agroMapVector(data=readQueryFromDB("DB/agronew.db",query = query),minimum = 0,maximum = 0.12,binwidth = 0.01,colorSet = "Greens", lonlat = TRUE, fileTitle = "kiraly.png")
 
-agroMap <- function(dbName, query=NULL, myData=NULL, attachedDBS = NULL,
+agroMap <- function(connection=NULL, query=NULL, myData=NULL, attachedDBS = NULL,
                     queryModifiers=NULL,nticks=NULL, binwidth=NULL,
                     minimum=NULL, maximum=NULL, roundPrecision=NULL,
                     reverseColorScale=FALSE,colorSet="RdYlGn", center=NULL,
                     plotTitle=NULL, imageTitle=NULL, lonlat=FALSE, outFile=NULL) {
     # browser()
-    if(!is.null(query)){
-
-        agroVector <- readQueryFromDB(dbName, query, attachedDBS = attachedDBS,queryModifiers = queryModifiers)
+    if(!is.null(connection)){
+        agroVector <- readQueryFromDB(connection, query, attachedDBS = attachedDBS,queryModifiers = queryModifiers)
     } else {
         agroVector <- myData
     }
