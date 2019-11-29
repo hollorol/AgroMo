@@ -47,7 +47,7 @@
     tags$img(id = ns("greensc"),src="www/img/palette_samples/Greens.png", draggable = FALSE),
     tags$div(
       id = paste0(ns("countrycont"),"_container"),
-      checkboxInput(ns("countrycont"), label = "add country contour to the background", value = TRUE)
+      checkboxInput(ns("countrycont"), label = "add country contour", value = TRUE)
     ),
       tags$div(
       id = paste0(ns("datasource"),"_container"),
@@ -85,13 +85,17 @@
       id = paste0(ns("maptitle"),"_container"),
       textInput(ns("maptitle"), "map title:")
     ),
-    tags$div(id="maskpreview","mask preview:"),
-    tags$div(id="palettepreview","palette preview:"),
+    tags$div(
+      id = paste0(ns("metadata"),"_container"),
+      textInput(ns("metadata"), "metadata:")
+    ),
+    #tags$div(id="maskpreview","mask preview:"),
+#tags$div(id="palettepreview","palette preview:"),
     
 #itt a funkcionalitas kerdeses    
     tags$div(id = ns("Buttons"),
-    actionButton(ns("create"),label = "CREATE MAP"),
-    actionButton(ns("save"),label="SAVE to FILE")),
+    actionButton(ns("create"),label = "CREATE MAP")),
+    #actionButton(ns("save"),label="SAVE to FILE")),
 tags$script(HTML("
            let palette = {
 \"src\":[\"www/img/palette_samples/Greens.png\",
