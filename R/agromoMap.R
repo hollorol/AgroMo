@@ -62,7 +62,7 @@
     ),
     tags$div(
       id = paste0(ns("min"),"_container"),
-      textInput(ns("min"),"minimum value:",NA)
+      textInput(ns("min"),"min. value:",NA)
     ),
     tags$div(
       id = paste0(ns("minprec"),"_container"),
@@ -70,7 +70,7 @@
     ),
         tags$div(
       id = paste0(ns("max"),"_container"),
-      textInput(ns("max"),"maximum value:",NA)
+      textInput(ns("max"),"max. value:",NA)
     ),
 #    tags$div(
 #      id = paste0(ns("maxprec"),"_container"),
