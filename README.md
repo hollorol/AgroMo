@@ -13,7 +13,7 @@ The Installer can be downloaded by using this link:
 https://owncloud.agrar.mta.hu/owncloud/index.php/s/CAySet75Jo8zX6c/download
 ```
 
-- [x] Choose installation folder by entering a valid folder name with full path or by clicking the Modify icon or leave default unaltered. If the folder does not exist the installer will create it.
+- [x] After starting the Installer, choose installation folder by entering a valid folder name with full path or by clicking the Modify icon or leave default unaltered. If the folder does not exist the installer will create it.
 - [x] AgroMo can be started from this folder later by launching the AgroMo_Launch.exe application.
 
 ### Using pure R
@@ -24,7 +24,6 @@ install.packages("remotes") # if you have already installed devtools or remotes,
 remotes::install_github("hollorol/AgroMo", upgrade = "never") # You can replace remotes with devtools.
 ```
 After the installation process, the application starts with the following command:
-
 ```{r}
 AgroMo::launchApp()
 ```
