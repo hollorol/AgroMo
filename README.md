@@ -20,7 +20,7 @@ https://owncloud.agrar.mta.hu/owncloud/index.php/s/CAySet75Jo8zX6c/download
 
 AgroMo can be used from your browser with your current R installation. The package can be installed in the following way:
 ```{r}
-install.packages("remotes") # if you have already installed devtools or remotes, skip this...
+install.packages("remotes") # if you have already installed devtools or remotes, skip this step.
 remotes::install_github("hollorol/AgroMo", upgrade = "never") # You can replace remotes with devtools.
 ```
 After the installation process, the application starts with the following command:
