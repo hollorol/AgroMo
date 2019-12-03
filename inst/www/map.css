@@ -334,7 +334,7 @@ height: 30px;
 #basearrow {
     position: absolute;
   top: 220px;
-  left: -220px;
+  left: -228px;
   height: 43px;
   width: 75px;
 }
@@ -342,7 +342,7 @@ height: 30px;
 #backgrid {
     position: absolute;
   top: 220px;
-  left: -130px;
+  left: -138px;
   height: 43px;
   width: 75px;
 }
