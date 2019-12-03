@@ -701,6 +701,26 @@ color: #A9A9A9;
   height: 248px;
   cursor: pointer;
 }
+
+
+#basearrow {
+    position: absolute;
+  top: 220px;
+  left: -220px;
+  height: 43px;
+  width: 75px;
+}
+#backgrid {
+    position: absolute;
+  top: 220px;
+  left: -130px;
+  height: 43px;
+  width: 75px;
+}
+#Site-banner-div img{
+  cursor: default; 
+    }
+
 /*#sitediv-outFile .control-label{
     position: absolute;
     top: 550px;

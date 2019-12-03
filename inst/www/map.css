@@ -331,6 +331,26 @@
 height: 30px;
 }
 
+#basearrow {
+    position: absolute;
+  top: 220px;
+  left: -220px;
+  height: 43px;
+  width: 75px;
+}
+
+#backgrid {
+    position: absolute;
+  top: 220px;
+  left: -130px;
+  height: 43px;
+  width: 75px;
+}
+#Map-banner-div img{
+  cursor: default; 
+    }
+
+
 #mapdiv-map_right img {
     position: absolute;
     top: 425px;

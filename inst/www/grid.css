@@ -292,6 +292,26 @@
  left: 585px;
   width: 335px;
 }
+
+#basearrow {
+    position: absolute;
+  top: 220px;
+  left: -220px;
+  height: 43px;
+  width: 75px;
+}
+#backsite {
+    position: absolute;
+  top: 220px;
+  left: -130px;
+  height: 43px;
+  width: 75px;
+}
+#Grid-banner-div img{
+  cursor: default; 
+    }
+
+
 /*
 #griddiv-queryTable .dataTables_scrollBody thead{
   display:none;

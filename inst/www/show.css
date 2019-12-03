@@ -337,6 +337,27 @@
   left: 70px;
 }
 
+
+#basearrow {
+    position: absolute;
+  top: 220px;
+  left: -220px;
+  height: 43px;
+  width: 75px;
+}
+#backsite {
+    position: absolute;
+  top: 220px;
+  left: -130px;
+  height: 43px;
+  width: 75px;
+}
+#Show-banner-div img{
+  cursor: default; 
+    }
+
+
+
 .modal-lg {
     width: 95%;
 }
