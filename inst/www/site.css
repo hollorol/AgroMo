@@ -709,6 +709,8 @@ color: #A9A9A9;
   left: -228px;
   height: 43px;
   width: 75px;
+  border-width: 0px;
+  border-radius: 1px;
 }
 #backgrid {
     position: absolute;
@@ -716,6 +718,8 @@ color: #A9A9A9;
   left: -138px;
   height: 43px;
   width: 75px;
+  border-width: 0px;
+  border-radius: 1px;
 }
 #Site-banner-div img{
   cursor: default; 

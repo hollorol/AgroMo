@@ -344,6 +344,8 @@
   left: -228px;
   height: 43px;
   width: 75px;
+  border-width: 0px;
+  border-radius: 1px;
 }
 #backsite {
     position: absolute;
@@ -351,6 +353,8 @@
   left: -138px;
   height: 43px;
   width: 75px;
+  border-width: 0px;
+  border-radius: 1px;
 }
 #Show-banner-div img{
   cursor: default; 
