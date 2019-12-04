@@ -81,8 +81,13 @@ A graphical user interface (GUI) has been developed for providing easy and user 
   - a |plot type| 
 - [x] Options in the |time step|, |function| and |plot type| columns can be selected via circular menus operated by clicking/scrolling in the corresponding cells.
 - [x] Having all the desired options selected create plot(s) by clicking the [PLOT] button.
+
+![alt text](img/plotly_graph01.png "AgroMo Graph")
+
+- [x] Zoom in the graph by selecting an area on the graph while holding down the left mouse button.
 - [ ] Export plot data into various file formats (e.g. xlsx, csv) by clicking the [EXPORT] button.
 - [x] Navigate to the [BASE] or [SITE] component by clicking the corresponding button on the banner to the left.
+
 
 ### AgroMo Grid
 
