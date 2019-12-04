@@ -39,6 +39,7 @@ A graphical user interface (GUI) has been developed for providing easy and user 
 - [ ] Make gridded model runds by clicking the [GRID] button.
 - [ ] Present the results of a gridded simulation on a map by clicking the [MAP] button.
 - [ ] Create, open, edit and save your input files by clicking the [INPUT FILE MANAGER] button.
+- [x] Exit AgroMo by clicking the EXIT icon on the banner to the left.
 
 
 ### AgroMo Site
