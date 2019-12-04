@@ -120,6 +120,8 @@ agroServer <- function(input, output, session) {
         shinyjs::hide("sitediv-sitediv")
         shinyjs::show("showdiv-showdiv")
         shinyjs::hide("griddiv-griddiv")
+        shinyjs::hide("backgrid")
+        shinyjs::show("backsite")
         shinyjs::hide("mapdiv-mapdiv")
         shinyjs::hide(selector = ".banner")
         shinyjs::show("Show-banner-div")
@@ -156,6 +158,7 @@ agroServer <- function(input, output, session) {
      observeEvent(input$backgrid,{
        shinyjs::show("grid")
        shinyjs::show("griddiv-griddiv")
+       shinyjs::hide("showdiv-showdiv")
        shinyjs::hide("sitediv-sitediv")
        shinyjs::hide("backgrid")
        shinyjs::hide(selector = ".banner")
