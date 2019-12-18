@@ -3,8 +3,8 @@
                 which is the window except the banner. */
 #mapdiv-invert_container {
     position: absolute;
-    top: 90px;
-    left: 655px;
+    top: 135px;
+    left: 820px;
     font-size: 16px;
     color: black;
   -webkit-user-select: none;
@@ -12,10 +12,23 @@
   -ms-user-select: none;
   user-select: none;  
 }
+
+#mapdiv-invert_container span{
+    position: absolute;
+    top: -1px;
+    left: 17px;
+    font-size: 16px;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; 
+}
+
 #mapdiv-countrycont_container {
     position: absolute;
     top: 90px;
-    left: 755px;
+    left: 660px;
     font-size: 16px;
     color: black;
     width: 180px;
@@ -24,6 +37,20 @@
   -ms-user-select: none;
   user-select: none;  
 }
+
+#mapdiv-latlon_container {
+    position: absolute;
+    top: 90px;
+    left: 820px;
+    font-size: 16px;
+    color: black;
+    width: 180px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
+}
+
 #mapdiv-datasource_container .form-group.shiny-input-container label{
     position: absolute;
     top: 20px;

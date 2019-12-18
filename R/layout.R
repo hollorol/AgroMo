@@ -13,14 +13,14 @@ createLayout <- function(...){
              shiny::tags$div("banners",
                       tagList(
                         shiny::tags$div(id = "Base-banner-div", class = "banner",
-                            shiny::tags$img("",src = "www/img/banner/Base.svg")),
+                            shiny::tags$img("",src = "www/img/banner/Base.svg", draggable="false")),
                         hidden(shiny::tags$div(id = "Show-banner-div", class = "banner",
-                                   shiny::tags$img("",src = "www/img/banner/Show.svg"))),
+                                   shiny::tags$img("",src = "www/img/banner/Show.svg", draggable="false"))),
                         hidden(shiny::tags$div(id = "Site-banner-div", class = "banner",
-                                   shiny::tags$img("",src="www/img/banner/Site.svg"))),
+                                   shiny::tags$img("",src="www/img/banner/Site.svg", draggable="false"))),
                         hidden(shiny::tags$div(id = "Map-banner-div", class = "banner",
-                                  shiny::tags$img("",src="www/img/banner/Map.svg"))),
+                                  shiny::tags$img("",src="www/img/banner/Map.svg", draggable="false"))),
                         hidden(shiny::tags$div(id = "Grid-banner-div", class = "banner",
-                                    shiny::tags$img("",src="www/img/banner/Grid.svg"))))),
+                                    shiny::tags$img("",src="www/img/banner/Grid.svg", draggable="false"))))),
              fluidRow(class= "innerGui", shiny::tags$div(id = "root",args))))
 }

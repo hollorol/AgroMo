@@ -39,15 +39,15 @@ agromoBaseUI <- function(id){
                               style=("background: url('www/img/exit_icon6_kicsi.png');")),
 #                        actionButton("exit", src="www/img/exit.svg",
 #                                     onclick="function(){window.close()}", title="EXIT"),
-                        actionButton("parSweep","PARAMETER SWEEP",
+                        actionButton("parSweep","PARAMETER ANALYSIS",
                           class = "mainSideBar",title="Do you feel the power?"),
-                        actionButton("sensitivity","SENSITIVITY ANALYSIS",
+                        actionButton("sensitivity","SITE DATA GENERATOR",
                           class = "mainSideBar"),
-                        actionButton("calibration","CALIBRATION",
+                        actionButton("calibration","",
                           class = "mainSideBar"),
-                        actionButton("storEditor","STORYLINE EDITOR",
+                        actionButton("storEditor","",
                               class = "mainSideBar"),
-                        actionButton("fileMan","INPUT FILE MANAGER",
+                        actionButton("fileMan","",
                               class = "mainSideBar"))
            )
 }

@@ -47,7 +47,11 @@
     tags$img(id = ns("greensc"),src="www/img/palette_samples/Greens.png", draggable = FALSE),
     tags$div(
       id = paste0(ns("countrycont"),"_container"),
-      checkboxInput(ns("countrycont"), label = "add country contour", value = TRUE)
+      checkboxInput(ns("countrycont"), label = "country contour", value = TRUE)
+    ),
+    tags$div(
+      id = paste0(ns("latlon"),"_container"),
+      checkboxInput(ns("latlon"), label = "lat/lon lines", value = TRUE)
     ),
       tags$div(
       id = paste0(ns("datasource"),"_container"),
