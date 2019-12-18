@@ -54,26 +54,26 @@
       checkboxInput(ns("latlon"), label = "lat/lon lines", value = TRUE)
     ),
       tags$div(
-      id = paste0(ns("datasource"),"_container"),
+      id = paste0(ns("datasource"),"_container"),title="Select sql file to present query results on a map",
       selectInput(ns("datasource"),"data source:","")
     ),
     tags$div(
-      id = paste0(ns("palette"),"_container"),
+      id = paste0(ns("palette"),"_container"),title="Select colour palette for map",
       selectInput(ns("palette"),"palette:",choices= paletteAlias[,2])),
     tags$div(
-      id = paste0(ns("colnumb"),"_container"),
+      id = paste0(ns("colnumb"),"_container"),title="Select the number of colours/subranges to be distinguished on the map",
       selectInput(ns("colnumb"),"number of colours:",choices=c(2,4,8,16,32))
     ),
     tags$div(
-      id = paste0(ns("min"),"_container"),
+      id = paste0(ns("min"),"_container"), title="Set the minimum value for the data presented on the map",
       textInput(ns("min"),"min. value:",NA)
     ),
     tags$div(
-      id = paste0(ns("minprec"),"_container"),
+      id = paste0(ns("minprec"),"_container"),title="Select the number of decimal places shown in the presented values",
       selectInput(ns("minprec"),"precision of rounding:",choices=c(0,1,2,3,4,5))
     ),
         tags$div(
-      id = paste0(ns("max"),"_container"),
+      id = paste0(ns("max"),"_container"),title="Set the maximum value for the data presented on the map",
       textInput(ns("max"),"max. value:",NA)
     ),
 #    tags$div(
@@ -81,12 +81,12 @@
 #      selectInput(ns("maxprec"),"precision of rounding:",choices=c(0,1,2,3,4,5))
 #    ),
     tags$div(
-      id = paste0(ns("maskcol"),"_container"),
+      id = paste0(ns("maskcol"),"_container"),title="Select mask colour (for regions with no data)",
       selectInput(ns("maskcol"),"mask colour:",choices=paletteAliasMask[,2])
     ),
     
     tags$div(
-      id = paste0(ns("maptitle"),"_container"),
+      id = paste0(ns("maptitle"),"_container"), title="Add title to the map",
       textInput(ns("maptitle"), "map title:")
     ),
     tags$div(

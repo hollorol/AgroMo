@@ -41,7 +41,7 @@ agroMoSiteUI <- function(id){
              #shiny::tags$img(id = ns("grid_bb"),src="www/img/grid_banner_button.svg"),
              #shiny::tags$img(id = ns("show_bb"),src="www/img/show_banner_button.svg"),
              #shiny::tags$img(id = ns("home-button"),src="www/img/home.png"),
-             shiny::tags$img(id = ns("refresh"),src="www/img/refresh_button.svg", draggable = FALSE),
+             shiny::tags$img(id = ns("refresh"),src="www/img/refresh_button.svg", draggable = FALSE, title ="Refresh content of the dropdown menus based on the file list of the corresponding folders"),
              dropdownElements,
              #shiny::tags$div(
              #        id = paste0(ns("stationp"),"_container"),
@@ -69,8 +69,8 @@ agroMoSiteUI <- function(id){
 
              uiOutput(ns("outputFile")),
              shiny::tags$div(id = ns("Buttons"),
-             runAndPlotUI(ns("popRun"),label = "RUN"),
-             actionButton(ns("Show"),label="PLOT")),
+             runAndPlotUI(ns("popRun"),label = "START SIMULATION"),
+             actionButton(ns("Show"),label="PLOT", title="Create plots using simulation results")),
              shiny::tags$div(
                     id = paste0(ns("planshift_date"),"_container"),
                textInput(ns("planshift_date"), "date (day):", 0)

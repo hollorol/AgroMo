@@ -15,9 +15,9 @@ agroUI <- function(){
             hidden(agroMoShowUI(id = "showdiv")),
             hidden(agroMoGridUI(id = "griddiv")),
             hidden(agroMoMapUI(id = "mapdiv")),
-            hidden(actionButton(inputId = "basearrow",label="",style="background: url('www/img/base_arrow.png');background-size: 75px 43px;", draggable = FALSE)),
-            hidden(actionButton(inputId = "backsite",label="",style="background: url('www/img/back_site.png');background-size: 75px 43px;", draggable = FALSE)),
-            hidden(actionButton(inputId = "backgrid",label="",style="background: url('www/img/back_grid.png');background-size: 75px 43px;", draggable = FALSE))
+            hidden(actionButton(inputId = "basearrow",label="",title="Navigate back to the BASE window", style="background: url('www/img/base_arrow.png');background-size: 75px 43px;", draggable = FALSE)),
+            hidden(actionButton(inputId = "backsite",label="",title="Navigate back to the SITE window", style="background: url('www/img/back_site.png');background-size: 75px 43px;", draggable = FALSE)),
+            hidden(actionButton(inputId = "backgrid",label="",title="Navigate to the GRID window", style="background: url('www/img/back_grid.png');background-size: 75px 43px;", draggable = FALSE))
         )
     )
 }
