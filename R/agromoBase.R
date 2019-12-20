@@ -41,7 +41,7 @@ agromoBaseUI <- function(id){
 #                                     onclick="function(){window.close()}", title="EXIT"),
                         actionButton("parSweep","PARAMETER ANALYSIS",
                           class = "mainSideBar",title="Tool for calibration, parameter sweep and sensitivity analysis"),
-                        actionButton("sensitivity","SITE CREATOR",
+                        actionButton("sitegen","SITE CREATOR",
                           class = "mainSideBar", title="Download site specific weather and soil data from ERA5 and ISRIC databases"),
                         actionButton("calibration","",
                           class = "mainSideBar"),

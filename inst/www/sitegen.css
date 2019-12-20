@@ -1,0 +1,316 @@
+/* Suggestions: I would suggest to use posinition: absolute css declaration in every
+                place. The positions starts at the top-left corner of the root window,
+                which is the window except the banner. */
+
+#sitegendiv-retdatcreate {
+    position: absolute;
+    top: 695px;
+    height: 60px;
+    width: 900px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: gainsboro;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#sitegendiv-soil_container {
+    position: absolute;
+    top: 300px;
+    left: 120px;
+    font-weight: normal;
+    font-size: 16px;
+    color: black;
+    width: 800px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#sitegendiv-soil_container span {
+    position: absolute;
+    top: 0px;
+    font-weight: normal;
+    font-size: 16px;
+    color: black;
+    width: 700px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+#sitegendiv-weather_container {
+    position: absolute;
+    top: 330px;
+    left: 120px;
+    font-weight: normal;
+    font-size: 16px;
+    color: black;
+    width: 800px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#sitegendiv-weather_container span {
+    position: absolute;
+    top: 0px;
+    font-weight: normal;
+    font-size: 16px;
+    color: black;
+  width: 700px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#sitegendiv-ini_container{
+    position: absolute;
+    top: 360px;
+    left: 120px;
+    font-weight: normal;
+    font-size: 16px;
+    color: black;
+    width: 800px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+#sitegendiv-ini_container span{
+    position: absolute;
+    top: 0px;  
+    width:700px;
+    font-weight: normal;
+    font-size: 16px;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#sitegendiv-initemplate_container .form-group{
+    position: absolute;
+    top: 380px; 
+    left: 120px;
+    width:790px;
+    font-size: 16px;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#sitegendiv-sitename_container label{
+    position: absolute;
+    top: 275px;
+  left: 25px;
+    font-weight: bold; 
+    font-size: 16px;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#sitegendiv-sitename_container .form-control{
+    position: absolute;
+    top: 270px;
+    left: 120px;
+    font-size: 16px;
+    color: black;
+    width: 790px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+#sitegendiv-erareg_container label{
+    position: absolute;
+    top: 30px;
+  left: 35px;
+    font-size: 16px;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#sitegendiv-erareg_container .form-control {
+    position: absolute;
+    top: 25px;
+  left: 260px;
+  width:645px;
+    font-size: 16px;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#sitegendiv-settlement_container label{
+    position: absolute;
+    top: 190px;
+    left: -25px;
+    font-weight: normal;
+    font-size: 16px;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+#sitegendiv-settlement_container .selectize-control{
+    position: absolute;
+    top: 185px;
+    width: 300px;
+    left: 120px;
+    font-weight: normal;
+    font-size: 16px;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#sitegendiv-lat_container label {
+    position: absolute;
+    top: 110px;
+    left: 20px;
+    font-weight: normal;
+    font-size: 16px;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+#sitegendiv-lat_container .form-control {
+    position: absolute;
+    top: 105px;
+    left:120px;
+    width:135px;
+    font-weight: normal;
+    font-size: 16px;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#sitegendiv-lon_container label {
+    position: absolute;
+    top: 150px;
+    left: 5px;
+    font-weight: normal;
+    font-size: 16px;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#sitegendiv-lon_container .form-control {
+    position: absolute;
+    top: 145px;
+    left:120px;
+    width:135px;
+    font-weight: normal;
+    font-size: 16px;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+#sitegendiv-start_container label{
+    position: absolute;
+    top: 115px;
+    left: 715px;
+    font-weight: normal;
+    font-size: 16px;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#sitegendiv-start_container .selectize-input{
+    position: absolute;
+    top: 95px;
+    left: 790px;
+    width:115px;
+    font-weight: normal;
+    font-size: 16px;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+#sitegendiv-end_container label {
+    position: absolute;
+    top: 160px;
+    left: 720px;
+    font-weight: normal;
+    font-size: 16px;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#sitegendiv-end_container .selectize-input{
+    position: absolute;
+    top: 140px;
+    left: 790px;
+    width:115px;
+    font-weight: normal;
+    font-size: 16px;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+#geocord {
+    position: absolute;
+    top: 80px;
+    font-weight: bold;
+    font-size: 16px;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#timeperiod {
+    position: absolute;
+    top: 80px;
+    left: 625px;
+    width: 300px;
+    font-weight: bold;
+    font-size: 16px;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
