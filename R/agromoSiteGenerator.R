@@ -60,7 +60,7 @@
     tags$div(id="timeperiod","TIME PERIOD FOR WEATHER DATA:"),
 #itt a funkcionalitas kerdeses    
     tags$div(id = ns("Buttons"),
-    actionButton(ns("retdatcreate"),label = "RETIEVE DATA AND CREATE FILE(S)"))
+    actionButton(ns("retdatcreate"),label = "RETRIEVE DATA AND CREATE FILE(S)"))
 
 
 
