@@ -18,6 +18,8 @@ agroUI <- function(){
             hidden(agroMoSiteGeneratorUI(id = "sitegendiv")),
             hidden(actionButton(inputId = "basearrow",label="",title="Navigate back to the BASE window", style="background: url('www/img/base_arrow.png');background-size: 75px 43px;", draggable = FALSE)),
             hidden(actionButton(inputId = "backsite",label="",title="Navigate back to the SITE window", style="background: url('www/img/back_site.png');background-size: 75px 43px;", draggable = FALSE)),
+            hidden(actionButton(inputId = "basearrow_sg",label="",title="Navigate back to the BASE window", style="background: url('www/img/base_arrow_sg.png');background-size: 75px 43px;", draggable = FALSE)),
+            hidden(actionButton(inputId = "backsite_sg",label="",title="Navigate back to the SITE window", style="background: url('www/img/back_site_sg.png');background-size: 75px 43px;", draggable = FALSE)),
             hidden(actionButton(inputId = "backgrid",label="",title="Navigate to the GRID window", style="background: url('www/img/back_grid.png');background-size: 75px 43px;", draggable = FALSE))
         )
     )
@@ -122,6 +124,8 @@ agroServer <- function(input, output, session) {
         shinyjs::show("showdiv-showdiv")
         shinyjs::hide("griddiv-griddiv")
         shinyjs::hide("backgrid")
+        shinyjs::hide("basearrow_sg")
+        shinyjs::hide("backsite_sg")
         shinyjs::show("backsite")
         shinyjs::hide("mapdiv-mapdiv")
         shinyjs::hide(selector = ".banner")
@@ -141,6 +145,8 @@ agroServer <- function(input, output, session) {
         shinyjs::show("basearrow")
         shinyjs::show("backgrid")
         shinyjs::hide("backsite")
+        shinyjs::hide("basearrow_sg")
+        shinyjs::hide("backsite_sg")
     })
    }
    {
@@ -151,6 +157,8 @@ agroServer <- function(input, output, session) {
        shinyjs::hide("basearrow")
        shinyjs::hide("backgrid")
        shinyjs::hide("backsite")
+       shinyjs::hide("basearrow_sg")
+       shinyjs::hide("backsite_sg")
        shinyjs::hide(selector = ".banner")
        shinyjs::show("Base-banner-div")
      })
@@ -162,6 +170,8 @@ agroServer <- function(input, output, session) {
        shinyjs::hide("showdiv-showdiv")
        shinyjs::hide("sitediv-sitediv")
        shinyjs::hide("backgrid")
+       shinyjs::hide("basearrow_sg")
+       shinyjs::hide("backsite_sg")
        shinyjs::hide(selector = ".banner")
        shinyjs::show("Grid-banner-div")
        shinyjs::show("basearrow")
@@ -187,6 +197,8 @@ agroServer <- function(input, output, session) {
        shinyjs::show("basearrow")
        shinyjs::show("backsite")
        shinyjs::hide("backgrid")
+       shinyjs::hide("basearrow_sg")
+       shinyjs::hide("backsite_sg")
      })
    }
    {
@@ -197,6 +209,8 @@ agroServer <- function(input, output, session) {
        shinyjs::hide("basearrow")
        shinyjs::hide("backgrid")
        shinyjs::hide("backsite")
+       shinyjs::hide("basearrow_sg")
+       shinyjs::hide("backsite_sg")
        shinyjs::hide(selector = ".banner")
        shinyjs::show("Base-banner-div")
      })
@@ -211,6 +225,8 @@ agroServer <- function(input, output, session) {
        shinyjs::show("Site-banner-div")
        shinyjs::show("basearrow")
        shinyjs::show("backgrid")
+       shinyjs::hide("basearrow_sg")
+       shinyjs::hide("backsite_sg")
      })
    }
  
@@ -228,25 +244,29 @@ agroServer <- function(input, output, session) {
         shinyjs::show("sitegendiv-sitegendiv")
         shinyjs::hide(selector = ".banner")
         shinyjs::show("Sitegen-banner-div")
-        shinyjs::show("basearrow")
-        shinyjs::show("backsite")
+        shinyjs::show("basearrow_sg")
+        shinyjs::show("backsite_sg")
         shinyjs::hide("backgrid")
+        shinyjs::hide("backsite")
+        shinyjs::hide("backarrow")
       })
     }
     {
-      observeEvent(input$basearrow,{
+      observeEvent(input$basearrow_sg,{
               shinyjs::show("base")
         shinyjs::show("base-tools")
        shinyjs::hide("sitegendiv-sitegendiv")
        shinyjs::hide("basearrow")
        shinyjs::hide("backgrid")
        shinyjs::hide("backsite")
+       shinyjs::hide("basearrow_sg")
+       shinyjs::hide("backsite_sg")
        shinyjs::hide(selector = ".banner")
        shinyjs::show("Base-banner-div")
       })
       }
       {
-      observeEvent(input$backsite,{
+      observeEvent(input$backsite_sg,{
        shinyjs::show("site")
        shinyjs::show("sitediv-sitediv")
        shinyjs::hide("sitegendiv-sitegendiv")
@@ -255,6 +275,8 @@ agroServer <- function(input, output, session) {
        shinyjs::show("Site-banner-div")
        shinyjs::show("basearrow")
        shinyjs::show("backgrid")
+       shinyjs::hide("basearrow_sg")
+       shinyjs::hide("backsite_sg")
       })
       }
     
@@ -269,6 +291,8 @@ agroServer <- function(input, output, session) {
        shinyjs::show("Map-banner-div")
        shinyjs::show("basearrow")
        shinyjs::show("backgrid")
+       shinyjs::hide("basearrow_sg")
+       shinyjs::hide("backsite_sg")
        shinyjs::hide("backsite")
      })
    }
@@ -281,6 +305,8 @@ agroServer <- function(input, output, session) {
        shinyjs::hide(selector = ".banner")
        shinyjs::hide("backgrid")
        shinyjs::hide("backsite")
+       shinyjs::hide("basearrow_sg")
+       shinyjs::hide("backsite_sg")
        shinyjs::show("Base-banner-div")
        shinyjs::hide("basearrow")
      })
@@ -294,6 +320,8 @@ agroServer <- function(input, output, session) {
        shinyjs::show("Grid-banner-div")
        shinyjs::hide("backgrid")
        shinyjs::show("basearrow")
+       shinyjs::hide("basearrow_sg")
+       shinyjs::hide("backsite_sg")
        shinyjs::show("backsite")
      })
    }
@@ -311,6 +339,8 @@ agroServer <- function(input, output, session) {
         shinyjs::show("Show-banner-div")
         shinyjs::show("basearrow")
         shinyjs::show("backsite")
+        shinyjs::hide("basearrow_sg")
+        shinyjs::hide("backsite_sg")
         shinyjs::hide("backgrid")
         datas$dataenv <- dbListTables(datas$connection) 
       })
@@ -323,6 +353,8 @@ agroServer <- function(input, output, session) {
        shinyjs::hide("basearrow")
        shinyjs::hide("backgrid")
        shinyjs::hide("backsite")
+       shinyjs::hide("basearrow_sg")
+       shinyjs::hide("backsite_sg")
        shinyjs::hide(selector = ".banner")
        shinyjs::show("Base-banner-div")
      })
@@ -333,6 +365,8 @@ agroServer <- function(input, output, session) {
        shinyjs::show("sitediv-sitediv")
        shinyjs::hide("showdiv-showdiv")
        shinyjs::hide("backsite")
+       shinyjs::hide("basearrow_sg")
+       shinyjs::hide("backsite_sg")
        shinyjs::hide(selector = ".banner")
        shinyjs::show("Site-banner-div")
        shinyjs::show("basearrow")
