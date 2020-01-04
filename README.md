@@ -94,7 +94,7 @@ A graphical user interface (GUI) has been developed for providing easy and user 
 #### Queries:
 NOTES: 1) in case no depth info is provided in a soil related query, by default it referes to the top soil (0-30 cm depth); 2) time slice dependent queries with no indication of the time period, by default refere to the baseline period (1981-2010); 
 - sandy soils | homok talajok
-- soils with SOM greater than 2% | >2% szervesanyag-tartalmű talajok
+- soils with SOM greater than 2% | >2% szervesanyag-tartalmú talajok
 - places 200+ m above sea level | a tengerszint felett 200 m-nél magasabban fekvő területek
 - arable lands | szántó területek
 - places with average temperature greater then 10 °C | 10 °C-nél magasabb átlaghőmérsékletű területek
