@@ -2,25 +2,25 @@
 
 ## Introduction
 
-AgroMo is an Integrated Assessment and Modelling software that integrates 4M (Fodor et al. 2014) a CERES based crop model, the BiomeBGC-MuSo (Hidy et al. 2016) biogeochemical and a simple agro-economical model in order to support decision makers at multiple scales.
+AgroMo is an Integrated Assessment and Modelling software that integrates 4M (Fodor et al. 2014) a CERES based crop model, the Biome-BGCMuSo (Hidy et al. 2016) biogeochemical and a simple agro-economical model in order to support decision makers at multiple scales.
 
 ## Install AgroMo
 
 ### Using Installer
 
-Download the installer using the URL: https://owncloud.agrar.mta.hu/owncloud/index.php/s/eapDFwX9djQ6hpb
-- [x] Choose installation folder by clicking the Modify icon or leave the default unaltered. If the folder does not exist the installer will create it.
-- [x] AgroMo can be started from this folder by launching the AgroMo_Launch.exe application.
+[Direct link to the Installer](https://owncloud.agrar.mta.hu/owncloud/index.php/s/tN5JaGuLsjBrjzv/download)
+
+- [x] After starting the Installer, choose installation folder by entering a valid folder name with full path or by clicking the Modify icon or leave default unaltered. If the folder does not exist the installer will create it.
+- [x] AgroMo can be started from this folder later by launching the AgroMo_Launch.exe application.
 
 ### Using pure R
 
 AgroMo can be used from your browser with your current R installation. The package can be installed in the following way:
 ```{r}
-install.packages("remotes") # if you have already installed devtools or remotes, skip this...
+install.packages("remotes") # if you have already installed devtools or remotes, skip this step.
 remotes::install_github("hollorol/AgroMo", upgrade = "never") # You can replace remotes with devtools.
 ```
 After the installation process, the application starts with the following command:
-
 ```{r}
 AgroMo::launchApp()
 ```
@@ -36,9 +36,10 @@ A graphical user interface (GUI) has been developed for providing easy and user 
 - [x] Choose/change the main directory where your data files are located (in a fixed subdirectory system) by clicking the [CHOOSE] button.
 - [x] Run the model for a specific site/plot by clicking the [SITE] button.
 - [x] Create plots of the simulation results by clicking the [PLOT] button.
-- [ ] Make gridded model runds by clicking the [GRID] button.
+- [ ] Make gridded model runs by clicking the [GRID] button.
 - [ ] Present the results of a gridded simulation on a map by clicking the [MAP] button.
 - [ ] Create, open, edit and save your input files by clicking the [INPUT FILE MANAGER] button.
+- [x] Exit AgroMo by clicking the EXIT icon on the banner to the left.
 
 
 ### AgroMo Site
@@ -66,6 +67,7 @@ A graphical user interface (GUI) has been developed for providing easy and user 
 - [x] After selecting the desired input files and optionally set up the changes in the 'shift in...' simulation starts by clicking the [RUN] button.
 - [x] An activity indicator is on while the simulation is running. 
 - [x] To see simulation results on graphs click the [PLOT] button.
+- [x] Navigate to the [BASE] or [GRID] component by clicking the corresponding button on the banner to the left.
 
 ### AgroMo Plot
 
@@ -79,14 +81,20 @@ A graphical user interface (GUI) has been developed for providing easy and user 
   - a |plot type| 
 - [x] Options in the |time step|, |function| and |plot type| columns can be selected via circular menus operated by clicking/scrolling in the corresponding cells.
 - [x] Having all the desired options selected create plot(s) by clicking the [PLOT] button.
+
+![alt text](img/plotly_graph01.png "AgroMo Graph")
+
+- [x] Zoom in the graph by selecting an area on the graph while holding down the left mouse button.
 - [ ] Export plot data into various file formats (e.g. xlsx, csv) by clicking the [EXPORT] button.
+- [x] Navigate to the [BASE] or [SITE] component by clicking the corresponding button on the banner to the left.
+
 
 ### AgroMo Grid
 
 #### Queries:
 NOTES: 1) in case no depth info is provided in a soil related query, by default it referes to the top soil (0-30 cm depth); 2) time slice dependent queries with no indication of the time period, by default refere to the baseline period (1981-2010); 
 - sandy soils | homok talajok
-- soils with SOM greater than 2% | >2% szervesanyag-tartalmű talajok
+- soils with SOM greater than 2% | >2% szervesanyag-tartalmú talajok
 - places 200+ m above sea level | a tengerszint felett 200 m-nél magasabban fekvő területek
 - arable lands | szántó területek
 - places with average temperature greater then 10 °C | 10 °C-nél magasabb átlaghőmérsékletű területek
