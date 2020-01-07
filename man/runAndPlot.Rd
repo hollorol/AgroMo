@@ -4,11 +4,33 @@
 \alias{runAndPlot}
 \title{runAndPlot}
 \usage{
-runAndPlot(input, output, session, baseDir, iniFile, weatherFile, soilFile,
-  managementFile, outputName, planting, harvest, fertilization, irrigation,
-  grazing, mowing, thinning, planshift_date, planshift_density,
-  harvshift_date, fertshift_date, irrshift_date, fertshift_amount,
-  irrshift_amount, connection, centralData)
+runAndPlot(
+  input,
+  output,
+  session,
+  baseDir,
+  iniFile,
+  weatherFile,
+  soilFile,
+  managementFile,
+  outputName,
+  planting,
+  harvest,
+  fertilization,
+  irrigation,
+  grazing,
+  mowing,
+  thinning,
+  planshift_date,
+  planshift_density,
+  harvshift_date,
+  fertshift_date,
+  irrshift_date,
+  fertshift_amount,
+  irrshift_amount,
+  connection,
+  centralData
+)
 }
 \description{
 Blabl

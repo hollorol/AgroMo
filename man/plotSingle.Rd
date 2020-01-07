@@ -4,9 +4,20 @@
 \alias{plotSingle}
 \title{plotSingle}
 \usage{
-plotSingle(outputNames = NULL, dataenv, varName, timeFrame, groupFun,
-  plotT = "scatter", conversionFactor = 1, measurement, experiment_id,
-  treatment, repetationsAveraged, yTitle)
+plotSingle(
+  outputNames = NULL,
+  dataenv,
+  varName,
+  timeFrame,
+  groupFun,
+  plotT = "scatter",
+  conversionFactor = 1,
+  measurement,
+  experiment_id,
+  treatment,
+  repetationsAveraged,
+  yTitle
+)
 }
 \arguments{
 \item{outputName}{blucs}

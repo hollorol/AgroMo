@@ -12,7 +12,7 @@
     ),         
     tags$div(
       id = paste0(ns("gridres"),"_container"),
-      selectInput(ns("gridres"),"GRID RESOLUTION:",NA)
+      selectInput(ns("gridres"),"GRID RESOLUTION:",choices = c("10×10 km"))
     ),
     tags$div(
       id = paste0(ns("climproj"),"_container"),
@@ -24,11 +24,11 @@
     ),
     tags$div(
       id = paste0(ns("algosel"),"_container"),
-      selectInput(ns("algosel"),"ALGORYTHM SELECTION:",NA)
+      selectInput(ns("algosel"),"ALGORYTHM SELECTION:",choices=c("[FaPe] PHOTOS: Farquhar | PET: Penman"))
     ),    
     tags$div(
       id = paste0(ns("story"),"_container"),
-      selectInput(ns("story"),"STORY-LINE FILE:",NA)
+      selectInput(ns("story"),"STORY-LINE FILE:",choices=c("none"))
     ),     
     tags$div(
       id = paste0(ns("outsq"),"_container"),
@@ -38,45 +38,50 @@
       id = paste0(ns("queryalias"),"_container"),
       textInput(ns("queryalias"), "QUERY ALIAS:",NA)
     ),
-
+    tags$div(
+      id = paste0(ns("metadata"),"_container"),
+      textInput(ns("metadata"), "METADATA:",NA)
+    ),
+    
 
     
 #itt a funkcionalitas kerdeses    
     tags$div(id = ns("Buttons"),
-    actionButton(ns("RunQuery"),label = "RUN AND QUERY"),
+    actionButton(ns("StartSim"),label = "START SIMULATION"),
+    actionButton(ns("RunQuery"),label = "START QUERY"),
     actionButton(ns("Map"),label="MAP")),             
        
           
     tags$div(
       id = paste0(ns("time"),"_container"),
-      selectInput(ns("time"),"TIME SLICE [T-T]:",NA)
+      selectInput(ns("time"),"TIME SLICE [start-end]:",choices=c("1971"))
     ),                
     tags$div(
       id = paste0(ns("until"),"_container"),
-      selectInput(ns("until"),"-",NA)
+      selectInput(ns("until"),"-",choices=c("2100"))
     ),  
     tags$div(
       id = paste0(ns("tempfocus"),"_container"),
-      selectInput(ns("tempfocus"),"TEMPORAL FOCUS >T<:",NA)
+      selectInput(ns("tempfocus"),"{1}:",choices=c("mean", "maximum", "minimum"))
     ),
     tags$div(
       id = paste0(ns("spatfocus"),"_container"),
-      selectInput(ns("spatfocus"),"SPATIAL FOCUS >S<:",NA)
+      selectInput(ns("spatfocus"),"{2}:",choices=c("0-3 cm layer"))
     ),
     tags$div(
       id = paste0(ns("varfunc"),"_container"),
-      selectInput(ns("varfunc"),"VARIABLE FUNCTION <Vf>:",NA)
+      selectInput(ns("varfunc"),"{3}:",choices=c("max"))
     ),
     tags$div(
       id = paste0(ns("aggrfunc"),"_container"),
-      selectInput(ns("aggrfunc"),"AGGREGATION FUNCTION <Af>:",NA)
+      selectInput(ns("aggrfunc"),"{4}:",choices=c("maximum"))
     ),
     tags$div(
       id = paste0(ns("spaggr"),"_container"),
-      selectInput(ns("spaggr"),"SPATIAL AGGREGATION |SA|:",NA)
+      selectInput(ns("spaggr"),"{5}:",choices=c("10×10 km"))
     ),    
 
-tags$div(id="query","QUERY:"),
+tags$div(id="query","QUERIES:"),
 
 ## Itt is a funkcionalitas erosen kerdeses
 tagList(
@@ -88,11 +93,11 @@ tagList(
   
   agroMoGrid <- function(input, output, session){
     ns <- session$ns
-    dat <- reactiveValues()
-    dat[["dataenv"]] <-readRDS("output/outputs.RDS")
-    queryNames <- ls(dat$dataenv)
+    #dat <- reactiveValues()
+    #dat[["dataenv"]] <-readRDS("output/outputs.RDS")
+   # queryNames <- ls(dat$dataenv)
     
-    tabe=data.frame(c(">T< termes <Af> a(z) [T-T] idoszakra", "LAI <Af> a(z) [T-T] idoszakra", ">S< talajreteg >T< <Vf> homersekletenek <Af> a(z) [T-T] idoszakra"))
+    tabe=data.frame(c("{1:mean} {2:annual} yield {3:max} in the [start-end] period", "{1:max} {2:annual} lai {3:max} in the [start-end] period", "{1:mean} {2:may} {3:0-3 cm} soiltemp {4:mean} in the [start-end] period"))
     output$queryTable <- DT::renderDataTable (tabe,options = list(autowidth = FALSE, paginate = FALSE, scrollX = FALSE, scrollY = FALSE, searching = TRUE, info = FALSE, header=FALSE,rownames=FALSE))
     
 #    output$queryTable <- DT::renderDataTable({

@@ -22,13 +22,13 @@ agroMoShowUI <- function(id){
                     tags$div(id="gridsimres","GRID SIMULATION RESULTS:"),
                     tags$div(
                       id = paste0(ns("cellid"),"_container"),
-                      textInput(ns("cellid"), "cell ID(s):",)
+                      textInput(ns("cellid"), "cell ID(s):")
                     ),
                     tags$div(id=ns("experimentID_container"),selectInput(ns("experimentID"), "experiment ID:",choices = '')),
                     tags$div(id=ns("treatmentID_container"),selectInput(ns("treatmentID"), "treatment ID:",choices = '')),
-                    tags$div(id=ns("compfunc_container"),selectInput(ns("compfunc"), "compare function:",,choices = '')),
-                    tags$div(id=ns("compbase_container"),selectInput(ns("compbase"), "compare base:",,choices = '')),
-                    tags$div(id=ns("varset_container"),selectInput(ns("varset"), "filter to:",
+                    tags$div(id=ns("compfunc_container"),selectInput(ns("compfunc"), "compare function:",choices = '')),
+                    tags$div(id=ns("compbase_container"),selectInput(ns("compbase"), "compare base:",choices = '')),
+                    tags$div(id=ns("varset_container"),title="Narrow down the list of selectable variables ",selectInput(ns("varset"), "filter to:",
                                         choices = c("all","user selected", "plant related","soil related","water related","carbon related","greenhouse gas","profiles"))),
                     
 
@@ -102,9 +102,9 @@ agroMoShowUI <- function(id){
                                          " 
                                           )),
                     ## This js file generates a DataTable into the #showdiv-table-output_container div. See the sourcecode for further information.
-                    actionButton(ns("show"),"PLOT"),
-                    actionButton(ns("export"),"EXPORT"),
-                    actionButton(ns("del"),"DELETE SELECTED")
+                    actionButton(ns("show"),"CREATE PLOT"),
+                    actionButton(ns("export"),"EXPORT", title="Export plot data into an Excel file"),
+                    actionButton(ns("del"),"DELETE SELECTED", title="Delet selected simulation results from the list")
                                         )
            )
        )

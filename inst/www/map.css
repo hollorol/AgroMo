@@ -1,0 +1,416 @@
+/* Suggestions: I would suggest to use posinition: absolute css declaration in every
+                place. The positions starts at the top-left corner of the root window,
+                which is the window except the banner. */
+#mapdiv-invert_container {
+    position: absolute;
+    top: 135px;
+    left: 820px;
+    font-size: 16px;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
+}
+
+#mapdiv-invert_container span{
+    position: absolute;
+    top: -1px;
+    left: 17px;
+    font-size: 16px;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; 
+}
+
+#mapdiv-countrycont_container {
+    position: absolute;
+    top: 90px;
+    left: 660px;
+    font-size: 16px;
+    color: black;
+    width: 180px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
+}
+
+#mapdiv-latlon_container {
+    position: absolute;
+    top: 90px;
+    left: 820px;
+    font-size: 16px;
+    color: black;
+    width: 180px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
+}
+
+#mapdiv-datasource_container .form-group.shiny-input-container label{
+    position: absolute;
+    top: 20px;
+    right: 722px;
+    font-size: 16px;
+    font-weight: normal;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+#mapdiv-datasource_container .selectize-control{
+    position: absolute;
+    top: 15px;
+    left: 110px;
+    width: 810px;
+    font-size: 16px;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+#mapdiv-metadata_container .form-group.shiny-input-container label{
+    position: absolute;
+    top: 60px;
+    right: 722px;
+    font-size: 16px;
+    font-weight: normal;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+#mapdiv-metadata_container .form-control.shinyjs-resettable{
+    position: absolute;
+    top: 55px;
+    left: 110px;
+    width: 810px;
+    font-size: 16px;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+#mapdiv-palette_container .form-group.shiny-input-container label{
+    position: absolute;
+    top: 100px;
+    right: 722px;
+    font-size: 16px;
+    font-weight: normal;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+#mapdiv-palette_container .selectize-control{
+    position: absolute;
+    top: 95px;
+    left: 110px;
+    width: 260px;
+    font-size: 16px;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+#mapdiv-colnumb_container .form-group.shiny-input-container label{
+    position: absolute;
+    top: 100px;
+    right: 300px;
+    font-size: 16px;
+    font-weight: normal;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+#mapdiv-colnumb_container .selectize-control{
+    position: absolute;
+    top: 95px;
+    left: 532px;
+    width: 100px;
+    font-size: 16px;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+#mapdiv-min_container .form-group.shiny-input-container label{
+    position: absolute;
+    top: 190px;
+    right: 722px;
+    font-size: 16px;
+    font-weight: normal;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+#mapdiv-min_container .form-control.shinyjs-resettable{
+    position: absolute;
+    top: 185px;
+    left: 110px;
+    width: 150px;
+    font-size: 16px;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+#mapdiv-minprec_container .form-group.shiny-input-container label{
+    position: absolute;
+    top: 190px;
+    left: 555px;
+    font-size: 16px;
+    font-weight: normal;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+#mapdiv-minprec_container .selectize-control{
+    position: absolute;
+    top: 185px;
+    left: 710px;
+    width: 100px;
+    font-size: 16px;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+#mapdiv-max_container .form-group.shiny-input-container label{
+    position: absolute;
+    top: 190px;
+    right: 442px;
+    font-size: 16px;
+    font-weight: normal;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+#mapdiv-max_container .form-control.shinyjs-resettable{
+    position: absolute;
+    top: 185px;
+    left: 390px;
+    width: 150px;
+    font-size: 16px;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+/*#mapdiv-maxprec_container .form-group.shiny-input-container label{
+    position: absolute;
+    top: 230px;
+    right: 295px;
+    font-size: 16px;
+    font-weight: normal;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+#mapdiv-maxprec_container .selectize-control{
+    position: absolute;
+    top: 225px;
+        left: 540px;
+    width: 100px;
+    font-size: 16px;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}*/
+#mapdiv-maskcol_container .form-group.shiny-input-container label{
+    position: absolute;
+    top: 240px;
+    right: 722px;
+    font-size: 16px;
+    font-weight: normal;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+#mapdiv-maskcol_container .selectize-control{
+    position: absolute;
+    top: 235px;
+    left: 110px;
+    width: 260px;
+    font-size: 16px;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+#mapdiv-maptitle_container .form-group.shiny-input-container label{
+    position: absolute;
+    top: 290px; 
+    right: 722px;
+    font-size: 16px;
+    font-weight: normal;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+#mapdiv-maptitle_container .form-control.shinyjs-resettable{
+    position: absolute;
+    top: 285px; 
+    left: 110px;
+    width: 810px;
+    font-size: 16px;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+/*#maskpreview {
+    position: absolute;
+    top: 310px;
+    right: 635px;
+    font-size: 16px;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+#palettepreview {
+    position: absolute;
+    top: 100px;
+    right: 725px;
+    font-size: 16px;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}*/
+#mapdiv-create {
+    position: absolute;
+    top: 335px;
+    left: 110px;
+    height: 60px;
+    width: 810px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: gainsboro;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+/*#mapdiv-save {
+    position: absolute;
+    top: 692px;
+    left: 650px;
+    height: 60px;
+    width: 280px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: gainsboro;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}*/
+#mapdiv-greensc {
+    position: absolute;
+    top: 140px;
+    left: 110px;
+    width: 700px;
+    height: 30px;
+}
+#mapdiv-greysc {
+ position: absolute;
+ top:237px;
+    left: 390px;
+ width: 420px;
+height: 30px;
+}
+
+#basearrow {
+    position: absolute;
+  top: 220px;
+  left: -228px;
+  height: 43px;
+  width: 75px;
+  border-width: 0px;
+  border-radius: 1px;
+}
+
+#backgrid {
+    position: absolute;
+  top: 220px;
+  left: -138px;
+  height: 43px;
+  width: 75px;
+  border-width: 0px;
+  border-radius: 1px;
+}
+#Map-banner-div img{
+  cursor: default; 
+    }
+
+
+#mapdiv-map_right img {
+    position: absolute;
+    top: 425px;
+    left: 511px;
+    height: 230px;
+    cursor: zoom-in;
+}
+
+#mapdiv-map_left img {
+    position: absolute;
+    top: 425px;
+    left: 100px;
+    height: 230px;
+    cursor: zoom-in;
+}
+
+.tozoom {
+    position: fixed !important;
+    display: block;
+    top: 0 !important;
+    /*margin-left: auto;*/
+    z-index: 9;
+    height: 100vh !important;
+    /*margin-right: auto;*/
+    /* left: unset !important; */
+    cursor: zoom-out !important;
+    margin: 0 auto !important;
+    margin-top: 0px !important;
+    margin-right: 0px !important;
+    margin-bottom: 0px !important;
+    left: 0px !important;
+}

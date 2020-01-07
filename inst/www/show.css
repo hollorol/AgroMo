@@ -7,6 +7,7 @@
   background-color: gainsboro;
   font-size: 20px;
   font-weight: bold;
+  color: black;
 }
 
 #showdiv-export{
@@ -18,12 +19,14 @@
   background-color: gainsboro;
   font-size: 20px;
   font-weight: bold;
+  color: black;
 }
 
 #showdiv-plotka-dateInput .control-label{
   position: absolute;
   top: 448px;
   font-weight: bold;
+  color: black;
 }
 
 #showdiv-plotka-ddec {
@@ -60,6 +63,7 @@
   background-color: gainsboro;
   font-size: 20px;
   font-weight: bold;
+  color: black;
 }
 
 /*#showdiv-varset_container {
@@ -79,6 +83,7 @@
     left: 407px;
   width: 60px;
   font-weight: normal;
+  color: black;
 } 
 
 #showdiv-varset_container .selectize-input{
@@ -95,10 +100,12 @@
   top: 720px;
   left:-310px;
   font-size: 16px;
+  color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  display: none;
 } 
 
 
@@ -108,10 +115,14 @@
   left: 70px;
   width: 235px;
   font-size: 16px;
+  color: black;
+  display: none;
 } 
 
 #showdiv-cellid_container .shiny-input-container label {
   font-weight: normal;
+  color: black;
+  display: none;
 } 
 
 
@@ -121,10 +132,12 @@
   left:195px;
   font-size: 16px;
   width: 440px;
+  color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  display: none;
 } 
 
 #showdiv-compfunc_container .control-label{
@@ -134,6 +147,8 @@
   font-size: 16px;
   font-weight: normal;
   width: 300px;
+  color: black;
+  display: none;
 }
 
 #showdiv-compfunc_container .has-options{
@@ -141,6 +156,7 @@
     top: 0px;
     left: 525px;
     width: 440px;
+    display: none;
 }
 
 #showdiv-compbase_container .selectize-input {
@@ -149,6 +165,7 @@
   left:195px;
   font-size: 16px;
   width: 440px;
+  color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -162,6 +179,7 @@
   font-size: 16px;
   font-weight: normal;
   width: 300px;
+  color: black;
 }
 
 #showdiv-compbase_container .has-options{
@@ -176,6 +194,7 @@
   left: -312px;
   font-weight: bold;
   font-size: 16px;
+  color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -190,10 +209,12 @@
   left: -312px;
   font-weight: bold;
   font-size: 16px;
+  color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  display: none;
 } 
 
 #observations {
@@ -202,6 +223,7 @@
   left:70px;
   font-weight: bold;
   font-size: 16px;
+  color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -214,6 +236,7 @@
   left:70px;
   font-weight: bold;
   font-size: 16px;
+  color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -225,6 +248,7 @@
   top: 113px;
   left: 221px;
   font-size: 16px;
+  color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -243,6 +267,7 @@
     top: 23px;
     left:187px;
   font-size: 16px;
+  color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -255,6 +280,7 @@
     top: 60px;
     left:187px;
   font-size: 16px;
+  color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -267,6 +293,7 @@
     top: 628px;
     left:208px;
   font-size: 16px;
+  color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -278,6 +305,7 @@
     top: 648px;
     left: 70px;
   font-size: 16px;
+  color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -289,6 +317,7 @@
     top: 43px;
     right: 354px;
   font-size: 16px;
+  color: black;
   font-weight: normal;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -301,6 +330,7 @@
     top: 80px;
     right: 354px;
   font-size: 16px;
+  color: black;
   font-weight: normal;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -313,6 +343,31 @@
   top: 180px;
   left: 70px;
 }
+
+
+#basearrow {
+    position: absolute;
+  top: 220px;
+  left: -228px;
+  height: 43px;
+  width: 75px;
+  border-width: 0px;
+  border-radius: 1px;
+}
+#backsite {
+    position: absolute;
+  top: 220px;
+  left: -138px;
+  height: 43px;
+  width: 75px;
+  border-width: 0px;
+  border-radius: 1px;
+}
+#Show-banner-div img{
+  cursor: default; 
+    }
+
+
 
 .modal-lg {
     width: 95%;

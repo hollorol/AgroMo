@@ -4,8 +4,7 @@
 \alias{agroMoShow}
 \title{agroMoShow}
 \usage{
-agroMoShow(input, output, session, dataenv, baseDir, connection,
-  centralData)
+agroMoShow(input, output, session, dataenv, baseDir, connection, centralData)
 }
 \description{
 Bla

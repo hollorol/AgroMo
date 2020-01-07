@@ -5,6 +5,7 @@
     position: absolute;
     top: 10px;   
     font-size: 16px;
+    color: black;
 }
 #griddiv-gridres_container .selectize-input.items.full.has-options.has-items {
     width: 210px;
@@ -17,6 +18,7 @@
     top: 10px;
     left: 240px;
     font-size: 16px;
+    color: black;
 }
 #griddiv-climproj_container .selectize-input.items.full.has-options.has-items {
     width: 350px;
@@ -29,6 +31,7 @@
     top: 10px;
     left: 620px;
     font-size: 16px;
+    color: black;
 }
 #griddiv-inidir_container .selectize-input.items.full.has-options.has-items {
     width: 300px;
@@ -46,6 +49,7 @@
     position: absolute;
     top: 85px;
     font-size: 16px;
+    color: black;
 }
 #griddiv-algosel_container .selectize-input.items.full.has-options.has-items {
     width: 590px;
@@ -58,6 +62,7 @@
     top: 85px;
     left: 620px;
     font-size: 16px;
+    color: black;
 }
 #griddiv-story_container .selectize-input.items.full.has-options.has-items {
     width: 300px;
@@ -73,78 +78,122 @@
 
 #griddiv-outsq_container {
     position: absolute;
-    top: 155px;
+    top: 165px;
     font-size: 16px;
+    color: black;
 }
 #griddiv-outsq_container .form-control.shinyjs-resettable.shiny-bound-input {
-    width: 920px;
+    width: 730px;
     position: absolute;
-    top: 22px;
+    left: 190px;
+    top: -5px;
+}
+
+#griddiv-StartSim {
+    position: absolute;
+    top: 210px;
+    height: 60px;
+    width: 920px;
+    font-size: 20px;
+    color: black;
+    font-weight: bold;
+    background-color: gainsboro;
 }
 
 #griddiv-Map {
     position: absolute;
     top: 692px;
-    left: 435px;
+    left: 605px;
     height: 60px;
-    width: 480px;
+    width: 310px;
     font-size: 20px;
+    color: black;
     font-weight: bold;
     background-color: gainsboro;
 }
 
 #griddiv-RunQuery {
     position: absolute;
-    top: 622px;
-    left: 435px;
+    top: 692px;
+    left: 275px;
     height: 60px;
-    width: 480px;
+    width: 310px;
     font-size: 20px;
+    color: black;
     font-weight: bold;
     background-color: gainsboro;
 }
 
 #griddiv-queryalias_container {
     position: absolute;
-    top: 558px;
-    left: 435px;
+    top: 608px;
+    left: 275px;
     font-size: 16px;
+    color: black;
 }
 #griddiv-queryalias_container .form-control.shinyjs-resettable.shiny-bound-input {
-    width: 480px;
+    width: 520px;
     position: absolute;
-    top: 22px;
+    top: -3px;
+    left:120px;
 }
+
+#griddiv-metadata_container {
+    position: absolute;
+    top: 648px;
+    left: 297px;
+    font-size: 16px;
+    color: black;
+}
+
+#griddiv-metadata_container .form-control.shinyjs-resettable.shiny-bound-input {
+    width: 520px;
+    position: absolute;
+    top: -3px;
+    left:98px;
+}
+
 
 #griddiv-time_container {
     position: absolute;
-    top: 510px;
+    top: 545px;
+    left:223px;
 }
 #griddiv-time_container .control-label {
     position: absolute;
     top:15px;
     right:80px;
+    font-size: 16px;
+    color: black;
+    font-weight: normal;
 }
 #griddiv-time_container .selectize-input.items.full.has-options.has-items{
     position: absolute;
-    right: -17px;
+    right: -15px;
     width: 90px;
+    font-size: 16px;
+    color: black;
 }
 
 #griddiv-until_container {
     position: absolute;
-    top: 510px;
-    left: 320px;
+    top: 545px;
+    left: 543px;
 }
 #griddiv-until_container .control-label {
     position: absolute;
     top:15px;
     right:294px;
+    font-size: 16px;
+    color: black;
+    font-weight:normal;
 }
 #griddiv-until_container .selectize-input.items.full.has-options.has-items{
     position: absolute;
     right: 198px;
     width: 90px;
+    font-size: 16px;
+    color: black;
 }
 
 #griddiv-tempfocus_container {
@@ -153,13 +202,17 @@
 }
 #griddiv-tempfocus_container .control-label {
     position: absolute;
-    right: 80px;
     top: 17px;
+    font-size: 16px;
+    color: black;
+    font-weight:normal;
 }
 #griddiv-tempfocus_container .selectize-input.items.full.has-options.has-items{
     position: absolute;
-    right: -122px;
+    right: 75px;
     width: 195px;
+    font-size: 16px;
+    color: black;
 }
 
 #griddiv-spatfocus_container {
@@ -168,13 +221,17 @@
 }
 #griddiv-spatfocus_container .control-label {
     position: absolute;
-    right: 80px;
     top: 17px;
+    font-size: 16px;
+    color: black;
+    font-weight:normal;
 }
 #griddiv-spatfocus_container .selectize-input.items.full.has-options.has-items{
     position: absolute;
-    right: -122px;
+    right: 75px;
     width: 195px;
+    font-size: 16px;
+    color: black;
 }
 
 #griddiv-varfunc_container {
@@ -184,12 +241,16 @@
 #griddiv-varfunc_container .control-label {
     position: absolute;
     top: 17px;
-    right: 80px;
+    font-size: 16px;
+    color: black;
+    font-weight:normal;
 }
 #griddiv-varfunc_container .selectize-input.items.full.has-options.has-items{
     position: absolute;
-    right: -122px;
+    right: 75px;
     width: 195px;
+    font-size: 16px;
+    color: black;
 }
 
 #griddiv-aggrfunc_container {
@@ -200,12 +261,16 @@
 #griddiv-aggrfunc_container .control-label {
     position: absolute;
     top: 17px;
-    right: 75px;
+    font-size: 16px;
+    color: black;
+    font-weight:normal;
 }
 #griddiv-aggrfunc_container .selectize-input.items.full.has-options.has-items{
     position: absolute;
-    right: -122px;
+    right: 75px;
     width: 195px;
+    font-size: 16px;
+    color: black;
 }
 
 #griddiv-spaggr_container {
@@ -215,19 +280,24 @@
 #griddiv-spaggr_container .control-label {
     position: absolute;
     top: 17px;
-    right: 80px;
+    font-size: 16px;
+    color: black;
+    font-weight:normal;
 }
 #griddiv-spaggr_container .selectize-input.items.full.has-options.has-items{
     position: absolute;
-    right: -122px;
+    right: 75px;
     width: 195px;
+    font-size: 16px;
+    color: black;
 }
 
 #query{
     position: absolute;
     font-size: 16px;
+    color: black;
     font-weight: bold;
-    top: 225px;
+    top: 285px;
 }
 
 #griddiv-queryTable .dataTables_scrollBody {
@@ -235,8 +305,9 @@
   width: 920px !important;
   background-color: white;
   font-size: 16px;
+  color: black;
   position: absolute;
-  top: 250px;
+  top: 310px;
 }
 
 
@@ -253,6 +324,30 @@
  left: 585px;
   width: 335px;
 }
+
+#basearrow {
+    position: absolute;
+  top: 220px;
+  left: -228px;
+  height: 43px;
+  width: 75px;
+  border-width: 0px;
+  border-radius: 1px;
+}
+#backsite {
+    position: absolute;
+  top: 220px;
+  left: -138px;
+  border-width: 0px;
+  border-radius: 1px;
+  height: 43px;
+  width: 75px;
+}
+#Grid-banner-div img{
+  cursor: default; 
+    }
+
+
 /*
 #griddiv-queryTable .dataTables_scrollBody thead{
   display:none;
