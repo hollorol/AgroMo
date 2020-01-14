@@ -170,6 +170,7 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  display: none;
 } 
 
 #showdiv-compbase_container .control-label{
@@ -180,6 +181,7 @@
   font-weight: normal;
   width: 300px;
   color: black;
+  display: none;
 }
 
 #showdiv-compbase_container .has-options{
