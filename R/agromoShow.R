@@ -124,13 +124,21 @@ agroMoShowUI <- function(id){
 agroMoShow <- function(input, output, session, dataenv, baseDir, connection,centralData){
   ns <- session$ns
   datas<- reactiveValues(show=0)
-  initData <- reactiveValues(data = NULL,measurement = NULL)
+  initData <- reactiveValues(data = NULL,measurement = NULL, measurementConn = NULL)
   observe({
      initData$data <- dataenv()
   })
   observe({
+     initData$measurementConn <-  dbConnect(RSQLite::SQLite(),file.path(baseDir(), "observation","EXPERIMENT.db"))
+  })
+
+
+  observe({
     output$outputSelection <- renderTable(data.frame(outputName=initData$data), width="100%", align="l")
   })
+
+
+
 
   observeEvent(input$del,{
                    tablesToDelete <- dbListTables(connection())[input$tableList]
@@ -170,13 +178,25 @@ agroMoShow <- function(input, output, session, dataenv, baseDir, connection,cent
       }
       })
 
-  
+
+     
    observe({
-     initData$measurement <- fread(file.path(baseDir(),"observation/observation.csv"))
-     updateSelectInput(session,"experimentID", choices = '')
-     updateSelectInput(session,"treatmentID", choices = '')
+       updateSelectInput(session,"experimentID", choices = (dbGetQuery(initData$measurementConn,"
+                                                                       SELECT DISTINCT experiment FROM EXPERIMENT 
+                                                                       "))
+     )
+
    })
 
+     observe({
+          updateSelectInput(session,"treatmentID", choices =
+                            (dbGetQuery(initData$measurementConn,sprintf("
+                                                                         SELECT DISTINCT SUBSTR(key,6,LENGTH(key))
+                                                                         FROM EXPERIMENT
+                                                                         WHERE experiment='%s' AND value!='NA'
+                                                                         ", input$experimentID)))
+                                          )
+      })
   observe({
       if(length(input$tableList) > 0){
           updateSelectInput(session,"compbase",choices='')
@@ -194,7 +214,7 @@ agroMoShow <- function(input, output, session, dataenv, baseDir, connection,cent
       if(length(tableForPlot!=0) && (length(input$tableList)!=0)){
           showModal(multiPlotUI(ns("plotka"))) 
           # browser() 
-          callModule(multiPlot,"plotka",reactive(initData$measurement),isolate(modellOutputNames),reactive({tableForPlot}),
+          callModule(multiPlot,"plotka",reactive(initData$measurementConn),isolate(modellOutputNames),reactive({tableForPlot}),
               reactive({input$experimentID}),reactive({input$treatmentID}),repetAvg = reactive({input$averagep}),connection=connection,centralData=centralData)
       }
    })
