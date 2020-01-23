@@ -27,10 +27,11 @@ multiPlot <- function(input, output, session, measurement, outputNames, outputTa
   # browser()
 
   if(dim(simplePlots)[1]!=0){
+      # browser()
     centralDataIndex <-   centralData[,"LABEL NAME"] %in% simplePlots[,"variable"]
     filteredCentData <- centralData[centralDataIndex,]
     simplePlots$variable <- filteredCentData[,"VARIABLE"]
-    simplePlots <- cbind.data.frame(simplePlots,centralData[centralDataIndex,"convFactor"]) 
+    simplePlots <- cbind.data.frame(simplePlots,centralData[centralDataIndex,"CONV FACTOR"]) 
     simplePlots[,5]<- as.numeric(as.character(simplePlots[,5]))
   }
 # browser()
