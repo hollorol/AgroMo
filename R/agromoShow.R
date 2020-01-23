@@ -222,7 +222,7 @@ agroMoShow <- function(input, output, session, dataenv, baseDir, connection,cent
 #' @importFrom jsonlite read_json toJSON
 drawOutputTable <- function () {
    centralData <- read_json(system.file("centralData.json", package = "AgroMo"), simplifyVector=TRUE)
-   colnames(centralData)[c(2, 7, 8,9)] <- c("VARIABLE","T-STEP","FUNC")
+   colnames(centralData)[c(2, 7, 8,9)] <- c("VARIABLE","T-STEP","FUNC","PLOT TYPE")
 
    jsonFile <- toJSON(centralData[c(2,7,8,9)])
    tags$script(HTML(sprintf("var musoVariablesToPlot = %s;
