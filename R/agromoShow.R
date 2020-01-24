@@ -221,7 +221,7 @@ agroMoShow <- function(input, output, session, dataenv, baseDir, connection,cent
 #' @importFrom shiny tags HTML
 #' @importFrom jsonlite read_json toJSON
 drawOutputTable <- function () {
-   centralData <- read_json(system.file("centralData.json", package = "AgroMo"), simplifyVector=TRUE)
+   centralData <- getOption("AgroMo_centralData") 
    colnames(centralData)[c(2, 7, 8,9)] <- c("VARIABLE","T-STEP","FUNC","PLOT TYPE")
 
    jsonFile <- toJSON(centralData[c(2,7,8,9)])
@@ -245,12 +245,25 @@ drawOutputTable <- function () {
 #' @importFrom shiny tags HTML
 #' @importFrom jsonlite read_json toJSON
 readTags <- function () {
-   centralData <- read_json(system.file("centralData.json", package = "AgroMo"), simplifyVector=TRUE)
+   centralData <- getOption("AgroMo_centralData")
    uniqFactors <- unique(strsplit(paste(centralData[,"TAG"],collapse=","),split=",\\ *")[[1]])
+   uniqFactors <- grep(".*\\-.*",uniqFactors, value=TRUE, invert=TRUE) # We dont wanna include uniq profile variables
    varSet <- lapply(uniqFactors, function(x){
-        which(unlist(lapply(centralData[,"TAG"],function(y){grepl(x,y)}))) -1
-})  
+        which(unlist(lapply(centralData[,"TAG"],function(y){grepl(x,y) && !grepl(".*\\-.*",y)}))) -1
+   })  
    names(varSet) <- uniqFactors
    varSet[["all"]] <- seq_along(centralData[,"TAG"]) -1
    varSet
+}
+
+#' filterToProf
+#' 
+#' filterToProf
+#' @importFrom shiny tags HTML
+#' @importFrom jsonlite read_json toJSON
+filterToProf <- function (profileName) {
+    centralData <- getOption("AgroMo_centralData")
+    keyword <- centralData[centralData[,"LABEL NAME"] == profileName,"VARIABLE"]
+    rowIndexes <- which(unlist(lapply(centralData[,"TAG"],function(x){grepl(keyword,x)})))
+    rowIndexes
 }

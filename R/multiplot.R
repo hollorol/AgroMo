@@ -23,7 +23,7 @@ multiPlotUI <- function(id){
 
 multiPlot <- function(input, output, session, measurement, outputNames, outputTable, experimentID, treatmentID,repetAvg = TRUE,connection,centralData){
   ns <- session$ns
-  simplePlots <- outputTable()[grep("profile",outputTable()$variable,invert = TRUE),]
+  simplePlots <- outputTable()[grep("profile",outputTable()$variable,invert = TRUE),] #TODO
   # browser()
 
   if(dim(simplePlots)[1]!=0){
@@ -38,8 +38,7 @@ multiPlot <- function(input, output, session, measurement, outputNames, outputTa
   dataenv <- new.env()
   sapply(dbListTables(connection()),function(tableName){
    dataenv[[tableName]] <- dbReadTable(connection(),tableName)
-   colnames(dataenv[[tableName]])[1:4] <- c("date","day","month","year")
-  # browser()
+   colnames(dataenv[[tableName]])[1:4] <- c("date","day","month","year") # browser()
   })
 
   ## browser()
