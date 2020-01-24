@@ -28,6 +28,7 @@ agroMoShowUI <- function(id){
                     tags$div(id=ns("treatmentID_container"),selectInput(ns("treatmentID"), "treatment ID:",choices = '')),
                     tags$div(id=ns("compfunc_container"),selectInput(ns("compfunc"), "compare function:",choices = '')),
                     tags$div(id=ns("compbase_container"),selectInput(ns("compbase"), "compare base:",choices = '')),
+                    tags$div(id=ns("alias_container"),textInput(ns("alias"), "alias:",NA)),
                     tags$div(id=ns("varset_container"),title="Narrow down the list of selectable variables ",selectInput(ns("varset"), "filter to:",
                                         choices = c("all","user selected", "plant related","soil related","water related","carbon related","greenhouse gas","profiles"))),
                     

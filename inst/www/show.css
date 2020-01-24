@@ -79,7 +79,7 @@
 
 #showdiv-varset_container .control-label{
   position: absolute;
-  top: 151px;
+  top: 176px;
     left: 407px;
   width: 60px;
   font-weight: normal;
@@ -88,10 +88,11 @@
 
 #showdiv-varset_container .selectize-input{
   position: absolute;
-  top: 130px;
+  top: 155px;
    left: 445px;
   width: 195px;
 } 
+
 
 
 
@@ -234,7 +235,7 @@
 
 #createplot {
   position: absolute;
-  top: 155px;
+  top: 185px;
   left:70px;
   font-weight: bold;
   font-size: 16px;
@@ -247,10 +248,11 @@
 
 #repavg {
   position: absolute;
-  top: 113px;
-  left: 221px;
+  top: 118px;
+  left: 500px;
   font-size: 16px;
   color: black;
+  width: 150px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -259,10 +261,34 @@
 
 #showdiv-averagep {
   position: absolute;
-  top: 98px;
-  left: 210px;
+  top: 105px;
+  left: 488px;
 }
 
+#showdiv-alias_container .form-control.shinyjs-resettable.shiny-bound-input{
+    width: 255px;
+    position: absolute;
+    top: 113px;
+    left:203px;
+  font-size: 16px;
+  color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+#showdiv-alias_container label{
+    position: absolute;
+    top: 118px;
+    left:162px;
+  font-size: 16px;
+  color: black;
+  font-weight: normal;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 #showdiv-experimentID_container .selectize-control.shinyjs-resettable.single .selectize-input{
     width: 450px;
     position: absolute;
@@ -342,7 +368,7 @@
 
 #showdiv-table-output_container{
   position: absolute;
-  top: 180px;
+  top: 210px;
   left: 70px;
 }
 
