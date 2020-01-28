@@ -50,41 +50,46 @@ multiPlot <- function(input, output, session, measurement, outputNames, outputTa
   
 # print(sprintf("Number of simple plots: %s",numSimplePlots))
   if(numSimplePlots != 0){
-    output$plots <- renderUI({
-      # print(simplePlots[,1])
-      if(numSimplePlots!=0){
-        plot_output_list <- lapply(simplePlots[,1],function(variab){
-          plotlyOutput(ns(variab),height="600px")
-        })
-        return(do.call(tagList,plot_output_list))}
-      return(plotlyOutput(ns("csacsi")))
-    })
-  }
+      output$plots <- renderUI({
+          # print(simplePlots[,1])
+          if(numSimplePlots!=0){
+              plot_output_list <- lapply(simplePlots[,1],function(variab){
+                                             plotlyOutput(ns(variab),height="600px")
+           })
+              do.call(tagList,plot_output_list)}
+      })
 
-  ## browser()
-#plotSingle(outputNames, dataenv, "fruit_DM","year","max",plotT="line",10000,repetationsAveraged=TRUE, measurement,experimentID,treatment)
-  # print(simplePlots)
-  # print(numSimplePlots)
-  if(numSimplePlots != 0)(
       for(i in 1:numSimplePlots){
           # print(ls(dataenv))
-        local({
-          my_i <- i
-          mesUnit <- ifelse(filteredCentData[i,4]=="NA","dimless",filteredCentData[i,4])
-          yTitle <- sprintf("<b>%s [%s]</br> </b>",filteredCentData[i,2],mesUnit)
-          output[[simplePlots[my_i,1]]] <- renderPlotly({plotSingle(outputNames = outputNames,
-                                                                    dataenv = dataenv,
-                                                                    varName = simplePlots[my_i,1],
-                                                                    timeFrame = simplePlots[my_i,2],
-                                                                    groupFun = simplePlots[my_i,3],
-                                                                    plotT = simplePlots[my_i,4],
-                                                                    conversionFactor= simplePlots[my_i,5],
-                                                                    repetationsAveraged = repetAvg(),
-                                                                    measurement = measurement(),
-                                                                    experiment_id = experimentID(),
-                                                                    treatment = treatmentID(),yTitle)})})
+          local({
+              my_i <- i
+              mesUnit <- ifelse(filteredCentData[i,4]=="NA","dimless",filteredCentData[i,4])
+              yTitle <- sprintf("<b>%s [%s]</br> </b>",filteredCentData[i,2],mesUnit)
+              output[[simplePlots[my_i,1]]] <- renderPlotly({plotSingle(outputNames = outputNames,
+                  dataenv = dataenv,
+                  varName = simplePlots[my_i,1],
+                  timeFrame = simplePlots[my_i,2],
+                  groupFun = simplePlots[my_i,3],
+                  plotT = simplePlots[my_i,4],
+                  conversionFactor= simplePlots[my_i,5],
+                  repetationsAveraged = repetAvg(),
+                  measurement = measurement(),
+                  experiment_id = experimentID(),
+                  treatment = treatmentID(),yTitle)})})
       }
-    )
+  }
+
+  if(numProfile != 0){
+      output$profilePlots <- renderUI({
+          # print(simplePlots[,1])
+          if(numSimplePlots!=0){
+              plot_output_list <- lapply(simplePlots[,1],function(variab){
+                                             plotlyOutput(ns(variab),height="600px")
+           })
+              do.call(tagList,plot_output_list)}
+      })
+
+  }
 #   if(numProfile > 0){
 #     output$profilePlots <- renderUI({
 #         if(numProfile!=0){

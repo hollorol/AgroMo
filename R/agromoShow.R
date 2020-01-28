@@ -178,7 +178,7 @@ agroMoShow <- function(input, output, session, dataenv, baseDir, connection,cent
    observe({
        updateSelectInput(session,"experimentID", choices = (dbGetQuery(initData$measurementConn,"
                                                                        SELECT DISTINCT experiment FROM EXPERIMENT 
-                                                                       "))
+                                                                       ")[,1])
      )
 
    })
@@ -189,9 +189,10 @@ agroMoShow <- function(input, output, session, dataenv, baseDir, connection,cent
                                                                          SELECT DISTINCT SUBSTR(key,6,LENGTH(key))
                                                                          FROM EXPERIMENT
                                                                          WHERE experiment='%s' AND value!='NA'
-                                                                         ", input$experimentID)))
+                                                                         ", input$experimentID))[,1])
                                           )
       })
+
   observe({
       if(length(input$tableList) > 0){
           updateSelectInput(session,"compbase",choices='')
