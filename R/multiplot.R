@@ -23,7 +23,7 @@ multiPlotUI <- function(id){
 
 multiPlot <- function(input, output, session, measurement, outputNames, outputTable, experimentID, treatmentID,repetAvg = TRUE,connection,centralData){
   ns <- session$ns
-  simplePlots <- outputTable()[grep("profile",outputTable()$variable,invert = TRUE),] #TODO
+  simplePlots <- outputTable()[grep("Profil",outputTable()$variable,invert = TRUE),] #TODO
   # browser()
 
   if(dim(simplePlots)[1]!=0){
@@ -43,9 +43,9 @@ multiPlot <- function(input, output, session, measurement, outputNames, outputTa
 
   ## browser()
   ## simplePlots <- simplePlots[simplePlots$select==TRUE,]
-  profPlots <- outputTable()[grep("profile",outputTable()$variable),]
+  profPlots <-centralData[centralData[,"LABEL NAME"]==grep("Profil",outputTable()$variable, value=TRUE),"VARIABLE"]
   # colnames(dataenv[[tableName]])[1:4] <- c("date","day","month","year")
-  numProfile<- nrow(profPlots)
+  numProfile<- length(profPlots)
   numSimplePlots <- nrow(simplePlots)
   
 # print(sprintf("Number of simple plots: %s",numSimplePlots))
@@ -81,14 +81,58 @@ multiPlot <- function(input, output, session, measurement, outputNames, outputTa
 
   if(numProfile != 0){
       output$profilePlots <- renderUI({
-          # print(simplePlots[,1])
-          if(numSimplePlots!=0){
-              plot_output_list <- lapply(simplePlots[,1],function(variab){
-                                             plotlyOutput(ns(variab),height="600px")
-           })
+          if(numProfile!=0){ #it is necessary because outside the reactive environment the test is done just ones
+              plot_output_list <- lapply(profPlots,function(x)(displayProfile(ns(x))))
               do.call(tagList,plot_output_list)}
       })
 
+      for(i in 1:numProfile){
+          # print(ls(dataenv))
+          local({
+              my_i <- i
+      observeEvent(input[[sprintf("%s-ddec",profPlots[my_i])]],{
+        updateDateInput(session, inputId = sprintf("%s-dateInput",profPlots[my_i]),
+                        value = (input[[sprintf("%s-dateInput",profPlots[my_i])]]-1))
+      })
+
+      observeEvent(input[[sprintf("%s-dinc",profPlots[my_i])]],{
+        updateDateInput(session, inputId = sprintf("%s-dateInput",profPlots[my_i]),
+                        value = (input[[sprintf("%s-dateInput",profPlots[my_i])]]+1))
+      })
+
+      observeEvent(input[[sprintf("%s-wdec",profPlots[my_i])]],{
+        updateDateInput(session, inputId = sprintf("%s-dateInput",profPlots[my_i]),
+                        value = (input[[sprintf("%s-dateInput",profPlots[my_i])]]-7))
+      })
+
+      observeEvent(input[[sprintf("%s-winc",profPlots[my_i])]],{
+        updateDateInput(session, inputId = sprintf("%s-dateInput",profPlots[my_i]),
+                        value = (input[[sprintf("%s-dateInput",profPlots[my_i])]]+7))
+      })
+
+      observeEvent(input[[sprintf("%s-mdec",profPlots[my_i])]],{
+        updateDateInput(session, inputId = sprintf("%s-dateInput",profPlots[my_i]),
+                        value = addDate(input[[sprintf("%s-dateInput",profPlots[my_i])]],"-1m"))
+      })
+
+      observeEvent(input[[sprintf("%s-minc",profPlots[my_i])]],{
+        updateDateInput(session, inputId = sprintf("%s-dateInput",profPlots[my_i]),
+                        value = addDate(input[[sprintf("%s-dateInput",profPlots[my_i])]],"1m"))
+      })
+
+      observeEvent(input[[sprintf("%s-ydec",profPlots[my_i])]],{
+        updateDateInput(session, inputId = sprintf("%s-dateInput",profPlots[my_i]),
+                        value = addDate(input[[sprintf("%s-dateInput",profPlots[my_i])]],"-1y"))
+      })
+
+      observeEvent(input[[sprintf("%s-yinc",profPlots[my_i])]],{
+        updateDateInput(session, inputId = sprintf("%s-dateInput",profPlots[my_i]),
+                        value = addDate(input[[sprintf("%s-dateInput",profPlots[my_i])]],"1y"))
+      })
+
+            
+          })
+      }
   }
 #   if(numProfile > 0){
 #     output$profilePlots <- renderUI({
@@ -120,3 +164,59 @@ multiPlot <- function(input, output, session, measurement, outputNames, outputTa
 #       }
 # }
 }
+
+#' getProfileVariables
+#'
+#' Get profile variables of a given profiletag
+#' @param tag The profile tag
+#' @keywords internal
+getProfileVariables <- function(tag,centralData=getOption("AgroMo_centralData")){
+    centralData[unlist(lapply(centralData[,"TAG"],function(x) {grepl(sprintf(".*%s.*",tag),x)})),"VARIABLE"]
+}
+
+#' getProfileTags
+#'
+#' Get profile variables of a given profiletag
+#' @param outputTable is an outputTable
+#' @keywords internal
+getProfileVariables <- function(outputTable){
+    centralData[unlist(lapply(centralData[,"TAG"],function(x) {grepl(sprintf(".*%s.*",tag),x)})),"VARIABLE"]
+}
+
+
+#' displayProfile
+#'
+#' display profile graphs
+#' @param profName the name of the curent profilePlot
+#' @keywords internal
+displayProfile <- function (profName) {
+    tags$div(id=sprintf("%s-container",profName),
+             tags$div(id=sprintf("%s-handlers",profName), class="profPlotCont",
+              actionButton(sprintf("%s-ydec",profName),"-y"),
+              actionButton(sprintf("%s-mdec",profName),"-m"),
+              actionButton(sprintf("%s-wdec",profName),"-w"),
+              actionButton(sprintf("%s-ddec",profName),"-d"),
+              dateInput(sprintf("%s-dateInput", profName),"date","2000-01-01"),
+              actionButton(sprintf("%s-dinc",profName),"+d"),
+              actionButton(sprintf("%s-winc",profName),"+w"),
+              actionButton(sprintf("%s-minc",profName),"+m"),
+              actionButton(sprintf("%s-yinc",profName),"+y")
+             ),
+             plotlyOutput(profName,height="600px"))
+}
+
+addDate <- function(dateString, addtag){
+    if(is.character(addtag)){
+        myDate <- as.POSIXlt(dateString)
+        if(grepl("-?[0-9]+m",addtag)){
+            myDate$mon <- myDate$mon + as.numeric(gsub("(-?[0-9]+).*","\\1",addtag,perl=TRUE))
+        } else {
+            myDate$year <- myDate$year + as.numeric(gsub("(-?[0-9]+).*","\\1",addtag,perl=TRUE))
+        }
+        as.Date(myDate)
+    } else {
+        as.Date(dateString)+addtag
+    }
+}
+
+

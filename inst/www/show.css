@@ -22,37 +22,37 @@
   color: black;
 }
 
-#showdiv-plotka-dateInput .control-label{
-  position: absolute;
-  top: 448px;
-  font-weight: bold;
-  color: black;
-}
-
-#showdiv-plotka-ddec {
-  position: absolute;
-  top: 440px;
-  left: 60px;
-}
-
-#showdiv-plotka-dinc {
-  position: absolute;
-  top: 440px;
-  left: 352px;
-}
-
-/* .svg-container{ */
+/* #showdiv-plotka-dateInput .control-label{ */
 /*   position: absolute; */
-/*   top: 60px;  */
+/*   top: 448px; */
+/*   font-weight: bold; */
+/*   color: black; */
 /* } */
-
-#showdiv-plotka-dateInput .form-control.shinyjs-resettable{
-  position: absolute;
-  top: 440px;
-  left: 140px;
-  width: 200px;
-}
-
+/*  */
+/* #showdiv-plotka-ddec { */
+/*   position: absolute; */
+/*   top: 440px; */
+/*   left: 60px; */
+/* } */
+/*  */
+/* #showdiv-plotka-dinc { */
+/*   position: absolute; */
+/*   top: 440px; */
+/*   left: 352px; */
+/* } */
+/*  */
+/* /* .svg-container{ */ */
+/* /*   position: absolute; */ */
+/* /*   top: 60px;  */ */
+/* /* } */ */
+/*  */
+/* #showdiv-plotka-dateInput .form-control.shinyjs-resettable{ */
+/*   position: absolute; */
+/*   top: 440px; */
+/*   left: 140px; */
+/*   width: 200px; */
+/* } */
+/*  */
 
 #showdiv-del{
   position:absolute;
@@ -66,6 +66,10 @@
   color: black;
 }
 
+div.profPlotCont {
+  width: 50%;
+  display: flex;
+}
 /*#showdiv-varset_container {
   position: absolute;
   top: 135px;
