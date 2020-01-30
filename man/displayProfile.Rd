@@ -4,7 +4,7 @@
 \alias{displayProfile}
 \title{displayProfile}
 \usage{
-displayProfile(profName)
+displayProfile(profName, startDate)
 }
 \arguments{
 \item{profName}{the name of the curent profilePlot}

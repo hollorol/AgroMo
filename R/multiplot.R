@@ -65,7 +65,11 @@ multiPlot <- function(input, output, session, measurement, outputNames, outputTa
               my_i <- i
               mesUnit <- ifelse(filteredCentData[i,4]=="NA","dimless",filteredCentData[i,4])
               yTitle <- sprintf("<b>%s [%s]</br> </b>",filteredCentData[i,2],mesUnit)
-              output[[simplePlots[my_i,1]]] <- renderPlotly({plotSingle(outputNames = outputNames,
+              output[[simplePlots[my_i,1]]] <- renderPlotly({
+                   
+                  plotlyProxy(simplePlots[my_i,1], session) %>%
+                      plotlyProxyInvoke("purge")
+                  plotSingle(outputNames = outputNames,
                   dataenv = dataenv,
                   varName = simplePlots[my_i,1],
                   timeFrame = simplePlots[my_i,2],
@@ -79,10 +83,12 @@ multiPlot <- function(input, output, session, measurement, outputNames, outputTa
       }
   }
 
+
   if(numProfile != 0){
       output$profilePlots <- renderUI({
           if(numProfile!=0){ #it is necessary because outside the reactive environment the test is done just ones
-              plot_output_list <- lapply(profPlots,function(x)(displayProfile(ns(x))))
+              startDate <- dataenv[[names(dataenv)[1]]][nrow(dataenv[[names(dataenv)[1]]])%/%2,1]
+              plot_output_list <- lapply(profPlots,function(x)(displayProfile(ns(x),startDate)))
               do.call(tagList,plot_output_list)}
       })
 
@@ -129,7 +135,10 @@ multiPlot <- function(input, output, session, measurement, outputNames, outputTa
         updateDateInput(session, inputId = sprintf("%s-dateInput",profPlots[my_i]),
                         value = addDate(input[[sprintf("%s-dateInput",profPlots[my_i])]],"1y"))
       })
-
+      output[[profPlots[my_i]]] <-  renderPlotly({plotProfile(outputNames,
+                                                              dataenv = dataenv,
+                                                            selectedDate = input[[sprintf("%s-dateInput",profPlots[my_i])]],
+                                                            profilTag=profPlots[my_i])})
             
           })
       }
@@ -165,23 +174,6 @@ multiPlot <- function(input, output, session, measurement, outputNames, outputTa
 # }
 }
 
-#' getProfileVariables
-#'
-#' Get profile variables of a given profiletag
-#' @param tag The profile tag
-#' @keywords internal
-getProfileVariables <- function(tag,centralData=getOption("AgroMo_centralData")){
-    centralData[unlist(lapply(centralData[,"TAG"],function(x) {grepl(sprintf(".*%s.*",tag),x)})),"VARIABLE"]
-}
-
-#' getProfileTags
-#'
-#' Get profile variables of a given profiletag
-#' @param outputTable is an outputTable
-#' @keywords internal
-getProfileVariables <- function(outputTable){
-    centralData[unlist(lapply(centralData[,"TAG"],function(x) {grepl(sprintf(".*%s.*",tag),x)})),"VARIABLE"]
-}
 
 
 #' displayProfile
@@ -189,14 +181,14 @@ getProfileVariables <- function(outputTable){
 #' display profile graphs
 #' @param profName the name of the curent profilePlot
 #' @keywords internal
-displayProfile <- function (profName) {
+displayProfile <- function (profName,startDate) {
     tags$div(id=sprintf("%s-container",profName),
              tags$div(id=sprintf("%s-handlers",profName), class="profPlotCont",
               actionButton(sprintf("%s-ydec",profName),"-y"),
               actionButton(sprintf("%s-mdec",profName),"-m"),
               actionButton(sprintf("%s-wdec",profName),"-w"),
               actionButton(sprintf("%s-ddec",profName),"-d"),
-              dateInput(sprintf("%s-dateInput", profName),"date","2000-01-01"),
+              dateInput(sprintf("%s-dateInput", profName),"date",startDate),
               actionButton(sprintf("%s-dinc",profName),"+d"),
               actionButton(sprintf("%s-winc",profName),"+w"),
               actionButton(sprintf("%s-minc",profName),"+m"),
@@ -218,5 +210,8 @@ addDate <- function(dateString, addtag){
         as.Date(dateString)+addtag
     }
 }
+
+
+
 
 
