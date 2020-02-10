@@ -116,7 +116,7 @@ trimColorSet <- function(minim, maxim, center=NULL, nticks=6, roundPrecision=NUL
 #' @export
 
 agroMapVector <- function(data, nticks=NULL, binwidth=NULL, minimum=NULL, maximum=NULL, roundPrecision=NULL, reverseColorScale=FALSE,
-                    colorSet="RdYlGn", center=NULL, plotTitle=NULL, imageTitle=NULL, lonlat=FALSE) {
+                    colorSet="RdYlGn", center=NULL, plotTitle=NULL, imageTitle=NULL, lonlat=FALSE, countrycont=TRUE) {
 
   if(missing(nticks) & missing(binwidth))  {
      stop("Please, choose the number of colors (nticks) or the bin width (binwidth).\n
@@ -192,7 +192,7 @@ agroMapVector <- function(data, nticks=NULL, binwidth=NULL, minimum=NULL, maximu
                                roundPrecision=roundPrecision, reverseColorScale=reverseColorScale, colorSet=colorSet)
     if(!is.null(imageTitle)){
       png(imageTitle, units="in", width=14, height=9, pointsize=14, res=300)  
-      par(omi=c(0,0,0,0.3))
+      par(omi=c(0,0,0,1.3))
     }
 
     # windows()
@@ -211,7 +211,9 @@ agroMapVector <- function(data, nticks=NULL, binwidth=NULL, minimum=NULL, maximu
       axis(1, at=seq(16,23,0.5), labels=FALSE, tck=-0.01)
       axis(2, at=seq(46,48,1), labels=c("46°N","47°N","48°N"), cex.axis=1.2, las=2)
       axis(2, at=seq(46,48,0.5), labels=FALSE, tck=-0.01)
-      map("world", xlim=c(lon[1],lon[length(lon)]), ylim=c(lat[1],lat[length(lat)]), add=TRUE)
+      if(countrycont==TRUE){
+        map("world", xlim=c(lon[1],lon[length(lon)]), ylim=c(lat[1],lat[length(lat)]), add=TRUE)
+      }
       if(!is.null(imageTitle)){
         graphics.off()
       }
@@ -230,7 +232,7 @@ agroMapVector <- function(data, nticks=NULL, binwidth=NULL, minimum=NULL, maximu
    #png(fileTitle, units="in", width=14, height=9, pointsize=14, res=100)
     if(!is.null(imageTitle)){
       png(imageTitle, units="in", width=14, height=9, pointsize=14, res=300)    
-      par(omi=c(0,0,0,0.3))
+      par(omi=c(0,0,0,1.3))
     }
       image.plot(lon, lat, grid_array, xaxt="n", yaxt="n", ann=FALSE, col=colorbar, breaks=brks, lab.breaks=brks)#, asp=1.5555555555)
       if(lonlat==TRUE) {
@@ -241,7 +243,9 @@ agroMapVector <- function(data, nticks=NULL, binwidth=NULL, minimum=NULL, maximu
       axis(1, at=seq(16,23,0.5), labels=FALSE, tck=-0.01)
       axis(2, at=seq(46,48,1), labels=c("46°N","47°N","48°N"), cex.axis=1.2, las=2)
       axis(2, at=seq(46,48,0.5), labels=FALSE, tck=-0.01)
-      map("world", xlim=c(lon[1],lon[length(lon)]), ylim=c(lat[1],lat[length(lat)]), add=TRUE)#, asp=1.55555)
+      if(countrycont==TRUE){
+        map("world", xlim=c(lon[1],lon[length(lon)]), ylim=c(lat[1],lat[length(lat)]), add=TRUE)#, asp=1.55555)
+      }
       if(!is.null(imageTitle)){
         graphics.off()
       }
@@ -255,7 +259,7 @@ agroMap <- function(connection=NULL, query=NULL, myData=NULL, attachedDBS = NULL
                     queryModifiers=NULL,nticks=NULL, binwidth=NULL,
                     minimum=NULL, maximum=NULL, roundPrecision=NULL,
                     reverseColorScale=FALSE,colorSet="RdYlGn", center=NULL,
-                    plotTitle=NULL, imageTitle=NULL, lonlat=FALSE, outFile=NULL) {
+                    plotTitle=NULL, imageTitle=NULL, lonlat=FALSE, outFile=NULL, countrycont=TRUE) {
     # browser()
     if(!is.null(connection)){
         agroVector <- readQueryFromDB(connection, query, attachedDBS = attachedDBS,queryModifiers = queryModifiers)
@@ -267,7 +271,7 @@ agroMap <- function(connection=NULL, query=NULL, myData=NULL, attachedDBS = NULL
     }
   agroMapVector(agroVector, nticks=nticks, binwidth=binwidth, minimum=minimum, maximum=maximum,
                 roundPrecision=roundPrecision, reverseColorScale=reverseColorScale, colorSet=colorSet,
-                center=center, plotTitle=plotTitle, imageTitle=imageTitle, lonlat=lonlat)
+                center=center, plotTitle=plotTitle, imageTitle=imageTitle, lonlat=lonlat, countrycont=countrycont)
 }
 
 #
