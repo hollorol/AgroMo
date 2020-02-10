@@ -269,6 +269,7 @@ agroMap <- function(connection=NULL, query=NULL, myData=NULL, attachedDBS = NULL
     if(!is.null(outFile)){
         write.csv(agroVector, outFile)
     }
+
   agroMapVector(agroVector, nticks=nticks, binwidth=binwidth, minimum=minimum, maximum=maximum,
                 roundPrecision=roundPrecision, reverseColorScale=reverseColorScale, colorSet=colorSet,
                 center=center, plotTitle=plotTitle, imageTitle=imageTitle, lonlat=lonlat, countrycont=countrycont)
