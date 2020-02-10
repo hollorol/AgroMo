@@ -1,7 +1,5 @@
 plotProfile <- function(outputNames, dataenv, selectedDate, profilTag){
      numberOfLayers <- length(outputNames)
-     data <- as.data.frame(dataenv[[outputNames[1]]])
-     browser()
      valuesToPlot <- with(getProfileVariables(profilTag),lapply(outputNames, function(x){
                                                     unlist(dataenv[[x]][dataenv[[x]][,"date"]==selectedDate,data]*convFactor)}))
      depths <- -c(1.5,6.5,25,45,75,105,135,175,300,700)
