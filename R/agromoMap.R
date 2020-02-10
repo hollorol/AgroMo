@@ -62,7 +62,7 @@
       selectInput(ns("palette"),"palette:",choices= paletteAlias[,2])),
     tags$div(
       id = paste0(ns("colnumb"),"_container"),title="Select the number of colours/subranges to be distinguished on the map",
-      selectInput(ns("colnumb"),"number of colours:",choices=c(2,4,8,16,32))
+      selectInput(ns("colnumb"),"number of colours:",choices=2:32)
     ),
     tags$div(
       id = paste0(ns("min"),"_container"), title="Set the minimum value for the data presented on the map",
@@ -75,6 +75,10 @@
         tags$div(
       id = paste0(ns("max"),"_container"),title="Set the maximum value for the data presented on the map",
       textInput(ns("max"),"max. value:",NA)
+    ),
+    tags$div(
+      id = paste0(ns("binWidth"),"_container"),title="Set the bin width between the minium and maximum values",
+      textInput(ns("bw"),"bw:",NA)
     ),
 #    tags$div(
 #      id = paste0(ns("maxprec"),"_container"),
