@@ -28,6 +28,7 @@ agroMoShowUI <- function(id){
                     tags$div(id=ns("treatmentID_container"),selectInput(ns("treatmentID"), "treatment ID:",choices = '')),
                     tags$div(id=ns("compfunc_container"),selectInput(ns("compfunc"), "compare function:",choices = '')),
                     tags$div(id=ns("compbase_container"),selectInput(ns("compbase"), "compare base:",choices = '')),
+                    tags$div(id=ns("alias_container"),textInput(ns("alias"), "alias:",NA)),
                     tags$div(id=ns("varset_container"),title="Narrow down the list of selectable variables ",selectInput(ns("varset"), "filter to:",
                                         choices = c("all","user selected", "plant related","soil related","water related","carbon related","greenhouse gas","profiles"))),
                     
@@ -36,8 +37,8 @@ agroMoShowUI <- function(id){
                     tags$div(id=ns("table-header_container")),
                     tags$div(id=ns("table-output_container")),
                     tags$script(HTML('Shiny.addCustomMessageHandler("jsCode", function(message) { eval(message.value); });')),
-                    tags$script(src="www/showTableOutput.js"),
-                    tags$script(src="www/outputSelector.js"),
+                    drawOutputTable(),
+                    # tags$script(src="www/showTableOutput.js"),
 
                     tags$script(HTML(
                     sprintf("
@@ -124,13 +125,21 @@ agroMoShowUI <- function(id){
 agroMoShow <- function(input, output, session, dataenv, baseDir, connection,centralData){
   ns <- session$ns
   datas<- reactiveValues(show=0)
-  initData <- reactiveValues(data = NULL,measurement = NULL)
+  initData <- reactiveValues(data = NULL,measurement = NULL, measurementConn = NULL)
   observe({
      initData$data <- dataenv()
   })
   observe({
+     initData$measurementConn <-  dbConnect(RSQLite::SQLite(),file.path(baseDir(), "observation","EXPERIMENT.db"))
+  })
+
+
+  observe({
     output$outputSelection <- renderTable(data.frame(outputName=initData$data), width="100%", align="l")
   })
+
+
+
 
   observeEvent(input$del,{
                    tablesToDelete <- dbListTables(connection())[input$tableList]
@@ -143,16 +152,11 @@ agroMoShow <- function(input, output, session, dataenv, baseDir, connection,cent
                    }
     })
 
-  varSet <- list()
-  #Defining set of variables
-  varSet[["all"]] <- 0:75
-  varSet[["plant related"]] <- c(2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 36, 37, 38, 39, 40, 41, 44, 45, 46, 47, 48, 49, 50, 51, 52)
-  varSet[["soil related"]] <- c(16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 42, 43, 54, 55, 56, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68)
-  varSet[["water related"]] <- c(26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 13, 14, 15)
-  varSet[["carbon related"]] <- c(7, 8, 9,  36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 57, 58)
-  varSet[["greenhouse gas"]]  <- c(69, 70, 40, 41, 42, 43, 44, 49, 50, 51, 52)
-  varSet[["profiles"]]  <- 71:75
+  varSet <- readTags()
 
+  observe({
+      updateSelectInput(session,"varset",choices=names(varSet))
+  })
 
        observe({
       # print(input$varset)
@@ -162,7 +166,7 @@ agroMoShow <- function(input, output, session, dataenv, baseDir, connection,cent
 
        varsShow <- input$varset 
        session$sendCustomMessage(type="hideHR",
-                   paste0(".",0:75,"-rowHR",collapse=",")
+                   paste0(".",varSet[["all"]],"-rowHR",collapse=",")
                                  )
        session$sendCustomMessage(type="showHR",
                    paste0(".",varSet[[input$varset]],"-rowHR",collapse=",")
@@ -170,12 +174,25 @@ agroMoShow <- function(input, output, session, dataenv, baseDir, connection,cent
       }
       })
 
-  
+
+     
    observe({
-     initData$measurement <- fread(file.path(baseDir(),"observation/observation.csv"))
-     updateSelectInput(session,"experimentID", choices = '')
-     updateSelectInput(session,"treatmentID", choices = '')
+       updateSelectInput(session,"experimentID", choices = (dbGetQuery(initData$measurementConn,"
+                                                                       SELECT DISTINCT experiment FROM EXPERIMENT 
+                                                                       ")[,1])
+     )
+
    })
+
+     observe({
+          updateSelectInput(session,"treatmentID", choices =
+                            (dbGetQuery(initData$measurementConn,sprintf("
+                                                                         SELECT DISTINCT SUBSTR(key,6,LENGTH(key))
+                                                                         FROM EXPERIMENT
+                                                                         WHERE experiment='%s' AND value!='NA'
+                                                                         ", input$experimentID))[,1])
+                                          )
+      })
 
   observe({
       if(length(input$tableList) > 0){
@@ -194,8 +211,61 @@ agroMoShow <- function(input, output, session, dataenv, baseDir, connection,cent
       if(length(tableForPlot!=0) && (length(input$tableList)!=0)){
           showModal(multiPlotUI(ns("plotka"))) 
           # browser() 
-          callModule(multiPlot,"plotka",reactive(initData$measurement),isolate(modellOutputNames),reactive({tableForPlot}),
+          callModule(multiPlot,"plotka",reactive(initData$measurementConn),isolate(modellOutputNames),reactive({tableForPlot}),
               reactive({input$experimentID}),reactive({input$treatmentID}),repetAvg = reactive({input$averagep}),connection=connection,centralData=centralData)
       }
    })
+}
+
+#' drawOutputTable
+#' 
+#' drawOutputTable
+#' @importFrom shiny tags HTML
+#' @importFrom jsonlite read_json toJSON
+drawOutputTable <- function () {
+   centralData <- getOption("AgroMo_centralData") 
+   colnames(centralData)[c(2, 7, 8,9)] <- c("VARIABLE","T-STEP","FUNC","PLOT TYPE")
+
+   jsonFile <- toJSON(centralData[c(2,7,8,9)])
+   tags$script(HTML(sprintf("var musoVariablesToPlot = %s;
+
+                 putObjectAsTable(musoVariablesToPlot,\"#showdiv-table-output_container\",\"showdiv-table-output\",\"showdiv-table-output-header\",\"#showdiv-table-header_container\");
+
+                                  var columnOptions = [[\"day\",\"month\",\"year\",\"decade\"],
+                                                        [\"identity\",\"var\",\"min\",\"max\",\"mean\",\"median\",\"modus\"],
+                                                         [\"bar\",\"line\",\"scatter\"]];
+
+                                                          DT(\"#showdiv-table-output\", \"selected-rows_showdiv_table_output\", columnOptions, \"#showdiv-table-header_container th:nth-child(1)\");
+
+                                                             ",jsonFile)))
+}
+
+
+#' readTags
+#' 
+#' readTags
+#' @importFrom shiny tags HTML
+#' @importFrom jsonlite read_json toJSON
+readTags <- function () {
+   centralData <- getOption("AgroMo_centralData")
+   uniqFactors <- unique(strsplit(paste(centralData[,"TAG"],collapse=","),split=",\\ *")[[1]])
+   uniqFactors <- grep(".*\\-.*",uniqFactors, value=TRUE, invert=TRUE) # We dont wanna include uniq profile variables
+   varSet <- lapply(uniqFactors, function(x){
+        which(unlist(lapply(centralData[,"TAG"],function(y){grepl(x,y) && !grepl(".*\\-.*",y)}))) -1
+   })  
+   names(varSet) <- uniqFactors
+   varSet[["all"]] <- seq_along(centralData[,"TAG"]) -1
+   varSet
+}
+
+#' filterToProf
+#' 
+#' filterToProf
+#' @importFrom shiny tags HTML
+#' @importFrom jsonlite read_json toJSON
+filterToProf <- function (profileName) {
+    centralData <- getOption("AgroMo_centralData")
+    keyword <- centralData[centralData[,"LABEL NAME"] == profileName,"VARIABLE"]
+    rowIndexes <- which(unlist(lapply(centralData[,"TAG"],function(x){grepl(keyword,x)})))
+    rowIndexes
 }

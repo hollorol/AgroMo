@@ -22,37 +22,37 @@
   color: black;
 }
 
-#showdiv-plotka-dateInput .control-label{
-  position: absolute;
-  top: 448px;
-  font-weight: bold;
-  color: black;
-}
-
-#showdiv-plotka-ddec {
-  position: absolute;
-  top: 440px;
-  left: 60px;
-}
-
-#showdiv-plotka-dinc {
-  position: absolute;
-  top: 440px;
-  left: 352px;
-}
-
-/* .svg-container{ */
+/* #showdiv-plotka-dateInput .control-label{ */
 /*   position: absolute; */
-/*   top: 60px;  */
+/*   top: 448px; */
+/*   font-weight: bold; */
+/*   color: black; */
 /* } */
-
-#showdiv-plotka-dateInput .form-control.shinyjs-resettable{
-  position: absolute;
-  top: 440px;
-  left: 140px;
-  width: 200px;
-}
-
+/*  */
+/* #showdiv-plotka-ddec { */
+/*   position: absolute; */
+/*   top: 440px; */
+/*   left: 60px; */
+/* } */
+/*  */
+/* #showdiv-plotka-dinc { */
+/*   position: absolute; */
+/*   top: 440px; */
+/*   left: 352px; */
+/* } */
+/*  */
+/* /* .svg-container{ */ */
+/* /*   position: absolute; */ */
+/* /*   top: 60px;  */ */
+/* /* } */ */
+/*  */
+/* #showdiv-plotka-dateInput .form-control.shinyjs-resettable{ */
+/*   position: absolute; */
+/*   top: 440px; */
+/*   left: 140px; */
+/*   width: 200px; */
+/* } */
+/*  */
 
 #showdiv-del{
   position:absolute;
@@ -66,6 +66,10 @@
   color: black;
 }
 
+div.profPlotCont {
+  width: 50%;
+  display: flex;
+}
 /*#showdiv-varset_container {
   position: absolute;
   top: 135px;
@@ -79,7 +83,7 @@
 
 #showdiv-varset_container .control-label{
   position: absolute;
-  top: 151px;
+  top: 176px;
     left: 407px;
   width: 60px;
   font-weight: normal;
@@ -88,10 +92,11 @@
 
 #showdiv-varset_container .selectize-input{
   position: absolute;
-  top: 130px;
+  top: 155px;
    left: 445px;
   width: 195px;
 } 
+
 
 
 
@@ -170,6 +175,7 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  display: none;
 } 
 
 #showdiv-compbase_container .control-label{
@@ -180,6 +186,7 @@
   font-weight: normal;
   width: 300px;
   color: black;
+  display: none;
 }
 
 #showdiv-compbase_container .has-options{
@@ -232,7 +239,7 @@
 
 #createplot {
   position: absolute;
-  top: 155px;
+  top: 185px;
   left:70px;
   font-weight: bold;
   font-size: 16px;
@@ -245,10 +252,11 @@
 
 #repavg {
   position: absolute;
-  top: 113px;
-  left: 221px;
+  top: 118px;
+  left: 500px;
   font-size: 16px;
   color: black;
+  width: 150px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -257,10 +265,34 @@
 
 #showdiv-averagep {
   position: absolute;
-  top: 98px;
-  left: 210px;
+  top: 105px;
+  left: 488px;
 }
 
+#showdiv-alias_container .form-control.shinyjs-resettable.shiny-bound-input{
+    width: 255px;
+    position: absolute;
+    top: 113px;
+    left:203px;
+  font-size: 16px;
+  color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+#showdiv-alias_container label{
+    position: absolute;
+    top: 118px;
+    left:162px;
+  font-size: 16px;
+  color: black;
+  font-weight: normal;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 #showdiv-experimentID_container .selectize-control.shinyjs-resettable.single .selectize-input{
     width: 450px;
     position: absolute;
@@ -340,7 +372,7 @@
 
 #showdiv-table-output_container{
   position: absolute;
-  top: 180px;
+  top: 210px;
   left: 70px;
 }
 

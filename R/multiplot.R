@@ -23,68 +23,126 @@ multiPlotUI <- function(id){
 
 multiPlot <- function(input, output, session, measurement, outputNames, outputTable, experimentID, treatmentID,repetAvg = TRUE,connection,centralData){
   ns <- session$ns
-  simplePlots <- outputTable()[grep("profile",outputTable()$variable,invert = TRUE),]
+  simplePlots <- outputTable()[grep("Profil",outputTable()$variable,invert = TRUE),] #TODO
   # browser()
 
   if(dim(simplePlots)[1]!=0){
+      # browser()
     centralDataIndex <-   centralData[,"LABEL NAME"] %in% simplePlots[,"variable"]
     filteredCentData <- centralData[centralDataIndex,]
     simplePlots$variable <- filteredCentData[,"VARIABLE"]
-    simplePlots <- cbind.data.frame(simplePlots,centralData[centralDataIndex,"convFactor"]) 
+    simplePlots <- cbind.data.frame(simplePlots,centralData[centralDataIndex,"CONV FACTOR"]) 
     simplePlots[,5]<- as.numeric(as.character(simplePlots[,5]))
   }
 # browser()
   dataenv <- new.env()
   sapply(dbListTables(connection()),function(tableName){
    dataenv[[tableName]] <- dbReadTable(connection(),tableName)
-   colnames(dataenv[[tableName]])[1:4] <- c("date","day","month","year")
-  # browser()
+   colnames(dataenv[[tableName]])[1:4] <- c("date","day","month","year") # browser()
   })
 
   ## browser()
   ## simplePlots <- simplePlots[simplePlots$select==TRUE,]
-  profPlots <- outputTable()[grep("profile",outputTable()$variable),]
+  profPlots <-centralData[centralData[,"LABEL NAME"]==grep("Profil",outputTable()$variable, value=TRUE),"VARIABLE"]
   # colnames(dataenv[[tableName]])[1:4] <- c("date","day","month","year")
-  numProfile<- nrow(profPlots)
+  numProfile<- length(profPlots)
   numSimplePlots <- nrow(simplePlots)
   
 # print(sprintf("Number of simple plots: %s",numSimplePlots))
   if(numSimplePlots != 0){
-    output$plots <- renderUI({
-      # print(simplePlots[,1])
-      if(numSimplePlots!=0){
-        plot_output_list <- lapply(simplePlots[,1],function(variab){
-          plotlyOutput(ns(variab),height="600px")
-        })
-        return(do.call(tagList,plot_output_list))}
-      return(plotlyOutput(ns("csacsi")))
-    })
-  }
+      output$plots <- renderUI({
+          # print(simplePlots[,1])
+          if(numSimplePlots!=0){
+              plot_output_list <- lapply(simplePlots[,1],function(variab){
+                                             plotlyOutput(ns(variab),height="600px")
+           })
+              do.call(tagList,plot_output_list)}
+      })
 
-  ## browser()
-#plotSingle(outputNames, dataenv, "fruit_DM","year","max",plotT="line",10000,repetationsAveraged=TRUE, measurement,experimentID,treatment)
-  # print(simplePlots)
-  # print(numSimplePlots)
-  if(numSimplePlots != 0)(
       for(i in 1:numSimplePlots){
           # print(ls(dataenv))
-        local({
-          my_i <- i
-          mesUnit <- ifelse(filteredCentData[i,4]=="NA","dimless",filteredCentData[i,4])
-          yTitle <- sprintf("<b>%s [%s]</br> </b>",filteredCentData[i,2],mesUnit)
-          output[[simplePlots[my_i,1]]] <- renderPlotly({plotSingle(outputNames = outputNames,
-                                                                    dataenv = dataenv,
-                                                                    varName = simplePlots[my_i,1],
-                                                                    timeFrame = simplePlots[my_i,2],
-                                                                    groupFun = simplePlots[my_i,3],
-                                                                    plotT = simplePlots[my_i,4],
-                                                                    conversionFactor= simplePlots[my_i,5],
-                                                                    repetationsAveraged = repetAvg(),
-                                                                    measurement = measurement(),
-                                                                    experiment_id = experimentID(),
-                                                                    treatment = treatmentID(),yTitle)})})
+          local({
+              my_i <- i
+              mesUnit <- ifelse(filteredCentData[i,4]=="NA","dimless",filteredCentData[i,4])
+              yTitle <- sprintf("<b>%s [%s]</br> </b>",filteredCentData[i,2],mesUnit)
+              output[[simplePlots[my_i,1]]] <- renderPlotly({
+                   
+                  plotlyProxy(simplePlots[my_i,1], session) %>%
+                      plotlyProxyInvoke("purge")
+                  plotSingle(outputNames = outputNames,
+                  dataenv = dataenv,
+                  varName = simplePlots[my_i,1],
+                  timeFrame = simplePlots[my_i,2],
+                  groupFun = simplePlots[my_i,3],
+                  plotT = simplePlots[my_i,4],
+                  conversionFactor= simplePlots[my_i,5],
+                  repetationsAveraged = repetAvg(),
+                  measurement = measurement(),
+                  experiment_id = experimentID(),
+                  treatment = treatmentID(),yTitle)})})
       }
-    )
+  }
+
+
+  if(numProfile != 0){
+      output$profilePlots <- renderUI({
+          if(numProfile!=0){ #it is necessary because outside the reactive environment the test is done just ones
+              startDate <- dataenv[[names(dataenv)[1]]][nrow(dataenv[[names(dataenv)[1]]])%/%2,1]
+              plot_output_list <- lapply(profPlots,function(x)(displayProfile(ns(x),startDate)))
+              do.call(tagList,plot_output_list)}
+      })
+
+      for(i in 1:numProfile){
+          # print(ls(dataenv))
+          local({
+              my_i <- i
+      observeEvent(input[[sprintf("%s-ddec",profPlots[my_i])]],{
+        updateDateInput(session, inputId = sprintf("%s-dateInput",profPlots[my_i]),
+                        value = (input[[sprintf("%s-dateInput",profPlots[my_i])]]-1))
+      })
+
+      observeEvent(input[[sprintf("%s-dinc",profPlots[my_i])]],{
+        updateDateInput(session, inputId = sprintf("%s-dateInput",profPlots[my_i]),
+                        value = (input[[sprintf("%s-dateInput",profPlots[my_i])]]+1))
+      })
+
+      observeEvent(input[[sprintf("%s-wdec",profPlots[my_i])]],{
+        updateDateInput(session, inputId = sprintf("%s-dateInput",profPlots[my_i]),
+                        value = (input[[sprintf("%s-dateInput",profPlots[my_i])]]-7))
+      })
+
+      observeEvent(input[[sprintf("%s-winc",profPlots[my_i])]],{
+        updateDateInput(session, inputId = sprintf("%s-dateInput",profPlots[my_i]),
+                        value = (input[[sprintf("%s-dateInput",profPlots[my_i])]]+7))
+      })
+
+      observeEvent(input[[sprintf("%s-mdec",profPlots[my_i])]],{
+        updateDateInput(session, inputId = sprintf("%s-dateInput",profPlots[my_i]),
+                        value = addDate(input[[sprintf("%s-dateInput",profPlots[my_i])]],"-1m"))
+      })
+
+      observeEvent(input[[sprintf("%s-minc",profPlots[my_i])]],{
+        updateDateInput(session, inputId = sprintf("%s-dateInput",profPlots[my_i]),
+                        value = addDate(input[[sprintf("%s-dateInput",profPlots[my_i])]],"1m"))
+      })
+
+      observeEvent(input[[sprintf("%s-ydec",profPlots[my_i])]],{
+        updateDateInput(session, inputId = sprintf("%s-dateInput",profPlots[my_i]),
+                        value = addDate(input[[sprintf("%s-dateInput",profPlots[my_i])]],"-1y"))
+      })
+
+      observeEvent(input[[sprintf("%s-yinc",profPlots[my_i])]],{
+        updateDateInput(session, inputId = sprintf("%s-dateInput",profPlots[my_i]),
+                        value = addDate(input[[sprintf("%s-dateInput",profPlots[my_i])]],"1y"))
+      })
+      output[[profPlots[my_i]]] <-  renderPlotly({plotProfile(outputNames,
+                                                              dataenv = dataenv,
+                                                            selectedDate = input[[sprintf("%s-dateInput",profPlots[my_i])]],
+                                                            profilTag=profPlots[my_i])})
+            
+          })
+      }
+  }
 #   if(numProfile > 0){
 #     output$profilePlots <- renderUI({
 #         if(numProfile!=0){
@@ -115,3 +173,45 @@ multiPlot <- function(input, output, session, measurement, outputNames, outputTa
 #       }
 # }
 }
+
+
+
+#' displayProfile
+#'
+#' display profile graphs
+#' @param profName the name of the curent profilePlot
+#' @keywords internal
+displayProfile <- function (profName,startDate) {
+    tags$div(id=sprintf("%s-container",profName),
+             tags$div(id=sprintf("%s-handlers",profName), class="profPlotCont",
+              actionButton(sprintf("%s-ydec",profName),"-y"),
+              actionButton(sprintf("%s-mdec",profName),"-m"),
+              actionButton(sprintf("%s-wdec",profName),"-w"),
+              actionButton(sprintf("%s-ddec",profName),"-d"),
+              dateInput(sprintf("%s-dateInput", profName),"date",startDate),
+              actionButton(sprintf("%s-dinc",profName),"+d"),
+              actionButton(sprintf("%s-winc",profName),"+w"),
+              actionButton(sprintf("%s-minc",profName),"+m"),
+              actionButton(sprintf("%s-yinc",profName),"+y")
+             ),
+             plotlyOutput(profName,height="600px"))
+}
+
+addDate <- function(dateString, addtag){
+    if(is.character(addtag)){
+        myDate <- as.POSIXlt(dateString)
+        if(grepl("-?[0-9]+m",addtag)){
+            myDate$mon <- myDate$mon + as.numeric(gsub("(-?[0-9]+).*","\\1",addtag,perl=TRUE))
+        } else {
+            myDate$year <- myDate$year + as.numeric(gsub("(-?[0-9]+).*","\\1",addtag,perl=TRUE))
+        }
+        as.Date(myDate)
+    } else {
+        as.Date(dateString)+addtag
+    }
+}
+
+
+
+
+

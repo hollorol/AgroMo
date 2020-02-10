@@ -36,5 +36,6 @@ vignettes/*.pdf
 rsconnect/
 site/input/initialization/tmp/*
 *.db
+!EXPERIMENT.db
 TAGS
 tags
