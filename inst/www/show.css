@@ -66,10 +66,50 @@
   color: black;
 }
 
+#showdiv-del {
+position:absolute;
+  top: 448px;
+  left: -312px;
+  width: 335px;
+  height: 55px;
+  background-color: gainsboro;
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+}
+
+
 div.profPlotCont {
   width: 50%;
   display: flex;
+    margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 40px;
 }
+
+div.profPlotCont >button {
+margin-left: 15px;
+  height:34px;
+  margin-top: 25px;
+  font-size: 16px;
+}
+
+div.profPlotCont >.shiny-date-inputte-input {
+  font-size: 16px;
+  color: black;
+}
+
+div.profPlotCont  .form-group {
+  color: white;
+  margin-left: 15px;
+}
+
+div.profPlotCont .form-control {
+  font-size: 16px;
+  color: black;
+}
+
+
 /*#showdiv-varset_container {
   position: absolute;
   top: 135px;
@@ -88,6 +128,7 @@ div.profPlotCont {
   width: 60px;
   font-weight: normal;
   color: black;
+  font-size: 16px;
 } 
 
 #showdiv-varset_container .selectize-input{
@@ -95,6 +136,7 @@ div.profPlotCont {
   top: 155px;
    left: 445px;
   width: 195px;
+  font-size: 16px;
 } 
 
 
