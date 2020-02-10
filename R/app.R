@@ -39,7 +39,8 @@ agroUI <- function(){
 #' @keywords internal
 agroServer <- function(input, output, session) {
     baseDir <- getShinyOption("AgroMoData")
-    centralData <- read_json(system.file("centralData.json",package="AgroMo"),simplifyVector = TRUE)
+    centralData <- getOption("AgroMo_centralData")
+     
     print(baseDir)
     setwd(baseDir)
     database <- file.path(baseDir,"output/outputs.db")

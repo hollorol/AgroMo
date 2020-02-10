@@ -12,7 +12,7 @@ plotSingle(
   groupFun,
   plotT = "scatter",
   conversionFactor = 1,
-  measurement,
+  measurementConn,
   experiment_id,
   treatment,
   repetationsAveraged,

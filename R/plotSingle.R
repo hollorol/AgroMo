@@ -6,7 +6,7 @@
 #' @importFrom plotly plot_ly add_trace layout '%>%' toRGB
 
 
-plotSingle <- function(outputNames = NULL, dataenv, varName, timeFrame, groupFun, plotT = "scatter", conversionFactor = 1, measurement, experiment_id, treatment, repetationsAveraged, yTitle){ 
+plotSingle <- function(outputNames = NULL, dataenv, varName, timeFrame, groupFun, plotT = "scatter", conversionFactor = 1, measurementConn, experiment_id, treatment, repetationsAveraged, yTitle){ 
 # print(ls(dataenv))
   plotType <- plotT
   plotMode <- NULL
@@ -33,16 +33,16 @@ plotSingle <- function(outputNames = NULL, dataenv, varName, timeFrame, groupFun
     color = "black" # to set scientific format use: exponentformat = "E"
   )
 ## browser()
-  measurement[,date:=as.Date(datetime)]
-  set(measurement, i=which(measurement[["parameter"]]=="yield"), j="parameter", value="fruit_DM")
-  filtMeasured <- tryCatch(getFilteredData( measurement, treatment, experiment_id, repetationsAveraged), error = function (e) NULL)
+  filtMeasured <- tryCatch(getFilteredData(measurementConn, treatment, experiment_id, repetationsAveraged,varName), error = function (e) NULL)
+    # browser()
   if(is.null(filtMeasured)){
     containMeasurement <- FALSE
   } else {
-    if(nrow(filtMeasured)==0 || !is.element(varName,unlist(measurement[,"parameter", with = FALSE]))){
+    if(nrow(filtMeasured)==0){
       containMeasurement <- FALSE
     } else {
      containMeasurement <- TRUE
+     filtMeasured$measurement_date <- as.Date(filtMeasured$measure_date)
     }
   }
 
@@ -123,16 +123,19 @@ plotSingle <- function(outputNames = NULL, dataenv, varName, timeFrame, groupFun
 plotMeasuredLayers <- function(p,measurement,timeFrame,experiment_id, treatment){
 
   if(is.null(measurement$repetition)){
-    p <- add_trace(p,x = unlist(get(timeFrame)(measurement$date)),y = unlist(measurement$value), name = sprintf("%s-%s (mean)",experiment_id,treatment),line = list( width = 2,
+    p <- add_trace(p,x = unlist(get(timeFrame)(measurement$measurement_date)),y = unlist(measurement$measurement_value), name = sprintf("%s-%s (mean)",experiment_id,treatment),line = list( width = 2,
               xaxs = "i", yaxs = "i") )
   } else {
+# browser()
     repetitions<- unique(measurement$repetition)
+  print(repetitions)
     if(length(repetitions) >= 5)
       stop("You must average your repetitions in case of more than 5")
     for(i in 1:length(repetitions)){
       actRep <- repetitions[i]
-      p<- add_trace(p,x = unlist(get(timeFrame)(measurement[repetition == eval(quote(actRep))]$date)),
-                    y = as.numeric(unlist(measurement[repetition == eval(quote(actRep))]$value)), name = sprintf("%s-%s#%d",experiment_id,treatment,actRep),line = list( width = 2,
+    # browser()
+      p<- add_trace(p,x = unlist(get(timeFrame)(measurement[measurement[,"repetition"] == eval(quote(actRep)),]$measure_date)),
+                    y = as.numeric(unlist(measurement[measurement[,"repetition"] == eval(quote(actRep)),]$measurement_value)), name = sprintf("%s-%s#%d",experiment_id,treatment,actRep),line = list( width = 2,
               xaxs = "i", yaxs = "i") )
 
     }
@@ -161,16 +164,38 @@ fDate <- function(dat, timeFrame){
   } 
 }
 
-getFilteredData <- function(measurement, treatment, experiment, repetationsAveraged){
-    tre <- treatment
-    exper <- experiment
-    if(repetationsAveraged){
-        measurement[(treatment == eval(quote(tre))) & (experiment == eval(quote(exper))),
-              list(value=mean(as.numeric(value),na.rm = TRUE)),
-              by = list(date,parameter)]
-    } else {
-        measurement[(treatment == eval(quote(tre))) & (experiment == eval(quote(exper)))]
-    }
+getFilteredData <- function(dbConnection, treatment, experiment, repetationsAveraged, varName){
+    # tre <- treatment
+    # exper <- experiment
+    # if(repetationsAveraged){
+    #     measurement[(treatment == eval(quote(tre))) & (experiment == eval(quote(exper))),
+    #           list(value=mean(as.numeric(value),na.rm = TRUE)),
+    #           by = list(date,parameter)]
+    # } else {
+    #     measurement[(treatment == eval(quote(tre))) & (experiment == eval(quote(exper)))]
+    # }
+if(repetationsAveraged){
+    dbGetQuery(dbConnection,sprintf("
+                             SELECT strftime('%%Y-%%m-%%d',datetime) AS measure_date, AVG(value) AS measurement_value
+                             FROM EXPERIMENT
+                             WHERE value!='NA' AND
+                             datetime!='NA' AND
+                             variable == '%s' AND
+                             experiment='%s' AND
+                             key LIKE '%%%s'
+                             GROUP BY key
+                             ",varName, experiment,treatment))
+} else {
+    dbGetQuery(dbConnection,sprintf("
+                             SELECT strftime('%%Y-%%m-%%d',datetime) AS measure_date, value AS measurement_value, repetition
+                             FROM EXPERIMENT
+                             WHERE value!='NA' AND
+                             datetime!='NA' AND
+                             variable == '%s' AND
+                             experiment='%s' AND
+                             key LIKE '%%%s'
+                             ",varName, experiment,treatment))
+}
     
 }
 
