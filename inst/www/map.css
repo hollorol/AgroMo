@@ -3,8 +3,8 @@
                 which is the window except the banner. */
 #mapdiv-invert_container {
     position: absolute;
-    top: 135px;
-    left: 820px;
+    top: 90px;
+    left: 390px;
     font-size: 16px;
     color: black;
   -webkit-user-select: none;
@@ -28,7 +28,7 @@
 #mapdiv-countrycont_container {
     position: absolute;
     top: 90px;
-    left: 660px;
+    left: 510px;
     font-size: 16px;
     color: black;
     width: 180px;
@@ -41,7 +41,7 @@
 #mapdiv-latlon_container {
     position: absolute;
     top: 90px;
-    left: 820px;
+    left: 660px;
     font-size: 16px;
     color: black;
     width: 180px;
@@ -163,7 +163,7 @@
     position: absolute;
     top: 185px;
     left: 110px;
-    width: 150px;
+    width: 120px;
     font-size: 16px;
     color: black;
   -webkit-user-select: none;
@@ -171,10 +171,37 @@
   -ms-user-select: none;
   user-select: none;
 }
+
+#mapdiv-intv_container .form-group.shiny-input-container label{
+    position: absolute;
+    top: 190px;
+    right: 288px;
+    font-size: 16px;
+    font-weight: normal;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#mapdiv-intv_container .form-control.shinyjs-resettable{
+    position: absolute;
+    top: 185px;
+    left: 545px;
+    width: 110px;
+    font-size: 16px;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
 #mapdiv-minprec_container .form-group.shiny-input-container label{
     position: absolute;
     top: 190px;
-    left: 555px;
+    left: 677px;
     font-size: 16px;
     font-weight: normal;
     color: black;
@@ -186,8 +213,8 @@
 #mapdiv-minprec_container .selectize-control{
     position: absolute;
     top: 185px;
-    left: 710px;
-    width: 100px;
+    left: 835px;
+    width: 85px;
     font-size: 16px;
     color: black;
   -webkit-user-select: none;
@@ -198,7 +225,7 @@
 #mapdiv-max_container .form-group.shiny-input-container label{
     position: absolute;
     top: 190px;
-    right: 442px;
+    right: 482px;
     font-size: 16px;
     font-weight: normal;
     color: black;
@@ -210,8 +237,8 @@
 #mapdiv-max_container .form-control.shinyjs-resettable{
     position: absolute;
     top: 185px;
-    left: 390px;
-    width: 150px;
+    left: 350px;
+    width: 120px;
     font-size: 16px;
     color: black;
   -webkit-user-select: none;

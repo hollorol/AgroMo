@@ -60,10 +60,10 @@
     tags$div(
       id = paste0(ns("palette"),"_container"),title="Select colour palette for map",
       selectInput(ns("palette"),"palette:",choices= paletteAlias[,2])),
-    tags$div(
-      id = paste0(ns("colnumb"),"_container"),title="Select the number of colours/subranges to be distinguished on the map",
-      selectInput(ns("colnumb"),"number of colours:",choices=c(2,4,8,16,32))
-    ),
+#    tags$div(
+#      id = paste0(ns("colnumb"),"_container"),title="Select the number of colours/subranges to be distinguished on the map",
+#      selectInput(ns("colnumb"),"number of colours:",choices=c(2,4,8,16,32))
+#    ),
     tags$div(
       id = paste0(ns("min"),"_container"), title="Set the minimum value for the data presented on the map",
       textInput(ns("min"),"min. value:",NA)
@@ -76,6 +76,10 @@
       id = paste0(ns("max"),"_container"),title="Set the maximum value for the data presented on the map",
       textInput(ns("max"),"max. value:",NA)
     ),
+tags$div(
+  id = paste0(ns("intv"),"_container"),
+  textInput(ns("intv"),"interval:",NA)
+),
 #    tags$div(
 #      id = paste0(ns("maxprec"),"_container"),
 #      selectInput(ns("maxprec"),"precision of rounding:",choices=c(0,1,2,3,4,5))
