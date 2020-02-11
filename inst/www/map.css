@@ -175,7 +175,7 @@
 #mapdiv-intv_container .form-group.shiny-input-container label{
     position: absolute;
     top: 190px;
-    right: 288px;
+    right: 285px;
     font-size: 16px;
     font-weight: normal;
     color: black;
@@ -188,7 +188,7 @@
 #mapdiv-intv_container .form-control.shinyjs-resettable{
     position: absolute;
     top: 185px;
-    left: 545px;
+    left: 548px;
     width: 110px;
     font-size: 16px;
     color: black;
@@ -225,7 +225,7 @@
 #mapdiv-max_container .form-group.shiny-input-container label{
     position: absolute;
     top: 190px;
-    right: 482px;
+    right: 498px;
     font-size: 16px;
     font-weight: normal;
     color: black;
@@ -237,7 +237,7 @@
 #mapdiv-max_container .form-control.shinyjs-resettable{
     position: absolute;
     top: 185px;
-    left: 350px;
+    left: 335px;
     width: 120px;
     font-size: 16px;
     color: black;
