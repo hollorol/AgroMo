@@ -54,6 +54,7 @@
     left: -24px;
     font-size: 20px;
     color: black;
+    font-family: "Trebuchet MS";
     background-color: darkgray;
     width: 660px;
     text-align: center;
@@ -70,6 +71,7 @@
     top: 15px;
     left: 665px;
     font-size: 20px;
+    font-family: "Trebuchet MS";
     color: black;
     background-color: darkgray;
     width: 265px;
@@ -87,6 +89,7 @@
     top: 425px;
     left: 665px;
     font-size: 20px;
+    font-family: "Trebuchet MS";
     color: black;
     background-color: darkgray;
     width: 265px;
@@ -101,6 +104,7 @@
     /* This is the "Main Directory" label in the sidebar. */
     font-weight: 700;
     font-size: 20px;
+    font-family: "Trebuchet MS";
     color: black;
     background-color: darkgray;
     width: 950px;
@@ -120,6 +124,10 @@
     left: 780px;
     width: 145px;
     height: 35px;
+    font-family: "Trebuchet MS";
+    color: black;
+    font-size: 18px;
+    text-align: center;
     font-weight: 700;
     background-color: gainsboro;
   -webkit-user-select: none;
@@ -136,6 +144,7 @@
     height: 35px;
     background-color: gainsboro;
     font-size: 20px;
+    font-family: "Trebuchet MS";
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -149,6 +158,9 @@
     width: 250px;
     height: 60px;
     font-weight: 700;
+    color: black;
+    font-size: 18px;
+    font-family: "Trebuchet MS";
     background-color: gainsboro;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -163,6 +175,9 @@
     width: 250px;
     height: 60px;
     font-weight: 700;
+    color: black;
+    font-size: 18px;
+    font-family: "Trebuchet MS";
     background-color: gainsboro;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -176,6 +191,7 @@
     left: 680px;
     width: 250px;
     height: 60px;
+    font-family: "Trebuchet MS";
     font-weight: 700;
     background-color: gainsboro;
   -webkit-user-select: none;
@@ -191,6 +207,7 @@
     width: 250px;
     height: 60px;
     font-weight: 700;
+    font-family: "Trebuchet MS";
     background-color: gainsboro;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -205,6 +222,7 @@
     width: 250px;
     height: 60px;
     font-weight: 700;
+    font-family: "Trebuchet MS";
     background-color: gainsboro;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -226,7 +244,7 @@
     left: 665px;
     background-color: darkgray;
     width: 2px;
-    height: 95px;
+    height: 155px;
 }
 
 #lineComp {
@@ -267,7 +285,12 @@
     left: 851px;
     cursor:pointer;
     }
-
+#base-jpFlag {
+    position: absolute;
+    top: 535px;
+    left: 675px;
+    cursor:pointer;
+    }
  /*.mainSideBar {
    Tool buttons in base
     position: absolute;

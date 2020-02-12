@@ -32,6 +32,7 @@ agromoBaseUI <- function(id){
                         shiny::tags$img(id = ns("huFlag"),src="www/img/HUflag_s.png", title = "Magyar változat"),
                         shiny::tags$img(id = ns("ukFlag"),src="www/img/UKflag_s.png", title = "English version"),
                         shiny::tags$img(id = ns("gerFlag"),src="www/img/GERflag_s.png", title = "Deutsch Version"),
+                        shiny::tags$img(id = ns("jpFlag"),src="www/img/JPflag_s.png"),
                         # shiny::tags$img(id = ns("exit_z"),src="www/img/exit.png", title = "EXIT"),
                  #actionButton("exit", "",onclick="function(){window.close()}", title="EXIT",
                               #style=("background: url('www/img/exit.png'); background-size: 260px 70px;")),
