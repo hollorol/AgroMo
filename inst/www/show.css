@@ -95,12 +95,14 @@ div.profPlotCont >button {
 margin-left: 15px;
   height:34px;
   margin-top: 25px;
-  font-size: 16px;
+  font-size: 18px;
+    text-align: center;
   font-family: "Trebuchet MS";
 }
 
 div.profPlotCont >.shiny-date-inputte-input {
-  font-size: 16px;
+  font-size: 20px;
+  text-align: center;
   color: black;
   font-family: "Trebuchet MS";
 }
@@ -111,7 +113,8 @@ div.profPlotCont  .form-group {
 }
 
 div.profPlotCont .form-control {
-  font-size: 16px;
+  font-size: 20px;
+  text-align: center;
   color: black;
   font-family: "Trebuchet MS";
 }
