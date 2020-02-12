@@ -5,7 +5,8 @@
   width:320px;
   height: 55px;
   background-color: gainsboro;
-  font-size: 20px;
+  font-size: 24px;
+  font-family: Trebuchet MS;
   font-weight: bold;
   color: black;
 }
@@ -17,7 +18,8 @@
   width: 250px;
   height: 55px;
   background-color: gainsboro;
-  font-size: 20px;
+  font-size: 24px;
+  font-family: Trebuchet MS;
   font-weight: bold;
   color: black;
 }
@@ -41,10 +43,10 @@
 /*   left: 352px; */
 /* } */
 /*  */
-/* /* .svg-container{ */ */
-/* /*   position: absolute; */ */
-/* /*   top: 60px;  */ */
-/* /* } */ */
+/* /* .svg-container{ */ 
+/* /*   position: absolute; */ 
+/* /*   top: 60px;  */ 
+/* /* } */ 
 /*  */
 /* #showdiv-plotka-dateInput .form-control.shinyjs-resettable{ */
 /*   position: absolute; */
@@ -61,7 +63,8 @@
   width: 335px;
   height: 55px;
   background-color: gainsboro;
-  font-size: 20px;
+  font-size: 24px;
+  font-family: Trebuchet MS;
   font-weight: bold;
   color: black;
 }
@@ -73,7 +76,8 @@ position:absolute;
   width: 335px;
   height: 55px;
   background-color: gainsboro;
-  font-size: 20px;
+  font-size: 24px;
+  font-family: Trebuchet MS;
   font-weight: bold;
   color: black;
 }
@@ -127,11 +131,16 @@ div.profPlotCont .form-control {
 #showdiv-varset_container .control-label{
   position: absolute;
   top: 176px;
-    left: 407px;
-  width: 60px;
+  left: 395px;
+  width: 65px;
   font-weight: normal;
   color: black;
   font-size: 16px;
+  font-family: Trebuchet MS;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 } 
 
 #showdiv-varset_container .selectize-input{
@@ -140,6 +149,11 @@ div.profPlotCont .form-control {
    left: 445px;
   width: 195px;
   font-size: 16px;
+  font-family: Trebuchet MS;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 } 
 
 
@@ -150,6 +164,7 @@ div.profPlotCont .form-control {
   top: 720px;
   left:-310px;
   font-size: 16px;
+  font-family: Trebuchet MS;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -165,6 +180,7 @@ div.profPlotCont .form-control {
   left: 70px;
   width: 235px;
   font-size: 16px;
+  font-family: Trebuchet MS;
   color: black;
   display: none;
 } 
@@ -181,6 +197,7 @@ div.profPlotCont .form-control {
   top: 590px;
   left:195px;
   font-size: 16px;
+  font-family: Trebuchet MS;
   width: 440px;
   color: black;
   -webkit-user-select: none;
@@ -195,6 +212,7 @@ div.profPlotCont .form-control {
     top: 610px;
     left: 78px;
   font-size: 16px;
+  font-family: Trebuchet MS;
   font-weight: normal;
   width: 300px;
   color: black;
@@ -214,6 +232,7 @@ div.profPlotCont .form-control {
   top: 630px;
   left:195px;
   font-size: 16px;
+  font-family: Trebuchet MS;
   width: 440px;
   color: black;
   -webkit-user-select: none;
@@ -228,6 +247,7 @@ div.profPlotCont .form-control {
     top: 650px;
     left: 100px;
   font-size: 16px;
+  font-family: Trebuchet MS;
   font-weight: normal;
   width: 300px;
   color: black;
@@ -246,6 +266,7 @@ div.profPlotCont .form-control {
   left: -312px;
   font-weight: bold;
   font-size: 16px;
+  font-family: Trebuchet MS;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -261,6 +282,7 @@ div.profPlotCont .form-control {
   left: -312px;
   font-weight: bold;
   font-size: 16px;
+  font-family: Trebuchet MS;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -275,6 +297,7 @@ div.profPlotCont .form-control {
   left:70px;
   font-weight: bold;
   font-size: 16px;
+  font-family: Trebuchet MS;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -288,6 +311,7 @@ div.profPlotCont .form-control {
   left:70px;
   font-weight: bold;
   font-size: 16px;
+  font-family: Trebuchet MS;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -300,6 +324,7 @@ div.profPlotCont .form-control {
   top: 118px;
   left: 500px;
   font-size: 16px;
+  font-family: Trebuchet MS;
   color: black;
   width: 150px;
   -webkit-user-select: none;
@@ -320,6 +345,7 @@ div.profPlotCont .form-control {
     top: 113px;
     left:203px;
   font-size: 16px;
+  font-family: Trebuchet MS;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -331,6 +357,7 @@ div.profPlotCont .form-control {
     top: 118px;
     left:162px;
   font-size: 16px;
+  font-family: Trebuchet MS;
   color: black;
   font-weight: normal;
   -webkit-user-select: none;
@@ -344,6 +371,7 @@ div.profPlotCont .form-control {
     top: 23px;
     left:187px;
   font-size: 16px;
+  font-family: Trebuchet MS;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -357,6 +385,7 @@ div.profPlotCont .form-control {
     top: 60px;
     left:187px;
   font-size: 16px;
+  font-family: Trebuchet MS;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -370,6 +399,7 @@ div.profPlotCont .form-control {
     top: 628px;
     left:208px;
   font-size: 16px;
+  font-family: Trebuchet MS;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -382,6 +412,7 @@ div.profPlotCont .form-control {
     top: 648px;
     left: 70px;
   font-size: 16px;
+  font-family: Trebuchet MS;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -394,6 +425,7 @@ div.profPlotCont .form-control {
     top: 43px;
     right: 354px;
   font-size: 16px;
+  font-family: Trebuchet MS;
   color: black;
   font-weight: normal;
   -webkit-user-select: none;
@@ -407,6 +439,7 @@ div.profPlotCont .form-control {
     top: 80px;
     right: 354px;
   font-size: 16px;
+  font-family: Trebuchet MS;
   color: black;
   font-weight: normal;
   -webkit-user-select: none;

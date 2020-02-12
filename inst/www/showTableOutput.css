@@ -53,6 +53,7 @@ nemcsinal semmit
   width: 335px !important;
   background-color: white;
   font-size: 16px;
+  font-family: Trebuchet MS;
   border: 1px;
   border-color: lightgrey;
   border-style: solid;
@@ -67,6 +68,7 @@ nemcsinal semmit
   height: 5px !important;
   width: 335px !important;
   font-size: 16px;
+  font-family: Trebuchet MS;
   white-space: nowrap !important;
   padding-top: 0px !important;
   padding-bottom: 0px !important;
@@ -94,6 +96,7 @@ nemcsinal semmit
     user-select: none;
     cursor: pointer;
     font-size: 16px;
+    font-family: Trebuchet MS;
 }
 
  #showdiv-outputSelection tr:nth-child(even) { 
@@ -198,6 +201,11 @@ nemcsinal semmit
   border-color: lightgrey;
   border-style: solid;
   font-size:16px;
+  font-family: Trebuchet MS;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 /*#showdiv-table-output-header th:nth-child(1){
@@ -240,6 +248,7 @@ nemcsinal semmit
     border-width:1px;
     border-color: gray;
   font-size: 16px;
+  font-family: Trebuchet MS;
   padding: 2px;
 }
 
@@ -253,6 +262,7 @@ padding:2px;
     border-width:1px;
     border-color: gray;
     font-size: 16px;
+    font-family: Trebuchet MS;
     text-align:left;
     background-color: rgb(192,192,192);
     height: 30px;
