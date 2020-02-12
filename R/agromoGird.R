@@ -19,21 +19,21 @@
       selectInput(ns("climproj"),"CLIMATE PROJECTION:",NA)
     ),
     tags$div(
-      id = paste0(ns("inidir"),"_container"),
-      selectInput(ns("inidir"),"INI FILE DIRECTORY:",NA)
-    ),
-    tags$div(
       id = paste0(ns("algosel"),"_container"),
       selectInput(ns("algosel"),"ALGORYTHM SELECTION:",choices=c("[FaPe] PHOTOS: Farquhar | PET: Penman"))
     ),    
     tags$div(
       id = paste0(ns("story"),"_container"),
-      selectInput(ns("story"),"STORY-LINE FILE:",choices=c("none"))
+      selectInput(ns("story"),"STORYLINE:",choices=c(""))
     ),     
     tags$div(
       id = paste0(ns("outsq"),"_container"),
       textInput(ns("outsq"),"OUTPUT SQLite TABLE:",NA)
-    ),     
+    ),   
+    tags$div(
+      id = paste0(ns("alias"),"_container"),
+      textInput(ns("alias"),"ALIAS:",NA)
+    ), 
     tags$div(
       id = paste0(ns("queryalias"),"_container"),
       textInput(ns("queryalias"), "QUERY ALIAS:",NA)
@@ -66,7 +66,7 @@
     ),
     tags$div(
       id = paste0(ns("spatfocus"),"_container"),
-      selectInput(ns("spatfocus"),"{2}:",choices=c("0-3 cm layer"))
+      selectInput(ns("spatfocus"),"{2}:",choices=c("annual"))
     ),
     tags$div(
       id = paste0(ns("varfunc"),"_container"),
@@ -74,13 +74,29 @@
     ),
     tags$div(
       id = paste0(ns("aggrfunc"),"_container"),
-      selectInput(ns("aggrfunc"),"{4}:",choices=c("maximum"))
+      selectInput(ns("aggrfunc"),"{4}:",choices=c(">"))
     ),
     tags$div(
       id = paste0(ns("spaggr"),"_container"),
-      selectInput(ns("spaggr"),"{5}:",choices=c("10×10 km"))
-    ),    
-
+      selectInput(ns("spaggr"),"{5}:",choices=c("85"))
+    ),
+    tags$div(
+     id = paste0(ns("sqlfuncsix"),"_container"),
+     selectInput(ns("sqlfuncsix"),"{6}:",choices=c(""))
+   ),
+    tags$div(
+     id = paste0(ns("sqlfuncseven"),"_container"),
+     selectInput(ns("sqlfuncseven"),"{7}:",choices=c(""))
+   ),
+    tags$div(
+     id = paste0(ns("sqlfunceight"),"_container"),
+     selectInput(ns("sqlfunceight"),"{8}:",choices=c(""))
+  ),
+    tags$div(
+     id = paste0(ns("sqlfuncnine"),"_container"),
+     selectInput(ns("sqlfuncnine"),"{9}:",choices=c(""))
+   ),
+  
 tags$div(id="query","QUERIES:"),
 
 ## Itt is a funkcionalitas erosen kerdeses
