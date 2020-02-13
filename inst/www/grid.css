@@ -44,27 +44,29 @@
     font-size: 16px;
     color: black;
     font-family: Trebuchet MS;
+    display: none;
 }
 #griddiv-gridres_container .selectize-input.items.full.has-options.has-items {
     width: 140px;
     position: absolute;
     top: -45px;
     left: 145px;
+    display: none;
 }
 
 #griddiv-climproj_container {
     position: absolute;
     top: 70px;
-    left: 320px;
+    left: 15px;
     font-size: 16px;
     color: black;
     font-family: Trebuchet MS;
 }
 #griddiv-climproj_container .selectize-input.items.full.has-options.has-items {
-    width: 335px;
+    width: 635px;
     position: absolute;
     top: -45px;
-    left: 170px;
+    left: 175px;
 }
 
 #griddiv-ensclim_container {
