@@ -75,7 +75,8 @@ setupGUI <- function(iniName, baseDir, centralData){
   if(length(startOutSection) != 0){
     numOutVars <- getFirstNumber(startOutSection + 1)
     varCodes <- sapply(seq(from=(startOutSection + 2),length=numOutVars), getFirstNumber)
-    centralData <- centralData[sapply(varCodes,function(cod){which(centralData[,"VARCODE"] == cod)}),]
+    centralData <- centralData[match(varCodes,as.numeric(centralData[,"VARCODE"])),]
+        # centralData[sapply(varCodes,function(cod){which(centralData[,"VARCODE"] == cod)}),]
     # centraldata <- centralData[ord,]
   } 
   # browser()
@@ -98,6 +99,7 @@ setupGUI <- function(iniName, baseDir, centralData){
 }
 
 runMuso <- function(iniFile){
+    print(getwd())
  system2("./muso",sprintf("input/initialization/site/tmp/%s",iniFile))
  settings <- setupGUI(iniFile)
 }

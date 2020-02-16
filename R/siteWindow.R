@@ -172,7 +172,11 @@ agroMoSite <- function(input, output, session, dataenv, baseDir, connection,cent
   observe({
      # browser()
       if(iniFile()!=""){
-          settings <- setupGUI(iniFile(),isolate(baseDir()), centralData)
+          settings <- tryCatch(setupGUI(iniFile(),isolate(baseDir()), centralData),error=function(e){
+                            showNotification("Your iniFile is corrupt, please check it!",type="error")
+                            browser()
+                            NULL
+                        })
           # sapply(ls(settings),function(x){print(settings$x)})
           # browser()
           if(!is.null(settings) && settings$epc != ""){

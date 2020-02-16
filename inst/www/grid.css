@@ -251,11 +251,11 @@
     font-family: Trebuchet MS;
     color: black;
 }
-#griddiv-tempfocus_container {
+#griddiv-sqlfunc_1_container {
     position: absolute;
     top: 590px;
 }
-#griddiv-tempfocus_container .control-label {
+#griddiv-sqlfunc_1_container .control-label {
     position: absolute;
     top: 14px;
     right: 242px;
@@ -264,7 +264,7 @@
     color: red;
     font-weight:bold;
 }
-#griddiv-tempfocus_container .selectize-input.items.full.has-options.has-items{
+#griddiv-sqlfunc_1_container .selectize-input.items.full.has-options.has-items{
     position: absolute;
     right: 60px;
     width: 180px;
@@ -273,11 +273,11 @@
     color: black;
 }
 
-#griddiv-spatfocus_container {
+#griddiv-sqlfunc_2_container {
     position: absolute;
     top: 630px;
 }
-#griddiv-spatfocus_container .control-label {
+#griddiv-sqlfunc_2_container .control-label {
     position: absolute;
     top: 14px;
     right: 242px;
@@ -286,7 +286,7 @@
     color: red;
     font-weight:bold;
 }
-#griddiv-spatfocus_container .selectize-input.items.full.has-options.has-items{
+#griddiv-sqlfunc_2_container .selectize-input.items.full.has-options.has-items{
     position: absolute;
     right: 60px;
     width: 180px;
@@ -295,11 +295,11 @@
     color: black;
 }
 
-#griddiv-varfunc_container {
+#griddiv-sqlfunc_3_container {
     position: absolute;
     top: 670px;
 }
-#griddiv-varfunc_container .control-label {
+#griddiv-sqlfunc_3_container .control-label {
     position: absolute;
     top: 14px;
     right: 242px;
@@ -308,7 +308,7 @@
     color: red;
     font-weight:bold;
 }
-#griddiv-varfunc_container .selectize-input.items.full.has-options.has-items{
+#griddiv-sqlfunc_3_container .selectize-input.items.full.has-options.has-items{
     position: absolute;
     right: 60px;
     width: 180px;
@@ -317,12 +317,12 @@
     color: black;
 }
 
-#griddiv-aggrfunc_container {
+#griddiv-sqlfunc_4_container {
     position: absolute;
     top: 710px;
 }
 
-#griddiv-aggrfunc_container .control-label {
+#griddiv-sqlfunc_4_container .control-label {
     position: absolute;
     top: 14px;
     right: 242px;
@@ -331,7 +331,7 @@
     color: red;
     font-weight:bold;
 }
-#griddiv-aggrfunc_container .selectize-input.items.full.has-options.has-items{
+#griddiv-sqlfunc_4_container .selectize-input.items.full.has-options.has-items{
     position: absolute;
     right: 60px;
     width: 180px;
@@ -340,11 +340,11 @@
     color: black;
 }
 
-#griddiv-spaggr_container {
+#griddiv-sqlfunc_5_container {
     position: absolute;
     top: 550px;
 }
-#griddiv-spaggr_container .control-label {
+#griddiv-sqlfunc_5_container .control-label {
     position: absolute;
     top: 14px;
     right: 545px;
@@ -354,7 +354,7 @@
     color: red;
     font-weight:bold;
 }
-#griddiv-spaggr_container .selectize-input.items.full.has-options.has-items{
+#griddiv-sqlfunc_5_container .selectize-input.items.full.has-options.has-items{
     position: absolute;
     left: 290px;
     width: 180px;
@@ -363,12 +363,12 @@
     color: black;
 }
 
-#griddiv-sqlfuncsix_container {
+#griddiv-sqlfunc_6_container {
     position: absolute;
     top: 590px;
 }
 
-#griddiv-sqlfuncsix_container .control-label {
+#griddiv-sqlfunc_6_container .control-label {
     position: absolute;
     top: 14px;
     right: 545px;
@@ -378,7 +378,7 @@
     color: red;
     font-weight:bold;
 }
-#griddiv-sqlfuncsix_container .selectize-input {
+#griddiv-sqlfunc_6_container .selectize-input {
     position: absolute;
     left: 290px;
     width: 180px;
@@ -388,12 +388,12 @@
 }
 
 
-#griddiv-sqlfuncseven_container {
+#griddiv-sqlfunc_7_container {
     position: absolute;
     top: 630px;
 }
 
-#griddiv-sqlfuncseven_container .control-label {
+#griddiv-sqlfunc_7_container .control-label {
     position: absolute;
     top: 14px;
     right: 545px;
@@ -403,7 +403,7 @@
     color: red;
     font-weight:bold;
 }
-#griddiv-sqlfuncseven_container .selectize-input {
+#griddiv-sqlfunc_7_container .selectize-input {
     position: absolute;
     left: 290px;
     width: 180px;
@@ -413,12 +413,12 @@
 }
 
 
-#griddiv-sqlfunceight_container {
+#griddiv-sqlfunc_8_container {
     position: absolute;
     top: 670px;
 }
 
-#griddiv-sqlfunceight_container .control-label {
+#griddiv-sqlfunc_8_container .control-label {
     position: absolute;
     top: 14px;
     right: 545px;
@@ -428,7 +428,7 @@
     color: red;
     font-weight:bold;
 }
-#griddiv-sqlfunceight_container .selectize-input {
+#griddiv-sqlfunc_8_container .selectize-input {
     position: absolute;
     left: 290px;
     width: 180px;
@@ -438,12 +438,12 @@
 }
 
 
-#griddiv-sqlfuncnine_container {
+#griddiv-sqlfunc_9_container {
     position: absolute;
     top: 710px;
 }
 
-#griddiv-sqlfuncnine_container .control-label {
+#griddiv-sqlfunc_9_container .control-label {
     position: absolute;
     top: 14px;
     right: 545px;
@@ -453,7 +453,7 @@
     color: red;
     font-weight:bold;
 }
-#griddiv-sqlfuncnine_container .selectize-input {
+#griddiv-sqlfunc_9_container .selectize-input {
     position: absolute;
     left: 290px;
     width: 180px;
@@ -518,6 +518,12 @@
   cursor: default; 
     }
 
+span.reddi {
+    color: red;
+}
+span.timeSlice {
+    color: blue;
+}
 
 /*
 #griddiv-queryTable .dataTables_scrollBody thead{

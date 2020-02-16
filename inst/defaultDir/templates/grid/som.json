@@ -1,0 +1,48 @@
+{
+  "Names": { 
+            "en":"gridcells of {1} {2} {3} %",
+            "hu":"cellák, ahol a {1} {2} {3} %"
+               },
+  
+  "query": 
+
+         "SELECT CASE WHEN {1} {2} {3} THEN {1} ELSE NULL END FROM soildata INNER JOIN griddata10km ON griddata10km.id100m = soildata.id100m ORDER BY id10km;",
+	        
+  "options": {
+	
+	        "1": ["som0to30","som30to60","som60to100","som100to200"],
+		"2": [">","<","="],
+		"3": ["0.5","1","2","3","4","5","6","7","8","9","10"],
+		"4": [],
+		"5": [],
+		"6": [],
+		"7": [],
+		"8": [],
+		"9": []
+	            },
+  "optionAlias": {
+      "en": {
+          "1": ["soil organic matter from 0 to 30 cm","soil organic matter from 30 to 60 cm","soil organic matter from 60 to 100 cm","soil organic matter from 100 to 200 cm"],
+          "2": [">","<","="],
+          "3": ["0.5","1","2","3","4","5","6","7","8","9","10"],
+          "4": [],
+          "5": [],
+          "6": [],
+	  "7": [],
+	  "8": [],
+	  "9": []
+      } ,
+
+      "hu": {
+          "1": ["talaj szervesanyag tartalma 0-30 cm mélységben","talaj szervesanyag tartalma 30-60 cm mélységben","talaj szervesanyag tartalma 60-100 cm mélységben","talaj szervesanyag tartalma 100-200 cm mélységben"],
+          "2": [">","<","="],
+          "3": ["0.5","1","2","3","4","5","6","7","8","9","10"],
+          "4": [],
+          "5": [],
+	  "6": [],
+	  "7": [],
+	  "8": [],
+	  "9": []
+      }
+  }
+}

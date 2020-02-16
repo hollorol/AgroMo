@@ -88,6 +88,13 @@ nemcsinal semmit
   overflow-y: scroll;
   background-color: white;
 }
+
+#griddiv-queryTable {
+  overflow-y: scroll;
+  background-color: white;
+  position: absolute;
+  top: 314px;
+}
 #showdiv-outputSelection thead {
     display: none;
 }

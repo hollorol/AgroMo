@@ -1,0 +1,50 @@
+{
+  "Names": { 
+            "en":"gridcells of {1} county",
+            "hu":"{1} megye cellái"
+               },
+  
+  "query": 
+
+         "SELECT CASE WHEN nuts3 = {1} THEN 1 ELSE NULL END FROM griddata10km;",
+	        
+  "options": {
+	
+	        "1": ["HU110","HU120","HU211","HU212","HU213","HU221","HU222","HU223","HU231","HU232","HU233","HU311","HU312","HU313","HU321","HU322","HU323","HU331","HU332","HU333"],
+		"2": [],
+		"3": [],
+		"4": [],
+		"5": [],
+		"6": [],
+		"7": [],
+		"8": [],
+		"9": []
+	 
+	            },
+"optionAlias": {
+      "en": {
+          "1": ["Budapest","Pest","Fejér","Komárom-Esztergom","Veszprém","Győr-Moson-Sopron","Vas","Zala","Baranya","Somogy","Tolna","Borsod-Abaúj-Zemplén","Heves","Nógrád","Hajdú-Bihar","Jász-Nagykun-Szolnok","Szabolcs-Szatmár-Bereg","Bács-Kiskun","Békés","Csongrád"],
+          "2": [],
+          "3": [],
+          "4": [],
+          "5": [],
+          "6": [],
+	  "7": [],
+	  "8": [],
+	  "9": []
+      } ,
+
+      "hu": {
+          "1": ["Budapest","Pest","Fejér","Komárom-Esztergom","Veszprém","Győr-Moson-Sopron","Vas","Zala","Baranya","Somogy","Tolna","Borsod-Abaúj-Zemplén","Heves","Nógrád","Hajdú-Bihar","Jász-Nagykun-Szolnok","Szabolcs-Szatmár-Bereg","Bács-Kiskun","Békés","Csongrád"],
+          "2": [],
+          "3": [],
+          "4": [],
+          "5": [],
+	  "6": [],
+	  "7": [],
+	  "8": [],
+	  "9": []
+      }
+  }
+	 
+}

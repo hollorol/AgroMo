@@ -1,0 +1,50 @@
+{
+  "Names": { 
+            "en":"{1} of the annual LAI maximums in the [T-T] period",
+            "hu":"a tenyészidőszakon belüli maximális LAI értékek {1} a [T-T] időszakban"
+               },
+  
+  "query": 
+
+         "SELECT {1}(maxLai) FROM (SELECT MAX(lai) AS maxLai, plotid FROM agromo WHERE year >= [T1] AND year <= [T2] GROUP BY year, plotid) GROUP BY plotid;",
+	        
+  "options": {
+	
+	        "1": ["AVG","MAX","MIN"],
+			"2": [],
+			"3": [],
+			"4": [],
+			"5": [],
+			"6": [],
+			"7": [],
+			"8": [],
+			"9": []
+	 
+	            },
+"optionAlias": {
+      "en": {
+          "1": ["mean","maximum","minimum"],
+          "2": [],
+          "3": [],
+          "4": [],
+          "5": [],
+          "6": [],
+	  "7": [],
+	  "8": [],
+	  "9": []
+      } ,
+
+      "hu": {
+          "1": ["átlaga","maximuma","minimuma"],
+          "2": [],
+          "3": [],
+          "4": [],
+          "5": [],
+	  "6": [],
+	  "7": [],
+	  "8": [],
+	  "9": []
+      }
+  }
+	 
+}

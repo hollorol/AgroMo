@@ -188,7 +188,7 @@ agroServer <- function(input, output, session) {
      #                   dataenv = reactive(datas$dataenv),
      #                   baseDir = reactive({datas$baseDir}),
      #                   reactive({datas$connection}),centralData=centralData)
-     callModule(agroMoGrid,"griddiv")
+     callModule(agroMoGrid,"griddiv",baseDir=reactive({datas$baseDir}))
      observeEvent(input$grid,{
        shinyjs::hide("base")
        shinyjs::hide("base-tools")
@@ -283,7 +283,7 @@ agroServer <- function(input, output, session) {
     
    ## MAP
    {
-     callModule(agroMoMap,"mapdiv",baseDir=reactive({datas$baseDir}))
+     # callModule(agroMoMap,"mapdiv",baseDir=reactive({datas$baseDir}))
      observeEvent(input$map,{
        shinyjs::hide("base")
        shinyjs::hide("base-tools")
@@ -329,7 +329,7 @@ agroServer <- function(input, output, session) {
    
     ## ##  SHOW MODUL
 {
-    callModule(agroMoShow,"showdiv",dataenv = reactive(datas$dataenv),baseDir = reactive(datas$baseDir), connection = reactive({datas$connection}),centralData=centralData)
+    # callModule(agroMoShow,"showdiv",dataenv = reactive(datas$dataenv),baseDir = reactive(datas$baseDir), connection = reactive({datas$connection}),centralData=centralData)
 
 
       observeEvent(input$show,{
