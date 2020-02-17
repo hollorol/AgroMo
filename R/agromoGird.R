@@ -122,6 +122,7 @@ agroMoGrid <- function(input, output, session,baseDir){
                           jsonOptions=NULL,
                           jsonNumbers=NULL,
                           querySelector=NULL,
+                          queries=NULL,
                           language="en")
 
     observe({
@@ -301,6 +302,7 @@ colorReplacements <- function(stringVector){
     return(stringVector)
 }
 
-replaceTime <- function(t1,t2,fullstring){
-
-}
+# queryCreator(fileN, description, index, optis, connectionBase, dat){
+#     browser()
+#    interpolateInto(dat$replNumbers[[index]],optis,dat$query)
+# }
