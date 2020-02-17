@@ -32,7 +32,7 @@
     ),   
     tags$div(
       id = paste0(ns("alias"),"_container"),
-      textInput(ns("alias"),"ALIAS:",NA)
+      textInput(ns("alias"),"",NA)
     ), 
     tags$div(
       id = paste0(ns("queryalias"),"_container"),
@@ -40,9 +40,16 @@
     ),
     tags$div(
       id = paste0(ns("metadata"),"_container"),
-      textInput(ns("metadata"), "METADATA:",NA)
+      textInput(ns("metadata"), "DESCRIPTION:",NA)
     ),
-    
+    tags$div(
+      id = paste0(ns("climprojquery"),"_container"),
+      selectInput(ns("climprojquery"),"CLIMATE PROJECTION FOR QUERY:",NA)
+    ),
+    tags$div(
+      id = paste0(ns("algselquery"),"_container"),
+      selectInput(ns("algselquery"),"ALGORYTHM SELECTION FOR QUERY:",NA)
+    ),
 
     
 #itt a funkcionalitas kerdeses    
@@ -54,7 +61,7 @@
           
     tags$div(
       id = paste0(ns("time"),"_container"),
-      selectInput(ns("time"),"TIME SLICE [start-end]:",choices=c("1971"))
+      selectInput(ns("time"),"[start-end]:",choices=c("1971"))
     ),                
     tags$div(
       id = paste0(ns("until"),"_container"),
