@@ -1,0 +1,602 @@
+/* Suggestions: I would suggest to use posinition: absolute css declaration in every
+                place. The positions starts at the top-left corner of the root window,
+                which is the window except the banner. */
+#griddiv-story_container {
+    position: absolute;
+    top: 20px;
+    font-size: 16px;
+    color: black;
+    font-family: Trebuchet MS;
+}
+
+#griddiv-story_container .selectize-input{
+    position: absolute;
+    top: -42px;
+    left: 90px;
+    font-size: 16px;
+    color: black;
+    font-family: Trebuchet MS;
+    width: 260px;
+}
+
+#griddiv-alias_container {
+    position: absolute;
+    top: 21px;
+    left: 380px;
+    font-size: 16px;
+    color: black;
+    font-family: Trebuchet MS;
+}
+
+#griddiv-alias_container .form-control{
+    position: absolute;
+    top: -5px;
+    left: -12px;
+    font-size: 16px;
+    color: black;
+    font-family: Trebuchet MS;
+    width: 555px;
+}
+
+#griddiv-gridres_container {
+    position: absolute;
+    top: 70px;   
+    font-size: 16px;
+    color: black;
+    font-family: Trebuchet MS;
+    display: none;
+}
+#griddiv-gridres_container .selectize-input.items.full.has-options.has-items {
+    width: 140px;
+    position: absolute;
+    top: -45px;
+    left: 145px;
+    display: none;
+}
+
+#griddiv-climproj_container {
+    position: absolute;
+    top: 70px;
+    left: 15px;
+    font-size: 16px;
+    color: black;
+    font-family: Trebuchet MS;
+}
+#griddiv-climproj_container .selectize-input.items.full.has-options.has-items {
+    width: 635px;
+    position: absolute;
+    top: -45px;
+    left: 175px;
+}
+
+#griddiv-ensclim_container {
+    position: absolute;
+    top: 110px;
+    left: 835px;
+    font-size: 16px;
+    color: black;
+    font-family: Trebuchet MS;
+    width: 100px;
+}
+
+#griddiv-ensalg_container {
+    position: absolute;
+    top: 60px;
+    left: 835px;
+    font-size: 16px;
+    color: black;
+    font-family: Trebuchet MS;
+    width: 100px;
+}
+
+#griddiv-algosel_container {
+    position: absolute;
+    top: 120px;
+    font-size: 16px;
+    color: black;
+    font-family: Trebuchet MS;
+}
+#griddiv-algosel_container .selectize-input.items.full.has-options.has-items {
+    width: 635px;
+    position: absolute;
+    left: 190px;
+    top: -45px;
+}
+
+#griddiv-outsq_container {
+    position: absolute;
+    top: 175px;
+    font-size: 16px;
+    color: black;
+    font-family: Trebuchet MS;
+}
+#griddiv-outsq_container .form-control.shinyjs-resettable.shiny-bound-input {
+    width: 410px;
+    position: absolute;
+    left: 175px;
+    top: -5px;
+}
+
+#griddiv-StartSim {
+    position: absolute;
+    top: 155px;
+    left: 600px;
+    height: 60px;
+    width: 320px;
+    font-size: 26px;
+    font-family: Trebuchet MS;
+    color: black;
+    font-weight: bold;
+    background-color: gainsboro;
+}
+
+#griddiv-Map {
+    position: absolute;
+    top: 692px;
+    left: 740px;
+    height: 60px;
+    width: 170px;
+    font-size: 26px;
+    font-family: Trebuchet MS;
+    color: black;
+    font-weight: bold;
+    background-color: gainsboro;
+}
+
+#griddiv-RunQuery {
+    position: absolute;
+    top: 570px;
+    left: 740px;
+    height: 110px;
+    width: 170px;
+    font-size: 26px;
+    font-family: Trebuchet MS;
+    color: black;
+    font-weight: bold;
+    background-color: gainsboro;
+}
+
+#griddiv-queryalias_container {
+    position: absolute;
+    top: 450px;
+    right: 750px;
+    font-size: 16px;
+    font-family: Trebuchet MS;
+    color: black;
+}
+
+#griddiv-queryalias_container .form-control.shinyjs-resettable.shiny-bound-input {
+    width: 300px;
+    position: absolute;
+    top: -3px;
+    left: 220px;
+}
+
+#griddiv-queryalias_container label {
+    position: absolute;
+    top: -25px;
+    left: 220px;
+    width: 200px;
+    font-size: 16px;
+    font-family: Trebuchet MS;
+    color: black;
+    
+}
+
+#griddiv-metadata_container {
+    position: absolute;
+    top: 450px;
+    left: 120px;
+    font-size: 16px;
+    font-family: Trebuchet MS;
+    color: black;
+}
+
+#griddiv-metadata_container .form-control.shinyjs-resettable.shiny-bound-input {
+    width: 600px;
+    position: absolute;
+    top: -3px;
+    left: 198px;
+}
+
+#griddiv-metadata_container label {
+    position: absolute;
+    top: -25px;
+    left: 200px;
+    font-size: 16px;
+    font-family: Trebuchet MS;
+    color: black;
+}
+
+#griddiv-climprojquery_container {
+    position: absolute;
+    top: 490px;
+}
+
+#griddiv-climprojquery_container label {
+    font-size: 16px;
+    font-family: Trebuchet MS;
+    color: black;
+}
+
+#griddiv-climprojquery_container .form-group {
+    font-size: 16px;
+    font-family: Trebuchet MS;
+    color: black;
+    width: 300px;
+}
+
+#griddiv-algselquery_container {
+    position: absolute;
+    top: 490px;
+    left: 320px;
+}
+
+#griddiv-algselquery_container label {
+    font-size: 16px;
+    font-family: Trebuchet MS;
+    color: black;
+}
+#griddiv-algselquery_container .form-group {
+    font-size: 16px;
+    font-family: Trebuchet MS;
+    color: black;
+    width: 595px;
+}
+
+#griddiv-time_container {
+    position: absolute;
+    top: 530px;
+    right: 430px;
+
+}
+#griddiv-time_container .control-label {
+    position: absolute;
+    top: 32px;
+    font-size: 16px;
+    font-family: Trebuchet MS;
+    color: black;
+    font-weight: bold;
+    width: 100px;
+    color: blue;
+}
+#griddiv-time_container .selectize-input.items.full.has-options.has-items{
+    position: absolute;
+    right: 125px;
+    top: 18px;
+    width: 85px;
+    font-size: 16px;
+    font-family: Trebuchet MS;
+    color: black;
+}
+
+#griddiv-until_container {
+    position: absolute;
+    top: 548px;
+    left:278px;
+}
+#griddiv-until_container .control-label {
+    position: absolute;
+    top:14px;
+    right:291px;
+    font-size: 16px;
+    font-family: Trebuchet MS;
+    color: black;
+    font-weight:normal;
+}
+#griddiv-until_container .selectize-input.items.full.has-options.has-items{
+    position: absolute;
+    right: 203px;
+    width: 85px;
+    font-size: 16px;
+    font-family: Trebuchet MS;
+    color: black;
+}
+#griddiv-sqlfunc_1_container {
+    position: absolute;
+    top: 590px;
+}
+#griddiv-sqlfunc_1_container .control-label {
+    position: absolute;
+    top: 14px;
+    right: 242px;
+    font-size: 16px;
+    font-family: Trebuchet MS;
+    color: red;
+    font-weight:bold;
+}
+#griddiv-sqlfunc_1_container .selectize-input.items.full.has-options.has-items{
+    position: absolute;
+    left: 60px;
+    width: 315px;
+    font-size: 16px;
+    font-family: Trebuchet MS;
+    color: black;
+}
+
+#griddiv-sqlfunc_2_container {
+    position: absolute;
+    top: 630px;
+}
+#griddiv-sqlfunc_2_container .control-label {
+    position: absolute;
+    top: 14px;
+    right: 242px;
+    font-size: 16px;
+    font-family: Trebuchet MS;
+    color: red;
+    font-weight:bold;
+}
+#griddiv-sqlfunc_2_container .selectize-input.items.full.has-options.has-items{
+    position: absolute;
+    left: 60px;
+    width: 315px;
+    font-size: 16px;
+    font-family: Trebuchet MS;
+    color: black;
+}
+
+#griddiv-sqlfunc_3_container {
+    position: absolute;
+    top: 670px;
+}
+#griddiv-sqlfunc_3_container .control-label {
+    position: absolute;
+    top: 14px;
+    right: 242px;
+    font-size: 16px;
+    font-family: Trebuchet MS;
+    color: red;
+    font-weight:bold;
+}
+#griddiv-sqlfunc_3_container .selectize-input.items.full.has-options.has-items{
+    position: absolute;
+    left: 60px;
+    width: 315px;
+    font-size: 16px;
+    font-family: Trebuchet MS;
+    color: black;
+}
+
+#griddiv-sqlfunc_4_container {
+    position: absolute;
+    top: 710px;
+}
+
+#griddiv-sqlfunc_4_container .control-label {
+    position: absolute;
+    top: 14px;
+    right: 242px;
+    font-size: 16px;
+    font-family: Trebuchet MS;
+    color: red;
+    font-weight:bold;
+}
+#griddiv-sqlfunc_4_container .selectize-input.items.full.has-options.has-items{
+    position: absolute;
+    left: 60px;
+    width: 315px;
+    font-size: 16px;
+    font-family: Trebuchet MS;
+    color: black;
+}
+
+#griddiv-sqlfunc_5_container {
+    position: absolute;
+    top: 550px;
+}
+#griddiv-sqlfunc_5_container .control-label {
+    position: absolute;
+    top: 14px;
+    left: 390px;
+    font-size: 16px;
+    font-family: Trebuchet MS;
+    color: red;
+    font-weight:bold;
+}
+#griddiv-sqlfunc_5_container .selectize-input.items.full.has-options.has-items{
+    position: absolute;
+       left: 420px;
+    width: 310px;
+    font-size: 16px;
+    font-family: Trebuchet MS;
+    color: black;
+}
+
+#griddiv-sqlfunc_6_container {
+    position: absolute;
+    top: 590px;
+}
+
+#griddiv-sqlfunc_6_container .control-label {
+    position: absolute;
+    top: 14px;
+    left: 390px;
+    font-size: 16px;
+    font-family: Trebuchet MS;
+    color: red;
+    font-weight:bold;
+}
+#griddiv-sqlfunc_6_container .selectize-input {
+    position: absolute;
+        left: 420px;
+    width: 310px;
+    font-size: 16px;
+    font-family: Trebuchet MS;
+    color: black;
+}
+
+
+#griddiv-sqlfunc_7_container {
+    position: absolute;
+    top: 630px;
+}
+
+#griddiv-sqlfunc_7_container .control-label {
+    position: absolute;
+    top: 14px;
+    left: 390px;
+    font-size: 16px;
+    font-family: Trebuchet MS;
+    color: red;
+    font-weight:bold;
+}
+#griddiv-sqlfunc_7_container .selectize-input {
+    position: absolute;
+        left: 420px;
+    width: 310px;
+    font-size: 16px;
+    font-family: Trebuchet MS;
+    color: black;
+}
+
+
+#griddiv-sqlfunc_8_container {
+    position: absolute;
+    top: 670px;
+}
+
+#griddiv-sqlfunc_8_container .control-label {
+    position: absolute;
+    top: 14px;
+        left: 390px;
+    font-size: 16px;
+    font-family: Trebuchet MS;
+    color: red;
+    font-weight:bold;
+}
+#griddiv-sqlfunc_8_container .selectize-input {
+    position: absolute;
+        left: 420px;
+    width: 310px;
+    font-size: 16px;
+    font-family: Trebuchet MS;
+    color: black;
+}
+
+
+#griddiv-sqlfunc_9_container {
+    position: absolute;
+    top: 710px;
+}
+
+#griddiv-sqlfunc_9_container .control-label {
+    position: absolute;
+    top: 14px;
+    left: 390px;
+    font-size: 16px;
+    font-family: Trebuchet MS;
+    color: red;
+    font-weight:bold;
+}
+#griddiv-sqlfunc_9_container .selectize-input {
+    position: absolute;
+        left: 420px;
+    width: 310px;
+    font-size: 16px;
+    font-family: Trebuchet MS;
+    color: black;
+}
+#query{
+    position: absolute;
+    font-size: 16px;
+    font-family: Trebuchet MS;
+    color: black;
+    font-weight: bold;
+    top: 215px;
+}
+
+<<<<<<< HEAD
+#griddiv-queryTable  {
+  height: 225px !important;
+=======
+#griddiv-queryTable .dataTables_scrollBody {
+  height: 180px !important;
+>>>>>>> b92e6b0d48b7fd12991f631129e20a6924a35d15
+  width: 920px !important;
+  background-color: white;
+  font-size: 16px;
+  font-family: Trebuchet MS;
+  color: black;
+  position: absolute;
+  top: 240px !important;
+}
+
+
+
+#griddiv-queryTable .dataTables_scrollBody td:nth-child(1){
+  display:none;
+}
+
+#griddiv-queryTable .dataTables_scrollBody td:nth-child(2){
+  border-color:white;
+}
+#DataTables_Table_1_filter.dataTables_filter {
+ position: absolute;
+ top: 480px;
+ left: 585px;
+  width: 335px;
+}
+
+#basearrow {
+    position: absolute;
+  top: 220px;
+  left: -228px;
+  height: 43px;
+  width: 75px;
+  border-width: 0px;
+  border-radius: 1px;
+}
+#backsite {
+    position: absolute;
+  top: 220px;
+  left: -138px;
+  border-width: 0px;
+  border-radius: 1px;
+  height: 43px;
+  width: 75px;
+}
+#Grid-banner-div img{
+  cursor: default; 
+    }
+
+span.reddi {
+    color: red;
+}
+span.timeSlice {
+    color: blue;
+}
+
+/*
+#griddiv-queryTable .dataTables_scrollBody thead{
+  display:none;
+}
+
+#DataTables_Table_1_filter.dataTables_filter {
+ position: absolute;
+ top: 480px;
+ left: 585px;
+  width: 335px;
+}
+
+#griddiv-queryTable .dataTables_scrollBody {
+  border-bottom: 0px !important;
+  border-bottom-color: lightgrey !important;
+  border-bottom-style: solid;
+  border-bottom: 1px;
+  height: 245px !important;
+  width: 920px !important;
+  background-color: white;
+  font-size: 16px;
+  border: 1px;
+  border-color: lightgrey;
+  border-style: solid;
+  overflow-y: scroll !important;
+    position: absolute;
+    top: 220px;
+}*/
+
+.griddiv-selected-vars {
+    background-color: #b0bed9;
+    border: 0;
+}
