@@ -45,7 +45,7 @@ agroMoShowUI <- function(id){
                             Shiny.addCustomMessageHandler('getTable', function(message) {
                              Shiny.onInputChange('%s',JSON.stringify(getJSONFromDataTable()));
                              Shiny.setInputValue('%s',Math.random());
-                        console.log(getJSONFromDataTable());
+                        //console.log(getJSONFromDataTable());
                       });
 ", ns("outTable"),ns("showChanged")
 
@@ -81,7 +81,7 @@ agroMoShowUI <- function(id){
                                          "
                                          $('#%s').on('click','td', function(){
                                             $(this).toggleClass('showdiv-selected-vars');
-                                            let selections = getIndexesForSelection('.showdiv-selected-vars');
+                                            let selections = getIndexesForSelection('#%s','.showdiv-selected-vars');
                                             if(selections.length <= 5){
                                                 Shiny.onInputChange('%s',selections);
                                             } else {
@@ -91,7 +91,7 @@ agroMoShowUI <- function(id){
                                             // console.log(getIndexesForSelection('.showdiv-selected-vars'))
                                          })
                                         
-                                         ",ns("outputSelection"),ns("tableList"))
+                                         ",ns("outputSelection"),ns("outputSelection"),ns("tableList"))
                                           )),
 
                     tags$script(HTML(

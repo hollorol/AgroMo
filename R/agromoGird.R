@@ -1,7 +1,6 @@
   agroMoGridUI <- function(id){
     ns <- NS(id)
     tags$div(id = ns(id),
-
     tags$div(
     id = paste0(ns("ensclim"),"_container"),
     checkboxInput(ns("ensclim"), label = "Ensemble", value = FALSE)
@@ -58,17 +57,17 @@
      
     tags$div(
       id = paste0(ns("time"),"_container"),
-      selectInput(ns("time"),"TIME SLICE [start-end]:",choices=c("1971"))
+      selectInput(ns("time"),"TIME SLICE [start-end]:",choices=c(""))
     ),                
     tags$div(
       id = paste0(ns("until"),"_container"),
-      selectInput(ns("until"),"-",choices=c("2100"))
+      selectInput(ns("until"),"-",choices=c(""))
     ),  
     do.call(tagList,(
                       lapply(1:9,function(x){
                                  tags$div(
                                           id= ns(sprintf("sqlfunc_%s_container",x)),
-                                          selectInput(sprintf("sqlfunc_%s",x),sprintf("{%s}:",x),choices=c(""))
+                                          selectInput(ns(sprintf("sqlfunc_%s",x)),sprintf("{%s}:",x),choices=c("NA"))
                                  )
                       })
     )),
@@ -78,22 +77,78 @@ tags$div(id="query","QUERIES:"),
 tags$div(
         tableOutput(ns("queryTable"))
   )  
-    )
-                          
+    ,
+    tags$script(HTML( sprintf(
+                                         "
+                                         $('#%s').on('click','td', function(){
+                                            $('#%s td').removeClass();
+                                            $(this).toggleClass('griddiv-selected-vars');
+                                            let selections = getIndexesForSelection('#%s','.griddiv-selected-vars');
+                                            if(selections.length <= 5){
+                                                Shiny.onInputChange('%s',selections);
+                                            } else {
+                                                $(this).toggleClass('griddiv-selected-vars');
+
+                                            }
+                                           //  console.log(getIndexesForSelection('.showdiv-selected-vars'))
+                                         })
+
+                                         ",ns("queryTable"),ns("queryTable"),ns("queryTable"),ns("queryList"))
+                                          )),
+    tags$script(HTML("
+                                        Shiny.addCustomMessageHandler('refreshSelected',function(message){
+                                           $('#griddiv-queryTable tr:nth-child('+Number(message.indexOfQuery)+')').html(message.querySentence);
+                                        }
+                                        )  
+                             
+                             "))
+    )                      
   }
-  
-  agroMoGrid <- function(input, output, session,baseDir){
+
+#' agromoGrid
+#'
+#' This is agromoGrid main function
+#' @importFrom jsonlite read_json
+
+agroMoGrid <- function(input, output, session,baseDir){
+    language <- "en"
     ns <- session$ns
-    dat <- reactiveValues(jsonList=NULL, storyFiles=list())
+    dat <- reactiveValues(storyVars=NULL,
+                          storyCSV=NULL,
+                          storyTimeRange=NULL,
+                          jsonList=NULL,
+                          storyFiles=list(),
+                          queryNames=NULL,
+                          jsonOptions=NULL,
+                          jsonNumbers=NULL,
+                          querySelector=NULL,
+                          language="en")
 
     observe({
-    jsonlist <- lapply((list.files(path=file.path(baseDir()),pattern="*.json", full.names=TRUE)),read_json)
+        dat$jsonList <- lapply((list.files(path=file.path(baseDir(),"templates/grid"),pattern="*.json", full.names=TRUE)),read_json)
+        # browser()
+        dat$queryNames <-  sapply(dat$jsonList,function(x) x$Names[[dat$language]])
+        dat$replNumbers <- sapply(dat$queryNames,getReplacementNumbers)
+        # browser()
+        dat$firstOptions <- lapply(dat$jsonList,function(x) {unlist(lapply(x$optionAlias[[dat$language]],function(y){y[1]}))}) 
+        
+        dat$querySelector <- as.data.frame(colorReplacements(unlist(lapply(seq_along(dat$replNumbers),function(i){
+                                                              # if(i==8) browser()
+                                                              interpolateInto(dat$replNumbers[[i]],dat$firstOptions[[i]],dat$queryNames[i]) 
+                                 }))),stringsAsFactors=FALSE)
+        # dat$options <- 
+
     }) 
-    jsonlist <- lapply((list.files(path=file.path(baseDir()),pattern="*.json", full.names=TRUE)),read_json)
+
+    # observe({
+    #     dat$querySelector <- as.data.frame(colorReplacements(dat$queryNames),stringsAsFactors=FALSE)
+    # })
+
+
 
 
     #dat[["dataenv"]] <-readRDS("output/outputs.RDS")
-   # queryNames <- ls(dat$dataenv)
+    # queryNames <- ls(dat$dataenv)
 
     observe({
         dat$storyFiles <- grep(".*\\.story",list.files(file.path(baseDir(),"input","storyline"), full.names=TRUE), value=TRUE)
@@ -109,26 +164,86 @@ tags$div(
     })
 
     observeEvent(input$story,{
-        if(isolate(input$story)!=""){
-            output$alias <- renderText({readLines(dat$storyFiles[match(input$story,dat$storyOptions)],n=1)})
+                     if(input$story!=""){
+                         choosenStoryFile <- dat$storyFiles[match(input$story,dat$storyOptions)]
+                         output$alias <- renderText({readLines(choosenStoryFile,n=1)})
+                         dat$storyVars <- as.character(read.table(choosenStoryFile,skip=1, nrows=1, sep=";",stringsAsFactors=FALSE))
+                         dat$storyCSV <- read.table(choosenStoryFile,skip=2, sep=";",stringsAsFactors=FALSE)
+
+                        
+                         # browser()
+                         # sites <- split(dat$storyCSV, dat$storyCSV[,1])
+                         # dat$numYears <- as.numeric(lapply(sites,function(m){
+                         #                        m[nrow(m),4] - m[1,3] + 1
+                         # }))
+                         dat$storyTimeRange <- range(dat$storyCSV[,c(3,4)])
+                     }
+    })
+
+    observe({
+        if(input$story != ""){
+            updateSelectInput(session,"time",choices=dat$storyTimeRange[1]:dat$storyTimeRange[2], selected=dat$storyTimeRange[1])
+            updateSelectInput(session,"until",choices=dat$storyTimeRange[1]:dat$storyTimeRange[2], selected=dat$storyTimeRange[2])
         }
     })
 
-    observeEvent(,{
+    observeEvent(input$time,{
+        if(input$time!=""){
+            updateSelectInput(session,"until",choices=input$time:dat$storyTimeRange[2], selected=dat$storyTimeRange[2])
+        }
+    })
+    optionsToQueries <- c("")
+    observe({
+        if(!is.null(input$queryList)){
+            a <- dat$queryNames
+             sapply(1:9,function(x){
+                        choices <- unlist(dat$jsonList[[input$queryList]]$optionAlias[[dat$language]][[as.character(x)]], use.names=TRUE)
+                        if(is.null(choices)){
+                            choices <- "NA"
+                        }
+                        updateSelectInput(session,sprintf("sqlfunc_%s",x),
+                                          choices=choices)
+                      })
+        }
+        # session$sendCustomMessage("refreshSelected",input$queryList)
+    })
+
+    observe({
+        inputs <- sapply(1:9,function(x){input[[sprintf("sqlfunc_%s",x)]]})
+        if(!is.null(isolate(input$queryList))){
+            indexOfQuery <- isolate(input$queryList)
+            # browser()
+            newQuerySentence <- interpolateInto(seq_along(isolate(dat$replNumbers[[indexOfQuery]])),
+                                        inputs[seq_along(isolate(dat$replNumbers[[indexOfQuery]]))]
+                                                ,isolate(dat$queryNames)[indexOfQuery])
+            if((input$time!="")&&(input$until!="")){
+                newQuerySentence <- gsub("\\[T-T\\]",sprintf("[%s-%s]",input$time,input$until),newQuerySentence)
+            }
+            newQuerySentence <- sprintf("<td class=\"griddiv-selected-vars\">%s</td>",colorReplacements(newQuerySentence))
+            # dat$querySelector[indexOfQuery,1] <- colorReplacements(newQuerySentence)
+            session$sendCustomMessage("refreshSelected",list(indexOfQuery=indexOfQuery, querySentence=newQuerySentence))
+            # dat$querySelector<- isolate(dat$querySelector)[-1,1]
+        }
     
     })
-     
+
+    observe({
+         
+    
+    })
+
+
     # output$queryTable <- DT::renderDataTable (tabe,options = list(autowidth = FALSE, paginate = FALSE, scrollX = FALSE, scrollY = FALSE, searching = TRUE, info = FALSE, header=FALSE,rownames=FALSE))
     observe({
-    tabe=data.frame(c("<span class=\"reddi\">{1:mean}</span> {2:annual} yield {3:max} in the [start-end] period", "{1:max} {2:annual} lai {3:max} in the [start-end] period", "{1:mean} {2:may} {3:0-3 cm} soiltemp {4:mean} in the <span class=\"timeSlice\">[start-end]</span> period"))
-        output$queryTable <- renderTable(tabe,colnames=FALSE,width="100%", sanitize.text.function = function(x) x )
+# data.frame(c("<span class=\"reddi\">{1:mean}</span> {2:annual} yield {3:max} in the [start-end] period", "{1:max} {2:annual} lai {3:max} in the [start-end] period", "{1:mean} {2:may} {3:0-3 cm} soiltemp {4:mean} in the <span class=\"timeSlice\">[start-end]</span> period"))
+        output$queryTable <- renderTable(dat$querySelector,colnames=FALSE,width="100%", sanitize.text.function = function(x) x )
     }) 
-#    output$queryTable <- DT::renderDataTable({
-      
+    #    output$queryTable <- DT::renderDataTable({
+
     # DT::datatable(data.frame(outputName = queryNames), options = list(autowidth = FALSE, paginate = FALSE, scrollX = FALSE, scrollY = 600, searching = TRUE, info = FALSE, header=FALSE,rownames=FALSE))
     #}) 
-    
-  }
+
+}
   
   
 changeFilesWithRegex <- function (iniFiles, indexOfRows, replacements, regex=NULL) {
@@ -166,9 +281,11 @@ getReplacementNumbers <- function (baseString) {
 }
 
 interpolateInto <- function(places, strings, jsonstring){
+
     for(i in seq_along(places)){
-        jsonstring <- gsub(sprintf("(\\{%s\\})",places[i]),strings[places[i]],jsonstring)
+        jsonstring <- gsub(sprintf("(\\{%s\\})",places[i]), sprintf("{%s: %s}", i, strings[places[i]]),jsonstring)
     }
+
     return(jsonstring)
 }
 
@@ -176,4 +293,14 @@ interpolateArray <- function (jsonlist,x) {
     jsonIndex<- x$jsonIndex
     jsonOptions <- x$jsonOptions
     interpolateInto(getReplacementNumbers(jsonlist[[jsonIndex]]$query), jsonOptions, jsonlist[[jsonIndex]]$query)
+}
+
+colorReplacements <- function(stringVector){
+    stringVector <- gsub("(\\{.*?\\})","<span class=\"reddi\">\\1</span>",stringVector)
+    stringVector <- gsub("(\\[.*?\\-.*?\\])","<span class=\"timeSlice\">\\1</span>",stringVector)
+    return(stringVector)
+}
+
+replaceTime <- function(t1,t2,fullstring){
+
 }
