@@ -47,7 +47,7 @@
     ),
     tags$div(
       id = paste0(ns("metadata"),"_container"),
-      textInput(ns("metadata"), "METADATA:",NA)
+      textInput(ns("metadata"), "DESCRIPTION:",NA)
     ),
     
     tags$div(id = ns("Buttons"),
