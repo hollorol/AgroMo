@@ -60,10 +60,17 @@
     tags$div(
       id = paste0(ns("palette"),"_container"),title="Select colour palette for map",
       selectInput(ns("palette"),"palette:",choices= paletteAlias[,2])),
+# <<<<<<< HEAD
 #    tags$div(
 #      id = paste0(ns("colnumb"),"_container"),title="Select the number of colours/subranges to be distinguished on the map",
 #      selectInput(ns("colnumb"),"number of colours:",choices=c(2,4,8,16,32))
 #    ),
+# =======
+    tags$div(
+      id = paste0(ns("colnumb"),"_container"),title="Select the number of colours/subranges to be distinguished on the map",
+      selectInput(ns("colnumb"),"number of colours:",choices=2:32)
+    ),
+# >>>>>>> feature/visualization
     tags$div(
       id = paste0(ns("min"),"_container"), title="Set the minimum value for the data presented on the map",
       textInput(ns("min"),"min. value:",NA)
@@ -76,10 +83,17 @@
       id = paste0(ns("max"),"_container"),title="Set the maximum value for the data presented on the map",
       textInput(ns("max"),"max. value:",NA)
     ),
+# <<<<<<< HEAD
 tags$div(
   id = paste0(ns("intv"),"_container"),
   textInput(ns("intv"),"interval:",NA)
 ),
+# =======
+    # tags$div(
+    #   id = paste0(ns("binWidth"),"_container"),title="Set the bin width between the minium and maximum values",
+    #   textInput(ns("bw"),"bw:",NA)
+    # ),
+# >>>>>>> feature/visualization
 #    tags$div(
 #      id = paste0(ns("maxprec"),"_container"),
 #      selectInput(ns("maxprec"),"precision of rounding:",choices=c(0,1,2,3,4,5))
@@ -273,13 +287,14 @@ agroMoMap <- function(input, output, session, baseDir){
               if(file.exists(mapData)){
                   agroMap(myData=read.csv(mapData)[,2], nticks=as.numeric(input$colnumb),
                     reverseColorScale=input$invert, colorSet=myColors[myColors[,2]==input$palette,1],
-                    lonlat=input$latlon, imageTitle=mapImage, plotTitle=input$maptitle, countrycont=input$countrycont
+                    lonlat=input$latlon, imageTitle=mapImage, plotTitle=input$maptitle, countrycont=input$countrycont,
+                    roundPrecision=as.numeric(input$minprec)
                   ) 
               } else {
                   agroMap(datas$connection, query=sqlString, nticks=as.numeric(input$colnumb),
                     reverseColorScale=input$invert,colorSet=myColors[myColors[,2]==input$palette,1], 
                     lonlat=input$latlon, imageTitle=mapImage, plotTitle=input$maptitle, countrycont=input$countrycont,
-                    outFile=mapData) 
+                    roundPrecision=as.numeric(input$minprec), outFile=mapData) 
               }
 
           output$map_left <- renderImage({

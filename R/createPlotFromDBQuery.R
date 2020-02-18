@@ -192,7 +192,7 @@ agroMapVector <- function(data, nticks=NULL, binwidth=NULL, minimum=NULL, maximu
                                roundPrecision=roundPrecision, reverseColorScale=reverseColorScale, colorSet=colorSet)
     if(!is.null(imageTitle)){
       png(imageTitle, units="in", width=14, height=9, pointsize=14, res=300)  
-      par(omi=c(0,0,0,1.3))
+      par(omi=c(0,0,0,0.8))
     }
 
     # windows()
@@ -232,7 +232,7 @@ agroMapVector <- function(data, nticks=NULL, binwidth=NULL, minimum=NULL, maximu
    #png(fileTitle, units="in", width=14, height=9, pointsize=14, res=100)
     if(!is.null(imageTitle)){
       png(imageTitle, units="in", width=14, height=9, pointsize=14, res=300)    
-      par(omi=c(0,0,0,1.3))
+      par(omi=c(0,0,0,0.8))
     }
       image.plot(lon, lat, grid_array, xaxt="n", yaxt="n", ann=FALSE, col=colorbar, breaks=brks, lab.breaks=brks)#, asp=1.5555555555)
       if(lonlat==TRUE) {
