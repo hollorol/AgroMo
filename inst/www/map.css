@@ -384,17 +384,17 @@ height: 30px;
 
 #mapdiv-map_right img {
     position: absolute;
-    top: 425px;
-    left: 511px;
-    height: 230px;
+    top: 435px;
+    left: 470px;
+    height: 290px;
     cursor: zoom-in;
 }
 
 #mapdiv-map_left img {
     position: absolute;
-    top: 425px;
-    left: 100px;
-    height: 230px;
+    top: 435px;
+    left: -15px;
+    height: 290px;
     cursor: zoom-in;
 }
 
