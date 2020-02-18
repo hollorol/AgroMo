@@ -35,11 +35,11 @@
     ),     
     tags$div(
       id = paste0(ns("outsq"),"_container"),
-      textInput(ns("outsq"),"OUTPUT SQLite TABLE:",NA)
+      textInput(ns("outsq"),"OUTPUT SQLite DATABASE:",NA)
     ),   
     tags$div(
       id = paste0(ns("alias"),"_container"),
-      textOutput(ns("alias"))
+      textInput(ns("alias"),"",NA)
     ), 
     tags$div(
       id = paste0(ns("queryalias"),"_container"),
@@ -49,6 +49,14 @@
       id = paste0(ns("metadata"),"_container"),
       textInput(ns("metadata"), "DESCRIPTION:",NA)
     ),
+    tags$div(
+      id = paste0(ns("climprojquery"),"_container"),
+      selectInput(ns("climprojquery"),"CLIMATE PROJECTION FOR QUERY:",NA)
+    ),
+    tags$div(
+      id = paste0(ns("algselquery"),"_container"),
+      selectInput(ns("algselquery"),"ALGORYTHM SELECTION FOR QUERY:",NA)
+    ),
     
     tags$div(id = ns("Buttons"),
     actionButton(ns("StartSim"),label = "START SIMULATION"),
@@ -57,7 +65,7 @@
      
     tags$div(
       id = paste0(ns("time"),"_container"),
-      selectInput(ns("time"),"TIME SLICE [start-end]:",choices=c(""))
+      selectInput(ns("time"),"[start-end]:",choices=c(""))
     ),                
     tags$div(
       id = paste0(ns("until"),"_container"),

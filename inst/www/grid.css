@@ -31,11 +31,11 @@
 #griddiv-alias_container .form-control{
     position: absolute;
     top: -5px;
-    left: 50px;
+    left: -12px;
     font-size: 16px;
     color: black;
     font-family: Trebuchet MS;
-    width: 490px;
+     width: 555px;
 }
 
 #griddiv-gridres_container {
@@ -44,27 +44,35 @@
     font-size: 16px;
     color: black;
     font-family: Trebuchet MS;
+    display: none;
 }
 #griddiv-gridres_container .selectize-input.items.full.has-options.has-items {
     width: 140px;
     position: absolute;
     top: -45px;
     left: 145px;
+  display: none;
 }
 
 #griddiv-climproj_container {
     position: absolute;
     top: 70px;
-    left: 320px;
+    left: 15px;
     font-size: 16px;
     color: black;
     font-family: Trebuchet MS;
 }
 #griddiv-climproj_container .selectize-input.items.full.has-options.has-items {
-    width: 335px;
+    width: 635px;
     position: absolute;
-    top: -45px;
-    left: 170px;
+    top: -15px;
+    left: 175px;
+}
+
+#griddiv-climproj_container label {
+    position: absolute;
+    top: 0px;
+    right: 131px;
 }
 
 #griddiv-ensclim_container {
@@ -101,26 +109,31 @@
     top: -45px;
 }
 
-
 #griddiv-outsq_container {
     position: absolute;
-    top: 165px;
+    top: 175px;
     font-size: 16px;
     color: black;
     font-family: Trebuchet MS;
 }
 #griddiv-outsq_container .form-control.shinyjs-resettable.shiny-bound-input {
-    width: 745px;
+    width: 400px;
     position: absolute;
-    left: 175px;
+    left: 190px;
     top: -5px;
+}
+
+#griddiv-outsq_container label {
+    position: absolute;
+    left: -18px;
 }
 
 #griddiv-StartSim {
     position: absolute;
-    top: 210px;
+    top: 155px;
+    left: 600px;
     height: 60px;
-    width: 920px;
+    width: 320px;
     font-size: 26px;
     font-family: Trebuchet MS;
     color: black;
@@ -130,10 +143,10 @@
 
 #griddiv-Map {
     position: absolute;
-    top: 692px;
-    left: 715px;
-    height: 60px;
-    width: 190px;
+    top: 682px;
+    left: 745px;
+    height: 70px;
+    width: 170px;
     font-size: 26px;
     font-family: Trebuchet MS;
     color: black;
@@ -143,27 +156,29 @@
 
 #griddiv-RunQuery {
     position: absolute;
-    top: 692px;
-    left: 495px;
-    height: 60px;
-    width: 210px;
+    top: 559px;
+    left: 745px;
+    height: 110px;
+    width: 170px;
     font-size: 26px;
     font-family: Trebuchet MS;
     color: black;
     font-weight: bold;
     background-color: gainsboro;
+    white-space: normal !important;
 }
 
 #griddiv-queryalias_container {
     position: absolute;
-    top: 578px;
-    left: 275px;
+    top: 450px;
+    right: 750px;
     font-size: 16px;
     font-family: Trebuchet MS;
     color: black;
 }
+
 #griddiv-queryalias_container .form-control.shinyjs-resettable.shiny-bound-input {
-    width: 410px;
+    width: 300px;
     position: absolute;
     top: -3px;
     left: 220px;
@@ -182,19 +197,20 @@
 
 #griddiv-metadata_container {
     position: absolute;
-    top: 648px;
-    left: 297px;
+    top: 450px;
+    left: 120px;
     font-size: 16px;
     font-family: Trebuchet MS;
     color: black;
 }
 
 #griddiv-metadata_container .form-control.shinyjs-resettable.shiny-bound-input {
-    width: 410px;
+    width: 600px;
     position: absolute;
     top: -3px;
     left: 198px;
 }
+
 #griddiv-metadata_container label {
     position: absolute;
     top: -25px;
@@ -204,14 +220,63 @@
     color: black;
 }
 
+#griddiv-climprojquery_container {
+    position: absolute;
+    top: 490px;
+}
+
+#griddiv-climprojquery_container label {
+    font-size: 16px;
+    font-family: Trebuchet MS;
+    color: black;
+}
+
+#griddiv-climprojquery_container .form-group {
+    font-size: 16px;
+    font-family: Trebuchet MS;
+    color: black;
+    width: 300px;
+}
+
+#griddiv-climprojquery_container .selectize-input {
+position: absolute;
+    top: -14px;
+}
+
+#griddiv-algselquery_container {
+    position: absolute;
+    top: 490px;
+    left: 320px;
+}
+
+#griddiv-algselquery_container label {
+    font-size: 16px;
+    font-family: Trebuchet MS;
+    color: black;
+}
+#griddiv-algselquery_container .form-group {
+    font-size: 16px;
+    font-family: Trebuchet MS;
+    color: black;
+    width: 598px;
+}
+
+
+#griddiv-algselquery_container .selectize-input {
+position: absolute;
+    top: -14px;
+    left: -2px;
+}
+
 #griddiv-time_container {
     position: absolute;
-    top: 530px;
-    left: -30px;
+    top: 528px;
+    right: 430px;
 
 }
 #griddiv-time_container .control-label {
     position: absolute;
+    top: 32px;
     font-size: 16px;
     font-family: Trebuchet MS;
     color: black;
@@ -219,7 +284,7 @@
     width: 100px;
     color: blue;
 }
-#griddiv-time_container .selectize-input.items.full.has-options.has-items{
+#griddiv-time_container .selectize-input {
     position: absolute;
     right: 125px;
     top: 18px;
@@ -231,8 +296,8 @@
 
 #griddiv-until_container {
     position: absolute;
-    top: 548px;
-    left: 145px;
+    top: 546px;
+    left: 278px;
 }
 #griddiv-until_container .control-label {
     position: absolute;
@@ -243,7 +308,7 @@
     color: black;
     font-weight:normal;
 }
-#griddiv-until_container .selectize-input.items.full.has-options.has-items{
+#griddiv-until_container .selectize-input {
     position: absolute;
     right: 203px;
     width: 85px;
@@ -253,7 +318,7 @@
 }
 #griddiv-sqlfunc_1_container {
     position: absolute;
-    top: 590px;
+    top: 589px;
 }
 #griddiv-sqlfunc_1_container .control-label {
     position: absolute;
@@ -266,8 +331,8 @@
 }
 #griddiv-sqlfunc_1_container .selectize-input.items.full.has-options.has-items{
     position: absolute;
-    right: 60px;
-    width: 180px;
+    left: 60px;
+    width: 315px;
     font-size: 16px;
     font-family: Trebuchet MS;
     color: black;
@@ -275,7 +340,7 @@
 
 #griddiv-sqlfunc_2_container {
     position: absolute;
-    top: 630px;
+    top: 629px;
 }
 #griddiv-sqlfunc_2_container .control-label {
     position: absolute;
@@ -288,8 +353,8 @@
 }
 #griddiv-sqlfunc_2_container .selectize-input.items.full.has-options.has-items{
     position: absolute;
-    right: 60px;
-    width: 180px;
+    left: 60px;
+    width: 315px;
     font-size: 16px;
     font-family: Trebuchet MS;
     color: black;
@@ -297,7 +362,7 @@
 
 #griddiv-sqlfunc_3_container {
     position: absolute;
-    top: 670px;
+    top: 669px;
 }
 #griddiv-sqlfunc_3_container .control-label {
     position: absolute;
@@ -310,8 +375,8 @@
 }
 #griddiv-sqlfunc_3_container .selectize-input.items.full.has-options.has-items{
     position: absolute;
-    right: 60px;
-    width: 180px;
+    left: 60px;
+    width: 315px;
     font-size: 16px;
     font-family: Trebuchet MS;
     color: black;
@@ -319,7 +384,7 @@
 
 #griddiv-sqlfunc_4_container {
     position: absolute;
-    top: 710px;
+    top: 709px;
 }
 
 #griddiv-sqlfunc_4_container .control-label {
@@ -333,8 +398,8 @@
 }
 #griddiv-sqlfunc_4_container .selectize-input.items.full.has-options.has-items{
     position: absolute;
-    right: 60px;
-    width: 180px;
+    left: 60px;
+    width: 315px;
     font-size: 16px;
     font-family: Trebuchet MS;
     color: black;
@@ -342,13 +407,12 @@
 
 #griddiv-sqlfunc_5_container {
     position: absolute;
-    top: 550px;
+    top: 548px;
 }
 #griddiv-sqlfunc_5_container .control-label {
     position: absolute;
     top: 14px;
-    right: 545px;
-    left: 258px;
+    left: 390px;
     font-size: 16px;
     font-family: Trebuchet MS;
     color: red;
@@ -356,8 +420,8 @@
 }
 #griddiv-sqlfunc_5_container .selectize-input.items.full.has-options.has-items{
     position: absolute;
-    left: 290px;
-    width: 180px;
+    left: 420px;
+    width: 310px;
     font-size: 16px;
     font-family: Trebuchet MS;
     color: black;
@@ -365,14 +429,13 @@
 
 #griddiv-sqlfunc_6_container {
     position: absolute;
-    top: 590px;
+    top: 589px;
 }
 
 #griddiv-sqlfunc_6_container .control-label {
     position: absolute;
     top: 14px;
-    right: 545px;
-    left: 258px;
+    left: 390px;
     font-size: 16px;
     font-family: Trebuchet MS;
     color: red;
@@ -380,8 +443,8 @@
 }
 #griddiv-sqlfunc_6_container .selectize-input {
     position: absolute;
-    left: 290px;
-    width: 180px;
+        left: 420px;
+    width: 310px;
     font-size: 16px;
     font-family: Trebuchet MS;
     color: black;
@@ -390,14 +453,13 @@
 
 #griddiv-sqlfunc_7_container {
     position: absolute;
-    top: 630px;
+    top: 629px;
 }
 
 #griddiv-sqlfunc_7_container .control-label {
     position: absolute;
     top: 14px;
-    right: 545px;
-    left: 258px;
+    left: 390px;
     font-size: 16px;
     font-family: Trebuchet MS;
     color: red;
@@ -405,8 +467,8 @@
 }
 #griddiv-sqlfunc_7_container .selectize-input {
     position: absolute;
-    left: 290px;
-    width: 180px;
+        left: 420px;
+    width: 310px;
     font-size: 16px;
     font-family: Trebuchet MS;
     color: black;
@@ -415,14 +477,13 @@
 
 #griddiv-sqlfunc_8_container {
     position: absolute;
-    top: 670px;
+    top: 669px;
 }
 
 #griddiv-sqlfunc_8_container .control-label {
     position: absolute;
     top: 14px;
-    right: 545px;
-    left: 258px;
+    left: 390px;
     font-size: 16px;
     font-family: Trebuchet MS;
     color: red;
@@ -430,8 +491,8 @@
 }
 #griddiv-sqlfunc_8_container .selectize-input {
     position: absolute;
-    left: 290px;
-    width: 180px;
+        left: 420px;
+    width: 310px;
     font-size: 16px;
     font-family: Trebuchet MS;
     color: black;
@@ -440,14 +501,13 @@
 
 #griddiv-sqlfunc_9_container {
     position: absolute;
-    top: 710px;
+    top: 708px;
 }
 
 #griddiv-sqlfunc_9_container .control-label {
     position: absolute;
     top: 14px;
-    right: 545px;
-    left: 258px;
+    left: 390px;
     font-size: 16px;
     font-family: Trebuchet MS;
     color: red;
@@ -455,8 +515,8 @@
 }
 #griddiv-sqlfunc_9_container .selectize-input {
     position: absolute;
-    left: 290px;
-    width: 180px;
+        left: 420px;
+    width: 310px;
     font-size: 16px;
     font-family: Trebuchet MS;
     color: black;
@@ -467,18 +527,18 @@
     font-family: Trebuchet MS;
     color: black;
     font-weight: bold;
-    top: 285px;
+    top: 215px;
 }
 
 #griddiv-queryTable  {
-  height: 225px !important;
+  height: 180px !important;
   width: 920px !important;
   background-color: white;
   font-size: 16px;
   font-family: Trebuchet MS;
   color: black;
   position: absolute;
-  top: 310px;
+  top: 240px !important;
 }
 
 
