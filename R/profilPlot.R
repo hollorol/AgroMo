@@ -17,7 +17,63 @@ plotProfile <- function(outputNames, dataenv, selectedDate, profilTag){
     # } else {
     #     return(p %>% layout(xaxis = list(range = c(0,50), title = "Soil water content [V%]"), yaxis = list(title = "depths[cm]")))
     # }
-    p %>% layout(title=getTitleFromCentralData(variable=profilTag))
+    # p %>% layout(title=getTitleFromCentralData(variable=profilTag))
+   
+     # Margins:
+     m <- list(
+         l = 30,
+         r = 30,
+         b = 60,
+         t = 120,
+         pad = 4
+     )
+     
+     # Parameters of the titles:
+     titlefont <- list(
+         family = "Trebuchet MS",
+         size = 26,
+         color = "black"
+     )
+     
+     # Parameters of the axis labels:
+     tickfont <- list(
+         family = "Trebuchet MS",
+         size = 22,
+         color = "black" # to set scientific format use the parameter: exponentformat = "E"
+     )
+     
+      p %>% layout(title=getTitleFromCentralData(variable=profilTag),
+                 xaxis = list(ticks = "outside",
+                              ticklen = 10,
+                              tickwidth = 2,
+                              tickcolor = toRGB("grey40"),
+                              showticklabels = TRUE,
+                              tickangle = 0,
+                              tickfont = tickfont,
+                              # zeroline = TRUE, # to highlight the line at x=0
+                              # zerolinecolor = toRGB("red"),
+                              # zerolinewidth = 2,
+                              gridcolor = toRGB("grey80"),
+                              gridwidth = 1,
+                              mirror = "ticks", # to get lines around the plot
+                              linecolor = toRGB("grey40"),
+                              linewidth = 2),
+                   
+                 yaxis = list(title = "<b>Depth [cm]</b>", # bold title
+                              titlefont = titlefont,
+                              ticks = "outside",
+                              ticklen = 10,
+                              tickwidth = 2,
+                              tickcolor = toRGB("grey40"),
+                              showticklabels = TRUE,
+                              tickangle = 0,
+                              tickfont = tickfont,
+                              gridcolor = toRGB("grey80"),
+                              gridwidth = 1,
+                              mirror = "ticks", # to get borders around the plot
+                              linecolor = toRGB("grey40"),
+                              linewidth = 2),
+                 margin = m)
 }
 
 #' getProfileVariables

@@ -271,12 +271,14 @@ agroMoMap <- function(input, output, session, baseDir){
       if(!is.null(datas$connection) ||
           file.exists(mapData)){
               if(file.exists(mapData)){
-                  agroMap(myData=read.csv(mapData)[,2], nticks=6,
-                    reverseColorScale=input$invert,colorSet=myColors[myColors[,2]==input$palette,1], imageTitle=mapImage, plotTitle=input$maptitle
+                  agroMap(myData=read.csv(mapData)[,2], nticks=as.numeric(input$colnumb),
+                    reverseColorScale=input$invert, colorSet=myColors[myColors[,2]==input$palette,1],
+                    lonlat=input$latlon, imageTitle=mapImage, plotTitle=input$maptitle, countrycont=input$countrycont
                   ) 
               } else {
-                  agroMap(datas$connection, query=sqlString, nticks=6,
-                    reverseColorScale=input$invert,colorSet=myColors[myColors[,2]==input$palette,1], imageTitle=mapImage, plotTitle=input$maptitle,
+                  agroMap(datas$connection, query=sqlString, nticks=as.numeric(input$colnumb),
+                    reverseColorScale=input$invert,colorSet=myColors[myColors[,2]==input$palette,1], 
+                    lonlat=input$latlon, imageTitle=mapImage, plotTitle=input$maptitle, countrycont=input$countrycont,
                     outFile=mapData) 
               }
 
