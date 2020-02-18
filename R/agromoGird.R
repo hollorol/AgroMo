@@ -109,6 +109,9 @@ tags$div(
 #'
 #' This is agromoGrid main function
 #' @importFrom jsonlite read_json
+#' @importFrom parallel detectCores makeCluster stopCluster
+#' @importFrom doSNOW registerDoSNOW 
+#' @importFrom foreach foreach %dopar%
 
 agroMoGrid <- function(input, output, session,baseDir){
     language <- "en"
@@ -129,6 +132,7 @@ agroMoGrid <- function(input, output, session,baseDir){
         dat$jsonList <- lapply((list.files(path=file.path(baseDir(),"templates/grid"),pattern="*.json", full.names=TRUE)),read_json)
         # browser()
         dat$queryNames <-  sapply(dat$jsonList,function(x) x$Names[[dat$language]])
+        dat$queries <-  sapply(dat$jsonList,function(x) x$query)
         dat$replNumbers <- sapply(dat$queryNames,getReplacementNumbers)
         # browser()
         dat$firstOptions <- lapply(dat$jsonList,function(x) {unlist(lapply(x$optionAlias[[dat$language]],function(y){y[1]}))}) 
@@ -137,14 +141,14 @@ agroMoGrid <- function(input, output, session,baseDir){
                                                               # if(i==8) browser()
                                                               interpolateInto(dat$replNumbers[[i]],dat$firstOptions[[i]],dat$queryNames[i]) 
                                  }))),stringsAsFactors=FALSE)
-        # dat$options <- 
+        
+        dat$options <- sapply(1:9,function(queryIndex)(sapply(dat$jsonList[[queryIndex]]$options,unlist)))
 
     }) 
 
     # observe({
     #     dat$querySelector <- as.data.frame(colorReplacements(dat$queryNames),stringsAsFactors=FALSE)
     # })
-
 
 
 
@@ -170,14 +174,19 @@ agroMoGrid <- function(input, output, session,baseDir){
                          output$alias <- renderText({readLines(choosenStoryFile,n=1)})
                          dat$storyVars <- as.character(read.table(choosenStoryFile,skip=1, nrows=1, sep=";",stringsAsFactors=FALSE))
                          dat$storyCSV <- read.table(choosenStoryFile,skip=2, sep=";",stringsAsFactors=FALSE)
-
-                        
+                         dat$storyTimeRange <- range(dat$storyCSV[,c(3,4)])
+                         storyRow <- as.data.frame((function(x){
+                                                     list(site=x[,1],
+                                                          name=apply(x,1,function(y){paste(y[1:2],collapse="_")}),
+                                                          numDays=365*(x[,4]-x[,3]+1))
+                                                })(dat$storyCSV),stringsAsFactor=FALSE)
+                         dat$story <-split(storyRow,storyRow$site)
                          # browser()
+                        
                          # sites <- split(dat$storyCSV, dat$storyCSV[,1])
                          # dat$numYears <- as.numeric(lapply(sites,function(m){
                          #                        m[nrow(m),4] - m[1,3] + 1
                          # }))
-                         dat$storyTimeRange <- range(dat$storyCSV[,c(3,4)])
                      }
     })
 
@@ -193,7 +202,6 @@ agroMoGrid <- function(input, output, session,baseDir){
             updateSelectInput(session,"until",choices=input$time:dat$storyTimeRange[2], selected=dat$storyTimeRange[2])
         }
     })
-    optionsToQueries <- c("")
     observe({
         if(!is.null(input$queryList)){
             a <- dat$queryNames
@@ -228,22 +236,45 @@ agroMoGrid <- function(input, output, session,baseDir){
     
     })
 
-    observe({
-         
-    
-    })
-
-
     # output$queryTable <- DT::renderDataTable (tabe,options = list(autowidth = FALSE, paginate = FALSE, scrollX = FALSE, scrollY = FALSE, searching = TRUE, info = FALSE, header=FALSE,rownames=FALSE))
     observe({
 # data.frame(c("<span class=\"reddi\">{1:mean}</span> {2:annual} yield {3:max} in the [start-end] period", "{1:max} {2:annual} lai {3:max} in the [start-end] period", "{1:mean} {2:may} {3:0-3 cm} soiltemp {4:mean} in the <span class=\"timeSlice\">[start-end]</span> period"))
         output$queryTable <- renderTable(dat$querySelector,colnames=FALSE,width="100%", sanitize.text.function = function(x) x )
     }) 
     #    output$queryTable <- DT::renderDataTable({
+    observeEvent(input$RunQuery,{
+                     # browser()
+                    queryIndex <- input$queryList
+                    sqlSentence <- dat$queries[input$queryList]
+                    optionList <- sapply(1:9,function(x){input[[sprintf("sqlfunc_%s",x)]]}) # These are just the optionAliaces
+                    possibilities <- lapply(dat$jsonList[[queryIndex]]$optionAlias[[dat$language]],unlist)
+                    optionList <- optionList[optionList!="NA"]
+                    selectedNum <- (sapply(seq_along(optionList),function(i){match(optionList[i],possibilities[[i]])}))
+                    textContent <- sapply(seq_along(selectedNum),function(i){
+                                               dat$options[[i]][selectedNum[i]]
+                                                })
+                    sentenceToSQL<- interpolateInto(dat$replNumbers[[input$queryList]],textContent,sqlSentence,TRUE)
+                    writeLines(c(sprintf("/*%s*/",input$metadata),"\n\n",sentenceToSQL),file.path(baseDir(),"output/queries",sprintf("%s.sql",input$queryalias)))
+    })
 
     # DT::datatable(data.frame(outputName = queryNames), options = list(autowidth = FALSE, paginate = FALSE, scrollX = FALSE, scrollY = 600, searching = TRUE, info = FALSE, header=FALSE,rownames=FALSE))
     #}) 
 
+    observeEvent(input$StartSim,{
+
+        showNotification("Starting simulation... Removing previous .dayout files")
+        suppressWarnings(file.remove(list.files(file.path(baseDir(),"output/grid",input$story),full.names=TRUE)))
+
+        showNotification("Setting climate projections and algorithms")
+        # indexOfRows <- 
+        # replacement(c("/"))
+        # changeFilesWithRegex(list.files(file.path(baseDir(),"output/initialization",input$story),full.names=TRUE),
+                             # indexOfRows,replacements,regex)
+
+        browser()
+                         # runChain(baseDir(),input$story,dat$story[[5]])
+        runGrid(baseDir(),input$story,dat$story)
+    })
 }
   
   
@@ -281,10 +312,10 @@ getReplacementNumbers <- function (baseString) {
     }
 }
 
-interpolateInto <- function(places, strings, jsonstring){
-
+interpolateInto <- function(places, strings, jsonstring, plain=FALSE){
     for(i in seq_along(places)){
-        jsonstring <- gsub(sprintf("(\\{%s\\})",places[i]), sprintf("{%s: %s}", i, strings[places[i]]),jsonstring)
+        jsonstring <- gsub(sprintf("(\\{%s\\})",places[i]), ifelse(!plain,sprintf("{%s: %s}", i, strings[places[i]]),
+                                                                   sprintf("%s",strings[places[i]])),jsonstring)
     }
 
     return(jsonstring)
@@ -302,7 +333,42 @@ colorReplacements <- function(stringVector){
     return(stringVector)
 }
 
-# queryCreator(fileN, description, index, optis, connectionBase, dat){
-#     browser()
-#    interpolateInto(dat$replNumbers[[index]],optis,dat$query)
-# }
+queryCreator <- function(fileN, description, index, optis, connectionBase, dat){
+    browser()
+   interpolateInto(dat$replNumbers[[index]],optis,dat$query)
+}
+
+runChain <- function (baseDir, storyName, chainMatrix) {
+   setwd(baseDir) 
+   returnVal <- apply(chainMatrix,1,function(x){
+                      suppressWarnings(system2("./muso",
+                                            file.path(baseDir,"input/initialization/grid",storyName,paste0(x[2],".ini")),
+                                            stderr=NULL,stdout=NULL))
+                }) 
+   names(returnVal) <- chainMatrix[,2]
+   returnVal
+}
+
+#' runGrid
+#'
+#' This is the parallel executer
+#' @importFrom parallel detectCores makeCluster stopCluster
+#' @importFrom doSNOW registerDoSNOW 
+#' @importFrom foreach foreach %dopar%
+
+runGrid <- function(baseDir,storyName,chainMatrixFull){
+    showNotification(sprintf("Starting cluster for parallel run with %s cores, please wait for the progress indicator",detectCores()-1))
+    cl <- makeCluster(detectCores()-1)
+    registerDoSNOW(cl)
+    iterations <- length(chainMatrixFull)
+    progress <- function(i) incProgress(1/iterations, detail = paste("Doing part", i))
+    opts <- list(progress = progress)
+    withProgress(message = "simulation", value = 0, {
+                     result <- foreach(i = 1:length(chainMatrixFull), .export="runChain", .combine = c, 
+                                       .options.snow = opts) %dopar% {
+                        runChain(baseDir,storyName, chainMatrixFull[[i]])
+                     }
+    })
+    stopCluster(cl)
+    print(result)
+}
