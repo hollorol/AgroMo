@@ -15,6 +15,8 @@ Imports:
   plotly,
   promises,
   future,
+  doSNOW,
+  foreach,
   data.table,
   DT,
   DBI,
