@@ -67,8 +67,8 @@ multiPlot <- function(input, output, session, measurement, outputNames, outputTa
               yTitle <- sprintf("<b>%s [%s]</br> </b>",filteredCentData[i,2],mesUnit)
               output[[simplePlots[my_i,1]]] <- renderPlotly({
                    
-                  plotlyProxy(simplePlots[my_i,1], session) %>%
-                      plotlyProxyInvoke("purge")
+                  # plotlyProxy(simplePlots[my_i,1], session) %>%
+                  #     plotlyProxyInvoke("purge")
                   plotSingle(outputNames = outputNames,
                   dataenv = dataenv,
                   varName = simplePlots[my_i,1],
