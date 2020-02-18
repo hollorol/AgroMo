@@ -7,6 +7,10 @@
     font-size: 16px;
     color: black;
     font-family: Trebuchet MS;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
 }
 
 #griddiv-story_container .selectize-input{
@@ -17,6 +21,10 @@
     color: black;
     font-family: Trebuchet MS;
     width: 260px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
 }
 
 #griddiv-alias_container {
@@ -26,6 +34,10 @@
     font-size: 16px;
     color: black;
     font-family: Trebuchet MS;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
 }
 
 #griddiv-alias_container .form-control{
@@ -35,6 +47,10 @@
     font-size: 16px;
     color: black;
     font-family: Trebuchet MS;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
      width: 555px;
 }
 
@@ -46,6 +62,7 @@
     font-family: Trebuchet MS;
     display: none;
 }
+
 #griddiv-gridres_container .selectize-input.items.full.has-options.has-items {
     width: 140px;
     position: absolute;
@@ -61,7 +78,12 @@
     font-size: 16px;
     color: black;
     font-family: Trebuchet MS;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
 }
+
 #griddiv-climproj_container .selectize-input.items.full.has-options.has-items {
     width: 635px;
     position: absolute;
@@ -83,6 +105,10 @@
     color: black;
     font-family: Trebuchet MS;
     width: 100px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
 }
 
 #griddiv-ensalg_container {
@@ -93,6 +119,10 @@
     color: black;
     font-family: Trebuchet MS;
     width: 100px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
 }
 
 #griddiv-algosel_container {
@@ -101,7 +131,12 @@
     font-size: 16px;
     color: black;
     font-family: Trebuchet MS;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
 }
+
 #griddiv-algosel_container .selectize-input.items.full.has-options.has-items {
     width: 635px;
     position: absolute;
@@ -115,7 +150,12 @@
     font-size: 16px;
     color: black;
     font-family: Trebuchet MS;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
 }
+
 #griddiv-outsq_container .form-control.shinyjs-resettable.shiny-bound-input {
     width: 400px;
     position: absolute;
@@ -139,6 +179,10 @@
     color: black;
     font-weight: bold;
     background-color: gainsboro;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
 }
 
 #griddiv-Map {
@@ -152,6 +196,10 @@
     color: black;
     font-weight: bold;
     background-color: gainsboro;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
 }
 
 #griddiv-RunQuery {
@@ -166,6 +214,10 @@
     font-weight: bold;
     background-color: gainsboro;
     white-space: normal !important;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
 }
 
 #griddiv-queryalias_container {
@@ -175,6 +227,10 @@
     font-size: 16px;
     font-family: Trebuchet MS;
     color: black;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
 }
 
 #griddiv-queryalias_container .form-control.shinyjs-resettable.shiny-bound-input {
@@ -192,7 +248,10 @@
     font-size: 16px;
     font-family: Trebuchet MS;
     color: black;
-    
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
 }
 
 #griddiv-metadata_container {
@@ -202,6 +261,10 @@
     font-size: 16px;
     font-family: Trebuchet MS;
     color: black;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
 }
 
 #griddiv-metadata_container .form-control.shinyjs-resettable.shiny-bound-input {
@@ -218,6 +281,10 @@
     font-size: 16px;
     font-family: Trebuchet MS;
     color: black;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
 }
 
 #griddiv-climprojquery_container {
@@ -229,6 +296,10 @@
     font-size: 16px;
     font-family: Trebuchet MS;
     color: black;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
 }
 
 #griddiv-climprojquery_container .form-group {
@@ -236,6 +307,10 @@
     font-family: Trebuchet MS;
     color: black;
     width: 300px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
 }
 
 #griddiv-climprojquery_container .selectize-input {
@@ -253,12 +328,21 @@ position: absolute;
     font-size: 16px;
     font-family: Trebuchet MS;
     color: black;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
 }
+
 #griddiv-algselquery_container .form-group {
     font-size: 16px;
     font-family: Trebuchet MS;
     color: black;
     width: 598px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
 }
 
 
@@ -272,8 +356,8 @@ position: absolute;
     position: absolute;
     top: 528px;
     right: 438px;
-
 }
+
 #griddiv-time_container .control-label {
     position: absolute;
     top: 32px;
@@ -283,7 +367,12 @@ position: absolute;
     font-weight: bold;
     width: 100px;
     color: blue;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
 }
+
 #griddiv-time_container .selectize-input {
     position: absolute;
     right: 125px;
@@ -292,6 +381,10 @@ position: absolute;
     font-size: 16px;
     font-family: Trebuchet MS;
     color: black;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
 }
 
 #griddiv-until_container {
@@ -299,6 +392,7 @@ position: absolute;
     top: 546px;
     left: 268px;
 }
+
 #griddiv-until_container .control-label {
     position: absolute;
     top:14px;
@@ -307,7 +401,12 @@ position: absolute;
     font-family: Trebuchet MS;
     color: black;
     font-weight:normal;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
 }
+
 #griddiv-until_container .selectize-input {
     position: absolute;
     right: 203px;
@@ -315,11 +414,17 @@ position: absolute;
     font-size: 16px;
     font-family: Trebuchet MS;
     color: black;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
 }
+
 #griddiv-sqlfunc_1_container {
     position: absolute;
     top: 589px;
 }
+
 #griddiv-sqlfunc_1_container .control-label {
     position: absolute;
     top: 14px;
@@ -328,20 +433,44 @@ position: absolute;
     font-family: Trebuchet MS;
     color: red;
     font-weight:bold;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
 }
-#griddiv-sqlfunc_1_container .selectize-input.items.full.has-options.has-items{
+
+#griddiv-sqlfunc_1_container .selectize-input.items.full.has-options.has-items {
     position: absolute;
     left: 0px;
     width: 365px;
     font-size: 16px;
     font-family: Trebuchet MS;
     color: black;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
+}
+
+#griddiv-sqlfunc_1_container .selectize-dropdown-content {
+    position: absolute;
+    bottom: 0px;
+    width: 365px;
+    font-size: 16px;
+    font-family: Trebuchet MS;
+    color: black;
+    background-color: white;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
 }
 
 #griddiv-sqlfunc_2_container {
     position: absolute;
     top: 629px;
 }
+
 #griddiv-sqlfunc_2_container .control-label {
     position: absolute;
     top: 14px;
@@ -350,20 +479,44 @@ position: absolute;
     font-family: Trebuchet MS;
     color: red;
     font-weight:bold;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
 }
-#griddiv-sqlfunc_2_container .selectize-input.items.full.has-options.has-items{
+
+#griddiv-sqlfunc_2_container .selectize-input.items.full.has-options.has-items {
     position: absolute;
     left: 0px;
     width: 365px;
     font-size: 16px;
     font-family: Trebuchet MS;
     color: black;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
+}
+
+#griddiv-sqlfunc_2_container .selectize-dropdown-content {
+    position: absolute;
+    bottom: 0px;
+    width: 365px;
+    font-size: 16px;
+    font-family: Trebuchet MS;
+    color: black;
+    background-color: white;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
 }
 
 #griddiv-sqlfunc_3_container {
     position: absolute;
     top: 669px;
 }
+
 #griddiv-sqlfunc_3_container .control-label {
     position: absolute;
     top: 14px;
@@ -372,14 +525,37 @@ position: absolute;
     font-family: Trebuchet MS;
     color: red;
     font-weight:bold;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
 }
-#griddiv-sqlfunc_3_container .selectize-input.items.full.has-options.has-items{
+
+#griddiv-sqlfunc_3_container .selectize-input.items.full.has-options.has-items {
     position: absolute;
     left: 0px;
     width: 365px;
     font-size: 16px;
     font-family: Trebuchet MS;
     color: black;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
+}
+
+#griddiv-sqlfunc_3_container .selectize-dropdown-content {
+    position: absolute;
+    bottom: 0px;
+    width: 365px;
+    font-size: 16px;
+    font-family: Trebuchet MS;
+    color: black;
+    background-color: white;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
 }
 
 #griddiv-sqlfunc_4_container {
@@ -395,20 +571,44 @@ position: absolute;
     font-family: Trebuchet MS;
     color: red;
     font-weight:bold;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
 }
-#griddiv-sqlfunc_4_container .selectize-input.items.full.has-options.has-items{
+
+#griddiv-sqlfunc_4_container .selectize-input.items.full.has-options.has-items {
     position: absolute;
     left: 0px;
     width: 365px;
     font-size: 16px;
     font-family: Trebuchet MS;
     color: black;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
+}
+
+#griddiv-sqlfunc_4_container .selectize-dropdown-content {
+    position: absolute;
+    bottom: 0px;
+    width: 365px;
+    font-size: 16px;
+    font-family: Trebuchet MS;
+    color: black;
+    background-color: white;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
 }
 
 #griddiv-sqlfunc_5_container {
     position: absolute;
     top: 548px;
 }
+
 #griddiv-sqlfunc_5_container .control-label {
     position: absolute;
     top: 14px;
@@ -417,20 +617,44 @@ position: absolute;
     font-family: Trebuchet MS;
     color: red;
     font-weight:bold;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
 }
-#griddiv-sqlfunc_5_container .selectize-input.items.full.has-options.has-items{
+
+#griddiv-sqlfunc_5_container .selectize-input.items.full.has-options.has-items {
     position: absolute;
     left: 405px;
     width: 365px;
     font-size: 16px;
     font-family: Trebuchet MS;
     color: black;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
+}
+
+#griddiv-sqlfunc_5_container .selectize-dropdown-content {
+    position: absolute;
+    bottom: 0px;
+    width: 365px;
+    font-size: 16px;
+    font-family: Trebuchet MS;
+    color: black;
+    background-color: white;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
 }
 
 #griddiv-sqlfunc_6_container {
     position: absolute;
     top: 589px;
 }
+
 
 #griddiv-sqlfunc_6_container .control-label {
     position: absolute;
@@ -440,7 +664,12 @@ position: absolute;
     font-family: Trebuchet MS;
     color: red;
     font-weight:bold;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
 }
+
 #griddiv-sqlfunc_6_container .selectize-input {
     position: absolute;
     left: 405px;
@@ -448,8 +677,25 @@ position: absolute;
     font-size: 16px;
     font-family: Trebuchet MS;
     color: black;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
 }
 
+#griddiv-sqlfunc_6_container .selectize-dropdown-content {
+    position: absolute;
+    bottom: 0px;
+    width: 365px;
+    font-size: 16px;
+    font-family: Trebuchet MS;
+    color: black;
+    background-color: white;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
+}
 
 #griddiv-sqlfunc_7_container {
     position: absolute;
@@ -464,7 +710,12 @@ position: absolute;
     font-family: Trebuchet MS;
     color: red;
     font-weight:bold;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
 }
+
 #griddiv-sqlfunc_7_container .selectize-input {
     position: absolute;
     left: 405px;
@@ -472,8 +723,25 @@ position: absolute;
     font-size: 16px;
     font-family: Trebuchet MS;
     color: black;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
 }
 
+#griddiv-sqlfunc_7_container .selectize-dropdown-content {
+    position: absolute;
+    bottom: 0px;
+    width: 365px;
+    font-size: 16px;
+    font-family: Trebuchet MS;
+    color: black;
+    background-color: white;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
+}
 
 #griddiv-sqlfunc_8_container {
     position: absolute;
@@ -488,7 +756,12 @@ position: absolute;
     font-family: Trebuchet MS;
     color: red;
     font-weight:bold;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
 }
+
 #griddiv-sqlfunc_8_container .selectize-input {
     position: absolute;
     left: 405px;
@@ -496,8 +769,25 @@ position: absolute;
     font-size: 16px;
     font-family: Trebuchet MS;
     color: black;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
 }
 
+#griddiv-sqlfunc_8_container .selectize-dropdown-content {
+    position: absolute;
+    bottom: 0px;
+    width: 365px;
+    font-size: 16px;
+    font-family: Trebuchet MS;
+    color: black;
+    background-color: white;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
+}
 
 #griddiv-sqlfunc_9_container {
     position: absolute;
@@ -512,7 +802,12 @@ position: absolute;
     font-family: Trebuchet MS;
     color: red;
     font-weight:bold;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
 }
+
 #griddiv-sqlfunc_9_container .selectize-input {
     position: absolute;
     left: 405px;
@@ -520,14 +815,37 @@ position: absolute;
     font-size: 16px;
     font-family: Trebuchet MS;
     color: black;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
 }
-#query{
+
+#griddiv-sqlfunc_9_container .selectize-dropdown-content {
+    position: absolute;
+    bottom: 0px;
+    width: 365px;
+    font-size: 16px;
+    font-family: Trebuchet MS;
+    color: black;
+    background-color: white;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
+}
+
+#query {
     position: absolute;
     font-size: 16px;
     font-family: Trebuchet MS;
     color: black;
     font-weight: bold;
     top: 215px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
 }
 
 #griddiv-queryTable  {
@@ -539,6 +857,10 @@ position: absolute;
   color: black;
   position: absolute;
   top: 240px !important;
+  -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
 }
 
 
@@ -549,6 +871,7 @@ position: absolute;
 #griddiv-queryTable .dataTables_scrollBody td:nth-child(2){
   border-color:white;
 }
+
 #DataTables_Table_1_filter.dataTables_filter {
  position: absolute;
  top: 480px;
@@ -565,6 +888,7 @@ position: absolute;
   border-width: 0px;
   border-radius: 1px;
 }
+
 #backsite {
     position: absolute;
   top: 220px;
@@ -574,6 +898,7 @@ position: absolute;
   height: 43px;
   width: 75px;
 }
+
 #Grid-banner-div img{
   cursor: default; 
     }
