@@ -395,54 +395,54 @@ runGrid <- function(baseDir,storyName,chainMatrixFull){
     print(result)
 }
 
-#' writeChainToDB
-#'
-#' This function reads the model binary and put that into a database
-#' @param settings The result of the setupGUI
-#' @param dbConnection An SQLite connection
-#' @param binaryName The name of the binary output file
-#' @param outputName The name of the result table
-#' @importFrom DBI dbWriteTable
-
-writeChainToDB <- function(storyName, dbConnection, outputName, chainMatrixFull, variables){
-# chainMatrix <- dat$story[[7]]
-    dbConnection <- sqlDB
-#  browser()
-    binaryName <- paste0(file.path(baseDir(),"output/grid/",storyName,chainMatrix[,2]),".dayout")
-i<- 1
-    for(i in 1:nrow(chainMatrix)){
-        con <- file(binaryName[i],"rb")
-        dayoutput <- matrix(readBin(con,"double",size=8,n=()),(settings$numYears*365),byrow=TRUE)
-    }
-
-  close(con)
-  dayoutput <- cbind.data.frame(musoDate(startYear = settings$startYear,
-                                         numYears = settings$numYears,
-                                         combined = FALSE, prettyOut = TRUE),
-                                dayoutput, outputName,stringsAsFactors=FALSE)
-  colnames(dayoutput) <- as.character(c("udate","uday","umonth","uyear",unlist(settings$variableNames),"outputName"))
-  # browser()
-  conn <- dbConnection()
-  dbWriteTable(conn, outputName, dayoutput,  overwrite = TRUE)
-}
-#' writeGridToDB
-#'
-#' This function reads the model binary and put that into a database
-#' @param settings The result of the setupGUI
-#' @param dbConnection An SQLite connection
-#' @param binaryName The name of the binary output file
-#' @param outputName The name of the result table
-#' @importFrom DBI dbWriteTable
-
-writeGridToDB <- function(binaryNames, dbConnection, outputName, columnNames, chainMatrixFull){
-    iterations <- length(chainMatrixFull)
-    withProgress(message = "Writing output into database", value = 0, {
-                     foreach(i = 1:length(chainMatrixFull)) %par% {
-                        writeChainToDB(binaryNames[i], dbConnection, outputName, columnNames, chainMatrixFull[[i]])
-                        incProgress(1/iterations, detail = paste("Doing part", i))
-                     }
-    })
-    close(dbConnection)
-}
+# #' writeChainToDB
+# #'
+# #' This function reads the model binary and put that into a database
+# #' @param settings The result of the setupGUI
+# #' @param dbConnection An SQLite connection
+# #' @param binaryName The name of the binary output file
+# #' @param outputName The name of the result table
+# #' @importFrom DBI dbWriteTable
+#
+# writeChainToDB <- function(storyName, dbConnection, outputName, chainMatrixFull, variables){
+# # chainMatrix <- dat$story[[7]]
+#     dbConnection <- sqlDB
+# #  browser()
+#     binaryName <- paste0(file.path(baseDir(),"output/grid/",storyName,chainMatrix[,2]),".dayout")
+# i<- 1
+#     for(i in 1:nrow(chainMatrix)){
+#         con <- file(binaryName[i],"rb")
+#         dayoutput <- matrix(readBin(con,"double",size=8,n=()),(settings$numYears*365),byrow=TRUE)
+#     }
+#
+#   close(con)
+#   dayoutput <- cbind.data.frame(musoDate(startYear = settings$startYear,
+#                                          numYears = settings$numYears,
+#                                          combined = FALSE, prettyOut = TRUE),
+#                                 dayoutput, outputName,stringsAsFactors=FALSE)
+#   colnames(dayoutput) <- as.character(c("udate","uday","umonth","uyear",unlist(settings$variableNames),"outputName"))
+#   # browser()
+#   conn <- dbConnection()
+#   dbWriteTable(conn, outputName, dayoutput,  overwrite = TRUE)
+# }
+# #' writeGridToDB
+# #'
+# #' This function reads the model binary and put that into a database
+# #' @param settings The result of the setupGUI
+# #' @param dbConnection An SQLite connection
+# #' @param binaryName The name of the binary output file
+# #' @param outputName The name of the result table
+# #' @importFrom DBI dbWriteTable
+#
+# writeGridToDB <- function(binaryNames, dbConnection, outputName, columnNames, chainMatrixFull){
+#     iterations <- length(chainMatrixFull)
+#     withProgress(message = "Writing output into database", value = 0, {
+#                      foreach(i = 1:length(chainMatrixFull)) %par% {
+#                         writeChainToDB(binaryNames[i], dbConnection, outputName, columnNames, chainMatrixFull[[i]])
+#                         incProgress(1/iterations, detail = paste("Doing part", i))
+#                      }
+#     })
+#     close(dbConnection)
+# }
 
 
