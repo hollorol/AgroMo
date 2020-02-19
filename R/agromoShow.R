@@ -212,8 +212,13 @@ agroMoShow <- function(input, output, session, dataenv, baseDir, connection,cent
       if(length(tableForPlot!=0) && (length(input$tableList)!=0)){
           showModal(multiPlotUI(ns("plotka"))) 
           # browser() 
+          if(is.null(input$alias)){
+                measAlias <- ""
+          } else {
+                measAlias <- input$alias
+          }
           callModule(multiPlot,"plotka",reactive(initData$measurementConn),isolate(modellOutputNames),reactive({tableForPlot}),
-              reactive({input$experimentID}),reactive({input$treatmentID}),repetAvg = reactive({input$averagep}),connection=connection,centralData=centralData)
+              reactive({input$experimentID}),reactive({input$treatmentID}),repetAvg = reactive({input$averagep}),connection=connection,centralData=centralData,reactive({measAlias}))
       }
    })
 }

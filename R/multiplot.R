@@ -21,7 +21,7 @@ multiPlotUI <- function(id){
 #' @importFrom DBI dbReadTable
 #' @param input sdfasdf
 
-multiPlot <- function(input, output, session, measurement, outputNames, outputTable, experimentID, treatmentID,repetAvg = TRUE,connection,centralData){
+multiPlot <- function(input, output, session, measurement, outputNames, outputTable, experimentID, treatmentID,repetAvg = TRUE,connection,centralData, measAlias){
   ns <- session$ns
   simplePlots <- outputTable()[grep("Profil",outputTable()$variable,invert = TRUE),] #TODO
   # browser()
@@ -79,7 +79,7 @@ multiPlot <- function(input, output, session, measurement, outputNames, outputTa
                   repetationsAveraged = repetAvg(),
                   measurement = measurement(),
                   experiment_id = experimentID(),
-                  treatment = treatmentID(),yTitle)})})
+                  treatment = treatmentID(),yTitle,measAlias())})})
       }
   }
 

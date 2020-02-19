@@ -6,7 +6,7 @@
 #' @importFrom plotly plot_ly add_trace layout '%>%' toRGB
 
 
-plotSingle <- function(outputNames = NULL, dataenv, varName, timeFrame, groupFun, plotT = "scatter", conversionFactor = 1, measurementConn, experiment_id, treatment, repetationsAveraged, yTitle){ 
+plotSingle <- function(outputNames = NULL, dataenv, varName, timeFrame, groupFun, plotT = "scatter", conversionFactor = 1, measurementConn, experiment_id, treatment, repetationsAveraged, yTitle,measAlias=""){ 
 # print(ls(dataenv))
   plotType <- plotT
   plotMode <- NULL
@@ -113,33 +113,37 @@ plotSingle <- function(outputNames = NULL, dataenv, varName, timeFrame, groupFun
   }
 
   if(containMeasurement){
-    p <- plotMeasuredLayers(p,filtMeasured,timeFrame, experiment_id,treatment)
+    p <- plotMeasuredLayers(p,filtMeasured,timeFrame, experiment_id,treatment,measAlias=measAlias)
 
   }
     # p %>% layout(yaxis=list(title=sprintf("%s|%s|%s", varName, timeFrame, groupFun))) # %>% toWebGL()
     p 
 }
 
-plotMeasuredLayers <- function(p,measurement,timeFrame,experiment_id, treatment){
-
-  if(is.null(measurement$repetition)){
-    p <- add_trace(p,x = unlist(get(timeFrame)(measurement$measurement_date)),y = unlist(measurement$measurement_value), name = sprintf("%s-%s (mean)",experiment_id,treatment),line = list( width = 2,
-              xaxs = "i", yaxs = "i") )
-  } else {
-# browser()
-    repetitions<- unique(measurement$repetition)
-  print(repetitions)
-    if(length(repetitions) >= 5)
-      stop("You must average your repetitions in case of more than 5")
-    for(i in 1:length(repetitions)){
-      actRep <- repetitions[i]
-    # browser()
-      p<- add_trace(p,x = unlist(get(timeFrame)(measurement[measurement[,"repetition"] == eval(quote(actRep)),]$measure_date)),
-                    y = as.numeric(unlist(measurement[measurement[,"repetition"] == eval(quote(actRep)),]$measurement_value)), name = sprintf("%s-%s#%d",experiment_id,treatment,actRep),line = list( width = 2,
-              xaxs = "i", yaxs = "i") )
-
-    }
-  }
+plotMeasuredLayers <- function(p,measurement,timeFrame,experiment_id, treatment, measAlias=""){
+   if(measAlias==""){
+        measAlias =sprintf("%s-%s (mean)",experiment_id,treatment)
+   }
+  # if(is.null(measurement$repetition)){
+    p <- add_trace(p,x = unlist(get(timeFrame)(measurement$measurement_date)),y = unlist(measurement$measurement_value), name = measAlias)
+  # } else {
+# # browser()
+#   #   repetitions<- unique(measurement$repetition)
+#   # print(repetitions)
+#   #   if(length(repetitions) >= 5)
+#   #     stop("You must average your repetitions in case of more than 5")
+#   #   for(i in 1:length(repetitions)){
+#   #     actRep <- repetitions[i]
+#   #   # browser()
+#   #     p<- add_trace(p,x = unlist(get(timeFrame)(measurement[measurement[,"repetition"] == eval(quote(actRep)),]$measure_date)),
+#   #                   y = as.numeric(unlist(measurement[measurement[,"repetition"] == eval(quote(actRep)),]$measurement_value)), name = sprintf("%s-%s#%d",experiment_id,treatment,actRep),line = list( width = 2,
+#   #             xaxs = "i", yaxs = "i") )
+#     #}
+#
+#
+#
+  # }
+    # measurement
 return(p)
 }
 
