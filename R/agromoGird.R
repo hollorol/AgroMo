@@ -186,6 +186,7 @@ agroMoGrid <- function(input, output, session,baseDir){
                          storyRow <- as.data.frame((function(x){
                                                      list(site=x[,1],
                                                           name=apply(x,1,function(y){paste(y[1:2],collapse="_")}),
+                                                          startYear=x[,3],
                                                           numDays=365*(x[,4]-x[,3]+1))
                                                 })(dat$storyCSV),stringsAsFactor=FALSE)
                          dat$story <-split(storyRow,storyRow$site)
@@ -267,21 +268,34 @@ agroMoGrid <- function(input, output, session,baseDir){
 
     # DT::datatable(data.frame(outputName = queryNames), options = list(autowidth = FALSE, paginate = FALSE, scrollX = FALSE, scrollY = 600, searching = TRUE, info = FALSE, header=FALSE,rownames=FALSE))
     #}) 
-
+   algorithms <- list("PHOTOS: Farquhar | PET: Penman-Monteith | WSTRESS: WCBased" = c(0,0,0),
+                                                                "PHOTOS: Farquhar | PET: Priestly-Taylor | WSTRESS: WCBased" = c(0,1,0),
+                                                                "PHOTOS: Farquhar | PET: Penman-Monteith | WSTRESS: TransDemBased" = c(0,0,1),
+                                                                "PHOTOS: Farquhar | PET: Priestly-Taylor | WSTRESS: TransDemBased " = c(0,1,1),
+                                                                "PHOTOS: DSSAT | PET: Penman-Monteith | WSTRESS: WCBased" = c(1,0,0),
+                                                                "PHOTOS: DSSAT | PET: Priestly-Taylor | WSTRESS: WCBased" = c(1,1,0),
+                                                                "PHOTOS: DSSAT | PET: Penman-Monteith | WSTRESS: TransDemBased" = c(1,0,1),
+                                                                "PHOTOS: DSSAT | PET: Priestly-Taylor | WSTRESS: TransDemBased" = c(1,1,1)
+                                                                )
     observeEvent(input$StartSim,{
 
         showNotification("Starting simulation... Removing previous .dayout files")
         suppressWarnings(file.remove(list.files(file.path(baseDir(),"output/grid",input$story),full.names=TRUE)))
 
         showNotification("Setting climate projections and algorithms")
-        # indexOfRows <- 
-        # replacement(c("/"))
-        # changeFilesWithRegex(list.files(file.path(baseDir(),"output/initialization",input$story),full.names=TRUE),
-                             # indexOfRows,replacements,regex)
-
+        indexOfRows <- c(4,58,59,61)
+        replacements <- c(sprintf("projection/%s/",input$climproj),algorithms[[input$algosel]])
+        regex <- "projection/.*?/"
+        changeFilesWithRegex(list.files(file.path(baseDir(),"input/initialization/grid",input$story),full.names=TRUE),
+                              indexOfRows,replacements,regex)
         browser()
-                         # runChain(baseDir(),input$story,dat$story[[5]])
-        runGrid(baseDir(),input$story,dat$story)
+        #                  # runChain(baseDir(),input$story,dat$story[[5]])
+        dbDir <- file.path(baseDir(),"output/DB/grid/",input$story)
+         dir.create(dbDir, showWarnings=FALSE)
+         sqlDB <- DBI::dbConnect(RSQLite::SQLite(),file.path(dbDir,input$outsq))
+         # sqlDB <- DBI::dbConnect(RSQLite::SQLite(),file.path(dbDir,"bicke.db"))
+         writeGridToDB(dbConnection, outputName, columnNames, chainMatrixFull)
+         runGrid(baseDir(),input$story,dat$story)
     })
 }
   
@@ -380,3 +394,55 @@ runGrid <- function(baseDir,storyName,chainMatrixFull){
     stopCluster(cl)
     print(result)
 }
+
+#' writeChainToDB
+#'
+#' This function reads the model binary and put that into a database
+#' @param settings The result of the setupGUI
+#' @param dbConnection An SQLite connection
+#' @param binaryName The name of the binary output file
+#' @param outputName The name of the result table
+#' @importFrom DBI dbWriteTable
+
+writeChainToDB <- function(storyName, dbConnection, outputName, chainMatrixFull, variables){
+# chainMatrix <- dat$story[[7]]
+    dbConnection <- sqlDB
+#  browser()
+    binaryName <- paste0(file.path(baseDir(),"output/grid/",storyName,chainMatrix[,2]),".dayout")
+i<- 1
+    for(i in 1:nrow(chainMatrix)){
+        con <- file(binaryName[i],"rb")
+        dayoutput <- matrix(readBin(con,"double",size=8,n=()),(settings$numYears*365),byrow=TRUE)
+    }
+
+  close(con)
+  dayoutput <- cbind.data.frame(musoDate(startYear = settings$startYear,
+                                         numYears = settings$numYears,
+                                         combined = FALSE, prettyOut = TRUE),
+                                dayoutput, outputName,stringsAsFactors=FALSE)
+  colnames(dayoutput) <- as.character(c("udate","uday","umonth","uyear",unlist(settings$variableNames),"outputName"))
+  # browser()
+  conn <- dbConnection()
+  dbWriteTable(conn, outputName, dayoutput,  overwrite = TRUE)
+}
+#' writeGridToDB
+#'
+#' This function reads the model binary and put that into a database
+#' @param settings The result of the setupGUI
+#' @param dbConnection An SQLite connection
+#' @param binaryName The name of the binary output file
+#' @param outputName The name of the result table
+#' @importFrom DBI dbWriteTable
+
+writeGridToDB <- function(binaryNames, dbConnection, outputName, columnNames, chainMatrixFull){
+    iterations <- length(chainMatrixFull)
+    withProgress(message = "Writing output into database", value = 0, {
+                     foreach(i = 1:length(chainMatrixFull)) %par% {
+                        writeChainToDB(binaryNames[i], dbConnection, outputName, columnNames, chainMatrixFull[[i]])
+                        incProgress(1/iterations, detail = paste("Doing part", i))
+                     }
+    })
+    close(dbConnection)
+}
+
+

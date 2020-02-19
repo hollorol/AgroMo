@@ -16,6 +16,7 @@ agroUI <- function(){
             hidden(agroMoGridUI(id = "griddiv")),
             hidden(agroMoMapUI(id = "mapdiv")),
             hidden(agroMoSiteGeneratorUI(id = "sitegendiv")),
+            hidden(BBGCUI(id="BBGCDB")),
             hidden(actionButton(inputId = "basearrow",label="",title="Navigate back to the BASE window", style="background: url('www/img/base_arrow.png');background-size: 75px 43px;", draggable = FALSE)),
             hidden(actionButton(inputId = "backsite",label="",title="Navigate back to the SITE window", style="background: url('www/img/back_site.png');background-size: 75px 43px;", draggable = FALSE)),
             hidden(actionButton(inputId = "basearrow_sg",label="",title="Navigate back to the BASE window", style="background: url('www/img/base_arrow_sg.png');background-size: 75px 43px;", draggable = FALSE)),
@@ -228,6 +229,7 @@ agroServer <- function(input, output, session) {
        shinyjs::show("backgrid")
        shinyjs::hide("basearrow_sg")
        shinyjs::hide("backsite_sg")
+       shinyjs::hide("BBGCDB")
      })
    }
  
@@ -358,6 +360,7 @@ agroServer <- function(input, output, session) {
        shinyjs::hide("backsite_sg")
        shinyjs::hide(selector = ".banner")
        shinyjs::show("Base-banner-div")
+       shinyjs::hide("BBGCDB")
      })
    }
    {
@@ -374,7 +377,7 @@ agroServer <- function(input, output, session) {
        shinyjs::show("backgrid")
      })
    }
-   
+
    ## ##  GRID MODUL
    ##{
    ##callModule(agroMoGrid,"griddiv",dataenv = reactive(datas$dataenv),baseDir = reactive(datas$baseDir), connection = reactive({datas$connection}),centralData=centralData)
@@ -389,6 +392,28 @@ agroServer <- function(input, output, session) {
    ##  datas$dataenv <- dbListTables(datas$connection) 
    ##})
    ##}
+   {
+     observeEvent(input$calibration,{
+       shinyjs::hide("base")
+       shinyjs::hide("base-tools")
+       shinyjs::hide("mapdiv-mapdiv")
+       shinyjs::hide(selector = ".banner")
+       shinyjs::show("BDB-banner-div")
+       shinyjs::show("basearrow")
+       shinyjs::hide("backgrid")
+       shinyjs::hide("basearrow_sg")
+       shinyjs::hide("backsite_sg")
+       shinyjs::hide("backsite")
+       shinyjs::show("BBGCDB")
+     })
+   }
+
+   observeEvent(input$storEditor,{
+        tryCatch(system(sprintf("%s",file.path(system.file("tools",package="Agromo"),"AgroMo_tools"))), warning=function(e){
+           showNotification("Currently Story editor is only usable from Windows", type="error")  
+        }) 
+     })
+   
 }
 
 

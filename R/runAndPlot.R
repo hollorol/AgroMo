@@ -48,8 +48,11 @@ dat<-reactiveValues(dataenv = NULL)
       ,renderText({
         # browser()
         runModel() %...>% {
-          writeDataToDB(settings = settings, dbConnection = isolate(connection()),
-                         binaryName = file.path(isolate(baseDir()), "output", sprintf("%s.dayout", settings$outputName)),
+         print(connection())
+         print(baseDir())
+         print(outputName())
+                  writeDataToDB(settings = settings, dbConnection = isolate(connection()),
+                         binaryName = file.path(baseDir(), "output", sprintf("%s.dayout", settings$outputName)),
                          isolate(outputName()))          
           # removeUI(selector = "#runningGif")
           hide("runningGif")

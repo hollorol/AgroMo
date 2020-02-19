@@ -67,8 +67,8 @@
 #    ),
 # =======
     tags$div(
-      id = paste0(ns("colnumb"),"_container"),title="Select the number of colours/subranges to be distinguished on the map",
-      selectInput(ns("colnumb"),"number of colours:",choices=2:32)
+      id = paste0(ns("colnumb"), "_container"), title="Select the number of colours/subranges to be distinguished on the map", #colnumb <-> interval
+      selectInput(ns("colnumb"),"colors:",choices=2:32)
     ),
 # >>>>>>> feature/visualization
     tags$div(
@@ -84,10 +84,10 @@
       textInput(ns("max"),"max. value:",NA)
     ),
 # <<<<<<< HEAD
-tags$div(
-  id = paste0(ns("intv"),"_container"),
-  textInput(ns("intv"),"interval:",NA)
-),
+# tags$div(
+#   id = paste0(ns("intv"),"_container"),
+#   textInput(ns("intv"),"interval:",NA)
+# ),
 # =======
     # tags$div(
     #   id = paste0(ns("binWidth"),"_container"),title="Set the bin width between the minium and maximum values",

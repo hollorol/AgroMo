@@ -44,9 +44,9 @@ agromoBaseUI <- function(id){
                           class = "mainSideBar",title="Tool for calibration, parameter sweep and sensitivity analysis"),
                         actionButton("sitegen","SITE CREATOR",
                           class = "mainSideBar", title="Download site specific weather and soil data from ERA5 and ISRIC databases"),
-                        actionButton("calibration","",
+                        actionButton("calibration","BBGCDB",
                           class = "mainSideBar"),
-                        actionButton("storEditor","",
+                        actionButton("storEditor","Story Editor",
                               class = "mainSideBar"),
                         actionButton("fileMan","",
                               class = "mainSideBar"))
