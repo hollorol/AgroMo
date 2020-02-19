@@ -177,7 +177,7 @@ agroMoShow <- function(input, output, session, dataenv, baseDir, connection,cent
 
      
    observe({
-       updateSelectInput(session,"experimentID", choices = c("NONE",dbGetQuery(initData$measurementConn,"
+       updateSelectInput(session,"experimentID", choices = c("NO OBSERVED DATA",dbGetQuery(initData$measurementConn,"
                                                                        SELECT DISTINCT experiment FROM EXPERIMENT 
                                                                        ")[,1])
      )
@@ -185,7 +185,7 @@ agroMoShow <- function(input, output, session, dataenv, baseDir, connection,cent
    })
 
      observe({
-         if(input$experimentID!="NONE"){
+         if(input$experimentID!="NO OBSERVED DATA"){
           updateSelectInput(session,"treatmentID", choices =
                             dbGetQuery(initData$measurementConn,sprintf("
                                                                          SELECT DISTINCT SUBSTR(key,6,LENGTH(key))
