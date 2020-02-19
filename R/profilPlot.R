@@ -4,11 +4,11 @@ plotProfile <- function(outputNames, dataenv, selectedDate, profilTag){
                                                     unlist(dataenv[[x]][dataenv[[x]][,"date"]==selectedDate,data]*convFactor)}))
      depths <- -c(1.5,6.5,25,45,75,105,135,175,300,700)
      p <- plot_ly()
-     p <- add_trace(p, x= valuesToPlot[[1]], y= depths, mode = "lines", type = "scatter", name = outputNames[1]) %>%
+     p <- add_trace(p, x= valuesToPlot[[1]][1:8], y= depths[1:8], mode = "lines", type = "scatter", name = outputNames[1]) %>%
          layout(yaxis = list(zeroline=FALSE), xaxis = list(side = "top"))
      if(numberOfLayers>=2){
          for(i in 2:numberOfLayers){
-             p <- add_trace(p, x= valuesToPlot[[i]], y= depths, mode = "lines", type = "scatter",name = outputNames[i]) 
+             p <- add_trace(p, x= valuesToPlot[[i]][1:8], y= depths[1:8], mode = "lines", type = "scatter",name = outputNames[i]) 
          }
      }
     #
