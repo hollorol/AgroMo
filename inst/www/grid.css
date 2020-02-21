@@ -222,7 +222,7 @@
 
 #griddiv-queryalias_container {
     position: absolute;
-    top: 450px;
+    top: 515px;
     right: 750px;
     font-size: 16px;
     font-family: Trebuchet MS;
@@ -256,7 +256,7 @@
 
 #griddiv-metadata_container {
     position: absolute;
-    top: 450px;
+    top: 515px;
     left: 120px;
     font-size: 16px;
     font-family: Trebuchet MS;
@@ -290,6 +290,7 @@
 #griddiv-climprojquery_container {
     position: absolute;
     top: 490px;
+    display:none;
 }
 
 #griddiv-climprojquery_container label {
@@ -300,6 +301,7 @@
     -moz-user-select: none;
     -ms-user-select: none;
      user-select: none;
+     display:none;
 }
 
 #griddiv-climprojquery_container .form-group {
@@ -311,17 +313,20 @@
     -moz-user-select: none;
     -ms-user-select: none;
      user-select: none;
+     display:none;
 }
 
 #griddiv-climprojquery_container .selectize-input {
 position: absolute;
     top: -14px;
+    display:none;
 }
 
 #griddiv-algselquery_container {
     position: absolute;
     top: 490px;
     left: 320px;
+    display:none;
 }
 
 #griddiv-algselquery_container label {
@@ -332,6 +337,7 @@ position: absolute;
     -moz-user-select: none;
     -ms-user-select: none;
      user-select: none;
+     display:none;
 }
 
 #griddiv-algselquery_container .form-group {
@@ -343,6 +349,7 @@ position: absolute;
     -moz-user-select: none;
     -ms-user-select: none;
      user-select: none;
+     display:none;
 }
 
 
@@ -350,11 +357,12 @@ position: absolute;
 position: absolute;
     top: -14px;
     left: -2px;
+    display:none;
 }
 
 #griddiv-time_container {
     position: absolute;
-    top: 528px;
+    top: 527px;
     right: 438px;
 }
 
@@ -389,7 +397,7 @@ position: absolute;
 
 #griddiv-until_container {
     position: absolute;
-    top: 546px;
+    top: 545px;
     left: 268px;
 }
 
@@ -422,7 +430,7 @@ position: absolute;
 
 #griddiv-sqlfunc_1_container {
     position: absolute;
-    top: 589px;
+    top: 588px;
 }
 
 #griddiv-sqlfunc_1_container .control-label {
@@ -468,7 +476,7 @@ position: absolute;
 
 #griddiv-sqlfunc_2_container {
     position: absolute;
-    top: 629px;
+    top: 628px;
 }
 
 #griddiv-sqlfunc_2_container .control-label {
@@ -514,7 +522,7 @@ position: absolute;
 
 #griddiv-sqlfunc_3_container {
     position: absolute;
-    top: 669px;
+    top: 668px;
 }
 
 #griddiv-sqlfunc_3_container .control-label {
@@ -560,7 +568,7 @@ position: absolute;
 
 #griddiv-sqlfunc_4_container {
     position: absolute;
-    top: 709px;
+    top: 708px;
 }
 
 #griddiv-sqlfunc_4_container .control-label {
@@ -606,7 +614,7 @@ position: absolute;
 
 #griddiv-sqlfunc_5_container {
     position: absolute;
-    top: 548px;
+    top: 547px;
 }
 
 #griddiv-sqlfunc_5_container .control-label {
@@ -652,7 +660,7 @@ position: absolute;
 
 #griddiv-sqlfunc_6_container {
     position: absolute;
-    top: 589px;
+    top: 588px;
 }
 
 
@@ -699,7 +707,7 @@ position: absolute;
 
 #griddiv-sqlfunc_7_container {
     position: absolute;
-    top: 629px;
+    top: 628px;
 }
 
 #griddiv-sqlfunc_7_container .control-label {
@@ -745,7 +753,7 @@ position: absolute;
 
 #griddiv-sqlfunc_8_container {
     position: absolute;
-    top: 669px;
+    top: 668px;
 }
 
 #griddiv-sqlfunc_8_container .control-label {
@@ -791,7 +799,7 @@ position: absolute;
 
 #griddiv-sqlfunc_9_container {
     position: absolute;
-    top: 708px;
+    top: 707px;
 }
 
 #griddiv-sqlfunc_9_container .control-label {
@@ -849,7 +857,7 @@ position: absolute;
 }
 
 #griddiv-queryTable  {
-  height: 180px !important;
+  height: 240px !important;
   width: 920px !important;
   background-color: white;
   font-size: 16px;

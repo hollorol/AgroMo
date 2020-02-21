@@ -44,7 +44,7 @@
 #mapdiv-latlon_container {
     position: absolute;
     top: 90px;
-    left: 660px;
+    left: 690px;
     font-size: 16px;
     font-family: Trebuchet MS;
     color: black;
@@ -135,7 +135,7 @@
 }
 #mapdiv-colnumb_container .form-group.shiny-input-container label{
     position: absolute;
-    top: 185px;
+    top: 190px;
     right: 302px;
     font-size: 16px;
     font-family: Trebuchet MS;
