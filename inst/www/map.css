@@ -301,6 +301,24 @@
   -ms-user-select: none;
   user-select: none;
 }
+
+#mapdiv-radio_container {
+    position: absolute;
+    top: 171px;
+    left: 215px;
+  display: inline !important;
+}
+
+#mapdiv-radio_container .shiny-options-group{
+    position: absolute;
+  border-width: 0px;
+}
+
+#mapdiv-radio_container input {
+    position: absolute;
+    left: 150px;
+}
+
 /*#mapdiv-maxprec_container .form-group.shiny-input-container label{
     position: absolute;
     top: 230px;
@@ -328,7 +346,7 @@
 #mapdiv-maskcol_container .form-group.shiny-input-container label{
     position: absolute;
     top: 240px;
-    right: 745px;
+    right: 740px;
     width: 100px;
     font-size: 16px;
     font-family: Trebuchet MS;
