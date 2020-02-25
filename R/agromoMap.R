@@ -58,7 +58,7 @@
       selectInput(ns("datasource"),"data source:","")
     ),
     tags$div(
-      id = paste0(ns("palette"),"_container"),title="Select colour palette for map",
+      id = paste0(ns("palette"),"_container"),title="Select color palette for map",
       selectInput(ns("palette"),"palette:",choices= paletteAlias[,2])),
 # <<<<<<< HEAD
 #    tags$div(
@@ -73,15 +73,19 @@
 # >>>>>>> feature/visualization
     tags$div(
       id = paste0(ns("min"),"_container"), title="Set the minimum value for the data presented on the map",
-      textInput(ns("min"),"min. value:",NA)
+      textInput(ns("min"),"min-max value:",NA)
     ),
+   tags$div(
+     id = paste0(ns("interval"),"_container"),
+     textInput(ns("interval"),"interval:",NA)
+   ),
     tags$div(
       id = paste0(ns("minprec"),"_container"),title="Select the number of decimal places shown in the presented values",
-      selectInput(ns("minprec"),"precision of rounding:",choices=c(0,1,2,3,4,5))
+      selectInput(ns("minprec"),"decimal places:",choices=c(0,1,2,3,4,5))
     ),
         tags$div(
       id = paste0(ns("max"),"_container"),title="Set the maximum value for the data presented on the map",
-      textInput(ns("max"),"max. value:",NA)
+      textInput(ns("max"),"-",NA)
     ),
 # <<<<<<< HEAD
 # tags$div(
@@ -99,8 +103,8 @@
 #      selectInput(ns("maxprec"),"precision of rounding:",choices=c(0,1,2,3,4,5))
 #    ),
     tags$div(
-      id = paste0(ns("maskcol"),"_container"),title="Select mask colour (for regions with no data)",
-      selectInput(ns("maskcol"),"mask colour:",choices=paletteAliasMask[,2])
+      id = paste0(ns("maskcol"),"_container"),title="Select mask color (for regions with no data)",
+      selectInput(ns("maskcol"),"mask color:",choices=paletteAliasMask[,2])
     ),
     
     tags$div(
