@@ -9,7 +9,7 @@
 #' @export
 readQueryFromDB <- function(connection, query, attachedDBS=NULL,
                             queryModifiers=NULL){
-
+  
   if(is.null(attachedDBS)) {
     ## Copy to grid!
     if(!is.null(queryModifiers)){
@@ -22,16 +22,16 @@ readQueryFromDB <- function(connection, query, attachedDBS=NULL,
     
     res <- dbGetQuery(connection,query)[,1]
     # dbDisconnect(connection)
-
-   #Check the result
+    
+    #Check the result
     if((length(res)!=1104 ) ||  (!is.numeric(res))){
-     stop("Something went wrong") 
+      stop("Something went wrong") 
     }
     return(res)
   } else {
     stop("Not implemented yet: attachedDBS")
   }
- }
+}
 
 ####
 #' trimColorSet
@@ -44,17 +44,18 @@ readQueryFromDB <- function(connection, query, attachedDBS=NULL,
 #' @param reverseColorScale If it is TRUE, the colorscale is reversed (default setting is FALSE)
 #' @param colorset Name of the colorscale which is available in the list numBaseColors
 #' @param center A number around which diverging colorscales will be centralised
-#' @param minim Minium value of the visualised dataset
-#' @param maxim Maximum value of the visualised dataset
+#' @param minimum Minium value of the visualised dataset
+#' @param maximum Maximum value of the visualised dataset
+#' @param binwidth Length of intervals (only in the case when minimum and maximum values are given)
 #' @importFrom RColorBrewer brewer.pal brewer.pal.info 
 #' @importFrom grDevices colorRampPalette
 #' @return
 #' @export
 
 trimColorSet <- function(minim, maxim, center=NULL, nticks=6, roundPrecision=NULL, reverseColorScale=FALSE, colorSet="RdYlGn") {
-#  browser() 
+  #  browser() 
   
-    print(colorSet)
+  print(colorSet)
   if (!is.element(colorSet,rownames(brewer.pal.info))) {
     stop(sprintf("Invalid colorset, please choose from the followings:\n %s", paste(rownames(brewer.pal.info), collapse=", ")))
   }
@@ -116,31 +117,32 @@ trimColorSet <- function(minim, maxim, center=NULL, nticks=6, roundPrecision=NUL
 #' @export
 
 agroMapVector <- function(data, nticks=NULL, binwidth=NULL, minimum=NULL, maximum=NULL, roundPrecision=NULL, reverseColorScale=FALSE,
-                    colorSet="RdYlGn", center=NULL, plotTitle=NULL, imageTitle=NULL, lonlat=FALSE, countrycont=TRUE) {
-
-  if(missing(nticks) & missing(binwidth))  {
-     stop("Please, choose the number of colors (nticks) or the bin width (binwidth).\n
-         The latter requires choosing the minimum and maximum of the displayed values (minim, maxim).")
-  }
+                          colorSet="RdYlGn", center=NULL, plotTitle=NULL, imageTitle=NULL, lonlat=FALSE, countrycont=TRUE) {
   
-  if((is.numeric(nticks)==TRUE) & (is.numeric(binwidth)==TRUE)) {
-    stop("Please, choose only one of the following parameters: nticks, binwidth")
-  }
-  
-  if((is.numeric(binwidth)) & ((missing(minimum)) | (missing(maximum))) ) {
-    stop("Please, define the minimum and maximum values of the displayed data (minim, maxim).")
-  }
-  
-  if((is.numeric(nticks)) & ((is.numeric(minimum)) | (is.numeric(maximum))) ) {
-    stop("Parameters minim and maxim can only used with the parameter binwidth.")
-  }
+  # The followings shall be commented to make it possible to run the code on the AgroMo GUI:
+  # if(missing(nticks) & missing(binwidth))  {
+  #   stop("Please, choose the number of colors (nticks) or the bin width (binwidth).\n
+  #        The latter requires choosing the minimum and maximum of the displayed values (minim, maxim).")
+  # }
+  # 
+  # if((is.numeric(nticks)==TRUE) & (is.numeric(binwidth)==TRUE)) {
+  #   stop("Please, choose only one of the following parameters: nticks, binwidth")
+  # }
+  # 
+  # if((is.numeric(binwidth)) & ((missing(minimum)) | (missing(maximum))) ) {
+  #   stop("Please, define the minimum and maximum values of the displayed data (minim, maxim).")
+  # }
+  # 
+  # if((is.numeric(nticks)) & ((is.numeric(minimum)) | (is.numeric(maximum))) ) {
+  #   stop("Parameters minimum and maximum can only used with the parameter binwidth.")
+  # }
   
   lon <- seq(16.2,22.8,0.1)
   lat <- seq(45.8,48.5,0.1)
   
   dimlon <- length(lon)
   dimlat <- length(lat)
-
+  
   index <- c(18,	19,	20,	21,	22,	23,	24,	83,	84,	85,	86,	87,	88,	89,	90,	91,	92,	94,	147,	148,	149,	150,	151,	152,	153,	154,	155,	156,	157,	158,	159,	160,
              161,	162,	163,	165,	213,	214,	215,	216,	217,	218,	219,	220,	221,	222,	223,	224,	225,	226,	227,	228,	229,	230,	231,	232,	233,	234,	278,
              279,	280,	281,	282,	283,	284,	285,	286,	287,	288,	289,	290,	291,	292,	293,	294,	295,	296,	297,	298,	299,	300,	301,	302,	303,	304,	305,
@@ -182,43 +184,45 @@ agroMapVector <- function(data, nticks=NULL, binwidth=NULL, minimum=NULL, maximu
              1606,	1607,	1608,	1643,	1644,	1648,	1649,	1650,	1651,	1652,	1653,	1654,	1655,	1656,	1657,	1658,	1659,	1660,	1661,	1662,	1663,	1664,	1665,	1666,	1667,	1668,	1669,
              1670,	1671,	1672,	1718,	1719,	1720,	1721,	1722,	1723,	1724,	1725,	1726,	1727,	1728,	1729,	1730,	1731,	1732,	1733,	1734,	1735,	1736,	1737,	1786,	1787,	1788,	1789,
              1790,	1791,	1792,	1793,	1794,	1795,	1796,	1797,	1803,	1854,	1855,	1856,	1857,	1858,	1860,	1861,	1862,	1863,	1864)
-
+  
   grid_vect <- array(NA, dim=1876)
   grid_vect[index] <- data
   grid_array <- matrix(grid_vect, nrow=length(lon), ncol=length(lat))
   
-  if (is.null(binwidth)) {
+  # if (is.null(binwidth)) {
+  if (nticks > 1) { # By using this, plotting maps is possible by choosing (min,max,bw) and nticks, respectively.
     colorbar <- trimColorSet(min(data),max(data),center=center, nticks=nticks,
-                               roundPrecision=roundPrecision, reverseColorScale=reverseColorScale, colorSet=colorSet)
+                             roundPrecision=roundPrecision, reverseColorScale=reverseColorScale, colorSet=colorSet)
     if(!is.null(imageTitle)){
       png(imageTitle, units="in", width=14, height=9, pointsize=14, res=300)  
       par(omi=c(0,0,0,0.8))
     }
-
+    
     # windows()
-      if(is.null(roundPrecision)) {
-  
-        image.plot(lon, lat, grid_array, xaxt="n", yaxt="n", ann=FALSE, col=colorbar$colors, lab.breaks=colorbar$breaks)
-         } else {
-        image.plot(lon, lat, grid_array, xaxt="n", yaxt="n", ann=FALSE, col=colorbar$colors, lab.breaks=round(colorbar$breaks, digits=roundPrecision))
-      }
-       
-      if(lonlat==TRUE) {
-        abline(h=seq(46,48,1), v=seq(16,23,1), lty=2)
-      }
-      title(main=plotTitle, cex.lab=1.2)
-      axis(1, at=seq(16,23,1), labels=c("16°E","17°E","18°E","19°E","20°E","21°E","22°E","23°E"), cex.axis=1.2)
-      axis(1, at=seq(16,23,0.5), labels=FALSE, tck=-0.01)
-      axis(2, at=seq(46,48,1), labels=c("46°N","47°N","48°N"), cex.axis=1.2, las=2)
-      axis(2, at=seq(46,48,0.5), labels=FALSE, tck=-0.01)
-      if(countrycont==TRUE){
-        map("world", xlim=c(lon[1],lon[length(lon)]), ylim=c(lat[1],lat[length(lat)]), add=TRUE)
-      }
-      if(!is.null(imageTitle)){
-        graphics.off()
-      }
-
+    if(is.null(roundPrecision)) {
+      
+      image.plot(lon, lat, grid_array, xaxt="n", yaxt="n", ann=FALSE, col=colorbar$colors, lab.breaks=colorbar$breaks)
+    } else {
+      image.plot(lon, lat, grid_array, xaxt="n", yaxt="n", ann=FALSE, col=colorbar$colors, lab.breaks=round(colorbar$breaks, digits=roundPrecision))
+    }
+    
+    if(lonlat==TRUE) {
+      abline(h=seq(46,48,1), v=seq(16,23,1), lty=2)
+    }
+    title(main=plotTitle, cex.lab=1.2)
+    axis(1, at=seq(16,23,1), labels=c("16°E","17°E","18°E","19°E","20°E","21°E","22°E","23°E"), cex.axis=1.2)
+    axis(1, at=seq(16,23,0.5), labels=FALSE, tck=-0.01)
+    axis(2, at=seq(46,48,1), labels=c("46°N","47°N","48°N"), cex.axis=1.2, las=2)
+    axis(2, at=seq(46,48,0.5), labels=FALSE, tck=-0.01)
+    if(countrycont==TRUE){
+      map("world", xlim=c(lon[1],lon[length(lon)]), ylim=c(lat[1],lat[length(lat)]), add=TRUE)
+    }
+    if(!is.null(imageTitle)){
+      graphics.off()
+    }
+    
   } else {
+    
     numBaseColors <- brewer.pal.info[colorSet,1]
     brks <- seq(minimum, maximum, binwidth)
     
@@ -226,30 +230,29 @@ agroMapVector <- function(data, nticks=NULL, binwidth=NULL, minimum=NULL, maximu
       colorbar <- rev(colorRampPalette(brewer.pal(numBaseColors,colorSet))(length(brks)-1))
     } else {
       colorbar <- colorRampPalette(brewer.pal(numBaseColors,colorSet))(length(brks)-1)
-
     }
     
-   #png(fileTitle, units="in", width=14, height=9, pointsize=14, res=100)
+    #png(fileTitle, units="in", width=14, height=9, pointsize=14, res=100)
     if(!is.null(imageTitle)){
       png(imageTitle, units="in", width=14, height=9, pointsize=14, res=300)    
       par(omi=c(0,0,0,0.8))
     }
-      image.plot(lon, lat, grid_array, xaxt="n", yaxt="n", ann=FALSE, col=colorbar, breaks=brks, lab.breaks=brks)#, asp=1.5555555555)
-      if(lonlat==TRUE) {
-        abline(h=seq(46,48,1), v=seq(16,23,1), lty=2)
-      }
-      title(main=plotTitle, cex.lab=1.2)
-      axis(1, at=seq(16,23,1), labels=c("16°E","17°E","18°E","19°E","20°E","21°E","22°E","23°E"), cex.axis=1.2)
-      axis(1, at=seq(16,23,0.5), labels=FALSE, tck=-0.01)
-      axis(2, at=seq(46,48,1), labels=c("46°N","47°N","48°N"), cex.axis=1.2, las=2)
-      axis(2, at=seq(46,48,0.5), labels=FALSE, tck=-0.01)
-      if(countrycont==TRUE){
-        map("world", xlim=c(lon[1],lon[length(lon)]), ylim=c(lat[1],lat[length(lat)]), add=TRUE)#, asp=1.55555)
-      }
-      if(!is.null(imageTitle)){
-        graphics.off()
-      }
- #     graphics.off()
+    image.plot(lon, lat, grid_array, xaxt="n", yaxt="n", ann=FALSE, col=colorbar, breaks=brks, lab.breaks=brks)#, asp=1.5555555555)
+    if(lonlat==TRUE) {
+      abline(h=seq(46,48,1), v=seq(16,23,1), lty=2)
+    }
+    title(main=plotTitle, cex.lab=1.2)
+    axis(1, at=seq(16,23,1), labels=c("16°E","17°E","18°E","19°E","20°E","21°E","22°E","23°E"), cex.axis=1.2)
+    axis(1, at=seq(16,23,0.5), labels=FALSE, tck=-0.01)
+    axis(2, at=seq(46,48,1), labels=c("46°N","47°N","48°N"), cex.axis=1.2, las=2)
+    axis(2, at=seq(46,48,0.5), labels=FALSE, tck=-0.01)
+    if(countrycont==TRUE){
+      map("world", xlim=c(lon[1],lon[length(lon)]), ylim=c(lat[1],lat[length(lat)]), add=TRUE)#, asp=1.55555)
+    }
+    if(!is.null(imageTitle)){
+      graphics.off()
+    }
+    #     graphics.off()
   }
 }
 
@@ -260,16 +263,16 @@ agroMap <- function(connection=NULL, query=NULL, myData=NULL, attachedDBS = NULL
                     minimum=NULL, maximum=NULL, roundPrecision=NULL,
                     reverseColorScale=FALSE,colorSet="RdYlGn", center=NULL,
                     plotTitle=NULL, imageTitle=NULL, lonlat=FALSE, outFile=NULL, countrycont=TRUE) {
-    # browser()
-    if(!is.null(connection)){
-        agroVector <- readQueryFromDB(connection, query, attachedDBS = attachedDBS,queryModifiers = queryModifiers)
-    } else {
-        agroVector <- myData
-    }
-    if(!is.null(outFile)){
-        write.csv(agroVector, outFile)
-    }
-
+  # browser()
+  if(!is.null(connection)){
+    agroVector <- readQueryFromDB(connection, query, attachedDBS = attachedDBS,queryModifiers = queryModifiers)
+  } else {
+    agroVector <- myData
+  }
+  if(!is.null(outFile)){
+    write.csv(agroVector, outFile)
+  }
+  
   agroMapVector(agroVector, nticks=nticks, binwidth=binwidth, minimum=minimum, maximum=maximum,
                 roundPrecision=roundPrecision, reverseColorScale=reverseColorScale, colorSet=colorSet,
                 center=center, plotTitle=plotTitle, imageTitle=imageTitle, lonlat=lonlat, countrycont=countrycont)
@@ -310,4 +313,4 @@ agroMap <- function(connection=NULL, query=NULL, myData=NULL, attachedDBS = NULL
 #   endyear=2018
 # )
 
-#agroMap(dbName, query, queryModifiers=queryModifiers,nticks=6, colorSet="RdYlGn",roundPrecision = 0) 
+#agroMap(dbName, query, queryModifiers=queryModifiers,nticks=6, colorSet="RdYlGn",roundPrecision = 0)
