@@ -2,7 +2,7 @@
 #'
 #' Bla
 #' @param id id
-#' @importFrom shiny NS tags checkboxInput selectInput textInput actionButton plotOutput updateSelectInput observe imageOutput
+#' @importFrom shiny NS tags checkboxInput selectInput textInput radioButtons actionButton plotOutput updateSelectInput observe imageOutput
 
   agroMoMapUI <- function(id){
     
@@ -70,10 +70,10 @@
       id = paste0(ns("colnumb"), "_container"), title="Select the number of colours/subranges to be distinguished on the map", #colnumb <-> interval
       selectInput(ns("colnumb"),"colors:",choices=2:32)
     ),
-#  tags$div(
-#    id = paste0(ns("radio"), "_container"), 
-#    radioButtons(ns("radio"),"",choices=c("",""))
-#  ),
+  tags$div(
+    id = paste0(ns("radio"), "_container"), 
+    radioButtons(ns("radio"),"",choices=c("",""))
+  ),
 # >>>>>>> feature/visualization
     tags$div(
       id = paste0(ns("min"),"_container"), title="Set the minimum value for the data presented on the map",
