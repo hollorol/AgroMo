@@ -44,6 +44,7 @@ plotProfile <- function(outputNames, dataenv, selectedDate, profilTag){
      
       p %>% layout(title=getTitleFromCentralData(variable=profilTag),
                  xaxis = list(ticks = "outside",
+                              range = c(0,45),
                               ticklen = 10,
                               tickwidth = 2,
                               tickcolor = toRGB("grey40"),
@@ -107,5 +108,5 @@ getTitleFromCentralData <- function(labelName=NULL,variable=NULL,centralData=get
     }
 }
 
- getProfileVariables("water-profil")
+#  getProfileVariables("water-profil")
 # getTitleFromCentralData(variable="water-profil",centralData=centralData)
