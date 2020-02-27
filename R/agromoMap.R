@@ -2,7 +2,7 @@
 #'
 #' Bla
 #' @param id id
-#' @importFrom shiny NS tags checkboxInput selectInput textInput actionButton plotOutput updateSelectInput observe imageOutput
+#' @importFrom shiny NS tags checkboxInput selectInput textInput actionButton radioButtons plotOutput updateSelectInput observe imageOutput
 
 agroMoMapUI <- function(id){
   
@@ -70,16 +70,17 @@ agroMoMapUI <- function(id){
            ),
            tags$div(
              id = paste0(ns("min"),"_container"), title="Set the minimum value for the data presented on the map",
-             numericInput(ns("min"),"min-max value:",NA, step=0.01)
+             textInput(ns("min"),"min-max value:",as.numeric(NA))
            ),
            tags$div(
              id = paste0(ns("max"),"_container"),title="Set the maximum value for the data presented on the map",
-             numericInput(ns("max"),"-",NA, step=0.01)
+             textInput(ns("max"),"-",as.numeric(NA))
            ),
            tags$div(
              id = paste0(ns("bw"),"_container"),title="Set the bin width between the minium and maximum values",
-             numericInput(ns("bw"),"interval:",NA, step=0.01, min=0.01)
+             textInput(ns("bw"),"interval:",as.numeric(NA))
            ),
+
            #    tags$div(
            #      id = paste0(ns("maxprec"),"_container"),
            #      selectInput(ns("maxprec"),"precision of rounding:",choices=c(0,1,2,3,4,5))
