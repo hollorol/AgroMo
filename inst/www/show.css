@@ -91,6 +91,10 @@ div.profPlotCont {
   margin-bottom: 40px;
 }
 
+div.profAxis {
+  display: flex;
+}
+
 div.profPlotCont >button {
 margin-left: 15px;
   height:34px;
