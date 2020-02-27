@@ -1,4 +1,4 @@
-plotProfile <- function(outputNames, dataenv, selectedDate, profilTag){
+plotProfile <- function(outputNames, dataenv, selectedDate, profilTag, xrange = NULL, yrange=NULL){
      numberOfLayers <- length(outputNames)
      valuesToPlot <- with(getProfileVariables(profilTag),lapply(outputNames, function(x){
                                                     unlist(dataenv[[x]][dataenv[[x]][,"date"]==selectedDate,data]*convFactor)}))
@@ -41,6 +41,13 @@ plotProfile <- function(outputNames, dataenv, selectedDate, profilTag){
          size = 22,
          color = "black" # to set scientific format use the parameter: exponentformat = "E"
      )
+      if(length(xrange)!=2){
+          xrange <- NULL
+      } 
+           
+      if(length(yrange)!=2){
+          xrange <- NULL
+      } 
      
       p %>% layout(title=getTitleFromCentralData(variable=profilTag),
                  xaxis = list(ticks = "outside",
@@ -48,6 +55,7 @@ plotProfile <- function(outputNames, dataenv, selectedDate, profilTag){
                               tickwidth = 2,
                               tickcolor = toRGB("grey40"),
                               showticklabels = TRUE,
+                              range=xrange,
                               tickangle = 0,
                               tickfont = tickfont,
                               # zeroline = TRUE, # to highlight the line at x=0
@@ -61,6 +69,7 @@ plotProfile <- function(outputNames, dataenv, selectedDate, profilTag){
                    
                  yaxis = list(title = "<b>Depth [cm]</b>", # bold title
                               titlefont = titlefont,
+                              range=yrange,
                               ticks = "outside",
                               ticklen = 10,
                               tickwidth = 2,

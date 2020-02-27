@@ -15,7 +15,8 @@ multiPlot(
   treatmentID,
   repetAvg = TRUE,
   connection,
-  centralData
+  centralData,
+  measAlias
 )
 }
 \arguments{
