@@ -141,7 +141,7 @@ multiPlot <- function(input, output, session, measurement, outputNames, outputTa
                                                             selectedDate = input[[sprintf("%s-dateInput",profPlots[my_i])]],
                                                             profilTag=profPlots[my_i],
                                          as.numeric(c(input[[sprintf("%s-xmin",profPlots[my_i])]],input[[sprintf("%s-xmax",profPlots[my_i])]])),
-                                         as.numeric(c(0,input[[sprintf("%s-ymax",profPlots[my_i])]]))
+                                         as.numeric(c(input[[sprintf("%s-ymax",profPlots[my_i])]],0))
                                                             )})
             
           })
@@ -196,7 +196,9 @@ displayProfile <- function (profName,startDate) {
               actionButton(sprintf("%s-dinc",profName),"+d"),
               actionButton(sprintf("%s-winc",profName),"+w"),
               actionButton(sprintf("%s-minc",profName),"+m"),
-              actionButton(sprintf("%s-yinc",profName),"+y"),
+              actionButton(sprintf("%s-yinc",profName),"+y")
+             ),
+             tags$div(id=sprintf("%s-axis",profName),
               textInput(sprintf("%s-xmin",profName),"xmin"),
               textInput(sprintf("%s-xmax",profName),"xmax"),
               textInput(sprintf("%s-ymax",profName),"ymax")

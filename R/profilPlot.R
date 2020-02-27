@@ -116,5 +116,5 @@ getTitleFromCentralData <- function(labelName=NULL,variable=NULL,centralData=get
     }
 }
 
- getProfileVariables("water-profil")
+#  getProfileVariables("water-profil")
 # getTitleFromCentralData(variable="water-profil",centralData=centralData)
