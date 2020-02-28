@@ -4,7 +4,7 @@ which is the window except the banner. */
   
 #mapdiv-invert_container {
 position: absolute;
-top: 93px;
+top: 94px;
 left: 407px;
 font-size: 16px;
 font-family: Trebuchet MS;
@@ -15,23 +15,10 @@ color: black;
 user-select: none;  
 }
 
-#mapdiv-invert_container span{
-position: absolute;
-top: -1px;
-left: 14px;
-font-size: 16px;
-font-family: Trebuchet MS;
-color: black;
--webkit-user-select: none;
--moz-user-select: none;
--ms-user-select: none;
-user-select: none; 
-}
-
 #mapdiv-countrycont_container {
 position: absolute;
-top: 93px;
-left: 540px;
+top: 94px;
+left: 535px;
 font-size: 16px;
 font-family: Trebuchet MS;
 color: black;
@@ -44,8 +31,8 @@ user-select: none;
 
 #mapdiv-latlon_container {
 position: absolute;
-top: 93px;
-left: 720px;
+top: 94px;
+left: 718px;
 font-size: 16px;
 font-family: Trebuchet MS;
 color: black;
@@ -58,7 +45,7 @@ user-select: none;
 
 #mapdiv-datasource_container .form-group.shiny-input-container label{
 position: absolute;
-top: 20px;
+top: 18px;
 right: 730px;
 font-size: 16px;
 font-family: Trebuchet MS;
@@ -72,9 +59,9 @@ user-select: none;
 
 #mapdiv-datasource_container .selectize-control{
 position: absolute;
-top: 14px;
+top: 12px;
 left: 105px;
-width: 810px;
+width: 815px;
 font-size: 16px;
 font-family: Trebuchet MS;
 color: black;
@@ -102,7 +89,7 @@ user-select: none;
 position: absolute;
 top: 54px; 
 left: 105px;
-width: 810px;
+width: 815px;
 font-size: 16px;
 font-family: Trebuchet MS;
 color: black;
@@ -114,7 +101,7 @@ user-select: none;
 
 #mapdiv-palette_container .form-group.shiny-input-container label{
 position: absolute;
-top: 100px;
+top: 102px;
 right: 730px;
 font-size: 16px;
 font-family: Trebuchet MS;
@@ -128,7 +115,7 @@ user-select: none;
 
 #mapdiv-palette_container .selectize-control{
 position: absolute;
-top: 95px;
+top: 97px;
 left: 105px;
 width: 260px;
 font-size: 16px;
@@ -143,7 +130,7 @@ user-select: none;
 #mapdiv-colnumb_container .form-group.shiny-input-container label{
 position: absolute;
 top: 185px;
-left: 349px;
+left: 353px;
 font-size: 16px;
 font-family: Trebuchet MS;
 font-weight: normal;
@@ -157,7 +144,7 @@ user-select: none;
 #mapdiv-colnumb_container .selectize-control{
 position: absolute;
 top: 180px;
-left: 402px;
+left: 407px;
 width: 80px;
 font-size: 16px;
 font-family: Trebuchet MS;
@@ -171,7 +158,7 @@ user-select: none;
 #mapdiv-bw_container .form-group.shiny-input-container label{
 position: absolute;
 top: 185px;
-left: 525px;
+left: 528px;
 font-size: 16px;
 font-family: Trebuchet MS;
 font-weight: normal;
@@ -185,7 +172,7 @@ user-select: none;
 #mapdiv-bw_container .form-control.shinyjs-resettable{
 position: absolute;
 top: 180px;
-left: 590px;
+left: 593px;
 width: 95px;
 font-size: 16px;
 font-family: Trebuchet MS;
@@ -228,7 +215,7 @@ user-select: none;
 #mapdiv-minprec_container .form-group.shiny-input-container label{
 position: absolute;
 top: 185px;
-right: 0px;
+right: -2px;
 font-size: 16px;
 font-family: Trebuchet MS;
 font-weight: normal;
@@ -242,8 +229,8 @@ user-select: none;
 #mapdiv-minprec_container .selectize-control{
 position: absolute;
 top: 180px;
-left: 835px;
-width: 80px;
+left: 837px;
+width: 83px;
 font-size: 16px;
 font-family: Trebuchet MS;
 color: black;
@@ -255,7 +242,7 @@ user-select: none;
 
 #mapdiv-max_container .form-group.shiny-input-container label{
 position: absolute;
-top: 185px;
+top: 184px;
 left: 205px;
 font-size: 16px;
 font-family: Trebuchet MS;
@@ -311,7 +298,7 @@ user-select: none;
 
 #mapdiv-maskcol_container .form-group.shiny-input-container label{
 position: absolute;
-top: 230px;
+top: 228px;
 right: 730px;
 font-size: 16px;
 font-family: Trebuchet MS;
@@ -325,7 +312,7 @@ user-select: none;
 
 #mapdiv-maskcol_container .selectize-control{
 position: absolute;
-top: 225px;
+top: 223px;
 left: 105px;
 width: 260px;
 font-size: 16px;
@@ -339,7 +326,7 @@ user-select: none;
 
 #mapdiv-maptitle_container .form-group.shiny-input-container label{
 position: absolute;
-top: 270px; 
+top: 271px; 
 right: 730px;
 font-size: 16px;
 font-family: Trebuchet MS;
@@ -353,7 +340,7 @@ user-select: none;
 
 #mapdiv-maptitle_container .form-control.shinyjs-resettable{
 position: absolute;
-top: 265px; 
+top: 266px; 
 left: 105px;
 width: 815px;
 font-size: 16px;
@@ -391,7 +378,7 @@ user-select: none;
 
 #mapdiv-create {
 position: absolute;
-top: 310px;
+top: 314px;
 left: -20px;
 height: 60px;
 width: 940px;
@@ -423,14 +410,14 @@ user-select: none;
   
 #mapdiv-greensc {
 position: absolute;
-top: 140px;
+top: 141px;
 left: 105px;
 width: 700px;
 height: 30px;
 }
 #mapdiv-greysc {
 position: absolute;
-top: 227px;
+top: 226px;
 left: 390px;
 width: 420px;
 height: 30px;
