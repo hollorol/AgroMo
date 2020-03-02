@@ -82,6 +82,11 @@ plotProfile <- function(outputNames, dataenv, selectedDate, profilTag, xrange = 
                               mirror = "ticks", # to get borders around the plot
                               linecolor = toRGB("grey40"),
                               linewidth = 2),
+                 title=list(titlefont=list(
+                   family = "Courier New, monospace",
+                   size = 18,
+                   color = "#7f7f7f")
+                 ),
                  margin = m)
 }
 
