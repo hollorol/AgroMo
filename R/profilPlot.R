@@ -49,9 +49,10 @@ plotProfile <- function(outputNames, dataenv, selectedDate, profilTag, xrange = 
           xrange <- NULL
       } 
      
-      p %>% layout(title=getTitleFromCentralData(variable=profilTag),
-                   xaxis = list(ticks = "outside",
-                                #color= "black",
+      p %>% layout(#title=getTitleFromCentralData(variable=profilTag),
+                    xaxis = list(title = getTitleFromCentralData(variable=profilTag),
+                      titlefont = titlefont,
+                              ticks = "outside",
                               ticklen = 10,
                               tickwidth = 2,
                               tickcolor = toRGB("grey40"),
@@ -68,7 +69,7 @@ plotProfile <- function(outputNames, dataenv, selectedDate, profilTag, xrange = 
                               linecolor = toRGB("grey40"),
                               linewidth = 2),
                    
-                 yaxis = list(title = "<b>Depth [cm]</b>", # bold title
+                 yaxis = list(title = "Depth [cm]", # bold title <b>Depth [cm]</b>
                               titlefont = titlefont,
                               range=yrange,
                               ticks = "outside",

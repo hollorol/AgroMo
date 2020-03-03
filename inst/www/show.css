@@ -54,33 +54,47 @@
 /*   left: 140px; */
 /*   width: 200px; */
 /* } */
-/*  */
+/*  
+*/
+
+#showdiv-plotka-water-profil-axis{
+    font-size: 16px;
+    font-family: Trebuchet MS;
+    color: black;
+}
+
+#showdiv-plotka-temperature-profil-axis{
+    font-size: 16px;
+    font-family: Trebuchet MS;
+    color: black;
+}
+
 
 #showdiv-plotka-temperature-profil-xmin.form-control{
 position: absolute;
   top: 828px;
-  left: 50px;
+  left: 60px;
   width: 50px;
 }
 
 #showdiv-plotka-temperature-profil-ymax.form-control{
 position: absolute;
   top: 868px;
-  left: 50px;
+  left: 60px;
   width: 50px;
 }
 
 #showdiv-plotka-temperature-profil-xmax.form-control{
 position: absolute;
   top: 828px;
-  left: 1000px;
+  left: 1050px;
   width: 50px;
 }
 
 #showdiv-plotka-water-profil-xmin.form-control{
 position: absolute;
   top: 38px;
-  left: 50px;
+  left: 60px;
   width: 50px;
 }
 
@@ -88,14 +102,14 @@ position: absolute;
 #showdiv-plotka-water-profil-ymax.form-control{
   position: absolute;
   top: 78px;
-  left: 50px;
+  left: 60px;
   width: 50px;
 }
 
 #showdiv-plotka-water-profil-xmax.form-control{
   position: absolute;
   top: 38px;
-  left: 1000px;
+  left: 1050px;
   width: 50px;
 }
 
@@ -136,9 +150,9 @@ div.profPlotCont {
   margin-bottom: 40px;
 }
 
-div.profAxis {
+/*div.profAxis {
   display: flex;
-}
+}*/
 
 div.profPlotCont >button {
 margin-left: 15px;
