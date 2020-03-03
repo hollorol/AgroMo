@@ -72,30 +72,43 @@
 
 #showdiv-plotka-temperature-profil-xmin.form-control{
 position: absolute;
-  top: 828px;
+  top: 882px;
   left: 60px;
-  width: 50px;
+  width: 60px;
+  font-size: 16px;
+  font-family: Trebuchet MS;
+  color: black;
+
 }
 
 #showdiv-plotka-temperature-profil-ymax.form-control{
 position: absolute;
-  top: 868px;
+  top: 925px;
   left: 60px;
-  width: 50px;
+  width: 60px;
+  font-size: 16px;
+  font-family: Trebuchet MS;
+  color: black;
 }
 
 #showdiv-plotka-temperature-profil-xmax.form-control{
 position: absolute;
-  top: 828px;
+  top: 882px;
   left: 1050px;
-  width: 50px;
+  width: 60px;
+  font-size: 16px;
+  font-family: Trebuchet MS;
+  color: black;
 }
 
 #showdiv-plotka-water-profil-xmin.form-control{
 position: absolute;
   top: 38px;
   left: 60px;
-  width: 50px;
+  width: 60px;
+  font-size: 16px;
+  font-family: Trebuchet MS;
+  color: black;
 }
 
 
@@ -103,14 +116,20 @@ position: absolute;
   position: absolute;
   top: 78px;
   left: 60px;
-  width: 50px;
+  width: 60px;
+  font-size: 16px;
+  font-family: Trebuchet MS;
+  color: black;
 }
 
 #showdiv-plotka-water-profil-xmax.form-control{
   position: absolute;
   top: 38px;
   left: 1050px;
-  width: 50px;
+  width: 60px;
+  font-size: 16px;
+  font-family: Trebuchet MS;
+  color: black;
 }
 
 
