@@ -56,6 +56,51 @@
 /* } */
 /*  */
 
+#showdiv-plotka-temperature-profil-xmin.form-control{
+position: absolute;
+  top: 828px;
+  left: 50px;
+  width: 50px;
+}
+
+#showdiv-plotka-temperature-profil-ymax.form-control{
+position: absolute;
+  top: 868px;
+  left: 50px;
+  width: 50px;
+}
+
+#showdiv-plotka-temperature-profil-xmax.form-control{
+position: absolute;
+  top: 828px;
+  left: 1000px;
+  width: 50px;
+}
+
+#showdiv-plotka-water-profil-xmin.form-control{
+position: absolute;
+  top: 38px;
+  left: 50px;
+  width: 50px;
+}
+
+
+#showdiv-plotka-water-profil-ymax.form-control{
+  position: absolute;
+  top: 78px;
+  left: 50px;
+  width: 50px;
+}
+
+#showdiv-plotka-water-profil-xmax.form-control{
+  position: absolute;
+  top: 38px;
+  left: 1000px;
+  width: 50px;
+}
+
+
+
 #showdiv-del{
   position:absolute;
   top: 448px;

@@ -50,7 +50,8 @@ plotProfile <- function(outputNames, dataenv, selectedDate, profilTag, xrange = 
       } 
      
       p %>% layout(title=getTitleFromCentralData(variable=profilTag),
-                 xaxis = list(ticks = "outside",
+                   xaxis = list(ticks = "outside",
+                                #color= "black",
                               ticklen = 10,
                               tickwidth = 2,
                               tickcolor = toRGB("grey40"),
@@ -82,11 +83,11 @@ plotProfile <- function(outputNames, dataenv, selectedDate, profilTag, xrange = 
                               mirror = "ticks", # to get borders around the plot
                               linecolor = toRGB("grey40"),
                               linewidth = 2),
-                 title=list(titlefont=list(
-                   family = "Courier New, monospace",
-                   size = 18,
-                   color = "#7f7f7f")
-                 ),
+                 #title=list(titlefont=list(
+                 #  family = "Courier New, monospace",
+                 # size = 18,
+                 # color = "#7f7f7f")
+                 #),
                  margin = m)
 }
 
