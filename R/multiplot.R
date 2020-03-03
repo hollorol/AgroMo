@@ -202,7 +202,11 @@ displayProfile <- function (profName,startDate) {
               textInput(sprintf("%s-xmin",profName),"xmin:"),
               textInput(sprintf("%s-xmax",profName),"xmax:"),
               textInput(sprintf("%s-ymax",profName),"ymax:")
-             ),
+              #textInput(sprintf("%s-xmin",profName),"xmin:"),style=("position: absolute; top: 38px; left: 40px; color: red;"),
+              #textInput(sprintf("%s-xmax",profName),"xmax:"),style=("position: absolute; top: 38px; left: 800px; color: green;"),
+              #textInput(sprintf("%s-ymax",profName),"ymax:"),style=("color:blue;")
+              
+                         ),
              plotlyOutput(profName,height="600px"))
 }
 
