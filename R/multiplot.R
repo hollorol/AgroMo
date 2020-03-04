@@ -200,7 +200,7 @@ displayProfile <- function (profName,startDate) {
                                actionButton(sprintf("%s-minc",profName),"+m"),
                                actionButton(sprintf("%s-yinc",profName),"+y")
                                ),
-                      tags$div(id=sprintf("%s-maxx",profName),class="xyRangeInput xmax",textInput(sprintf("%s-xmax",profName),"xmax:"))
+                      tags$div(id=sprintf("%s-maxx",profName),class="xyRangeInput",style="padding-right: 35px",textInput(sprintf("%s-xmax",profName),"xmax:"))
                       ),
              tags$div(id=sprintf("%s-axis",profName), class="profAxis",
                       tags$div(id=sprintf("%s-ymax",profName),class="xyRangeInput", textInput(sprintf("%s-ymax",profName),"ymax:"),style="padding-left:100px")

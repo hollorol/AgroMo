@@ -59,12 +59,19 @@
 */
 
 div.xyRangeInput .form-group.shiny-input-container {
-     width: 70px;
+     width: 80px;
      font-size: 16px;
      font-family: Trebuchet MS;
      color: black;
+     display: flex;
+     padding-top: 25px;
 }
 
+div.xyRangeInput label {
+    font-size: 18px;
+    margin-right: 10px;
+    margin-top: 5px;
+}
 div.xmax label {
     color: blue;
 }
