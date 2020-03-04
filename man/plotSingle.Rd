@@ -16,7 +16,8 @@ plotSingle(
   experiment_id,
   treatment,
   repetationsAveraged,
-  yTitle
+  yTitle,
+  measAlias = ""
 )
 }
 \arguments{

@@ -192,6 +192,8 @@
     width: 250px;
     height: 60px;
     font-family: "Trebuchet MS";
+     color: black;
+    font-size: 18px;
     font-weight: 700;
     background-color: gainsboro;
   -webkit-user-select: none;
@@ -206,6 +208,8 @@
     left: 680px;
     width: 250px;
     height: 60px;
+     color: black;
+    font-size: 18px;
     font-weight: 700;
     font-family: "Trebuchet MS";
     background-color: gainsboro;

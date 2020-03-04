@@ -135,10 +135,14 @@ multiPlot <- function(input, output, session, measurement, outputNames, outputTa
         updateDateInput(session, inputId = sprintf("%s-dateInput",profPlots[my_i]),
                         value = addDate(input[[sprintf("%s-dateInput",profPlots[my_i])]],"1y"))
       })
+
       output[[profPlots[my_i]]] <-  renderPlotly({plotProfile(outputNames,
                                                               dataenv = dataenv,
                                                             selectedDate = input[[sprintf("%s-dateInput",profPlots[my_i])]],
-                                                            profilTag=profPlots[my_i])})
+                                                            profilTag=profPlots[my_i],
+                                         as.numeric(c(input[[sprintf("%s-xmin",profPlots[my_i])]],input[[sprintf("%s-xmax",profPlots[my_i])]])),
+                                         as.numeric(c(input[[sprintf("%s-ymax",profPlots[my_i])]],0))
+                                                            )})
             
           })
       }
@@ -194,6 +198,15 @@ displayProfile <- function (profName,startDate) {
               actionButton(sprintf("%s-minc",profName),"+m"),
               actionButton(sprintf("%s-yinc",profName),"+y")
              ),
+             tags$div(id=sprintf("%s-axis",profName), class="profAxis",
+              textInput(sprintf("%s-xmin",profName),"xmin:"),
+              textInput(sprintf("%s-xmax",profName),"xmax:"),
+              textInput(sprintf("%s-ymax",profName),"ymax:")
+              #textInput(sprintf("%s-xmin",profName),"xmin:"),style=("position: absolute; top: 38px; left: 40px; color: red;"),
+              #textInput(sprintf("%s-xmax",profName),"xmax:"),style=("position: absolute; top: 38px; left: 800px; color: green;"),
+              #textInput(sprintf("%s-ymax",profName),"ymax:"),style=("color:blue;")
+              
+                         ),
              plotlyOutput(profName,height="600px"))
 }
 
