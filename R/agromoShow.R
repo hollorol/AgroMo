@@ -155,7 +155,7 @@ agroMoShow <- function(input, output, session, dataenv, baseDir, connection,cent
   varSet <- readTags()
 
   observe({
-      updateSelectInput(session,"varset",choices=names(varSet))
+      updateSelectInput(session,"varset",choices=rev(names(varSet)))
   })
 
        observe({
