@@ -16,10 +16,6 @@ trimColorSet(
 )
 }
 \arguments{
-\item{minim}{Minium value of the visualised dataset}
-
-\item{maxim}{Maximum value of the visualised dataset}
-
 \item{center}{A number around which diverging colorscales will be centralised}
 
 \item{nticks}{Number of colors in the colorscale (default setting is 6)}
@@ -29,6 +25,12 @@ trimColorSet(
 \item{reverseColorScale}{If it is TRUE, the colorscale is reversed (default setting is FALSE)}
 
 \item{colorset}{Name of the colorscale which is available in the list numBaseColors}
+
+\item{minimum}{Minium value of the visualised dataset}
+
+\item{maximum}{Maximum value of the visualised dataset}
+
+\item{binwidth}{Length of intervals (only in the case when minimum and maximum values are given)}
 }
 \value{
 
