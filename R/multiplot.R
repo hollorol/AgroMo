@@ -187,26 +187,28 @@ multiPlot <- function(input, output, session, measurement, outputNames, outputTa
 #' @keywords internal
 displayProfile <- function (profName,startDate) {
     tags$div(id=sprintf("%s-container",profName),
-             tags$div(id=sprintf("%s-handlers",profName), class="profPlotCont",
-              textInput(sprintf("%s-xmin",profName),"xmin:"),
-              actionButton(sprintf("%s-ydec",profName),"-y"),
-              actionButton(sprintf("%s-mdec",profName),"-m"),
-              actionButton(sprintf("%s-wdec",profName),"-w"),
-              actionButton(sprintf("%s-ddec",profName),"-d"),
-              dateInput(sprintf("%s-dateInput", profName),"date",startDate),
-              actionButton(sprintf("%s-dinc",profName),"+d"),
-              actionButton(sprintf("%s-winc",profName),"+w"),
-              actionButton(sprintf("%s-minc",profName),"+m"),
-              actionButton(sprintf("%s-yinc",profName),"+y"),
-              textInput(sprintf("%s-xmax",profName),"xmax:")
-             ),
+             tags$div(id=sprintf("%s-bigholder",profName), class="bigholder",
+                      tags$div(id=sprintf("%s-minx",profName),class="xyRangeInput", style="padding-left: 100px" , textInput(sprintf("%s-xmin",profName),"xmin:")),
+                      tags$div(id=sprintf("%s-handlers",profName), class="profPlotCont",
+                               actionButton(sprintf("%s-ydec",profName),"-y"),
+                               actionButton(sprintf("%s-mdec",profName),"-m"),
+                               actionButton(sprintf("%s-wdec",profName),"-w"),
+                               actionButton(sprintf("%s-ddec",profName),"-d"),
+                               dateInput(sprintf("%s-dateInput", profName),"date",startDate),
+                               actionButton(sprintf("%s-dinc",profName),"+d"),
+                               actionButton(sprintf("%s-winc",profName),"+w"),
+                               actionButton(sprintf("%s-minc",profName),"+m"),
+                               actionButton(sprintf("%s-yinc",profName),"+y")
+                               ),
+                      tags$div(id=sprintf("%s-maxx",profName),class="xyRangeInput xmax",textInput(sprintf("%s-xmax",profName),"xmax:"))
+                      ),
              tags$div(id=sprintf("%s-axis",profName), class="profAxis",
-              textInput(sprintf("%s-ymax",profName),"ymax:")
-              #textInput(sprintf("%s-xmin",profName),"xmin:"),style=("position: absolute; top: 38px; left: 40px; color: red;"),
-              #textInput(sprintf("%s-xmax",profName),"xmax:"),style=("position: absolute; top: 38px; left: 800px; color: green;"),
-              #textInput(sprintf("%s-ymax",profName),"ymax:"),style=("color:blue;")
-              
-                         ),
+                      tags$div(id=sprintf("%s-ymax",profName),class="xyRangeInput", textInput(sprintf("%s-ymax",profName),"ymax:"),style="padding-left:100px")
+                      #textInput(sprintf("%s-xmin",profName),"xmin:"),style=("position: absolute; top: 38px; left: 40px; color: red;"),
+                      #textInput(sprintf("%s-xmax",profName),"xmax:"),style=("position: absolute; top: 38px; left: 800px; color: green;"),
+                      #textInput(sprintf("%s-ymax",profName),"ymax:"),style=("color:blue;")
+
+                      ),
              plotlyOutput(profName,height="600px"))
 }
 

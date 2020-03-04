@@ -24,6 +24,7 @@
   color: black;
 }
 
+
 /* #showdiv-plotka-dateInput .control-label{ */
 /*   position: absolute; */
 /*   top: 448px; */
@@ -57,79 +58,15 @@
 /*  
 */
 
-#showdiv-plotka-water-profil-axis{
-    font-size: 16px;
-    font-family: Trebuchet MS;
-    color: black;
+div.xyRangeInput .form-group.shiny-input-container {
+     width: 70px;
+     font-size: 16px;
+     font-family: Trebuchet MS;
+     color: black;
 }
 
-#showdiv-plotka-temperature-profil-axis{
-    font-size: 16px;
-    font-family: Trebuchet MS;
-    color: black;
-}
-
-
-#showdiv-plotka-temperature-profil-xmin.form-control{
-position: absolute;
-  top: 882px;
-  left: 60px;
-  width: 60px;
-  font-size: 16px;
-  font-family: Trebuchet MS;
-  color: black;
-
-}
-
-#showdiv-plotka-temperature-profil-ymax.form-control{
-position: absolute;
-  top: 925px;
-  left: 60px;
-  width: 60px;
-  font-size: 16px;
-  font-family: Trebuchet MS;
-  color: black;
-}
-
-#showdiv-plotka-temperature-profil-xmax.form-control{
-position: absolute;
-  top: 882px;
-  left: 1050px;
-  width: 60px;
-  font-size: 16px;
-  font-family: Trebuchet MS;
-  color: black;
-}
-
-#showdiv-plotka-water-profil-xmin.form-control{
-position: absolute;
-  top: 38px;
-  left: 60px;
-  width: 60px;
-  font-size: 16px;
-  font-family: Trebuchet MS;
-  color: black;
-}
-
-
-#showdiv-plotka-water-profil-ymax.form-control{
-  position: absolute;
-  top: 78px;
-  left: 60px;
-  width: 60px;
-  font-size: 16px;
-  font-family: Trebuchet MS;
-  color: black;
-}
-
-#showdiv-plotka-water-profil-xmax.form-control{
-  position: absolute;
-  top: 38px;
-  left: 1050px;
-  width: 60px;
-  font-size: 16px;
-  font-family: Trebuchet MS;
-  color: black;
+div.xmax label {
+    color: blue;
 }
 
 
@@ -566,4 +503,9 @@ div.profPlotCont .form-control {
 
 .modal-lg {
     width: 95%;
+}
+
+.bigholder {
+    display: flex;
+    height: 72px;
 }
