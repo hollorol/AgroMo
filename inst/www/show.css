@@ -72,6 +72,11 @@ div.xyRangeInput label {
     margin-right: 10px;
     margin-top: 5px;
 }
+
+div.xyRangeInput input {
+    font-size: 18px;
+}
+
 div.xmax label {
     color: blue;
 }
@@ -514,5 +519,5 @@ div.profPlotCont .form-control {
 
 .bigholder {
     display: flex;
-    height: 72px;
+    height: 50px;
 }
