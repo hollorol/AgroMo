@@ -17,7 +17,8 @@ agroMapVector(
   center = NULL,
   plotTitle = NULL,
   imageTitle = NULL,
-  lonlat = FALSE
+  lonlat = FALSE,
+  countrycont = TRUE
 )
 }
 \arguments{
