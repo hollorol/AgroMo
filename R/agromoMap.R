@@ -41,7 +41,7 @@ agroMoMapUI <- function(id){
            
            tags$div(
              id = paste0(ns("invert"),"_container"),
-             checkboxInput(ns("invert"), label = "inverted", value = FALSE)
+             checkboxInput(ns("invert"), label = " inverted", value = FALSE)
            ),
            tags$img(id = ns("greysc"),src="www/img/palette_samples/LightGre_mask.png", draggable = FALSE),
            tags$img(id = ns("greensc"),src="www/img/palette_samples/Greens.png", draggable = FALSE),
@@ -66,7 +66,11 @@ agroMoMapUI <- function(id){
            ),
            tags$div(
              id = paste0(ns("radio"), "_container"), 
-             radioButtons(ns("radio"),"",choices=c("",""), inline = TRUE)
+             radioButtons(ns("radio"),"",choices=c(""), inline = TRUE)
+           ),
+           tags$div(
+             id = paste0(ns("radio2"), "_container"), 
+             radioButtons(ns("radio2"),"",choices=c(""), inline = TRUE, selected = FALSE)
            ),
            tags$div(
              id = paste0(ns("minprec"),"_container"),title="Select the number of decimal places shown in the presented values",
