@@ -304,6 +304,24 @@ user-select: none;
     margin-right: 50px;
 }
 
+#mapdiv-radio2_container {
+    position: absolute;
+    top: 156px;
+    left: 377px;
+    display: inline !important;
+}
+
+#mapdiv-radio2_container .shiny-options-group{
+    position: absolute;
+    border-width: 0px;
+}
+
+#mapdiv-radio2_container input {
+    position: absolute;
+    left: 160px;
+    margin-right: 50px;
+}
+
 #mapdiv-maxprec_container .form-group.shiny-input-container label{
 position: absolute;
 top: 180px;
