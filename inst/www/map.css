@@ -286,39 +286,20 @@ user-select: none;
 
 #mapdiv-radio_container {
     position: absolute;
-    top: 155px;
-    left: 198px;
+    top: 183px;
+    left: 201px;
     display: inline !important;
 }
 
-#mapdiv-radio_container .shiny-options-group{
-
-    position: absolute;
+#mapdiv-radio_container .checkbox-inline, .radio-inline, .shiny-options-group{
     border-width: 0px;
+    margin-right: 148px;
+    display: inline !important;
 }
 
 #mapdiv-radio_container input {
     position: absolute;
     left: 155px;
-    margin-right: 50px;
-}
-
-#mapdiv-radio2_container {
-    position: absolute;
-    top: 155px;
-    left: 369px;
-    display: inline !important;
-}
-
-#mapdiv-radio2_container .shiny-options-group{
-    position: absolute;
-    border-width: 0px;
-}
-
-#mapdiv-radio2_container input {
-    position: absolute;
-    left: 160px;
-    margin-right: 50px;
 }
 
 #mapdiv-maxprec_container .form-group.shiny-input-container label{
