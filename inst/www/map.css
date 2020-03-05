@@ -286,9 +286,8 @@ user-select: none;
 
 #mapdiv-radio_container {
     position: absolute;
-
-    top: 156px;
-    left: 200px;
+    top: 155px;
+    left: 198px;
     display: inline !important;
 }
 
@@ -300,14 +299,14 @@ user-select: none;
 
 #mapdiv-radio_container input {
     position: absolute;
-    left: 160px;
+    left: 155px;
     margin-right: 50px;
 }
 
 #mapdiv-radio2_container {
     position: absolute;
-    top: 156px;
-    left: 377px;
+    top: 155px;
+    left: 369px;
     display: inline !important;
 }
 
