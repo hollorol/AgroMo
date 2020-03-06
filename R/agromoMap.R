@@ -66,7 +66,7 @@ agroMoMapUI <- function(id){
            ),
            tags$div(
              id = paste0(ns("radio"), "_container"), 
-             radioButtons(ns("radio"),"",choices=c(""), inline = TRUE)
+             radioButtons(ns("radio"),"",choices=c("",""), inline = TRUE)
            ),
            tags$div(
              id = paste0(ns("minprec"),"_container"),title="Select the number of decimal places shown in the presented values",
