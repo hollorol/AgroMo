@@ -293,13 +293,13 @@ user-select: none;
 
 #mapdiv-radio_container .checkbox-inline, .radio-inline, .shiny-options-group{
     border-width: 0px;
-    margin-right: 146px;
+    margin-right: 145px;
     display: inline !important;
 }
 
 #mapdiv-radio_container input {
     position: absolute;
-    left: 162px;
+    left: 163px;
 }
 
 #mapdiv-maxprec_container .form-group.shiny-input-container label{
