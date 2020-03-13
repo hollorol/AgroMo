@@ -33,11 +33,11 @@ A graphical user interface (GUI) has been developed for providing easy and user 
 
 ![alt text](img/base_gui.png "AgroMo Base")
 
-- [x] Choose/change the main directory where your data files are located (in a fixed subdirectory system) by clicking the [CHOOSE] button.
+- [x] Choose/change the main directory where your data files are located (in the required subdirectory system) by clicking the [CHOOSE] button. The default location is the AgroMo\data folder.
 - [x] Run the model for a specific site/plot by clicking the [SITE] button.
 - [x] Create plots of the simulation results by clicking the [PLOT] button.
-- [ ] Make gridded model runs by clicking the [GRID] button.
-- [ ] Present the results of a gridded simulation on a map by clicking the [MAP] button.
+- [x] Make gridded model runs by clicking the [GRID] button.
+- [x] Present the results of a gridded simulation on a map by clicking the [MAP] button.
 - [ ] Create, open, edit and save your input files by clicking the [INPUT FILE MANAGER] button.
 - [x] Exit AgroMo by clicking the EXIT icon on the banner to the left.
 
