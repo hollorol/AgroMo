@@ -91,6 +91,8 @@ A graphical user interface (GUI) has been developed for providing easy and user 
 
 ### AgroMo Grid
 
+![alt text](img/grid_gui.png "AgroMo Grid")
+
 #### Queries:
 NOTES: 1) in case no depth info is provided in a soil related query, by default it referes to the top soil (0-30 cm depth); 2) time slice dependent queries with no indication of the time period, by default refere to the baseline period (1981-2010); 
 - sandy soils | homok talajok
