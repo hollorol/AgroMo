@@ -47,11 +47,11 @@ A graphical user interface (GUI) has been developed for providing easy and user 
 ### AgroMo Site
 
 ![alt text](img/site_gui.png "AgroMo Site")
-- [x] The dropdown menus display the content, files only with the prescribed extension, of the corresponding directories within the input folder:
-  - INI file (extension: .ini): .\input\initialization\
-  - WEATHER file (extension: .wth): .\input\weather\site\
-  - SOIL file (extension: .soi): .\input\soil\site\
-  - MANAGEMENT file (extension: .mgm): .\input\management\
+- [x] The dropdown menus display the options, files only with the prescribed extension, of the corresponding directories within the prescribed input folder system:
+  - INI files (extension: .ini): .\input\initialization\site\
+  - WEATHER files (extension: .wth): .\input\weather\site\
+  - SOIL files (extension: .soi): .\input\soil\site\
+  - MANAGEMENT files (extension: .mgm): .\input\management\
      - planting management option file (extension: .plt): .\input\management\planting\
      - harvest management option file (extension: .hrv): .\input\management\harvest\
      - fertilization management option file (extension: .frz): .\input\management\fertilization\
