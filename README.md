@@ -38,7 +38,9 @@ A graphical user interface (GUI) has been developed for providing easy and user 
 - [x] Create plots of the simulation results by clicking the [PLOT] button.
 - [x] Make gridded model runs by clicking the [GRID] button.
 - [x] Present the results of a gridded simulation on a map by clicking the [MAP] button.
-- [ ] Create, open, edit and save your input files by clicking the [INPUT FILE MANAGER] button.
+- [x] Create storyline and corresponding input files by clicking the [INPUT CREATOR] button.
+- [ ] Carry out Sensitivity analysis, Parameter sweep or Parameter calibration by clicking the [PARAMETER ANALYSIS] button. 
+- [ ] Select GUI language by click one of the flag icons to the right.
 - [x] Exit AgroMo by clicking the EXIT icon on the banner to the left.
 
 
