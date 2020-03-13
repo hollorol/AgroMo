@@ -51,20 +51,20 @@ A graphical user interface (GUI) has been developed for providing easy and user 
   - INI files (extension: .ini): .\input\initialization\site\
   - WEATHER files (extension: .wth): .\input\weather\site\
   - SOIL files (extension: .soi): .\input\soil\site\
-  - MANAGEMENT files (extension: .mgm): .\input\management\
-     - planting management option file (extension: .plt): .\input\management\planting\
-     - harvest management option file (extension: .hrv): .\input\management\harvest\
-     - fertilization management option file (extension: .frz): .\input\management\fertilization\
-     - irrigation management option file (extension: .irr): .\input\management\irrigation\
-     - cultivation management option file (extension: .cul): .\input\management\cultivation\
-     - grazing management option file (extension: .grz): .\input\management\grazing\
-     - mowing management option file (extension: .mow): .\input\management\mowing\
-     - thinning management option file (extension: .thn): .\input\management\thinning\
+  - MANAGEMENT files (extension: .mgm): .\input\management\site\
+     - planting management option file (extension: .plt): .\input\management\site\planting\
+     - harvest management option file (extension: .hrv): .\input\management\site\harvest\
+     - fertilization management option file (extension: .frz): .\input\management\site\fertilization\
+     - irrigation management option file (extension: .irr): .\input\management\site\irrigation\
+     - cultivation management option file (extension: .cul): .\input\management\site\cultivation\
+     - grazing management option file (extension: .grz): .\input\management\site\grazing\
+     - mowing management option file (extension: .mow): .\input\management\site\mowing\
+     - thinning management option file (extension: .thn): .\input\management\site\thinning\
   - PLANT specific input files (extension: .epc; folder: .\input\plant\) are referred to in the planting files
 - [x] When selecting an INI file the WEATHER, SOIL and MANAGEMENT files that are referred to in the INI file are automatically selected from the corresponding dropdown menus, but those could be changed freely.
 - [x] In case new INI, WEATHER, SOIL, MANAGEMENT or management option files are placed to the corresponding folders of the file system, click the green [REFRESH] button to see the new files in the corresponding dropdown menus.
 - [x] When selecting a MANAGEMENT file the management option files that are referred to in the MANAGEMENT file are automatically selected from the corresponding dropdown menus, but those could be changed freely.
-- [x] The most important parameters of the management options could be changed without accessing the management option file by adjusting the parameter values using the corresponding textboxes within the 'shift in...' section. Pay attention to add sign (+/-) to the values.
+- [x] The most important parameters of the management options could be changed without accessing the management option file by adjusting the parameter values using the corresponding textboxes within the 'shift in...' section. Values with no sign are treated as positive.
 - [x] Give a name to the simulation run in the 'OUTPUT id' textbox. Output data are stored in a SQLite datatable named after the 'OUTPUT id's.
 - [x] After selecting the desired input files and optionally set up the changes in the 'shift in...' simulation starts by clicking the [RUN] button.
 - [x] An activity indicator is on while the simulation is running. 
