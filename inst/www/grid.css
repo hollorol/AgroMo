@@ -15,7 +15,7 @@
 
 #griddiv-story_container .selectize-input{
     position: absolute;
-    top: -42px;
+    top: -43px;
     left: 90px;
     font-size: 16px;
     color: black;
@@ -97,6 +97,33 @@
     right: 131px;
 }
 
+
+#griddiv-soildb_container {
+    position: absolute;
+    top: 170px;
+    left: 15px;
+    font-size: 16px;
+    color: black;
+    font-family: Trebuchet MS;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
+}
+
+#griddiv-soildb_container .selectize-input.items.full.has-options.has-items {
+    width: 635px;
+    position: absolute;
+    top: -15px;
+    left: 175px;
+}
+
+#griddiv-soildb_container label {
+    position: absolute;
+    top: 0px;
+    right: 131px;
+}
+
 #griddiv-ensclim_container {
     position: absolute;
     top: 110px;
@@ -114,6 +141,20 @@
 #griddiv-ensalg_container {
     position: absolute;
     top: 60px;
+    left: 835px;
+    font-size: 16px;
+    color: black;
+    font-family: Trebuchet MS;
+    width: 100px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
+}
+
+#griddiv-enssoil_container {
+    position: absolute;
+    top: 160px;
     left: 835px;
     font-size: 16px;
     color: black;
@@ -146,7 +187,7 @@
 
 #griddiv-outsq_container {
     position: absolute;
-    top: 175px;
+    top: 230px;
     font-size: 16px;
     color: black;
     font-family: Trebuchet MS;
@@ -165,12 +206,12 @@
 
 #griddiv-outsq_container label {
     position: absolute;
-    left: -18px;
+    left: 23px;
 }
 
 #griddiv-StartSim {
     position: absolute;
-    top: 155px;
+    top: 210px;
     left: 600px;
     height: 60px;
     width: 320px;
@@ -849,7 +890,7 @@ position: absolute;
     font-family: Trebuchet MS;
     color: black;
     font-weight: bold;
-    top: 215px;
+    top: 275px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -857,14 +898,14 @@ position: absolute;
 }
 
 #griddiv-queryTable  {
-  height: 240px !important;
+  height: 170px !important;
   width: 920px !important;
   background-color: white;
   font-size: 16px;
   font-family: Trebuchet MS;
   color: black;
   position: absolute;
-  top: 240px !important;
+  top: 300px !important;
   -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
