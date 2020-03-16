@@ -16,9 +16,10 @@ agroMoParAnaUI <- function(id){
              id = paste0(ns("paranait"),"_container"), 
              textInput(ns("paranait"),"number of iterations:","")
            ),
-           tags$div(id=ns("paranatable-container"),
-                    tableOutput(ns("paoutputSelection"))),
-           dataTableOutput(ns("paranaoutputSelection")),
+           DT::dataTableOutput("paranatable"),
+#           tags$div(
+#             tableOutput(ns("paranaTable"))
+#          ),  
            tags$div(
              id = paste0(ns("paranaini"),"_container"),
              selectInput(ns("paranaini"),"INI file:",choices=c(""))
@@ -65,6 +66,9 @@ agroMoParAna <- function(input, output, session){
   
   
   ns <- session$ns
-  
+  output$paranatable = DT::renderDataTable({valami})
+  #  observe({
+#    output$paranaTable <- renderTable(dat$querySelector,colnames=FALSE,width="100%", sanitize.text.function = function(x) x )
+#  })
   
 }

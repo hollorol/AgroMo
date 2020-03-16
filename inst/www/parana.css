@@ -7,7 +7,7 @@
     top: 675px;
     left: -19px;
     height: 70px;
-    width: 950px;
+    width: 953px;
     font-size: 34px;
     font-weight: bold;
     background-color: gainsboro;
@@ -210,7 +210,7 @@
 
 #paranadiv-paranaradio_container {
     position: absolute;
-    top: 40px;
+    top: 10px;
     left: 10px;
     font-weight: normal;
     font-size: 16px;
@@ -220,6 +220,15 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+#paranadiv-paranaradio_container .radio-inline {
+  margin-left: 0px;
+  margin-top: 10px;
+}
+
+#paranadiv-paranaradio_container .shiny-options-group {
+  border-width: 0px;
 }
 
 #backsite_sg {
