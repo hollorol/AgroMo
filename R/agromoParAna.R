@@ -16,6 +16,9 @@ agroMoParAnaUI <- function(id){
              id = paste0(ns("paranait"),"_container"), 
              textInput(ns("paranait"),"number of iterations:","")
            ),
+           tags$div(id=ns("paranatable-container"),
+                    tableOutput(ns("paoutputSelection"))),
+           dataTableOutput(ns("paranaoutputSelection")),
            tags$div(
              id = paste0(ns("paranaini"),"_container"),
              selectInput(ns("paranaini"),"INI file:",choices=c(""))
