@@ -16,6 +16,7 @@ agroUI <- function(){
             hidden(agroMoGridUI(id = "griddiv")),
             hidden(agroMoMapUI(id = "mapdiv")),
             hidden(agroMoSiteGeneratorUI(id = "sitegendiv")),
+            hidden(agroMoParAnaUI(id = "paranadiv")),
             hidden(BBGCUI(id="BBGCDB")),
             hidden(actionButton(inputId = "basearrow",label="",title="Navigate back to the BASE window", style="background: url('www/img/base_arrow.png');background-size: 75px 43px;", draggable = FALSE)),
             hidden(actionButton(inputId = "backsite",label="",title="Navigate back to the SITE window", style="background: url('www/img/back_site.png');background-size: 75px 43px;", draggable = FALSE)),
@@ -282,7 +283,54 @@ agroServer <- function(input, output, session) {
        shinyjs::hide("backsite_sg")
       })
       }
+
+    ## PARANA
+    {
+      
+      callModule(agroMoParAna,"paranadiv")
+      observeEvent(input$parana,{
+        shinyjs::hide("base")
+        shinyjs::hide("base-tools")
+        shinyjs::show("paranadiv-paranadiv")
+        shinyjs::hide(selector = ".banner")
+        shinyjs::show("Parana-banner-div")
+        shinyjs::show("basearrow_sg")
+        shinyjs::show("backsite_sg")
+        shinyjs::hide("backgrid")
+        shinyjs::hide("backsite")
+        shinyjs::hide("backarrow")
+      })
+    }
+    {
+      observeEvent(input$basearrow_sg,{
+        shinyjs::show("base")
+        shinyjs::show("base-tools")
+        shinyjs::hide("paranadiv-paranadiv")
+        shinyjs::hide("basearrow")
+        shinyjs::hide("backgrid")
+        shinyjs::hide("backsite")
+        shinyjs::hide("basearrow_sg")
+        shinyjs::hide("backsite_sg")
+        shinyjs::hide(selector = ".banner")
+        shinyjs::show("Base-banner-div")
+      })
+    }
+    {
+      observeEvent(input$backsite_sg,{
+        shinyjs::show("site")
+        shinyjs::show("sitediv-sitediv")
+        shinyjs::hide("paranadiv-paranadiv")
+        shinyjs::hide("backsite")
+        shinyjs::hide(selector = ".banner")
+        shinyjs::show("Site-banner-div")
+        shinyjs::show("basearrow")
+        shinyjs::show("backgrid")
+        shinyjs::hide("basearrow_sg")
+        shinyjs::hide("backsite_sg")
+      })
+    }
     
+        
    ## MAP
    {
      callModule(agroMoMap,"mapdiv",baseDir=reactive({datas$baseDir}))

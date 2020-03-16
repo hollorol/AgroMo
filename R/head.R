@@ -14,6 +14,7 @@ baseHead<-function(){
          shiny::tags$link(rel = "stylesheet", type = "text/css", href = "www/grid.css"),
          shiny::tags$link(rel = "stylesheet", type = "text/css", href = "www/map.css"),
          shiny::tags$link(rel = "stylesheet", type = "text/css", href = "www/sitegen.css"),
+         shiny::tags$link(rel = "stylesheet", type = "text/css", href = "www/parana.css"),
          shiny::tags$link(rel = "stylesheet", type = "text/css",
                    href = "www/showTableOutput.css"),
          shiny::tags$script(src = "www/jsTable.js"),

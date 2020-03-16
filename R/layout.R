@@ -22,6 +22,8 @@ createLayout <- function(...){
                                   shiny::tags$img("",src="www/img/banner/Map.svg", draggable = FALSE))),
                         hidden(shiny::tags$div(id = "Sitegen-banner-div", class = "banner",
                                                shiny::tags$img("",src="www/img/banner/SiteGeneratorBanner.png", draggable = FALSE))),
+                        hidden(shiny::tags$div(id = "Parana-banner-div", class = "banner",
+                                               shiny::tags$img("",src="www/img/banner/ParAnaBanner.png", draggable = FALSE))),
                         hidden(shiny::tags$div(id = "Grid-banner-div", class = "banner",
                                     shiny::tags$img("",src="www/img/banner/Grid.svg", draggable = FALSE))),
                         hidden(shiny::tags$div(id = "BDB-banner-div", class = "banner",
