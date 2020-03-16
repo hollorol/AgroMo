@@ -100,7 +100,7 @@
 
 #griddiv-soildb_container {
     position: absolute;
-    top: 170px;
+    top: 120px;
     left: 15px;
     font-size: 16px;
     color: black;
@@ -140,7 +140,7 @@
 
 #griddiv-ensalg_container {
     position: absolute;
-    top: 60px;
+    top: 160px;
     left: 835px;
     font-size: 16px;
     color: black;
@@ -154,7 +154,7 @@
 
 #griddiv-enssoil_container {
     position: absolute;
-    top: 160px;
+    top: 60px;
     left: 835px;
     font-size: 16px;
     color: black;
@@ -168,7 +168,7 @@
 
 #griddiv-algosel_container {
     position: absolute;
-    top: 120px;
+    top: 170px;
     font-size: 16px;
     color: black;
     font-family: Trebuchet MS;
@@ -182,7 +182,7 @@
     width: 635px;
     position: absolute;
     left: 190px;
-    top: -45px;
+    top: -43px;
 }
 
 #griddiv-outsq_container {
