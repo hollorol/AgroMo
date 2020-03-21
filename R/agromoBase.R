@@ -4,6 +4,7 @@
 #' @param id of the GUI element
 #' @keywords internal 
 #' @importFrom shiny tagList actionButton textOutput
+#' @importFrom shinyFiles shinyDirButton
 agromoBaseUI <- function(id){
     ns <- NS(id)
    tagList(shiny::tags$div(id = "base", shiny::tags$div(id="components","COMPONENTS"),
@@ -21,7 +22,8 @@ agromoBaseUI <- function(id){
                  id = ns("tools"), #base-tools
                  class= "mainSideBar",
                         shiny::tags$div(id="mainSideBarDirectory", "MAIN DIRECTORY"),
-                        actionButton("choose","CHOOSE", class = "mainSideBar"),
+                        shinyDirButton("choose", "CHOOSE","Please choose an AgroMo base directory!", class="mainSideBar"),
+                        # actionButton("choose","CHOOSE", class = "mainSideBar"),
                         textOutput("mdd"),##mdd is not a good name
                         shiny::tags$hr(id="lineComp",""),
                         shiny::tags$hr(id="lineTool",""),

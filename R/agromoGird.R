@@ -178,6 +178,7 @@ agroMoGrid <- function(input, output, session,baseDir){
 
     observeEvent(input$story,{
                      if(input$story!=""){
+                         # browser()
                          choosenStoryFile <- dat$storyFiles[match(input$story,dat$storyOptions)]
                          output$alias <- renderText({readLines(choosenStoryFile,n=1)})
                          dat$storyVars <- as.character(read.table(choosenStoryFile,skip=1, nrows=1, sep=";",stringsAsFactors=FALSE))
@@ -290,9 +291,9 @@ agroMoGrid <- function(input, output, session,baseDir){
                               indexOfRows,replacements,regex)
         browser()
         #                  # runChain(baseDir(),input$story,dat$story[[5]])
-        dbDir <- file.path(baseDir(),"output/DB/grid/",input$story)
+        dbDir <- file.path(baseDir(),"output/DB/grid/")
          dir.create(dbDir, showWarnings=FALSE)
-         sqlDB <- DBI::dbConnect(RSQLite::SQLite(),file.path(dbDir,input$outsq))
+         sqlDB <- DBI::dbConnect(RSQLite::SQLite(),file.path(dbDir,"grid.sqlite3"))
          # sqlDB <- DBI::dbConnect(RSQLite::SQLite(),file.path(dbDir,"bicke.db"))
          writeGridToDB(dbConnection, outputName, columnNames, chainMatrixFull)
          runGrid(baseDir(),input$story,dat$story)
@@ -404,27 +405,25 @@ runGrid <- function(baseDir,storyName,chainMatrixFull){
 # #' @param outputName The name of the result table
 # #' @importFrom DBI dbWriteTable
 #
-# writeChainToDB <- function(storyName, dbConnection, outputName, chainMatrixFull, variables){
-# # chainMatrix <- dat$story[[7]]
-#     dbConnection <- sqlDB
-# #  browser()
-#     binaryName <- paste0(file.path(baseDir(),"output/grid/",storyName,chainMatrix[,2]),".dayout")
+# writeChainToDB <- function(storyName, dbConnection, outputName, chainMatrix, variables){
+# dbConnection <- sqlDB
+# binaryName <- paste0(file.path(baseDir(),"output/grid/",storyName,chainMatrix[,2]),".dayout")
 # i<- 1
-#     for(i in 1:nrow(chainMatrix)){
-#         con <- file(binaryName[i],"rb")
-#         dayoutput <- matrix(readBin(con,"double",size=8,n=()),(settings$numYears*365),byrow=TRUE)
-#     }
-#
-#   close(con)
-#   dayoutput <- cbind.data.frame(musoDate(startYear = settings$startYear,
-#                                          numYears = settings$numYears,
-#                                          combined = FALSE, prettyOut = TRUE),
-#                                 dayoutput, outputName,stringsAsFactors=FALSE)
-#   colnames(dayoutput) <- as.character(c("udate","uday","umonth","uyear",unlist(settings$variableNames),"outputName"))
-#   # browser()
-#   conn <- dbConnection()
-#   dbWriteTable(conn, outputName, dayoutput,  overwrite = TRUE)
+# for(i in 1:nrow(chainMatrix)){
+#     con <- file(binaryName[i],"rb")
+#     dayoutput <- matrix(readBin(con,"double",size=8,n=()),(settings$numYears*365),byrow=TRUE)
 # }
+#
+# close(con)
+# dayoutput <- cbind.data.frame(musoDate(startYear = settings$startYear,
+#                                      numYears = settings$numYears,
+#                                      combined = FALSE, prettyOut = TRUE),
+#                             dayoutput, outputName,stringsAsFactors=FALSE)
+# colnames(dayoutput) <- as.character(c("udate","uday","umonth","uyear",unlist(settings$variableNames),"outputName"))
+# conn <- dbConnection()
+# dbWriteTable(conn, outputName, dayoutput,  append = TRUE)
+# }
+#
 # #' writeGridToDB
 # #'
 # #' This function reads the model binary and put that into a database
@@ -444,5 +443,3 @@ runGrid <- function(baseDir,storyName,chainMatrixFull){
 #     })
 #     close(dbConnection)
 # }
-
-

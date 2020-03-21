@@ -37,6 +37,7 @@ agroUI <- function(){
 #' @importFrom RSQLite SQLite
 #' @importFrom shiny getShinyOption
 #' @importFrom jsonlite read_json
+#' @importFrom shinyFiles parseDirPath shinyDirChoose 
 #' @keywords internal
 agroServer <- function(input, output, session) {
     baseDir <- getShinyOption("AgroMoData")
@@ -60,20 +61,24 @@ agroServer <- function(input, output, session) {
         stopApp() 
     })
 
-    
+   rootwd <-  c(Documents="~",C="C:/",D="D:/")
+   shinyDirChoose(input, 'choose', root=rootwd)
 
     {
         observeEvent(input$choose,{
-            choosenDir <- tcltk::tk_choose.dir()
-            output$mdd <- renderText({choosenDir})
-            if(!checkDirStucture(choosenDir)) {
-                output$mdd <- renderText({sprintf("ERROR: not valid directory structure; last working: %s", datas$baseDir)})
-            } else {
-                setwd(choosenDir)
-                datas$baseDir <- choosenDir
-                dbDisconnect(datas$connection)
-                database <- file.path(choosenDir, "output/outputs.db")
-                datas$connection <- dbConnect(SQLite(), database)
+            # choosenDir <- tcltk::tk_choose.dir()
+            choosenDir <- parseDirPath(roots=rootwd,selection=input$choose)
+            if(length(choosenDir)!=0){
+                output$mdd <- renderText({choosenDir})
+                if(!checkDirStucture(choosenDir)) {
+                    output$mdd <- renderText({sprintf("ERROR: not valid directory structure; last working: %s", datas$baseDir)})
+                } else {
+                    setwd(choosenDir)
+                    datas$baseDir <- choosenDir
+                    dbDisconnect(datas$connection)
+                    database <- file.path(choosenDir, "output/outputs.db")
+                    datas$connection <- dbConnect(SQLite(), database)
+                }
             }
             
         })
