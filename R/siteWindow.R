@@ -53,7 +53,7 @@ agroMoSiteUI <- function(id){
              #      ),
              shiny::tags$div(id="manModuls","management options:"),
              shiny::tags$div(id="shiftIn","shift in ..."),
-             shiny::tags$div(id="outputid-label","OUTPUT id:"),
+             shiny::tags$div(id="outputid-label","OUTPUT DATA TABLE:"),
              lapply(managementTypes,function(man){
                         # browser()
                # if(man=="planting") browser()

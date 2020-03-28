@@ -40,7 +40,7 @@ agromoBaseUI <- function(id){
                               style=("background: url('www/img/exit_icon6_kicsi.png');")),
 #                        actionButton("exit", src="www/img/exit.svg",
 #                                     onclick="function(){window.close()}", title="EXIT"),
-                        actionButton("parSweep","PARAMETER ANALYSIS",
+                        actionButton("parana","PARAMETER ANALYSIS",
                           class = "mainSideBar",title="Tool for calibration, parameter sweep and sensitivity analysis"),
                         actionButton("sitegen","SITE CREATOR",
                           class = "mainSideBar", title="Download site specific weather and soil data from ERA5 and ISRIC databases"),
