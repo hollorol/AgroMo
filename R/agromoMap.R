@@ -3,6 +3,7 @@
 #' Bla
 #' @param id id
 #' @importFrom shiny NS tags checkboxInput selectInput textInput actionButton radioButtons plotOutput updateSelectInput observe imageOutput
+#' @importFrom shinyjs toggleState
 
 agroMoMapUI <- function(id){
   
@@ -261,6 +262,14 @@ agroMoMap <- function(input, output, session, baseDir){
     shinyjs::toggleState("bw", input$radio=="disabled")
     shinyjs::toggleState("min", input$radio=="disabled")
     shinyjs::toggleState("max", input$radio=="disabled")
+  })
+  
+   observe({
+    toggleState("create", ((input$colnumb!=0) | ((is.numeric(as.numeric(input$min))) && 
+                                                 (is.numeric(as.numeric(input$max))) &&
+                                                 (as.numeric(input$bw)>0) && 
+                                                 (as.numeric(input$min)<as.numeric(input$max)) &&
+                                                 (as.numeric(input$bw)<=(as.numeric(input$max)-as.numeric(input$min))))))
   })
   
   observe({
