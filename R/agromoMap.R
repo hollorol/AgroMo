@@ -67,7 +67,7 @@ agroMoMapUI <- function(id){
            tags$div(
              id = paste0(ns("radio"), "_container"), 
              #radioButtons(ns("radio"),"",choices=c("",""), inline = TRUE)
-             radioButtons(ns("radio"),"",choices= c("." = "enabled", "," = "disabled"), inline = TRUE)
+             radioButtons(ns("radio"),"",choices= c(" " = "enabled", "  " = "disabled"), inline = TRUE)
 
            ),
            tags$div(
