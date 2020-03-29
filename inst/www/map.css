@@ -286,8 +286,8 @@ user-select: none;
 
 #mapdiv-radio_container {
     position: absolute;
-    top: 186px;
-    left: 193px;
+    top: 187px;
+    left: 190px;
     display: inline !important;
 }
 
@@ -299,7 +299,7 @@ user-select: none;
 
 #mapdiv-radio_container input {
     position: absolute;
-    left: 163px;
+    left: 161px;
 }
 
 #mapdiv-maxprec_container .form-group.shiny-input-container label{
