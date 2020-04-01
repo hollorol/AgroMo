@@ -291,7 +291,7 @@ user-select: none;
     display: inline !important;
 }
 
-#mapdiv-radio_container .checkbox-inline, .radio-inline, .shiny-options-group{
+#mapdiv-radio_container .checkbox-inline, #mapdiv-radio_container .radio-inline, #mapdiv-radio_container .shiny-options-group{
     border-width: 0px;
     margin-right: 145px;
     display: inline !important;
