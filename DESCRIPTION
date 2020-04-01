@@ -23,7 +23,8 @@ Imports:
   RSQLite,
   RColorBrewer,
   grDevices,
-  fields
+  fields,
+  lubridate
 Suggests: testhat,
   rmarkdown,
   knitr

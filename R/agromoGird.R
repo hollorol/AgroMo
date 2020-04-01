@@ -311,7 +311,6 @@ agroMoGrid <- function(input, output, session,baseDir){
                                        dbGetQuery(sqlDB,sprintf("SELECT * FROM %s",tableName))
                                         })
              # queryResults$plotid <- as.numeric(as.numeric(queryResults$plotid))
-            #HAVE TO MODIFY THIS SECTION FOR GENERAL CASES 
             #doing a left outer join, the reduce part ads the columns
              finalDF <- merge(Reduce(function(x,y){x$error+y$error},errorColumns),
                                queryResults,by.x="site",by.y="plotid",all.x=TRUE)
