@@ -219,8 +219,8 @@ agroMoMap <- function(input, output, session, baseDir){
     )
     # print(list.files(sprintf("%s/output/queries/",baseDir())))
     
-    if(file.exists(sprintf("%s/output/DB/HU-10km.db",baseDir()))){
-      datas$agromoDB<- sprintf("%s/output/DB/HU-10km.db",baseDir())
+    if(file.exists(sprintf("%s/output/DB/grid/grid.sqlite3",baseDir()))){
+      datas$agromoDB<- sprintf("%s/output/DB/grid/grid.sqlite3",baseDir())
       datas$connection <- dbConnect(RSQLite::SQLite(), datas$agromoDB)
     } else {
       datas$agromoDB <- "~/AgroMoDB/HU-10km.db"
@@ -232,7 +232,7 @@ agroMoMap <- function(input, output, session, baseDir){
     if(file.exists(sprintf("%s/output/DB/SOIL.db",baseDir()))){
       datas$soilDB <- sprintf("%s/output/DB/SOIL.db",baseDir())
       if(!is.null(datas$connection)){
-        dbSendQuery(datas$connection,sprintf("ATTACH DATABASE '%s' AS soil", normalizePath(datas$soilDB)))
+        dbExecute(datas$connection,sprintf("ATTACH DATABASE '%s' AS soil", normalizePath(datas$soilDB)))
       }
     } else {
       datas$soilDB <- "~/AgroMoDB/SOIL.db"

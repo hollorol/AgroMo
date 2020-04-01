@@ -1,12 +1,12 @@
 {
   "Names": { 
-            "en":"{1} yield in the [T-T] period",
-            "hu":"termés {1} a [T-T] időszakban"
+            "en":"{1} yield in the [T-T] period (for table: {9})",
+            "hu":"termés {1} a [T-T] időszakban (for table: {9})"
                },
   
   "query": 
 
-         "SELECT {1}(maxYield*10000) FROM (SELECT MAX(grainDM) AS maxYield, plotid, year FROM agromo WHERE year >= [T1] AND year <= [T2] GROUP BY year, plotid) GROUP BY plotid;",
+         "SELECT {1}(maxYield*10000) FROM (SELECT MAX(grainDM) AS maxYield, plotid, year FROM {9} WHERE year >= [T1] AND year <= [T2] GROUP BY year, plotid) GROUP BY plotid;",
 	        
   "options": {
 	
@@ -18,7 +18,7 @@
 		"6": [],
 		"7": [],
 		"8": [],
-		"9": []
+		"9": ["*tables*"]
 	 
 	            },
 "optionAlias": {
@@ -31,7 +31,7 @@
           "6": [],
 	  "7": [],
 	  "8": [],
-	  "9": []
+	  "9": ["*tables*"]
       } ,
 
       "hu": {
@@ -43,7 +43,7 @@
 	  "6": [],
 	  "7": [],
 	  "8": [],
-	  "9": []
+	  "9": ["*tables*"]
       }
   }
 	 
