@@ -24,7 +24,8 @@ Imports:
   RColorBrewer,
   grDevices,
   fields,
-  lubridate
+  lubridate,
+  shinyFiles
 Suggests: testhat,
   rmarkdown,
   knitr
