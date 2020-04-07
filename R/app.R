@@ -74,6 +74,7 @@ agroServer <- function(input, output, session) {
                     output$mdd <- renderText({sprintf("ERROR: not valid directory structure; last working: %s", datas$baseDir)})
                 } else {
                     setwd(choosenDir)
+                    #browser()
                     datas$baseDir <- choosenDir
                     dbDisconnect(datas$connection)
                     database <- file.path(choosenDir, "output/outputs.db")

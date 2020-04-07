@@ -120,6 +120,7 @@ tags$div(
 #' @importFrom parallel detectCores makeCluster stopCluster
 #' @importFrom doSNOW registerDoSNOW 
 #' @importFrom foreach foreach %dopar%
+#' @importFrom DBI dbExecute dbGetQuery dbConnect dbDisconnect
 
 agroMoGrid <- function(input, output, session,baseDir){
     language <- "en"
