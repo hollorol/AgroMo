@@ -67,9 +67,8 @@ agroMoMapUI <- function(id){
            ),
            tags$div(
              id = paste0(ns("radio"), "_container"), 
-             #radioButtons(ns("radio"),"",choices=c("",""), inline = TRUE)
-             radioButtons(ns("radio"),"",choices= c(" " = "enabled", "  " = "disabled"), inline = TRUE)
-
+             radioButtons(ns("radio"),"",choices= c("  " = "disabled", " " = "enabled"), 
+                          selected = "enabled", inline = TRUE)
            ),
            tags$div(
              id = paste0(ns("minprec"),"_container"),title="Select the number of decimal places shown in the presented values",
@@ -258,10 +257,11 @@ agroMoMap <- function(input, output, session, baseDir){
     session$sendCustomMessage(type="palletteChanger",paletteList)
   })
   
-   observe({
-    shinyjs::toggleState("bw", input$radio=="disabled")
-    shinyjs::toggleState("min", input$radio=="disabled")
-    shinyjs::toggleState("max", input$radio=="disabled")
+  observe({
+    toggleState("bw", input$radio=="enabled")
+    toggleState("min", input$radio=="enabled")
+    toggleState("max", input$radio=="enabled")
+    toggleState("colnumb", input$radio=="disabled")
   })
   
    observe({
