@@ -10,12 +10,20 @@
     checkboxInput(ns("ensalg"), label = "Ensemble", value = FALSE)
     ),         
     tags$div(
+      id =paste0(ns("enssoil"),"_container"),
+      checkboxInput(ns("enssoil"), label = "Ensemble", value = FALSE)
+    ),         
+    tags$div(
       id = paste0(ns("gridres"),"_container"),
       selectInput(ns("gridres"),"GRID RESOLUTION:",choices = c("10×10 km"))
     ),
     tags$div(
       id = paste0(ns("climproj"),"_container"),
       selectInput(ns("climproj"),"CLIMATE PROJECTION:",NA)
+    ),
+    tags$div(
+      id = paste0(ns("soildb"),"_container"),
+      selectInput(ns("soildb"),"SOIL DATABASE:",NA)
     ),
     tags$div(
       id = paste0(ns("algosel"),"_container"),
@@ -35,7 +43,7 @@
     ),     
     tags$div(
       id = paste0(ns("outsq"),"_container"),
-      textInput(ns("outsq"),"OUTPUT SQLite DATABASE:",NA)
+      textInput(ns("outsq"),"OUTPUT DATA TABLE:",NA)
     ),   
     tags$div(
       id = paste0(ns("alias"),"_container"),
