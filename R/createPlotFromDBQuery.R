@@ -190,7 +190,7 @@ agroMapVector <- function(data, nticks=NULL, binwidth=NULL, minimum=NULL, maximu
   grid_array <- matrix(grid_vect, nrow=length(lon), ncol=length(lat))
   
   # if (is.null(binwidth)) {
-  if (nticks > 1) { # By using this, plotting maps is possible by choosing (min,max,bw) and nticks, respectively.
+  if (nticks > 1) { # With this parameter, plotting of maps is possible by choosing (min,max,bw) and nticks, respectively.
     colorbar <- trimColorSet(min(data),max(data),center=center, nticks=nticks,
                              roundPrecision=roundPrecision, reverseColorScale=reverseColorScale, colorSet=colorSet)
     if(!is.null(imageTitle)){
