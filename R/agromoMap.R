@@ -63,7 +63,7 @@ agroMoMapUI <- function(id){
              selectInput(ns("palette"),"palette:",choices= paletteAlias[,2])),
            tags$div(
              id = paste0(ns("colnumb"),"_container"),title="Select the number of colours/subranges to be distinguished on the map",
-             selectInput(ns("colnumb"),"colors:",choices=c(0,2:32))
+             selectInput(ns("colnumb"),"colors:",choices=2:32)
            ),
            tags$div(
              id = paste0(ns("radio"), "_container"), 
@@ -186,7 +186,7 @@ agroMoMapUI <- function(id){
                      $(this).toggleClass('tozoom')
     })"))
 
-    
+ 
     
     
            )
@@ -279,6 +279,10 @@ agroMoMap <- function(input, output, session, baseDir){
   observeEvent(input$create,{
     palette <- myColors$codes[myColors$alias==input$palette]
     # browser()
+    
+   if(input$bw>0){
+     nticks <- 1
+   }
     
     if(length(input$datasource)>0) {
       sqlName <- sprintf("%s/output/queries/%s",baseDir(),input$datasource)
