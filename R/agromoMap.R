@@ -67,7 +67,7 @@ agroMoMapUI <- function(id){
            ),
            tags$div(
              id = paste0(ns("radio"), "_container"), 
-             radioButtons(ns("radio"),"",choices= c("  " = "disabled", " " = "enabled"), 
+             radioButtons(ns("radio"),"",choices= c("  " = "enabled", " " = "disabled"), 
                           selected = "enabled", inline = TRUE)
            ),
            tags$div(
@@ -258,10 +258,10 @@ agroMoMap <- function(input, output, session, baseDir){
   })
   
   observe({
-    toggleState("bw", input$radio=="enabled")
-    toggleState("min", input$radio=="enabled")
-    toggleState("max", input$radio=="enabled")
-    toggleState("colnumb", input$radio=="disabled")
+    toggleState("bw", input$radio=="disabled")
+    toggleState("min", input$radio=="disabled")
+    toggleState("max", input$radio=="disabled")
+    toggleState("colnumb", input$radio=="enabled")
   })
   
    observe({
