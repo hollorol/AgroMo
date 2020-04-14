@@ -63,12 +63,13 @@ agroMoMapUI <- function(id){
              selectInput(ns("palette"),"palette:",choices= paletteAlias[,2])),
            tags$div(
              id = paste0(ns("colnumb"),"_container"),title="Select the number of colours/subranges to be distinguished on the map",
-             selectInput(ns("colnumb"),"colors:",choices=2:32)
+             # selectInput(ns("colnumb"),"colors:",choices=2:32)
+             textInput(ns("colnumb"),"colors:", value="")
            ),
-           tags$div(
+            tags$div(
              id = paste0(ns("radio"), "_container"), 
-             radioButtons(ns("radio"),"",choices= c("  " = "enabled", " " = "disabled"), 
-                          selected = "enabled", inline = TRUE)
+             radioButtons(ns("radio"), "", choices= c("  " = 8, " " = 0), selected = 8, inline = TRUE)
+           ),
            ),
            tags$div(
              id = paste0(ns("minprec"),"_container"),title="Select the number of decimal places shown in the presented values",
@@ -257,19 +258,23 @@ agroMoMap <- function(input, output, session, baseDir){
     session$sendCustomMessage(type="palletteChanger",paletteList)
   })
   
-  observe({
-    toggleState("bw", input$radio=="disabled")
-    toggleState("min", input$radio=="disabled")
-    toggleState("max", input$radio=="disabled")
-    toggleState("colnumb", input$radio=="enabled")
+   observe({
+    toggleState("bw", input$radio==0)
+    toggleState("min", input$radio==0)
+    toggleState("max", input$radio==0)
+    toggleState("colnumb", input$radio==8)
   })
   
-   observe({
+  observe({
     toggleState("create", ((input$colnumb!=0) | ((is.numeric(as.numeric(input$min))) && 
                                                  (is.numeric(as.numeric(input$max))) &&
                                                  (as.numeric(input$bw)>0) && 
                                                  (as.numeric(input$min)<as.numeric(input$max)) &&
                                                  (as.numeric(input$bw)<=(as.numeric(input$max)-as.numeric(input$min))))))
+  })
+  
+  observeEvent(input$radio,{
+    updateTextInput(session, "colnumb", value = input$radio)
   })
   
   observe({
@@ -279,10 +284,6 @@ agroMoMap <- function(input, output, session, baseDir){
   observeEvent(input$create,{
     palette <- myColors$codes[myColors$alias==input$palette]
     # browser()
-    
-   if(input$bw>0){
-     nticks <- 1
-   }
     
     if(length(input$datasource)>0) {
       sqlName <- sprintf("%s/output/queries/%s",baseDir(),input$datasource)
