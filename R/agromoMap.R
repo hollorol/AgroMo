@@ -62,31 +62,34 @@ agroMoMapUI <- function(id){
              id = paste0(ns("palette"),"_container"),title="Select colour palette for map",
              selectInput(ns("palette"),"palette:",choices= paletteAlias[,2])),
            tags$div(
-             id = paste0(ns("colnumb"),"_container"),title="Select the number of colours/subranges to be distinguished on the map",
-             # selectInput(ns("colnumb"),"colors:",choices=2:32)
-             textInput(ns("colnumb"),"colors:", value="")
-           ),
-            tags$div(
              id = paste0(ns("radio"), "_container"), 
              radioButtons(ns("radio"), "", choices= c("  " = 8, " " = 0), selected = 8, inline = TRUE)
+           ),
+           tags$div(
+             id = paste0(ns("colnumb"),"_container"),title="Select the number of colours/subranges to be distinguished on the map",
+             # selectInput(ns("colnumb"),"colors:", choices=c(0,2:32))
+             textInput(ns("colnumb"),"colors:", value="")
            ),
            tags$div(
              id = paste0(ns("minprec"),"_container"),title="Select the number of decimal places shown in the presented values",
              selectInput(ns("minprec"),"decimal places:",choices=c(0,1,2,3,4,5))
            ),
-          tags$div(
+           tags$div(
              id = paste0(ns("min"),"_container"), title="Set the minimum value for the data presented on the map",
-             textInput(ns("min"),"min-max value:",as.numeric(NA))
+             # textInput(ns("min"),"min-max value:",as.numeric(NA), value=floor(min(data))) # with not empty field
+             textInput(ns("min"),"min-max value:",as.numeric(NA)) # with empty field
            ),
            tags$div(
              id = paste0(ns("max"),"_container"),title="Set the maximum value for the data presented on the map",
-             textInput(ns("max"),"-",as.numeric(NA))
+             # textInput(ns("max"),"-",as.numeric(NA), value=ceiling(max(data))) # with not empty field
+             textInput(ns("max"),"-",as.numeric(NA)) # with empty field
            ),
            tags$div(
              id = paste0(ns("bw"),"_container"),title="Set the bin width between the minium and maximum values",
-             textInput(ns("bw"),"interval:",as.numeric(NA))
+             # textInput(ns("bw"),"interval:",as.numeric(NA), value=floor((floor(max(data))-floor(min(data)))/8)) # with not empty field
+             textInput(ns("bw"),"interval:",as.numeric(NA)) # with empty field
            ),
-
+           
            #    tags$div(
            #      id = paste0(ns("maxprec"),"_container"),
            #      selectInput(ns("maxprec"),"precision of rounding:",choices=c(0,1,2,3,4,5))
@@ -186,7 +189,7 @@ agroMoMapUI <- function(id){
                      $(this).toggleClass('tozoom')
     })"))
 
- 
+    
     
     
            )
@@ -257,7 +260,7 @@ agroMoMap <- function(input, output, session, baseDir){
     session$sendCustomMessage(type="palletteChanger",paletteList)
   })
   
-   observe({
+  observe({
     toggleState("bw", input$radio==0)
     toggleState("min", input$radio==0)
     toggleState("max", input$radio==0)
@@ -266,19 +269,17 @@ agroMoMap <- function(input, output, session, baseDir){
   
   observe({
     toggleState("create", ((input$colnumb!=0) | ((is.numeric(as.numeric(input$min))) && 
-                                                 (is.numeric(as.numeric(input$max))) &&
-                                                 (as.numeric(input$bw)>0) && 
-                                                 (as.numeric(input$min)<as.numeric(input$max)) &&
-                                                 (as.numeric(input$bw)<=(as.numeric(input$max)-as.numeric(input$min))))))
+                                                   (is.numeric(as.numeric(input$max))) &&
+                                                   (as.numeric(input$bw)>0) && 
+                                                   (as.numeric(input$min)<as.numeric(input$max)) &&
+                                                   (as.numeric(input$bw)<=(as.numeric(input$max)-as.numeric(input$min))))))
   })
   
   observeEvent(input$radio,{
     updateTextInput(session, "colnumb", value = input$radio)
+    
   })
   
-  observe({
-    session$sendCustomMessage(type="palletteChangerMask",input$maskcol)
-  })
   oldImage <- ""
   observeEvent(input$create,{
     palette <- myColors$codes[myColors$alias==input$palette]
