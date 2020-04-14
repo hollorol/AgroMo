@@ -136,10 +136,9 @@ user-select: none;
 }
 
 #mapdiv-colnumb_container .form-group.shiny-input-container label{
-
 position: absolute;
 top: 185px;
-left: 353px;
+left: 356px;
 font-size: 16px;
 font-family: Trebuchet MS;
 font-weight: normal;
@@ -148,11 +147,10 @@ color: black;
 -moz-user-select: none;
 -ms-user-select: none;
 user-select: none;
-
 }
 
-#mapdiv-colnumb_container .selectize-control{
-
+/*#mapdiv-colnumb_container .selectize-control{*/
+#mapdiv-colnumb_container .form-control.shinyjs-resettable{
 position: absolute;
 top: 180px;
 left: 406px;
