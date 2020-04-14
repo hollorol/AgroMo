@@ -70,22 +70,21 @@ agroMoMapUI <- function(id){
              id = paste0(ns("radio"), "_container"), 
              radioButtons(ns("radio"), "", choices= c("  " = 8, " " = 0), selected = 8, inline = TRUE)
            ),
-           ),
            tags$div(
              id = paste0(ns("minprec"),"_container"),title="Select the number of decimal places shown in the presented values",
              selectInput(ns("minprec"),"decimal places:",choices=c(0,1,2,3,4,5))
            ),
           tags$div(
              id = paste0(ns("min"),"_container"), title="Set the minimum value for the data presented on the map",
-             textInput(ns("min"),"min-max value:",as.numeric(NA), value=floor(min(data)))
+             textInput(ns("min"),"min-max value:",as.numeric(NA))
            ),
            tags$div(
              id = paste0(ns("max"),"_container"),title="Set the maximum value for the data presented on the map",
-             textInput(ns("max"),"-",as.numeric(NA), value=ceiling(max(data)))
+             textInput(ns("max"),"-",as.numeric(NA))
            ),
            tags$div(
              id = paste0(ns("bw"),"_container"),title="Set the bin width between the minium and maximum values",
-             textInput(ns("bw"),"interval:",as.numeric(NA), value=floor((floor(max(data))-floor(min(data)))/8))
+             textInput(ns("bw"),"interval:",as.numeric(NA))
            ),
 
            #    tags$div(
