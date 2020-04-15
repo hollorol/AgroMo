@@ -63,12 +63,11 @@ agroMoMapUI <- function(id){
              selectInput(ns("palette"),"palette:",choices= paletteAlias[,2])),
            tags$div(
              id = paste0(ns("radio"), "_container"), 
-             radioButtons(ns("radio"), "", choices= c("  " = 8, " " = 0), selected = 8, inline = TRUE)
+             radioButtons(ns("radio"), "", choices= c("  " = colnumb, " " = inteval), selected = colnumb, inline = TRUE)
            ),
            tags$div(
              id = paste0(ns("colnumb"),"_container"),title="Select the number of colours/subranges to be distinguished on the map",
-             # selectInput(ns("colnumb"),"colors:", choices=c(0,2:32))
-             textInput(ns("colnumb"),"colors:", value="")
+             selectInput(ns("colnumb"),"colors:", choices=c(0,2:32))
            ),
            tags$div(
              id = paste0(ns("minprec"),"_container"),title="Select the number of decimal places shown in the presented values",
@@ -261,10 +260,10 @@ agroMoMap <- function(input, output, session, baseDir){
   })
   
   observe({
-    toggleState("bw", input$radio==0)
-    toggleState("min", input$radio==0)
-    toggleState("max", input$radio==0)
-    toggleState("colnumb", input$radio==8)
+    toggleState("bw", input$radio==interval)
+    toggleState("min", input$radio==interval)
+    toggleState("max", input$radio==interval)
+    toggleState("colnumb", input$radio==colnumb)
   })
   
   observe({
@@ -273,11 +272,6 @@ agroMoMap <- function(input, output, session, baseDir){
                                                    (as.numeric(input$bw)>0) && 
                                                    (as.numeric(input$min)<as.numeric(input$max)) &&
                                                    (as.numeric(input$bw)<=(as.numeric(input$max)-as.numeric(input$min))))))
-  })
-  
-  observeEvent(input$radio,{
-    updateTextInput(session, "colnumb", value = input$radio)
-    
   })
   
   oldImage <- ""
