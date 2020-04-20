@@ -216,8 +216,11 @@ agroMoGrid <- function(input, output, session,baseDir){
 
     observe({
         if(input$story != ""){
+          if(!is.null(dat$storyTimeRange)){
             updateSelectInput(session,"time",choices=dat$storyTimeRange[1]:dat$storyTimeRange[2], selected=dat$storyTimeRange[1])
             updateSelectInput(session,"until",choices=dat$storyTimeRange[1]:dat$storyTimeRange[2], selected=dat$storyTimeRange[2])
+          }
+ 
         }
     })
 
