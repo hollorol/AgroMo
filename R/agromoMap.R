@@ -63,7 +63,7 @@ agroMoMapUI <- function(id){
              selectInput(ns("palette"),"palette:",choices= paletteAlias[,2])),
            tags$div(
              id = paste0(ns("radio"), "_container"), 
-             radioButtons(ns("radio"), "", choices= c("  " = colnumb, " " = inteval), selected = colnumb, inline = TRUE)
+             radioButtons(ns("radio"), "", choices= c("  " = "colnumb", " " = "inteval"), selected = "colnumb", inline = TRUE)
            ),
            tags$div(
              id = paste0(ns("colnumb"),"_container"),title="Select the number of colours/subranges to be distinguished on the map",
@@ -203,7 +203,7 @@ agroMoMapUI <- function(id){
 
 
 agroMoMap <- function(input, output, session, baseDir){
-  datas <- reactiveValues(numPlots = 1,oldImage="",connection=NULL,agromoDB = NULL, soilDB = NULL)
+  datas <- reactiveValues(numPlots = 1,oldImage="",connection=NULL,agromoDB = NULL, soilDB = NULL,colnumbSelected = FALSE)
   myColors <- data.frame(
     codes=c("Greens","Greys","Reds","YlGnBu","YlOrBr","Blues","RdBu","RdYlBu","RdYlGn","Spectral","YlGn"), 
     alias=c(
@@ -213,6 +213,16 @@ agroMoMap <- function(input, output, session, baseDir){
     ), stringsAsFactors=FALSE
   )
   ns <- session$ns
+
+  observe({
+              if(input$radio=="colnumb"){
+                  datas$colnumbSelected <- TRUE
+              } else {
+                  datas$colnumbSelected <- FALSE
+              }
+              print(datas$colnumbSelected)
+  }) 
+
   observe({
     dir.create(sprintf("%s/output/queries", baseDir()), showWarnings = FALSE)
     dir.create(sprintf("%s/output/map_data", baseDir()), showWarnings = FALSE)
@@ -259,12 +269,12 @@ agroMoMap <- function(input, output, session, baseDir){
     session$sendCustomMessage(type="palletteChanger",paletteList)
   })
   
-  observe({
-    toggleState("bw", input$radio==interval)
-    toggleState("min", input$radio==interval)
-    toggleState("max", input$radio==interval)
-    toggleState("colnumb", input$radio==colnumb)
-  })
+  # observe({
+  #   toggleState("bw", input$radio==interval)
+  #   toggleState("min", input$radio==interval)
+  #   toggleState("max", input$radio==interval)
+  #   toggleState("colnumb", input$radio==colnumb)
+  # })
   
   observe({
     toggleState("create", ((input$colnumb!=0) | ((is.numeric(as.numeric(input$min))) && 
@@ -274,6 +284,7 @@ agroMoMap <- function(input, output, session, baseDir){
                                                    (as.numeric(input$bw)<=(as.numeric(input$max)-as.numeric(input$min))))))
   })
   
+
   oldImage <- ""
   observeEvent(input$create,{
     palette <- myColors$codes[myColors$alias==input$palette]
