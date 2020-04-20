@@ -117,8 +117,7 @@ trimColorSet <- function(minim, maxim, center=NULL, nticks=6, roundPrecision=NUL
 #' @export
 
 agroMapVector <- function(data, nticks=NULL, binwidth=NULL, minimum=NULL, maximum=NULL, roundPrecision=NULL, reverseColorScale=FALSE,
-                          colorSet="RdYlGn", center=NULL, plotTitle=NULL, imageTitle=NULL, lonlat=FALSE, countrycont=TRUE) {
-  
+                          colorSet="RdYlGn", center=NULL, plotTitle=NULL, imageTitle=NULL, lonlat=FALSE, countrycont=TRUE,categorical) {
   # The followings shall be commented to make it possible to run the code on the AgroMo GUI:
   # if(missing(nticks) & missing(binwidth))  {
   #   stop("Please, choose the number of colors (nticks) or the bin width (binwidth).\n
@@ -190,7 +189,7 @@ agroMapVector <- function(data, nticks=NULL, binwidth=NULL, minimum=NULL, maximu
   grid_array <- matrix(grid_vect, nrow=length(lon), ncol=length(lat))
   
   # if (is.null(binwidth)) {
-  if (nticks > 1) { # With this parameter, plotting of maps is possible by choosing (min,max,bw) and nticks, respectively.
+  if ((nticks > 1) && categorical) { # With this parameter, plotting of maps is possible by choosing (min,max,bw) and nticks, respectively.
     colorbar <- trimColorSet(min(data),max(data),center=center, nticks=nticks,
                              roundPrecision=roundPrecision, reverseColorScale=reverseColorScale, colorSet=colorSet)
     if(!is.null(imageTitle)){
@@ -262,7 +261,7 @@ agroMap <- function(connection=NULL, query=NULL, myData=NULL, attachedDBS = NULL
                     queryModifiers=NULL,nticks=NULL, binwidth=NULL,
                     minimum=NULL, maximum=NULL, roundPrecision=NULL,
                     reverseColorScale=FALSE,colorSet="RdYlGn", center=NULL,
-                    plotTitle=NULL, imageTitle=NULL, lonlat=FALSE, outFile=NULL, countrycont=TRUE) {
+                    plotTitle=NULL, imageTitle=NULL, lonlat=FALSE, outFile=NULL, countrycont=TRUE, categorical) {
   # browser()
   if(!is.null(connection)){
     agroVector <- readQueryFromDB(connection, query, attachedDBS = attachedDBS,queryModifiers = queryModifiers)
@@ -275,7 +274,8 @@ agroMap <- function(connection=NULL, query=NULL, myData=NULL, attachedDBS = NULL
   
   agroMapVector(agroVector, nticks=nticks, binwidth=binwidth, minimum=minimum, maximum=maximum,
                 roundPrecision=roundPrecision, reverseColorScale=reverseColorScale, colorSet=colorSet,
-                center=center, plotTitle=plotTitle, imageTitle=imageTitle, lonlat=lonlat, countrycont=countrycont)
+                center=center, plotTitle=plotTitle, imageTitle=imageTitle, lonlat=lonlat, countrycont=countrycont,
+                categorical=categorical)
 }
 
 #

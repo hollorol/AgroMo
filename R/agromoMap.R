@@ -220,7 +220,6 @@ agroMoMap <- function(input, output, session, baseDir){
               } else {
                   datas$colnumbSelected <- FALSE
               }
-              print(datas$colnumbSelected)
   }) 
 
   observe({
@@ -307,14 +306,14 @@ agroMoMap <- function(input, output, session, baseDir){
                 reverseColorScale=input$invert, colorSet=myColors[myColors[,2]==input$palette,1],
                 lonlat=input$latlon, imageTitle=mapImage, plotTitle=input$maptitle, countrycont=input$countrycont,
                 roundPrecision=as.numeric(input$minprec), minimum=as.numeric(input$min),
-                maximum=as.numeric(input$max), binwidth=as.numeric(input$bw)
+                maximum=as.numeric(input$max), binwidth=as.numeric(input$bw),categorical = datas$colnumbSelected
         ) 
       } else {
         agroMap(datas$connection, query=sqlString, nticks=as.numeric(input$colnumb),
                 reverseColorScale=input$invert,colorSet=myColors[myColors[,2]==input$palette,1], 
                 lonlat=input$latlon, imageTitle=mapImage, plotTitle=input$maptitle, countrycont=input$countrycont,
                 roundPrecision=as.numeric(input$minprec), outFile=mapData, minimum=as.numeric(input$min),
-                maximum=as.numeric(input$max), binwidth=as.numeric(input$bw)
+                maximum=as.numeric(input$max), binwidth=as.numeric(input$bw), categorical = datas$colnumbSelected
         )
       }
       
