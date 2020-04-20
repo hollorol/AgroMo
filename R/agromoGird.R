@@ -190,6 +190,8 @@ agroMoGrid <- function(input, output, session,baseDir){
                      if(input$story!=""){
                          # browser()
                          choosenStoryFile <- dat$storyFiles[match(input$story,dat$storyOptions)]
+                         suppressWarnings(dir.create(file.path(baseDir(),"output/grid/",input$story)))
+                         suppressWarnings(dir.create(file.path(baseDir(),"endpoint/grid/",input$story)))
                          output$alias <- renderText({readLines(choosenStoryFile,n=1)})
                          dat$storyVars <- as.character(read.table(choosenStoryFile,skip=1, nrows=1, sep=";",stringsAsFactors=FALSE))
                          dat$storyCSV <- read.table(choosenStoryFile,skip=2, sep=";",stringsAsFactors=FALSE)
