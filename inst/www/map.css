@@ -149,8 +149,8 @@ color: black;
 user-select: none;
 }
 
-/*#mapdiv-colnumb_container .selectize-control{*/
-#mapdiv-colnumb_container .form-control.shinyjs-resettable{
+#mapdiv-colnumb_container .selectize-control{
+/*#mapdiv-colnumb_container .form-control.shinyjs-resettable{*/
 position: absolute;
 top: 180px;
 left: 406px;
