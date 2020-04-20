@@ -125,7 +125,7 @@ plotMeasuredLayers <- function(p,measurement,timeFrame,experiment_id, treatment,
         measAlias =sprintf("%s-%s (mean)",experiment_id,treatment)
    }
   # if(is.null(measurement$repetition)){
-    p <- add_trace(p,x = unlist(get(timeFrame)(measurement$measurement_date)),y = unlist(measurement$measurement_value), name = measAlias)
+    p <- add_trace(p,x = unlist(get(timeFrame)(measurement$measurement_date)),y = unlist(measurement$measurement_value), name = measAlias, color="black")
   # } else {
 # # browser()
 #   #   repetitions<- unique(measurement$repetition)

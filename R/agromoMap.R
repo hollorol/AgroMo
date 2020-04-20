@@ -3,6 +3,7 @@
 #' Bla
 #' @param id id
 #' @importFrom shiny NS tags checkboxInput selectInput textInput actionButton radioButtons plotOutput updateSelectInput observe imageOutput
+#' @importFrom shinyjs toggleState
 
 agroMoMapUI <- function(id){
   
@@ -41,7 +42,7 @@ agroMoMapUI <- function(id){
            
            tags$div(
              id = paste0(ns("invert"),"_container"),
-             checkboxInput(ns("invert"), label = "inverted", value = FALSE)
+             checkboxInput(ns("invert"), label = " inverted", value = FALSE)
            ),
            tags$img(id = ns("greysc"),src="www/img/palette_samples/LightGre_mask.png", draggable = FALSE),
            tags$img(id = ns("greensc"),src="www/img/palette_samples/Greens.png", draggable = FALSE),
@@ -66,7 +67,9 @@ agroMoMapUI <- function(id){
            ),
            tags$div(
              id = paste0(ns("radio"), "_container"), 
-             radioButtons(ns("radio"),"",choices=c("",""), inline = TRUE)
+             #radioButtons(ns("radio"),"",choices=c("",""), inline = TRUE)
+             radioButtons(ns("radio"),"",choices= c(" " = "enabled", "  " = "disabled"), inline = TRUE)
+
            ),
            tags$div(
              id = paste0(ns("minprec"),"_container"),title="Select the number of decimal places shown in the presented values",
@@ -253,6 +256,20 @@ agroMoMap <- function(input, output, session, baseDir){
       paletteList <- input$palette
     }
     session$sendCustomMessage(type="palletteChanger",paletteList)
+  })
+  
+   observe({
+    shinyjs::toggleState("bw", input$radio=="disabled")
+    shinyjs::toggleState("min", input$radio=="disabled")
+    shinyjs::toggleState("max", input$radio=="disabled")
+  })
+  
+   observe({
+    toggleState("create", ((input$colnumb!=0) | ((is.numeric(as.numeric(input$min))) && 
+                                                 (is.numeric(as.numeric(input$max))) &&
+                                                 (as.numeric(input$bw)>0) && 
+                                                 (as.numeric(input$min)<as.numeric(input$max)) &&
+                                                 (as.numeric(input$bw)<=(as.numeric(input$max)-as.numeric(input$min))))))
   })
   
   observe({
