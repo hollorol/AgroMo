@@ -351,7 +351,7 @@ agroServer <- function(input, output, session) {
         
    ## MAP
    {
-     callModule(agroMoMap,"mapdiv",baseDir=reactive({datas$baseDir}))
+     callModule(agroMoMap,"mapdiv",baseDir=reactive({datas$baseDir}),reactive({griddi$showMap}))
      observeEvent(input$map,{
        shinyjs::hide("base")
        shinyjs::hide("base-tools")

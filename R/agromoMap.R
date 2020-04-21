@@ -202,7 +202,7 @@ agroMoMapUI <- function(id){
 #' @importFrom DBI dbConnect
 
 
-agroMoMap <- function(input, output, session, baseDir){
+agroMoMap <- function(input, output, session, baseDir, initialList){
 
     getHexa <- function(name){
         paletteAlias <- data.frame(
@@ -232,6 +232,7 @@ agroMoMap <- function(input, output, session, baseDir){
   }) 
 
   observe({
+    initialList()
     dir.create(sprintf("%s/output/queries", baseDir()), showWarnings = FALSE)
     dir.create(sprintf("%s/output/map_data", baseDir()), showWarnings = FALSE)
     dir.create(sprintf("%s/output/map_image", baseDir()), showWarnings = FALSE)
