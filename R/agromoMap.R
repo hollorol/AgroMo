@@ -318,7 +318,7 @@ agroMoMap <- function(input, output, session, baseDir){
           myData <- read.csv(mapData)
           myData[,1] <- as.numeric(myData[,1])
           myData <- myData[order(myData[,1]),]
-        agroMap(myData=read.csv(mapData), nticks=as.numeric(input$colnumb),
+        agroMap(myData=myData, nticks=as.numeric(input$colnumb),
                 reverseColorScale=input$invert, colorSet=myColors[myColors[,2]==input$palette,1],
                 lonlat=input$latlon, imageTitle=mapImage, plotTitle=input$maptitle, countrycont=input$countrycont,
                 roundPrecision=as.numeric(input$minprec), minimum=as.numeric(input$min),
