@@ -168,7 +168,7 @@ agroMoMapUI <- function(id){
                             \"www/img/palette_samples/Black_mask.png\",
                             \"www/img/palette_samples/White_mask.png\"
                             ],
-                            \"colorscheme\" : [      \"Light Grey\", \"Dark Grey\", \"Black\", \"White\"
+                            \"colorscheme\" : [      \"Light Grey\", \"Dark Grey\", \"White\"
                             ]
                             
                             }
@@ -206,8 +206,8 @@ agroMoMap <- function(input, output, session, baseDir, initialList){
 
     getHexa <- function(name){
         paletteAlias <- data.frame(
-                             name=c("Light Grey", "Dark Grey", "Black", "White"),
-                             hexa=c("#D3D3D3","#A9A9A9","#000000","#FFFFFF"),stringsAsFactor=FALSE)
+                             name=c("Light Grey", "Dark Grey", "White"),
+                             hexa=c("#D3D3D3","#A9A9A9","#FFFFFF"),stringsAsFactor=FALSE)
         as.character(paletteAlias[paletteAlias$name==name,"hexa"])
     }
 
