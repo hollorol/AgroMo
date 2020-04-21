@@ -29,11 +29,10 @@ agroMoMapUI <- function(id){
   paletteAliasMask <- data.frame(src=c(
     "www/img/palette_samples/LightGre_mask.png",
     "www/img/palette_samples/DarkGre_mask.png",
-    "www/img/palette_samples/Black_mask.png",
     "www/img/palette_samples/White_mask.png"
   ),
   alias=c(
-    "Light Grey", "Dark Grey", "Black", "White"
+    "Light Grey", "Dark Grey", "White"
   ))
   
   
