@@ -145,7 +145,7 @@ agroMoGrid <- function(input, output, session,baseDir){
                           queries=NULL,
                           language="en")
     vari <- reactiveValues()
-
+    toreturn <- reactiveValues(showMap=NULL)
     observe({
         dat$jsonList <- lapply((list.files(path=file.path(baseDir(),"templates/grid"),pattern="*.json", full.names=TRUE)),read_json)
         # browser()
@@ -394,6 +394,12 @@ agroMoGrid <- function(input, output, session,baseDir){
          dat$modelOutputs <-grep("_error$",dbListTables(sqlDB),invert=TRUE,value=TRUE)
          dbDisconnect(sqlDB)
     })
+
+   observeEvent(input$Map,{
+    toreturn$showMap <- input$Map
+    })
+
+   return(toreturn)
 }
   
   

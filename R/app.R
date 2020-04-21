@@ -196,7 +196,19 @@ agroServer <- function(input, output, session) {
      #                   dataenv = reactive(datas$dataenv),
      #                   baseDir = reactive({datas$baseDir}),
      #                   reactive({datas$connection}),centralData=centralData)
-     callModule(agroMoGrid,"griddiv",baseDir=reactive({datas$baseDir}))
+     griddi <- callModule(agroMoGrid,"griddiv",baseDir=reactive({datas$baseDir}))
+     
+   observeEvent(griddi$showMap,{
+        shinyjs::show("mapdiv-mapdiv")
+        shinyjs::hide("griddiv-griddiv")
+        shinyjs::hide("backgrid")
+        shinyjs::hide("basearrow_sg")
+        shinyjs::hide("backsite_sg")
+        shinyjs::show("backsite")
+        shinyjs::hide(selector = ".banner")
+        shinyjs::show("Map-banner-div")
+     })
+
      observeEvent(input$grid,{
        shinyjs::hide("base")
        shinyjs::hide("base-tools")
