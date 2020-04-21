@@ -16,6 +16,7 @@ agroUI <- function(){
             hidden(agroMoGridUI(id = "griddiv")),
             hidden(agroMoMapUI(id = "mapdiv")),
             hidden(agroMoSiteGeneratorUI(id = "sitegendiv")),
+            hidden(agroMoParAnaUI(id = "paranadiv")),
             hidden(BBGCUI(id="BBGCDB")),
             hidden(actionButton(inputId = "basearrow",label="",title="Navigate back to the BASE window", style="background: url('www/img/base_arrow.png');background-size: 75px 43px;", draggable = FALSE)),
             hidden(actionButton(inputId = "backsite",label="",title="Navigate back to the SITE window", style="background: url('www/img/back_site.png');background-size: 75px 43px;", draggable = FALSE)),
@@ -37,6 +38,7 @@ agroUI <- function(){
 #' @importFrom RSQLite SQLite
 #' @importFrom shiny getShinyOption
 #' @importFrom jsonlite read_json
+#' @importFrom shinyFiles parseDirPath shinyDirChoose 
 #' @keywords internal
 agroServer <- function(input, output, session) {
     baseDir <- getShinyOption("AgroMoData")
@@ -60,20 +62,25 @@ agroServer <- function(input, output, session) {
         stopApp() 
     })
 
-    
+   rootwd <-  c(Documents="~",C="C:/",D="D:/")
+   shinyDirChoose(input, 'choose', root=rootwd)
 
     {
         observeEvent(input$choose,{
-            choosenDir <- tcltk::tk_choose.dir()
-            output$mdd <- renderText({choosenDir})
-            if(!checkDirStucture(choosenDir)) {
-                output$mdd <- renderText({sprintf("ERROR: not valid directory structure; last working: %s", datas$baseDir)})
-            } else {
-                setwd(choosenDir)
-                datas$baseDir <- choosenDir
-                dbDisconnect(datas$connection)
-                database <- file.path(choosenDir, "output/outputs.db")
-                datas$connection <- dbConnect(SQLite(), database)
+            # choosenDir <- tcltk::tk_choose.dir()
+            choosenDir <- parseDirPath(roots=rootwd,selection=input$choose)
+            if(length(choosenDir)!=0){
+                output$mdd <- renderText({choosenDir})
+                if(!checkDirStucture(choosenDir)) {
+                    output$mdd <- renderText({sprintf("ERROR: not valid directory structure; last working: %s", datas$baseDir)})
+                } else {
+                    setwd(choosenDir)
+                    #browser()
+                    datas$baseDir <- choosenDir
+                    dbDisconnect(datas$connection)
+                    database <- file.path(choosenDir, "output/outputs.db")
+                    datas$connection <- dbConnect(SQLite(), database)
+                }
             }
             
         })
@@ -189,7 +196,19 @@ agroServer <- function(input, output, session) {
      #                   dataenv = reactive(datas$dataenv),
      #                   baseDir = reactive({datas$baseDir}),
      #                   reactive({datas$connection}),centralData=centralData)
-     callModule(agroMoGrid,"griddiv",baseDir=reactive({datas$baseDir}))
+     griddi <- callModule(agroMoGrid,"griddiv",baseDir=reactive({datas$baseDir}))
+     
+   observeEvent(griddi$showMap,{
+        shinyjs::show("mapdiv-mapdiv")
+        shinyjs::hide("griddiv-griddiv")
+        shinyjs::hide("backgrid")
+        shinyjs::hide("basearrow_sg")
+        shinyjs::hide("backsite_sg")
+        shinyjs::show("backsite")
+        shinyjs::hide(selector = ".banner")
+        shinyjs::show("Map-banner-div")
+     })
+
      observeEvent(input$grid,{
        shinyjs::hide("base")
        shinyjs::hide("base-tools")
@@ -282,10 +301,57 @@ agroServer <- function(input, output, session) {
        shinyjs::hide("backsite_sg")
       })
       }
+
+    ## PARANA
+    {
+      
+      callModule(agroMoParAna,"paranadiv")
+      observeEvent(input$parana,{
+        shinyjs::hide("base")
+        shinyjs::hide("base-tools")
+        shinyjs::show("paranadiv-paranadiv")
+        shinyjs::hide(selector = ".banner")
+        shinyjs::show("Parana-banner-div")
+        shinyjs::show("basearrow_sg")
+        shinyjs::show("backsite_sg")
+        shinyjs::hide("backgrid")
+        shinyjs::hide("backsite")
+        shinyjs::hide("backarrow")
+      })
+    }
+    {
+      observeEvent(input$basearrow_sg,{
+        shinyjs::show("base")
+        shinyjs::show("base-tools")
+        shinyjs::hide("paranadiv-paranadiv")
+        shinyjs::hide("basearrow")
+        shinyjs::hide("backgrid")
+        shinyjs::hide("backsite")
+        shinyjs::hide("basearrow_sg")
+        shinyjs::hide("backsite_sg")
+        shinyjs::hide(selector = ".banner")
+        shinyjs::show("Base-banner-div")
+      })
+    }
+    {
+      observeEvent(input$backsite_sg,{
+        shinyjs::show("site")
+        shinyjs::show("sitediv-sitediv")
+        shinyjs::hide("paranadiv-paranadiv")
+        shinyjs::hide("backsite")
+        shinyjs::hide(selector = ".banner")
+        shinyjs::show("Site-banner-div")
+        shinyjs::show("basearrow")
+        shinyjs::show("backgrid")
+        shinyjs::hide("basearrow_sg")
+        shinyjs::hide("backsite_sg")
+      })
+    }
     
+        
    ## MAP
    {
-     callModule(agroMoMap,"mapdiv",baseDir=reactive({datas$baseDir}))
+     callModule(agroMoMap,"mapdiv",baseDir=reactive({datas$baseDir}),reactive({griddi$showMap}))
      observeEvent(input$map,{
        shinyjs::hide("base")
        shinyjs::hide("base-tools")

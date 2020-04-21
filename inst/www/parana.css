@@ -1,0 +1,252 @@
+/* Suggestions: I would suggest to use posinition: absolute css declaration in every
+                place. The positions starts at the top-left corner of the root window,
+                which is the window except the banner. */
+
+#paranadiv-paranado {
+    position: absolute;
+    top: 675px;
+    left: -19px;
+    height: 70px;
+    width: 953px;
+    font-size: 34px;
+    font-weight: bold;
+    background-color: gainsboro;
+    color: black;
+      font-family: Trebuchet MS;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#paranadiv-paranaini_container label{
+    position: absolute;
+    top: 10px;
+    left: 355px;
+    font-weight: bold;
+    font-size: 16px;
+    font-family: Trebuchet MS;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+#paranadiv-paranaini_container .selectize-control{
+    position: absolute;
+    top: 33px;
+    width: 580px;
+    left: 354px;
+    font-weight: normal;
+    font-size: 16px;
+    font-family: Trebuchet MS;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#paranadiv-paranait_container label {
+    position: absolute;
+    top: 505px;
+    left: 197px;
+    font-weight: normal;
+    font-size: 16px;
+    font-family: Trebuchet MS;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#paranadiv-paranait_container .form-control {
+    position: absolute;
+    top: 500px;
+    left: 354px;
+    width: 180px;
+    font-weight: normal;
+    font-size: 16px;
+    font-family: Trebuchet MS;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#paranadiv-paranaexp_container label {
+    position: absolute;
+    top: 80px;
+    left: 355px;
+    font-weight: bold;
+    font-size: 16px;
+    font-family: Trebuchet MS;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#paranadiv-paranaexp_container .selectize-control {
+    position: absolute;
+    top: 103px;
+    width: 580px;
+    left: 354px;
+    font-weight: normal;
+    font-size: 16px;
+    font-family: Trebuchet MS;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#paranadiv-paranatreat_container label {
+    position: absolute;
+    top: 150px;
+    left: 355px;
+    font-weight: bold;
+    font-size: 16px;
+    font-family: Trebuchet MS;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#paranadiv-paranatreat_container .selectize-control {
+    position: absolute;
+    top: 173px;
+    width: 580px;
+    left: 354px;
+    font-weight: normal;
+    font-size: 16px;
+    font-family: Trebuchet MS;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#paranadiv-charfunc_container label {
+    position: absolute;
+    top: 555px;
+    width: 580px;
+    left: 60px;
+    font-weight: normal;
+    font-size: 16px;
+    font-family: Trebuchet MS;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#paranadiv-charfunc_container .selectize-control {
+    position: absolute;
+    top: 550px;
+    width: 580px;
+    left: 354px;
+    font-weight: normal;
+    font-size: 16px;
+    font-family: Trebuchet MS;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#paranadiv-metfunc_container label {
+    position: absolute;
+    top: 605px;
+    width: 300px;
+    left: 125px;
+    font-weight: normal;
+    font-size: 16px;
+    font-family: Trebuchet MS;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#paranadiv-metfunc_container .selectize-control {
+    position: absolute;
+    top: 600px;
+    width: 580px;
+    left: 354px;
+    font-weight: normal;
+    font-size: 16px;
+    font-family: Trebuchet MS;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#paranatype {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-weight: bold;
+    font-size: 16px;
+    font-family: Trebuchet MS;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#paranadiv-paranaradio_container {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-weight: normal;
+    font-size: 16px;
+    font-family: Trebuchet MS;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#paranadiv-paranaradio_container .radio-inline {
+  margin-left: 0px;
+  margin-top: 10px;
+}
+
+#paranadiv-paranaradio_container .shiny-options-group {
+  border-width: 0px;
+}
+
+#backsite_sg {
+  position: absolute;
+  top: 220px;
+  left: -138px;
+  height: 43px;
+  width: 75px;
+  border-width: 0px;
+  border-radius: 1px;
+}
+
+#basearrow_sg {
+  position: absolute;
+  top: 220px;
+  left: -228px;
+  height: 43px;
+  width: 75px;
+  border-width: 0px;
+  border-radius: 1px;
+}

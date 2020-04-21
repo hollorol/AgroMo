@@ -18,7 +18,8 @@ agroMapVector(
   plotTitle = NULL,
   imageTitle = NULL,
   lonlat = FALSE,
-  countrycont = TRUE
+  countrycont = TRUE,
+  categorical
 )
 }
 \arguments{

@@ -27,7 +27,11 @@ agroMoSiteUI <- function(id){
                                    shiny::tags$div(id = paste0(x[1],"_container"), selectInput(x[1],x[2],basename(grep(list.files(x[3]), pattern = x[4], value = TRUE)),width = "100%"))
                                  } else {
                                       # browser()
-                                   shiny::tags$div(id = paste0(x[1],"_container"), selectInput(x[1],x[2],c(basename(grep(list.files(x[3],recursive = TRUE), pattern = x[4], value = TRUE)),"none"),width = "100%"))
+                                   shiny::tags$div(id = paste0(x[1],"_container"),
+                                                   selectInput(x[1],
+                                                               x[2],
+                                                               c(basename(grep(list.files(x[3]), pattern = x[4], value = TRUE)),"none"),
+                                                               width = "100%"))
                                  }
                                })
                                )
@@ -53,7 +57,7 @@ agroMoSiteUI <- function(id){
              #      ),
              shiny::tags$div(id="manModuls","management options:"),
              shiny::tags$div(id="shiftIn","shift in ..."),
-             shiny::tags$div(id="outputid-label","OUTPUT id:"),
+             shiny::tags$div(id="outputid-label","OUTPUT DATA TABLE:"),
              lapply(managementTypes,function(man){
                         # browser()
                # if(man=="planting") browser()
@@ -195,7 +199,7 @@ agroMoSite <- function(input, output, session, dataenv, baseDir, connection,cent
       if(mgmFile()=="none"){
         mgmF <- ""
       } else  {
-        ## browser()
+         #browser()
         mgmF<- suppressWarnings(readLines(file.path(isolate(baseDir()),"input","management",mgmFile())))
       }
       # if(manName=="planting") browser()
