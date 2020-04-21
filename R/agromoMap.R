@@ -95,7 +95,7 @@ agroMoMapUI <- function(id){
            #    ),
            tags$div(
              id = paste0(ns("maskcol"),"_container"),title="Select mask colour (for regions with no data)",
-             selectInput(ns("maskcol"),"mask color:",choices=paletteAliasMask[,2])
+             selectInput(ns("maskcol"),"mask color:", choices=paletteAliasMask[,2])
            ),
            
            tags$div(
@@ -203,7 +203,15 @@ agroMoMapUI <- function(id){
 
 
 agroMoMap <- function(input, output, session, baseDir){
-  datas <- reactiveValues(numPlots = 1,oldImage="",connection=NULL,agromoDB = NULL, soilDB = NULL,colnumbSelected = FALSE)
+
+    getHexa <- function(name){
+        paletteAlias <- data.frame(
+                             name=c("Light Grey", "Dark Grey", "Black", "White"),
+                             hexa=c("#D3D3D3","#A9A9A9","#000000","#FFFFFF"),stringsAsFactor=FALSE)
+        as.character(paletteAlias[paletteAlias$name==name,"hexa"])
+    }
+
+  datas <- reactiveValues(numPlots = 1,oldImage="",connection=NULL,agromoDB = NULL, soilDB = NULL, colnumbSelected = FALSE)
   myColors <- data.frame(
     codes=c("Greens","Greys","Reds","YlGnBu","YlOrBr","Blues","RdBu","RdYlBu","RdYlGn","Spectral","YlGn"), 
     alias=c(
@@ -212,6 +220,7 @@ agroMoMap <- function(input, output, session, baseDir){
       "Red-Yellow-Green", "Spectral", "Yellow-Green"
     ), stringsAsFactors=FALSE
   )
+
   ns <- session$ns
 
   observe({
@@ -267,6 +276,10 @@ agroMoMap <- function(input, output, session, baseDir){
     }
     session$sendCustomMessage(type="palletteChanger",paletteList)
   })
+
+  observe({
+      session$sendCustomMessage(type="palletteChangerMask",input$maskcol)
+  })
   
   # observe({
   #   toggleState("bw", input$radio==interval)
@@ -302,18 +315,23 @@ agroMoMap <- function(input, output, session, baseDir){
     if(!is.null(datas$connection) ||
        file.exists(mapData)){
       if(file.exists(mapData)){
-        agroMap(myData=read.csv(mapData)[,2], nticks=as.numeric(input$colnumb),
+          myData <- read.csv(mapData)
+          myData[,1] <- as.numeric(myData[,1])
+          myData <- myData[order(myData[,1]),]
+        agroMap(myData=read.csv(mapData), nticks=as.numeric(input$colnumb),
                 reverseColorScale=input$invert, colorSet=myColors[myColors[,2]==input$palette,1],
                 lonlat=input$latlon, imageTitle=mapImage, plotTitle=input$maptitle, countrycont=input$countrycont,
                 roundPrecision=as.numeric(input$minprec), minimum=as.numeric(input$min),
-                maximum=as.numeric(input$max), binwidth=as.numeric(input$bw),categorical = datas$colnumbSelected
+                maximum=as.numeric(input$max), binwidth=as.numeric(input$bw),categorical = datas$colnumbSelected,
+                maskCol=getHexa(input$maskcol)
         ) 
       } else {
         agroMap(datas$connection, query=sqlString, nticks=as.numeric(input$colnumb),
                 reverseColorScale=input$invert,colorSet=myColors[myColors[,2]==input$palette,1], 
                 lonlat=input$latlon, imageTitle=mapImage, plotTitle=input$maptitle, countrycont=input$countrycont,
                 roundPrecision=as.numeric(input$minprec), outFile=mapData, minimum=as.numeric(input$min),
-                maximum=as.numeric(input$max), binwidth=as.numeric(input$bw), categorical = datas$colnumbSelected
+                maximum=as.numeric(input$max), binwidth=as.numeric(input$bw), categorical = datas$colnumbSelected,
+                maskCol=getHexa(input$maskcol)
         )
       }
       

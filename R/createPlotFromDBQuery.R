@@ -116,8 +116,8 @@ trimColorSet <- function(minim, maxim, center=NULL, nticks=6, roundPrecision=NUL
 #' @return
 #' @export
 
-agroMapVector <- function(data, nticks=NULL, binwidth=NULL, minimum=NULL, maximum=NULL, roundPrecision=NULL, reverseColorScale=FALSE,
-                          colorSet="RdYlGn", center=NULL, plotTitle=NULL, imageTitle=NULL, lonlat=FALSE, countrycont=TRUE,categorical) {
+agroMapVector <- function(data, errorVector, nticks=NULL, binwidth=NULL, minimum=NULL, maximum=NULL, roundPrecision=NULL, reverseColorScale=FALSE,
+                          colorSet="RdYlGn", center=NULL, plotTitle=NULL, imageTitle=NULL, lonlat=FALSE, countrycont=TRUE,categorical,maskCol) {
   # The followings shall be commented to make it possible to run the code on the AgroMo GUI:
   # if(missing(nticks) & missing(binwidth))  {
   #   stop("Please, choose the number of colors (nticks) or the bin width (binwidth).\n
@@ -135,7 +135,10 @@ agroMapVector <- function(data, nticks=NULL, binwidth=NULL, minimum=NULL, maximu
   # if((is.numeric(nticks)) & ((is.numeric(minimum)) | (is.numeric(maximum))) ) {
   #   stop("Parameters minimum and maximum can only used with the parameter binwidth.")
   # }
-  
+    # browser()
+    # browser()
+
+  errorVector[(errorVector == 0)] <- NA # 10 is arbitary positive number
   lon <- seq(16.2,22.8,0.1)
   lat <- seq(45.8,48.5,0.1)
   
@@ -185,12 +188,19 @@ agroMapVector <- function(data, nticks=NULL, binwidth=NULL, minimum=NULL, maximu
              1790,	1791,	1792,	1793,	1794,	1795,	1796,	1797,	1803,	1854,	1855,	1856,	1857,	1858,	1860,	1861,	1862,	1863,	1864)
   
   grid_vect <- array(NA, dim=1876)
+  err_vect <- array(NA, dim=1876)
+  mask_vect <- array(NA, dim=1876)
   grid_vect[index] <- data
+  mask_vect[index[is.na(data)]] <- 10 # 10 is arbitary positive number
+  err_vect[index] <- errorVector
+
   grid_array <- matrix(grid_vect, nrow=length(lon), ncol=length(lat))
-  
+  err_array <- matrix(err_vect, nrow=length(lon), ncol=length(lat))
+  mask_array <- matrix(mask_vect, nrow=length(lon), ncol=length(lat))
+  # browser() 
   # if (is.null(binwidth)) {
   if ((nticks > 1) && categorical) { # With this parameter, plotting of maps is possible by choosing (min,max,bw) and nticks, respectively.
-    colorbar <- trimColorSet(min(data),max(data),center=center, nticks=nticks,
+    colorbar <- trimColorSet(min(data,na.rm=TRUE),max(data,na.rm=TRUE),center=center, nticks=nticks,
                              roundPrecision=roundPrecision, reverseColorScale=reverseColorScale, colorSet=colorSet)
     if(!is.null(imageTitle)){
       png(imageTitle, units="in", width=14, height=9, pointsize=14, res=300)  
@@ -199,12 +209,14 @@ agroMapVector <- function(data, nticks=NULL, binwidth=NULL, minimum=NULL, maximu
     
     # windows()
     if(is.null(roundPrecision)) {
-      
       image.plot(lon, lat, grid_array, xaxt="n", yaxt="n", ann=FALSE, col=colorbar$colors, lab.breaks=colorbar$breaks)
+      image(lon, lat, err_array, col=c("#000000","#000000"), add=TRUE)
     } else {
       image.plot(lon, lat, grid_array, xaxt="n", yaxt="n", ann=FALSE, col=colorbar$colors, lab.breaks=round(colorbar$breaks, digits=roundPrecision))
+      image(lon, lat, err_array,col=c("#000000","#000000"), add=TRUE)
     }
     
+    image(lon, lat, mask_array,col=c(maskCol,"#000000"), add=TRUE)
     if(lonlat==TRUE) {
       abline(h=seq(46,48,1), v=seq(16,23,1), lty=2)
     }
@@ -261,7 +273,7 @@ agroMap <- function(connection=NULL, query=NULL, myData=NULL, attachedDBS = NULL
                     queryModifiers=NULL,nticks=NULL, binwidth=NULL,
                     minimum=NULL, maximum=NULL, roundPrecision=NULL,
                     reverseColorScale=FALSE,colorSet="RdYlGn", center=NULL,
-                    plotTitle=NULL, imageTitle=NULL, lonlat=FALSE, outFile=NULL, countrycont=TRUE, categorical) {
+                    plotTitle=NULL, imageTitle=NULL, lonlat=FALSE, outFile=NULL, countrycont=TRUE, categorical,maskCol) {
   # browser()
   if(!is.null(connection)){
     agroVector <- readQueryFromDB(connection, query, attachedDBS = attachedDBS,queryModifiers = queryModifiers)
@@ -271,11 +283,13 @@ agroMap <- function(connection=NULL, query=NULL, myData=NULL, attachedDBS = NULL
   if(!is.null(outFile)){
     write.csv(agroVector, outFile)
   }
-  
-  agroMapVector(agroVector, nticks=nticks, binwidth=binwidth, minimum=minimum, maximum=maximum,
+  # browser()
+  errorVector <- myData[,2]
+  agroVector <- myData[,3]
+  agroMapVector(agroVector, errorVector, nticks=nticks, binwidth=binwidth, minimum=minimum, maximum=maximum,
                 roundPrecision=roundPrecision, reverseColorScale=reverseColorScale, colorSet=colorSet,
                 center=center, plotTitle=plotTitle, imageTitle=imageTitle, lonlat=lonlat, countrycont=countrycont,
-                categorical=categorical)
+                categorical=categorical,maskCol=maskCol)
 }
 
 #
