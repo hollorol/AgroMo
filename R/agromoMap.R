@@ -67,7 +67,7 @@ agroMoMapUI <- function(id){
            ),
            tags$div(
              id = paste0(ns("colnumb"),"_container"),title="Select the number of colours/subranges to be distinguished on the map",
-             selectInput(ns("colnumb"),"colors:", choices=c(0,2:32))
+             selectInput(ns("colnumb"),"colors:", choices=2:32)
            ),
            tags$div(
              id = paste0(ns("minprec"),"_container"),title="Select the number of decimal places shown in the presented values",
