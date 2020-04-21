@@ -62,14 +62,12 @@ agroMoMapUI <- function(id){
              id = paste0(ns("palette"),"_container"),title="Select colour palette for map",
              selectInput(ns("palette"),"palette:",choices= paletteAlias[,2])),
            tags$div(
-             id = paste0(ns("colnumb"),"_container"),title="Select the number of colours/subranges to be distinguished on the map",
-             selectInput(ns("colnumb"),"colors:",choices=c(0,2:32))
+             id = paste0(ns("radio"), "_container"), 
+             radioButtons(ns("radio"), "", choices= c("  " = "colnumb", " " = "inteval"), selected = "colnumb", inline = TRUE)
            ),
            tags$div(
-             id = paste0(ns("radio"), "_container"), 
-             #radioButtons(ns("radio"),"",choices=c("",""), inline = TRUE)
-             radioButtons(ns("radio"),"",choices= c(" " = "enabled", "  " = "disabled"), inline = TRUE)
-
+             id = paste0(ns("colnumb"),"_container"),title="Select the number of colours/subranges to be distinguished on the map",
+             selectInput(ns("colnumb"),"colors:", choices=2:32)
            ),
            tags$div(
              id = paste0(ns("minprec"),"_container"),title="Select the number of decimal places shown in the presented values",
@@ -77,24 +75,27 @@ agroMoMapUI <- function(id){
            ),
            tags$div(
              id = paste0(ns("min"),"_container"), title="Set the minimum value for the data presented on the map",
-             textInput(ns("min"),"min-max value:",as.numeric(NA))
+             # textInput(ns("min"),"min-max value:",as.numeric(NA), value=floor(min(data))) # with not empty field
+             textInput(ns("min"),"min-max value:",as.numeric(NA)) # with empty field
            ),
            tags$div(
              id = paste0(ns("max"),"_container"),title="Set the maximum value for the data presented on the map",
-             textInput(ns("max"),"-",as.numeric(NA))
+             # textInput(ns("max"),"-",as.numeric(NA), value=ceiling(max(data))) # with not empty field
+             textInput(ns("max"),"-",as.numeric(NA)) # with empty field
            ),
            tags$div(
              id = paste0(ns("bw"),"_container"),title="Set the bin width between the minium and maximum values",
-             textInput(ns("bw"),"interval:",as.numeric(NA))
+             # textInput(ns("bw"),"interval:",as.numeric(NA), value=floor((floor(max(data))-floor(min(data)))/8)) # with not empty field
+             textInput(ns("bw"),"interval:",as.numeric(NA)) # with empty field
            ),
-
+           
            #    tags$div(
            #      id = paste0(ns("maxprec"),"_container"),
            #      selectInput(ns("maxprec"),"precision of rounding:",choices=c(0,1,2,3,4,5))
            #    ),
            tags$div(
              id = paste0(ns("maskcol"),"_container"),title="Select mask colour (for regions with no data)",
-             selectInput(ns("maskcol"),"mask color:",choices=paletteAliasMask[,2])
+             selectInput(ns("maskcol"),"mask color:", choices=paletteAliasMask[,2])
            ),
            
            tags$div(
@@ -202,7 +203,15 @@ agroMoMapUI <- function(id){
 
 
 agroMoMap <- function(input, output, session, baseDir){
-  datas <- reactiveValues(numPlots = 1,oldImage="",connection=NULL,agromoDB = NULL, soilDB = NULL)
+
+    getHexa <- function(name){
+        paletteAlias <- data.frame(
+                             name=c("Light Grey", "Dark Grey", "Black", "White"),
+                             hexa=c("#D3D3D3","#A9A9A9","#000000","#FFFFFF"),stringsAsFactor=FALSE)
+        as.character(paletteAlias[paletteAlias$name==name,"hexa"])
+    }
+
+  datas <- reactiveValues(numPlots = 1,oldImage="",connection=NULL,agromoDB = NULL, soilDB = NULL, colnumbSelected = FALSE)
   myColors <- data.frame(
     codes=c("Greens","Greys","Reds","YlGnBu","YlOrBr","Blues","RdBu","RdYlBu","RdYlGn","Spectral","YlGn"), 
     alias=c(
@@ -211,7 +220,17 @@ agroMoMap <- function(input, output, session, baseDir){
       "Red-Yellow-Green", "Spectral", "Yellow-Green"
     ), stringsAsFactors=FALSE
   )
+
   ns <- session$ns
+
+  observe({
+              if(input$radio=="colnumb"){
+                  datas$colnumbSelected <- TRUE
+              } else {
+                  datas$colnumbSelected <- FALSE
+              }
+  }) 
+
   observe({
     dir.create(sprintf("%s/output/queries", baseDir()), showWarnings = FALSE)
     dir.create(sprintf("%s/output/map_data", baseDir()), showWarnings = FALSE)
@@ -257,24 +276,27 @@ agroMoMap <- function(input, output, session, baseDir){
     }
     session$sendCustomMessage(type="palletteChanger",paletteList)
   })
-  
-   observe({
-    shinyjs::toggleState("bw", input$radio=="disabled")
-    shinyjs::toggleState("min", input$radio=="disabled")
-    shinyjs::toggleState("max", input$radio=="disabled")
+
+  observe({
+      session$sendCustomMessage(type="palletteChangerMask",input$maskcol)
   })
   
-   observe({
-    toggleState("create", ((input$colnumb!=0) | ((is.numeric(as.numeric(input$min))) && 
-                                                 (is.numeric(as.numeric(input$max))) &&
-                                                 (as.numeric(input$bw)>0) && 
-                                                 (as.numeric(input$min)<as.numeric(input$max)) &&
-                                                 (as.numeric(input$bw)<=(as.numeric(input$max)-as.numeric(input$min))))))
-  })
+  # observe({
+  #   toggleState("bw", input$radio==interval)
+  #   toggleState("min", input$radio==interval)
+  #   toggleState("max", input$radio==interval)
+  #   toggleState("colnumb", input$radio==colnumb)
+  # })
   
   observe({
-    session$sendCustomMessage(type="palletteChangerMask",input$maskcol)
+    toggleState("create", ((input$colnumb!=0) | ((is.numeric(as.numeric(input$min))) && 
+                                                   (is.numeric(as.numeric(input$max))) &&
+                                                   (as.numeric(input$bw)>0) && 
+                                                   (as.numeric(input$min)<as.numeric(input$max)) &&
+                                                   (as.numeric(input$bw)<=(as.numeric(input$max)-as.numeric(input$min))))))
   })
+  
+
   oldImage <- ""
   observeEvent(input$create,{
     palette <- myColors$codes[myColors$alias==input$palette]
@@ -293,18 +315,23 @@ agroMoMap <- function(input, output, session, baseDir){
     if(!is.null(datas$connection) ||
        file.exists(mapData)){
       if(file.exists(mapData)){
-        agroMap(myData=read.csv(mapData)[,2], nticks=as.numeric(input$colnumb),
+          myData <- read.csv(mapData)
+          myData[,1] <- as.numeric(myData[,1])
+          myData <- myData[order(myData[,1]),]
+        agroMap(myData=read.csv(mapData), nticks=as.numeric(input$colnumb),
                 reverseColorScale=input$invert, colorSet=myColors[myColors[,2]==input$palette,1],
                 lonlat=input$latlon, imageTitle=mapImage, plotTitle=input$maptitle, countrycont=input$countrycont,
                 roundPrecision=as.numeric(input$minprec), minimum=as.numeric(input$min),
-                maximum=as.numeric(input$max), binwidth=as.numeric(input$bw)
+                maximum=as.numeric(input$max), binwidth=as.numeric(input$bw),categorical = datas$colnumbSelected,
+                maskCol=getHexa(input$maskcol)
         ) 
       } else {
         agroMap(datas$connection, query=sqlString, nticks=as.numeric(input$colnumb),
                 reverseColorScale=input$invert,colorSet=myColors[myColors[,2]==input$palette,1], 
                 lonlat=input$latlon, imageTitle=mapImage, plotTitle=input$maptitle, countrycont=input$countrycont,
                 roundPrecision=as.numeric(input$minprec), outFile=mapData, minimum=as.numeric(input$min),
-                maximum=as.numeric(input$max), binwidth=as.numeric(input$bw)
+                maximum=as.numeric(input$max), binwidth=as.numeric(input$bw), categorical = datas$colnumbSelected,
+                maskCol=getHexa(input$maskcol)
         )
       }
       
