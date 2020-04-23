@@ -154,13 +154,10 @@ agroMoGrid <- function(input, output, session,baseDir){
         dat$replNumbers <- sapply(dat$queryNames,getReplacementNumbers)
         # browser()
         dat$firstOptions <- lapply(dat$jsonList,function(x) {unlist(lapply(x$optionAlias[[dat$language]],function(y){y[1]}))}) 
-        
         dat$querySelector <- as.data.frame(colorReplacements(unlist(lapply(seq_along(dat$replNumbers),function(i){
                                                               # if(i==8) browser()
                                                               interpolateInto(dat$replNumbers[[i]],dat$firstOptions[[i]],dat$queryNames[i]) 
                                  }))),stringsAsFactors=FALSE)
-         # dat$options <-  sapply(1:9,function(queryIndex)(sapply(dat$jsonList[[queryIndex]]$options,unlist)))
-        dat$options <- sapply(1:9,function(queryIndex) lapply(dat$jsonList[[queryIndex]]$options,unlist))
 
     }) 
 
