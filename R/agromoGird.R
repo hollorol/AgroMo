@@ -305,10 +305,16 @@ agroMoGrid <- function(input, output, session,baseDir){
          # browser()
          showNotification("Attaching Soil database...")
          soilDBName <- file.path(normalizePath(dbDir),"SOIL.db")
+         observationDBName <- file.path(normalizePath(dbDir),"SOIL.db")
          if(file.exists(soilDBName)){
             dbExecute(sqlDB,sprintf("ATTACH DATABASE '%s' AS soil",soilDBName ))
          } else {
             showNotification("Cannot find soil database, queries which contains soil data will not run",type="warning")
+         }
+         if(file.exists(observationDBName)){
+            dbExecute(sqlDB,sprintf("ATTACH DATABASE '%s' AS observation",observationDBName ))
+         } else {
+            showNotification("Cannot find observation database, queries which contains soil data will not run",type="warning")
          }
          showNotification("Running the query, please wait, it can take for a while", id="query", duration=NULL)
          queryResults <- tryCatch(dbGetQuery(sqlDB,sentenceToSQL),error=function(e){NULL})
