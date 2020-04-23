@@ -305,7 +305,7 @@ agroMoGrid <- function(input, output, session,baseDir){
          # browser()
          showNotification("Attaching Soil database...")
          soilDBName <- file.path(normalizePath(dbDir),"SOIL.db")
-         observationDBName <- file.path(normalizePath(dbDir),"SOIL.db")
+         observationDBName <- file.path(normalizePath(dbDir),"observation.db")
          if(file.exists(soilDBName)){
             dbExecute(sqlDB,sprintf("ATTACH DATABASE '%s' AS soil",soilDBName ))
          } else {
@@ -332,7 +332,7 @@ agroMoGrid <- function(input, output, session,baseDir){
                                         })
              # queryResults$plotid <- as.numeric(as.numeric(queryResults$plotid))
             #doing a left outer join, the reduce part ads the columns
-             finalDF <- merge(Reduce(function(x,y){x$error+y$error},errorColumns),
+             finalDF <- merge((Reduce(function(x,y){x$error <- x$error+y$error; return(x)},errorColumns)),
                                queryResults,by.x="site",by.y="plotid",all.x=TRUE)
              colnames(finalDF) <- c("plotid","error","value")
              write.csv(finalDF,file.path(baseDir(),"output/map_data",sprintf("%s.csv",input$queryalias)),row.names=FALSE)
