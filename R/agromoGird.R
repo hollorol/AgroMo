@@ -148,11 +148,9 @@ agroMoGrid <- function(input, output, session,baseDir){
     toreturn <- reactiveValues(showMap=NULL)
     observe({
         dat$jsonList <- lapply((list.files(path=file.path(baseDir(),"templates/grid"),pattern="*.json", full.names=TRUE)),read_json)
-        # browser()
         dat$queryNames <-  sapply(dat$jsonList,function(x) x$Names[[dat$language]])
         dat$queries <-  sapply(dat$jsonList,function(x) x$query)
-        dat$replNumbers <- sapply(dat$queryNames,getReplacementNumbers)
-        # browser()
+        dat$replNumbers <- lapply(dat$queryNames,getReplacementNumbers)
         dat$firstOptions <- lapply(dat$jsonList,function(x) {unlist(lapply(x$optionAlias[[dat$language]],function(y){y[1]}))}) 
         dat$querySelector <- as.data.frame(colorReplacements(unlist(lapply(seq_along(dat$replNumbers),function(i){
                                                               # if(i==8) browser()
