@@ -294,7 +294,7 @@ agroMoGrid <- function(input, output, session,baseDir){
                     sentenceToSQL <- interpolateInto(dat$replNumbers[[input$queryList]],textContent,sqlSentence,TRUE)
                     sentenceToSQL <- gsub("\\[T1\\]",sprintf("%s",input$time),sentenceToSQL)
                     sentenceToSQL <- gsub("\\[T2\\]",sprintf("%s",input$until),sentenceToSQL)
-                    writeLines(c(sprintf("/*%s*/",input$metadata),"\n\n",sentenceToSQL),file.path(baseDir(),"output/queries",sprintf("%s.sql",input$queryalias)))
+                    writeLines(c(sprintf("/*%s*/",input$metadata),"\n\n",sentenceToSQL),file.path(baseDir(),"output/query",sprintf("%s.sql",input$queryalias)))
          outputDB <- file.path(baseDir(),"output")
          dbDir <- file.path(baseDir(),"database")
          sqlDB <- DBI::dbConnect(RSQLite::SQLite(),file.path(outputDB,"grid.db"))

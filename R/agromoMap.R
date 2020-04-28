@@ -232,12 +232,12 @@ agroMoMap <- function(input, output, session, baseDir, initialList){
 
   observe({
     initialList()
-    dir.create(sprintf("%s/output/queries", baseDir()), showWarnings = FALSE)
+    dir.create(sprintf("%s/output/query", baseDir()), showWarnings = FALSE)
     dir.create(sprintf("%s/output/map_data", baseDir()), showWarnings = FALSE)
     dir.create(sprintf("%s/output/map_image", baseDir()), showWarnings = FALSE)
     updateSelectInput(session, "datasource", 
-                      choices = list.files(sprintf("%s/output/queries/",baseDir())),
-                      selected = head(list.files(sprintf("%s/output/queries/",baseDir())),n=1)
+                      choices = list.files(sprintf("%s/output/query/",baseDir())),
+                      selected = head(list.files(sprintf("%s/output/query/",baseDir())),n=1)
     )
     # print(list.files(sprintf("%s/output/queries/",baseDir())))
     
@@ -303,7 +303,7 @@ agroMoMap <- function(input, output, session, baseDir, initialList){
     # browser()
     
     if(length(input$datasource)>0) {
-      sqlName <- sprintf("%s/output/queries/%s",baseDir(),input$datasource)
+      sqlName <- sprintf("%s/output/query/%s",baseDir(),input$datasource)
       sqlString <- readChar(sqlName,file.info(sqlName)["size"])
     }
     
