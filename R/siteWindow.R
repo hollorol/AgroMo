@@ -9,7 +9,7 @@ agroMoSiteUI <- function(id){
   baseDir <- "defaultDir"
   baseTable<- data.frame(selectorId <- c(ns("iniFile"), ns("weatherFile"), ns("soilFile"), ns("managementFile")),
                          label <- c("INI file:", "WEATHER file:", "SOIL file:", "MANAGEMENT file:"),
-                         place <- c("input/initialization/site", "input/weather/site", "input/soil/site", "input/management"                          ),
+                         place <- c("input/initialization/site", "input/weather/site", "input/soil/site", "input/management/site"                          ),
                          pattern <- c("*.ini","*.wth","*.soi","*.mgm"))
 
   managementTypes <- c("planting", "harvest", "fertilization", "irrigation", "cultivation", "grazing", "mowing", "thinning")
@@ -162,7 +162,7 @@ agroMoSite <- function(input, output, session, dataenv, baseDir, connection,cent
       updateSelectInput(session,"managementFile",
                         choices = c("none",basename(grep("*.mgm",
                                                  list.files(file.path(
-                                                                      baseDir(),"input","management")
+                                                                      baseDir(),"input/management/site")
                                                  ,recursive = TRUE),value = TRUE))))
 
 
@@ -200,7 +200,7 @@ agroMoSite <- function(input, output, session, dataenv, baseDir, connection,cent
         mgmF <- ""
       } else  {
          #browser()
-        mgmF<- suppressWarnings(readLines(file.path(isolate(baseDir()),"input","management",mgmFile())))
+        mgmF<- suppressWarnings(readLines(file.path(isolate(baseDir()),"input/management/site",mgmFile())))
       }
       # if(manName=="planting") browser()
       included <- grep(sprintf("\\.%s$",managementExt[manName]), mgmF, value = TRUE)
@@ -247,7 +247,7 @@ agroMoSite <- function(input, output, session, dataenv, baseDir, connection,cent
     updateSelectInput(session,"managementFile",
                       choices = c("none",basename(grep("*.mgm",
                                                list.files(file.path(
-                                                                    baseDir(),"input","management")
+                                                                    baseDir(),"input/management/site")
                                                ,recursive = TRUE),value = TRUE))), selected = mgmState)
   })
   # observe({
