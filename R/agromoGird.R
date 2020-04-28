@@ -209,10 +209,10 @@ agroMoGrid <- function(input, output, session,baseDir){
     })
 
     observe({
-         dbDir <- file.path(baseDir(),"output/DB/grid/")
+         dbDir <- file.path(baseDir(),"output")
          dir.create(dbDir, showWarnings=FALSE)
          if(dir.exists(dbDir)){
-             sqlDB <- DBI::dbConnect(RSQLite::SQLite(),file.path(dbDir,"grid.sqlite3"))
+             sqlDB <- DBI::dbConnect(RSQLite::SQLite(),file.path(dbDir,"grid.db"))
              dat[["modelOutputs"]] <-grep("_error$",dbListTables(sqlDB),invert=TRUE,value=TRUE)
              dbDisconnect(sqlDB)
          }
@@ -295,9 +295,9 @@ agroMoGrid <- function(input, output, session,baseDir){
                     sentenceToSQL <- gsub("\\[T1\\]",sprintf("%s",input$time),sentenceToSQL)
                     sentenceToSQL <- gsub("\\[T2\\]",sprintf("%s",input$until),sentenceToSQL)
                     writeLines(c(sprintf("/*%s*/",input$metadata),"\n\n",sentenceToSQL),file.path(baseDir(),"output/queries",sprintf("%s.sql",input$queryalias)))
-         outputDB <- file.path(baseDir(),"output/DB/grid/")
+         outputDB <- file.path(baseDir(),"output")
          dbDir <- file.path(baseDir(),"database")
-         sqlDB <- DBI::dbConnect(RSQLite::SQLite(),file.path(outputDB,"grid.sqlite3"))
+         sqlDB <- DBI::dbConnect(RSQLite::SQLite(),file.path(outputDB,"grid.db"))
          # browser()
          showNotification("Attaching Soil database...")
          soilDBName <- file.path(normalizePath(dbDir),"soil.db")
@@ -361,8 +361,8 @@ agroMoGrid <- function(input, output, session,baseDir){
         changeFilesWithRegex(list.files(file.path(baseDir(),"input/initialization/grid",input$story),full.names=TRUE),
                               indexOfRows,replacements,regex)
         ## runChain(baseDir(),input$story,dat$story[[5]])
-         dbDir <- file.path(baseDir(),"output/DB/grid/")
-         sqlDB <- DBI::dbConnect(RSQLite::SQLite(),file.path(dbDir,"grid.sqlite3"))
+         dbDir <- file.path(baseDir(),"output")
+         sqlDB <- DBI::dbConnect(RSQLite::SQLite(),file.path(dbDir,"grid.db"))
          error <- runGrid(baseDir(),input$story,dat$story) # dat$story is a list containing all running groups
          errorDF <- tapply(error,as.numeric(gsub("_.*","",names(error))),sum)
          errorDF <- data.frame(site=names(errorDF),error=errorDF)
@@ -533,10 +533,12 @@ writeChainToDB <- function(baseDir,storyName, dbConnection, outputName, chainMat
 
 
 tables_get <- function(baseDir){
-         dbDir <- file.path(baseDir,"output/DB/grid/")
+         dbDir <- file.path(baseDir,"output")
          dir.create(dbDir, showWarnings=FALSE)
-         sqlDB <- DBI::dbConnect(RSQLite::SQLite(),file.path(dbDir,"grid.sqlite3"))
+         sqlDB <- DBI::dbConnect(RSQLite::SQLite(),file.path(dbDir,"grid.db"))
          result <- grep("_error$",dbListTables(sqlDB),invert=TRUE,value=TRUE)
          dbDisconnect(sqlDB)
          result
 }
+
+
