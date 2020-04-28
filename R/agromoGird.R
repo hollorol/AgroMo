@@ -147,7 +147,7 @@ agroMoGrid <- function(input, output, session,baseDir){
     vari <- reactiveValues()
     toreturn <- reactiveValues(showMap=NULL)
     observe({
-        dat$jsonList <- lapply((list.files(path=file.path(baseDir(),"templates/grid"),pattern="*.json", full.names=TRUE)),read_json)
+        dat$jsonList <- lapply((list.files(path=file.path(baseDir(),"template/grid"),pattern="*.json", full.names=TRUE)),read_json)
         dat$queryNames <-  sapply(dat$jsonList,function(x) x$Names[[dat$language]])
         dat$queries <-  sapply(dat$jsonList,function(x) x$query)
         dat$replNumbers <- lapply(dat$queryNames,getReplacementNumbers)
