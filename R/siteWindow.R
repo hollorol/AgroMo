@@ -136,7 +136,7 @@ agroMoSite <- function(input, output, session, dataenv, baseDir, connection,cent
   ## browser()
   output$outputFile <- renderUI({
     ns <- session$ns
-    odellOutputs <- c(dataenv(),input$iniFile)
+    modellOutputs <- c(dataenv(),input$iniFile)
     tagList(
       shiny::tags$div(id = "outputF", class = "inFile",
 

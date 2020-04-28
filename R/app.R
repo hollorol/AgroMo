@@ -46,7 +46,7 @@ agroServer <- function(input, output, session) {
      
     print(baseDir)
     setwd(baseDir)
-    database <- file.path(baseDir,"database/observation.db")
+    database <- file.path(baseDir,"output/site.db")
     dir.create(dirname(database), showWarnings = FALSE)
     baseConnection <- dbConnect(SQLite(),database)
     datas <- reactiveValues(baseDir = baseDir, connection=baseConnection)
