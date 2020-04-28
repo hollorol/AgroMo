@@ -175,9 +175,16 @@ agroMoGrid <- function(input, output, session,baseDir){
     })
 
     observe({
-        projections <- basename(list.dirs(file.path(baseDir(),"input/weather/grid/projection"))[-1])
+        projections <- basename(list.dirs(file.path(baseDir(),"input/weather/grid"))[-1])
         if(length(projections)!=0){
             updateSelectInput(session,"climproj",choices=projections)
+        }
+    })
+
+    observe({
+        soils <- basename(list.dirs(file.path(baseDir(),"input/soil/grid"))[-1])
+        if(length(soils)!=0){
+            updateSelectInput(session,"soildb",choices=soils)
         }
     })
 
@@ -355,9 +362,9 @@ agroMoGrid <- function(input, output, session,baseDir){
         suppressWarnings(file.remove(list.files(file.path(baseDir(),"output/grid",input$story),full.names=TRUE)))
 
         showNotification("Setting climate projections and algorithms")
-        indexOfRows <- c(4,58,59,61)
-        replacements <- c(sprintf("projection/%s/",input$climproj),algorithms[[input$algosel]])
-        regex <- "projection/.*?/"
+        indexOfRows <- c(4,39,58,59,61)
+        replacements <- c(sprintf("grid/%s/",input$climproj),sprintf("grid/%s/",input$soildb),algorithms[[input$algosel]])
+        regex <- c("grid/.*?/","grid/.*?/")
         changeFilesWithRegex(list.files(file.path(baseDir(),"input/initialization/grid",input$story),full.names=TRUE),
                               indexOfRows,replacements,regex)
         ## runChain(baseDir(),input$story,dat$story[[5]])
