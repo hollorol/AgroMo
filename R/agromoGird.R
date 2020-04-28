@@ -295,19 +295,20 @@ agroMoGrid <- function(input, output, session,baseDir){
                     sentenceToSQL <- gsub("\\[T1\\]",sprintf("%s",input$time),sentenceToSQL)
                     sentenceToSQL <- gsub("\\[T2\\]",sprintf("%s",input$until),sentenceToSQL)
                     writeLines(c(sprintf("/*%s*/",input$metadata),"\n\n",sentenceToSQL),file.path(baseDir(),"output/queries",sprintf("%s.sql",input$queryalias)))
-         dbDir <- file.path(baseDir(),"output/DB/grid/")
-         sqlDB <- DBI::dbConnect(RSQLite::SQLite(),file.path(dbDir,"grid.sqlite3"))
+         outputDB <- file.path(baseDir(),"output/DB/grid/")
+         dbDir <- file.path(baseDir(),"database")
+         sqlDB <- DBI::dbConnect(RSQLite::SQLite(),file.path(outputDB,"grid.sqlite3"))
          # browser()
          showNotification("Attaching Soil database...")
-         soilDBName <- file.path(normalizePath(dbDir),"SOIL.db")
+         soilDBName <- file.path(normalizePath(dbDir),"soil.db")
          observationDBName <- file.path(normalizePath(dbDir),"observation.db")
          if(file.exists(soilDBName)){
-            dbExecute(sqlDB,sprintf("ATTACH DATABASE '%s' AS soil",soilDBName ))
+            dbExecute(sqlDB,sprintf("ATTACH DATABASE '%s' AS soil",soilDBName))
          } else {
             showNotification("Cannot find soil database, queries which contains soil data will not run",type="warning")
          }
          if(file.exists(observationDBName)){
-            dbExecute(sqlDB,sprintf("ATTACH DATABASE '%s' AS observation",observationDBName ))
+            dbExecute(sqlDB,sprintf("ATTACH DATABASE '%s' AS observation",observationDBName))
          } else {
             showNotification("Cannot find observation database, queries which contains soil data will not run",type="warning")
          }

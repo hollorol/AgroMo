@@ -181,7 +181,7 @@ getFilteredData <- function(dbConnection, treatment, experiment, repetationsAver
 if(repetationsAveraged){
     dbGetQuery(dbConnection,sprintf("
                              SELECT strftime('%%Y-%%m-%%d',datetime) AS measure_date, AVG(value) AS measurement_value
-                             FROM EXPERIMENT
+                             FROM site
                              WHERE value!='NA' AND
                              datetime!='NA' AND
                              variable == '%s' AND
@@ -192,7 +192,7 @@ if(repetationsAveraged){
 } else {
     dbGetQuery(dbConnection,sprintf("
                              SELECT strftime('%%Y-%%m-%%d',datetime) AS measure_date, value AS measurement_value, repetition
-                             FROM EXPERIMENT
+                             FROM site
                              WHERE value!='NA' AND
                              datetime!='NA' AND
                              variable == '%s' AND

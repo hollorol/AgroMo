@@ -130,7 +130,7 @@ agroMoShow <- function(input, output, session, dataenv, baseDir, connection,cent
      initData$data <- dataenv()
   })
   observe({
-     initData$measurementConn <-  dbConnect(RSQLite::SQLite(),file.path(baseDir(), "observation","EXPERIMENT.db"))
+     initData$measurementConn <-  dbConnect(RSQLite::SQLite(),file.path(baseDir(), "database/observation.db"))
   })
 
 
@@ -178,7 +178,7 @@ agroMoShow <- function(input, output, session, dataenv, baseDir, connection,cent
      
    observe({
        updateSelectInput(session,"experimentID", choices = c("NO OBSERVED DATA",dbGetQuery(initData$measurementConn,"
-                                                                       SELECT DISTINCT experiment FROM EXPERIMENT 
+                                                                       SELECT DISTINCT experiment FROM site 
                                                                        ")[,1])
      )
 
@@ -189,7 +189,7 @@ agroMoShow <- function(input, output, session, dataenv, baseDir, connection,cent
           updateSelectInput(session,"treatmentID", choices =
                             dbGetQuery(initData$measurementConn,sprintf("
                                                                          SELECT DISTINCT SUBSTR(key,6,LENGTH(key))
-                                                                         FROM EXPERIMENT
+                                                                         FROM site
                                                                          WHERE experiment='%s' AND value!='NA'
                                                                          ", input$experimentID))[,1])
                                           }

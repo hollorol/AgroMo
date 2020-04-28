@@ -46,7 +46,7 @@ agroServer <- function(input, output, session) {
      
     print(baseDir)
     setwd(baseDir)
-    database <- file.path(baseDir,"output/outputs.db")
+    database <- file.path(baseDir,"database/observation.db")
     dir.create(dirname(database), showWarnings = FALSE)
     baseConnection <- dbConnect(SQLite(),database)
     datas <- reactiveValues(baseDir = baseDir, connection=baseConnection)
@@ -78,7 +78,7 @@ agroServer <- function(input, output, session) {
                     #browser()
                     datas$baseDir <- choosenDir
                     dbDisconnect(datas$connection)
-                    database <- file.path(choosenDir, "output/outputs.db")
+                    database <- file.path(choosenDir, "database/observation.db")
                     datas$connection <- dbConnect(SQLite(), database)
                 }
             }
