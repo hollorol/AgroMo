@@ -429,7 +429,7 @@
   font-family: Trebuchet MS;
   color:black;
   position: absolute;
-  top: 635px;
+  top: 634px;
   font-weight: bold;
   color: black;
   -webkit-user-select: none;
@@ -495,7 +495,7 @@
 #sitediv-planshift_date_container label{
   position: absolute;
   top: 327px;
-  left: 570px;
+  left: 568px;
   font-size: 16px;
   font-family: Trebuchet MS;
   color: black;
@@ -557,7 +557,7 @@
 #sitediv-harvshift_date_container label{
   position: absolute;
   top: 367px;
-  left: 570px;
+  left: 568px;
   font-size: 16px;
   font-family: Trebuchet MS;
   color: black;
@@ -588,7 +588,7 @@
 #sitediv-fertshift_date_container label{
   position: absolute;
   top: 405px;
-  left: 570px;
+  left: 568px;
   font-size: 16px;
   font-family: Trebuchet MS;
   color: black;
@@ -619,7 +619,7 @@
 #sitediv-irrshift_date_container label{
   position: absolute;
   top: 443px;
-  left: 570px;
+  left: 568px;
   font-size: 16px;
   font-family: Trebuchet MS;
   color: black;
