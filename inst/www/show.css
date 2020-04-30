@@ -6,7 +6,7 @@
   height: 55px;
   background-color: gainsboro;
   font-size: 24px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   font-weight: bold;
   color: black;
 }
@@ -19,7 +19,7 @@
   height: 55px;
   background-color: gainsboro;
   font-size: 24px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   font-weight: bold;
   color: black;
 }
@@ -61,7 +61,7 @@
 div.xyRangeInput .form-group.shiny-input-container {
      width: 130px;
      font-size: 16px;
-     font-family: Trebuchet MS;
+     font-family: Fira Sans;
      color: black;
      display: flex;
      padding-top: 25px;
@@ -91,7 +91,7 @@ div.xmax label {
   height: 55px;
   background-color: gainsboro;
   font-size: 24px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   font-weight: bold;
   color: black;
 }
@@ -104,7 +104,7 @@ position:absolute;
   height: 55px;
   background-color: gainsboro;
   font-size: 24px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   font-weight: bold;
   color: black;
 }
@@ -128,14 +128,14 @@ margin-left: 15px;
   margin-top: 25px;
   font-size: 18px;
     text-align: center;
-  font-family: "Trebuchet MS";
+  font-family: "Fira Sans";
 }
 
 div.profPlotCont >.shiny-date-inputte-input {
   font-size: 20px;
   text-align: center;
   color: black;
-  font-family: "Trebuchet MS";
+  font-family: "Fira Sans";
 }
 
 div.profPlotCont  .form-group {
@@ -147,7 +147,7 @@ div.profPlotCont .form-control {
   font-size: 20px;
   text-align: center;
   color: black;
-  font-family: "Trebuchet MS";
+  font-family: "Fira Sans";
 }
 
 
@@ -170,7 +170,7 @@ div.profPlotCont .form-control {
   font-weight: normal;
   color: black;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -183,7 +183,7 @@ div.profPlotCont .form-control {
    left: 445px;
   width: 195px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -198,7 +198,7 @@ div.profPlotCont .form-control {
   top: 720px;
   left:-310px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -214,7 +214,7 @@ div.profPlotCont .form-control {
   left: 70px;
   width: 235px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   display: none;
 } 
@@ -231,7 +231,7 @@ div.profPlotCont .form-control {
   top: 590px;
   left:195px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   width: 440px;
   color: black;
   -webkit-user-select: none;
@@ -246,7 +246,7 @@ div.profPlotCont .form-control {
     top: 610px;
     left: 78px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   font-weight: normal;
   width: 300px;
   color: black;
@@ -266,7 +266,7 @@ div.profPlotCont .form-control {
   top: 630px;
   left:195px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   width: 440px;
   color: black;
   -webkit-user-select: none;
@@ -281,7 +281,7 @@ div.profPlotCont .form-control {
     top: 650px;
     left: 100px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   font-weight: normal;
   width: 300px;
   color: black;
@@ -300,7 +300,7 @@ div.profPlotCont .form-control {
   left: -312px;
   font-weight: bold;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -316,7 +316,7 @@ div.profPlotCont .form-control {
   left: -312px;
   font-weight: bold;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -331,7 +331,7 @@ div.profPlotCont .form-control {
   left:70px;
   font-weight: bold;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -345,7 +345,7 @@ div.profPlotCont .form-control {
   left:70px;
   font-weight: bold;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -358,7 +358,7 @@ div.profPlotCont .form-control {
   top: 118px;
   left: 500px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   width: 150px;
   -webkit-user-select: none;
@@ -379,7 +379,7 @@ div.profPlotCont .form-control {
     top: 113px;
     left:203px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -391,7 +391,7 @@ div.profPlotCont .form-control {
     top: 118px;
     left:162px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   font-weight: normal;
   -webkit-user-select: none;
@@ -405,7 +405,7 @@ div.profPlotCont .form-control {
     top: 23px;
     left:187px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -419,7 +419,7 @@ div.profPlotCont .form-control {
     top: 60px;
     left:187px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -433,7 +433,7 @@ div.profPlotCont .form-control {
     top: 628px;
     left:208px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -446,7 +446,7 @@ div.profPlotCont .form-control {
     top: 648px;
     left: 70px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -459,7 +459,7 @@ div.profPlotCont .form-control {
     top: 43px;
     right: 354px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   font-weight: normal;
   -webkit-user-select: none;
@@ -473,7 +473,7 @@ div.profPlotCont .form-control {
     top: 80px;
     right: 354px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   font-weight: normal;
   -webkit-user-select: none;
