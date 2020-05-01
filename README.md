@@ -105,5 +105,5 @@ NOTES: 1) in case no depth info is provided in a soil related query, by default 
 - average/minimum/maximum/10th/90th percentile yield | a termés átlaga/minimuma/maximuma/10-ik/90-ik percentilise
 - 0-3 cm soil layer mean temperature in May in the 2071-2100 period | 0-3 cm talajréteg májusi átlaghőmérséklete a 2071-2100 időszakban
 
+### AgroMo Map
 
-  
