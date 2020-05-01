@@ -107,3 +107,4 @@ NOTES: 1) in case no depth info is provided in a soil related query, by default 
 
 ### AgroMo Map
 
+![alt text](img/map_gui.png "AgroMo Map")
