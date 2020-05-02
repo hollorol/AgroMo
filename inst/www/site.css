@@ -5,7 +5,7 @@
     position: absolute;
     top: 20px;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -19,7 +19,7 @@
     left:-1px;
     width: 800px;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -33,7 +33,7 @@
     position: absolute;
     top: 95px;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -48,7 +48,7 @@
     left:-1px;
     width: 800px;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -60,7 +60,7 @@
     position: absolute;
     top: 165px;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -75,7 +75,7 @@
     left:-1px;
     width: 800px;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -87,7 +87,7 @@
     position: absolute;
     top: 235px;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -101,7 +101,7 @@
     left:-1px;
     width: 800px;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -136,7 +136,7 @@
   top: 295px;
   left: 2px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -150,7 +150,7 @@
   top: 295px;
   left: 570px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -167,7 +167,7 @@
   top: 327px;
   right: 730px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -181,7 +181,7 @@
   left: 105px;
   width: 450px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -198,7 +198,7 @@
   top: 367px;
   right: 730px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -212,7 +212,7 @@
   left: 105px;
   width: 450px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -230,7 +230,7 @@
   top: 405px;
   right: 730px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -244,7 +244,7 @@
   left: 105px;
   width: 450px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -262,7 +262,7 @@
   top: 443px;
   right: 730px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -276,7 +276,7 @@
   left: 105px;
   width: 450px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -294,7 +294,7 @@
   top: 481px;
   right: 730px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -308,7 +308,7 @@
   left: 105px;
   width: 450px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -326,7 +326,7 @@
   top: 519px;
   right: 730px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -340,7 +340,7 @@
   left: 105px;
   width: 450px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -358,7 +358,7 @@
   top: 557px;
   right: 730px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -371,7 +371,7 @@
   left: 105px;
   width: 450px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -389,7 +389,7 @@
   top: 595px;
   right: 730px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -403,7 +403,7 @@
   left: 105px;
   width: 450px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -416,7 +416,7 @@
   top: 632px;
   width:900px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -426,10 +426,10 @@
 
 #outputid-label {
   font-size:16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color:black;
   position: absolute;
-  top: 635px;
+  top: 634px;
   font-weight: bold;
   color: black;
   -webkit-user-select: none;
@@ -441,7 +441,7 @@
 #sitediv-outFile {
   font-size:16px;
   color:black;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -460,7 +460,7 @@
   width:435px;
   color: black;
     font-size: 24px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   background-color: gainsboro;
 }
 
@@ -471,7 +471,7 @@
   width:435px;
   color: black;
   font-size: 24px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   background-color: gainsboro;
 }
 
@@ -482,7 +482,7 @@
    width: 55px;
    height: 33px;
    font-size: 16px;
-   font-family: Trebuchet MS;
+   font-family: Fira Sans;
    color: black;
    padding-bottom:10px;
   -webkit-user-select: none;
@@ -495,9 +495,9 @@
 #sitediv-planshift_date_container label{
   position: absolute;
   top: 327px;
-  left: 570px;
+  left: 568px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   font-weight: normal;
   -webkit-user-select: none;
@@ -514,7 +514,7 @@
   width: 55px;
   height: 33px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   padding-bottom:10px;
   -webkit-user-select: none;
@@ -528,7 +528,7 @@
   top: 327px;
   right: -4px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   font-weight: normal;
   -webkit-user-select: none;
@@ -545,7 +545,7 @@
   width: 55px;
   height: 33px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   padding-bottom:10px;
   -webkit-user-select: none;
@@ -557,9 +557,9 @@
 #sitediv-harvshift_date_container label{
   position: absolute;
   top: 367px;
-  left: 570px;
+  left: 568px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   font-weight: normal;
   -webkit-user-select: none;
@@ -576,7 +576,7 @@
   width: 55px;
   height: 33px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   padding-bottom:10px;
   -webkit-user-select: none;
@@ -588,9 +588,9 @@
 #sitediv-fertshift_date_container label{
   position: absolute;
   top: 405px;
-  left: 570px;
+  left: 568px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   font-weight: normal;
   -webkit-user-select: none;
@@ -607,7 +607,7 @@
   width: 55px;
   height: 33px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   padding-bottom:10px;
   -webkit-user-select: none;
@@ -619,9 +619,9 @@
 #sitediv-irrshift_date_container label{
   position: absolute;
   top: 443px;
-  left: 570px;
+  left: 568px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   font-weight: normal;
   -webkit-user-select: none;
@@ -638,7 +638,7 @@
   width: 55px;
   height: 33px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   padding-bottom:10px;
   -webkit-user-select: none;
@@ -652,7 +652,7 @@
   top: 405px;
   right: -4px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   font-weight: normal;
   -webkit-user-select: none;
@@ -669,7 +669,7 @@
   width: 55px;
   height: 33px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   padding-bottom:10px;
   -webkit-user-select: none;
@@ -683,7 +683,7 @@
   top: 443px;
   right: -4px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   font-weight: normal;
   -webkit-user-select: none;

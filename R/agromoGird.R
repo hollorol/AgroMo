@@ -12,14 +12,22 @@
     tags$div(
       id =paste0(ns("enssoil"),"_container"),
       checkboxInput(ns("enssoil"), label = "Ensemble", value = FALSE)
-    ),         
+    ),   
+    tags$div(
+      id =paste0(ns("annual"),"_container"),
+      checkboxInput(ns("annual"), label = "annual outputs", value = FALSE)
+    ),
+    tags$div(
+      id =paste0(ns("daily"),"_container"),
+      checkboxInput(ns("daily"), label = "daily outputs", value = FALSE)
+    ),
     tags$div(
       id = paste0(ns("gridres"),"_container"),
       selectInput(ns("gridres"),"GRID RESOLUTION:",choices = c("10×10 km"))
     ),
     tags$div(
       id = paste0(ns("climproj"),"_container"),
-      selectInput(ns("climproj"),"CLIMATE PROJECTION:",NA)
+      selectInput(ns("climproj"),"CLIMATE DATABASE:",NA)
     ),
     tags$div(
       id = paste0(ns("soildb"),"_container"),
