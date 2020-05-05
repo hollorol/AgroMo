@@ -185,6 +185,7 @@
 #griddiv-algosel_container .control-label{
     position: absolute;
     top: 170px;
+    left: 5px;
     font-size: 16px;
     color: black;
     font-family: Fira Sans;
@@ -224,7 +225,7 @@
 
 #griddiv-outsq_container label {
     position: absolute;
-    left: 23px;
+    left: 30px;
     top: 215px;
     font-size: 16px;
     color: black;
@@ -255,9 +256,26 @@
 
 #griddiv-Map {
     position: absolute;
-    top: 682px;
+    top: 705px;
     left: 785px;
-    height: 70px;
+    height: 45px;
+    width: 130px;
+    font-size: 26px;
+    font-family: Fira Sans;
+    color: black;
+    font-weight: bold;
+    background-color: gainsboro;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
+}
+
+#griddiv-Report {
+    position: absolute;
+    top: 652px;
+    left: 785px;
+    height: 45px;
     width: 130px;
     font-size: 26px;
     font-family: Fira Sans;
@@ -274,7 +292,7 @@
     position: absolute;
     top: 559px;
     left: 785px;
-    height: 110px;
+    height: 85px;
     width: 130px;
     font-size: 26px;
     font-family: Fira Sans;

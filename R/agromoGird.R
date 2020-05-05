@@ -77,7 +77,9 @@
     tags$div(id = ns("Buttons"),
     actionButton(ns("StartSim"),label = "START SIMULATION"),
     actionButton(ns("RunQuery"),label = "START QUERY"),
-    actionButton(ns("Map"),label="MAP")),             
+    actionButton(ns("Report"),label = "REPORT"),
+    actionButton(ns("Map"),label="MAP")),
+    
      
     tags$div(
       id = paste0(ns("time"),"_container"),
