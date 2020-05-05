@@ -1,0 +1,19 @@
+STORYLINE: DBsensitivity
+ALIAS: sensitivity to sources of weather and soil data 
+CLIMATE: foresee
+SOIL:    EU-SHG
+OUTPUTS: grainDM
+TIME SPAN: 1981-2010
+NR OF DOMAINS: 1
+CELL SELECTOR  : ALL
+CELLS IN DOMAIN: ALL
+NR OF PERIODS: 1
+PERIOD NR 01: 1981-2010;cropland;maize_generic
+PLANTING:      1981-04-20;maize;generic;7
+HARVEST:       1981-10-10;90;100
+FERTILIZATION: 1981-03-30;amnit;600;0.25
+IRRIGATION:    
+CULTIVATION:   
+GRAZING:       
+MOWING:        
+THINNING:      

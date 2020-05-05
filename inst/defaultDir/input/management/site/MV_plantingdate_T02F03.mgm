@@ -1,0 +1,33 @@
+MANAGEMENT_INFORMATION MuSo6
+-------------------------------------------------------------------------------------------------------------------
+PLANTING
+1                                          (int) number of management action: 0 - no MGM, >0 - MGM information from file below 
+input/management/planting/MV_plantingdate_T02.plt
+-------------------------------------------------------------------------------------------------------------------
+THINNING
+0                                          (int) number of management action: 0 - no MGM, >0 - MGM information from file below 
+none
+-------------------------------------------------------------------------------------------------------------------
+MOWING
+0                                          (int) number of management action: 0 - no MGM, >0 - MGM information from file below 
+none
+-------------------------------------------------------------------------------------------------------------------
+GRAZING
+0                                          (int) number of management action: 0 - no MGM, >0 - MGM information from file below 
+none
+-------------------------------------------------------------------------------------------------------------------
+HARVESTING
+1                                          (int) number of management action: 0 - no MGM, >0 - MGM information from file below 
+input/management/harvest/MV_plantingdate.hrv
+-------------------------------------------------------------------------------------------------------------------
+PLOUGHING
+0                                          (int) number of management action: 0 - no MGM, >0 - MGM information from file below 
+none
+-------------------------------------------------------------------------------------------------------------------
+FERTILIZING
+1                                          (int) number of management action: 0 - no MGM, >0 - MGM information from file below 
+input/management/fertilization/MV_plantingdate_F03.frz
+-------------------------------------------------------------------------------------------------------------------
+IRRIGATING
+0                                          (int) number of management action: 0 - no MGM, >0 - MGM information from file below 
+none

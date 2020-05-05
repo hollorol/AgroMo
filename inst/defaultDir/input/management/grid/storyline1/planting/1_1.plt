@@ -1,0 +1,11 @@
+DATE     	DEPTH	SEEDNR	1000SW	SEEDC 	CROP(file)
+2001-04-20	0.06	7	320	40	input/plant/maize_generic.epc
+2002-04-20	0.06	7	320	40	input/plant/maize_generic.epc
+2003-04-20	0.06	7	320	40	input/plant/maize_generic.epc
+2004-04-20	0.06	7	320	40	input/plant/maize_generic.epc
+2005-04-20	0.06	7	320	40	input/plant/maize_generic.epc
+2006-04-20	0.06	7	320	40	input/plant/maize_generic.epc
+2007-04-20	0.06	7	320	40	input/plant/maize_generic.epc
+2008-04-20	0.06	7	320	40	input/plant/maize_generic.epc
+2009-04-20	0.06	7	320	40	input/plant/maize_generic.epc
+2010-04-20	0.06	7	320	40	input/plant/maize_generic.epc
