@@ -4,6 +4,7 @@
 #griddiv-story_container .control-label {
     position: absolute;
     top: 20px;
+    left: 3px;
     font-size: 16px;
     color: black;
     font-family: Fira Sans;
@@ -75,7 +76,7 @@
 #griddiv-climproj_container label {
     position: absolute;
     top: 75px;
-    left: 38px;
+    left: 43px;
     font-size: 16px;
     color: black;
     font-family: Fira Sans;
@@ -102,7 +103,7 @@
 #griddiv-soildb_container label {
     position: absolute;
     top: 125px;
-    left: 67px;
+    left: 72px;
     font-size: 16px;
     color: black;
     font-family: Fira Sans;
@@ -185,7 +186,7 @@
 #griddiv-algosel_container .control-label{
     position: absolute;
     top: 170px;
-    left: 5px;
+    left: 9px;
     font-size: 16px;
     color: black;
     font-family: Fira Sans;
@@ -225,7 +226,7 @@
 
 #griddiv-outsq_container label {
     position: absolute;
-    left: 30px;
+    left: 35px;
     top: 215px;
     font-size: 16px;
     color: black;
