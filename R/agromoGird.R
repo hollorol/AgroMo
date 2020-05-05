@@ -293,6 +293,7 @@ agroMoGrid <- function(input, output, session,baseDir){
     observe({
         output$queryTable <- renderTable(dat$querySelector,colnames=FALSE,width="100%", sanitize.text.function = function(x) x )
     }) 
+
     observeEvent(input$RunQuery,{
                     queryIndex <- input$queryList
                     sqlSentence <- dat$queries[input$queryList]
@@ -349,6 +350,57 @@ agroMoGrid <- function(input, output, session,baseDir){
                                queryResults,by.x="site",by.y="plotid",all.x=TRUE)
              colnames(finalDF) <- c("plotid","error","value")
              write.csv(finalDF,file.path(baseDir(),"output/map_data",sprintf("%s.csv",input$queryalias)),row.names=FALSE)
+         }
+
+         removeNotification("query")
+         dbDisconnect(sqlDB)
+    })
+
+    observeEvent(input$Report,{
+                    queryIndex <- input$queryList
+                    sqlSentence <- dat$queries[input$queryList]
+                    optionList <- sapply(1:9,function(x){input[[sprintf("sqlfunc_%s",x)]]}) # These are just the optionAliaces
+                    possibilities <- lapply(dat$jsonList[[queryIndex]]$optionAlias[[dat$language]],unlist)
+                    optionList <- optionList[optionList!="NA"]
+                    selectedNum <- (sapply(seq_along(optionList),function(i){match(optionList[i],possibilities[[i]])}))
+                    datoptions <- lapply(dat$jsonList[[queryIndex]]$options,unlist)
+                    textContent <- sapply(seq_along(selectedNum),function(i){
+                                              if(is.na(selectedNum[i])){
+                                                 input[[sprintf("sqlfunc_%s",i)]] 
+                                              } else {
+                                                  datoptions[[i]][selectedNum[i]]
+                                              }
+                                        })
+                    sentenceToSQL <- interpolateInto(dat$replNumbers[[input$queryList]],textContent,sqlSentence,TRUE)
+                    sentenceToSQL <- gsub("\\[T1\\]",sprintf("%s",input$time),sentenceToSQL)
+                    sentenceToSQL <- gsub("\\[T2\\]",sprintf("%s",input$until),sentenceToSQL)
+         outputDB <- file.path(baseDir(),"output")
+         dbDir <- file.path(baseDir(),"database")
+         sqlDB <- DBI::dbConnect(RSQLite::SQLite(),file.path(outputDB,"grid.db"))
+         # browser()
+         showNotification("Attaching Soil database...")
+         soilDBName <- file.path(normalizePath(dbDir),"soil.db")
+         observationDBName <- file.path(normalizePath(dbDir),"observation.db")
+         if(file.exists(soilDBName)){
+            dbExecute(sqlDB,sprintf("ATTACH DATABASE '%s' AS soil",soilDBName))
+         } else {
+            showNotification("Cannot find soil database, queries which contains soil data will not run",type="warning")
+         }
+         if(file.exists(observationDBName)){
+            dbExecute(sqlDB,sprintf("ATTACH DATABASE '%s' AS observation",observationDBName))
+         } else {
+            showNotification("Cannot find observation database, queries which contains soil data will not run",type="warning")
+         }
+         showNotification("Running the query, please wait, it can take for a while", id="query", duration=NULL)
+         queryResults <- tryCatch(dbGetQuery(sqlDB,sentenceToSQL),error=function(e){NULL})
+         if(is.null(queryResults)){
+             showNotification("Something went wrong with the query...",type="error")
+         } else {
+             showModal(modalDialog(tableOutput(ns("pukli")),title="showme", size="l",easyClose=TRUE))
+             output$pukli <- renderTable({
+                 queryResults
+             })
+             # write.csv(finalDF,file.path(baseDir(),"output/reports",sprintf("%s.csv",input$queryalias)),row.names=FALSE)
          }
 
          removeNotification("query")
