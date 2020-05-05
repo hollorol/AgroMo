@@ -1,8 +1,0 @@
-SELECT CASE 
-       WHEN sand0to30 > 85 
-	   THEN fc0to30-wp0to30 
-	   ELSE NULL 
-	   END 
-FROM soil.soildata 
-INNER JOIN soil.griddata10km ON soil.griddata10km.id100m = soil.soildata.id100m 
-ORDER BY id10km;

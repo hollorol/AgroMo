@@ -1,6 +1,0 @@
-SELECT CASE 
-       WHEN landuse = 1 
-	   THEN landuse 
-	   ELSE NULL 
-	   END 
-FROM soil.griddata10km;
