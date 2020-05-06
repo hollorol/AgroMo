@@ -489,7 +489,7 @@ div.profPlotCont .form-control {
 }
 
 
-#site_bb_button {
+#plot_bb_button_two {
     position: absolute;
   top: 220px;
   left: -228px;
@@ -498,6 +498,37 @@ div.profPlotCont .form-control {
   border-width: 0px;
   border-radius: 1px;
 }
+
+#map_bb_button_two {
+    position: absolute;
+  top: 220px;
+  left: -228px;
+  height: 30px;
+  width: 75px;
+  border-width: 0px;
+  border-radius: 1px;
+}
+
+#site_bb_button_two {
+    position: absolute;
+  top: 220px;
+  left: -228px;
+  height: 30px;
+  width: 75px;
+  border-width: 0px;
+  border-radius: 1px;
+}
+
+#grid_bb_button_two {
+    position: absolute;
+  top: 220px;
+  left: -228px;
+  height: 30px;
+  width: 75px;
+  border-width: 0px;
+  border-radius: 1px;
+}
+
 #grid_bb_button {
     position: absolute;
   top: 220px;
@@ -508,7 +539,27 @@ div.profPlotCont .form-control {
   border-radius: 1px;
 }
 
+#site_bb_button {
+    position: absolute;
+  top: 220px;
+  left: -138px;
+  height: 30px;
+  width: 75px;
+  border-width: 0px;
+  border-radius: 1px;
+}
+
 #map_bb_button {
+    position: absolute;
+  top: 260px;
+  left: -138px;
+  height: 30px;
+  width: 75px;
+  border-width: 0px;
+  border-radius: 1px;
+}
+
+#plot_bb_button {
     position: absolute;
   top: 260px;
   left: -138px;
