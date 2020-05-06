@@ -50,7 +50,7 @@ top: 18px;
 right: 730px;
 font-size: 16px;
 font-family: Fira Sans;
-font-weight: normal;
+font-weight: bold;
 color: black;
 -webkit-user-select: none;
 -moz-user-select: none;
@@ -82,7 +82,7 @@ top: 60px;
 right: 730px;
 font-size: 16px;
 font-family: Fira Sans;
-font-weight: normal;
+font-weight: bold;
 color: black;
 -webkit-user-select: none;
 -moz-user-select: none;
@@ -110,7 +110,7 @@ top: 102px;
 right: 730px;
 font-size: 16px;
 font-family: Fira Sans;
-font-weight: normal;
+font-weight: bold;
 color: black;
 -webkit-user-select: none;
 -moz-user-select: none;
@@ -138,7 +138,7 @@ user-select: none;
 #mapdiv-colnumb_container .form-group.shiny-input-container label{
 position: absolute;
 top: 185px;
-left: 355px;
+left: 353px;
 font-size: 16px;
 font-family: Fira Sans;
 font-weight: normal;
@@ -199,7 +199,7 @@ right: 730px;
 font-size: 16px;
 white-space: nowrap;
 font-family: Fira Sans;
-font-weight: normal;
+font-weight: bold;
 color: black;
 -webkit-user-select: none;
 -moz-user-select: none;
@@ -335,7 +335,7 @@ top: 228px;
 right: 730px;
 font-size: 16px;
 font-family: Fira Sans;
-font-weight: normal;
+font-weight: bold;
 color: black;
 -webkit-user-select: none;
 -moz-user-select: none;
@@ -367,7 +367,7 @@ top: 271px;
 right: 730px;
 font-size: 16px;
 font-family: Fira Sans;
-font-weight: normal;
+font-weight: bold;
 color: black;
 -webkit-user-select: none;
 -moz-user-select: none;
@@ -467,26 +467,94 @@ width: 423px;
 height: 30px;
 }
 
-#basearrow {
-position: absolute;
-top: 220px;
-left: -228px;
-height: 43px;
-width: 75px;
-border-width: 0px;
-border-radius: 1px;
+#plot_bb_button_two {
+    position: absolute;
+  top: 220px;
+  left: -228px;
+  height: 30px;
+  width: 75px;
+  border-width: 0px;
+  border-radius: 1px;
 }
 
-#backgrid {
-position: absolute;
-top: 220px;
-left: -138px;
-height: 43px;
-width: 75px;
-border-width: 0px;
-border-radius: 1px;
+#map_bb_button_two {
+    position: absolute;
+  top: 220px;
+  left: -228px;
+  height: 30px;
+  width: 75px;
+  border-width: 0px;
+  border-radius: 1px;
 }
 
+#site_bb_button_two {
+    position: absolute;
+  top: 220px;
+  left: -228px;
+  height: 30px;
+  width: 75px;
+  border-width: 0px;
+  border-radius: 1px;
+}
+
+#grid_bb_button_two {
+    position: absolute;
+  top: 220px;
+  left: -228px;
+  height: 30px;
+  width: 75px;
+  border-width: 0px;
+  border-radius: 1px;
+}
+
+#grid_bb_button {
+    position: absolute;
+  top: 220px;
+  left: -138px;
+  height: 30px;
+  width: 75px;
+  border-width: 0px;
+  border-radius: 1px;
+}
+
+#site_bb_button {
+    position: absolute;
+  top: 220px;
+  left: -138px;
+  height: 30px;
+  width: 75px;
+  border-width: 0px;
+  border-radius: 1px;
+}
+
+#map_bb_button {
+    position: absolute;
+  top: 260px;
+  left: -138px;
+  height: 30px;
+  width: 75px;
+  border-width: 0px;
+  border-radius: 1px;
+}
+
+#plot_bb_button {
+    position: absolute;
+  top: 260px;
+  left: -138px;
+  height: 30px;
+  width: 75px;
+  border-width: 0px;
+  border-radius: 1px;
+}
+#base_bb_button {
+    position: absolute;
+  top: 260px;
+  left: -228px;
+  height: 30px;
+  width: 75px;
+  border-width: 0px;
+  border-radius: 1px;
+}
 #Map-banner-div img{
 cursor: default; 
 }

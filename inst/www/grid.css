@@ -4,6 +4,7 @@
 #griddiv-story_container .control-label {
     position: absolute;
     top: 20px;
+    left: 3px;
     font-size: 16px;
     color: black;
     font-family: Fira Sans;
@@ -75,7 +76,7 @@
 #griddiv-climproj_container label {
     position: absolute;
     top: 75px;
-    left: 38px;
+    left: 43px;
     font-size: 16px;
     color: black;
     font-family: Fira Sans;
@@ -102,7 +103,7 @@
 #griddiv-soildb_container label {
     position: absolute;
     top: 125px;
-    left: 67px;
+    left: 72px;
     font-size: 16px;
     color: black;
     font-family: Fira Sans;
@@ -185,6 +186,7 @@
 #griddiv-algosel_container .control-label{
     position: absolute;
     top: 170px;
+    left: 9px;
     font-size: 16px;
     color: black;
     font-family: Fira Sans;
@@ -224,7 +226,7 @@
 
 #griddiv-outsq_container label {
     position: absolute;
-    left: 23px;
+    left: 35px;
     top: 215px;
     font-size: 16px;
     color: black;
@@ -255,9 +257,26 @@
 
 #griddiv-Map {
     position: absolute;
-    top: 682px;
+    top: 705px;
     left: 785px;
-    height: 70px;
+    height: 45px;
+    width: 130px;
+    font-size: 26px;
+    font-family: Fira Sans;
+    color: black;
+    font-weight: bold;
+    background-color: gainsboro;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
+}
+
+#griddiv-Report {
+    position: absolute;
+    top: 652px;
+    left: 785px;
+    height: 45px;
     width: 130px;
     font-size: 26px;
     font-family: Fira Sans;
@@ -274,7 +293,7 @@
     position: absolute;
     top: 559px;
     left: 785px;
-    height: 110px;
+    height: 85px;
     width: 130px;
     font-size: 26px;
     font-family: Fira Sans;
@@ -934,24 +953,93 @@ position: absolute;
   width: 335px;
 }
 
-#basearrow {
+#plot_bb_button_two {
     position: absolute;
   top: 220px;
   left: -228px;
-  height: 43px;
+  height: 30px;
   width: 75px;
   border-width: 0px;
   border-radius: 1px;
 }
 
-#backsite {
+#map_bb_button_two {
+    position: absolute;
+  top: 220px;
+  left: -228px;
+  height: 30px;
+  width: 75px;
+  border-width: 0px;
+  border-radius: 1px;
+}
+
+#site_bb_button_two {
+    position: absolute;
+  top: 220px;
+  left: -228px;
+  height: 30px;
+  width: 75px;
+  border-width: 0px;
+  border-radius: 1px;
+}
+
+#grid_bb_button_two {
+    position: absolute;
+  top: 220px;
+  left: -228px;
+  height: 30px;
+  width: 75px;
+  border-width: 0px;
+  border-radius: 1px;
+}
+
+#grid_bb_button {
     position: absolute;
   top: 220px;
   left: -138px;
+  height: 30px;
+  width: 75px;
   border-width: 0px;
   border-radius: 1px;
-  height: 43px;
+}
+
+#site_bb_button {
+    position: absolute;
+  top: 220px;
+  left: -138px;
+  height: 30px;
   width: 75px;
+  border-width: 0px;
+  border-radius: 1px;
+}
+
+#map_bb_button {
+    position: absolute;
+  top: 260px;
+  left: -138px;
+  height: 30px;
+  width: 75px;
+  border-width: 0px;
+  border-radius: 1px;
+}
+
+#plot_bb_button {
+    position: absolute;
+  top: 260px;
+  left: -138px;
+  height: 30px;
+  width: 75px;
+  border-width: 0px;
+  border-radius: 1px;
+}
+#base_bb_button {
+    position: absolute;
+  top: 260px;
+  left: -228px;
+  height: 30px;
+  width: 75px;
+  border-width: 0px;
+  border-radius: 1px;
 }
 
 #Grid-banner-div img{
