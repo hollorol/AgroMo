@@ -343,8 +343,9 @@ agroMoGrid <- function(input, output, session,baseDir){
                                         })
              # queryResults$plotid <- as.numeric(as.numeric(queryResults$plotid))
             #doing a left outer join, the reduce part ads the columns
-             finalDF <- merge((Reduce(function(x,y){x$error <- x$error+y$error; return(x)},errorColumns)),
-                               queryResults,by.x="site",by.y="plotid",all.x=TRUE)
+             finalDF <- tryCatch(merge((Reduce(function(x,y){x$error <- x$error+y$error; return(x)},errorColumns)),
+                               queryResults,by.x="site",by.y="plotid",all.x=TRUE),
+                               error=function(e){cbind.data.frame(queryResults[,1],0,queryResults[,2])})
              colnames(finalDF) <- c("plotid","error","value")
              write.csv(finalDF,file.path(baseDir(),"output/map_data",sprintf("%s.csv",input$queryalias)),row.names=FALSE)
          }
