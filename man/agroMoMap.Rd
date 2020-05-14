@@ -4,7 +4,7 @@
 \alias{agroMoMap}
 \title{agroMoMap}
 \usage{
-agroMoMap(input, output, session, baseDir)
+agroMoMap(input, output, session, baseDir, initialList)
 }
 \arguments{
 \item{input}{input}

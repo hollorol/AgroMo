@@ -139,6 +139,7 @@ tags$div(
 #' @importFrom doSNOW registerDoSNOW 
 #' @importFrom foreach foreach %dopar%
 #' @importFrom DBI dbExecute dbGetQuery dbConnect dbDisconnect
+#' @importFrom openxlsx write.xlsx
 
 agroMoGrid <- function(input, output, session,baseDir){
     language <- "en"
@@ -401,7 +402,9 @@ agroMoGrid <- function(input, output, session,baseDir){
              output$pukli <- renderTable({
                  queryResults
              })
-             # write.csv(finalDF,file.path(baseDir(),"output/reports",sprintf("%s.csv",input$queryalias)),row.names=FALSE)
+             suppressWarnings(dir.create(file.path(baseDir(),"output/reports")))
+             write.csv(queryResults,file.path(baseDir(),"output/reports",sprintf("%s.csv",input$queryalias)),row.names=FALSE)
+             write.xlsx(queryResults,file.path(baseDir(),"output/reports",sprintf("%s.xlsx",input$queryalias)))
          }
 
          removeNotification("query")
