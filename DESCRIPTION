@@ -25,7 +25,8 @@ Imports:
   grDevices,
   fields,
   lubridate,
-  shinyFiles
+  shinyFiles,
+  openxlsx
 Suggests: testhat,
   rmarkdown,
   knitr
