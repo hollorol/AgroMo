@@ -400,7 +400,8 @@ agroMoGrid <- function(input, output, session,baseDir){
              output$pukli <- renderTable({
                  queryResults
              })
-             # write.csv(finalDF,file.path(baseDir(),"output/reports",sprintf("%s.csv",input$queryalias)),row.names=FALSE)
+             suppressWarnings(dir.create(file.path(baseDir(),"output/reports")))
+             write.csv(queryResults,file.path(baseDir(),"output/reports",sprintf("%s.csv",input$queryalias)),row.names=FALSE)
          }
 
          removeNotification("query")
