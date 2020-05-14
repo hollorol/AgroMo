@@ -7,6 +7,7 @@ The function agroMapVector visualises data on the grid of the Carpatclim reanaly
 \usage{
 agroMapVector(
   data,
+  errorVector,
   nticks = NULL,
   binwidth = NULL,
   minimum = NULL,
@@ -19,7 +20,8 @@ agroMapVector(
   imageTitle = NULL,
   lonlat = FALSE,
   countrycont = TRUE,
-  categorical
+  categorical,
+  maskCol
 )
 }
 \arguments{
