@@ -6,7 +6,11 @@
 #' @param attachedDBS Further databases which can be joined
 #' @importFrom RSQLite SQLite
 #' @importFrom DBI dbConnect dbGetQuery
+#' @importFrom showtext showtext_auto
+#' @importFrom sysfonts font_add_google
 #' @export
+#' 
+
 readQueryFromDB <- function(connection, query, attachedDBS=NULL,
                             queryModifiers=NULL){
   
@@ -197,6 +201,11 @@ agroMapVector <- function(data, errorVector, nticks=NULL, binwidth=NULL, minimum
   grid_array <- matrix(grid_vect, nrow=length(lon), ncol=length(lat))
   err_array <- matrix(err_vect, nrow=length(lon), ncol=length(lat))
   mask_array <- matrix(mask_vect, nrow=length(lon), ncol=length(lat))
+  
+  # Changing the font on maps from Arial to Fira Sans:
+  showtext_auto()
+  font_add_google("Fira Sans", "fira")
+  
   # browser() 
   # if (is.null(binwidth)) {
   if ((nticks > 1) && categorical) { # With this parameter, plotting of maps is possible by choosing (min,max,bw) and nticks, respectively.
@@ -206,6 +215,7 @@ agroMapVector <- function(data, errorVector, nticks=NULL, binwidth=NULL, minimum
       png(imageTitle, units="in", width=14, height=9, pointsize=14, res=300)  
       par(omi=c(0,0,0,0.8))
     }
+    
     
     # windows()
     if(is.null(roundPrecision)) {
@@ -221,9 +231,9 @@ agroMapVector <- function(data, errorVector, nticks=NULL, binwidth=NULL, minimum
       abline(h=seq(46,48,1), v=seq(16,23,1), lty=2)
     }
     title(main=plotTitle, cex.lab=1.2)
-    axis(1, at=seq(16,23,1), labels=c("16°E","17°E","18°E","19°E","20°E","21°E","22°E","23°E"), cex.axis=1.2)
+    axis(1, at=seq(16,23,1), labels=c("16°E","17°E","18°E","19°E","20°E","21°E","22°E","23°E"), cex.axis=1.2, family="fira")
     axis(1, at=seq(16,23,0.5), labels=FALSE, tck=-0.01)
-    axis(2, at=seq(46,48,1), labels=c("46°N","47°N","48°N"), cex.axis=1.2, las=2)
+    axis(2, at=seq(46,48,1), labels=c("46°N","47°N","48°N"), cex.axis=1.2, las=2, family="fira")
     axis(2, at=seq(46,48,0.5), labels=FALSE, tck=-0.01)
     if(countrycont==TRUE){
       map("world", xlim=c(lon[1],lon[length(lon)]), ylim=c(lat[1],lat[length(lat)]), add=TRUE)
@@ -253,9 +263,10 @@ agroMapVector <- function(data, errorVector, nticks=NULL, binwidth=NULL, minimum
       abline(h=seq(46,48,1), v=seq(16,23,1), lty=2)
     }
     title(main=plotTitle, cex.lab=1.2)
-    axis(1, at=seq(16,23,1), labels=c("16°E","17°E","18°E","19°E","20°E","21°E","22°E","23°E"), cex.axis=1.2)
+    axis(1, at=seq(16,23,1), labels=c("16°E","17°E","18°E","19°E","20°E","21°E","22°E","23°E"), 
+         cex.axis=1.2, family="fira")
     axis(1, at=seq(16,23,0.5), labels=FALSE, tck=-0.01)
-    axis(2, at=seq(46,48,1), labels=c("46°N","47°N","48°N"), cex.axis=1.2, las=2)
+    axis(2, at=seq(46,48,1), labels=c("46°N","47°N","48°N"), cex.axis=1.2, las=2, family="fira")
     axis(2, at=seq(46,48,0.5), labels=FALSE, tck=-0.01)
     if(countrycont==TRUE){
       map("world", xlim=c(lon[1],lon[length(lon)]), ylim=c(lat[1],lat[length(lat)]), add=TRUE)#, asp=1.55555)
