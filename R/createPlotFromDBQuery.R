@@ -219,10 +219,12 @@ agroMapVector <- function(data, errorVector, nticks=NULL, binwidth=NULL, minimum
     
     # windows()
     if(is.null(roundPrecision)) {
-      image.plot(lon, lat, grid_array, xaxt="n", yaxt="n", ann=FALSE, col=colorbar$colors, lab.breaks=colorbar$breaks)
+      image.plot(lon, lat, grid_array, xaxt="n", yaxt="n", ann=FALSE, col=colorbar$colors, lab.breaks=colorbar$breaks,
+                 axis.args=list(cex.axis=3.5))
       image(lon, lat, err_array, col=c("#000000","#000000"), add=TRUE)
     } else {
-      image.plot(lon, lat, grid_array, xaxt="n", yaxt="n", ann=FALSE, col=colorbar$colors, lab.breaks=round(colorbar$breaks, digits=roundPrecision))
+      image.plot(lon, lat, grid_array, xaxt="n", yaxt="n", ann=FALSE, col=colorbar$colors, lab.breaks=round(colorbar$breaks, 
+                 digits=roundPrecision), axis.args=list(cex.axis=3.5))
       image(lon, lat, err_array,col=c("#000000","#000000"), add=TRUE)
     }
     
@@ -231,9 +233,10 @@ agroMapVector <- function(data, errorVector, nticks=NULL, binwidth=NULL, minimum
       abline(h=seq(46,48,1), v=seq(16,23,1), lty=2)
     }
     title(main=plotTitle, cex.lab=1.2)
-    axis(1, at=seq(16,23,1), labels=c("16°E","17°E","18°E","19°E","20°E","21°E","22°E","23°E"), cex.axis=1.2, family="fira")
+    axis(1, at=seq(16,23,1), labels=c("16°E","17°E","18°E","19°E","20°E","21°E","22°E","23°E"), 
+         cex.axis=4, family="fira")
     axis(1, at=seq(16,23,0.5), labels=FALSE, tck=-0.01)
-    axis(2, at=seq(46,48,1), labels=c("46°N","47°N","48°N"), cex.axis=1.2, las=2, family="fira")
+    axis(2, at=seq(46,48,1), labels=c("46°N","47°N","48°N"), cex.axis=4, las=2, family="fira")
     axis(2, at=seq(46,48,0.5), labels=FALSE, tck=-0.01)
     if(countrycont==TRUE){
       map("world", xlim=c(lon[1],lon[length(lon)]), ylim=c(lat[1],lat[length(lat)]), add=TRUE)
@@ -258,15 +261,16 @@ agroMapVector <- function(data, errorVector, nticks=NULL, binwidth=NULL, minimum
       png(imageTitle, units="in", width=14, height=9, pointsize=14, res=300)    
       par(omi=c(0,0,0,0.8))
     }
-    image.plot(lon, lat, grid_array, xaxt="n", yaxt="n", ann=FALSE, col=colorbar, breaks=brks, lab.breaks=brks)#, asp=1.5555555555)
+    image.plot(lon, lat, grid_array, xaxt="n", yaxt="n", ann=FALSE, col=colorbar, breaks=brks, 
+               lab.breaks=brks, axis.args=list(cex.axis=3.5))#, asp=1.5555555555)
     if(lonlat==TRUE) {
       abline(h=seq(46,48,1), v=seq(16,23,1), lty=2)
     }
     title(main=plotTitle, cex.lab=1.2)
     axis(1, at=seq(16,23,1), labels=c("16°E","17°E","18°E","19°E","20°E","21°E","22°E","23°E"), 
-         cex.axis=1.2, family="fira")
+         cex.axis=4, family="fira")
     axis(1, at=seq(16,23,0.5), labels=FALSE, tck=-0.01)
-    axis(2, at=seq(46,48,1), labels=c("46°N","47°N","48°N"), cex.axis=1.2, las=2, family="fira")
+    axis(2, at=seq(46,48,1), labels=c("46°N","47°N","48°N"), cex.axis=4, las=2, family="fira")
     axis(2, at=seq(46,48,0.5), labels=FALSE, tck=-0.01)
     if(countrycont==TRUE){
       map("world", xlim=c(lon[1],lon[length(lon)]), ylim=c(lat[1],lat[length(lat)]), add=TRUE)#, asp=1.55555)
