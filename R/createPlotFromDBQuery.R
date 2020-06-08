@@ -267,7 +267,7 @@ agroMapVector <- function(data, errorVector, nticks=NULL, binwidth=NULL, minimum
     if(lonlat==TRUE) {
       abline(h=seq(46,48,1), v=seq(16,23,1), lty=2)
     }
-    title(main=plotTitle, cex.main=3, family="fira")
+    title(main=plotTitle, cex.main=6, family="fira")
     axis(1, at=seq(16,23,1), labels=c("16°E","17°E","18°E","19°E","20°E","21°E","22°E","23°E"), 
          cex.axis=4, family="fira")
     axis(1, at=seq(16,23,0.5), labels=FALSE, tck=-0.01)
