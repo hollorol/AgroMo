@@ -25,7 +25,8 @@ Imports:
   grDevices,
   fields,
   lubridate,
-  shinyFiles
+  shinyFiles,
+  showtext
 Suggests: testhat,
   rmarkdown,
   knitr
