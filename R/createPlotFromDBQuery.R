@@ -7,7 +7,7 @@
 #' @importFrom RSQLite SQLite
 #' @importFrom DBI dbConnect dbGetQuery
 #' @importFrom showtext showtext_auto
-#' @importFrom sysfonts font_add_google
+#' @importFrom sysfonts font_add
 #' @export
 #' 
 
@@ -203,8 +203,9 @@ agroMapVector <- function(data, errorVector, nticks=NULL, binwidth=NULL, minimum
   mask_array <- matrix(mask_vect, nrow=length(lon), ncol=length(lat))
   
   # Changing the font on maps from Arial to Fira Sans:
-  showtext_auto()
-  font_add_google("Fira Sans", "fira")
+  # showtext_auto()
+  # font_add_google("Fira Sans", "fira")
+  # font_add("fira", file.path(system.file("www", package = "AgroMo"), "font/FiraSans-Light.ttf"))
   
   # browser() 
   # if (is.null(binwidth)) {
@@ -220,11 +221,11 @@ agroMapVector <- function(data, errorVector, nticks=NULL, binwidth=NULL, minimum
     # windows()
     if(is.null(roundPrecision)) {
       image.plot(lon, lat, grid_array, xaxt="n", yaxt="n", ann=FALSE, col=colorbar$colors, lab.breaks=colorbar$breaks,
-                 axis.args=list(cex.axis=3.5))
+                 axis.args=list(cex.axis=3.5, family="fira"))
       image(lon, lat, err_array, col=c("#000000","#000000"), add=TRUE)
     } else {
       image.plot(lon, lat, grid_array, xaxt="n", yaxt="n", ann=FALSE, col=colorbar$colors, lab.breaks=round(colorbar$breaks, 
-                 digits=roundPrecision), axis.args=list(cex.axis=3.5))
+                 digits=roundPrecision), axis.args=list(cex.axis=3.5, family="fira"))
       image(lon, lat, err_array,col=c("#000000","#000000"), add=TRUE)
     }
     
@@ -232,7 +233,7 @@ agroMapVector <- function(data, errorVector, nticks=NULL, binwidth=NULL, minimum
     if(lonlat==TRUE) {
       abline(h=seq(46,48,1), v=seq(16,23,1), lty=2)
     }
-    title(main=plotTitle, line=-0.5, cex.main=3, family="fira")
+    title(main=plotTitle, cex.main=3, family="fira")
     axis(1, at=seq(16,23,1), labels=c("16°E","17°E","18°E","19°E","20°E","21°E","22°E","23°E"), 
          cex.axis=4, family="fira")
     axis(1, at=seq(16,23,0.5), labels=FALSE, tck=-0.01)
@@ -262,11 +263,11 @@ agroMapVector <- function(data, errorVector, nticks=NULL, binwidth=NULL, minimum
       par(omi=c(0,0,0,0.8))
     }
     image.plot(lon, lat, grid_array, xaxt="n", yaxt="n", ann=FALSE, col=colorbar, breaks=brks, 
-               lab.breaks=brks, axis.args=list(cex.axis=3.5))#, asp=1.5555555555)
+               lab.breaks=brks, axis.args=list(cex.axis=3.5, family="fira"))#, asp=1.5555555555)
     if(lonlat==TRUE) {
       abline(h=seq(46,48,1), v=seq(16,23,1), lty=2)
     }
-    title(main=plotTitle, line=-0.5, cex.main=3, family="fira")
+    title(main=plotTitle, cex.main=3, family="fira")
     axis(1, at=seq(16,23,1), labels=c("16°E","17°E","18°E","19°E","20°E","21°E","22°E","23°E"), 
          cex.axis=4, family="fira")
     axis(1, at=seq(16,23,0.5), labels=FALSE, tck=-0.01)
