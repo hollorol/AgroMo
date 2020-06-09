@@ -8,9 +8,7 @@
  
    # Changing the font on maps from Arial to Fira Sans:
   showtext_auto()
-  font_add("fira", file.path(system.file("www", package = "AgroMo"), "font/FiraSans-Black.ttf"))
-  font_add("fira2", file.path(system.file("www", package = "AgroMo"), "font/FiraSans-Medium.ttf"))
-  font_add("fira3", file.path(system.file("www", package = "AgroMo"), "font/FiraSans-Regular.ttf"))
+  font_add("fira", file.path(system.file("www", package = "AgroMo"), "font/FiraSans-Regular.ttf"))
   font_add("fira_title", file.path(system.file("www", package = "AgroMo"), "font/FiraSans-Bold.ttf"))
   
 # print(system.file('www',
