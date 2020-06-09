@@ -27,7 +27,7 @@ readQueryFromDB <- function(connection, query, attachedDBS=NULL,
     res <- dbGetQuery(connection,query)[,1]
     # dbDisconnect(connection)
     
-    #Check the result
+    # Check the result
     if((length(res)!=1104 ) ||  (!is.numeric(res))){
       stop("Something went wrong") 
     }
@@ -146,9 +146,17 @@ agroMapVector <- function(data, errorVector, nticks=NULL, binwidth=NULL, minimum
   lon <- seq(16.2,22.8,0.1)
   lat <- seq(45.8,48.5,0.1)
   
+  lon_ext <- c(16.1,lon,22.9)
+  lat_ext <- c(45.7,lat,48.6)
+  
   dimlon <- length(lon)
   dimlat <- length(lat)
   
+  # Labels of the x and y axis on the maps:
+  longitudes <- c("16°E","17°E","18°E","19°E","20°E","21°E","22°E","23°E")
+  latitudes <- c("46°N","47°N","48°N")
+  
+  # Indices of grid cells which cover the area of Hungary:
   index <- c(18,	19,	20,	21,	22,	23,	24,	83,	84,	85,	86,	87,	88,	89,	90,	91,	92,	94,	147,	148,	149,	150,	151,	152,	153,	154,	155,	156,	157,	158,	159,	160,
              161,	162,	163,	165,	213,	214,	215,	216,	217,	218,	219,	220,	221,	222,	223,	224,	225,	226,	227,	228,	229,	230,	231,	232,	233,	234,	278,
              279,	280,	281,	282,	283,	284,	285,	286,	287,	288,	289,	290,	291,	292,	293,	294,	295,	296,	297,	298,	299,	300,	301,	302,	303,	304,	305,
@@ -195,12 +203,17 @@ agroMapVector <- function(data, errorVector, nticks=NULL, binwidth=NULL, minimum
   err_vect <- array(NA, dim=1876)
   mask_vect <- array(NA, dim=1876)
   grid_vect[index] <- data
-  mask_vect[index[is.na(data)]] <- 10 # 10 is arbitary positive number
+  mask_vect[index[is.na(data)]] <- 10 # 10 is arbitrary positive number
   err_vect[index] <- errorVector
 
   grid_array <- matrix(grid_vect, nrow=length(lon), ncol=length(lat))
   err_array <- matrix(err_vect, nrow=length(lon), ncol=length(lat))
   mask_array <- matrix(mask_vect, nrow=length(lon), ncol=length(lat))
+  
+  # extending the plotted map with 0.1° in each direction:
+  grid_array_ext <- rbind(rep(NA,dimlat), cbind(rep(NA,dimlon), grid_array,rep(NA,dimlon)), rep(NA,dimlat))
+  err_array_ext <- rbind(rep(NA,dimlat), cbind(rep(NA,dimlon), err_array,rep(NA,dimlon)), rep(NA,dimlat))
+  mask_array_ext <- rbind(rep(NA,dimlat), cbind(rep(NA,dimlon), mask_array,rep(NA,dimlon)), rep(NA,dimlat))
   
   # Changing the font on maps from Arial to Fira Sans:
   # showtext_auto()
@@ -217,30 +230,29 @@ agroMapVector <- function(data, errorVector, nticks=NULL, binwidth=NULL, minimum
       par(omi=c(0,0,0,0.8))
     }
     
-    
     # windows()
     if(is.null(roundPrecision)) {
-      image.plot(lon, lat, grid_array, xaxt="n", yaxt="n", ann=FALSE, col=colorbar$colors, lab.breaks=colorbar$breaks,
+      image.plot(lon_ext, lat_ext, grid_array_ext, xaxt="n", yaxt="n", ann=FALSE, col=colorbar$colors, lab.breaks=colorbar$breaks,
                  axis.args=list(cex.axis=3.5, family="fira"))
-      image(lon, lat, err_array, col=c("#000000","#000000"), add=TRUE)
+      image(lon_ext, lat_ext, err_array_ext, col=c("#000000","#000000"), add=TRUE)
     } else {
-      image.plot(lon, lat, grid_array, xaxt="n", yaxt="n", ann=FALSE, col=colorbar$colors, lab.breaks=round(colorbar$breaks, 
+      image.plot(lon_ext, lat_ext, grid_array_ext, xaxt="n", yaxt="n", ann=FALSE, col=colorbar$colors, lab.breaks=round(colorbar$breaks, 
                  digits=roundPrecision), axis.args=list(cex.axis=3.5, family="fira"))
-      image(lon, lat, err_array,col=c("#000000","#000000"), add=TRUE)
+      image(lon_ext, lat_ext, err_array_ext,col=c("#000000","#000000"), add=TRUE)
     }
     
-    image(lon, lat, mask_array,col=c(maskCol,"#000000"), add=TRUE)
+    image(lon_ext, lat_ext, mask_array_ext,col=c(maskCol,"#000000"), add=TRUE)
     if(lonlat==TRUE) {
       abline(h=seq(46,48,1), v=seq(16,23,1), lty=2)
     }
     title(main=plotTitle, cex.main=6, family="fira_title")
-    axis(1, at=seq(16,23,1), labels=c("16°E","17°E","18°E","19°E","20°E","21°E","22°E","23°E"), 
+    axis(1, at=seq(16,23,1), labels=longitudes, 
          cex.axis=4, family="fira")
     axis(1, at=seq(16,23,0.5), labels=FALSE, tck=-0.01)
-    axis(2, at=seq(46,48,1), labels=c("46°N","47°N","48°N"), cex.axis=4, las=2, family="fira")
+    axis(2, at=seq(46,48,1), labels=latitudes, cex.axis=4, las=2, family="fira")
     axis(2, at=seq(46,48,0.5), labels=FALSE, tck=-0.01)
     if(countrycont==TRUE){
-      map("world", xlim=c(lon[1],lon[length(lon)]), ylim=c(lat[1],lat[length(lat)]), add=TRUE)
+      map("world", xlim=c(lon_ext[1],lon_ext[length(lon_ext)]), ylim=c(lat_ext[1],lat_ext[length(lat_ext)]), add=TRUE)
     }
     if(!is.null(imageTitle)){
       graphics.off()
@@ -262,19 +274,19 @@ agroMapVector <- function(data, errorVector, nticks=NULL, binwidth=NULL, minimum
       png(imageTitle, units="in", width=14, height=9, pointsize=14, res=300)    
       par(omi=c(0,0,0,0.8))
     }
-    image.plot(lon, lat, grid_array, xaxt="n", yaxt="n", ann=FALSE, col=colorbar, breaks=brks, 
+    image.plot(lon_ext, lat_ext, grid_array_ext, xaxt="n", yaxt="n", ann=FALSE, col=colorbar, breaks=brks, 
                lab.breaks=brks, axis.args=list(cex.axis=3.5, family="fira"))#, asp=1.5555555555)
     if(lonlat==TRUE) {
       abline(h=seq(46,48,1), v=seq(16,23,1), lty=2)
     }
     title(main=plotTitle, cex.main=6, family="fira")
-    axis(1, at=seq(16,23,1), labels=c("16°E","17°E","18°E","19°E","20°E","21°E","22°E","23°E"), 
+    axis(1, at=seq(16,23,1), labels=longitudes, 
          cex.axis=4, family="fira")
     axis(1, at=seq(16,23,0.5), labels=FALSE, tck=-0.01)
-    axis(2, at=seq(46,48,1), labels=c("46°N","47°N","48°N"), cex.axis=4, las=2, family="fira")
+    axis(2, at=seq(46,48,1), labels=latitudes, cex.axis=4, las=2, family="fira")
     axis(2, at=seq(46,48,0.5), labels=FALSE, tck=-0.01)
     if(countrycont==TRUE){
-      map("world", xlim=c(lon[1],lon[length(lon)]), ylim=c(lat[1],lat[length(lat)]), add=TRUE)#, asp=1.55555)
+      map("world", xlim=c(lon_ext[1],lon_ext[length(lon_ext)]), ylim=c(lat_ext[1],lat_ext[length(lat_ext)]), add=TRUE)#, asp=1.55555)
     }
     if(!is.null(imageTitle)){
       graphics.off()
