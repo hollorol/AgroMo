@@ -288,14 +288,15 @@ agroMoMap <- function(input, output, session, baseDir, initialList){
   #   toggleState("colnumb", input$radio==colnumb)
   # })
   
-  observe({
-    toggleState("create", ((input$colnumb!=0) | ((is.numeric(as.numeric(input$min))) && 
-                                                   (is.numeric(as.numeric(input$max))) &&
-                                                   (as.numeric(input$bw)>0) && 
-                                                   (as.numeric(input$min)<as.numeric(input$max)) &&
-                                                   (as.numeric(input$bw)<=(as.numeric(input$max)-as.numeric(input$min))))))
-  })
-  
+  # observe({
+  #   toggleState("create", (xor(((input$radio=="colnumb") && (is.numeric(as.numeric(input$colnumb)))) ,
+  #                                                  ((is.numeric(as.numeric(input$min))) &&
+  #                                                  (is.numeric(as.numeric(input$max))) &&
+  #                                                  (as.numeric(input$bw)>0) &&
+  #                                                  (as.numeric(input$min)<as.numeric(input$max)) &&
+  #                                                  (as.numeric(input$bw)<=(as.numeric(input$max)-as.numeric(input$min)))))))
+  # })
+
 
   oldImage <- ""
   observeEvent(input$create,{

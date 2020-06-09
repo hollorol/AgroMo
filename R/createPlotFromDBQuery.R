@@ -211,9 +211,9 @@ agroMapVector <- function(data, errorVector, nticks=NULL, binwidth=NULL, minimum
   mask_array <- matrix(mask_vect, nrow=length(lon), ncol=length(lat))
   
   # extending the plotted map with 0.1° in each direction:
-  grid_array_ext <- rbind(rep(NA,dimlat), cbind(rep(NA,dimlon), grid_array,rep(NA,dimlon)), rep(NA,dimlat))
-  err_array_ext <- rbind(rep(NA,dimlat), cbind(rep(NA,dimlon), err_array,rep(NA,dimlon)), rep(NA,dimlat))
-  mask_array_ext <- rbind(rep(NA,dimlat), cbind(rep(NA,dimlon), mask_array,rep(NA,dimlon)), rep(NA,dimlat))
+  grid_array_ext <- rbind(rep(NA,dimlat+2), cbind(rep(NA,dimlon), grid_array,rep(NA,dimlon)), rep(NA,dimlat+2))
+  err_array_ext <- rbind(rep(NA,dimlat+2), cbind(rep(NA,dimlon), err_array,rep(NA,dimlon)), rep(NA,dimlat+2))
+  mask_array_ext <- rbind(rep(NA,dimlat+2), cbind(rep(NA,dimlon), mask_array,rep(NA,dimlon)), rep(NA,dimlat+2))
   
   # Changing the font on maps from Arial to Fira Sans:
   # showtext_auto()
