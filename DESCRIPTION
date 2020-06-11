@@ -26,7 +26,7 @@ Imports:
   fields,
   lubridate,
   shinyFiles,
-  openxlsx
+  openxlsx,
   showtext
 Suggests: testhat,
   rmarkdown,
