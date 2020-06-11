@@ -1,6 +1,0 @@
-SELECT CASE 
-       WHEN elev < 200 
-       THEN elev 
-       ELSE 'NA' 
-       END 
-FROM soil.griddata10km;
