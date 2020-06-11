@@ -318,7 +318,7 @@ agroMoMap <- function(input, output, session, baseDir, initialList){
           myData <- read.csv(mapData)
           myData[,1] <- as.numeric(myData[,1])
           myData <- myData[order(myData[,1]),]
-        agroMap(myData=myData, nticks=as.numeric(input$colnumb),
+        isFailed <- agroMap(myData=myData, nticks=as.numeric(input$colnumb),
                 reverseColorScale=input$invert, colorSet=myColors[myColors[,2]==input$palette,1],
                 lonlat=input$latlon, imageTitle=mapImage, plotTitle=input$maptitle, countrycont=input$countrycont,
                 roundPrecision=as.numeric(input$minprec), minimum=as.numeric(input$min),
@@ -326,7 +326,7 @@ agroMoMap <- function(input, output, session, baseDir, initialList){
                 maskCol=getHexa(input$maskcol)
         ) 
       } else {
-        agroMap(datas$connection, query=sqlString, nticks=as.numeric(input$colnumb),
+        isFailed <- agroMap(datas$connection, query=sqlString, nticks=as.numeric(input$colnumb),
                 reverseColorScale=input$invert,colorSet=myColors[myColors[,2]==input$palette,1], 
                 lonlat=input$latlon, imageTitle=mapImage, plotTitle=input$maptitle, countrycont=input$countrycont,
                 roundPrecision=as.numeric(input$minprec), outFile=mapData, minimum=as.numeric(input$min),
@@ -335,6 +335,9 @@ agroMoMap <- function(input, output, session, baseDir, initialList){
         )
       }
       
+
+    if(isFailed == 0){
+
       output$map_left <- renderImage({
         list(src=mapImage)
       },deleteFile=FALSE)
@@ -348,6 +351,11 @@ agroMoMap <- function(input, output, session, baseDir, initialList){
       } else {
         datas$oldImage <- mapImage  
       }
+
+    }
+      
+
+
     }
     
   }) 

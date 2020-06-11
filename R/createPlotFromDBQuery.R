@@ -118,25 +118,37 @@ trimColorSet <- function(minim, maxim, center=NULL, nticks=6, roundPrecision=NUL
 
 agroMapVector <- function(data, errorVector, nticks=NULL, binwidth=NULL, minimum=NULL, maximum=NULL, roundPrecision=NULL, reverseColorScale=FALSE,
                           colorSet="RdYlGn", center=NULL, plotTitle=NULL, imageTitle=NULL, lonlat=FALSE, countrycont=TRUE,categorical,maskCol) {
-  # The followings shall be commented to make it possible to run the code on the AgroMo GUI:
-  # if(missing(nticks) & missing(binwidth))  {
-  #   stop("Please, choose the number of colors (nticks) or the bin width (binwidth).\n
-  #        The latter requires choosing the minimum and maximum of the displayed values (minim, maxim).")
-  # }
-  # 
-  # if((is.numeric(nticks)==TRUE) & (is.numeric(binwidth)==TRUE)) {
-  #   stop("Please, choose only one of the following parameters: nticks, binwidth")
-  # }
-  # 
-  # if((is.numeric(binwidth)) & ((missing(minimum)) | (missing(maximum))) ) {
-  #   stop("Please, define the minimum and maximum values of the displayed data (minim, maxim).")
-  # }
-  # 
-  # if((is.numeric(nticks)) & ((is.numeric(minimum)) | (is.numeric(maximum))) ) {
-  #   stop("Parameters minimum and maximum can only used with the parameter binwidth.")
-  # }
-    # browser()
-    # browser()
+
+
+    if(!categorical){
+        if((is.na(minimum) && is.na(maximum))){
+            showNotification("Please provide minimum or maximum value for mapping",type="error")
+            return(1)
+        }
+
+        if(minimum >= maximum){
+            showNotification("Minimum must be less than maximum",type="error")
+            return(1)
+
+        }
+
+        
+        if(is.na(binwidth)){
+            showNotification("Please provide binwidth for mapping",type="error")
+            return(1)
+        }
+
+        if(binwidth<=0){
+            showNotification("binwidth must be positive number",type="error")
+            return(1)
+        }
+
+        if(binwidth >= (maximum - minimum)){
+            showNotification("Binwidth must be less than the difference of the maximum and minimum value",type="error")
+            return(1)
+
+        }
+    }
 
   errorVector[(errorVector == 0)] <- NA # 10 is arbitary positive number
   lon <- seq(16.2,22.8,0.1)
@@ -265,6 +277,7 @@ agroMapVector <- function(data, errorVector, nticks=NULL, binwidth=NULL, minimum
     }
     #     graphics.off()
   }
+    return(0)
 }
 
 #agroMapVector(data=readQueryFromDB("DB/agronew.db",query = query),minimum = 0,maximum = 0.12,binwidth = 0.01,colorSet = "Greens", lonlat = TRUE, fileTitle = "kiraly.png")
