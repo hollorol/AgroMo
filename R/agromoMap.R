@@ -299,10 +299,9 @@ agroMoMap <- function(input, output, session, baseDir, initialList){
     if(!is.null(datas$connection) ||
        file.exists(mapData)){
       if(file.exists(mapData)){
-          myData <- read.csv(mapData)
-          myData <- merge(myData,data.frame(plotid=1:1104,value=rep(NA,1104)),all=TRUE )
-          myData <- myData[,c(1,3,2)]
-          myData$error[is.na(myData$error)] <- 0
+          myData_part <- read.csv(mapData)
+          myData <- data.frame(plotid=1:1104,error=rep(0,1104),value=rep(NA,1104))
+          myData[match(mayData_part$plotid,myData$plotID),] <- myData_part
           myData[,1] <- as.numeric(myData[,1])
           myData <- myData[order(myData[,1]),]
         isFailed <- agroMap(myData=myData, nticks=as.numeric(input$colnumb),
