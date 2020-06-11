@@ -40,3 +40,4 @@ site/input/initialization/tmp/*
 !soil.db
 TAGS
 tags
+.Rproj.user

@@ -280,22 +280,6 @@ agroMoMap <- function(input, output, session, baseDir, initialList){
   observe({
       session$sendCustomMessage(type="palletteChangerMask",input$maskcol)
   })
-  
-  # observe({
-  #   toggleState("bw", input$radio==interval)
-  #   toggleState("min", input$radio==interval)
-  #   toggleState("max", input$radio==interval)
-  #   toggleState("colnumb", input$radio==colnumb)
-  # })
-  
-  observe({
-    toggleState("create", ((input$colnumb!=0) | ((is.numeric(as.numeric(input$min))) && 
-                                                   (is.numeric(as.numeric(input$max))) &&
-                                                   (as.numeric(input$bw)>0) && 
-                                                   (as.numeric(input$min)<as.numeric(input$max)) &&
-                                                   (as.numeric(input$bw)<=(as.numeric(input$max)-as.numeric(input$min))))))
-  })
-  
 
   oldImage <- ""
   observeEvent(input$create,{

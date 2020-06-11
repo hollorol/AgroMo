@@ -27,6 +27,7 @@ Imports:
   lubridate,
   shinyFiles,
   openxlsx
+  showtext
 Suggests: testhat,
   rmarkdown,
   knitr
