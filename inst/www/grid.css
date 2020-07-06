@@ -5,10 +5,16 @@
     height: 650px;
     overflow: hidden;    
 }
+.modal-title {
+    font-size: 20px; 
+    color: black;
+}
 
 #griddiv-pukli {
     height: 650px;
     overflow-y: scroll;
+    color: black;
+    font-size: 18px;
 }
 
 #griddiv-story_container .control-label {

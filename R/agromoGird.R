@@ -398,7 +398,7 @@ agroMoGrid <- function(input, output, session,baseDir){
          if(is.null(queryResults)){
              showNotification("Something went wrong with the query...",type="error")
          } else {
-             showModal(modalDialog(tableOutput(ns("pukli")),title="showme", size="l",easyClose=TRUE))
+             showModal(modalDialog(tableOutput(ns("pukli")),title="REPORT", size="l",easyClose=TRUE))
              output$pukli <- renderTable({
                  queryResults
              })
