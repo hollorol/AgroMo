@@ -26,11 +26,7 @@ agroMoParAnaUI <- function(id){
            ),
            tags$div(
              id = paste0(ns("paranaexp"),"_container"),
-             selectInput(ns("paranaexp"),"EXPERIMENT ID:",choices=c(""))
-           ),
-           tags$div(
-             id = paste0(ns("paranatreat"),"_container"),
-             selectInput(ns("paranatreat"),"TREATMENT ID:",choices=c(""))
+             selectInput(ns("paranaexp"),"OBSERVATION DATA file:",choices=c(""))
            ),
            tags$div(
              id = paste0(ns("charfunc"),"_container"),
