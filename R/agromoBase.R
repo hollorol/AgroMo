@@ -9,13 +9,13 @@ agromoBaseUI <- function(id){
     ns <- NS(id)
    tagList(shiny::tags$div(id = "base", shiny::tags$div(id="components","COMPONENTS"),
                     shiny::tags$div(actionButton("site","", class = "mainMenu", title="Site specific simulations",
-                                style = ("background: url('www/img/site.svg')")),
+                                style = ("background: url('www/img/site_button.png')")),
                              actionButton("grid","", class = "mainMenu", title="Simulations using gridded climate and soil data",
-                                style = ("background: url('www/img/grid.svg')")),
+                                style = ("background: url('www/img/grid_button.png')")),
                              actionButton("show","", class = "mainMenu", title="Create plots using simulation results",
-                                style = ("background: url('www/img/show.svg')")),
+                                style = ("background: url('www/img/show_button.png')")),
                              actionButton("map","",  class = "mainMenu", title="Create maps using gridded simulation results",
-                                style = ("background: url('www/img/map.svg')")))
+                                style = ("background: url('www/img/map_button.png')")))
                ),
 
                  shiny::tags$div(

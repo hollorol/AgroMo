@@ -9,9 +9,10 @@
     position: absolute;
     top: 60px;
     left: -30px;
-    height: 290px;
-    width: 290px;
-    border: 4px solid gray;
+    height: 300px;
+    width: 300px;
+    border: 0px;
+    /*border: 4px solid gray;*/
 }
 
 #grid {
@@ -20,9 +21,9 @@
     top: 60px;
     left: 300px;
     /*filter: grayscale(100%);*/
-    height: 290px;
-    width: 290px;
-    border: 4px solid gray;
+    height: 300px;
+    width: 300px;
+    border: 0px;
 }
 
 #show {
@@ -30,9 +31,9 @@
     position: absolute;
     top: 370px;
     left: -30px;
-    height: 290px;
-    width: 290px;
-    border: 4px solid gray;
+    height: 300px;
+    width: 300px;
+    border: 0px;
 }
 
 #map {
@@ -41,9 +42,9 @@
     top: 370px;
     left: 300px;
     /*filter: grayscale(100%);*/
-    height: 290px;
-    width: 290px;
-    border: 4px solid gray;
+    height: 300px;
+    width: 300px;
+    border: 0px;
 }
 
 #components {
