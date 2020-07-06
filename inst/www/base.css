@@ -289,6 +289,41 @@
     left: 851px;
     cursor:pointer;
     }
+#base-chiFlag {
+    position: absolute;
+    top: 535px;
+    left: 763px;
+    height: 50px;
+    cursor:pointer;
+    }
+#base-rusFlag {
+    position: absolute;
+    top: 535px;
+    left: 851px;
+    height: 50px;
+    cursor:pointer;
+    }
+#base-fraFlag {
+    position: absolute;
+    top: 600px;
+    left: 675px;
+    height: 50px;
+    cursor:pointer;
+    }
+#base-porFlag {
+    position: absolute;
+    top: 600px;
+    left: 851px;
+    height: 50px;
+    cursor:pointer;
+    }
+#base-espFlag {
+    position: absolute;
+    top: 600px;
+    left: 763px;
+    height: 50px;
+    cursor:pointer;
+    }    
 #base-jpFlag {
     position: absolute;
     top: 535px;
