@@ -8,14 +8,20 @@
 .modal-title {
     font-size: 20px; 
     color: black;
+    font-weight: bold;
 }
 
 #griddiv-pukli {
     height: 650px;
     overflow-y: scroll;
     color: black;
-    font-size: 18px;
+    font-size: 16px;
+    font-weight: bold;
 }
+
+#griddiv-pukli th {
+    font-size: 18px;
+} 
 
 #griddiv-story_container .control-label {
     position: absolute;
