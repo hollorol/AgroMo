@@ -1,6 +1,16 @@
 /* Suggestions: I would suggest to use posinition: absolute css declaration in every
                 place. The positions starts at the top-left corner of the root window,
                 which is the window except the banner. */
+.modal-body {
+    height: 650px;
+    overflow: hidden;    
+}
+
+#griddiv-pukli {
+    height: 650px;
+    overflow-y: scroll;
+}
+
 #griddiv-story_container .control-label {
     position: absolute;
     top: 20px;
