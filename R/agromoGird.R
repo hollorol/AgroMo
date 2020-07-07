@@ -22,6 +22,10 @@
       checkboxInput(ns("trycheck"), label = "", value = TRUE)
     ),
     tags$div(
+      id =paste0(ns("trychecktwo"),"_container"),
+      checkboxInput(ns("trychecktwo"), label = "", value = TRUE)
+    ),
+    tags$div(
       id =paste0(ns("annual"),"_container"),
       checkboxInput(ns("annual"), label = "annual outputs", value = FALSE)
     ),
