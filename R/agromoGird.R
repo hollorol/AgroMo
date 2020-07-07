@@ -12,6 +12,10 @@
     tags$div(
       id =paste0(ns("enssoil"),"_container"),
       checkboxInput(ns("enssoil"), label = "Ensemble", value = FALSE)
+    ),
+    tags$div(
+      id =paste0(ns("repcheck"),"_container"),
+      checkboxInput(ns("repcheck"), label = "", value = TRUE)
     ),   
     tags$div(
       id =paste0(ns("annual"),"_container"),
@@ -76,7 +80,7 @@
     
     tags$div(id = ns("Buttons"),
     actionButton(ns("StartSim"),label = "START SIMULATION"),
-    actionButton(ns("RunQuery"),label = "START QUERY"),
+    actionButton(ns("RunQuery"),label = "QUERY"),
     actionButton(ns("Report"),label = "REPORT"),
     actionButton(ns("Map"),label="MAP")),
     

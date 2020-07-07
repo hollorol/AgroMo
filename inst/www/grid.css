@@ -177,6 +177,22 @@
      user-select: none;
 }
 
+#griddiv-repcheck_container {
+    position: absolute;
+     top: 604px;
+    left: 802px;
+    font-size: 16px;
+    color: black;
+    font-family: Fira Sans;
+    z-index: 1;
+    transform: scale(1.1);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
+}
+
+
 #griddiv-annual_container {
     position: absolute;
     top: 240px;
@@ -279,9 +295,9 @@
 
 #griddiv-Map {
     position: absolute;
-    top: 705px;
+    top: 670px;
     left: 785px;
-    height: 45px;
+    height: 85px;
     width: 130px;
     font-size: 26px;
     font-family: Fira Sans;
@@ -296,7 +312,7 @@
 
 #griddiv-Report {
     position: absolute;
-    top: 652px;
+    top: 614px;
     left: 785px;
     height: 45px;
     width: 130px;
@@ -315,7 +331,7 @@
     position: absolute;
     top: 559px;
     left: 785px;
-    height: 85px;
+    height: 45px;
     width: 130px;
     font-size: 26px;
     font-family: Fira Sans;
