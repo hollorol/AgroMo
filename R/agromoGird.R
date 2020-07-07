@@ -16,7 +16,11 @@
     tags$div(
       id =paste0(ns("repcheck"),"_container"),
       checkboxInput(ns("repcheck"), label = "", value = TRUE)
-    ),   
+    ),
+    tags$div(
+      id =paste0(ns("trycheck"),"_container"),
+      checkboxInput(ns("trycheck"), label = "", value = TRUE)
+    ),
     tags$div(
       id =paste0(ns("annual"),"_container"),
       checkboxInput(ns("annual"), label = "annual outputs", value = FALSE)

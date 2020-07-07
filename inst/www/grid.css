@@ -179,12 +179,14 @@
 
 #griddiv-repcheck_container {
     position: absolute;
-     top: 604px;
-    left: 802px;
+     top: 603px;
+    left: 787px;
     font-size: 16px;
     color: black;
     font-family: Fira Sans;
     z-index: 1;
+    height: 29px;
+    width: 14px;
     transform: scale(1.1);
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -192,6 +194,22 @@
      user-select: none;
 }
 
+
+#griddiv-trycheck_container {
+    position: absolute;
+      top: 5px;
+    left: 302px;
+    height: 29px;
+    width: 14px;
+    font-size: 16px;
+    color: black;
+    font-family: Fira Sans;
+    z-index: 2;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
+}
 
 #griddiv-annual_container {
     position: absolute;
