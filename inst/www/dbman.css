@@ -1,0 +1,203 @@
+#dbmandiv-sqlquery_container label{
+  position:absolute;
+  top: 75px;
+  left: 10px;
+  color: black;
+  font-family: Fira Sans;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+#dbmandiv-sqlquery_container .form-control{
+  position:absolute;
+  top: 70px;
+  left: 100px;
+  color: black;
+  width: 810px;
+  font-family: Fira Sans;
+}
+
+#dbmandiv-database_container .form-group{
+  position:absolute;
+  top: 30px;
+  left: 15px;
+  color: black;
+   font-size: 16px;
+  font-family: Fira Sans;
+}
+
+#dbmandiv-database_container .selectize-input{
+  position:absolute;
+  top: -42.5px;
+  left: 85px;
+  color: black;
+   font-size: 16px;
+  font-family: Fira Sans;
+}
+
+#dbmandiv-datatable_container .form-group {
+  position:absolute;
+   top: 30px;
+  left: 420px;
+  color: black;
+   font-size: 16px;
+  font-family: Fira Sans;
+}
+
+#dbmandiv-datatable_container .selectize-control {
+  position:absolute;
+   top: -5px;
+  left: 100px;
+  width: 390px;
+  color: black;
+   font-size: 16px;
+  font-family: Fira Sans;
+}
+
+
+
+#dbmandiv-showtab{
+  position:absolute;
+  top: 120px;
+  left:220px;
+  width:220px;
+  height: 45px;
+  background-color: gainsboro;
+  font-size: 24px;
+  font-family: Fira Sans;
+  font-weight: bold;
+  color: black;
+}
+
+#dbmandiv-querytab{
+  position:absolute;
+  top: 120px;
+  left:460px;
+  width:220px;
+  height: 45px;
+  background-color: gainsboro;
+  font-size: 24px;
+  font-family: Fira Sans;
+  font-weight: bold;
+  color: black;
+}
+
+#dbmandiv-deltab{
+  position:absolute;
+  top: 120px;
+  left:700px;
+  width:220px;
+  height: 45px;
+  background-color: gainsboro;
+  font-size: 24px;
+  font-family: Fira Sans;
+  font-weight: bold;
+  color: black;
+}
+
+
+
+
+
+#plot_bb_button_two {
+    position: absolute;
+  top: 220px;
+  left: -228px;
+  height: 30px;
+  width: 75px;
+  border-width: 0px;
+  border-radius: 1px;
+}
+
+#map_bb_button_two {
+    position: absolute;
+  top: 220px;
+  left: -228px;
+  height: 30px;
+  width: 75px;
+  border-width: 0px;
+  border-radius: 1px;
+}
+
+#site_bb_button_two {
+    position: absolute;
+  top: 220px;
+  left: -228px;
+  height: 30px;
+  width: 75px;
+  border-width: 0px;
+  border-radius: 1px;
+}
+
+#grid_bb_button_two {
+    position: absolute;
+  top: 220px;
+  left: -228px;
+  height: 30px;
+  width: 75px;
+  border-width: 0px;
+  border-radius: 1px;
+}
+
+#grid_bb_button {
+    position: absolute;
+  top: 220px;
+  left: -138px;
+  height: 30px;
+  width: 75px;
+  border-width: 0px;
+  border-radius: 1px;
+}
+
+#site_bb_button {
+    position: absolute;
+  top: 220px;
+  left: -138px;
+  height: 30px;
+  width: 75px;
+  border-width: 0px;
+  border-radius: 1px;
+}
+
+#map_bb_button {
+    position: absolute;
+  top: 260px;
+  left: -138px;
+  height: 30px;
+  width: 75px;
+  border-width: 0px;
+  border-radius: 1px;
+}
+
+#plot_bb_button {
+    position: absolute;
+  top: 260px;
+  left: -138px;
+  height: 30px;
+  width: 75px;
+  border-width: 0px;
+  border-radius: 1px;
+}
+#base_bb_button {
+    position: absolute;
+  top: 260px;
+  left: -228px;
+  height: 30px;
+  width: 75px;
+  border-width: 0px;
+  border-radius: 1px;
+}
+#DBMan-banner-div img{
+  cursor: default; 
+    }
+
+
+
+.modal-lg {
+    width: 95%;
+}
+
+.bigholder {
+    display: flex;
+    height: 50px;
+}

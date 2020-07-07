@@ -17,6 +17,7 @@ agroUI <- function(){
             hidden(agroMoMapUI(id = "mapdiv")),
             hidden(agroMoSiteGeneratorUI(id = "sitegendiv")),
             hidden(agroMoParAnaUI(id = "paranadiv")),
+            hidden(agroMoDBManUI(id = "dbmandiv")),
             hidden(BBGCUI(id="BBGCDB")),
             hidden(actionButton(inputId = "base_bb_button",label="",title="Navigateto the BASE window", style="background: url('www/img/base.png');background-size: 75px 30px;", draggable = FALSE)),
             hidden(actionButton(inputId = "plot_bb_button",label="",title="Navigate to the PLOT window", style="background: url('www/img/plot.png');background-size: 75px 30px;", draggable = FALSE)),
@@ -503,6 +504,98 @@ agroServer <- function(input, output, session) {
      })
    }   
         
+   ## DBMAN
+   {
+     
+     callModule(agroMoParAna,"dbmandiv")
+     observeEvent(input$calibration,{
+       shinyjs::hide("base")
+       shinyjs::hide("base-tools")
+       shinyjs::show("dbmandiv-dbmandiv")
+       shinyjs::hide(selector = ".banner")
+       shinyjs::show("DBMan-banner-div")
+       shinyjs::show("base_bb_button")
+       shinyjs::show("site_bb_button")
+       shinyjs::show("plot_bb_button")
+       shinyjs::hide("map_bb_button")
+       shinyjs::hide("grid_bb_button")
+       shinyjs::hide("site_bb_button_two")
+       shinyjs::hide("plot_bb_button_two")
+       shinyjs::hide("map_bb_button_two")
+       shinyjs::show("grid_bb_button_two")
+     })
+   }
+   {
+     observeEvent(input$grid_bb_button_two,{
+       shinyjs::show("griddiv-griddv")
+       shinyjs::hide("dbmandiv-dbmandiv")
+       shinyjs::show("base_bb_button")
+       shinyjs::show("site_bb_button")
+       shinyjs::show("plot_bb_button")
+       shinyjs::hide("map_bb_button")
+       shinyjs::hide("grid_bb_button")
+       shinyjs::hide("site_bb_button_two")
+       shinyjs::hide("plot_bb_button_two")
+       shinyjs::show("map_bb_button_two")
+       shinyjs::hide("grid_bb_button_two")
+       shinyjs::hide(selector = ".banner")
+       shinyjs::show("Grid-banner-div")
+     })
+   }
+   {
+     observeEvent(input$site_bb_button,{
+       shinyjs::show("sitediv-sitediv")
+       shinyjs::hide("dbmandiv-dbmandiv")
+       shinyjs::hide("backsite")
+       shinyjs::hide(selector = ".banner")
+       shinyjs::show("Site-banner-div")
+       shinyjs::show("base_bb_button")
+       shinyjs::hide("site_bb_button")
+       shinyjs::hide("plot_bb_button")
+       shinyjs::show("map_bb_button")
+       shinyjs::show("grid_bb_button")
+       shinyjs::hide("site_bb_button_two")
+       shinyjs::show("plot_bb_button_two")
+       shinyjs::hide("map_bb_button_two")
+       shinyjs::hide("grid_bb_button_two")
+     })
+   }
+   {
+     observeEvent(input$plot_bb_button,{
+       shinyjs::show("showdiv-showdiv")
+       shinyjs::hide("dbmandiv-dbmandiv")
+       shinyjs::hide(selector = ".banner")
+       shinyjs::show("Show-banner-div")
+       shinyjs::show("base_bb_button")
+       shinyjs::hide("site_bb_button")
+       shinyjs::hide("plot_bb_button")
+       shinyjs::show("map_bb_button")
+       shinyjs::show("grid_bb_button")
+       shinyjs::show("site_bb_button_two")
+       shinyjs::hide("plot_bb_button_two")
+       shinyjs::hide("map_bb_button_two")
+       shinyjs::hide("grid_bb_button_two")
+     })
+   }    
+   {
+     observeEvent(input$base_bb_button,{
+       shinyjs::show("base")
+       shinyjs::show("base-tools")
+       shinyjs::hide("dbmandiv-dbmandiv")
+       shinyjs::hide(selector = ".banner")
+       shinyjs::show("Base-banner-div")
+       shinyjs::hide("base_bb_button")
+       shinyjs::hide("site_bb_button")
+       shinyjs::hide("plot_bb_button")
+       shinyjs::hide("map_bb_button")
+       shinyjs::hide("grid_bb_button")
+       shinyjs::hide("site_bb_button_two")
+       shinyjs::hide("plot_bb_button_two")
+       shinyjs::hide("map_bb_button_two")
+       shinyjs::hide("grid_bb_button_two")
+     })
+   }   
+   
    ## MAP
    {
      callModule(agroMoMap,"mapdiv",baseDir=reactive({datas$baseDir}),reactive({griddi$showMap}))
@@ -704,7 +797,7 @@ agroServer <- function(input, output, session) {
    ##})
    ##}
    {
-     observeEvent(input$calibration,{
+     observeEvent(input$storEditor,{
        shinyjs::hide("base")
        shinyjs::hide("base-tools")
        shinyjs::hide("mapdiv-mapdiv")
