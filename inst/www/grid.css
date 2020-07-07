@@ -16,11 +16,11 @@
     overflow-y: scroll;
     color: black;
     font-size: 16px;
-    font-weight: bold;
 }
 
 #griddiv-pukli th {
     font-size: 18px;
+    font-weight: bold;
 } 
 
 #griddiv-story_container .control-label {
