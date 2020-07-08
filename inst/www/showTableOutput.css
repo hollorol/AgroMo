@@ -213,6 +213,7 @@ nemcsinal semmit
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+   display:none;
 }
 
 /*#showdiv-table-output-header th:nth-child(1){

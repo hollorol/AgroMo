@@ -353,6 +353,78 @@ div.profPlotCont .form-control {
   user-select: none;
 } 
 
+#colone {
+    position: absolute;
+  top: 215px;
+  left:70px;
+  width: 281px;
+  font-weight: bold;
+  font-size: 16px;
+  font-family: Fira Sans;
+  color: black;
+  border-style: solid;
+  border-width: thin;
+  padding-left: 8px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+} 
+
+#coltwo {
+  position: absolute;
+  top: 215px;
+  left:350px;
+  width: 86px;
+  font-weight: bold;
+  font-size: 16px;
+  font-family: Fira Sans;
+  color: black;
+  border-style: solid;
+  border-width: thin;
+  padding-left: 8px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+} 
+
+#colthree {
+ position: absolute;
+  top: 215px;
+  left:435px;
+  width: 86px;
+  font-weight: bold;
+  font-size: 16px;
+  font-family: Fira Sans;
+  color: black;
+  border-style: solid;
+  border-width: thin;
+  padding-left: 8px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+} 
+
+#colfour {
+  position: absolute;
+  top: 215px;
+  left:520px;
+  font-weight: bold;
+  font-size: 16px;
+  font-family: Fira Sans;
+  color: black;
+  width: 135px;
+  border-style: solid;
+  border-width: thin;
+  padding-left: 8px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+} 
+
 #repavg {
   position: absolute;
   top: 118px;

@@ -18,6 +18,10 @@ agroMoShowUI <- function(id){
                     tags$div(id="observations","OBSERVATIONS:"),
                     tags$div(id="simres","SIMULATION RESULTS:"),
                     tags$div(id="createplot","CREATE PLOT WITH:"),
+                    tags$div(id="colone","VARIABLE"),
+                    tags$div(id="coltwo","T-STEP"),
+                    tags$div(id="colthree","FUNC"),
+                    tags$div(id="colfour","PLOT TYPE"),
                     tags$div(id="repavg","repetitions averaged"),
                     tags$div(id="gridsimres","GRID SIMULATION RESULTS:"),
                     tags$div(
