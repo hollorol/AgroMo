@@ -196,10 +196,10 @@
 }
 
 
-#griddiv-trycheck_container {
+#griddiv-checkone_container {
     position: absolute;
-      top: 585px;
-    left: 350px;
+      top: 601px;
+    left: 349px;
     height: 29px;
     width: 14px;
     font-size: 16px;
@@ -213,10 +213,129 @@
      user-select: none;
 }
 
-#griddiv-trychecktwo_container {
+#griddiv-checktwo_container {
     position: absolute;
-      top: 628px;
-    left: 348px;
+      top: 642px;
+    left: 349px;
+    height: 29px;
+    width: 14px;
+    font-size: 16px;
+    color: black;
+    font-family: Fira Sans;
+    cursor: pointer;
+    z-index: 2;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
+}
+
+#griddiv-checkthree_container {
+    position: absolute;
+      top: 681px;
+    left: 349px;
+    height: 29px;
+    width: 14px;
+    font-size: 16px;
+    color: black;
+    font-family: Fira Sans;
+    cursor: pointer;
+    z-index: 2;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
+}
+
+#griddiv-checkfour_container {
+    position: absolute;
+      top: 722px;
+    left: 349px;
+    height: 29px;
+    width: 14px;
+    font-size: 16px;
+    color: black;
+    font-family: Fira Sans;
+    cursor: pointer;
+    z-index: 2;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
+}
+
+#griddiv-checkfive_container {
+    position: absolute;
+      top: 559px;
+    left: 754px;
+    height: 29px;
+    width: 14px;
+    font-size: 16px;
+    color: black;
+    font-family: Fira Sans;
+    cursor: pointer;
+    z-index: 2;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
+}
+
+#griddiv-checksix_container {
+    position: absolute;
+      top: 601px;
+    left: 754px;
+    height: 29px;
+    width: 14px;
+    font-size: 16px;
+    color: black;
+    font-family: Fira Sans;
+    cursor: pointer;
+    z-index: 2;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
+}
+
+#griddiv-checkseven_container {
+    position: absolute;
+      top: 642px;
+    left: 754px;
+    height: 29px;
+    width: 14px;
+    font-size: 16px;
+    color: black;
+    font-family: Fira Sans;
+    cursor: pointer;
+    z-index: 2;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
+}
+
+#griddiv-checkeight_container {
+    position: absolute;
+      top: 681px;
+    left: 754px;
+    height: 29px;
+    width: 14px;
+    font-size: 16px;
+    color: black;
+    font-family: Fira Sans;
+    cursor: pointer;
+    z-index: 2;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
+}
+
+#griddiv-checknine_container {
+    position: absolute;
+      top: 722px;
+    left: 754px;
     height: 29px;
     width: 14px;
     font-size: 16px;

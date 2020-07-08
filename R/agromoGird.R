@@ -18,12 +18,40 @@
       checkboxInput(ns("repcheck"), label = "", value = TRUE)
     ),
     tags$div(
-      id =paste0(ns("trycheck"),"_container"),
-      checkboxInput(ns("trycheck"), label = "", value = TRUE)
+      id =paste0(ns("checkone"),"_container"),
+      checkboxInput(ns("checkone"), label = "", value = TRUE)
     ),
     tags$div(
-      id =paste0(ns("trychecktwo"),"_container"),
-      checkboxInput(ns("trychecktwo"), label = "", value = TRUE)
+      id =paste0(ns("checktwo"),"_container"),
+      checkboxInput(ns("checktwo"), label = "", value = TRUE)
+    ),
+    tags$div(
+      id =paste0(ns("checkthree"),"_container"),
+      checkboxInput(ns("checkthree"), label = "", value = TRUE)
+    ),
+    tags$div(
+      id =paste0(ns("checkfour"),"_container"),
+      checkboxInput(ns("checkfour"), label = "", value = TRUE)
+    ),
+    tags$div(
+      id =paste0(ns("checkfive"),"_container"),
+      checkboxInput(ns("checkfive"), label = "", value = TRUE)
+    ),
+    tags$div(
+      id =paste0(ns("checksix"),"_container"),
+      checkboxInput(ns("checksix"), label = "", value = TRUE)
+    ),
+    tags$div(
+      id =paste0(ns("checkseven"),"_container"),
+      checkboxInput(ns("checkseven"), label = "", value = TRUE)
+    ),
+    tags$div(
+      id =paste0(ns("checkeight"),"_container"),
+      checkboxInput(ns("checkeight"), label = "", value = TRUE)
+    ),
+    tags$div(
+      id =paste0(ns("checknine"),"_container"),
+      checkboxInput(ns("checknine"), label = "", value = TRUE)
     ),
     tags$div(
       id =paste0(ns("annual"),"_container"),
