@@ -18,7 +18,7 @@
       checkboxInput(ns("repcheck"), label = "", value = TRUE)
     ),
     tags$div(
-      id =paste0(ns("checkone"),"_container"),
+      id =paste0(ns("checkone"),"_container"), title ="query all items if checked",
       checkboxInput(ns("checkone"), label = "", value = TRUE)
     ),
     tags$div(
