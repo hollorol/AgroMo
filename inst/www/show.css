@@ -364,6 +364,7 @@ div.profPlotCont .form-control {
   color: black;
   border-style: solid;
   border-width: thin;
+  border-color: gray;
   padding-left: 8px;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -382,6 +383,7 @@ div.profPlotCont .form-control {
   color: black;
   border-style: solid;
   border-width: thin;
+  border-color: gray;
   padding-left: 8px;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -400,6 +402,7 @@ div.profPlotCont .form-control {
   color: black;
   border-style: solid;
   border-width: thin;
+  border-color: gray;
   padding-left: 8px;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -418,6 +421,7 @@ div.profPlotCont .form-control {
   width: 135px;
   border-style: solid;
   border-width: thin;
+  border-color: gray;
   padding-left: 8px;
   -webkit-user-select: none;
   -moz-user-select: none;
