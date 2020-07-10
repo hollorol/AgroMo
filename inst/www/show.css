@@ -375,8 +375,8 @@ div.profPlotCont .form-control {
 #coltwo {
   position: absolute;
   top: 215px;
-  left:352px;
-  width: 87px;
+  left:353px;
+  width: 86px;
   font-weight: bold;
   font-size: 16px;
   font-family: Fira Sans;
@@ -394,8 +394,8 @@ div.profPlotCont .form-control {
 #colthree {
  position: absolute;
   top: 215px;
-  left:439px;
-  width: 87px;
+  left:442px;
+  width: 86px;
   font-weight: bold;
   font-size: 16px;
   font-family: Fira Sans;
@@ -413,12 +413,12 @@ div.profPlotCont .form-control {
 #colfour {
   position: absolute;
   top: 215px;
-  left:526px;
+  left:531px;
   font-weight: bold;
   font-size: 16px;
   font-family: Fira Sans;
   color: black;
-  width: 131px;
+  width: 137px;
   border-style: solid;
   border-width: thin;
   border-color: gray;
