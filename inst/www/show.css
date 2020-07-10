@@ -357,7 +357,7 @@ div.profPlotCont .form-control {
     position: absolute;
   top: 215px;
   left:70px;
-  width: 281px;
+  width: 283px;
   font-weight: bold;
   font-size: 16px;
   font-family: Fira Sans;
@@ -375,8 +375,8 @@ div.profPlotCont .form-control {
 #coltwo {
   position: absolute;
   top: 215px;
-  left:350px;
-  width: 86px;
+  left:352px;
+  width: 88px;
   font-weight: bold;
   font-size: 16px;
   font-family: Fira Sans;
@@ -394,8 +394,8 @@ div.profPlotCont .form-control {
 #colthree {
  position: absolute;
   top: 215px;
-  left:435px;
-  width: 86px;
+  left:439px;
+  width: 88px;
   font-weight: bold;
   font-size: 16px;
   font-family: Fira Sans;
@@ -413,12 +413,12 @@ div.profPlotCont .form-control {
 #colfour {
   position: absolute;
   top: 215px;
-  left:520px;
+  left:526px;
   font-weight: bold;
   font-size: 16px;
   font-family: Fira Sans;
   color: black;
-  width: 135px;
+  width: 132px;
   border-style: solid;
   border-width: thin;
   border-color: gray;
@@ -428,6 +428,36 @@ div.profPlotCont .form-control {
   -ms-user-select: none;
   user-select: none;
 } 
+
+#showdiv-framelineone {
+  position: absolute;
+  top: 194px;
+  left: 69px;
+  height: 385px;
+  background-color: #7F7A7A;
+  width: 1px;
+  color: #7F7A7A;
+}
+
+#showdiv-framelinetwo {
+  position: absolute;
+  top: 579px;
+  left: 69px;
+  height: 1px;
+  background-color: #7F7A7A;
+  width: 589px;
+  color: #7F7A7A;
+}
+
+#showdiv-framelinethree {
+  position: absolute;
+  top: 194px;
+  left: 657px;
+  height: 385px;
+  background-color: #7F7A7A;
+  width: 1px;
+  color: #7F7A7A;
+}
 
 #repavg {
   position: absolute;

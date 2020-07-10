@@ -22,6 +22,9 @@ agroMoShowUI <- function(id){
                     tags$div(id="coltwo","T-STEP"),
                     tags$div(id="colthree","FUNC"),
                     tags$div(id="colfour","PLOT TYPE"),
+                    shiny::tags$hr(id=ns("framelineone")),
+                    shiny::tags$hr(id=ns("framelinetwo")),
+                    shiny::tags$hr(id=ns("framelinethree")),
                     tags$div(id="repavg","repetitions averaged"),
                     tags$div(id="gridsimres","GRID SIMULATION RESULTS:"),
                     tags$div(
