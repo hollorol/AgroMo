@@ -25,6 +25,7 @@ agroMoShowUI <- function(id){
                     shiny::tags$hr(id=ns("framelineone")),
                     shiny::tags$hr(id=ns("framelinetwo")),
                     shiny::tags$hr(id=ns("framelinethree")),
+                    shiny::tags$hr(id=ns("framelinefour")),
                     tags$div(id="repavg","repetitions averaged"),
                     tags$div(id="gridsimres","GRID SIMULATION RESULTS:"),
                     tags$div(
