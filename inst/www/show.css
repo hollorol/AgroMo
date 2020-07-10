@@ -356,7 +356,7 @@ div.profPlotCont .form-control {
 #colone {
     position: absolute;
   top: 215px;
-  left:70px;
+  left:69px;
   width: 283px;
   font-weight: bold;
   font-size: 16px;
@@ -376,7 +376,7 @@ div.profPlotCont .form-control {
   position: absolute;
   top: 215px;
   left:352px;
-  width: 88px;
+  width: 87px;
   font-weight: bold;
   font-size: 16px;
   font-family: Fira Sans;
@@ -395,7 +395,7 @@ div.profPlotCont .form-control {
  position: absolute;
   top: 215px;
   left:439px;
-  width: 88px;
+  width: 87px;
   font-weight: bold;
   font-size: 16px;
   font-family: Fira Sans;
@@ -418,7 +418,7 @@ div.profPlotCont .form-control {
   font-size: 16px;
   font-family: Fira Sans;
   color: black;
-  width: 132px;
+  width: 131px;
   border-style: solid;
   border-width: thin;
   border-color: gray;
