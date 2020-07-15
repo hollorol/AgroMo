@@ -28,14 +28,14 @@ agroMoShowUI <- function(id){
                     shiny::tags$hr(id=ns("framelinefour")),
                     tags$div(id="repavg","repetitions averaged"),
                     tags$div(id="gridsimres","GRID SIMULATION RESULTS:"),
-                    tags$div(
-                      id = paste0(ns("cellid"),"_container"),
-                      textInput(ns("cellid"), "cell ID(s):")
-                    ),
+                    #tags$div(
+                    #  id = paste0(ns("cellid"),"_container"),
+                    #  textInput(ns("cellid"), "cell ID(s):")
+                    #),
                     tags$div(id=ns("experimentID_container"),selectInput(ns("experimentID"), "experiment ID:",choices = '')),
                     tags$div(id=ns("treatmentID_container"),selectInput(ns("treatmentID"), "treatment ID:",choices = '')),
-                    tags$div(id=ns("compfunc_container"),selectInput(ns("compfunc"), "compare function:",choices = '')),
-                    tags$div(id=ns("compbase_container"),selectInput(ns("compbase"), "compare base:",choices = '')),
+                    #tags$div(id=ns("compfunc_container"),selectInput(ns("compfunc"), "compare function:",choices = '')),
+                    #tags$div(id=ns("compbase_container"),selectInput(ns("compbase"), "compare base:",choices = '')),
                     tags$div(id=ns("alias_container"),textInput(ns("alias"), "alias:",NA)),
                     tags$div(id=ns("varset_container"),title="Narrow down the list of selectable variables ",selectInput(ns("varset"), "filter to:",
                                         choices = c("all","user selected", "plant related","soil related","water related","carbon related","greenhouse gas","profiles"))),

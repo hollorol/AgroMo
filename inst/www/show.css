@@ -83,22 +83,9 @@ div.xmax label {
 
 
 
-#showdiv-del{
-  position:absolute;
-  top: 448px;
-  left: -312px;
-  width: 335px;
-  height: 55px;
-  background-color: gainsboro;
-  font-size: 24px;
-  font-family: Fira Sans;
-  font-weight: bold;
-  color: black;
-}
-
 #showdiv-del {
 position:absolute;
-  top: 448px;
+  top: 695px;
   left: -312px;
   width: 335px;
   height: 55px;
@@ -164,8 +151,8 @@ div.profPlotCont .form-control {
 
 #showdiv-varset_container .control-label{
   position: absolute;
-  top: 176px;
-  left: 395px;
+  top: 181px;
+  left: 397px;
   width: 65px;
   font-weight: normal;
   color: black;
@@ -179,9 +166,9 @@ div.profPlotCont .form-control {
 
 #showdiv-varset_container .selectize-input{
   position: absolute;
-  top: 155px;
+  top: 160px;
    left: 445px;
-  width: 195px;
+  width: 199px;
   font-size: 16px;
   font-family: Fira Sans;
   -webkit-user-select: none;
@@ -433,7 +420,7 @@ div.profPlotCont .form-control {
   position: absolute;
   top: 219px;
   left: 69px;
-  height: 360px;
+  height: 420px;
   background-color: #7F7A7A;
   width: 1px;
   color: #7F7A7A;
@@ -441,7 +428,7 @@ div.profPlotCont .form-control {
 
 #showdiv-framelinetwo {
   position: absolute;
-  top: 579px;
+  top: 639px;
   left: 69px;
   height: 1px;
   background-color: #7F7A7A;
@@ -453,7 +440,7 @@ div.profPlotCont .form-control {
   position: absolute;
   top: 219px;
   left: 657px;
-  height: 360px;
+  height: 420px;
   background-color: #7F7A7A;
   width: 1px;
   color: #7F7A7A;
@@ -492,8 +479,8 @@ div.profPlotCont .form-control {
 #showdiv-alias_container .form-control.shinyjs-resettable.shiny-bound-input{
     width: 255px;
     position: absolute;
-    top: 113px;
-    left:203px;
+    top: 114px;
+    left:202px;
   font-size: 16px;
   font-family: Fira Sans;
   color: black;
@@ -505,7 +492,7 @@ div.profPlotCont .form-control {
 #showdiv-alias_container label{
     position: absolute;
     top: 118px;
-    left:162px;
+    left:160px;
   font-size: 16px;
   font-family: Fira Sans;
   color: black;
@@ -516,7 +503,7 @@ div.profPlotCont .form-control {
   user-select: none;
 }
 #showdiv-experimentID_container .selectize-control.shinyjs-resettable.single .selectize-input{
-    width: 450px;
+    width: 456px;
     position: absolute;
     top: 23px;
     left:187px;
@@ -530,9 +517,9 @@ div.profPlotCont .form-control {
 }
 
 #showdiv-treatmentID_container .selectize-control.shinyjs-resettable.single .selectize-input{
-    width: 450px;
+    width: 456px;
     position: absolute;
-    top: 60px;
+    top: 61px;
     left:187px;
   font-size: 16px;
   font-family: Fira Sans;
@@ -573,7 +560,7 @@ div.profPlotCont .form-control {
 #showdiv-experimentID_container .control-label{
     position: absolute;
     top: 43px;
-    right: 354px;
+    right: 356px;
   font-size: 16px;
   font-family: Fira Sans;
   color: black;
@@ -586,8 +573,8 @@ div.profPlotCont .form-control {
 
 #showdiv-treatmentID_container .control-label{
     position: absolute;
-    top: 80px;
-    right: 354px;
+    top: 81px;
+    right: 356px;
   font-size: 16px;
   font-family: Fira Sans;
   color: black;
