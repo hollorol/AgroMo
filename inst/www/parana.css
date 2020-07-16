@@ -49,8 +49,8 @@
 
 #paranadiv-paranait_container label {
     position: absolute;
-    top: 505px;
-    left: 197px;
+    top: 506px;
+    left: 196px;
     font-weight: normal;
     font-size: 16px;
     font-family: Fira Sans;
@@ -136,7 +136,7 @@
 
 #paranadiv-charfunc_container label {
     position: absolute;
-    top: 555px;
+    top: 556px;
     width: 580px;
     left: 60px;
     font-weight: normal;
@@ -149,9 +149,9 @@
   user-select: none;
 }
 
-#paranadiv-charfunc_container .selectize-control {
+#paranadiv-charfunc_container .selectize-input {
     position: absolute;
-    top: 550px;
+    top: 535px;
     width: 580px;
     left: 354px;
     font-weight: normal;
@@ -166,9 +166,9 @@
 
 #paranadiv-metfunc_container label {
     position: absolute;
-    top: 605px;
+    top: 606px;
     width: 300px;
-    left: 125px;
+    left: 126px;
     font-weight: normal;
     font-size: 16px;
     font-family: Fira Sans;
@@ -179,9 +179,9 @@
   user-select: none;
 }
 
-#paranadiv-metfunc_container .selectize-control {
+#paranadiv-metfunc_container .selectize-input {
     position: absolute;
-    top: 600px;
+    top: 585px;
     width: 580px;
     left: 354px;
     font-weight: normal;

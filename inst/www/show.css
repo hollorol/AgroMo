@@ -2,7 +2,7 @@
   position:absolute;
   top: 695px;
   left:70px;
-  width:320px;
+  width:445px;
   height: 55px;
   background-color: gainsboro;
   font-size: 24px;
@@ -14,8 +14,8 @@
 #showdiv-export{
   position:absolute;
   top: 695px;
-  left: 405px;
-  width: 250px;
+  left: 530px;
+  width: 125px;
   height: 55px;
   background-color: gainsboro;
   font-size: 24px;
@@ -167,7 +167,7 @@ div.profPlotCont .form-control {
 #showdiv-varset_container .selectize-input{
   position: absolute;
   top: 160px;
-   left: 445px;
+   left: 444px;
   width: 199px;
   font-size: 16px;
   font-family: Fira Sans;
@@ -491,7 +491,7 @@ div.profPlotCont .form-control {
 }
 #showdiv-alias_container label{
     position: absolute;
-    top: 118px;
+    top: 120px;
     left:160px;
   font-size: 16px;
   font-family: Fira Sans;
@@ -559,7 +559,7 @@ div.profPlotCont .form-control {
 
 #showdiv-experimentID_container .control-label{
     position: absolute;
-    top: 43px;
+    top: 44px;
     right: 356px;
   font-size: 16px;
   font-family: Fira Sans;
@@ -573,7 +573,7 @@ div.profPlotCont .form-control {
 
 #showdiv-treatmentID_container .control-label{
     position: absolute;
-    top: 81px;
+    top: 82px;
     right: 356px;
   font-size: 16px;
   font-family: Fira Sans;
