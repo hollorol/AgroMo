@@ -1,6 +1,6 @@
 #dbmandiv-sqlquery_container label{
   position:absolute;
-  top: 75px;
+  top: 76px;
   left: 10px;
   color: black;
   font-family: Fira Sans;
@@ -20,8 +20,8 @@
 
 #dbmandiv-database_container label {
   position: absolute;
-  top: 30px;
-  left: 14px;
+  top: 31px;
+  left: 17px;
   color: black;
   font-size: 16px;
   font-family: Fira Sans;
@@ -36,10 +36,16 @@
   font-family: Fira Sans;
 }
 
+#dbmandiv-database-selectized {
+  color: black;
+  font-size: 16px;
+  font-family: Fira Sans;
+}
+
 #dbmandiv-datatable_container label {
   position:absolute;
-   top: 30px;
-  left: 420px;
+   top: 31px;
+  left: 421px;
   color: black;
   font-size: 16px;
   font-family: Fira Sans;
@@ -55,7 +61,11 @@
   font-family: Fira Sans;
 }
 
-
+#dbmandiv-datatable-selectized {
+  color: black;
+  font-size: 16px;
+  font-family: Fira Sans;
+}
 
 #dbmandiv-showtab{
   position:absolute;
