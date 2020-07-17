@@ -160,8 +160,8 @@
 #sitegendiv-erareg_container .form-control {
     position: absolute;
     top: 25px;
-  left: 230px;
-  width:672px;
+  left: 225px;
+  width:680px;
     font-size: 16px;
     font-family: Fira Sans;
     color: black;
@@ -257,7 +257,7 @@
 }
 #sitegendiv-start_container label{
     position: absolute;
-    top: 110px;
+    top: 111px;
     left: 713px;
     font-weight: normal;
     font-size: 16px;
@@ -271,7 +271,7 @@
 
 #sitegendiv-start_container .selectize-input{
     position: absolute;
-    top: 89px;
+    top: 90px;
     left: 790px;
     width:115px;
     font-weight: normal;
@@ -285,7 +285,7 @@
 }
 #sitegendiv-end_container label {
     position: absolute;
-    top: 150px;
+    top: 151px;
     left: 720px;
     font-weight: normal;
     font-size: 16px;
@@ -299,7 +299,7 @@
 
 #sitegendiv-end_container .selectize-input{
     position: absolute;
-    top: 129px;
+    top: 130px;
     left: 790px;
     width:115px;
     font-weight: normal;
@@ -327,7 +327,7 @@
 #timeperiod {
     position: absolute;
     top: 80px;
-    left: 656px;
+    left: 664px;
     width: 300px;
     font-weight: bold;
     font-size: 16px;
