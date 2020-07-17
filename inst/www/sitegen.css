@@ -21,7 +21,7 @@
 #sitegendiv-soil_container {
     position: absolute;
     top: 300px;
-    left: 120px;
+    left: 121px;
     font-weight: normal;
     font-size: 16px;
     font-family: Fira Sans;
@@ -49,7 +49,7 @@
 #sitegendiv-weather_container {
     position: absolute;
     top: 330px;
-    left: 120px;
+    left: 121px;
     font-weight: normal;
     font-size: 16px;
     font-family: Fira Sans;
@@ -78,7 +78,7 @@
 #sitegendiv-ini_container{
     position: absolute;
     top: 360px;
-    left: 120px;
+    left: 121px;
     font-weight: normal;
     font-size: 16px;
     font-family: Fira Sans;
@@ -119,8 +119,8 @@
 
 #sitegendiv-sitename_container label{
     position: absolute;
-    top: 275px;
-  left: 25px;
+    top: 276px;
+    left: 36px;
     font-weight: bold; 
     font-size: 16px;
     font-family: Fira Sans;
@@ -147,7 +147,7 @@
 #sitegendiv-erareg_container label{
     position: absolute;
     top: 30px;
-    left: 55px;
+    left: 30px;
     font-size: 16px;
     font-family: Fira Sans;
     color: black;
@@ -160,8 +160,8 @@
 #sitegendiv-erareg_container .form-control {
     position: absolute;
     top: 25px;
-  left: 260px;
-  width:645px;
+  left: 230px;
+  width:672px;
     font-size: 16px;
     font-family: Fira Sans;
     color: black;
@@ -173,8 +173,8 @@
 
 #sitegendiv-settlement_container label{
     position: absolute;
-    top: 190px;
-    left: -28px;
+    top: 191px;
+    left: -27px;
     font-weight: normal;
     font-size: 16px;
     font-family: Fira Sans;
@@ -188,7 +188,7 @@
     position: absolute;
     top: 185px;
     width: 300px;
-    left: 120px;
+    left: 123px;
     font-weight: normal;
     font-size: 16px;
     font-family: Fira Sans;
@@ -201,8 +201,8 @@
 
 #sitegendiv-lat_container label {
     position: absolute;
-    top: 110px;
-    left: 15px;
+    top: 111px;
+    left: 17px;
     font-weight: normal;
     font-size: 16px;
     font-family: Fira Sans;
@@ -215,7 +215,7 @@
 #sitegendiv-lat_container .form-control {
     position: absolute;
     top: 105px;
-    left:120px;
+    left:123px;
     width:135px;
     font-weight: normal;
     font-size: 16px;
@@ -229,7 +229,7 @@
 
 #sitegendiv-lon_container label {
     position: absolute;
-    top: 150px;
+    top: 151px;
     left: 5px;
     font-weight: normal;
     font-size: 16px;
@@ -244,7 +244,7 @@
 #sitegendiv-lon_container .form-control {
     position: absolute;
     top: 145px;
-    left:120px;
+    left:123px;
     width:135px;
     font-weight: normal;
     font-size: 16px;
@@ -257,8 +257,8 @@
 }
 #sitegendiv-start_container label{
     position: absolute;
-    top: 115px;
-    left: 712px;
+    top: 110px;
+    left: 713px;
     font-weight: normal;
     font-size: 16px;
     font-family: Fira Sans;
@@ -271,7 +271,7 @@
 
 #sitegendiv-start_container .selectize-input{
     position: absolute;
-    top: 95px;
+    top: 89px;
     left: 790px;
     width:115px;
     font-weight: normal;
@@ -285,7 +285,7 @@
 }
 #sitegendiv-end_container label {
     position: absolute;
-    top: 160px;
+    top: 150px;
     left: 720px;
     font-weight: normal;
     font-size: 16px;
@@ -299,7 +299,7 @@
 
 #sitegendiv-end_container .selectize-input{
     position: absolute;
-    top: 140px;
+    top: 129px;
     left: 790px;
     width:115px;
     font-weight: normal;
@@ -327,7 +327,7 @@
 #timeperiod {
     position: absolute;
     top: 80px;
-    left: 625px;
+    left: 656px;
     width: 300px;
     font-weight: bold;
     font-size: 16px;
