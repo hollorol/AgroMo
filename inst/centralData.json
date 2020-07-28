@@ -1,5 +1,6 @@
 [
     {"VARCODE":3054,"LABEL NAME":"Grain Dry Matter Content","FROM":"kg/m^2","TO":"kg/ha","TYPE":"SITEOUTPUT","VARIABLE":"grainDM","TIMESTEP":"day","FUNCTION":"identity","PLOT TYPE":"line","CONV FACTOR":10000,"TAG":"plant, favorite"},
+    {"VARCODE":2794,"LABEL NAME":"Flowering day","FROM":"DOY","TO":"DOY","TYPE":"SITEOUTPUT","VARIABLE":"flwrdoy","TIMESTEP":"day","FUNCTION":"identity","PLOT TYPE":"line","CONV FACTOR":10000,"TAG":"plant, favorite"},
     {"VARCODE":2520,"LABEL NAME":"Leaf Area Index","FROM":"m^2/m^2","TO":"m^2/m^2","TYPE":"SITEOUTPUT","VARIABLE":"lai","TIMESTEP":"day","FUNCTION":"identity","PLOT TYPE":"line","CONV FACTOR":1,"TAG":"plant, favorite"},
     {"VARCODE":2636,"LABEL NAME":"Rooting Depth","FROM":"m","TO":"m","TYPE":"SITEOUTPUT","VARIABLE":"rootdep","TIMESTEP":"day","FUNCTION":"identity","PLOT TYPE":"line","CONV FACTOR":1,"TAG":"plant, favorite"},
     {"VARCODE":2519,"LABEL NAME":"Cumulative water stress","FROM":"NA","TO":"NA","TYPE":"SITEOUTPUT","VARIABLE":"cumwatstr","TIMESTEP":"day","FUNCTION":"identity","PLOT TYPE":"line","CONV FACTOR":1,"TAG":"plant, water, favorite"},
