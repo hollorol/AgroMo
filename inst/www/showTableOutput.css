@@ -83,7 +83,7 @@ nemcsinal semmit
   position: absolute;
   top: 40px;
   left: -35px;
-  height: 620px !important;
+  height: 650px !important;
   width: 335px !important;
   overflow-y: scroll;
   background-color: white;
@@ -182,7 +182,7 @@ nemcsinal semmit
 }
 
 #showdiv-table-output_container {
-    height: 450px;
+    height: 485px;
     overflow-y: scroll;
     width:585px;
     border-left: 1px;
@@ -192,7 +192,7 @@ nemcsinal semmit
   border-color: lightgrey;
   border-style: solid;
   position: absolute;
-  top: 180px;
+  top: 175px;
 
 }
 

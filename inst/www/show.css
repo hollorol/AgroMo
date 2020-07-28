@@ -342,7 +342,7 @@ div.profPlotCont .form-control {
 
 #colone {
     position: absolute;
-  top: 185px;
+  top: 180px;
   left:69px;
   width: 282px;
   font-weight: bold;
@@ -361,7 +361,7 @@ div.profPlotCont .form-control {
 
 #coltwo {
   position: absolute;
-  top: 185px;
+  top: 180px;
   left:352px;
   width: 84px;
   font-weight: bold;
@@ -380,7 +380,7 @@ div.profPlotCont .form-control {
 
 #colthree {
  position: absolute;
-  top: 185px;
+  top: 180px;
   left:437px;
   width: 84px;
   font-weight: bold;
@@ -399,7 +399,7 @@ div.profPlotCont .form-control {
 
 #colfour {
   position: absolute;
-  top: 185px;
+  top: 180px;
   left:522px;
   font-weight: bold;
   font-size: 16px;
@@ -418,9 +418,9 @@ div.profPlotCont .form-control {
 
 #showdiv-framelineone {
   position: absolute;
-  top: 189px;
+  top: 184px;
   left: 69px;
-  height: 450px;
+  height: 485px;
   background-color: #7F7A7A;
   width: 1px;
   color: #7F7A7A;
@@ -428,7 +428,7 @@ div.profPlotCont .form-control {
 
 #showdiv-framelinetwo {
   position: absolute;
-  top: 639px;
+  top: 669px;
   left: 69px;
   height: 1px;
   background-color: #7F7A7A;
@@ -438,9 +438,9 @@ div.profPlotCont .form-control {
 
 #showdiv-framelinethree {
   position: absolute;
-  top: 189px;
+  top: 184px;
   left: 657px;
-  height: 450px;
+  height: 485px;
   background-color: #7F7A7A;
   width: 1px;
   color: #7F7A7A;
@@ -448,7 +448,7 @@ div.profPlotCont .form-control {
 
 #showdiv-framelinefour {
   position: absolute;
-  top: 188px;
+  top: 183px;
   left: 630px;
   height: 1px;
   background-color: #7F7A7A;
