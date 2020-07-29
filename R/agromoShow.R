@@ -138,7 +138,8 @@ agroMoShow <- function(input, output, session, dataenv, baseDir, connection,cent
      initData$data <- dataenv()
   })
   observe({
-     initData$measurementConn <-  dbConnect(RSQLite::SQLite(),file.path(baseDir(), "database/observation.db"))
+     # initData$measurementConn <-  dbConnect(RSQLite::SQLite(),file.path(baseDir(), "database/observation.db"))
+     initData$measurementConn <-  file.path(baseDir(), "observation")
   })
 
 
@@ -185,23 +186,22 @@ agroMoShow <- function(input, output, session, dataenv, baseDir, connection,cent
 
      
    observe({
-       updateSelectInput(session,"experimentID", choices = c("NO OBSERVED DATA",dbGetQuery(initData$measurementConn,"
-                                                                       SELECT DISTINCT experiment FROM site 
-                                                                       ")[,1])
-     )
+       if(!(is.null(initData$measurementConn))){
+           updateSelectInput(session,"experimentID", choices = list.files(initData$measurementConn))
+       }
 
    })
-
-     observe({
-         if(input$experimentID!="NO OBSERVED DATA"){
-          updateSelectInput(session,"treatmentID", choices =
-                            dbGetQuery(initData$measurementConn,sprintf("
-                                                                         SELECT DISTINCT SUBSTR(key,6,LENGTH(key))
-                                                                         FROM site
-                                                                         WHERE experiment='%s' AND value!='NA'
-                                                                         ", input$experimentID))[,1])
-                                          }
-      })
+   #
+   #   observe({
+   #       if(input$experimentID!="NO OBSERVED DATA"){
+   #        updateSelectInput(session,"treatmentID", choices =
+   #                          dbGetQuery(initData$measurementConn,sprintf("
+   #                                                                       SELECT DISTINCT SUBSTR(key,6,LENGTH(key))
+   #                                                                       FROM site
+   #                                                                       WHERE experiment='%s' AND value!='NA'
+   #                                                                       ", input$experimentID))[,1])
+   #                                        }
+   #    })
 
   observe({
       if(length(input$tableList) > 0){
