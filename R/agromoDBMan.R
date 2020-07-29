@@ -44,7 +44,7 @@ agroMoDBManUI <- function(id){
 #' asdfasfd
 #' @param input input
 #' @importFrom shiny reactiveValues observe updateSelectInput observe renderPlot renderImage 
-#' @importFrom DBI dbConnect
+#' @importFrom DBI dbConnect dbListTables dbRemoveTable dbGetQuery 
 
 agroMoDBMan <- function(input, output, session, baseDir, dbGridConn, dbConn){
     ns <- session$ns
@@ -69,9 +69,9 @@ agroMoDBMan <- function(input, output, session, baseDir, dbGridConn, dbConn){
 
 
     observeEvent(input$deltab,{
-                     dbRemoveTable(dbConn,input$datatable)
+                     dbRemoveTable(dbconnections[[input$database]],input$datatable)
                      updateSelectInput(session,"datatable",
-                                       choices =grep("_error$",dbListTables(dbconnectios[[input$database]]),value = TRUE, invert = TRUE))
+                                       choices =grep("_error$",dbListTables(dbconnections[[input$database]]),value = TRUE, invert = TRUE))
 
     })
 
