@@ -18,7 +18,7 @@ agroMoDBManUI <- function(id){
            ),
            tags$div(
              id = paste0(ns("database"),"_container"),
-             selectInput(ns("database"),"DATABASE:",choices=c(""))
+             selectInput(ns("database"),"DATABASE:",choices=c("grid output", "site output", "soil"))
            ),
            tags$div(
              id = paste0(ns("datatable"),"_container"),
@@ -29,7 +29,9 @@ agroMoDBManUI <- function(id){
            tags$div(id = ns("Buttons"),
                     actionButton(ns("querytab"),label = "QUERY TABLE")),
            tags$div(id = ns("Buttons"),
-                    actionButton(ns("deltab"),label = "DELETE TABLE"))
+                    actionButton(ns("deltab"),label = "DELETE TABLE")),
+
+            tableOutput(ns("result"))
            
            
            
@@ -42,12 +44,47 @@ agroMoDBManUI <- function(id){
 #' asdfasfd
 #' @param input input
 #' @importFrom shiny reactiveValues observe updateSelectInput observe renderPlot renderImage 
-#' @importFrom DBI dbConnect
+#' @importFrom DBI dbConnect dbListTables dbRemoveTable dbGetQuery 
+
+agroMoDBMan <- function(input, output, session, baseDir, dbGridConn, dbConn){
+    ns <- session$ns
+
+    dbconnections <- reactiveValues(soil = NULL,"grid output" = NULL, "site output" = NULL) 
 
 
-agroMoDBMan <- function(input, output, session){
-  
-  
-  ns <- session$ns
- 
+    observe({
+         dbconnections[["soil"]] <- dbConnect(RSQLite::SQLite(),file.path(baseDir,"database/soil.db"))
+         dbconnections[["grid output"]] <- dbGridConn
+         dbconnections[["site output"]] <- dbConn
+     })
+
+
+    observe({
+        if(!is.null(dbconnections[[input$database]])){
+        updateSelectInput(session,"datatable",
+                          choices = grep("_error$",dbListTables(dbconnections[[input$database]]),value = TRUE, invert = TRUE))
+
+        }
+    })
+
+
+    observeEvent(input$deltab,{
+                     dbRemoveTable(dbconnections[[input$database]],input$datatable)
+                     updateSelectInput(session,"datatable",
+                                       choices =grep("_error$",dbListTables(dbconnections[[input$database]]),value = TRUE, invert = TRUE))
+
+    })
+
+    observeEvent(input$showtab,{
+                     output$result <- renderTable({
+                         dbGetQuery(dbconnections[[isolate(input$database)]],sprintf("SELECT * FROM %s LIMIT 365", isolate(input$datatable)))
+                     })
+    })
+
+    observeEvent(input$querytab,{
+                     output$result <- renderTable({
+                         dbGetQuery(dbconnections[[isolate(input$database)]],sprintf(input$sqlquery, isolate(input$datatable)))
+                     })
+
+    })
 }

@@ -21,10 +21,6 @@ agroUI <- function(){
             hidden(BBGCUI(id="BBGCDB")),
             hidden(actionButton(inputId = "base_bb_button",label="",title="Navigateto the BASE window", style="background: url('www/img/base.png');background-size: 75px 30px;", draggable = FALSE)),
             hidden(actionButton(inputId = "plot_bb_button",label="",title="Navigate to the PLOT window", style="background: url('www/img/plot.png');background-size: 75px 30px;", draggable = FALSE)),
-            hidden(actionButton(inputId = "map_bb_button",label="",title="Navigate to the MAP window", style="background: url('www/img/map.png');background-size: 75px 30px;", draggable = FALSE)),
-            hidden(actionButton(inputId = "site_bb_button",label="",title="Navigate to the SITE window", style="background: url('www/img/site.png');background-size: 75px 30px;", draggable = FALSE)),
-            hidden(actionButton(inputId = "grid_bb_button",label="",title="Navigate to the GRID window", style="background: url('www/img/grid.png');background-size: 75px 30px;", draggable = FALSE)),
-            hidden(actionButton(inputId = "plot_bb_button_two",label="",title="Navigate to the PLOT window", style="background: url('www/img/plot.png');background-size: 75px 30px;", draggable = FALSE)),
             hidden(actionButton(inputId = "map_bb_button_two",label="",title="Navigate to the MAP window", style="background: url('www/img/map.png');background-size: 75px 30px;", draggable = FALSE)),
             hidden(actionButton(inputId = "site_bb_button_two",label="",title="Navigate to the SITE window", style="background: url('www/img/site.png');background-size: 75px 30px;", draggable = FALSE)),
             hidden(actionButton(inputId = "grid_bb_button_two",label="",title="Navigate to the GRID window", style="background: url('www/img/grid.png');background-size: 75px 30px;", draggable = FALSE))
@@ -55,7 +51,7 @@ agroServer <- function(input, output, session) {
     database <- file.path(baseDir,"output/site.db")
     dir.create(dirname(database), showWarnings = FALSE)
     baseConnection <- dbConnect(SQLite(),database)
-    datas <- reactiveValues(baseDir = baseDir, connection=baseConnection)
+    datas <- reactiveValues(baseDir = baseDir, connection=baseConnection, gridConnection=dbConnect(SQLite(), file.path(baseDir, "output/grid.db")))
     
    session$onSessionEnded(stopApp)
 
@@ -86,6 +82,7 @@ agroServer <- function(input, output, session) {
                     dbDisconnect(datas$connection)
                     database <- file.path(choosenDir, "database/observation.db")
                     datas$connection <- dbConnect(SQLite(), database)
+                    datas$gridConnection <- dbConnect(SQLite(), file.path(choosenDir, "output/grid.db"))
                 }
             }
             
@@ -552,7 +549,7 @@ agroServer <- function(input, output, session) {
    ## DBMAN
    {
      
-     callModule(agroMoParAna,"dbmandiv")
+     callModule(agroMoDBMan,"dbmandiv", datas$baseDir, datas$gridConnection, datas$connection)
      observeEvent(input$calibration,{
        shinyjs::hide("base")
        shinyjs::hide("base-tools")
