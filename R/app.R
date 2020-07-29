@@ -55,7 +55,7 @@ agroServer <- function(input, output, session) {
     database <- file.path(baseDir,"output/site.db")
     dir.create(dirname(database), showWarnings = FALSE)
     baseConnection <- dbConnect(SQLite(),database)
-    datas <- reactiveValues(baseDir = baseDir, connection=baseConnection)
+    datas <- reactiveValues(baseDir = baseDir, connection=baseConnection, gridConnection=dbConnect(SQLite(), file.path(baseDir, "output/grid.db")))
     
    session$onSessionEnded(stopApp)
 
@@ -86,6 +86,7 @@ agroServer <- function(input, output, session) {
                     dbDisconnect(datas$connection)
                     database <- file.path(choosenDir, "database/observation.db")
                     datas$connection <- dbConnect(SQLite(), database)
+                    datas$gridConnection <- dbConnect(SQLite(), file.path(choosenDir, "output/grid.db"))
                 }
             }
             
@@ -552,7 +553,7 @@ agroServer <- function(input, output, session) {
    ## DBMAN
    {
      
-     callModule(agroMoParAna,"dbmandiv")
+     callModule(agroMoDBMan,"dbmandiv", datas$baseDir, datas$gridConnection, datas$connection)
      observeEvent(input$calibration,{
        shinyjs::hide("base")
        shinyjs::hide("base-tools")
