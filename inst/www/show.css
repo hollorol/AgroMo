@@ -151,7 +151,7 @@ div.profPlotCont .form-control {
 
 #showdiv-varset_container .control-label{
   position: absolute;
-  top: 141px;
+  top: 143px;
   left: 397px;
   width: 65px;
   font-weight: normal;
@@ -166,7 +166,7 @@ div.profPlotCont .form-control {
 
 #showdiv-varset_container .selectize-input{
   position: absolute;
-  top: 120px;
+  top: 122px;
    left: 444px;
   width: 199px;
   font-size: 16px;
@@ -342,16 +342,16 @@ div.profPlotCont .form-control {
 
 #colone {
     position: absolute;
-  top: 180px;
-  left:69px;
-  width: 282px;
+  top: 176.5px;
+  left:67px;
+  width: 284px;
   font-weight: bold;
   font-size: 16px;
   font-family: Fira Sans;
   color: black;
   border-style: solid;
-  border-width: thin;
-  border-color: gray;
+  border-width: medium;
+  border-color: #7F7A7A;
   text-align: center;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -361,7 +361,7 @@ div.profPlotCont .form-control {
 
 #coltwo {
   position: absolute;
-  top: 180px;
+  top: 176.5px;
   left:352px;
   width: 84px;
   font-weight: bold;
@@ -369,8 +369,8 @@ div.profPlotCont .form-control {
   font-family: Fira Sans;
   color: black;
   border-style: solid;
-  border-width: thin;
-  border-color: gray;
+  border-width: medium;
+  border-color: #7F7A7A;
   text-align: center;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -380,7 +380,7 @@ div.profPlotCont .form-control {
 
 #colthree {
  position: absolute;
-  top: 180px;
+  top: 176.5px;
   left:437px;
   width: 84px;
   font-weight: bold;
@@ -388,8 +388,8 @@ div.profPlotCont .form-control {
   font-family: Fira Sans;
   color: black;
   border-style: solid;
-  border-width: thin;
-  border-color: gray;
+  border-width: medium;
+  border-color: #7F7A7A;
   text-align: center;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -399,7 +399,7 @@ div.profPlotCont .form-control {
 
 #colfour {
   position: absolute;
-  top: 180px;
+  top: 176.5px;
   left:522px;
   font-weight: bold;
   font-size: 16px;
@@ -407,8 +407,8 @@ div.profPlotCont .form-control {
   color: black;
   width: 109.5px;
   border-style: solid;
-  border-width: thin;
-  border-color: gray;
+  border-width: medium;
+  border-color: #7F7A7A;
   text-align: center;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -419,18 +419,18 @@ div.profPlotCont .form-control {
 #showdiv-framelineone {
   position: absolute;
   top: 184px;
-  left: 69px;
-  height: 475px;
+  left: 67px;
+  height: 477px;
   background-color: #7F7A7A;
-  width: 1px;
+  width: 3px;
   color: #7F7A7A;
 }
 
 #showdiv-framelinetwo {
   position: absolute;
-  top: 657px;
+  top: 658px;
   left: 69px;
-  height: 1px;
+  height: 3px;
   background-color: #7F7A7A;
   width: 589px;
   color: #7F7A7A;
@@ -439,18 +439,18 @@ div.profPlotCont .form-control {
 #showdiv-framelinethree {
   position: absolute;
   top: 184px;
-  left: 657px;
+  left: 655px;
   height: 475px;
   background-color: #7F7A7A;
-  width: 1px;
+  width: 3px;
   color: #7F7A7A;
 }
 
 #showdiv-framelinefour {
   position: absolute;
-  top: 183px;
+  top: 181px;
   left: 630px;
-  height: 1px;
+  height: 3px;
   background-color: #7F7A7A;
   width: 28px;
   color: #7F7A7A;
@@ -479,7 +479,7 @@ div.profPlotCont .form-control {
 #showdiv-alias_container .form-control.shinyjs-resettable.shiny-bound-input{
     width: 255px;
     position: absolute;
-    top: 84px;
+    top: 81px;
     left:202px;
   font-size: 16px;
   font-family: Fira Sans;
@@ -491,7 +491,7 @@ div.profPlotCont .form-control {
 }
 #showdiv-alias_container label{
     position: absolute;
-    top: 88px;
+    top: 85px;
     left:160px;
   font-size: 16px;
   font-family: Fira Sans;
