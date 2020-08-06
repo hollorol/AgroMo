@@ -134,8 +134,9 @@
 #manModuls{
   position: absolute;
   top: 295px;
-  left: 2px;
+  left: -1px;
   font-size: 16px;
+  font-weight:bold;
   font-family: Fira Sans;
   color: black;
   -webkit-user-select: none;
@@ -150,6 +151,7 @@
   top: 295px;
   left: 570px;
   font-size: 16px;
+  font-weight:bold;
   font-family: Fira Sans;
   color: black;
   -webkit-user-select: none;
@@ -164,7 +166,7 @@
              
 #sitediv-planting_container .control-label {
   position: absolute;
-  top: 327px;
+  top: 330px;
   right: 730px;
   font-size: 16px;
   font-family: Fira Sans;
@@ -195,7 +197,7 @@
              }*/ 
 #sitediv-harvest_container .control-label{
   position: absolute;
-  top: 367px;
+  top: 368px;
   right: 730px;
   font-size: 16px;
   font-family: Fira Sans;
@@ -227,7 +229,7 @@
 
 #sitediv-fertilization_container .control-label{
   position: absolute;
-  top: 405px;
+  top: 406px;
   right: 730px;
   font-size: 16px;
   font-family: Fira Sans;
@@ -259,7 +261,7 @@
 
 #sitediv-irrigation_container .control-label{
   position: absolute;
-  top: 443px;
+  top: 444px;
   right: 730px;
   font-size: 16px;
   font-family: Fira Sans;
@@ -291,7 +293,7 @@
 
 #sitediv-cultivation_container .control-label{
   position: absolute;
-  top: 481px;
+  top: 482px;
   right: 730px;
   font-size: 16px;
   font-family: Fira Sans;
@@ -323,7 +325,7 @@
 
 #sitediv-grazing_container .control-label{
   position: absolute;
-  top: 519px;
+  top: 520px;
   right: 730px;
   font-size: 16px;
   font-family: Fira Sans;
@@ -355,7 +357,7 @@
 
 #sitediv-mowing_container .control-label{
   position: absolute;
-  top: 557px;
+  top: 558px;
   right: 730px;
   font-size: 16px;
   font-family: Fira Sans;
@@ -386,7 +388,7 @@
 
 #sitediv-thinning_container .control-label{
   position: absolute;
-  top: 595px;
+  top: 596px;
   right: 730px;
   font-size: 16px;
   font-family: Fira Sans;
@@ -484,7 +486,6 @@
    font-size: 16px;
    font-family: Fira Sans;
    color: black;
-   padding-bottom:10px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -494,8 +495,8 @@
 
 #sitediv-planshift_date_container label{
   position: absolute;
-  top: 327px;
-  left: 568px;
+  top: 329px;
+  left: 569px;
   font-size: 16px;
   font-family: Fira Sans;
   color: black;
@@ -516,7 +517,6 @@
   font-size: 16px;
   font-family: Fira Sans;
   color: black;
-  padding-bottom:10px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -525,8 +525,8 @@
 
 #sitediv-planshift_density_container label{
   position: absolute;
-  top: 327px;
-  right: -4px;
+  top: 329px;
+  right: -3px;
   font-size: 16px;
   font-family: Fira Sans;
   color: black;
@@ -547,7 +547,6 @@
   font-size: 16px;
   font-family: Fira Sans;
   color: black;
-  padding-bottom:10px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -556,8 +555,8 @@
 
 #sitediv-harvshift_date_container label{
   position: absolute;
-  top: 367px;
-  left: 568px;
+  top: 369px;
+  left: 569px;
   font-size: 16px;
   font-family: Fira Sans;
   color: black;
@@ -578,7 +577,6 @@
   font-size: 16px;
   font-family: Fira Sans;
   color: black;
-  padding-bottom:10px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -587,8 +585,8 @@
 
 #sitediv-fertshift_date_container label{
   position: absolute;
-  top: 405px;
-  left: 568px;
+  top: 407px;
+  left: 569px;
   font-size: 16px;
   font-family: Fira Sans;
   color: black;
@@ -609,7 +607,6 @@
   font-size: 16px;
   font-family: Fira Sans;
   color: black;
-  padding-bottom:10px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -618,8 +615,8 @@
 
 #sitediv-irrshift_date_container label{
   position: absolute;
-  top: 443px;
-  left: 568px;
+  top: 445px;
+  left: 569px;
   font-size: 16px;
   font-family: Fira Sans;
   color: black;
@@ -640,7 +637,6 @@
   font-size: 16px;
   font-family: Fira Sans;
   color: black;
-  padding-bottom:10px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -649,8 +645,8 @@
 
 #sitediv-fertshift_amount_container label{
   position: absolute;
-  top: 405px;
-  right: -4px;
+  top: 407px;
+  right: -3px;
   font-size: 16px;
   font-family: Fira Sans;
   color: black;
@@ -671,7 +667,6 @@
   font-size: 16px;
   font-family: Fira Sans;
   color: black;
-  padding-bottom:10px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -680,8 +675,8 @@
 
 #sitediv-irrshift_amount_container label{
   position: absolute;
-  top: 443px;
-  right: -4px;
+  top: 445px;
+  right: -3px;
   font-size: 16px;
   font-family: Fira Sans;
   color: black;
