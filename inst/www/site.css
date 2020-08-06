@@ -134,8 +134,9 @@
 #manModuls{
   position: absolute;
   top: 295px;
-  left: 2px;
+  left: -1px;
   font-size: 16px;
+  font-weight:bold;
   font-family: Fira Sans;
   color: black;
   -webkit-user-select: none;
@@ -150,6 +151,7 @@
   top: 295px;
   left: 570px;
   font-size: 16px;
+  font-weight:bold;
   font-family: Fira Sans;
   color: black;
   -webkit-user-select: none;
@@ -164,7 +166,7 @@
              
 #sitediv-planting_container .control-label {
   position: absolute;
-  top: 329px;
+  top: 330px;
   right: 730px;
   font-size: 16px;
   font-family: Fira Sans;
@@ -524,7 +526,7 @@
 #sitediv-planshift_density_container label{
   position: absolute;
   top: 329px;
-  right: -4px;
+  right: -3px;
   font-size: 16px;
   font-family: Fira Sans;
   color: black;
@@ -644,7 +646,7 @@
 #sitediv-fertshift_amount_container label{
   position: absolute;
   top: 407px;
-  right: -4px;
+  right: -3px;
   font-size: 16px;
   font-family: Fira Sans;
   color: black;
@@ -674,7 +676,7 @@
 #sitediv-irrshift_amount_container label{
   position: absolute;
   top: 445px;
-  right: -4px;
+  right: -3px;
   font-size: 16px;
   font-family: Fira Sans;
   color: black;
