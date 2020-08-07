@@ -526,7 +526,7 @@
 #sitediv-planshift_density_container label{
   position: absolute;
   top: 329px;
-  right: -3px;
+  right: -2px;
   font-size: 16px;
   font-family: Fira Sans;
   color: black;
@@ -535,6 +535,20 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;  
+}
+
+#negyzet{
+  position: absolute;
+  top: 329px;
+  right: 6.5px;
+  font-size: 10px;
+  font-family: Fira Sans;
+  color: black;
+  font-weight: normal;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;    
 }
 
 
