@@ -57,6 +57,7 @@ agroMoSiteUI <- function(id){
              #      ),
              shiny::tags$div(id="manModuls","management options:"),
              shiny::tags$div(id="shiftIn","shift in ..."),
+             shiny::tags$div(id="negyzet","2"),
              shiny::tags$div(id="outputid-label","OUTPUT DATA TABLE:"),
              lapply(managementTypes,function(man){
                         # browser()
@@ -81,7 +82,7 @@ agroMoSiteUI <- function(id){
              ),
              shiny::tags$div(
                     id = paste0(ns("planshift_density"),"_container"),
-                    textInput(ns("planshift_density"), "density (p/m2):", 0)
+                    textInput(ns("planshift_density"), "density (p/m ):", 0)
              ),
              shiny::tags$div(
                     id = paste0(ns("harvshift_date"),"_container"),

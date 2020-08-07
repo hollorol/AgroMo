@@ -482,7 +482,6 @@
   top: 324px;
   left: 650px;
    width: 55px;
-   height: 33px;
    font-size: 16px;
    font-family: Fira Sans;
    color: black;
@@ -513,7 +512,6 @@
   top: 324px;
   right: -62px;
   width: 55px;
-  height: 33px;
   font-size: 16px;
   font-family: Fira Sans;
   color: black;
@@ -526,7 +524,7 @@
 #sitediv-planshift_density_container label{
   position: absolute;
   top: 329px;
-  right: -3px;
+  right: -2px;
   font-size: 16px;
   font-family: Fira Sans;
   color: black;
@@ -537,13 +535,26 @@
   user-select: none;  
 }
 
+#negyzet{
+  position: absolute;
+  top: 329px;
+  right: 6.5px;
+  font-size: 10px;
+  font-family: Fira Sans;
+  color: black;
+  font-weight: normal;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;    
+}
+
 
 #sitediv-harvshift_date_container .form-control{
   position: absolute;
-  top: 363px;
+  top: 362px;
   left: 650px;
   width: 55px;
-  height: 33px;
   font-size: 16px;
   font-family: Fira Sans;
   color: black;
@@ -555,7 +566,7 @@
 
 #sitediv-harvshift_date_container label{
   position: absolute;
-  top: 369px;
+  top: 367px;
   left: 569px;
   font-size: 16px;
   font-family: Fira Sans;
@@ -570,10 +581,9 @@
 
 #sitediv-fertshift_date_container .form-control{
   position: absolute;
-  top: 401px;
+  top: 400px;
   left: 650px;
   width: 55px;
-  height: 33px;
   font-size: 16px;
   font-family: Fira Sans;
   color: black;
@@ -585,7 +595,7 @@
 
 #sitediv-fertshift_date_container label{
   position: absolute;
-  top: 407px;
+  top: 405px;
   left: 569px;
   font-size: 16px;
   font-family: Fira Sans;
@@ -600,10 +610,9 @@
 
 #sitediv-irrshift_date_container .form-control{
   position: absolute;
-  top: 439px;
+  top: 438px;
   left: 650px;
   width: 55px;
-  height: 33px;
   font-size: 16px;
   font-family: Fira Sans;
   color: black;
@@ -615,7 +624,7 @@
 
 #sitediv-irrshift_date_container label{
   position: absolute;
-  top: 445px;
+  top: 443px;
   left: 569px;
   font-size: 16px;
   font-family: Fira Sans;
@@ -630,10 +639,9 @@
 
 #sitediv-fertshift_amount_container .form-control{
   position: absolute;
-  top: 401px;
+  top: 400px;
   right: -62px;
   width: 55px;
-  height: 33px;
   font-size: 16px;
   font-family: Fira Sans;
   color: black;
@@ -645,7 +653,7 @@
 
 #sitediv-fertshift_amount_container label{
   position: absolute;
-  top: 407px;
+  top: 405px;
   right: -3px;
   font-size: 16px;
   font-family: Fira Sans;
@@ -660,10 +668,9 @@
 
 #sitediv-irrshift_amount_container .form-control{
   position: absolute;
-  top: 439px;
+  top: 438px;
   right: -62px;
   width: 55px;
-  height: 33px;
   font-size: 16px;
   font-family: Fira Sans;
   color: black;
@@ -675,7 +682,7 @@
 
 #sitediv-irrshift_amount_container label{
   position: absolute;
-  top: 445px;
+  top: 443px;
   right: -3px;
   font-size: 16px;
   font-family: Fira Sans;
