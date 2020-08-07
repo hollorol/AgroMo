@@ -482,7 +482,6 @@
   top: 324px;
   left: 650px;
    width: 55px;
-   height: 33px;
    font-size: 16px;
    font-family: Fira Sans;
    color: black;
@@ -513,7 +512,6 @@
   top: 324px;
   right: -62px;
   width: 55px;
-  height: 33px;
   font-size: 16px;
   font-family: Fira Sans;
   color: black;
@@ -557,7 +555,6 @@
   top: 363px;
   left: 650px;
   width: 55px;
-  height: 33px;
   font-size: 16px;
   font-family: Fira Sans;
   color: black;
@@ -569,7 +566,7 @@
 
 #sitediv-harvshift_date_container label{
   position: absolute;
-  top: 369px;
+  top: 368px;
   left: 569px;
   font-size: 16px;
   font-family: Fira Sans;
@@ -587,7 +584,6 @@
   top: 401px;
   left: 650px;
   width: 55px;
-  height: 33px;
   font-size: 16px;
   font-family: Fira Sans;
   color: black;
@@ -599,7 +595,7 @@
 
 #sitediv-fertshift_date_container label{
   position: absolute;
-  top: 407px;
+  top: 406px;
   left: 569px;
   font-size: 16px;
   font-family: Fira Sans;
@@ -617,7 +613,6 @@
   top: 439px;
   left: 650px;
   width: 55px;
-  height: 33px;
   font-size: 16px;
   font-family: Fira Sans;
   color: black;
@@ -629,7 +624,7 @@
 
 #sitediv-irrshift_date_container label{
   position: absolute;
-  top: 445px;
+  top: 444px;
   left: 569px;
   font-size: 16px;
   font-family: Fira Sans;
@@ -647,7 +642,6 @@
   top: 401px;
   right: -62px;
   width: 55px;
-  height: 33px;
   font-size: 16px;
   font-family: Fira Sans;
   color: black;
@@ -659,7 +653,7 @@
 
 #sitediv-fertshift_amount_container label{
   position: absolute;
-  top: 407px;
+  top: 406px;
   right: -3px;
   font-size: 16px;
   font-family: Fira Sans;
@@ -677,7 +671,6 @@
   top: 439px;
   right: -62px;
   width: 55px;
-  height: 33px;
   font-size: 16px;
   font-family: Fira Sans;
   color: black;
@@ -689,7 +682,7 @@
 
 #sitediv-irrshift_amount_container label{
   position: absolute;
-  top: 445px;
+  top: 444px;
   right: -3px;
   font-size: 16px;
   font-family: Fira Sans;
