@@ -53,7 +53,7 @@ agroServer <- function(input, output, session) {
     baseConnection <- dbConnect(SQLite(),database)
     datas <- reactiveValues(baseDir = baseDir, connection=baseConnection, gridConnection=dbConnect(SQLite(), file.path(baseDir, "output/grid.db")))
     
-   session$onSessionEnded(stopApp)
+   # session$onSessionEnded(stopApp)
 
     observeEvent(input$exit,{
         if(Sys.info()["sysname"] == "Windows"){
@@ -282,7 +282,7 @@ agroServer <- function(input, output, session) {
        shinyjs::show("plot_bb_button")
        shinyjs::hide("map_bb_button")
        shinyjs::hide("grid_bb_button")
-       shinyjs::hide("site_bb_button_two")
+       shinyjs::show("site_bb_button_two")
        shinyjs::hide("plot_bb_button_two")
        shinyjs::show("map_bb_button_two")
        shinyjs::hide("grid_bb_button_two")
