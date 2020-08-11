@@ -83,7 +83,7 @@
 }
 
 #griddiv-climproj_container .selectize-input.items.full.has-options.has-items {
-    width: 635px;
+    width: 615px;
     position: absolute;
     top: 55px;
     left: 190px;
@@ -110,7 +110,7 @@
 }
 
 #griddiv-soildb_container .selectize-input.items.full.has-options.has-items {
-    width: 635px;
+    width: 615px;
     position: absolute;
     top: 105px;
     left: 190px;
@@ -139,7 +139,7 @@
 #griddiv-ensclim_container {
     position: absolute;
     top: 120px;
-    left: 835px;
+    left: 815px;
     font-size: 16px;
     color: black;
     font-family: Fira Sans;
@@ -153,7 +153,7 @@
 #griddiv-ensalg_container {
     position: absolute;
     top: 167px;
-    left: 835px;
+    left: 815px;
     font-size: 16px;
     color: black;
     font-family: Fira Sans;
@@ -167,7 +167,7 @@
 #griddiv-enssoil_container {
     position: absolute;
     top: 70px;
-    left: 835px;
+    left: 815px;
     font-size: 16px;
     color: black;
     font-family: Fira Sans;
@@ -178,18 +178,19 @@
      user-select: none;
 }
 
-#griddiv-repcheck_container {
+#griddiv-repcheck_container .bootstrap-switch{
     position: absolute;
-    top: 628px;
-    left: 899px;
+    top: 662px;
+    left: 829px;
     font-size: 16px;
     color: black;
     font-family: Fira Sans;
     cursor: pointer;
     z-index: 1;
-    height: 29px;
-    width: 14px;
-    transform: scale(1.1);
+    height: 32px;
+    padding-top: 0px;
+    text-align: center;
+    background-color: green;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -352,7 +353,7 @@
 #griddiv-annual_container .bootstrap-switch-id-griddiv-annual {
     position: absolute;
     top: 250px;
-    left: 190px;
+    left: 345px;
     font-size: 16px;
     color: black;
     font-family: Fira Sans;
@@ -376,7 +377,7 @@
 }
 
 #griddiv-algosel_container .selectize-input.items.full.has-options.has-items {
-    width: 635px;
+    width: 615px;
     position: absolute;
     left: 190px;
     top: 152px;
@@ -435,9 +436,9 @@
 
 #griddiv-Map {
     position: absolute;
-    top: 670px;
+    top: 700px;
     left: 785px;
-    height: 85px;
+    height: 55px;
     width: 130px;
     font-size: 26px;
     font-family: Fira Sans;
@@ -1175,7 +1176,7 @@ span.timeSlice {
     top:16px;
     left: 360px;
     border-radius: 3px;
-    width: 582px;
+    width: 562px;
     height: 31px;
     padding-left: 5px;
     padding-top: 5px;
@@ -1187,5 +1188,10 @@ span.timeSlice {
     -moz-user-select: none;
     -ms-user-select: none;
      user-select: none;
-    
+}
+
+
+.bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-primary {
+    background-color: lightblue;
+    color: black;
 }
