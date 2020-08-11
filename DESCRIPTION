@@ -12,6 +12,7 @@ Imports:
   pool,
   shinyBS,
   shinyjs,
+  shinyWidgets,
   plotly,
   promises,
   future,
