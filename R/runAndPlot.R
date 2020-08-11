@@ -51,6 +51,7 @@ dat<-reactiveValues(dataenv = NULL)
          print(connection())
          print(baseDir())
          print(outputName())
+                  file.remove(file.path(baseDir(), "output", sprintf("%s.dayout", settings$outputName)), showWarnings = FALSE)
                   writeDataToDB(settings = settings, dbConnection = isolate(connection()),
                          binaryName = file.path(baseDir(), "output", sprintf("%s.dayout", settings$outputName)),
                          isolate(outputName()))          
