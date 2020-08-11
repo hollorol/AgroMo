@@ -95,7 +95,7 @@
     ),   
     tags$div(
       id = paste0(ns("alias"),"_container"),
-      textInput(ns("alias"),"",NA)
+      textOutput(ns("alias"))
     ), 
     tags$div(
       id = paste0(ns("queryalias"),"_container"),
