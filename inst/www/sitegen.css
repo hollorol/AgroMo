@@ -46,6 +46,7 @@
   -ms-user-select: none;
   user-select: none;
 }
+
 #sitegendiv-weather_container {
     position: absolute;
     top: 330px;
@@ -89,6 +90,7 @@
   -ms-user-select: none;
   user-select: none;
 }
+
 #sitegendiv-ini_container span{
     position: absolute;
     top: 0px;  
@@ -144,6 +146,7 @@
   -ms-user-select: none;
   user-select: none;
 }
+
 #sitegendiv-erareg_container label{
     position: absolute;
     top: 30px;
@@ -184,6 +187,7 @@
   -ms-user-select: none;
   user-select: none;
 }
+
 #sitegendiv-settlement_container .selectize-control{
     position: absolute;
     top: 185px;
@@ -212,6 +216,7 @@
   -ms-user-select: none;
   user-select: none;
 }
+
 #sitegendiv-lat_container .form-control {
     position: absolute;
     top: 105px;
@@ -255,6 +260,7 @@
   -ms-user-select: none;
   user-select: none;
 }
+
 #sitegendiv-start_container label{
     position: absolute;
     top: 111px;
@@ -283,6 +289,7 @@
   -ms-user-select: none;
   user-select: none;
 }
+
 #sitegendiv-end_container label {
     position: absolute;
     top: 151px;
@@ -311,6 +318,7 @@
   -ms-user-select: none;
   user-select: none;
 }
+
 #geocord {
     position: absolute;
     top: 80px;
@@ -337,93 +345,4 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}
-
-#plot_bb_button_two {
-    position: absolute;
-  top: 220px;
-  left: -228px;
-  height: 30px;
-  width: 75px;
-  border-width: 0px;
-  border-radius: 1px;
-}
-
-#map_bb_button_two {
-    position: absolute;
-  top: 220px;
-  left: -228px;
-  height: 30px;
-  width: 75px;
-  border-width: 0px;
-  border-radius: 1px;
-}
-
-#site_bb_button_two {
-    position: absolute;
-  top: 220px;
-  left: -228px;
-  height: 30px;
-  width: 75px;
-  border-width: 0px;
-  border-radius: 1px;
-}
-
-#grid_bb_button_two {
-    position: absolute;
-  top: 220px;
-  left: -228px;
-  height: 30px;
-  width: 75px;
-  border-width: 0px;
-  border-radius: 1px;
-}
-
-#grid_bb_button {
-    position: absolute;
-  top: 220px;
-  left: -138px;
-  height: 30px;
-  width: 75px;
-  border-width: 0px;
-  border-radius: 1px;
-}
-
-#site_bb_button {
-    position: absolute;
-  top: 220px;
-  left: -138px;
-  height: 30px;
-  width: 75px;
-  border-width: 0px;
-  border-radius: 1px;
-}
-
-#map_bb_button {
-    position: absolute;
-  top: 260px;
-  left: -138px;
-  height: 30px;
-  width: 75px;
-  border-width: 0px;
-  border-radius: 1px;
-}
-
-#plot_bb_button {
-    position: absolute;
-  top: 260px;
-  left: -138px;
-  height: 30px;
-  width: 75px;
-  border-width: 0px;
-  border-radius: 1px;
-}
-#base_bb_button {
-    position: absolute;
-  top: 260px;
-  left: -228px;
-  height: 30px;
-  width: 75px;
-  border-width: 0px;
-  border-radius: 1px;
 }

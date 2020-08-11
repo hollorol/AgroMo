@@ -106,10 +106,6 @@
   color: black;
 }
 
-
-
-
-
 #DBMan-banner-div img{
   cursor: default; 
     }
@@ -135,6 +131,7 @@ div#dbmandiv-result {
     width: 959px;
     overflow-y: scroll;
 }
+
 div#dbmandiv-result {
     position: absolute;
     top: 200px;

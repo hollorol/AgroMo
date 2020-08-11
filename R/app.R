@@ -21,8 +21,12 @@ agroUI <- function(){
             hidden(BBGCUI(id="BBGCDB")),
             hidden(actionButton(inputId = "base_bb_button",label="",title="Navigateto the BASE window", style="background: url('www/img/base.png');background-size: 75px 30px;", draggable = FALSE)),
             hidden(actionButton(inputId = "plot_bb_button",label="",title="Navigate to the PLOT window", style="background: url('www/img/plot.png');background-size: 75px 30px;", draggable = FALSE)),
+            hidden(actionButton(inputId = "plot_bb_button_two",label="",title="Navigate to the PLOT window", style="background: url('www/img/plot.png');background-size: 75px 30px;", draggable = FALSE)),
+            hidden(actionButton(inputId = "map_bb_button",label="",title="Navigate to the MAP window", style="background: url('www/img/map.png');background-size: 75px 30px;", draggable = FALSE)),
             hidden(actionButton(inputId = "map_bb_button_two",label="",title="Navigate to the MAP window", style="background: url('www/img/map.png');background-size: 75px 30px;", draggable = FALSE)),
+            hidden(actionButton(inputId = "site_bb_button",label="",title="Navigate to the SITE window", style="background: url('www/img/site.png');background-size: 75px 30px;", draggable = FALSE)),
             hidden(actionButton(inputId = "site_bb_button_two",label="",title="Navigate to the SITE window", style="background: url('www/img/site.png');background-size: 75px 30px;", draggable = FALSE)),
+            hidden(actionButton(inputId = "grid_bb_button",label="",title="Navigate to the GRID window", style="background: url('www/img/grid.png');background-size: 75px 30px;", draggable = FALSE)),
             hidden(actionButton(inputId = "grid_bb_button_two",label="",title="Navigate to the GRID window", style="background: url('www/img/grid.png');background-size: 75px 30px;", draggable = FALSE))
             
         )
@@ -282,7 +286,7 @@ agroServer <- function(input, output, session) {
        shinyjs::show("plot_bb_button")
        shinyjs::hide("map_bb_button")
        shinyjs::hide("grid_bb_button")
-       shinyjs::show("site_bb_button_two")
+       shinyjs::hide("site_bb_button_two")
        shinyjs::hide("plot_bb_button_two")
        shinyjs::show("map_bb_button_two")
        shinyjs::hide("grid_bb_button_two")
