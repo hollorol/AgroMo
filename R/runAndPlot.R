@@ -34,6 +34,9 @@ dat<-reactiveValues(dataenv = NULL)
 
     
     ## browser()
+
+    file.remove(file.path(baseDir(), "output", sprintf("%s.dayout", settings$outputName)),
+                showWarnings = FALSE)
     readAndChangeFiles(isolate(baseDir()), iniFile(), weatherFile(), soilFile(), managementFile(),
                        planting(), harvest(), fertilization(), irrigation(), grazing(),
                        mowing(), thinning(), planshift_date(), planshift_density(),
@@ -51,7 +54,6 @@ dat<-reactiveValues(dataenv = NULL)
          print(connection())
          print(baseDir())
          print(outputName())
-                  file.remove(file.path(baseDir(), "output", sprintf("%s.dayout", settings$outputName)), showWarnings = FALSE)
                   writeDataToDB(settings = settings, dbConnection = isolate(connection()),
                          binaryName = file.path(baseDir(), "output", sprintf("%s.dayout", settings$outputName)),
                          isolate(outputName()))          
