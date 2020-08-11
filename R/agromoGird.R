@@ -3,15 +3,15 @@
     tags$div(id = ns(id),
     tags$div(
     id = paste0(ns("ensclim"),"_container"),
-    checkboxInput(ns("ensclim"), label = "Ensemble", value = FALSE)
+    shinyWidgets::switchInput(ns("ensclim"), label = NULL, onLabel="selected", offLabel="ensemble", value = FALSE)
     ),
     tags$div(
     id =paste0(ns("ensalg"),"_container"),
-    checkboxInput(ns("ensalg"), label = "Ensemble", value = FALSE)
+    shinyWidgets::switchInput(ns("ensalg"), label = NULL, onLabel="selected", offLabel="ensemble", value = FALSE)
     ),         
     tags$div(
       id =paste0(ns("enssoil"),"_container"),
-      checkboxInput(ns("enssoil"), label = "Ensemble", value = FALSE)
+      shinyWidgets::switchInput(ns("enssoil"), label = NULL, onLabel="selected", offLabel="ensemble", value = FALSE)
     ),
     tags$div(
       id =paste0(ns("repcheck"),"_container"),
@@ -55,11 +55,7 @@
     ),
     tags$div(
       id =paste0(ns("annual"),"_container"),
-      checkboxInput(ns("annual"), label = "annual outputs", value = FALSE)
-    ),
-    tags$div(
-      id =paste0(ns("daily"),"_container"),
-      checkboxInput(ns("daily"), label = "daily outputs", value = FALSE)
+      shinyWidgets::switchInput(ns("annual"), label = NULL, onLabel="annual outputs", offLabel="daily outputs", value = FALSE)
     ),
     tags$div(
       id = paste0(ns("gridres"),"_container"),
