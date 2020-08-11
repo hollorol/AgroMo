@@ -1277,3 +1277,8 @@ span.timeSlice {
     background-color: #b0bed9;
     border: 0;
 }
+
+#griddiv-alias_container {
+    position: absolute;
+    left: 400px;
+}
