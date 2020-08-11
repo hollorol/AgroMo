@@ -193,7 +193,7 @@ height: 33px;
 #griddiv-repcheck_container .bootstrap-switch{
     position: absolute;
     top: 662px;
-    left: 829px;
+    left: 785px;
     font-size: 16px;
     color: black;
     font-family: Fira Sans;
@@ -201,6 +201,7 @@ height: 33px;
     z-index: 1;
     padding-top: 0px;
     text-align: center;
+    width: 130px !important;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -876,12 +877,13 @@ position: absolute;
 #griddiv-sqlfunc_5_container {
     position: absolute;
     top: 547px;
+
 }
 
 #griddiv-sqlfunc_5_container .control-label {
     position: absolute;
     top: 15px;
-    left: 377px;
+    left: 378px;
     font-size: 16px;
     font-family: Fira Sans;
     color: red;
@@ -892,7 +894,7 @@ position: absolute;
      user-select: none;
 }
 
-#griddiv-sqlfunc_5_container .selectize-input.items.full.has-options.has-items {
+#griddiv-sqlfunc_5_container .selectize-input.items {
     position: absolute;
     left: 405px;
     width: 365px;
@@ -908,7 +910,7 @@ position: absolute;
 #griddiv-sqlfunc_5_container .selectize-dropdown-content {
     position: absolute;
     bottom: 0px;
-    width: 365px;
+    width: 385px;
     font-size: 16px;
     font-family: Fira Sans;
     color: black;
@@ -918,6 +920,7 @@ position: absolute;
     -ms-user-select: none;
      user-select: none;
 }
+
 
 #griddiv-sqlfunc_6_container {
     position: absolute;

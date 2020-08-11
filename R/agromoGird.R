@@ -17,42 +17,42 @@
       id =paste0(ns("repcheck"),"_container"),
       shinyWidgets::switchInput(ns("repcheck"), label = NULL, onLabel="show", offLabel="save", value = TRUE)
     ),
-    tags$div(
-      id =paste0(ns("checkone"),"_container"), title ="query all items if checked",
-      checkboxInput(ns("checkone"), label = "", value = TRUE)
-    ),
-    tags$div(
-      id =paste0(ns("checktwo"),"_container"),
-      checkboxInput(ns("checktwo"), label = "", value = TRUE)
-    ),
-    tags$div(
-      id =paste0(ns("checkthree"),"_container"),
-      checkboxInput(ns("checkthree"), label = "", value = TRUE)
-    ),
-    tags$div(
-      id =paste0(ns("checkfour"),"_container"),
-      checkboxInput(ns("checkfour"), label = "", value = TRUE)
-    ),
-    tags$div(
-      id =paste0(ns("checkfive"),"_container"),
-      checkboxInput(ns("checkfive"), label = "", value = TRUE)
-    ),
-    tags$div(
-      id =paste0(ns("checksix"),"_container"),
-      checkboxInput(ns("checksix"), label = "", value = TRUE)
-    ),
-    tags$div(
-      id =paste0(ns("checkseven"),"_container"),
-      checkboxInput(ns("checkseven"), label = "", value = TRUE)
-    ),
-    tags$div(
-      id =paste0(ns("checkeight"),"_container"),
-      checkboxInput(ns("checkeight"), label = "", value = TRUE)
-    ),
-    tags$div(
-      id =paste0(ns("checknine"),"_container"),
-      checkboxInput(ns("checknine"), label = "", value = TRUE)
-    ),
+    #tags$div(
+    #  id =paste0(ns("checkone"),"_container"), title ="query all items if checked",
+    #  checkboxInput(ns("checkone"), label = "", value = TRUE)
+    #),
+    #tags$div(
+    # id =paste0(ns("checktwo"),"_container"),
+    # checkboxInput(ns("checktwo"), label = "", value = TRUE)
+    #),
+    #tags$div(
+    # id =paste0(ns("checkthree"),"_container"),
+    # checkboxInput(ns("checkthree"), label = "", value = TRUE)
+    #),
+    #tags$div(
+    # id =paste0(ns("checkfour"),"_container"),
+    # checkboxInput(ns("checkfour"), label = "", value = TRUE)
+    #),
+    #tags$div(
+    # id =paste0(ns("checkfive"),"_container"),
+    # checkboxInput(ns("checkfive"), label = "", value = TRUE)
+    #),
+    #tags$div(
+    # id =paste0(ns("checksix"),"_container"),
+    # checkboxInput(ns("checksix"), label = "", value = TRUE)
+    #),
+    #tags$div(
+    # id =paste0(ns("checkseven"),"_container"),
+    # checkboxInput(ns("checkseven"), label = "", value = TRUE)
+    #),
+    #tags$div(
+    # id =paste0(ns("checkeight"),"_container"),
+    # checkboxInput(ns("checkeight"), label = "", value = TRUE)
+    #),
+    #tags$div(
+    # id =paste0(ns("checknine"),"_container"),
+    #  checkboxInput(ns("checknine"), label = "", value = TRUE)
+    #),
     tags$div(
       id =paste0(ns("annual"),"_container"),
       shinyWidgets::switchInput(ns("annual"), label = NULL, onLabel="annual outputs", offLabel="daily outputs", value = FALSE)
@@ -129,7 +129,7 @@
                       lapply(1:9,function(x){
                                  tags$div(
                                           id= ns(sprintf("sqlfunc_%s_container",x)),
-                                          selectInput(ns(sprintf("sqlfunc_%s",x)),sprintf("{%s}:",x),choices=c("NA"))
+                                          selectInput(ns(sprintf("sqlfunc_%s",x)),sprintf("{%s}:",x),choices=c("NA"), multiple=TRUE)
                                  )
                       })
     )),
