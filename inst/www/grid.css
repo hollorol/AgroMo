@@ -5,6 +5,7 @@
     height: 650px;
     overflow: hidden;    
 }
+
 .modal-title {
     font-size: 20px; 
     color: black;
@@ -195,7 +196,6 @@
      user-select: none;
 }
 
-
 #griddiv-checkone_container {
     position: absolute;
       top: 601px;
@@ -348,6 +348,7 @@
     -ms-user-select: none;
      user-select: none;
 }
+
 #griddiv-annual_container {
     position: absolute;
     top: 240px;
@@ -403,7 +404,6 @@
      user-select: none;
 }
 
-
 #griddiv-outsq_container .form-control.shinyjs-resettable.shiny-bound-input {
     width: 400px;
     position: absolute;
@@ -415,7 +415,8 @@
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-     user-select: none;}
+     user-select: none;
+}
 
 #griddiv-outsq_container label {
     position: absolute;
@@ -429,7 +430,6 @@
     -ms-user-select: none;
      user-select: none;
 }
-
 
 #griddiv-StartSim {
     position: absolute;
@@ -526,7 +526,6 @@
      user-select: none;
 }
 
-
 #griddiv-metadata_container .form-control.shinyjs-resettable.shiny-bound-input {
     width: 600px;
     position: absolute;
@@ -615,7 +614,6 @@ position: absolute;
      display:none;
 }
 
-
 #griddiv-algselquery_container .selectize-input {
 position: absolute;
     top: -14px;
@@ -652,7 +650,6 @@ position: absolute;
     -ms-user-select: none;
      user-select: none;
 }
-
 
 #griddiv-until_container {
     position: absolute;
@@ -922,7 +919,6 @@ position: absolute;
     top: 588px;
 }
 
-
 #griddiv-sqlfunc_6_container .control-label {
     position: absolute;
     top: 15px;
@@ -1144,95 +1140,6 @@ position: absolute;
  top: 480px;
  left: 585px;
   width: 335px;
-}
-
-#plot_bb_button_two {
-    position: absolute;
-  top: 220px;
-  left: -228px;
-  height: 30px;
-  width: 75px;
-  border-width: 0px;
-  border-radius: 1px;
-}
-
-#map_bb_button_two {
-    position: absolute;
-  top: 220px;
-  left: -228px;
-  height: 30px;
-  width: 75px;
-  border-width: 0px;
-  border-radius: 1px;
-}
-
-#site_bb_button_two {
-    position: absolute;
-  top: 220px;
-  left: -228px;
-  height: 30px;
-  width: 75px;
-  border-width: 0px;
-  border-radius: 1px;
-}
-
-#grid_bb_button_two {
-    position: absolute;
-  top: 220px;
-  left: -228px;
-  height: 30px;
-  width: 75px;
-  border-width: 0px;
-  border-radius: 1px;
-}
-
-#grid_bb_button {
-    position: absolute;
-  top: 220px;
-  left: -138px;
-  height: 30px;
-  width: 75px;
-  border-width: 0px;
-  border-radius: 1px;
-}
-
-#site_bb_button {
-    position: absolute;
-  top: 220px;
-  left: -138px;
-  height: 30px;
-  width: 75px;
-  border-width: 0px;
-  border-radius: 1px;
-}
-
-#map_bb_button {
-    position: absolute;
-  top: 260px;
-  left: -138px;
-  height: 30px;
-  width: 75px;
-  border-width: 0px;
-  border-radius: 1px;
-}
-
-#plot_bb_button {
-    position: absolute;
-  top: 260px;
-  left: -138px;
-  height: 30px;
-  width: 75px;
-  border-width: 0px;
-  border-radius: 1px;
-}
-#base_bb_button {
-    position: absolute;
-  top: 260px;
-  left: -228px;
-  height: 30px;
-  width: 75px;
-  border-width: 0px;
-  border-radius: 1px;
 }
 
 #Grid-banner-div img{

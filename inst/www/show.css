@@ -81,8 +81,6 @@ div.xmax label {
     color: blue;
 }
 
-
-
 #showdiv-del {
 position:absolute;
   top: 695px;
@@ -95,7 +93,6 @@ position:absolute;
   font-weight: bold;
   color: black;
 }
-
 
 div.profPlotCont {
   width: 650px;
@@ -137,18 +134,6 @@ div.profPlotCont .form-control {
   font-family: "Fira Sans";
 }
 
-
-/*#showdiv-varset_container {
-  position: absolute;
-  top: 135px;
-  left:-310px;
-  font-size: 16px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-} */
-
 #showdiv-varset_container .control-label{
   position: absolute;
   top: 143px;
@@ -177,9 +162,6 @@ div.profPlotCont .form-control {
   user-select: none;
 } 
 
-
-
-
 #showdiv-cellid_container {
   position: absolute;
   top: 720px;
@@ -193,7 +175,6 @@ div.profPlotCont .form-control {
   user-select: none;
   display: none;
 } 
-
 
 #showdiv-cellid_container .form-control {
   position: absolute;
@@ -211,7 +192,6 @@ div.profPlotCont .form-control {
   color: black;
   display: none;
 } 
-
 
 #showdiv-compfunc_container .selectize-input {
   position: absolute;
@@ -280,7 +260,6 @@ div.profPlotCont .form-control {
     width: 440px;
 }
 
-
 #simres {
   position: absolute;
   top: 15px;
@@ -294,8 +273,6 @@ div.profPlotCont .form-control {
   -ms-user-select: none;
   user-select: none;
 } 
-
-
 
 #gridsimres {
   position: absolute;
@@ -591,95 +568,6 @@ div.profPlotCont .form-control {
   left: 70px;
 }
 
-
-#plot_bb_button_two {
-    position: absolute;
-  top: 220px;
-  left: -228px;
-  height: 30px;
-  width: 75px;
-  border-width: 0px;
-  border-radius: 1px;
-}
-
-#map_bb_button_two {
-    position: absolute;
-  top: 220px;
-  left: -228px;
-  height: 30px;
-  width: 75px;
-  border-width: 0px;
-  border-radius: 1px;
-}
-
-#site_bb_button_two {
-    position: absolute;
-  top: 220px;
-  left: -228px;
-  height: 30px;
-  width: 75px;
-  border-width: 0px;
-  border-radius: 1px;
-}
-
-#grid_bb_button_two {
-    position: absolute;
-  top: 220px;
-  left: -228px;
-  height: 30px;
-  width: 75px;
-  border-width: 0px;
-  border-radius: 1px;
-}
-
-#grid_bb_button {
-    position: absolute;
-  top: 220px;
-  left: -138px;
-  height: 30px;
-  width: 75px;
-  border-width: 0px;
-  border-radius: 1px;
-}
-
-#site_bb_button {
-    position: absolute;
-  top: 220px;
-  left: -138px;
-  height: 30px;
-  width: 75px;
-  border-width: 0px;
-  border-radius: 1px;
-}
-
-#map_bb_button {
-    position: absolute;
-  top: 260px;
-  left: -138px;
-  height: 30px;
-  width: 75px;
-  border-width: 0px;
-  border-radius: 1px;
-}
-
-#plot_bb_button {
-    position: absolute;
-  top: 260px;
-  left: -138px;
-  height: 30px;
-  width: 75px;
-  border-width: 0px;
-  border-radius: 1px;
-}
-#base_bb_button {
-    position: absolute;
-  top: 260px;
-  left: -228px;
-  height: 30px;
-  width: 75px;
-  border-width: 0px;
-  border-radius: 1px;
-}
 #Show-banner-div img{
   cursor: default; 
     }

@@ -27,8 +27,6 @@
   user-select: none;
 }
 
-
-
 #sitediv-weatherFile_container .control-label{
     position: absolute;
     top: 95px;
@@ -81,8 +79,8 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;    
-   
 }
+
 #sitediv-managementFile_container .control-label{
     position: absolute;
     top: 235px;
@@ -93,8 +91,8 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;    
-    
 }
+
 #sitediv-managementFile_container .selectize-control.shinyjs-resettable.single .selectize-input{
     position: absolute;
     top: 240px;
@@ -143,7 +141,6 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  
 }
 
 #shiftIn{
@@ -159,10 +156,6 @@
   -ms-user-select: none;
   user-select: none;
 }
-/*#sitediv-planting_container{
-  position: absolute;
-  top: 400px; 
-  }*/
              
 #sitediv-planting_container .control-label {
   position: absolute;
@@ -191,10 +184,6 @@
   user-select: none;  
 }
 
-/*#sitediv-harvest_container{
-  position: absolute;
-  top: 450px;
-             }*/ 
 #sitediv-harvest_container .control-label{
   position: absolute;
   top: 368px;
@@ -221,11 +210,6 @@
   -ms-user-select: none;
   user-select: none;  
 }
-
-/*#sitediv-fertilization_container{
-  position: absolute;
-  top: 500px;
-} */
 
 #sitediv-fertilization_container .control-label{
   position: absolute;
@@ -254,11 +238,6 @@
   user-select: none;  
 }
 
-/*#sitediv-irrigation_container{
-  position: absolute;
-  top: 550px;
-} */
-
 #sitediv-irrigation_container .control-label{
   position: absolute;
   top: 444px;
@@ -285,11 +264,6 @@
   -ms-user-select: none;
   user-select: none;  
 }
-
-/*#sitediv-cultivation_container{
-  position: absolute;
-  top: 600px;
-} */
 
 #sitediv-cultivation_container .control-label{
   position: absolute;
@@ -318,11 +292,6 @@
   user-select: none;  
 }
 
-/*#sitediv-grazing_container{
-  position: absolute;
-  top: 650px;
-} */
-
 #sitediv-grazing_container .control-label{
   position: absolute;
   top: 520px;
@@ -350,11 +319,6 @@
   user-select: none;  
 }
 
-/*#sitediv-mowing_container{
-  position: absolute;
-  top: 700px;
-} */
-
 #sitediv-mowing_container .control-label{
   position: absolute;
   top: 558px;
@@ -380,11 +344,6 @@
   -ms-user-select: none;
   user-select: none;  
 }
-
-/* #sitediv-thinning_container{
-  position: absolute;
-  top: 750px;
-} */
 
 #sitediv-thinning_container .control-label{
   position: absolute;
@@ -450,11 +409,6 @@
   user-select: none;  
 }
 
-/*#sitediv-Buttons{
-  position: absolute;
-  top: 710px;
-} */
-
 #sitediv-popRun-runModel{
   position: absolute;
   top:700px;
@@ -504,7 +458,6 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;  
-   
 }
 
 #sitediv-planshift_density_container .form-control{
@@ -549,7 +502,6 @@
   user-select: none;    
 }
 
-
 #sitediv-harvshift_date_container .form-control{
   position: absolute;
   top: 362px;
@@ -577,7 +529,6 @@
   -ms-user-select: none;
   user-select: none;  
 }
-
 
 #sitediv-fertshift_date_container .form-control{
   position: absolute;
@@ -607,7 +558,6 @@
   user-select: none;  
 }
 
-
 #sitediv-irrshift_date_container .form-control{
   position: absolute;
   top: 438px;
@@ -636,7 +586,6 @@
   user-select: none;  
 }
 
-
 #sitediv-fertshift_amount_container .form-control{
   position: absolute;
   top: 400px;
@@ -664,7 +613,6 @@
   -ms-user-select: none;
   user-select: none;  
 }
-
 
 #sitediv-irrshift_amount_container .form-control{
   position: absolute;
@@ -711,36 +659,7 @@ color: #A9A9A9;
   background-color: #A9A9A9;
   width: 324px;
   color: #A9A9A9;
-  
 }
-/*#sitediv-base_bb {
-  position:absolute;
-  top: 630px;
-  left: -99px;
-  max-width: 6%;
-}
-
-#sitediv-map_bb {
-  position:absolute;
-  left: -99px;
-  top: 240px;
-  max-width: 6%;
-  
-}
-
-#sitediv-show_bb {
-  position:absolute;
-  left: -99px;
-  top: 500px;
-  max-width:6%;
-}
-
-#sitediv-grid_bb {
-  position:absolute;
-  left: -99px;
-  top: 370px;
-  max-width:6%;
-}*/
 
 #sitediv-refresh {
   position:absolute;
@@ -751,95 +670,6 @@ color: #A9A9A9;
   cursor: pointer;
 }
 
-
-#plot_bb_button_two {
-    position: absolute;
-  top: 220px;
-  left: -228px;
-  height: 30px;
-  width: 75px;
-  border-width: 0px;
-  border-radius: 1px;
-}
-
-#map_bb_button_two {
-    position: absolute;
-  top: 220px;
-  left: -228px;
-  height: 30px;
-  width: 75px;
-  border-width: 0px;
-  border-radius: 1px;
-}
-
-#site_bb_button_two {
-    position: absolute;
-  top: 220px;
-  left: -228px;
-  height: 30px;
-  width: 75px;
-  border-width: 0px;
-  border-radius: 1px;
-}
-
-#grid_bb_button_two {
-    position: absolute;
-  top: 220px;
-  left: -228px;
-  height: 30px;
-  width: 75px;
-  border-width: 0px;
-  border-radius: 1px;
-}
-
-#grid_bb_button {
-    position: absolute;
-  top: 220px;
-  left: -138px;
-  height: 30px;
-  width: 75px;
-  border-width: 0px;
-  border-radius: 1px;
-}
-
-#site_bb_button {
-    position: absolute;
-  top: 220px;
-  left: -138px;
-  height: 30px;
-  width: 75px;
-  border-width: 0px;
-  border-radius: 1px;
-}
-
-#map_bb_button {
-    position: absolute;
-  top: 260px;
-  left: -138px;
-  height: 30px;
-  width: 75px;
-  border-width: 0px;
-  border-radius: 1px;
-}
-
-#plot_bb_button {
-    position: absolute;
-  top: 260px;
-  left: -138px;
-  height: 30px;
-  width: 75px;
-  border-width: 0px;
-  border-radius: 1px;
-}
-#base_bb_button {
-    position: absolute;
-  top: 260px;
-  left: -228px;
-  height: 30px;
-  width: 75px;
-  border-width: 0px;
-  border-radius: 1px;
-}
 #Site-banner-div img{
   cursor: default; 
     }
