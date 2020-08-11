@@ -459,13 +459,22 @@ agroMoGrid <- function(input, output, session,baseDir){
                                                                 "PHOTOS: DSSAT | PET: Priestly-Taylor | WSTRESS: TransDemBased" = c(1,1,1)
                                                                 )
     observeEvent(input$StartSim,{
-
+        
+                     if(!isolate(input$annual)){
+                        gridType <- ".dayout"
+                        outputTypeIni <- c(1,0)
+                     } else {
+                         gridType <- ".annout"
+                        outputTypeIni <- c(0,2)
+                     }
         showNotification("Starting simulation... Removing previous .dayout files")
         suppressWarnings(file.remove(list.files(file.path(baseDir(),"output/grid",input$story),full.names=TRUE)))
 
         showNotification("Setting climate projections and algorithms")
-        indexOfRows <- c(4,39,58,59,61)
-        replacements <- c(sprintf("grid/%s/",input$climproj),sprintf("grid/%s/",input$soildb),algorithms[[input$algosel]])
+        indexOfRows <- c(4,39,58,59,61,107,110)
+        replacements <- c(sprintf("grid/%s/",input$climproj),
+                          sprintf("grid/%s/",input$soildb),
+                          algorithms[[input$algosel]],outputTypeIni[1],outputTypeIni[2])
         regex <- c("grid/.*?/","grid/.*?/")
         changeFilesWithRegex(list.files(file.path(baseDir(),"input/initialization/grid",input$story),full.names=TRUE),
                               indexOfRows,replacements,regex)
@@ -480,7 +489,8 @@ agroMoGrid <- function(input, output, session,baseDir){
          withProgress(message="Writing data to database, it can be slow...",value=0,{
                           for(i in seq_along(dat$story)){
                               if(errorDF[i,"error"] == 0){
-                                  writeChainToDB(baseDir(),input$story, sqlDB, input$outsq, dat$story[[i]], dat$storyVars)
+                                  writeChainToDB(baseDir(),input$story, sqlDB, input$outsq, dat$story[[i]], dat$storyVars,
+                                                type=gridType)
                               }
 
                               incProgress(1/length(dat$story),detail=sprintf("Writing site %s into grid database",names(dat$story)[i])) 
@@ -619,27 +629,51 @@ runGrid <- function(baseDir,storyName,chainMatrixFull){
 #' @importFrom DBI dbWriteTable
 #' @importFrom lubridate year month yday
 
-writeChainToDB <- function(baseDir,storyName, dbConnection, outputName, chainMatrix, variables,errorVector){
-    outFiles <- file.path(baseDir,"output/grid",storyName,paste0(chainMatrix$name,".dayout"))
-    binaryName <- paste0(file.path(baseDir,"output/grid/",storyName,chainMatrix[,2]),".dayout")
-    toWrite <- do.call("rbind",lapply(seq_along(binaryName),function(i){
-                                    con <- file(binaryName[i],"rb")
-                                    dayoutput <- matrix(readBin(con,"double",size=8,n=(chainMatrix[i,5]*length(variables))),chainMatrix[i,5],byrow=TRUE)
-                                    udates <- grep("[0-9]{4}-02-29",
-                                                   as.character(seq(from=as.Date(sprintf("%s-01-01", chainMatrix[i,"startYear"])),
-                                                                    to=(as.Date(sprintf("%s-01-01", (chainMatrix[i,"endYear"] + 1)))-1), by=1
-                                                                    )),invert=TRUE, value=TRUE)
-                                    year <- year(udates)
-                                    month <- month(udates)
-                                    yday <- yday(udates)
-                                    dayoutput <- cbind.data.frame(udates,year,month,yday, dayoutput, site=as.character(chainMatrix[i,1]), stringsAsFactors=FALSE)
-                                    colnames(dayoutput) <- as.character(c("udate","year","month","yday", variables, "plotid"))
-                                    close(con)
-                                    dayoutput
-                                       }))
+writeChainToDB <- function(baseDir, storyName, dbConnection, outputName, chainMatrix, variables, errorVector, type){
+    fName <- paste0(file.path(baseDir,"output/grid/",storyName,chainMatrix[,2]),type)
+    toWrite <- do.call("rbind",lapply(fName, function(fn){readTable(fn,
+                                                                    variables,
+                                                                    type,
+                                                                    plotid=as.character(chainMatrix[,1]),
+                                                                    numDays=chainMatrix[,5],
+                                                                    startYear=chainMatrix[,"startYear"],
+                                                                    endYear=chainMatrix[,"endYear"])}))
     dbWriteTable(dbConnection, outputName, toWrite, append = TRUE)
 }
 
+
+#' writeChainToDB
+#'
+#' This function reads the model binary and put that into a database
+#' @param fName the name of the file
+#' @param variables The variable names 
+#' @param type .dayout or .annout
+#' @importFrom lubridate year month yday
+
+readTable <- function(fName,variables, type, plotid, numDays, startYear, endYear){   
+
+    if(type == ".dayout"){
+        con <- file(fName,"rb")
+        dayoutput <- matrix(readBin(con,"double",size=8,n=(numDays*length(variables))),
+                                       numDays,byrow=TRUE)
+        udates <- grep("[0-9]{4}-02-29", as.character(seq(from=as.Date(sprintf("%s-01-01",startYear)),
+                                                          to=(as.Date(sprintf("%s-01-01", (endYear + 1)))-1),
+                                                          by=1)),
+                       invert=TRUE, value=TRUE)
+        year <- year(udates)
+        month <- month(udates)
+        yday <- yday(udates)
+        dayoutput <- cbind.data.frame(udates,year,month,yday, dayoutput,
+                                      site=plotid, stringsAsFactors=FALSE)
+        colnames(dayoutput) <- as.character(c("udate","year","month","yday", variables, "plotid"))
+        close(con)
+        return(dayoutput)
+    } else {
+        annuOutput <- cbind.data.frame(read.table(fName, skip=1, header=FALSE),plotid)
+        colnames(annuOutput) <- c("year", variables,"plotid")
+        return(annuOutput)
+    }
+}
 
 tables_get <- function(baseDir){
          dbDir <- file.path(baseDir,"output")
