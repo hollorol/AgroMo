@@ -136,7 +136,7 @@
      user-select: none;
 }
 
-#griddiv-ensclim_container {
+.bootstrap-switch-id-griddiv-ensclim {
     position: absolute;
     top: 120px;
     left: 815px;
@@ -150,7 +150,11 @@
      user-select: none;
 }
 
-#griddiv-ensalg_container {
+.bootstrap-switch-id-griddiv-ensclim .bootstrap-switch-label{
+height: 33px;
+}
+
+.bootstrap-switch-id-griddiv-ensalg {
     position: absolute;
     top: 167px;
     left: 815px;
@@ -164,7 +168,11 @@
      user-select: none;
 }
 
-#griddiv-enssoil_container {
+.bootstrap-switch-id-griddiv-ensalg .bootstrap-switch-label {
+height: 33px;
+}
+
+.bootstrap-switch-id-griddiv-enssoil {
     position: absolute;
     top: 70px;
     left: 815px;
@@ -178,6 +186,10 @@
      user-select: none;
 }
 
+.bootstrap-switch-id-griddiv-enssoil .bootstrap-switch-label {
+height: 33px;
+}
+
 #griddiv-repcheck_container .bootstrap-switch{
     position: absolute;
     top: 662px;
@@ -187,10 +199,8 @@
     font-family: Fira Sans;
     cursor: pointer;
     z-index: 1;
-    height: 32px;
     padding-top: 0px;
     text-align: center;
-    background-color: green;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -350,17 +360,26 @@
      user-select: none;
 }
 
-#griddiv-annual_container .bootstrap-switch-id-griddiv-annual {
+.bootstrap-switch-id-griddiv-annual {
     position: absolute;
     top: 250px;
     left: 345px;
     font-size: 16px;
+    height: 35px;
     color: black;
     font-family: Fira Sans;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
      user-select: none;
+}
+
+.bootstrap-switch-id-griddiv-annual .bootstrap-switch-label {
+    height: 35px;
+}
+
+#griddiv-annual_container .sw-switchInput{
+display: none;
 }
 
 #griddiv-algosel_container .control-label{
@@ -436,9 +455,9 @@
 
 #griddiv-Map {
     position: absolute;
-    top: 700px;
+    top: 692px;
     left: 785px;
-    height: 55px;
+    height: 60px;
     width: 130px;
     font-size: 26px;
     font-family: Fira Sans;
@@ -1191,7 +1210,13 @@ span.timeSlice {
 }
 
 
-.bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-primary {
+.bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-default {
     background-color: lightblue;
     color: black;
+}
+
+.bootstrap-switch .bootstrap-switch-handle-off, .bootstrap-switch .bootstrap-switch-handle-on, .bootstrap-switch .bootstrap-switch-label {
+
+        line-height: unset!important;
+
 }
