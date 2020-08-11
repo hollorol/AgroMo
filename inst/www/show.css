@@ -1,12 +1,12 @@
 #showdiv-show{
   position:absolute;
   top: 695px;
-  left:70px;
-  width:320px;
+  left:68px;
+  width:445px;
   height: 55px;
   background-color: gainsboro;
   font-size: 24px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   font-weight: bold;
   color: black;
 }
@@ -14,12 +14,12 @@
 #showdiv-export{
   position:absolute;
   top: 695px;
-  left: 405px;
-  width: 250px;
+  left: 530px;
+  width: 125px;
   height: 55px;
   background-color: gainsboro;
   font-size: 24px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   font-weight: bold;
   color: black;
 }
@@ -61,7 +61,7 @@
 div.xyRangeInput .form-group.shiny-input-container {
      width: 130px;
      font-size: 16px;
-     font-family: Trebuchet MS;
+     font-family: Fira Sans;
      color: black;
      display: flex;
      padding-top: 25px;
@@ -81,34 +81,18 @@ div.xmax label {
     color: blue;
 }
 
-
-
-#showdiv-del{
-  position:absolute;
-  top: 448px;
-  left: -312px;
-  width: 335px;
-  height: 55px;
-  background-color: gainsboro;
-  font-size: 24px;
-  font-family: Trebuchet MS;
-  font-weight: bold;
-  color: black;
-}
-
 #showdiv-del {
 position:absolute;
-  top: 448px;
+  top: 695px;
   left: -312px;
   width: 335px;
   height: 55px;
   background-color: gainsboro;
   font-size: 24px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   font-weight: bold;
   color: black;
 }
-
 
 div.profPlotCont {
   width: 650px;
@@ -128,14 +112,14 @@ margin-left: 15px;
   margin-top: 25px;
   font-size: 18px;
     text-align: center;
-  font-family: "Trebuchet MS";
+  font-family: "Fira Sans";
 }
 
 div.profPlotCont >.shiny-date-inputte-input {
   font-size: 20px;
   text-align: center;
   color: black;
-  font-family: "Trebuchet MS";
+  font-family: "Fira Sans";
 }
 
 div.profPlotCont  .form-group {
@@ -147,30 +131,18 @@ div.profPlotCont .form-control {
   font-size: 20px;
   text-align: center;
   color: black;
-  font-family: "Trebuchet MS";
+  font-family: "Fira Sans";
 }
-
-
-/*#showdiv-varset_container {
-  position: absolute;
-  top: 135px;
-  left:-310px;
-  font-size: 16px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-} */
 
 #showdiv-varset_container .control-label{
   position: absolute;
-  top: 176px;
-  left: 395px;
+  top: 143px;
+  left: 397px;
   width: 65px;
   font-weight: normal;
   color: black;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -179,26 +151,23 @@ div.profPlotCont .form-control {
 
 #showdiv-varset_container .selectize-input{
   position: absolute;
-  top: 155px;
-   left: 445px;
-  width: 195px;
+  top: 122px;
+   left: 444px;
+  width: 199px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
 } 
 
-
-
-
 #showdiv-cellid_container {
   position: absolute;
   top: 720px;
   left:-310px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -207,14 +176,13 @@ div.profPlotCont .form-control {
   display: none;
 } 
 
-
 #showdiv-cellid_container .form-control {
   position: absolute;
   top: -4px;
   left: 70px;
   width: 235px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   display: none;
 } 
@@ -225,13 +193,12 @@ div.profPlotCont .form-control {
   display: none;
 } 
 
-
 #showdiv-compfunc_container .selectize-input {
   position: absolute;
   top: 590px;
   left:195px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   width: 440px;
   color: black;
   -webkit-user-select: none;
@@ -246,7 +213,7 @@ div.profPlotCont .form-control {
     top: 610px;
     left: 78px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   font-weight: normal;
   width: 300px;
   color: black;
@@ -266,7 +233,7 @@ div.profPlotCont .form-control {
   top: 630px;
   left:195px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   width: 440px;
   color: black;
   -webkit-user-select: none;
@@ -281,7 +248,7 @@ div.profPlotCont .form-control {
     top: 650px;
     left: 100px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   font-weight: normal;
   width: 300px;
   color: black;
@@ -293,14 +260,13 @@ div.profPlotCont .form-control {
     width: 440px;
 }
 
-
 #simres {
   position: absolute;
   top: 15px;
   left: -312px;
   font-weight: bold;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -308,15 +274,13 @@ div.profPlotCont .form-control {
   user-select: none;
 } 
 
-
-
 #gridsimres {
   position: absolute;
   top: 515px;
   left: -312px;
   font-weight: bold;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -331,7 +295,7 @@ div.profPlotCont .form-control {
   left:70px;
   font-weight: bold;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -341,11 +305,11 @@ div.profPlotCont .form-control {
 
 #createplot {
   position: absolute;
-  top: 185px;
+  top: 151px;
   left:70px;
   font-weight: bold;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -353,12 +317,128 @@ div.profPlotCont .form-control {
   user-select: none;
 } 
 
+#colone {
+    position: absolute;
+  top: 179.5px;
+  left:68px;
+  width: 283px;
+  font-weight: bold;
+  font-size: 16px;
+  font-family: Fira Sans;
+  color: black;
+  border-style: solid;
+  border-width: 1.5px;
+  border-color: #7F7A7A;
+  text-align: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+} 
+
+#coltwo {
+  position: absolute;
+  top: 179.5px;
+  left:352px;
+  width: 84px;
+  font-weight: bold;
+  font-size: 16px;
+  font-family: Fira Sans;
+  color: black;
+  border-style: solid;
+  border-width: 1.5px;
+  border-color: #7F7A7A;
+  text-align: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+} 
+
+#colthree {
+ position: absolute;
+  top: 179.5px;
+  left:437px;
+  width: 84px;
+  font-weight: bold;
+  font-size: 16px;
+  font-family: Fira Sans;
+  color: black;
+  border-style: solid;
+  border-width: 1.5px;
+  border-color: #7F7A7A;
+  text-align: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+} 
+
+#colfour {
+  position: absolute;
+  top: 179.5px;
+  left:522px;
+  font-weight: bold;
+  font-size: 16px;
+  font-family: Fira Sans;
+  color: black;
+  width: 109.5px;
+  border-style: solid;
+  border-width: 1.5px;
+  border-color: #7F7A7A;
+  text-align: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+} 
+
+#showdiv-framelineone {
+  position: absolute;
+  top: 184px;
+  left: 68px;
+  height: 475px;
+  background-color: #7F7A7A;
+  width: 1px;
+  color: #7F7A7A;
+}
+
+#showdiv-framelinetwo {
+  position: absolute;
+  top: 658px;
+  left: 69px;
+  height: 1px;
+  background-color: #7F7A7A;
+  width: 587px;
+  color: #7F7A7A;
+}
+
+#showdiv-framelinethree {
+  position: absolute;
+  top: 184px;
+  left: 655px;
+  height: 474px;
+  background-color: #7F7A7A;
+  width: 1px;
+  color: #7F7A7A;
+}
+
+#showdiv-framelinefour {
+  position: absolute;
+  top: 183px;
+  left: 630px;
+  height: 1px;
+  background-color: #7F7A7A;
+  width: 26px;
+  color: #7F7A7A;
+}
+
 #repavg {
   position: absolute;
   top: 118px;
   left: 500px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   width: 150px;
   -webkit-user-select: none;
@@ -376,10 +456,10 @@ div.profPlotCont .form-control {
 #showdiv-alias_container .form-control.shinyjs-resettable.shiny-bound-input{
     width: 255px;
     position: absolute;
-    top: 113px;
-    left:203px;
+    top: 81px;
+    left:202px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -388,10 +468,10 @@ div.profPlotCont .form-control {
 }
 #showdiv-alias_container label{
     position: absolute;
-    top: 118px;
-    left:162px;
+    top: 85px;
+    left:160px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   font-weight: normal;
   -webkit-user-select: none;
@@ -400,12 +480,12 @@ div.profPlotCont .form-control {
   user-select: none;
 }
 #showdiv-experimentID_container .selectize-control.shinyjs-resettable.single .selectize-input{
-    width: 450px;
+    width: 456px;
     position: absolute;
     top: 23px;
     left:187px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -414,12 +494,12 @@ div.profPlotCont .form-control {
 }
 
 #showdiv-treatmentID_container .selectize-control.shinyjs-resettable.single .selectize-input{
-    width: 450px;
+    width: 456px;
     position: absolute;
-    top: 60px;
+    top: 61px;
     left:187px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -433,7 +513,7 @@ div.profPlotCont .form-control {
     top: 628px;
     left:208px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -446,7 +526,7 @@ div.profPlotCont .form-control {
     top: 648px;
     left: 70px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -456,10 +536,10 @@ div.profPlotCont .form-control {
 
 #showdiv-experimentID_container .control-label{
     position: absolute;
-    top: 43px;
-    right: 354px;
+    top: 44px;
+    right: 356px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   font-weight: normal;
   -webkit-user-select: none;
@@ -470,10 +550,10 @@ div.profPlotCont .form-control {
 
 #showdiv-treatmentID_container .control-label{
     position: absolute;
-    top: 80px;
-    right: 354px;
+    top: 82px;
+    right: 356px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   font-weight: normal;
   -webkit-user-select: none;
@@ -488,25 +568,6 @@ div.profPlotCont .form-control {
   left: 70px;
 }
 
-
-#basearrow {
-    position: absolute;
-  top: 220px;
-  left: -228px;
-  height: 43px;
-  width: 75px;
-  border-width: 0px;
-  border-radius: 1px;
-}
-#backsite {
-    position: absolute;
-  top: 220px;
-  left: -138px;
-  height: 43px;
-  width: 75px;
-  border-width: 0px;
-  border-radius: 1px;
-}
 #Show-banner-div img{
   cursor: default; 
     }

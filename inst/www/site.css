@@ -5,7 +5,7 @@
     position: absolute;
     top: 20px;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -19,7 +19,7 @@
     left:-1px;
     width: 800px;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -27,13 +27,11 @@
   user-select: none;
 }
 
-
-
 #sitediv-weatherFile_container .control-label{
     position: absolute;
     top: 95px;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -48,7 +46,7 @@
     left:-1px;
     width: 800px;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -60,7 +58,7 @@
     position: absolute;
     top: 165px;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -75,33 +73,33 @@
     left:-1px;
     width: 800px;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;    
-   
 }
+
 #sitediv-managementFile_container .control-label{
     position: absolute;
     top: 235px;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;    
-    
 }
+
 #sitediv-managementFile_container .selectize-control.shinyjs-resettable.single .selectize-input{
     position: absolute;
     top: 240px;
     left:-1px;
     width: 800px;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -134,15 +132,15 @@
 #manModuls{
   position: absolute;
   top: 295px;
-  left: 2px;
+  left: -1px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-weight:bold;
+  font-family: Fira Sans;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  
 }
 
 #shiftIn{
@@ -150,24 +148,21 @@
   top: 295px;
   left: 570px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-weight:bold;
+  font-family: Fira Sans;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
-/*#sitediv-planting_container{
-  position: absolute;
-  top: 400px; 
-  }*/
              
 #sitediv-planting_container .control-label {
   position: absolute;
-  top: 327px;
+  top: 330px;
   right: 730px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -181,7 +176,7 @@
   left: 105px;
   width: 450px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -189,16 +184,12 @@
   user-select: none;  
 }
 
-/*#sitediv-harvest_container{
-  position: absolute;
-  top: 450px;
-             }*/ 
 #sitediv-harvest_container .control-label{
   position: absolute;
-  top: 367px;
+  top: 368px;
   right: 730px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -212,7 +203,7 @@
   left: 105px;
   width: 450px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -220,17 +211,12 @@
   user-select: none;  
 }
 
-/*#sitediv-fertilization_container{
-  position: absolute;
-  top: 500px;
-} */
-
 #sitediv-fertilization_container .control-label{
   position: absolute;
-  top: 405px;
+  top: 406px;
   right: 730px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -244,7 +230,7 @@
   left: 105px;
   width: 450px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -252,17 +238,12 @@
   user-select: none;  
 }
 
-/*#sitediv-irrigation_container{
-  position: absolute;
-  top: 550px;
-} */
-
 #sitediv-irrigation_container .control-label{
   position: absolute;
-  top: 443px;
+  top: 444px;
   right: 730px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -276,7 +257,7 @@
   left: 105px;
   width: 450px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -284,17 +265,12 @@
   user-select: none;  
 }
 
-/*#sitediv-cultivation_container{
-  position: absolute;
-  top: 600px;
-} */
-
 #sitediv-cultivation_container .control-label{
   position: absolute;
-  top: 481px;
+  top: 482px;
   right: 730px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -308,7 +284,7 @@
   left: 105px;
   width: 450px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -316,17 +292,12 @@
   user-select: none;  
 }
 
-/*#sitediv-grazing_container{
-  position: absolute;
-  top: 650px;
-} */
-
 #sitediv-grazing_container .control-label{
   position: absolute;
-  top: 519px;
+  top: 520px;
   right: 730px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -340,7 +311,7 @@
   left: 105px;
   width: 450px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -348,17 +319,12 @@
   user-select: none;  
 }
 
-/*#sitediv-mowing_container{
-  position: absolute;
-  top: 700px;
-} */
-
 #sitediv-mowing_container .control-label{
   position: absolute;
-  top: 557px;
+  top: 558px;
   right: 730px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -371,7 +337,7 @@
   left: 105px;
   width: 450px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -379,17 +345,12 @@
   user-select: none;  
 }
 
-/* #sitediv-thinning_container{
-  position: absolute;
-  top: 750px;
-} */
-
 #sitediv-thinning_container .control-label{
   position: absolute;
-  top: 595px;
+  top: 596px;
   right: 730px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -403,7 +364,7 @@
   left: 105px;
   width: 450px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -416,7 +377,7 @@
   top: 632px;
   width:900px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -426,10 +387,10 @@
 
 #outputid-label {
   font-size:16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color:black;
   position: absolute;
-  top: 635px;
+  top: 634px;
   font-weight: bold;
   color: black;
   -webkit-user-select: none;
@@ -441,17 +402,12 @@
 #sitediv-outFile {
   font-size:16px;
   color:black;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;  
 }
-
-/*#sitediv-Buttons{
-  position: absolute;
-  top: 710px;
-} */
 
 #sitediv-popRun-runModel{
   position: absolute;
@@ -460,7 +416,7 @@
   width:435px;
   color: black;
     font-size: 24px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   background-color: gainsboro;
 }
 
@@ -471,7 +427,7 @@
   width:435px;
   color: black;
   font-size: 24px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   background-color: gainsboro;
 }
 
@@ -480,11 +436,9 @@
   top: 324px;
   left: 650px;
    width: 55px;
-   height: 33px;
    font-size: 16px;
-   font-family: Trebuchet MS;
+   font-family: Fira Sans;
    color: black;
-   padding-bottom:10px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -494,17 +448,16 @@
 
 #sitediv-planshift_date_container label{
   position: absolute;
-  top: 327px;
-  left: 570px;
+  top: 329px;
+  left: 569px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   font-weight: normal;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;  
-   
 }
 
 #sitediv-planshift_density_container .form-control{
@@ -512,11 +465,9 @@
   top: 324px;
   right: -62px;
   width: 55px;
-  height: 33px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
-  padding-bottom:10px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -525,10 +476,10 @@
 
 #sitediv-planshift_density_container label{
   position: absolute;
-  top: 327px;
-  right: -4px;
+  top: 329px;
+  right: -2px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   font-weight: normal;
   -webkit-user-select: none;
@@ -537,17 +488,28 @@
   user-select: none;  
 }
 
+#negyzet{
+  position: absolute;
+  top: 329px;
+  right: 6.5px;
+  font-size: 10px;
+  font-family: Fira Sans;
+  color: black;
+  font-weight: normal;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;    
+}
 
 #sitediv-harvshift_date_container .form-control{
   position: absolute;
-  top: 363px;
+  top: 362px;
   left: 650px;
   width: 55px;
-  height: 33px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
-  padding-bottom:10px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -557,9 +519,9 @@
 #sitediv-harvshift_date_container label{
   position: absolute;
   top: 367px;
-  left: 570px;
+  left: 569px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   font-weight: normal;
   -webkit-user-select: none;
@@ -568,17 +530,14 @@
   user-select: none;  
 }
 
-
 #sitediv-fertshift_date_container .form-control{
   position: absolute;
-  top: 401px;
+  top: 400px;
   left: 650px;
   width: 55px;
-  height: 33px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
-  padding-bottom:10px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -588,9 +547,9 @@
 #sitediv-fertshift_date_container label{
   position: absolute;
   top: 405px;
-  left: 570px;
+  left: 569px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   font-weight: normal;
   -webkit-user-select: none;
@@ -599,17 +558,14 @@
   user-select: none;  
 }
 
-
 #sitediv-irrshift_date_container .form-control{
   position: absolute;
-  top: 439px;
+  top: 438px;
   left: 650px;
   width: 55px;
-  height: 33px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
-  padding-bottom:10px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -619,9 +575,9 @@
 #sitediv-irrshift_date_container label{
   position: absolute;
   top: 443px;
-  left: 570px;
+  left: 569px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   font-weight: normal;
   -webkit-user-select: none;
@@ -630,17 +586,14 @@
   user-select: none;  
 }
 
-
 #sitediv-fertshift_amount_container .form-control{
   position: absolute;
-  top: 401px;
+  top: 400px;
   right: -62px;
   width: 55px;
-  height: 33px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
-  padding-bottom:10px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -650,9 +603,9 @@
 #sitediv-fertshift_amount_container label{
   position: absolute;
   top: 405px;
-  right: -4px;
+  right: -3px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   font-weight: normal;
   -webkit-user-select: none;
@@ -661,17 +614,14 @@
   user-select: none;  
 }
 
-
 #sitediv-irrshift_amount_container .form-control{
   position: absolute;
-  top: 439px;
+  top: 438px;
   right: -62px;
   width: 55px;
-  height: 33px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
-  padding-bottom:10px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -681,9 +631,9 @@
 #sitediv-irrshift_amount_container label{
   position: absolute;
   top: 443px;
-  right: -4px;
+  right: -3px;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   font-weight: normal;
   -webkit-user-select: none;
@@ -709,36 +659,7 @@ color: #A9A9A9;
   background-color: #A9A9A9;
   width: 324px;
   color: #A9A9A9;
-  
 }
-/*#sitediv-base_bb {
-  position:absolute;
-  top: 630px;
-  left: -99px;
-  max-width: 6%;
-}
-
-#sitediv-map_bb {
-  position:absolute;
-  left: -99px;
-  top: 240px;
-  max-width: 6%;
-  
-}
-
-#sitediv-show_bb {
-  position:absolute;
-  left: -99px;
-  top: 500px;
-  max-width:6%;
-}
-
-#sitediv-grid_bb {
-  position:absolute;
-  left: -99px;
-  top: 370px;
-  max-width:6%;
-}*/
 
 #sitediv-refresh {
   position:absolute;
@@ -749,25 +670,6 @@ color: #A9A9A9;
   cursor: pointer;
 }
 
-
-#basearrow {
-    position: absolute;
-  top: 220px;
-  left: -228px;
-  height: 43px;
-  width: 75px;
-  border-width: 0px;
-  border-radius: 1px;
-}
-#backgrid {
-    position: absolute;
-  top: 220px;
-  left: -138px;
-  height: 43px;
-  width: 75px;
-  border-width: 0px;
-  border-radius: 1px;
-}
 #Site-banner-div img{
   cursor: default; 
     }

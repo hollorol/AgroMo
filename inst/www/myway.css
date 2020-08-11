@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'Fira Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: local('Fira Sans Medium'), local('FiraSans-Medium'), url('../font/FiraSans-Medium.ttf') format('truetype');
+}
 
 .base-baseInputs {
     margin-top: 56px;

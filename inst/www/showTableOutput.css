@@ -53,7 +53,7 @@ nemcsinal semmit
   width: 335px !important;
   background-color: white;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   border: 1px;
   border-color: lightgrey;
   border-style: solid;
@@ -68,7 +68,7 @@ nemcsinal semmit
   height: 5px !important;
   width: 335px !important;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   white-space: nowrap !important;
   padding-top: 0px !important;
   padding-bottom: 0px !important;
@@ -83,7 +83,7 @@ nemcsinal semmit
   position: absolute;
   top: 40px;
   left: -35px;
-  height: 400px !important;
+  height: 640px !important;
   width: 335px !important;
   overflow-y: scroll;
   background-color: white;
@@ -103,7 +103,7 @@ nemcsinal semmit
     user-select: none;
     cursor: pointer;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
 }
 
  #showdiv-outputSelection tr:nth-child(even) { 
@@ -182,7 +182,7 @@ nemcsinal semmit
 }
 
 #showdiv-table-output_container {
-    height: 360px;
+    height: 473px;
     overflow-y: scroll;
     width:585px;
     border-left: 1px;
@@ -191,6 +191,8 @@ nemcsinal semmit
     border-top: 0px;
   border-color: lightgrey;
   border-style: solid;
+  position: absolute;
+  top: 175px;
 
 }
 
@@ -208,11 +210,13 @@ nemcsinal semmit
   border-color: lightgrey;
   border-style: solid;
   font-size:16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
+  font-weight: normal;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+   display:none;
 }
 
 /*#showdiv-table-output-header th:nth-child(1){
@@ -255,7 +259,7 @@ nemcsinal semmit
     border-width:1px;
     border-color: gray;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   padding: 2px;
 }
 
@@ -269,7 +273,7 @@ padding:2px;
     border-width:1px;
     border-color: gray;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     text-align:left;
     background-color: rgb(192,192,192);
     height: 30px;

@@ -1,0 +1,50 @@
+﻿{
+  "Names": { 
+            "en":"annual evapotranspiration in the [T-T] period for model output {1}",
+            "hu":"éves evapotranszspiráció a(z) [T-T] időszakban a(z) {1} modelleredmény alapján"
+               },
+  
+  "query": 
+
+         "SELECT plotid, year, MAX(cumevtr) AS cEVTR  FROM {1} WHERE year >= [T1] AND year <= [T2] GROUP BY year, plotid;",
+	        
+  "options": {
+	
+	        "1": ["*tables*"],
+		"2": [],
+		"3": [],
+		"4": [],
+		"5": [],
+		"6": [],
+		"7": [],
+		"8": [],
+		"9": []
+	 
+	            },
+"optionAlias": {
+      "en": {
+          "1": ["*tables*"],
+          "2": [],
+          "3": [],
+          "4": [],
+          "5": [],
+          "6": [],
+	  "7": [],
+	  "8": [],
+	  "9": []
+      } ,
+
+      "hu": {
+          "1": ["*tables*"],
+          "2": [],
+          "3": [],
+          "4": [],
+          "5": [],
+	  "6": [],
+	  "7": [],
+	  "8": [],
+	  "9": []
+      }
+  }
+	 
+}

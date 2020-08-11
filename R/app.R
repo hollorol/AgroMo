@@ -16,12 +16,19 @@ agroUI <- function(){
             hidden(agroMoGridUI(id = "griddiv")),
             hidden(agroMoMapUI(id = "mapdiv")),
             hidden(agroMoSiteGeneratorUI(id = "sitegendiv")),
+            hidden(agroMoParAnaUI(id = "paranadiv")),
+            hidden(agroMoDBManUI(id = "dbmandiv")),
             hidden(BBGCUI(id="BBGCDB")),
-            hidden(actionButton(inputId = "basearrow",label="",title="Navigate back to the BASE window", style="background: url('www/img/base_arrow.png');background-size: 75px 43px;", draggable = FALSE)),
-            hidden(actionButton(inputId = "backsite",label="",title="Navigate back to the SITE window", style="background: url('www/img/back_site.png');background-size: 75px 43px;", draggable = FALSE)),
-            hidden(actionButton(inputId = "basearrow_sg",label="",title="Navigate back to the BASE window", style="background: url('www/img/base_arrow_sg.png');background-size: 75px 43px;", draggable = FALSE)),
-            hidden(actionButton(inputId = "backsite_sg",label="",title="Navigate back to the SITE window", style="background: url('www/img/back_site_sg.png');background-size: 75px 43px;", draggable = FALSE)),
-            hidden(actionButton(inputId = "backgrid",label="",title="Navigate to the GRID window", style="background: url('www/img/back_grid.png');background-size: 75px 43px;", draggable = FALSE))
+            hidden(actionButton(inputId = "base_bb_button",label="",title="Navigateto the BASE window", style="background: url('www/img/base.png');background-size: 75px 30px;", draggable = FALSE)),
+            hidden(actionButton(inputId = "plot_bb_button",label="",title="Navigate to the PLOT window", style="background: url('www/img/plot.png');background-size: 75px 30px;", draggable = FALSE)),
+            hidden(actionButton(inputId = "plot_bb_button_two",label="",title="Navigate to the PLOT window", style="background: url('www/img/plot.png');background-size: 75px 30px;", draggable = FALSE)),
+            hidden(actionButton(inputId = "map_bb_button",label="",title="Navigate to the MAP window", style="background: url('www/img/map.png');background-size: 75px 30px;", draggable = FALSE)),
+            hidden(actionButton(inputId = "map_bb_button_two",label="",title="Navigate to the MAP window", style="background: url('www/img/map.png');background-size: 75px 30px;", draggable = FALSE)),
+            hidden(actionButton(inputId = "site_bb_button",label="",title="Navigate to the SITE window", style="background: url('www/img/site.png');background-size: 75px 30px;", draggable = FALSE)),
+            hidden(actionButton(inputId = "site_bb_button_two",label="",title="Navigate to the SITE window", style="background: url('www/img/site.png');background-size: 75px 30px;", draggable = FALSE)),
+            hidden(actionButton(inputId = "grid_bb_button",label="",title="Navigate to the GRID window", style="background: url('www/img/grid.png');background-size: 75px 30px;", draggable = FALSE)),
+            hidden(actionButton(inputId = "grid_bb_button_two",label="",title="Navigate to the GRID window", style="background: url('www/img/grid.png');background-size: 75px 30px;", draggable = FALSE))
+            
         )
     )
 }
@@ -37,6 +44,7 @@ agroUI <- function(){
 #' @importFrom RSQLite SQLite
 #' @importFrom shiny getShinyOption
 #' @importFrom jsonlite read_json
+#' @importFrom shinyFiles parseDirPath shinyDirChoose 
 #' @keywords internal
 agroServer <- function(input, output, session) {
     baseDir <- getShinyOption("AgroMoData")
@@ -44,12 +52,12 @@ agroServer <- function(input, output, session) {
      
     print(baseDir)
     setwd(baseDir)
-    database <- file.path(baseDir,"output/outputs.db")
+    database <- file.path(baseDir,"output/site.db")
     dir.create(dirname(database), showWarnings = FALSE)
     baseConnection <- dbConnect(SQLite(),database)
-    datas <- reactiveValues(baseDir = baseDir, connection=baseConnection)
+    datas <- reactiveValues(baseDir = baseDir, connection=baseConnection, gridConnection=dbConnect(SQLite(), file.path(baseDir, "output/grid.db")))
     
-   session$onSessionEnded(stopApp)
+   # session$onSessionEnded(stopApp)
 
     observeEvent(input$exit,{
         if(Sys.info()["sysname"] == "Windows"){
@@ -60,20 +68,26 @@ agroServer <- function(input, output, session) {
         stopApp() 
     })
 
-    
+   rootwd <-  c(Documents="~",C="C:/",D="D:/")
+   shinyDirChoose(input, 'choose', root=rootwd)
 
     {
         observeEvent(input$choose,{
-            choosenDir <- tcltk::tk_choose.dir()
-            output$mdd <- renderText({choosenDir})
-            if(!checkDirStucture(choosenDir)) {
-                output$mdd <- renderText({sprintf("ERROR: not valid directory structure; last working: %s", datas$baseDir)})
-            } else {
-                setwd(choosenDir)
-                datas$baseDir <- choosenDir
-                dbDisconnect(datas$connection)
-                database <- file.path(choosenDir, "output/outputs.db")
-                datas$connection <- dbConnect(SQLite(), database)
+            # choosenDir <- tcltk::tk_choose.dir()
+            choosenDir <- parseDirPath(roots=rootwd,selection=input$choose)
+            if(length(choosenDir)!=0){
+                output$mdd <- renderText({choosenDir})
+                if(!checkDirStucture(choosenDir)) {
+                    output$mdd <- renderText({sprintf("ERROR: not valid directory structure; last working: %s", datas$baseDir)})
+                } else {
+                    setwd(choosenDir)
+                    #browser()
+                    datas$baseDir <- choosenDir
+                    dbDisconnect(datas$connection)
+                    database <- file.path(choosenDir, "database/observation.db")
+                    datas$connection <- dbConnect(SQLite(), database)
+                    datas$gridConnection <- dbConnect(SQLite(), file.path(choosenDir, "output/grid.db"))
+                }
             }
             
         })
@@ -125,10 +139,15 @@ agroServer <- function(input, output, session) {
         shinyjs::hide("sitediv-sitediv")
         shinyjs::show("showdiv-showdiv")
         shinyjs::hide("griddiv-griddiv")
-        shinyjs::hide("backgrid")
-        shinyjs::hide("basearrow_sg")
-        shinyjs::hide("backsite_sg")
-        shinyjs::show("backsite")
+        shinyjs::show("base_bb_button")
+        shinyjs::hide("site_bb_button")
+        shinyjs::hide("plot_bb_button")
+        shinyjs::show("map_bb_button")
+        shinyjs::show("grid_bb_button")
+        shinyjs::show("site_bb_button_two")
+        shinyjs::hide("plot_bb_button_two")
+        shinyjs::hide("map_bb_button_two")
+        shinyjs::hide("grid_bb_button_two")
         shinyjs::hide("mapdiv-mapdiv")
         shinyjs::hide(selector = ".banner")
         shinyjs::show("Show-banner-div")
@@ -141,46 +160,95 @@ agroServer <- function(input, output, session) {
     observeEvent(input$site,{
         shinyjs::hide("base")
         shinyjs::hide("base-tools")
+        shinyjs::hide("mapdiv-mapdiv")
+        shinyjs::hide("griddiv-griddiv")
+        shinyjs::hide("showdiv-showdiv")
         shinyjs::show("sitediv-sitediv")
         shinyjs::hide(selector = ".banner")
         shinyjs::show("Site-banner-div")
-        shinyjs::show("basearrow")
-        shinyjs::show("backgrid")
-        shinyjs::hide("backsite")
-        shinyjs::hide("basearrow_sg")
-        shinyjs::hide("backsite_sg")
+        shinyjs::show("base_bb_button")
+        shinyjs::hide("site_bb_button")
+        shinyjs::hide("plot_bb_button")
+        shinyjs::show("map_bb_button")
+        shinyjs::show("grid_bb_button")
+        shinyjs::hide("site_bb_button_two")
+        shinyjs::show("plot_bb_button_two")
+        shinyjs::hide("map_bb_button_two")
+        shinyjs::hide("grid_bb_button_two")
     })
    }
    {
-     observeEvent(input$basearrow,{
+     observeEvent(input$base_bb_button,{
        shinyjs::show("base")
        shinyjs::show("base-tools")
        shinyjs::hide("sitediv-sitediv")
-       shinyjs::hide("basearrow")
-       shinyjs::hide("backgrid")
-       shinyjs::hide("backsite")
-       shinyjs::hide("basearrow_sg")
-       shinyjs::hide("backsite_sg")
+       shinyjs::hide("base_bb_button")
+       shinyjs::hide("site_bb_button")
+       shinyjs::hide("plot_bb_button")
+       shinyjs::hide("map_bb_button")
+       shinyjs::hide("grid_bb_button")
+       shinyjs::hide("site_bb_button_two")
+       shinyjs::hide("plot_bb_button_two")
+       shinyjs::hide("map_bb_button_two")
+       shinyjs::hide("grid_bb_button_two")
        shinyjs::hide(selector = ".banner")
        shinyjs::show("Base-banner-div")
      })
    }
    {
-     observeEvent(input$backgrid,{
-       shinyjs::show("grid")
+     observeEvent(input$grid_bb_button,{
        shinyjs::show("griddiv-griddiv")
        shinyjs::hide("showdiv-showdiv")
        shinyjs::hide("sitediv-sitediv")
-       shinyjs::hide("backgrid")
-       shinyjs::hide("basearrow_sg")
-       shinyjs::hide("backsite_sg")
+       shinyjs::show("base_bb_button")
+       shinyjs::show("site_bb_button")
+       shinyjs::show("plot_bb_button")
+       shinyjs::hide("map_bb_button")
+       shinyjs::hide("grid_bb_button")
+       shinyjs::hide("site_bb_button_two")
+       shinyjs::hide("plot_bb_button_two")
+       shinyjs::show("map_bb_button_two")
+       shinyjs::hide("grid_bb_button_two")
        shinyjs::hide(selector = ".banner")
        shinyjs::show("Grid-banner-div")
-       shinyjs::show("basearrow")
-       shinyjs::show("backsite")
+       })
+   }
+   {
+     observeEvent(input$map_bb_button,{
+       shinyjs::hide("base")
+       shinyjs::hide("base-tools")
+       shinyjs::hide("sitediv-sitediv")
+       shinyjs::show("mapdiv-mapdiv")
+       shinyjs::show("base_bb_button")
+       shinyjs::show("site_bb_button")
+       shinyjs::show("plot_bb_button")
+       shinyjs::hide("map_bb_button")
+       shinyjs::hide("grid_bb_button")
+       shinyjs::hide("site_bb_button_two")
+       shinyjs::hide("plot_bb_button_two")
+       shinyjs::hide("map_bb_button_two")
+       shinyjs::show("grid_bb_button_two")
+       shinyjs::hide(selector = ".banner")
+       shinyjs::show("Map-banner-div")
      })
    }
-   
+   {
+     observeEvent(input$plot_bb_button_two,{
+       shinyjs::show("showdiv-showdiv")
+       shinyjs::hide("sitediv-sitediv")
+       shinyjs::show("base_bb_button")
+       shinyjs::hide("site_bb_button")
+       shinyjs::hide("plot_bb_button")
+       shinyjs::show("map_bb_button")
+       shinyjs::show("grid_bb_button")
+       shinyjs::show("site_bb_button_two")
+       shinyjs::hide("plot_bb_button_two")
+       shinyjs::hide("map_bb_button_two")
+       shinyjs::hide("grid_bb_button_two")
+       shinyjs::hide(selector = ".banner")
+       shinyjs::show("Show-banner-div")
+     })
+   }
    
   ## GRID
    {
@@ -189,50 +257,112 @@ agroServer <- function(input, output, session) {
      #                   dataenv = reactive(datas$dataenv),
      #                   baseDir = reactive({datas$baseDir}),
      #                   reactive({datas$connection}),centralData=centralData)
-     callModule(agroMoGrid,"griddiv",baseDir=reactive({datas$baseDir}))
+     griddi <- callModule(agroMoGrid,"griddiv",baseDir=reactive({datas$baseDir}))
+     
+   observeEvent(griddi$showMap,{
+        shinyjs::show("mapdiv-mapdiv")
+        shinyjs::hide("griddiv-griddiv")
+        shinyjs::show("base_bb_button")
+        shinyjs::show("site_bb_button")
+        shinyjs::show("plot_bb_button")
+        shinyjs::hide("map_bb_button")
+        shinyjs::hide("grid_bb_button")
+        shinyjs::hide("site_bb_button_two")
+        shinyjs::hide("plot_bb_button_two")
+        shinyjs::hide("map_bb_button_two")
+        shinyjs::show("grid_bb_button_two")
+        shinyjs::hide(selector = ".banner")
+        shinyjs::show("Map-banner-div")
+     })
+
      observeEvent(input$grid,{
        shinyjs::hide("base")
        shinyjs::hide("base-tools")
        shinyjs::show("griddiv-griddiv")
        shinyjs::hide(selector = ".banner")
        shinyjs::show("Grid-banner-div")
-       shinyjs::show("basearrow")
-       shinyjs::show("backsite")
-       shinyjs::hide("backgrid")
-       shinyjs::hide("basearrow_sg")
-       shinyjs::hide("backsite_sg")
+       shinyjs::show("base_bb_button")
+       shinyjs::show("site_bb_button")
+       shinyjs::show("plot_bb_button")
+       shinyjs::hide("map_bb_button")
+       shinyjs::hide("grid_bb_button")
+       shinyjs::hide("site_bb_button_two")
+       shinyjs::hide("plot_bb_button_two")
+       shinyjs::show("map_bb_button_two")
+       shinyjs::hide("grid_bb_button_two")
      })
    }
    {
-     observeEvent(input$basearrow,{
+     observeEvent(input$base_bb_button,{
        shinyjs::show("base")
        shinyjs::show("base-tools")
        shinyjs::hide("griddiv-griddiv")
-       shinyjs::hide("basearrow")
-       shinyjs::hide("backgrid")
-       shinyjs::hide("backsite")
-       shinyjs::hide("basearrow_sg")
-       shinyjs::hide("backsite_sg")
+       shinyjs::hide("base_bb_button")
+       shinyjs::hide("site_bb_button")
+       shinyjs::hide("plot_bb_button")
+       shinyjs::hide("map_bb_button")
+       shinyjs::hide("grid_bb_button")
+       shinyjs::hide("site_bb_button_two")
+       shinyjs::hide("plot_bb_button_two")
+       shinyjs::hide("map_bb_button_two")
+       shinyjs::hide("grid_bb_button_two")
        shinyjs::hide(selector = ".banner")
        shinyjs::show("Base-banner-div")
      })
    }
    {
-     observeEvent(input$backsite,{
-       shinyjs::show("site")
-       shinyjs::show("sitediv-sitediv")
+     observeEvent(input$map_bb_button_two,{
+       shinyjs::show("mapdiv-mapdiv")
        shinyjs::hide("griddiv-griddiv")
-       shinyjs::hide("backsite")
+       shinyjs::hide("base")
+       shinyjs::show("base_bb_button")
+       shinyjs::show("site_bb_button")
+       shinyjs::show("plot_bb_button")
+       shinyjs::hide("map_bb_button")
+       shinyjs::hide("grid_bb_button")
+       shinyjs::hide("site_bb_button_two")
+       shinyjs::hide("plot_bb_button_two")
+       shinyjs::hide("map_bb_button_two")
+       shinyjs::show("grid_bb_button_two")
        shinyjs::hide(selector = ".banner")
-       shinyjs::show("Site-banner-div")
-       shinyjs::show("basearrow")
-       shinyjs::show("backgrid")
-       shinyjs::hide("basearrow_sg")
-       shinyjs::hide("backsite_sg")
-       shinyjs::hide("BBGCDB")
+       shinyjs::show("Map-banner-div")
      })
    }
- 
+   {
+     observeEvent(input$site_bb_button,{
+       shinyjs::show("sitediv-sitediv")
+       shinyjs::hide("griddiv-griddiv")
+       shinyjs::show("base_bb_button")
+       shinyjs::hide("site_bb_button")
+       shinyjs::hide("plot_bb_button")
+       shinyjs::show("map_bb_button")
+       shinyjs::show("grid_bb_button")
+       shinyjs::hide("site_bb_button_two")
+       shinyjs::show("plot_bb_button_two")
+       shinyjs::hide("map_bb_button_two")
+       shinyjs::hide("grid_bb_button_two")
+       shinyjs::hide(selector = ".banner")
+       shinyjs::show("Site-banner-div")
+     })
+   }
+   {
+     observeEvent(input$plot_bb_button,{
+       shinyjs::show("showdiv-showdiv")
+       shinyjs::hide("griddiv-griddiv")
+       shinyjs::show("base_bb_button")
+       shinyjs::hide("site_bb_button")
+       shinyjs::hide("plot_bb_button")
+       shinyjs::show("map_bb_button")
+       shinyjs::show("grid_bb_button")
+       shinyjs::show("site_bb_button_two")
+       shinyjs::hide("plot_bb_button_two")
+       shinyjs::hide("map_bb_button_two")
+       shinyjs::hide("grid_bb_button_two")
+       shinyjs::hide(selector = ".banner")
+       shinyjs::show("Show-banner-div")
+     })
+   }
+   
     ## SITEGENERATOR
     {
       # browser()
@@ -247,85 +377,360 @@ agroServer <- function(input, output, session) {
         shinyjs::show("sitegendiv-sitegendiv")
         shinyjs::hide(selector = ".banner")
         shinyjs::show("Sitegen-banner-div")
-        shinyjs::show("basearrow_sg")
-        shinyjs::show("backsite_sg")
-        shinyjs::hide("backgrid")
-        shinyjs::hide("backsite")
-        shinyjs::hide("backarrow")
+        shinyjs::show("base_bb_button")
+        shinyjs::show("site_bb_button")
+        shinyjs::show("plot_bb_button")
+        shinyjs::hide("map_bb_button")
+        shinyjs::hide("grid_bb_button")
+        shinyjs::hide("site_bb_button_two")
+        shinyjs::hide("plot_bb_button_two")
+        shinyjs::hide("map_bb_button_two")
+        shinyjs::show("grid_bb_button_two")
       })
     }
     {
-      observeEvent(input$basearrow_sg,{
+      observeEvent(input$base_bb_button,{
               shinyjs::show("base")
         shinyjs::show("base-tools")
        shinyjs::hide("sitegendiv-sitegendiv")
-       shinyjs::hide("basearrow")
-       shinyjs::hide("backgrid")
-       shinyjs::hide("backsite")
-       shinyjs::hide("basearrow_sg")
-       shinyjs::hide("backsite_sg")
        shinyjs::hide(selector = ".banner")
+       shinyjs::hide("base_bb_button")
+       shinyjs::hide("site_bb_button")
+       shinyjs::hide("plot_bb_button")
+       shinyjs::hide("map_bb_button")
+       shinyjs::hide("grid_bb_button")
        shinyjs::show("Base-banner-div")
+       shinyjs::hide("site_bb_button_two")
+       shinyjs::hide("plot_bb_button_two")
+       shinyjs::hide("map_bb_button_two")
+       shinyjs::hide("grid_bb_button_two")
       })
       }
       {
-      observeEvent(input$backsite_sg,{
-       shinyjs::show("site")
+      observeEvent(input$grid_bb_button_two,{
+        shinyjs::show("grid")
+        shinyjs::show("griddiv-griddiv")
+       shinyjs::hide("sitegendiv-sitegendiv")
+       shinyjs::hide(selector = ".banner")
+       shinyjs::show("Grid-banner-div")
+       shinyjs::show("base_bb_button")
+       shinyjs::show("site_bb_button")
+       shinyjs::show("plot_bb_button")
+       shinyjs::hide("map_bb_button")
+       shinyjs::hide("grid_bb_button")
+       shinyjs::hide("site_bb_button_two")
+       shinyjs::hide("plot_bb_button_two")
+       shinyjs::show("map_bb_button_two")
+       shinyjs::hide("grid_bb_button_two")
+      })
+      }
+   {
+     observeEvent(input$site_bb_button,{
        shinyjs::show("sitediv-sitediv")
        shinyjs::hide("sitegendiv-sitegendiv")
+       shinyjs::hide(selector = ".banner")
+       shinyjs::show("Site-banner-div")
+       shinyjs::show("base_bb_button")
+       shinyjs::hide("site_bb_button")
+       shinyjs::hide("plot_bb_button")
+       shinyjs::show("map_bb_button")
+       shinyjs::show("grid_bb_button")
+       shinyjs::hide("site_bb_button_two")
+       shinyjs::show("plot_bb_button_two")
+       shinyjs::hide("map_bb_button_two")
+       shinyjs::hide("grid_bb_button_two")
+     })
+   }
+   {
+     observeEvent(input$plot_bb_button,{
+       shinyjs::show("showdiv-swowdiv")
+       shinyjs::hide("sitegendiv-sitegendiv")
+       shinyjs::hide(selector = ".banner")
+       shinyjs::show("Show-banner-div")
+       shinyjs::show("base_bb_button")
+       shinyjs::hide("site_bb_button")
+       shinyjs::hide("plot_bb_button")
+       shinyjs::show("map_bb_button")
+       shinyjs::show("grid_bb_button")
+       shinyjs::show("site_bb_button_two")
+       shinyjs::hide("plot_bb_button_two")
+       shinyjs::hide("map_bb_button_two")
+       shinyjs::hide("grid_bb_button_two")
+     })
+   }
+    ## PARANA
+    {
+      
+      callModule(agroMoParAna,"paranadiv")
+      observeEvent(input$parana,{
+        shinyjs::hide("base")
+        shinyjs::hide("base-tools")
+        shinyjs::show("paranadiv-paranadiv")
+        shinyjs::hide(selector = ".banner")
+        shinyjs::show("Parana-banner-div")
+        shinyjs::show("base_bb_button")
+        shinyjs::show("site_bb_button")
+        shinyjs::show("plot_bb_button")
+        shinyjs::hide("map_bb_button")
+        shinyjs::hide("grid_bb_button")
+        shinyjs::hide("site_bb_button_two")
+        shinyjs::hide("plot_bb_button_two")
+        shinyjs::hide("map_bb_button_two")
+        shinyjs::show("grid_bb_button_two")
+      })
+    }
+    {
+      observeEvent(input$grid_bb_button_two,{
+        shinyjs::show("griddiv-griddv")
+        shinyjs::hide("paranadiv-paranadiv")
+        shinyjs::show("base_bb_button")
+        shinyjs::show("site_bb_button")
+        shinyjs::show("plot_bb_button")
+        shinyjs::hide("map_bb_button")
+        shinyjs::hide("grid_bb_button")
+        shinyjs::hide("site_bb_button_two")
+        shinyjs::hide("plot_bb_button_two")
+        shinyjs::show("map_bb_button_two")
+        shinyjs::hide("grid_bb_button_two")
+        shinyjs::hide(selector = ".banner")
+        shinyjs::show("Grid-banner-div")
+      })
+    }
+    {
+      observeEvent(input$site_bb_button,{
+        shinyjs::show("sitediv-sitediv")
+        shinyjs::hide("paranadiv-paranadiv")
+        shinyjs::hide("backsite")
+        shinyjs::hide(selector = ".banner")
+        shinyjs::show("Site-banner-div")
+        shinyjs::show("base_bb_button")
+        shinyjs::hide("site_bb_button")
+        shinyjs::hide("plot_bb_button")
+        shinyjs::show("map_bb_button")
+        shinyjs::show("grid_bb_button")
+        shinyjs::hide("site_bb_button_two")
+        shinyjs::show("plot_bb_button_two")
+        shinyjs::hide("map_bb_button_two")
+        shinyjs::hide("grid_bb_button_two")
+      })
+    }
+   {
+     observeEvent(input$plot_bb_button,{
+       shinyjs::show("showdiv-showdiv")
+       shinyjs::hide("paranadiv-paranadiv")
+       shinyjs::hide(selector = ".banner")
+       shinyjs::show("Show-banner-div")
+       shinyjs::show("base_bb_button")
+       shinyjs::hide("site_bb_button")
+       shinyjs::hide("plot_bb_button")
+       shinyjs::show("map_bb_button")
+       shinyjs::show("grid_bb_button")
+       shinyjs::show("site_bb_button_two")
+       shinyjs::hide("plot_bb_button_two")
+       shinyjs::hide("map_bb_button_two")
+       shinyjs::hide("grid_bb_button_two")
+     })
+   }    
+   {
+     observeEvent(input$base_bb_button,{
+       shinyjs::show("base")
+       shinyjs::show("base-tools")
+       shinyjs::hide("paranadiv-paranadiv")
+       shinyjs::hide(selector = ".banner")
+       shinyjs::show("Base-banner-div")
+       shinyjs::hide("base_bb_button")
+       shinyjs::hide("site_bb_button")
+       shinyjs::hide("plot_bb_button")
+       shinyjs::hide("map_bb_button")
+       shinyjs::hide("grid_bb_button")
+       shinyjs::hide("site_bb_button_two")
+       shinyjs::hide("plot_bb_button_two")
+       shinyjs::hide("map_bb_button_two")
+       shinyjs::hide("grid_bb_button_two")
+     })
+   }   
+        
+   ## DBMAN
+   {
+     
+     callModule(agroMoDBMan,"dbmandiv", datas$baseDir, datas$gridConnection, datas$connection)
+     observeEvent(input$calibration,{
+       shinyjs::hide("base")
+       shinyjs::hide("base-tools")
+       shinyjs::show("dbmandiv-dbmandiv")
+       shinyjs::hide(selector = ".banner")
+       shinyjs::show("DBMan-banner-div")
+       shinyjs::show("base_bb_button")
+       shinyjs::show("site_bb_button")
+       shinyjs::show("plot_bb_button")
+       shinyjs::hide("map_bb_button")
+       shinyjs::hide("grid_bb_button")
+       shinyjs::hide("site_bb_button_two")
+       shinyjs::hide("plot_bb_button_two")
+       shinyjs::hide("map_bb_button_two")
+       shinyjs::show("grid_bb_button_two")
+     })
+   }
+   {
+     observeEvent(input$grid_bb_button_two,{
+       shinyjs::show("griddiv-griddv")
+       shinyjs::hide("dbmandiv-dbmandiv")
+       shinyjs::show("base_bb_button")
+       shinyjs::show("site_bb_button")
+       shinyjs::show("plot_bb_button")
+       shinyjs::hide("map_bb_button")
+       shinyjs::hide("grid_bb_button")
+       shinyjs::hide("site_bb_button_two")
+       shinyjs::hide("plot_bb_button_two")
+       shinyjs::show("map_bb_button_two")
+       shinyjs::hide("grid_bb_button_two")
+       shinyjs::hide(selector = ".banner")
+       shinyjs::show("Grid-banner-div")
+     })
+   }
+   {
+     observeEvent(input$site_bb_button,{
+       shinyjs::show("sitediv-sitediv")
+       shinyjs::hide("dbmandiv-dbmandiv")
        shinyjs::hide("backsite")
        shinyjs::hide(selector = ".banner")
        shinyjs::show("Site-banner-div")
-       shinyjs::show("basearrow")
-       shinyjs::show("backgrid")
-       shinyjs::hide("basearrow_sg")
-       shinyjs::hide("backsite_sg")
-      })
-      }
-    
+       shinyjs::show("base_bb_button")
+       shinyjs::hide("site_bb_button")
+       shinyjs::hide("plot_bb_button")
+       shinyjs::show("map_bb_button")
+       shinyjs::show("grid_bb_button")
+       shinyjs::hide("site_bb_button_two")
+       shinyjs::show("plot_bb_button_two")
+       shinyjs::hide("map_bb_button_two")
+       shinyjs::hide("grid_bb_button_two")
+     })
+   }
+   {
+     observeEvent(input$plot_bb_button,{
+       shinyjs::show("showdiv-showdiv")
+       shinyjs::hide("dbmandiv-dbmandiv")
+       shinyjs::hide(selector = ".banner")
+       shinyjs::show("Show-banner-div")
+       shinyjs::show("base_bb_button")
+       shinyjs::hide("site_bb_button")
+       shinyjs::hide("plot_bb_button")
+       shinyjs::show("map_bb_button")
+       shinyjs::show("grid_bb_button")
+       shinyjs::show("site_bb_button_two")
+       shinyjs::hide("plot_bb_button_two")
+       shinyjs::hide("map_bb_button_two")
+       shinyjs::hide("grid_bb_button_two")
+     })
+   }    
+   {
+     observeEvent(input$base_bb_button,{
+       shinyjs::show("base")
+       shinyjs::show("base-tools")
+       shinyjs::hide("dbmandiv-dbmandiv")
+       shinyjs::hide(selector = ".banner")
+       shinyjs::show("Base-banner-div")
+       shinyjs::hide("base_bb_button")
+       shinyjs::hide("site_bb_button")
+       shinyjs::hide("plot_bb_button")
+       shinyjs::hide("map_bb_button")
+       shinyjs::hide("grid_bb_button")
+       shinyjs::hide("site_bb_button_two")
+       shinyjs::hide("plot_bb_button_two")
+       shinyjs::hide("map_bb_button_two")
+       shinyjs::hide("grid_bb_button_two")
+     })
+   }   
+   
    ## MAP
    {
-     callModule(agroMoMap,"mapdiv",baseDir=reactive({datas$baseDir}))
+     callModule(agroMoMap,"mapdiv",baseDir=reactive({datas$baseDir}),reactive({griddi$showMap}))
      observeEvent(input$map,{
        shinyjs::hide("base")
        shinyjs::hide("base-tools")
        shinyjs::show("mapdiv-mapdiv")
        shinyjs::hide(selector = ".banner")
        shinyjs::show("Map-banner-div")
-       shinyjs::show("basearrow")
-       shinyjs::show("backgrid")
-       shinyjs::hide("basearrow_sg")
-       shinyjs::hide("backsite_sg")
-       shinyjs::hide("backsite")
+       shinyjs::show("base_bb_button")
+       shinyjs::show("site_bb_button")
+       shinyjs::show("plot_bb_button")
+       shinyjs::hide("map_bb_button")
+       shinyjs::hide("grid_bb_button")
+       shinyjs::hide("site_bb_button_two")
+       shinyjs::hide("plot_bb_button_two")
+       shinyjs::hide("map_bb_button_two")
+       shinyjs::show("grid_bb_button_two")
      })
    }
    
    {
-     observeEvent(input$basearrow,{
+     observeEvent(input$base_bb_button,{
        shinyjs::show("base")
        shinyjs::show("base-tools")
        shinyjs::hide("mapdiv-mapdiv")
        shinyjs::hide(selector = ".banner")
-       shinyjs::hide("backgrid")
-       shinyjs::hide("backsite")
-       shinyjs::hide("basearrow_sg")
-       shinyjs::hide("backsite_sg")
+       shinyjs::hide("base_bb_button")
+       shinyjs::hide("site_bb_button")
+       shinyjs::hide("plot_bb_button")
+       shinyjs::hide("map_bb_button")
+       shinyjs::hide("grid_bb_button")
        shinyjs::show("Base-banner-div")
-       shinyjs::hide("basearrow")
+       shinyjs::hide("site_bb_button_two")
+       shinyjs::hide("plot_bb_button_two")
+       shinyjs::hide("map_bb_button_two")
+       shinyjs::hide("grid_bb_button_two")
      })
    }
    {
-     observeEvent(input$backgrid,{
+     observeEvent(input$grid_bb_button_two,{
        shinyjs::show("grid")
        shinyjs::show("griddiv-griddiv")
        shinyjs::hide("mapdiv-mapdiv")
        shinyjs::hide(selector = ".banner")
        shinyjs::show("Grid-banner-div")
-       shinyjs::hide("backgrid")
-       shinyjs::show("basearrow")
-       shinyjs::hide("basearrow_sg")
-       shinyjs::hide("backsite_sg")
-       shinyjs::show("backsite")
+       shinyjs::show("base_bb_button")
+       shinyjs::show("site_bb_button")
+       shinyjs::show("plot_bb_button")
+       shinyjs::hide("map_bb_button")
+       shinyjs::hide("grid_bb_button")
+       shinyjs::hide("site_bb_button_two")
+       shinyjs::hide("plot_bb_button_two")
+       shinyjs::show("map_bb_button_two")
+       shinyjs::hide("grid_bb_button_two")
+     })
+   }
+   {
+     observeEvent(input$site_bb_button,{
+       shinyjs::show("sitediv-sitediv")
+       shinyjs::hide("mapdiv-mapdiv")
+       shinyjs::hide(selector = ".banner")
+       shinyjs::show("Site-banner-div")
+       shinyjs::show("base_bb_button")
+       shinyjs::hide("site_bb_button")
+       shinyjs::hide("plot_bb_button")
+       shinyjs::show("map_bb_button")
+       shinyjs::show("grid_bb_button")
+       shinyjs::hide("site_bb_button_two")
+       shinyjs::show("plot_bb_button_two")
+       shinyjs::hide("map_bb_button_two")
+       shinyjs::hide("grid_bb_button_two")
+     })
+   }
+   {
+     observeEvent(input$plot_bb_button,{
+       shinyjs::show("showdiv-swowdiv")
+       shinyjs::hide("mapdiv-mapdiv")
+       shinyjs::hide(selector = ".banner")
+       shinyjs::show("Show-banner-div")
+       shinyjs::show("base_bb_button")
+       shinyjs::hide("site_bb_button")
+       shinyjs::hide("plot_bb_button")
+       shinyjs::show("map_bb_button")
+       shinyjs::show("grid_bb_button")
+       shinyjs::show("site_bb_button_two")
+       shinyjs::hide("plot_bb_button_two")
+       shinyjs::hide("map_bb_button_two")
+       shinyjs::hide("grid_bb_button_two")
      })
    }
    
@@ -340,44 +745,89 @@ agroServer <- function(input, output, session) {
         shinyjs::show("showdiv-showdiv")
         shinyjs::hide(selector = ".banner")
         shinyjs::show("Show-banner-div")
-        shinyjs::show("basearrow")
-        shinyjs::show("backsite")
-        shinyjs::hide("basearrow_sg")
-        shinyjs::hide("backsite_sg")
-        shinyjs::hide("backgrid")
+        shinyjs::show("base_bb_button")
+        shinyjs::hide("site_bb_button")
+        shinyjs::hide("plot_bb_button")
+        shinyjs::show("map_bb_button")
+        shinyjs::show("grid_bb_button")
+        shinyjs::show("site_bb_button_two")
+        shinyjs::hide("plot_bb_button_two")
+        shinyjs::hide("map_bb_button_two")
+        shinyjs::hide("grid_bb_button_two")
         datas$dataenv <- dbListTables(datas$connection) 
       })
 }
    {
-     observeEvent(input$basearrow,{
+     observeEvent(input$base_bb_button,{
        shinyjs::show("base")
        shinyjs::show("base-tools")
        shinyjs::hide("showdiv-showdiv")
-       shinyjs::hide("basearrow")
-       shinyjs::hide("backgrid")
-       shinyjs::hide("backsite")
-       shinyjs::hide("basearrow_sg")
-       shinyjs::hide("backsite_sg")
+       shinyjs::hide("base_bb_button")
+       shinyjs::hide("site_bb_button")
+       shinyjs::hide("grid_bb_button")
+       shinyjs::hide("map_bb_button")
+       shinyjs::hide("plot_bb_button")
+       shinyjs::hide("site_bb_button_two")
+       shinyjs::hide("plot_bb_button_two")
+       shinyjs::hide("map_bb_button_two")
+       shinyjs::hide("grid_bb_button_two")
        shinyjs::hide(selector = ".banner")
        shinyjs::show("Base-banner-div")
        shinyjs::hide("BBGCDB")
      })
    }
    {
-     observeEvent(input$backsite,{
-       shinyjs::show("site")
+     observeEvent(input$site_bb_button_two,{
        shinyjs::show("sitediv-sitediv")
        shinyjs::hide("showdiv-showdiv")
-       shinyjs::hide("backsite")
-       shinyjs::hide("basearrow_sg")
-       shinyjs::hide("backsite_sg")
+       shinyjs::show("base_bb_button")
+       shinyjs::hide("site_bb_button")
+       shinyjs::show("grid_bb_button")
+       shinyjs::show("map_bb_button")
+       shinyjs::hide("plot_bb_button")
+       shinyjs::hide("site_bb_button_two")
+       shinyjs::show("plot_bb_button_two")
+       shinyjs::hide("map_bb_button_two")
+       shinyjs::hide("grid_bb_button_two")
        shinyjs::hide(selector = ".banner")
        shinyjs::show("Site-banner-div")
-       shinyjs::show("basearrow")
-       shinyjs::show("backgrid")
      })
    }
-
+   {
+     observeEvent(input$map_bb_button,{
+       shinyjs::show("mapdiv-mapdiv")
+       shinyjs::hide("showdiv-showdiv")
+       shinyjs::show("base_bb_button")
+       shinyjs::show("site_bb_button")
+       shinyjs::hide("grid_bb_button")
+       shinyjs::hide("map_bb_button")
+       shinyjs::show("plot_bb_button")
+       shinyjs::hide("site_bb_button_two")
+       shinyjs::hide("plot_bb_button_two")
+       shinyjs::hide("map_bb_button_two")
+       shinyjs::show("grid_bb_button_two")
+       shinyjs::hide(selector = ".banner")
+       shinyjs::show("Map-banner-div")
+     })
+   }
+   {
+     observeEvent(input$grid_bb_button,{
+       shinyjs::show("griddiv-griddiv")
+       shinyjs::hide("showdiv-showdiv")
+       shinyjs::show("base_bb_button")
+       shinyjs::show("site_bb_button")
+       shinyjs::hide("grid_bb_button")
+       shinyjs::hide("map_bb_button")
+       shinyjs::show("plot_bb_button")
+       shinyjs::hide("site_bb_button_two")
+       shinyjs::hide("plot_bb_button_two")
+       shinyjs::show("map_bb_button_two")
+       shinyjs::hide("grid_bb_button_two")
+       shinyjs::hide(selector = ".banner")
+       shinyjs::show("Grid-banner-div")
+     })
+   }
+   
    ## ##  GRID MODUL
    ##{
    ##callModule(agroMoGrid,"griddiv",dataenv = reactive(datas$dataenv),baseDir = reactive(datas$baseDir), connection = reactive({datas$connection}),centralData=centralData)
@@ -393,7 +843,7 @@ agroServer <- function(input, output, session) {
    ##})
    ##}
    {
-     observeEvent(input$calibration,{
+     observeEvent(input$storEditor,{
        shinyjs::hide("base")
        shinyjs::hide("base-tools")
        shinyjs::hide("mapdiv-mapdiv")
@@ -409,7 +859,7 @@ agroServer <- function(input, output, session) {
    }
 
    observeEvent(input$storEditor,{
-        tryCatch(system(sprintf("%s",file.path(system.file("tools",package="AgroMo"),"AgroMo_tools.exe"))), warning=function(e){
+        tryCatch(system(sprintf("%s",file.path(system.file("tool",package="AgroMo"),"AgroMo_Apps.exe"))), warning=function(e){
            showNotification("Currently Story editor is only usable from Windows", type="error")  
         }) 
      })

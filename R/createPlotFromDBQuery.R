@@ -6,7 +6,11 @@
 #' @param attachedDBS Further databases which can be joined
 #' @importFrom RSQLite SQLite
 #' @importFrom DBI dbConnect dbGetQuery
+#' @importFrom showtext showtext_auto
+#' @importFrom sysfonts font_add
 #' @export
+#' 
+
 readQueryFromDB <- function(connection, query, attachedDBS=NULL,
                             queryModifiers=NULL){
   
@@ -23,7 +27,7 @@ readQueryFromDB <- function(connection, query, attachedDBS=NULL,
     res <- dbGetQuery(connection,query)[,1]
     # dbDisconnect(connection)
     
-    #Check the result
+    # Check the result
     if((length(res)!=1104 ) ||  (!is.numeric(res))){
       stop("Something went wrong") 
     }
@@ -116,33 +120,55 @@ trimColorSet <- function(minim, maxim, center=NULL, nticks=6, roundPrecision=NUL
 #' @return
 #' @export
 
-agroMapVector <- function(data, nticks=NULL, binwidth=NULL, minimum=NULL, maximum=NULL, roundPrecision=NULL, reverseColorScale=FALSE,
-                          colorSet="RdYlGn", center=NULL, plotTitle=NULL, imageTitle=NULL, lonlat=FALSE, countrycont=TRUE) {
-  
-  # The followings shall be commented to make it possible to run the code on the AgroMo GUI:
-  # if(missing(nticks) & missing(binwidth))  {
-  #   stop("Please, choose the number of colors (nticks) or the bin width (binwidth).\n
-  #        The latter requires choosing the minimum and maximum of the displayed values (minim, maxim).")
-  # }
-  # 
-  # if((is.numeric(nticks)==TRUE) & (is.numeric(binwidth)==TRUE)) {
-  #   stop("Please, choose only one of the following parameters: nticks, binwidth")
-  # }
-  # 
-  # if((is.numeric(binwidth)) & ((missing(minimum)) | (missing(maximum))) ) {
-  #   stop("Please, define the minimum and maximum values of the displayed data (minim, maxim).")
-  # }
-  # 
-  # if((is.numeric(nticks)) & ((is.numeric(minimum)) | (is.numeric(maximum))) ) {
-  #   stop("Parameters minimum and maximum can only used with the parameter binwidth.")
-  # }
-  
+agroMapVector <- function(data, errorVector, nticks=NULL, binwidth=NULL, minimum=NULL, maximum=NULL, roundPrecision=NULL, reverseColorScale=FALSE,
+                          colorSet="RdYlGn", center=NULL, plotTitle=NULL, imageTitle=NULL, lonlat=FALSE, countrycont=TRUE,categorical,maskCol) {
+
+
+    if(!categorical){
+        if((is.na(minimum) && is.na(maximum))){
+            showNotification("Please provide minimum or maximum value for mapping",type="error")
+            return(1)
+        }
+
+        if(minimum >= maximum){
+            showNotification("Minimum must be less than maximum",type="error")
+            return(1)
+
+        }
+
+        
+        if(is.na(binwidth)){
+            showNotification("Please provide binwidth for mapping",type="error")
+            return(1)
+        }
+
+        if(binwidth<=0){
+            showNotification("binwidth must be positive number",type="error")
+            return(1)
+        }
+
+        if(binwidth >= (maximum - minimum)){
+            showNotification("Binwidth must be less than the difference of the maximum and minimum value",type="error")
+            return(1)
+
+        }
+    }
+
+  errorVector[(errorVector == 0)] <- NA # 10 is arbitary positive number
   lon <- seq(16.2,22.8,0.1)
   lat <- seq(45.8,48.5,0.1)
+  
+  lon_ext <- c(16.1,lon,22.9)
+  lat_ext <- c(45.7,lat,48.6)
   
   dimlon <- length(lon)
   dimlat <- length(lat)
   
+  # Labels of the x and y axis on the maps:
+  longitudes <- c("16°E","17°E","18°E","19°E","20°E","21°E","22°E","23°E")
+  latitudes <- c("46°N","47°N","48°N")
+  
+  # Indices of grid cells which cover the area of Hungary:
   index <- c(18,	19,	20,	21,	22,	23,	24,	83,	84,	85,	86,	87,	88,	89,	90,	91,	92,	94,	147,	148,	149,	150,	151,	152,	153,	154,	155,	156,	157,	158,	159,	160,
              161,	162,	163,	165,	213,	214,	215,	216,	217,	218,	219,	220,	221,	222,	223,	224,	225,	226,	227,	228,	229,	230,	231,	232,	233,	234,	278,
              279,	280,	281,	282,	283,	284,	285,	286,	287,	288,	289,	290,	291,	292,	293,	294,	295,	296,	297,	298,	299,	300,	301,	302,	303,	304,	305,
@@ -186,12 +212,30 @@ agroMapVector <- function(data, nticks=NULL, binwidth=NULL, minimum=NULL, maximu
              1790,	1791,	1792,	1793,	1794,	1795,	1796,	1797,	1803,	1854,	1855,	1856,	1857,	1858,	1860,	1861,	1862,	1863,	1864)
   
   grid_vect <- array(NA, dim=1876)
+  err_vect <- array(NA, dim=1876)
+  mask_vect <- array(NA, dim=1876)
   grid_vect[index] <- data
+  mask_vect[index[is.na(data)]] <- 10 # 10 is arbitrary positive number
+  err_vect[index] <- errorVector
+
   grid_array <- matrix(grid_vect, nrow=length(lon), ncol=length(lat))
+  err_array <- matrix(err_vect, nrow=length(lon), ncol=length(lat))
+  mask_array <- matrix(mask_vect, nrow=length(lon), ncol=length(lat))
   
+  # extending the plotted map with 0.1° in each direction:
+  grid_array_ext <- rbind(rep(NA,dimlat+2), cbind(rep(NA,dimlon), grid_array,rep(NA,dimlon)), rep(NA,dimlat+2))
+  err_array_ext <- rbind(rep(NA,dimlat+2), cbind(rep(NA,dimlon), err_array,rep(NA,dimlon)), rep(NA,dimlat+2))
+  mask_array_ext <- rbind(rep(NA,dimlat+2), cbind(rep(NA,dimlon), mask_array,rep(NA,dimlon)), rep(NA,dimlat+2))
+  
+  # Changing the font on maps from Arial to Fira Sans:
+  # showtext_auto()
+  # font_add_google("Fira Sans", "fira")
+  # font_add("fira", file.path(system.file("www", package = "AgroMo"), "font/FiraSans-Light.ttf"))
+  
+  # browser() 
   # if (is.null(binwidth)) {
-  if (nticks > 1) { # By using this, plotting maps is possible by choosing (min,max,bw) and nticks, respectively.
-    colorbar <- trimColorSet(min(data),max(data),center=center, nticks=nticks,
+  if ((nticks > 1) && categorical) { # With this parameter, plotting of maps is possible by choosing (min,max,bw) and nticks, respectively.
+    colorbar <- trimColorSet(min(data,na.rm=TRUE),max(data,na.rm=TRUE),center=center, nticks=nticks,
                              roundPrecision=roundPrecision, reverseColorScale=reverseColorScale, colorSet=colorSet)
     if(!is.null(imageTitle)){
       png(imageTitle, units="in", width=14, height=9, pointsize=14, res=300)  
@@ -200,22 +244,27 @@ agroMapVector <- function(data, nticks=NULL, binwidth=NULL, minimum=NULL, maximu
     
     # windows()
     if(is.null(roundPrecision)) {
-      
-      image.plot(lon, lat, grid_array, xaxt="n", yaxt="n", ann=FALSE, col=colorbar$colors, lab.breaks=colorbar$breaks)
+      image.plot(lon_ext, lat_ext, grid_array_ext, xaxt="n", yaxt="n", ann=FALSE, col=colorbar$colors, lab.breaks=colorbar$breaks,
+                 axis.args=list(cex.axis=3.5, family="fira"))
+      image(lon_ext, lat_ext, err_array_ext, col=c("#000000","#000000"), add=TRUE)
     } else {
-      image.plot(lon, lat, grid_array, xaxt="n", yaxt="n", ann=FALSE, col=colorbar$colors, lab.breaks=round(colorbar$breaks, digits=roundPrecision))
+      image.plot(lon_ext, lat_ext, grid_array_ext, xaxt="n", yaxt="n", ann=FALSE, col=colorbar$colors, lab.breaks=round(colorbar$breaks, 
+                 digits=roundPrecision), axis.args=list(cex.axis=3.5, family="fira"))
+      image(lon_ext, lat_ext, err_array_ext,col=c("#000000","#000000"), add=TRUE)
     }
     
+    image(lon_ext, lat_ext, mask_array_ext,col=c(maskCol,"#000000"), add=TRUE)
     if(lonlat==TRUE) {
       abline(h=seq(46,48,1), v=seq(16,23,1), lty=2)
     }
-    title(main=plotTitle, cex.lab=1.2)
-    axis(1, at=seq(16,23,1), labels=c("16°E","17°E","18°E","19°E","20°E","21°E","22°E","23°E"), cex.axis=1.2)
+    title(main=plotTitle, cex.main=6, family="fira_title")
+    axis(1, at=seq(16,23,1), labels=longitudes, 
+         cex.axis=4, family="fira")
     axis(1, at=seq(16,23,0.5), labels=FALSE, tck=-0.01)
-    axis(2, at=seq(46,48,1), labels=c("46°N","47°N","48°N"), cex.axis=1.2, las=2)
+    axis(2, at=seq(46,48,1), labels=latitudes, cex.axis=4, las=2, family="fira")
     axis(2, at=seq(46,48,0.5), labels=FALSE, tck=-0.01)
     if(countrycont==TRUE){
-      map("world", xlim=c(lon[1],lon[length(lon)]), ylim=c(lat[1],lat[length(lat)]), add=TRUE)
+      map("world", xlim=c(lon_ext[1],lon_ext[length(lon_ext)]), ylim=c(lat_ext[1],lat_ext[length(lat_ext)]), add=TRUE)
     }
     if(!is.null(imageTitle)){
       graphics.off()
@@ -237,23 +286,26 @@ agroMapVector <- function(data, nticks=NULL, binwidth=NULL, minimum=NULL, maximu
       png(imageTitle, units="in", width=14, height=9, pointsize=14, res=300)    
       par(omi=c(0,0,0,0.8))
     }
-    image.plot(lon, lat, grid_array, xaxt="n", yaxt="n", ann=FALSE, col=colorbar, breaks=brks, lab.breaks=brks)#, asp=1.5555555555)
+    image.plot(lon_ext, lat_ext, grid_array_ext, xaxt="n", yaxt="n", ann=FALSE, col=colorbar, breaks=brks, 
+               lab.breaks=brks, axis.args=list(cex.axis=3.5, family="fira"))#, asp=1.5555555555)
     if(lonlat==TRUE) {
       abline(h=seq(46,48,1), v=seq(16,23,1), lty=2)
     }
-    title(main=plotTitle, cex.lab=1.2)
-    axis(1, at=seq(16,23,1), labels=c("16°E","17°E","18°E","19°E","20°E","21°E","22°E","23°E"), cex.axis=1.2)
+    title(main=plotTitle, cex.main=6, family="fira")
+    axis(1, at=seq(16,23,1), labels=longitudes, 
+         cex.axis=4, family="fira")
     axis(1, at=seq(16,23,0.5), labels=FALSE, tck=-0.01)
-    axis(2, at=seq(46,48,1), labels=c("46°N","47°N","48°N"), cex.axis=1.2, las=2)
+    axis(2, at=seq(46,48,1), labels=latitudes, cex.axis=4, las=2, family="fira")
     axis(2, at=seq(46,48,0.5), labels=FALSE, tck=-0.01)
     if(countrycont==TRUE){
-      map("world", xlim=c(lon[1],lon[length(lon)]), ylim=c(lat[1],lat[length(lat)]), add=TRUE)#, asp=1.55555)
+      map("world", xlim=c(lon_ext[1],lon_ext[length(lon_ext)]), ylim=c(lat_ext[1],lat_ext[length(lat_ext)]), add=TRUE)#, asp=1.55555)
     }
     if(!is.null(imageTitle)){
       graphics.off()
     }
     #     graphics.off()
   }
+    return(0)
 }
 
 #agroMapVector(data=readQueryFromDB("DB/agronew.db",query = query),minimum = 0,maximum = 0.12,binwidth = 0.01,colorSet = "Greens", lonlat = TRUE, fileTitle = "kiraly.png")
@@ -262,7 +314,7 @@ agroMap <- function(connection=NULL, query=NULL, myData=NULL, attachedDBS = NULL
                     queryModifiers=NULL,nticks=NULL, binwidth=NULL,
                     minimum=NULL, maximum=NULL, roundPrecision=NULL,
                     reverseColorScale=FALSE,colorSet="RdYlGn", center=NULL,
-                    plotTitle=NULL, imageTitle=NULL, lonlat=FALSE, outFile=NULL, countrycont=TRUE) {
+                    plotTitle=NULL, imageTitle=NULL, lonlat=FALSE, outFile=NULL, countrycont=TRUE, categorical,maskCol) {
   # browser()
   if(!is.null(connection)){
     agroVector <- readQueryFromDB(connection, query, attachedDBS = attachedDBS,queryModifiers = queryModifiers)
@@ -272,10 +324,13 @@ agroMap <- function(connection=NULL, query=NULL, myData=NULL, attachedDBS = NULL
   if(!is.null(outFile)){
     write.csv(agroVector, outFile)
   }
-  
-  agroMapVector(agroVector, nticks=nticks, binwidth=binwidth, minimum=minimum, maximum=maximum,
+  # browser()
+  errorVector <- myData[,2]
+  agroVector <- myData[,3]
+  agroMapVector(agroVector, errorVector, nticks=nticks, binwidth=binwidth, minimum=minimum, maximum=maximum,
                 roundPrecision=roundPrecision, reverseColorScale=reverseColorScale, colorSet=colorSet,
-                center=center, plotTitle=plotTitle, imageTitle=imageTitle, lonlat=lonlat, countrycont=countrycont)
+                center=center, plotTitle=plotTitle, imageTitle=imageTitle, lonlat=lonlat, countrycont=countrycont,
+                categorical=categorical,maskCol=maskCol)
 }
 
 #

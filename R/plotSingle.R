@@ -33,18 +33,18 @@ plotSingle <- function(outputNames = NULL, dataenv, varName, timeFrame, groupFun
     color = "black" # to set scientific format use: exponentformat = "E"
   )
 ## browser()
-  filtMeasured <- tryCatch(getFilteredData(measurementConn, treatment, experiment_id, repetationsAveraged,varName), error = function (e) NULL)
-    # browser()
-  if(is.null(filtMeasured)){
-    containMeasurement <- FALSE
-  } else {
-    if(nrow(filtMeasured)==0){
-      containMeasurement <- FALSE
-    } else {
-     containMeasurement <- TRUE
-     filtMeasured$measurement_date <- as.Date(filtMeasured$measure_date)
-    }
-  }
+  # filtMeasured <- tryCatch(getFilteredData(measurementConn, treatment, experiment_id, repetationsAveraged,varName), error = function (e) NULL)
+  #   # browser()
+  # if(is.null(filtMeasured)){
+  #   containMeasurement <- FALSE
+  # } else {
+  #   if(nrow(filtMeasured)==0){
+  #     containMeasurement <- FALSE
+  #   } else {
+  #    containMeasurement <- TRUE
+  #    filtMeasured$measurement_date <- as.Date(filtMeasured$measure_date)
+  #   }
+  # }
 
 
   if(timeFrame=="day"){
@@ -52,6 +52,8 @@ plotSingle <- function(outputNames = NULL, dataenv, varName, timeFrame, groupFun
     timeFrame <- "identity" # This gaves us back the current date, it will create numDays separate groups. The group function will also the identity
   }
 
+  measurements <- read.csv(file.path(measurementConn,experiment_id), sep=";",stringsAsFactors=FALSE)
+  measurements$date <- as.Date(measurements$date)
   ## browser()
   dataenv[[outputNames[1]]] <- data.table(dataenv[[outputNames[1]]])
   dataenv[[outputNames[1]]][,year:=as.Date(date)]
@@ -112,12 +114,13 @@ plotSingle <- function(outputNames = NULL, dataenv, varName, timeFrame, groupFun
     }
   }
 
-  if(containMeasurement){
-    p <- plotMeasuredLayers(p,filtMeasured,timeFrame, experiment_id,treatment,measAlias=measAlias)
-
-  }
+  # if(containMeasurement){
+  #   p <- plotMeasuredLayers(p,filtMeasured,timeFrame, experiment_id,treatment,measAlias=measAlias)
+  #
+  # }
+  
     # p %>% layout(yaxis=list(title=sprintf("%s|%s|%s", varName, timeFrame, groupFun))) # %>% toWebGL()
-    p 
+    addMeasuredData(p, measurements, varName)
 }
 
 plotMeasuredLayers <- function(p,measurement,timeFrame,experiment_id, treatment, measAlias=""){
@@ -125,7 +128,7 @@ plotMeasuredLayers <- function(p,measurement,timeFrame,experiment_id, treatment,
         measAlias =sprintf("%s-%s (mean)",experiment_id,treatment)
    }
   # if(is.null(measurement$repetition)){
-    p <- add_trace(p,x = unlist(get(timeFrame)(measurement$measurement_date)),y = unlist(measurement$measurement_value), name = measAlias)
+    p <- add_trace(p,x = unlist(get(timeFrame)(measurement$measurement_date)),y = unlist(measurement$measurement_value), name = measAlias, color="black")
   # } else {
 # # browser()
 #   #   repetitions<- unique(measurement$repetition)
@@ -143,8 +146,9 @@ plotMeasuredLayers <- function(p,measurement,timeFrame,experiment_id, treatment,
 #
 #
   # }
-    # measurement
-return(p)
+
+ addMeasuredData(p, measurements, varName)
+
 }
 
 
@@ -181,7 +185,7 @@ getFilteredData <- function(dbConnection, treatment, experiment, repetationsAver
 if(repetationsAveraged){
     dbGetQuery(dbConnection,sprintf("
                              SELECT strftime('%%Y-%%m-%%d',datetime) AS measure_date, AVG(value) AS measurement_value
-                             FROM EXPERIMENT
+                             FROM site
                              WHERE value!='NA' AND
                              datetime!='NA' AND
                              variable == '%s' AND
@@ -192,7 +196,7 @@ if(repetationsAveraged){
 } else {
     dbGetQuery(dbConnection,sprintf("
                              SELECT strftime('%%Y-%%m-%%d',datetime) AS measure_date, value AS measurement_value, repetition
-                             FROM EXPERIMENT
+                             FROM site
                              WHERE value!='NA' AND
                              datetime!='NA' AND
                              variable == '%s' AND
@@ -201,6 +205,56 @@ if(repetationsAveraged){
                              ",varName, experiment,treatment))
 }
     
+}
+
+addMeasuredData <- function(p, measurements, varName){
+
+    givenDataLabels <- colnames(measurements)
+
+    filtVar <- (measurements[["var_id"]]==varName)
+
+    if(all(!filtVar)){
+        return(p)
+    }
+
+    measurements <- measurements[filtVar,]
+
+    if(all(c("min","max") %in% givenDataLabels)){
+        p <- add_trace(p,
+                       x= measurements$date,
+                       y= measurements$min,
+                       mode="l", type="scatter",
+                       name = "min")
+        p <- add_trace(p,
+                       x= measurements$date,
+                       y= measurements$max, mode="l",
+                       fill="tonexty", type="scatter",
+                       name= "max")
+    }
+
+    if(is.element("sd",givenDataLabels)){
+        p <- add_trace(p,
+                       x= measurements$date,
+                       y= measurements$mean - measurements$sd,
+                       mode="l",
+                       type="scatter",
+                       name = "mean - sd")
+        p <- add_trace(p,
+                       x= measurements$date,
+                       y= measurements$mean + measurements$sd,
+                       mode="l",
+                       fill="tonexty",
+                       type="scatter",
+                       name = "mean + sd")
+    }
+
+    add_trace(p,
+              x= measurements$date,
+              y= measurements$mean,
+              mode="l",
+              type="scatter",
+              name="mean")
+
 }
 
 getDataFromDBTable <- function(conn,timeFrame,groupFun,tableName,variableName, conversionFactor){

@@ -18,22 +18,30 @@ agroMoShowUI <- function(id){
                     tags$div(id="observations","OBSERVATIONS:"),
                     tags$div(id="simres","SIMULATION RESULTS:"),
                     tags$div(id="createplot","CREATE PLOT WITH:"),
-                    tags$div(id="repavg","repetitions averaged"),
+                    tags$div(id="colone","VARIABLE"),
+                    tags$div(id="coltwo","T-STEP"),
+                    tags$div(id="colthree","FUNC"),
+                    tags$div(id="colfour","PLOT TYPE"),
+                    shiny::tags$hr(id=ns("framelineone")),
+                    shiny::tags$hr(id=ns("framelinetwo")),
+                    shiny::tags$hr(id=ns("framelinethree")),
+                    shiny::tags$hr(id=ns("framelinefour")),
+                    #tags$div(id="repavg","repetitions averaged"),
                     tags$div(id="gridsimres","GRID SIMULATION RESULTS:"),
-                    tags$div(
-                      id = paste0(ns("cellid"),"_container"),
-                      textInput(ns("cellid"), "cell ID(s):")
-                    ),
-                    tags$div(id=ns("experimentID_container"),selectInput(ns("experimentID"), "experiment ID:",choices = '')),
-                    tags$div(id=ns("treatmentID_container"),selectInput(ns("treatmentID"), "treatment ID:",choices = '')),
-                    tags$div(id=ns("compfunc_container"),selectInput(ns("compfunc"), "compare function:",choices = '')),
-                    tags$div(id=ns("compbase_container"),selectInput(ns("compbase"), "compare base:",choices = '')),
+                    #tags$div(
+                    #  id = paste0(ns("cellid"),"_container"),
+                    #  textInput(ns("cellid"), "cell ID(s):")
+                    #),
+                    tags$div(id=ns("experimentID_container"),selectInput(ns("experimentID"), "data file:",choices = '')),
+                    #tags$div(id=ns("treatmentID_container"),selectInput(ns("treatmentID"), "treatment ID:",choices = '')),
+                    #tags$div(id=ns("compfunc_container"),selectInput(ns("compfunc"), "compare function:",choices = '')),
+                    #tags$div(id=ns("compbase_container"),selectInput(ns("compbase"), "compare base:",choices = '')),
                     tags$div(id=ns("alias_container"),textInput(ns("alias"), "alias:",NA)),
                     tags$div(id=ns("varset_container"),title="Narrow down the list of selectable variables ",selectInput(ns("varset"), "filter to:",
                                         choices = c("all","user selected", "plant related","soil related","water related","carbon related","greenhouse gas","profiles"))),
                     
 
-                    checkboxInput(ns("averagep"),"", value = TRUE),
+                    #checkboxInput(ns("averagep"),"", value = TRUE),
                     tags$div(id=ns("table-header_container")),
                     tags$div(id=ns("table-output_container")),
                     tags$script(HTML('Shiny.addCustomMessageHandler("jsCode", function(message) { eval(message.value); });')),
@@ -130,7 +138,8 @@ agroMoShow <- function(input, output, session, dataenv, baseDir, connection,cent
      initData$data <- dataenv()
   })
   observe({
-     initData$measurementConn <-  dbConnect(RSQLite::SQLite(),file.path(baseDir(), "observation","EXPERIMENT.db"))
+     # initData$measurementConn <-  dbConnect(RSQLite::SQLite(),file.path(baseDir(), "database/observation.db"))
+     initData$measurementConn <-  file.path(baseDir(), "observation")
   })
 
 
@@ -177,23 +186,22 @@ agroMoShow <- function(input, output, session, dataenv, baseDir, connection,cent
 
      
    observe({
-       updateSelectInput(session,"experimentID", choices = c("NO OBSERVED DATA",dbGetQuery(initData$measurementConn,"
-                                                                       SELECT DISTINCT experiment FROM EXPERIMENT 
-                                                                       ")[,1])
-     )
+       if(!(is.null(initData$measurementConn))){
+           updateSelectInput(session,"experimentID", choices = list.files(initData$measurementConn))
+       }
 
    })
-
-     observe({
-         if(input$experimentID!="NO OBSERVED DATA"){
-          updateSelectInput(session,"treatmentID", choices =
-                            dbGetQuery(initData$measurementConn,sprintf("
-                                                                         SELECT DISTINCT SUBSTR(key,6,LENGTH(key))
-                                                                         FROM EXPERIMENT
-                                                                         WHERE experiment='%s' AND value!='NA'
-                                                                         ", input$experimentID))[,1])
-                                          }
-      })
+   #
+   #   observe({
+   #       if(input$experimentID!="NO OBSERVED DATA"){
+   #        updateSelectInput(session,"treatmentID", choices =
+   #                          dbGetQuery(initData$measurementConn,sprintf("
+   #                                                                       SELECT DISTINCT SUBSTR(key,6,LENGTH(key))
+   #                                                                       FROM site
+   #                                                                       WHERE experiment='%s' AND value!='NA'
+   #                                                                       ", input$experimentID))[,1])
+   #                                        }
+   #    })
 
   observe({
       if(length(input$tableList) > 0){

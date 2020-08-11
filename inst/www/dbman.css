@@ -1,0 +1,142 @@
+#dbmandiv-sqlquery_container label{
+  position:absolute;
+  top: 76px;
+  left: 10px;
+  color: black;
+  font-family: Fira Sans;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+#dbmandiv-sqlquery_container .form-control{
+  position:absolute;
+  top: 70px;
+  left: 100px;
+  color: black;
+  width: 820px;
+  font-family: Fira Sans;
+  font-size: 16px;
+}
+
+#dbmandiv-database_container label {
+  position: absolute;
+  top: 31px;
+  left: 17px;
+  color: black;
+  font-size: 16px;
+  font-family: Fira Sans;
+}
+
+#dbmandiv-database_container .selectize-input{
+  position:absolute;
+  top: 10px;
+  left:100px;
+  color: black;
+  font-size: 16px;
+  font-family: Fira Sans;
+}
+
+#dbmandiv-database-selectized {
+  color: black;
+  font-size: 16px;
+  font-family: Fira Sans;
+}
+
+#dbmandiv-datatable_container label {
+  position:absolute;
+   top: 31px;
+  left: 421px;
+  color: black;
+  font-size: 16px;
+  font-family: Fira Sans;
+}
+
+#dbmandiv-datatable_container .selectize-control {
+  position:absolute;
+  top: 25px;
+  left: 515px;
+  width: 405px;
+  color: black;
+  font-size: 16px;
+  font-family: Fira Sans;
+}
+
+#dbmandiv-datatable-selectized {
+  color: black;
+  font-size: 16px;
+  font-family: Fira Sans;
+}
+
+#dbmandiv-showtab{
+  position:absolute;
+  top: 120px;
+  left:220px;
+  width:220px;
+  height: 45px;
+  background-color: gainsboro;
+  font-size: 24px;
+  font-family: Fira Sans;
+  font-weight: bold;
+  color: black;
+}
+
+#dbmandiv-querytab{
+  position:absolute;
+  top: 120px;
+  left:460px;
+  width:220px;
+  height: 45px;
+  background-color: gainsboro;
+  font-size: 24px;
+  font-family: Fira Sans;
+  font-weight: bold;
+  color: black;
+}
+
+#dbmandiv-deltab{
+  position:absolute;
+  top: 120px;
+  left:700px;
+  width:220px;
+  height: 45px;
+  background-color: gainsboro;
+  font-size: 24px;
+  font-family: Fira Sans;
+  font-weight: bold;
+  color: black;
+}
+
+#DBMan-banner-div img{
+  cursor: default; 
+    }
+
+
+
+.modal-lg {
+    width: 95%;
+}
+
+.bigholder {
+    display: flex;
+    height: 50px;
+}
+
+
+
+div#dbmandiv-result {
+    position: absolute;
+    top: 200px;
+    left: -23px;
+    height: 500px;
+    width: 959px;
+    overflow-y: scroll;
+}
+
+div#dbmandiv-result {
+    position: absolute;
+    top: 200px;
+    left: -23px;
+    height: 500px;
+    width: 959px;
+    overflow-y: scroll;
+}

@@ -9,7 +9,7 @@ agroMoSiteUI <- function(id){
   baseDir <- "defaultDir"
   baseTable<- data.frame(selectorId <- c(ns("iniFile"), ns("weatherFile"), ns("soilFile"), ns("managementFile")),
                          label <- c("INI file:", "WEATHER file:", "SOIL file:", "MANAGEMENT file:"),
-                         place <- c("input/initialization/site", "input/weather/site", "input/soil/site", "input/management"                          ),
+                         place <- c("input/initialization/site", "input/weather/site", "input/soil/site", "input/management/site"                          ),
                          pattern <- c("*.ini","*.wth","*.soi","*.mgm"))
 
   managementTypes <- c("planting", "harvest", "fertilization", "irrigation", "cultivation", "grazing", "mowing", "thinning")
@@ -27,7 +27,11 @@ agroMoSiteUI <- function(id){
                                    shiny::tags$div(id = paste0(x[1],"_container"), selectInput(x[1],x[2],basename(grep(list.files(x[3]), pattern = x[4], value = TRUE)),width = "100%"))
                                  } else {
                                       # browser()
-                                   shiny::tags$div(id = paste0(x[1],"_container"), selectInput(x[1],x[2],c(basename(grep(list.files(x[3],recursive = TRUE), pattern = x[4], value = TRUE)),"none"),width = "100%"))
+                                   shiny::tags$div(id = paste0(x[1],"_container"),
+                                                   selectInput(x[1],
+                                                               x[2],
+                                                               c(basename(grep(list.files(x[3]), pattern = x[4], value = TRUE)),"none"),
+                                                               width = "100%"))
                                  }
                                })
                                )
@@ -53,7 +57,8 @@ agroMoSiteUI <- function(id){
              #      ),
              shiny::tags$div(id="manModuls","management options:"),
              shiny::tags$div(id="shiftIn","shift in ..."),
-             shiny::tags$div(id="outputid-label","OUTPUT id:"),
+             shiny::tags$div(id="negyzet","2"),
+             shiny::tags$div(id="outputid-label","OUTPUT DATA TABLE:"),
              lapply(managementTypes,function(man){
                         # browser()
                # if(man=="planting") browser()
@@ -77,7 +82,7 @@ agroMoSiteUI <- function(id){
              ),
              shiny::tags$div(
                     id = paste0(ns("planshift_density"),"_container"),
-                    textInput(ns("planshift_density"), "density (p/m2):", 0)
+                    textInput(ns("planshift_density"), "density (p/m ):", 0)
              ),
              shiny::tags$div(
                     id = paste0(ns("harvshift_date"),"_container"),
@@ -132,7 +137,7 @@ agroMoSite <- function(input, output, session, dataenv, baseDir, connection,cent
   ## browser()
   output$outputFile <- renderUI({
     ns <- session$ns
-    odellOutputs <- c(dataenv(),input$iniFile)
+    modellOutputs <- c(dataenv(),input$iniFile)
     tagList(
       shiny::tags$div(id = "outputF", class = "inFile",
 
@@ -158,7 +163,7 @@ agroMoSite <- function(input, output, session, dataenv, baseDir, connection,cent
       updateSelectInput(session,"managementFile",
                         choices = c("none",basename(grep("*.mgm",
                                                  list.files(file.path(
-                                                                      baseDir(),"input","management")
+                                                                      baseDir(),"input/management/site")
                                                  ,recursive = TRUE),value = TRUE))))
 
 
@@ -195,8 +200,8 @@ agroMoSite <- function(input, output, session, dataenv, baseDir, connection,cent
       if(mgmFile()=="none"){
         mgmF <- ""
       } else  {
-        ## browser()
-        mgmF<- suppressWarnings(readLines(file.path(isolate(baseDir()),"input","management",mgmFile())))
+         #browser()
+        mgmF<- suppressWarnings(readLines(file.path(isolate(baseDir()),"input/management/site",mgmFile())))
       }
       # if(manName=="planting") browser()
       included <- grep(sprintf("\\.%s$",managementExt[manName]), mgmF, value = TRUE)
@@ -243,7 +248,7 @@ agroMoSite <- function(input, output, session, dataenv, baseDir, connection,cent
     updateSelectInput(session,"managementFile",
                       choices = c("none",basename(grep("*.mgm",
                                                list.files(file.path(
-                                                                    baseDir(),"input","management")
+                                                                    baseDir(),"input/management/site")
                                                ,recursive = TRUE),value = TRUE))), selected = mgmState)
   })
   # observe({

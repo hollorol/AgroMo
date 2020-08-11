@@ -1,12 +1,36 @@
 /* Suggestions: I would suggest to use posinition: absolute css declaration in every
                 place. The positions starts at the top-left corner of the root window,
                 which is the window except the banner. */
-#griddiv-story_container {
+.modal-body {
+    height: 650px;
+    overflow: hidden;    
+}
+
+.modal-title {
+    font-size: 20px; 
+    color: black;
+    font-weight: bold;
+}
+
+#griddiv-pukli {
+    height: 650px;
+    overflow-y: scroll;
+    color: black;
+    font-size: 16px;
+}
+
+#griddiv-pukli th {
+    font-size: 18px;
+    font-weight: bold;
+} 
+
+#griddiv-story_container .control-label {
     position: absolute;
     top: 20px;
+    left: 3px;
     font-size: 16px;
     color: black;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -15,11 +39,10 @@
 
 #griddiv-story_container .selectize-input{
     position: absolute;
-    top: -42px;
     left: 90px;
     font-size: 16px;
     color: black;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     width: 260px;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -27,26 +50,14 @@
      user-select: none;
 }
 
-#griddiv-alias_container {
-    position: absolute;
-    top: 21px;
-    left: 380px;
-    font-size: 16px;
-    color: black;
-    font-family: Trebuchet MS;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-     user-select: none;
-}
 
 #griddiv-alias_container .form-control{
     position: absolute;
-    top: -5px;
-    left: -12px;
+    top: 14px;
+    left: 368px;
     font-size: 16px;
     color: black;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -59,7 +70,7 @@
     top: 70px;   
     font-size: 16px;
     color: black;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     display: none;
 }
 
@@ -71,30 +82,58 @@
   display: none;
 }
 
-#griddiv-climproj_container {
+#griddiv-climproj_container .selectize-input.items.full.has-options.has-items {
+    width: 635px;
     position: absolute;
-    top: 70px;
-    left: 15px;
+    top: 55px;
+    left: 190px;
     font-size: 16px;
     color: black;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
      user-select: none;
 }
 
-#griddiv-climproj_container .selectize-input.items.full.has-options.has-items {
-    width: 635px;
-    position: absolute;
-    top: -15px;
-    left: 175px;
-}
-
 #griddiv-climproj_container label {
     position: absolute;
-    top: 0px;
-    right: 131px;
+    top: 75px;
+    left: 43px;
+    font-size: 16px;
+    color: black;
+    font-family: Fira Sans;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
+}
+
+#griddiv-soildb_container .selectize-input.items.full.has-options.has-items {
+    width: 635px;
+    position: absolute;
+    top: 105px;
+    left: 190px;
+    font-size: 16px;
+    color: black;
+    font-family: Fira Sans;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
+}
+
+#griddiv-soildb_container label {
+    position: absolute;
+    top: 125px;
+    left: 72px;
+    font-size: 16px;
+    color: black;
+    font-family: Fira Sans;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
 }
 
 #griddiv-ensclim_container {
@@ -103,7 +142,7 @@
     left: 835px;
     font-size: 16px;
     color: black;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     width: 100px;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -113,11 +152,11 @@
 
 #griddiv-ensalg_container {
     position: absolute;
-    top: 60px;
+    top: 160px;
     left: 835px;
     font-size: 16px;
     color: black;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     width: 100px;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -125,12 +164,226 @@
      user-select: none;
 }
 
-#griddiv-algosel_container {
+#griddiv-enssoil_container {
     position: absolute;
-    top: 120px;
+    top: 60px;
+    left: 835px;
     font-size: 16px;
     color: black;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
+    width: 100px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
+}
+
+#griddiv-repcheck_container {
+    position: absolute;
+    top: 628px;
+    left: 899px;
+    font-size: 16px;
+    color: black;
+    font-family: Fira Sans;
+    cursor: pointer;
+    z-index: 1;
+    height: 29px;
+    width: 14px;
+    transform: scale(1.1);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
+}
+
+#griddiv-checkone_container {
+    position: absolute;
+      top: 601px;
+    left: 349px;
+    height: 29px;
+    width: 14px;
+    font-size: 16px;
+    color: black;
+    font-family: Fira Sans;
+    cursor: pointer;
+    z-index: 2;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
+}
+
+#griddiv-checktwo_container {
+    position: absolute;
+      top: 642px;
+    left: 349px;
+    height: 29px;
+    width: 14px;
+    font-size: 16px;
+    color: black;
+    font-family: Fira Sans;
+    cursor: pointer;
+    z-index: 2;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
+}
+
+#griddiv-checkthree_container {
+    position: absolute;
+      top: 681px;
+    left: 349px;
+    height: 29px;
+    width: 14px;
+    font-size: 16px;
+    color: black;
+    font-family: Fira Sans;
+    cursor: pointer;
+    z-index: 2;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
+}
+
+#griddiv-checkfour_container {
+    position: absolute;
+      top: 722px;
+    left: 349px;
+    height: 29px;
+    width: 14px;
+    font-size: 16px;
+    color: black;
+    font-family: Fira Sans;
+    cursor: pointer;
+    z-index: 2;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
+}
+
+#griddiv-checkfive_container {
+    position: absolute;
+      top: 559px;
+    left: 754px;
+    height: 29px;
+    width: 14px;
+    font-size: 16px;
+    color: black;
+    font-family: Fira Sans;
+    cursor: pointer;
+    z-index: 2;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
+}
+
+#griddiv-checksix_container {
+    position: absolute;
+      top: 601px;
+    left: 754px;
+    height: 29px;
+    width: 14px;
+    font-size: 16px;
+    color: black;
+    font-family: Fira Sans;
+    cursor: pointer;
+    z-index: 2;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
+}
+
+#griddiv-checkseven_container {
+    position: absolute;
+      top: 642px;
+    left: 754px;
+    height: 29px;
+    width: 14px;
+    font-size: 16px;
+    color: black;
+    font-family: Fira Sans;
+    cursor: pointer;
+    z-index: 2;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
+}
+
+#griddiv-checkeight_container {
+    position: absolute;
+      top: 681px;
+    left: 754px;
+    height: 29px;
+    width: 14px;
+    font-size: 16px;
+    color: black;
+    font-family: Fira Sans;
+    cursor: pointer;
+    z-index: 2;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
+}
+
+#griddiv-checknine_container {
+    position: absolute;
+      top: 722px;
+    left: 754px;
+    height: 29px;
+    width: 14px;
+    font-size: 16px;
+    color: black;
+    font-family: Fira Sans;
+    cursor: pointer;
+    z-index: 2;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
+}
+
+#griddiv-annual_container {
+    position: absolute;
+    top: 240px;
+    left: 352px;
+    font-size: 16px;
+    color: black;
+    font-family: Fira Sans;
+    width: 150px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
+}
+
+#griddiv-daily_container {
+    position: absolute;
+    top: 240px;
+    left: 192px;
+    font-size: 16px;
+    color: black;
+    font-family: Fira Sans;
+    width: 150px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
+}
+
+#griddiv-algosel_container .control-label{
+    position: absolute;
+    top: 170px;
+    left: 9px;
+    font-size: 16px;
+    color: black;
+    font-family: Fira Sans;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -141,15 +394,10 @@
     width: 635px;
     position: absolute;
     left: 190px;
-    top: -45px;
-}
-
-#griddiv-outsq_container {
-    position: absolute;
-    top: 175px;
+    top: 152px;
     font-size: 16px;
     color: black;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -160,22 +408,37 @@
     width: 400px;
     position: absolute;
     left: 190px;
-    top: -5px;
+    top: 210px;
+    font-size: 16px;
+    color: black;
+    font-family: Fira Sans;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
 }
 
 #griddiv-outsq_container label {
     position: absolute;
-    left: -18px;
+    left: 35px;
+    top: 215px;
+    font-size: 16px;
+    color: black;
+    font-family: Fira Sans;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
 }
 
 #griddiv-StartSim {
     position: absolute;
-    top: 155px;
+    top: 210px;
     left: 600px;
     height: 60px;
     width: 320px;
     font-size: 26px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
     font-weight: bold;
     background-color: gainsboro;
@@ -187,12 +450,29 @@
 
 #griddiv-Map {
     position: absolute;
-    top: 682px;
+    top: 670px;
     left: 785px;
-    height: 70px;
+    height: 85px;
     width: 130px;
     font-size: 26px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
+    color: black;
+    font-weight: bold;
+    background-color: gainsboro;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
+}
+
+#griddiv-Report {
+    position: absolute;
+    top: 614px;
+    left: 785px;
+    height: 45px;
+    width: 130px;
+    font-size: 26px;
+    font-family: Fira Sans;
     color: black;
     font-weight: bold;
     background-color: gainsboro;
@@ -206,10 +486,10 @@
     position: absolute;
     top: 559px;
     left: 785px;
-    height: 110px;
+    height: 45px;
     width: 130px;
     font-size: 26px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
     font-weight: bold;
     background-color: gainsboro;
@@ -220,46 +500,25 @@
      user-select: none;
 }
 
-#griddiv-queryalias_container {
+#griddiv-queryalias_container .form-control.shinyjs-resettable.shiny-bound-input {
+    width: 300px;
     position: absolute;
-    top: 515px;
-    right: 750px;
+    top: 512px;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
      user-select: none;
-}
-
-#griddiv-queryalias_container .form-control.shinyjs-resettable.shiny-bound-input {
-    width: 300px;
-    position: absolute;
-    top: -3px;
-    left: 220px;
 }
 
 #griddiv-queryalias_container label {
     position: absolute;
-    top: -25px;
-    left: 220px;
+    top: 487px;
     width: 200px;
     font-size: 16px;
-    font-family: Trebuchet MS;
-    color: black;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-     user-select: none;
-}
-
-#griddiv-metadata_container {
-    position: absolute;
-    top: 515px;
-    left: 120px;
-    font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -270,16 +529,19 @@
 #griddiv-metadata_container .form-control.shinyjs-resettable.shiny-bound-input {
     width: 600px;
     position: absolute;
-    top: -3px;
-    left: 198px;
+    top: 512px;
+    left: 316px;
+    font-size: 16px;
+    font-family: Fira Sans;
+    color: black;
 }
 
 #griddiv-metadata_container label {
     position: absolute;
-    top: -25px;
-    left: 200px;
+    top: 488px;
+    left: 317px;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -295,7 +557,7 @@
 
 #griddiv-climprojquery_container label {
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -306,7 +568,7 @@
 
 #griddiv-climprojquery_container .form-group {
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
     width: 300px;
     -webkit-user-select: none;
@@ -331,7 +593,7 @@ position: absolute;
 
 #griddiv-algselquery_container label {
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -342,7 +604,7 @@ position: absolute;
 
 #griddiv-algselquery_container .form-group {
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
     width: 598px;
     -webkit-user-select: none;
@@ -352,7 +614,6 @@ position: absolute;
      display:none;
 }
 
-
 #griddiv-algselquery_container .selectize-input {
 position: absolute;
     top: -14px;
@@ -360,17 +621,12 @@ position: absolute;
     display:none;
 }
 
-#griddiv-time_container {
-    position: absolute;
-    top: 527px;
-    right: 438px;
-}
-
 #griddiv-time_container .control-label {
     position: absolute;
-    top: 32px;
+    top: 559px;
+    right: 640px;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
     font-weight: bold;
     width: 100px;
@@ -383,11 +639,11 @@ position: absolute;
 
 #griddiv-time_container .selectize-input {
     position: absolute;
-    right: 125px;
-    top: 18px;
+    right: 35px;
+    top: 505px;
     width: 85px;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -406,7 +662,7 @@ position: absolute;
     top:14px;
     right:291px;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
     font-weight:normal;
     -webkit-user-select: none;
@@ -420,7 +676,7 @@ position: absolute;
     right: 203px;
     width: 85px;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -435,10 +691,10 @@ position: absolute;
 
 #griddiv-sqlfunc_1_container .control-label {
     position: absolute;
-    top: 14px;
-    right: 302px;
+    top: 15px;
+    right: 304px;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: red;
     font-weight:bold;
     -webkit-user-select: none;
@@ -452,7 +708,7 @@ position: absolute;
     left: 0px;
     width: 365px;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -465,7 +721,7 @@ position: absolute;
     bottom: 0px;
     width: 365px;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
     background-color: white;
     -webkit-user-select: none;
@@ -481,10 +737,10 @@ position: absolute;
 
 #griddiv-sqlfunc_2_container .control-label {
     position: absolute;
-    top: 14px;
-    right: 302px;
+    top: 15px;
+    right: 304px;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: red;
     font-weight:bold;
     -webkit-user-select: none;
@@ -498,7 +754,7 @@ position: absolute;
     left: 0px;
     width: 365px;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -511,7 +767,7 @@ position: absolute;
     bottom: 0px;
     width: 365px;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
     background-color: white;
     -webkit-user-select: none;
@@ -527,10 +783,10 @@ position: absolute;
 
 #griddiv-sqlfunc_3_container .control-label {
     position: absolute;
-    top: 14px;
-    right: 302px;
+    top: 15px;
+    right: 304px;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: red;
     font-weight:bold;
     -webkit-user-select: none;
@@ -544,7 +800,7 @@ position: absolute;
     left: 0px;
     width: 365px;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -557,7 +813,7 @@ position: absolute;
     bottom: 0px;
     width: 365px;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
     background-color: white;
     -webkit-user-select: none;
@@ -573,10 +829,10 @@ position: absolute;
 
 #griddiv-sqlfunc_4_container .control-label {
     position: absolute;
-    top: 14px;
-    right: 302px;
+    top: 15px;
+    right: 304px;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: red;
     font-weight:bold;
     -webkit-user-select: none;
@@ -590,7 +846,7 @@ position: absolute;
     left: 0px;
     width: 365px;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -603,7 +859,7 @@ position: absolute;
     bottom: 0px;
     width: 365px;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
     background-color: white;
     -webkit-user-select: none;
@@ -619,10 +875,10 @@ position: absolute;
 
 #griddiv-sqlfunc_5_container .control-label {
     position: absolute;
-    top: 14px;
-    left: 375px;
+    top: 15px;
+    left: 377px;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: red;
     font-weight:bold;
     -webkit-user-select: none;
@@ -636,7 +892,7 @@ position: absolute;
     left: 405px;
     width: 365px;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -649,7 +905,7 @@ position: absolute;
     bottom: 0px;
     width: 365px;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
     background-color: white;
     -webkit-user-select: none;
@@ -663,13 +919,12 @@ position: absolute;
     top: 588px;
 }
 
-
 #griddiv-sqlfunc_6_container .control-label {
     position: absolute;
-    top: 14px;
-    left: 375px;
+    top: 15px;
+    left: 377px;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: red;
     font-weight:bold;
     -webkit-user-select: none;
@@ -683,7 +938,7 @@ position: absolute;
     left: 405px;
     width: 365px;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -696,7 +951,7 @@ position: absolute;
     bottom: 0px;
     width: 365px;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
     background-color: white;
     -webkit-user-select: none;
@@ -712,10 +967,10 @@ position: absolute;
 
 #griddiv-sqlfunc_7_container .control-label {
     position: absolute;
-    top: 14px;
-    left: 375px;
+    top: 15px;
+    left: 377px;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: red;
     font-weight:bold;
     -webkit-user-select: none;
@@ -729,7 +984,7 @@ position: absolute;
     left: 405px;
     width: 365px;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -742,7 +997,7 @@ position: absolute;
     bottom: 0px;
     width: 365px;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
     background-color: white;
     -webkit-user-select: none;
@@ -758,10 +1013,10 @@ position: absolute;
 
 #griddiv-sqlfunc_8_container .control-label {
     position: absolute;
-    top: 14px;
-    left: 375px;
+    top: 15px;
+    left: 377px;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: red;
     font-weight:bold;
     -webkit-user-select: none;
@@ -775,7 +1030,7 @@ position: absolute;
     left: 405px;
     width: 365px;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -788,7 +1043,7 @@ position: absolute;
     bottom: 0px;
     width: 365px;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
     background-color: white;
     -webkit-user-select: none;
@@ -804,10 +1059,10 @@ position: absolute;
 
 #griddiv-sqlfunc_9_container .control-label {
     position: absolute;
-    top: 14px;
-    left: 375px;
+    top: 15px;
+    left: 377px;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: red;
     font-weight:bold;
     -webkit-user-select: none;
@@ -821,7 +1076,7 @@ position: absolute;
     left: 405px;
     width: 365px;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -834,7 +1089,7 @@ position: absolute;
     bottom: 0px;
     width: 365px;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
     background-color: white;
     -webkit-user-select: none;
@@ -846,10 +1101,10 @@ position: absolute;
 #query {
     position: absolute;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
     font-weight: bold;
-    top: 215px;
+    top: 275px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -857,14 +1112,14 @@ position: absolute;
 }
 
 #griddiv-queryTable  {
-  height: 240px !important;
+  height: 170px !important;
   width: 920px !important;
   background-color: white;
   font-size: 16px;
-  font-family: Trebuchet MS;
+  font-family: Fira Sans;
   color: black;
   position: absolute;
-  top: 240px !important;
+  top: 300px !important;
   -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -885,26 +1140,6 @@ position: absolute;
  top: 480px;
  left: 585px;
   width: 335px;
-}
-
-#basearrow {
-    position: absolute;
-  top: 220px;
-  left: -228px;
-  height: 43px;
-  width: 75px;
-  border-width: 0px;
-  border-radius: 1px;
-}
-
-#backsite {
-    position: absolute;
-  top: 220px;
-  left: -138px;
-  border-width: 0px;
-  border-radius: 1px;
-  height: 43px;
-  width: 75px;
 }
 
 #Grid-banner-div img{

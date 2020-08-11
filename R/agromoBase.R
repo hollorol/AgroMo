@@ -4,24 +4,26 @@
 #' @param id of the GUI element
 #' @keywords internal 
 #' @importFrom shiny tagList actionButton textOutput
+#' @importFrom shinyFiles shinyDirButton
 agromoBaseUI <- function(id){
     ns <- NS(id)
    tagList(shiny::tags$div(id = "base", shiny::tags$div(id="components","COMPONENTS"),
                     shiny::tags$div(actionButton("site","", class = "mainMenu", title="Site specific simulations",
-                                style = ("background: url('www/img/site.svg')")),
+                                style = ("background: url('www/img/site_button.png')")),
                              actionButton("grid","", class = "mainMenu", title="Simulations using gridded climate and soil data",
-                                style = ("background: url('www/img/grid.svg')")),
+                                style = ("background: url('www/img/grid_button.png')")),
                              actionButton("show","", class = "mainMenu", title="Create plots using simulation results",
-                                style = ("background: url('www/img/show.svg')")),
+                                style = ("background: url('www/img/show_button.png')")),
                              actionButton("map","",  class = "mainMenu", title="Create maps using gridded simulation results",
-                                style = ("background: url('www/img/map.svg')")))
+                                style = ("background: url('www/img/map_button.png')")))
                ),
 
                  shiny::tags$div(
                  id = ns("tools"), #base-tools
                  class= "mainSideBar",
                         shiny::tags$div(id="mainSideBarDirectory", "MAIN DIRECTORY"),
-                        actionButton("choose","CHOOSE", class = "mainSideBar"),
+                        shinyDirButton("choose", "CHOOSE","Please choose an AgroMo base directory!", class="mainSideBar"),
+                        # actionButton("choose","CHOOSE", class = "mainSideBar"),
                         textOutput("mdd"),##mdd is not a good name
                         shiny::tags$hr(id="lineComp",""),
                         shiny::tags$hr(id="lineTool",""),
@@ -32,6 +34,11 @@ agromoBaseUI <- function(id){
                         shiny::tags$img(id = ns("huFlag"),src="www/img/HUflag_s.png", title = "Magyar változat"),
                         shiny::tags$img(id = ns("ukFlag"),src="www/img/UKflag_s.png", title = "English version"),
                         shiny::tags$img(id = ns("gerFlag"),src="www/img/GERflag_s.png", title = "Deutsch Version"),
+                        shiny::tags$img(id = ns("chiFlag"),src="www/img/CHIflag.png"),
+                        shiny::tags$img(id = ns("rusFlag"),src="www/img/RUSflag.png"),
+                        shiny::tags$img(id = ns("fraFlag"),src="www/img/FRAflag.png", title = "Version française"),
+                        shiny::tags$img(id = ns("espFlag"),src="www/img/ESPflag.png", title = "Versión en español"),
+                        shiny::tags$img(id = ns("porFlag"),src="www/img/PORflag.png", title = "Versão portugal"),
                         shiny::tags$img(id = ns("jpFlag"),src="www/img/JPflag_s.png"),
                         # shiny::tags$img(id = ns("exit_z"),src="www/img/exit.png", title = "EXIT"),
                  #actionButton("exit", "",onclick="function(){window.close()}", title="EXIT",
@@ -40,13 +47,13 @@ agromoBaseUI <- function(id){
                               style=("background: url('www/img/exit_icon6_kicsi.png');")),
 #                        actionButton("exit", src="www/img/exit.svg",
 #                                     onclick="function(){window.close()}", title="EXIT"),
-                        actionButton("parSweep","PARAMETER ANALYSIS",
+                        actionButton("parana","PARAMETER ANALYSIS",
                           class = "mainSideBar",title="Tool for calibration, parameter sweep and sensitivity analysis"),
-                        actionButton("sitegen","SITE CREATOR",
+                        actionButton("sitegen","INPUT IMPORT",
                           class = "mainSideBar", title="Download site specific weather and soil data from ERA5 and ISRIC databases"),
-                        actionButton("calibration","BBGCDB",
+                        actionButton("calibration","DATABASE MANAGER",
                           class = "mainSideBar"),
-                        actionButton("storEditor","INPUT CREATOR",
+                        actionButton("storEditor","BBGCDB",
                               class = "mainSideBar"),
                         actionButton("fileMan","",
                               class = "mainSideBar"))

@@ -10,12 +10,68 @@
     checkboxInput(ns("ensalg"), label = "Ensemble", value = FALSE)
     ),         
     tags$div(
+      id =paste0(ns("enssoil"),"_container"),
+      checkboxInput(ns("enssoil"), label = "Ensemble", value = FALSE)
+    ),
+    tags$div(
+      id =paste0(ns("repcheck"),"_container"),
+      checkboxInput(ns("repcheck"), label = "", value = TRUE)
+    ),
+    tags$div(
+      id =paste0(ns("checkone"),"_container"), title ="query all items if checked",
+      checkboxInput(ns("checkone"), label = "", value = TRUE)
+    ),
+    tags$div(
+      id =paste0(ns("checktwo"),"_container"),
+      checkboxInput(ns("checktwo"), label = "", value = TRUE)
+    ),
+    tags$div(
+      id =paste0(ns("checkthree"),"_container"),
+      checkboxInput(ns("checkthree"), label = "", value = TRUE)
+    ),
+    tags$div(
+      id =paste0(ns("checkfour"),"_container"),
+      checkboxInput(ns("checkfour"), label = "", value = TRUE)
+    ),
+    tags$div(
+      id =paste0(ns("checkfive"),"_container"),
+      checkboxInput(ns("checkfive"), label = "", value = TRUE)
+    ),
+    tags$div(
+      id =paste0(ns("checksix"),"_container"),
+      checkboxInput(ns("checksix"), label = "", value = TRUE)
+    ),
+    tags$div(
+      id =paste0(ns("checkseven"),"_container"),
+      checkboxInput(ns("checkseven"), label = "", value = TRUE)
+    ),
+    tags$div(
+      id =paste0(ns("checkeight"),"_container"),
+      checkboxInput(ns("checkeight"), label = "", value = TRUE)
+    ),
+    tags$div(
+      id =paste0(ns("checknine"),"_container"),
+      checkboxInput(ns("checknine"), label = "", value = TRUE)
+    ),
+    tags$div(
+      id =paste0(ns("annual"),"_container"),
+      checkboxInput(ns("annual"), label = "annual outputs", value = FALSE)
+    ),
+    tags$div(
+      id =paste0(ns("daily"),"_container"),
+      checkboxInput(ns("daily"), label = "daily outputs", value = FALSE)
+    ),
+    tags$div(
       id = paste0(ns("gridres"),"_container"),
       selectInput(ns("gridres"),"GRID RESOLUTION:",choices = c("10×10 km"))
     ),
     tags$div(
       id = paste0(ns("climproj"),"_container"),
-      selectInput(ns("climproj"),"CLIMATE PROJECTION:",NA)
+      selectInput(ns("climproj"),"CLIMATE DATABASE:",NA)
+    ),
+    tags$div(
+      id = paste0(ns("soildb"),"_container"),
+      selectInput(ns("soildb"),"SOIL DATABASE:",NA)
     ),
     tags$div(
       id = paste0(ns("algosel"),"_container"),
@@ -35,7 +91,7 @@
     ),     
     tags$div(
       id = paste0(ns("outsq"),"_container"),
-      textInput(ns("outsq"),"OUTPUT SQLite DATABASE:",NA)
+      textInput(ns("outsq"),"OUTPUT DATA TABLE:",NA)
     ),   
     tags$div(
       id = paste0(ns("alias"),"_container"),
@@ -60,8 +116,10 @@
     
     tags$div(id = ns("Buttons"),
     actionButton(ns("StartSim"),label = "START SIMULATION"),
-    actionButton(ns("RunQuery"),label = "START QUERY"),
-    actionButton(ns("Map"),label="MAP")),             
+    actionButton(ns("RunQuery"),label = "QUERY"),
+    actionButton(ns("Report"),label = "REPORT"),
+    actionButton(ns("Map"),label="MAP")),
+    
      
     tags$div(
       id = paste0(ns("time"),"_container"),
@@ -120,6 +178,8 @@ tags$div(
 #' @importFrom parallel detectCores makeCluster stopCluster
 #' @importFrom doSNOW registerDoSNOW 
 #' @importFrom foreach foreach %dopar%
+#' @importFrom DBI dbExecute dbGetQuery dbConnect dbDisconnect
+#' @importFrom openxlsx write.xlsx
 
 agroMoGrid <- function(input, output, session,baseDir){
     language <- "en"
@@ -135,22 +195,18 @@ agroMoGrid <- function(input, output, session,baseDir){
                           querySelector=NULL,
                           queries=NULL,
                           language="en")
-
+    vari <- reactiveValues()
+    toreturn <- reactiveValues(showMap=NULL)
     observe({
-        dat$jsonList <- lapply((list.files(path=file.path(baseDir(),"templates/grid"),pattern="*.json", full.names=TRUE)),read_json)
-        # browser()
+        dat$jsonList <- lapply((list.files(path=file.path(baseDir(),"template/grid"),pattern="*.json", full.names=TRUE)),read_json)
         dat$queryNames <-  sapply(dat$jsonList,function(x) x$Names[[dat$language]])
         dat$queries <-  sapply(dat$jsonList,function(x) x$query)
-        dat$replNumbers <- sapply(dat$queryNames,getReplacementNumbers)
-        # browser()
+        dat$replNumbers <- lapply(dat$queryNames,getReplacementNumbers)
         dat$firstOptions <- lapply(dat$jsonList,function(x) {unlist(lapply(x$optionAlias[[dat$language]],function(y){y[1]}))}) 
-        
         dat$querySelector <- as.data.frame(colorReplacements(unlist(lapply(seq_along(dat$replNumbers),function(i){
                                                               # if(i==8) browser()
                                                               interpolateInto(dat$replNumbers[[i]],dat$firstOptions[[i]],dat$queryNames[i]) 
                                  }))),stringsAsFactors=FALSE)
-        
-        dat$options <- sapply(1:9,function(queryIndex)(sapply(dat$jsonList[[queryIndex]]$options,unlist)))
 
     }) 
 
@@ -170,15 +226,25 @@ agroMoGrid <- function(input, output, session,baseDir){
     })
 
     observe({
-        projections <- basename(list.dirs(file.path(baseDir(),"input/weather/grid/projection"))[-1])
+        projections <- basename(list.dirs(file.path(baseDir(),"input/weather/grid"))[-1])
         if(length(projections)!=0){
             updateSelectInput(session,"climproj",choices=projections)
         }
     })
 
+    observe({
+        soils <- basename(list.dirs(file.path(baseDir(),"input/soil/grid"))[-1])
+        if(length(soils)!=0){
+            updateSelectInput(session,"soildb",choices=soils)
+        }
+    })
+
     observeEvent(input$story,{
                      if(input$story!=""){
+                         # browser()
                          choosenStoryFile <- dat$storyFiles[match(input$story,dat$storyOptions)]
+                         suppressWarnings(dir.create(file.path(baseDir(),"output/grid/",input$story)))
+                         suppressWarnings(dir.create(file.path(baseDir(),"endpoint/grid/",input$story)))
                          output$alias <- renderText({readLines(choosenStoryFile,n=1)})
                          dat$storyVars <- as.character(read.table(choosenStoryFile,skip=1, nrows=1, sep=";",stringsAsFactors=FALSE))
                          dat$storyCSV <- read.table(choosenStoryFile,skip=2, sep=";",stringsAsFactors=FALSE)
@@ -187,6 +253,7 @@ agroMoGrid <- function(input, output, session,baseDir){
                                                      list(site=x[,1],
                                                           name=apply(x,1,function(y){paste(y[1:2],collapse="_")}),
                                                           startYear=x[,3],
+                                                          endYear=x[,4],
                                                           numDays=365*(x[,4]-x[,3]+1))
                                                 })(dat$storyCSV),stringsAsFactor=FALSE)
                          dat$story <-split(storyRow,storyRow$site)
@@ -200,9 +267,23 @@ agroMoGrid <- function(input, output, session,baseDir){
     })
 
     observe({
+         dbDir <- file.path(baseDir(),"output")
+         dir.create(dbDir, showWarnings=FALSE)
+         if(dir.exists(dbDir)){
+             sqlDB <- DBI::dbConnect(RSQLite::SQLite(),file.path(dbDir,"grid.db"))
+             dat[["modelOutputs"]] <-grep("_error$",dbListTables(sqlDB),invert=TRUE,value=TRUE)
+             dbDisconnect(sqlDB)
+         }
+    })
+
+
+    observe({
         if(input$story != ""){
+          if(!is.null(dat$storyTimeRange)){
             updateSelectInput(session,"time",choices=dat$storyTimeRange[1]:dat$storyTimeRange[2], selected=dat$storyTimeRange[1])
             updateSelectInput(session,"until",choices=dat$storyTimeRange[1]:dat$storyTimeRange[2], selected=dat$storyTimeRange[2])
+          }
+ 
         }
     })
 
@@ -211,26 +292,33 @@ agroMoGrid <- function(input, output, session,baseDir){
             updateSelectInput(session,"until",choices=input$time:dat$storyTimeRange[2], selected=dat$storyTimeRange[2])
         }
     })
+
     observe({
         if(!is.null(input$queryList)){
             a <- dat$queryNames
              sapply(1:9,function(x){
                         choices <- unlist(dat$jsonList[[input$queryList]]$optionAlias[[dat$language]][[as.character(x)]], use.names=TRUE)
+                        # choices <- unlist(dat$jsonList[[input$queryList]]$options[[dat$language]][[as.character(x)]], use.names=TRUE)
                         if(is.null(choices)){
                             choices <- "NA"
                         }
+
+                        if(grepl("\\*.*\\*",choices[1])){
+                            starVar <- gsub("\\*(.*)\\*","\\1",choices[1])
+                            choices <- eval(parse(text=sprintf("%s_get(baseDir())",starVar))) # Evaluate starVar void function. These are defined at the bottom of this file.
+                            vari[[starVar]] <- choices # Evaluate starVar void function. These are defined at the bottom of this file.
+                        }
+
                         updateSelectInput(session,sprintf("sqlfunc_%s",x),
                                           choices=choices)
                       })
         }
-        # session$sendCustomMessage("refreshSelected",input$queryList)
     })
 
     observe({
         inputs <- sapply(1:9,function(x){input[[sprintf("sqlfunc_%s",x)]]})
         if(!is.null(isolate(input$queryList))){
             indexOfQuery <- isolate(input$queryList)
-            # browser()
             newQuerySentence <- interpolateInto(seq_along(isolate(dat$replNumbers[[indexOfQuery]])),
                                         inputs[seq_along(isolate(dat$replNumbers[[indexOfQuery]]))]
                                                 ,isolate(dat$queryNames)[indexOfQuery])
@@ -238,32 +326,129 @@ agroMoGrid <- function(input, output, session,baseDir){
                 newQuerySentence <- gsub("\\[T-T\\]",sprintf("[%s-%s]",input$time,input$until),newQuerySentence)
             }
             newQuerySentence <- sprintf("<td class=\"griddiv-selected-vars\">%s</td>",colorReplacements(newQuerySentence))
-            # dat$querySelector[indexOfQuery,1] <- colorReplacements(newQuerySentence)
             session$sendCustomMessage("refreshSelected",list(indexOfQuery=indexOfQuery, querySentence=newQuerySentence))
-            # dat$querySelector<- isolate(dat$querySelector)[-1,1]
         }
     
     })
 
-    # output$queryTable <- DT::renderDataTable (tabe,options = list(autowidth = FALSE, paginate = FALSE, scrollX = FALSE, scrollY = FALSE, searching = TRUE, info = FALSE, header=FALSE,rownames=FALSE))
     observe({
-# data.frame(c("<span class=\"reddi\">{1:mean}</span> {2:annual} yield {3:max} in the [start-end] period", "{1:max} {2:annual} lai {3:max} in the [start-end] period", "{1:mean} {2:may} {3:0-3 cm} soiltemp {4:mean} in the <span class=\"timeSlice\">[start-end]</span> period"))
         output$queryTable <- renderTable(dat$querySelector,colnames=FALSE,width="100%", sanitize.text.function = function(x) x )
     }) 
-    #    output$queryTable <- DT::renderDataTable({
+
     observeEvent(input$RunQuery,{
-                     # browser()
                     queryIndex <- input$queryList
                     sqlSentence <- dat$queries[input$queryList]
                     optionList <- sapply(1:9,function(x){input[[sprintf("sqlfunc_%s",x)]]}) # These are just the optionAliaces
                     possibilities <- lapply(dat$jsonList[[queryIndex]]$optionAlias[[dat$language]],unlist)
                     optionList <- optionList[optionList!="NA"]
                     selectedNum <- (sapply(seq_along(optionList),function(i){match(optionList[i],possibilities[[i]])}))
+                    datoptions <- lapply(dat$jsonList[[queryIndex]]$options,unlist)
                     textContent <- sapply(seq_along(selectedNum),function(i){
-                                               dat$options[[i]][selectedNum[i]]
-                                                })
-                    sentenceToSQL<- interpolateInto(dat$replNumbers[[input$queryList]],textContent,sqlSentence,TRUE)
-                    writeLines(c(sprintf("/*%s*/",input$metadata),"\n\n",sentenceToSQL),file.path(baseDir(),"output/queries",sprintf("%s.sql",input$queryalias)))
+                                              if(is.na(selectedNum[i])){
+                                                 input[[sprintf("sqlfunc_%s",i)]] 
+                                              } else {
+                                                  datoptions[[i]][selectedNum[i]]
+                                              }
+                                        })
+                    sentenceToSQL <- interpolateInto(dat$replNumbers[[input$queryList]],textContent,sqlSentence,TRUE)
+                    sentenceToSQL <- gsub("\\[T1\\]",sprintf("%s",input$time),sentenceToSQL)
+                    sentenceToSQL <- gsub("\\[T2\\]",sprintf("%s",input$until),sentenceToSQL)
+                    writeLines(c(sprintf("/*%s*/",input$metadata),"\n\n",sentenceToSQL),file.path(baseDir(),"output/query",sprintf("%s.sql",input$queryalias)))
+         outputDB <- file.path(baseDir(),"output")
+         dbDir <- file.path(baseDir(),"database")
+         sqlDB <- DBI::dbConnect(RSQLite::SQLite(),file.path(outputDB,"grid.db"))
+         # browser()
+         showNotification("Attaching Soil database...")
+         soilDBName <- file.path(normalizePath(dbDir),"soil.db")
+         observationDBName <- file.path(normalizePath(dbDir),"observation.db")
+         if(file.exists(soilDBName)){
+            dbExecute(sqlDB,sprintf("ATTACH DATABASE '%s' AS soil",soilDBName))
+         } else {
+            showNotification("Cannot find soil database, queries which contains soil data will not run",type="warning")
+         }
+         if(file.exists(observationDBName)){
+            dbExecute(sqlDB,sprintf("ATTACH DATABASE '%s' AS observation",observationDBName))
+         } else {
+            showNotification("Cannot find observation database, queries which contains soil data will not run",type="warning")
+         }
+         showNotification("Running the query, please wait, it can take for a while", id="query", duration=NULL)
+         queryResults <- tryCatch(dbGetQuery(sqlDB,sentenceToSQL),error=function(e){NULL})
+         if(is.null(queryResults)){
+             showNotification("Something went wrong with the query...",type="error")
+         } else {
+             errorTables <- unlist(lapply(seq_along(dat$jsonList[[queryIndex]]$options),function(i){
+                               if(length(dat$jsonList[[queryIndex]]$options[[i]])!=0){
+                                   if(dat$jsonList[[queryIndex]]$options[[i]][1]=="*tables*"){
+                                      paste0(textContent[i],"_error")
+                                   }
+                               }}))
+             errorColumns <- lapply(errorTables,function(tableName){
+                                       dbGetQuery(sqlDB,sprintf("SELECT * FROM %s",tableName))
+                                        })
+             # queryResults$plotid <- as.numeric(as.numeric(queryResults$plotid))
+            #doing a left outer join, the reduce part ads the columns
+             finalDF <- tryCatch(merge((Reduce(function(x,y){x$error <- x$error+y$error; return(x)},errorColumns)),
+                               queryResults,by.x="site",by.y="plotid",all.x=TRUE),
+                               error=function(e){cbind.data.frame(queryResults[,1],0,queryResults[,2])})
+             colnames(finalDF) <- c("plotid","error","value")
+             write.csv(finalDF,file.path(baseDir(),"output/map_data",sprintf("%s.csv",input$queryalias)),row.names=FALSE)
+         }
+
+         removeNotification("query")
+         dbDisconnect(sqlDB)
+    })
+
+    observeEvent(input$Report,{
+                    queryIndex <- input$queryList
+                    sqlSentence <- dat$queries[input$queryList]
+                    optionList <- sapply(1:9,function(x){input[[sprintf("sqlfunc_%s",x)]]}) # These are just the optionAliaces
+                    possibilities <- lapply(dat$jsonList[[queryIndex]]$optionAlias[[dat$language]],unlist)
+                    optionList <- optionList[optionList!="NA"]
+                    selectedNum <- (sapply(seq_along(optionList),function(i){match(optionList[i],possibilities[[i]])}))
+                    datoptions <- lapply(dat$jsonList[[queryIndex]]$options,unlist)
+                    textContent <- sapply(seq_along(selectedNum),function(i){
+                                              if(is.na(selectedNum[i])){
+                                                 input[[sprintf("sqlfunc_%s",i)]] 
+                                              } else {
+                                                  datoptions[[i]][selectedNum[i]]
+                                              }
+                                        })
+                    sentenceToSQL <- interpolateInto(dat$replNumbers[[input$queryList]],textContent,sqlSentence,TRUE)
+                    sentenceToSQL <- gsub("\\[T1\\]",sprintf("%s",input$time),sentenceToSQL)
+                    sentenceToSQL <- gsub("\\[T2\\]",sprintf("%s",input$until),sentenceToSQL)
+         outputDB <- file.path(baseDir(),"output")
+         dbDir <- file.path(baseDir(),"database")
+         sqlDB <- DBI::dbConnect(RSQLite::SQLite(),file.path(outputDB,"grid.db"))
+         # browser()
+         showNotification("Attaching Soil database...")
+         soilDBName <- file.path(normalizePath(dbDir),"soil.db")
+         observationDBName <- file.path(normalizePath(dbDir),"observation.db")
+         if(file.exists(soilDBName)){
+            dbExecute(sqlDB,sprintf("ATTACH DATABASE '%s' AS soil",soilDBName))
+         } else {
+            showNotification("Cannot find soil database, queries which contains soil data will not run",type="warning")
+         }
+         if(file.exists(observationDBName)){
+            dbExecute(sqlDB,sprintf("ATTACH DATABASE '%s' AS observation",observationDBName))
+         } else {
+            showNotification("Cannot find observation database, queries which contains soil data will not run",type="warning")
+         }
+         showNotification("Running the query, please wait, it can take for a while", id="query", duration=NULL)
+         queryResults <- tryCatch(dbGetQuery(sqlDB,sentenceToSQL),error=function(e){NULL})
+         if(is.null(queryResults)){
+             showNotification("Something went wrong with the query...",type="error")
+         } else {
+             showModal(modalDialog(tableOutput(ns("pukli")),title="REPORT", size="l",easyClose=TRUE))
+             output$pukli <- renderTable({
+                 queryResults
+             })
+             suppressWarnings(dir.create(file.path(baseDir(),"output/report")))
+             write.csv(queryResults,file.path(baseDir(),"output/report",sprintf("%s.csv",input$queryalias)),row.names=FALSE)
+             write.xlsx(queryResults,file.path(baseDir(),"output/report",sprintf("%s.xlsx",input$queryalias)))
+         }
+
+         removeNotification("query")
+         dbDisconnect(sqlDB)
     })
 
     # DT::datatable(data.frame(outputName = queryNames), options = list(autowidth = FALSE, paginate = FALSE, scrollX = FALSE, scrollY = 600, searching = TRUE, info = FALSE, header=FALSE,rownames=FALSE))
@@ -283,20 +468,53 @@ agroMoGrid <- function(input, output, session,baseDir){
         suppressWarnings(file.remove(list.files(file.path(baseDir(),"output/grid",input$story),full.names=TRUE)))
 
         showNotification("Setting climate projections and algorithms")
-        indexOfRows <- c(4,58,59,61)
-        replacements <- c(sprintf("projection/%s/",input$climproj),algorithms[[input$algosel]])
-        regex <- "projection/.*?/"
+        indexOfRows <- c(4,39,58,59,61)
+        replacements <- c(sprintf("grid/%s/",input$climproj),sprintf("grid/%s/",input$soildb),algorithms[[input$algosel]])
+        regex <- c("grid/.*?/","grid/.*?/")
         changeFilesWithRegex(list.files(file.path(baseDir(),"input/initialization/grid",input$story),full.names=TRUE),
                               indexOfRows,replacements,regex)
-        browser()
-        #                  # runChain(baseDir(),input$story,dat$story[[5]])
-        dbDir <- file.path(baseDir(),"output/DB/grid/",input$story)
-         dir.create(dbDir, showWarnings=FALSE)
-         sqlDB <- DBI::dbConnect(RSQLite::SQLite(),file.path(dbDir,input$outsq))
-         # sqlDB <- DBI::dbConnect(RSQLite::SQLite(),file.path(dbDir,"bicke.db"))
-         writeGridToDB(dbConnection, outputName, columnNames, chainMatrixFull)
-         runGrid(baseDir(),input$story,dat$story)
+        ## runChain(baseDir(),input$story,dat$story[[5]])
+         dbDir <- file.path(baseDir(),"output")
+         sqlDB <- DBI::dbConnect(RSQLite::SQLite(),file.path(dbDir,"grid.db"))
+         error <- runGrid(baseDir(),input$story,dat$story) # dat$story is a list containing all running groups
+         errorDF <- tapply(error,as.numeric(gsub("_.*","",names(error))),sum)
+         errorDF <- data.frame(site=names(errorDF),error=errorDF)
+         dbWriteTable(sqlDB,sprintf("%s_error",input$outsq),errorDF,overwrite=TRUE)
+         dbExecute(sqlDB,sprintf("DROP TABLE IF EXISTS %s",input$outsq))
+         withProgress(message="Writing data to database, it can be slow...",value=0,{
+                          for(i in seq_along(dat$story)){
+                              if(errorDF[i,"error"] == 0){
+                                  writeChainToDB(baseDir(),input$story, sqlDB, input$outsq, dat$story[[i]], dat$storyVars)
+                              }
+
+                              incProgress(1/length(dat$story),detail=sprintf("Writing site %s into grid database",names(dat$story)[i])) 
+                          }
+         })
+
+         indexSQL<- c(
+                      "site" = "CREATE INDEX site_%s ON %s(plotid)",
+                      "year" = "CREATE INDEX year_%s ON %s(year)"
+         )
+         if(is.element(input$outsq,dbListTables(sqlDB))){
+             withProgress(message="Creating Database Indexes",value=0,{
+                              for(i in seq_along(indexSQL)){
+                                  dbExecute(sqlDB,sprintf("DROP INDEX IF EXISTS %s_%s",names(indexSQL[i]),input$outsq))
+                                  dbExecute(sqlDB,sprintf(indexSQL[i],input$outsq,input$outsq,input$outsq))
+                                  incProgress(1/length(indexSQL), sprintf("Creating index on %s",names(indexSQL)[i]))
+                              }
+         })
+         }
+
+
+         dat$modelOutputs <-grep("_error$",dbListTables(sqlDB),invert=TRUE,value=TRUE)
+         dbDisconnect(sqlDB)
     })
+
+   observeEvent(input$Map,{
+    toreturn$showMap <- input$Map
+    })
+
+   return(toreturn)
 }
   
   
@@ -395,54 +613,45 @@ runGrid <- function(baseDir,storyName,chainMatrixFull){
     print(result)
 }
 
-# #' writeChainToDB
-# #'
-# #' This function reads the model binary and put that into a database
-# #' @param settings The result of the setupGUI
-# #' @param dbConnection An SQLite connection
-# #' @param binaryName The name of the binary output file
-# #' @param outputName The name of the result table
-# #' @importFrom DBI dbWriteTable
-#
-# writeChainToDB <- function(storyName, dbConnection, outputName, chainMatrixFull, variables){
-# # chainMatrix <- dat$story[[7]]
-#     dbConnection <- sqlDB
-# #  browser()
-#     binaryName <- paste0(file.path(baseDir(),"output/grid/",storyName,chainMatrix[,2]),".dayout")
-# i<- 1
-#     for(i in 1:nrow(chainMatrix)){
-#         con <- file(binaryName[i],"rb")
-#         dayoutput <- matrix(readBin(con,"double",size=8,n=()),(settings$numYears*365),byrow=TRUE)
-#     }
-#
-#   close(con)
-#   dayoutput <- cbind.data.frame(musoDate(startYear = settings$startYear,
-#                                          numYears = settings$numYears,
-#                                          combined = FALSE, prettyOut = TRUE),
-#                                 dayoutput, outputName,stringsAsFactors=FALSE)
-#   colnames(dayoutput) <- as.character(c("udate","uday","umonth","uyear",unlist(settings$variableNames),"outputName"))
-#   # browser()
-#   conn <- dbConnection()
-#   dbWriteTable(conn, outputName, dayoutput,  overwrite = TRUE)
-# }
-# #' writeGridToDB
-# #'
-# #' This function reads the model binary and put that into a database
-# #' @param settings The result of the setupGUI
-# #' @param dbConnection An SQLite connection
-# #' @param binaryName The name of the binary output file
-# #' @param outputName The name of the result table
-# #' @importFrom DBI dbWriteTable
-#
-# writeGridToDB <- function(binaryNames, dbConnection, outputName, columnNames, chainMatrixFull){
-#     iterations <- length(chainMatrixFull)
-#     withProgress(message = "Writing output into database", value = 0, {
-#                      foreach(i = 1:length(chainMatrixFull)) %par% {
-#                         writeChainToDB(binaryNames[i], dbConnection, outputName, columnNames, chainMatrixFull[[i]])
-#                         incProgress(1/iterations, detail = paste("Doing part", i))
-#                      }
-#     })
-#     close(dbConnection)
-# }
+#' writeChainToDB
+#'
+#' This function reads the model binary and put that into a database
+#' @param settings The result of the setupGUI
+#' @param dbConnection An SQLite connection
+#' @param binaryName The name of the binary output file
+#' @param outputName The name of the result table
+#' @importFrom DBI dbWriteTable
+#' @importFrom lubridate year month yday
+
+writeChainToDB <- function(baseDir,storyName, dbConnection, outputName, chainMatrix, variables,errorVector){
+    outFiles <- file.path(baseDir,"output/grid",storyName,paste0(chainMatrix$name,".dayout"))
+    binaryName <- paste0(file.path(baseDir,"output/grid/",storyName,chainMatrix[,2]),".dayout")
+    toWrite <- do.call("rbind",lapply(seq_along(binaryName),function(i){
+                                    con <- file(binaryName[i],"rb")
+                                    dayoutput <- matrix(readBin(con,"double",size=8,n=(chainMatrix[i,5]*length(variables))),chainMatrix[i,5],byrow=TRUE)
+                                    udates <- grep("[0-9]{4}-02-29",
+                                                   as.character(seq(from=as.Date(sprintf("%s-01-01", chainMatrix[i,"startYear"])),
+                                                                    to=(as.Date(sprintf("%s-01-01", (chainMatrix[i,"endYear"] + 1)))-1), by=1
+                                                                    )),invert=TRUE, value=TRUE)
+                                    year <- year(udates)
+                                    month <- month(udates)
+                                    yday <- yday(udates)
+                                    dayoutput <- cbind.data.frame(udates,year,month,yday, dayoutput, site=as.character(chainMatrix[i,1]), stringsAsFactors=FALSE)
+                                    colnames(dayoutput) <- as.character(c("udate","year","month","yday", variables, "plotid"))
+                                    close(con)
+                                    dayoutput
+                                       }))
+    dbWriteTable(dbConnection, outputName, toWrite, append = TRUE)
+}
+
+
+tables_get <- function(baseDir){
+         dbDir <- file.path(baseDir,"output")
+         dir.create(dbDir, showWarnings=FALSE)
+         sqlDB <- DBI::dbConnect(RSQLite::SQLite(),file.path(dbDir,"grid.db"))
+         result <- grep("_error$",dbListTables(sqlDB),invert=TRUE,value=TRUE)
+         dbDisconnect(sqlDB)
+         result
+}
 
 

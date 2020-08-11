@@ -2,7 +2,7 @@ MANAGEMENT_INFORMATION MuSo6
 -
 PLANTING
 1
-input/management/planting/tmp/maize_mono.plt
+input/management/site/planting/tmp/maize_mono.plt
 -
 THINNING
 0
@@ -18,7 +18,7 @@ input/management/grazin/bla.grz
 -
 HARVESTING
 1
-input/management/harvest/tmp/maize_mono_intensive.hrv
+input/management/site/harvest/tmp/maize_mono_intensive.hrv
 -
 PLOUGHING
 0
@@ -26,7 +26,7 @@ bibcsek.plt
 -
 FERTILIZING
 1
-input/management/fertilization/tmp/maize_mono_intensive.frz
+input/management/site/fertilization/tmp/maize_mono_intensive.frz
 -
 IRRIGATING
 0

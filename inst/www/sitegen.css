@@ -11,7 +11,7 @@
     font-weight: bold;
     background-color: gainsboro;
     color: black;
-      font-family: Trebuchet MS;
+      font-family: Fira Sans;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -21,10 +21,10 @@
 #sitegendiv-soil_container {
     position: absolute;
     top: 300px;
-    left: 120px;
+    left: 121px;
     font-weight: normal;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
     width: 800px;
   -webkit-user-select: none;
@@ -38,7 +38,7 @@
     top: 0px;
     font-weight: normal;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
     width: 700px;
   -webkit-user-select: none;
@@ -46,13 +46,14 @@
   -ms-user-select: none;
   user-select: none;
 }
+
 #sitegendiv-weather_container {
     position: absolute;
     top: 330px;
-    left: 120px;
+    left: 121px;
     font-weight: normal;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
     width: 800px;
   -webkit-user-select: none;
@@ -66,7 +67,7 @@
     top: 0px;
     font-weight: normal;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
   width: 700px;
   -webkit-user-select: none;
@@ -78,10 +79,10 @@
 #sitegendiv-ini_container{
     position: absolute;
     top: 360px;
-    left: 120px;
+    left: 121px;
     font-weight: normal;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
     width: 800px;
   -webkit-user-select: none;
@@ -89,13 +90,14 @@
   -ms-user-select: none;
   user-select: none;
 }
+
 #sitegendiv-ini_container span{
     position: absolute;
     top: 0px;  
     width:700px;
     font-weight: normal;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -109,7 +111,7 @@
     left: 120px;
     width:790px;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -119,11 +121,11 @@
 
 #sitegendiv-sitename_container label{
     position: absolute;
-    top: 275px;
-  left: 25px;
+    top: 276px;
+    left: 36px;
     font-weight: bold; 
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -136,7 +138,7 @@
     top: 270px;
     left: 120px;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
     width: 790px;
   -webkit-user-select: none;
@@ -144,12 +146,13 @@
   -ms-user-select: none;
   user-select: none;
 }
+
 #sitegendiv-erareg_container label{
     position: absolute;
     top: 30px;
-    left: 55px;
+    left: 30px;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -160,10 +163,10 @@
 #sitegendiv-erareg_container .form-control {
     position: absolute;
     top: 25px;
-  left: 260px;
-  width:645px;
+  left: 225px;
+  width:680px;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -173,25 +176,26 @@
 
 #sitegendiv-settlement_container label{
     position: absolute;
-    top: 190px;
-    left: -28px;
+    top: 191px;
+    left: -27px;
     font-weight: normal;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
+
 #sitegendiv-settlement_container .selectize-control{
     position: absolute;
     top: 185px;
     width: 300px;
-    left: 120px;
+    left: 123px;
     font-weight: normal;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -201,25 +205,26 @@
 
 #sitegendiv-lat_container label {
     position: absolute;
-    top: 110px;
-    left: 15px;
+    top: 111px;
+    left: 17px;
     font-weight: normal;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
+
 #sitegendiv-lat_container .form-control {
     position: absolute;
     top: 105px;
-    left:120px;
+    left:123px;
     width:135px;
     font-weight: normal;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -229,11 +234,11 @@
 
 #sitegendiv-lon_container label {
     position: absolute;
-    top: 150px;
+    top: 151px;
     left: 5px;
     font-weight: normal;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -244,24 +249,25 @@
 #sitegendiv-lon_container .form-control {
     position: absolute;
     top: 145px;
-    left:120px;
+    left:123px;
     width:135px;
     font-weight: normal;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
+
 #sitegendiv-start_container label{
     position: absolute;
-    top: 115px;
-    left: 712px;
+    top: 111px;
+    left: 713px;
     font-weight: normal;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -271,25 +277,26 @@
 
 #sitegendiv-start_container .selectize-input{
     position: absolute;
-    top: 95px;
+    top: 90px;
     left: 790px;
     width:115px;
     font-weight: normal;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
+
 #sitegendiv-end_container label {
     position: absolute;
-    top: 160px;
+    top: 151px;
     left: 720px;
     font-weight: normal;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -299,24 +306,25 @@
 
 #sitegendiv-end_container .selectize-input{
     position: absolute;
-    top: 140px;
+    top: 130px;
     left: 790px;
     width:115px;
     font-weight: normal;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
+
 #geocord {
     position: absolute;
     top: 80px;
     font-weight: bold;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -327,34 +335,14 @@
 #timeperiod {
     position: absolute;
     top: 80px;
-    left: 625px;
+    left: 663px;
     width: 300px;
     font-weight: bold;
     font-size: 16px;
-    font-family: Trebuchet MS;
+    font-family: Fira Sans;
     color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}
-
-#backsite_sg {
-  position: absolute;
-  top: 205px;
-  left: -138px;
-  height: 43px;
-  width: 75px;
-  border-width: 0px;
-  border-radius: 1px;
-}
-
-#basearrow_sg {
-  position: absolute;
-  top: 205px;
-  left: -228px;
-  height: 43px;
-  width: 75px;
-  border-width: 0px;
-  border-radius: 1px;
 }

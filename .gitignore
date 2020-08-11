@@ -36,6 +36,8 @@ vignettes/*.pdf
 rsconnect/
 site/input/initialization/tmp/*
 *.db
-!EXPERIMENT.db
+!observation.db
+!soil.db
 TAGS
 tags
+.Rproj.user

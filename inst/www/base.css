@@ -9,9 +9,10 @@
     position: absolute;
     top: 60px;
     left: -30px;
-    height: 290px;
-    width: 290px;
-    border: 4px solid gray;
+    height: 300px;
+    width: 300px;
+    border: 0px;
+    /*border: 4px solid gray;*/
 }
 
 #grid {
@@ -20,9 +21,9 @@
     top: 60px;
     left: 300px;
     /*filter: grayscale(100%);*/
-    height: 290px;
-    width: 290px;
-    border: 4px solid gray;
+    height: 300px;
+    width: 300px;
+    border: 0px;
 }
 
 #show {
@@ -30,9 +31,9 @@
     position: absolute;
     top: 370px;
     left: -30px;
-    height: 290px;
-    width: 290px;
-    border: 4px solid gray;
+    height: 300px;
+    width: 300px;
+    border: 0px;
 }
 
 #map {
@@ -41,9 +42,9 @@
     top: 370px;
     left: 300px;
     /*filter: grayscale(100%);*/
-    height: 290px;
-    width: 290px;
-    border: 4px solid gray;
+    height: 300px;
+    width: 300px;
+    border: 0px;
 }
 
 #components {
@@ -54,7 +55,7 @@
     left: -24px;
     font-size: 20px;
     color: black;
-    font-family: "Trebuchet MS";
+    font-family: "Fira Sans";
     background-color: darkgray;
     width: 660px;
     text-align: center;
@@ -71,7 +72,7 @@
     top: 15px;
     left: 665px;
     font-size: 20px;
-    font-family: "Trebuchet MS";
+    font-family: "Fira Sans";
     color: black;
     background-color: darkgray;
     width: 265px;
@@ -89,7 +90,7 @@
     top: 425px;
     left: 665px;
     font-size: 20px;
-    font-family: "Trebuchet MS";
+    font-family: "Fira Sans";
     color: black;
     background-color: darkgray;
     width: 265px;
@@ -104,7 +105,7 @@
     /* This is the "Main Directory" label in the sidebar. */
     font-weight: 700;
     font-size: 20px;
-    font-family: "Trebuchet MS";
+    font-family: "Fira Sans";
     color: black;
     background-color: darkgray;
     width: 950px;
@@ -124,7 +125,7 @@
     left: 780px;
     width: 145px;
     height: 35px;
-    font-family: "Trebuchet MS";
+    font-family: "Fira Sans";
     color: black;
     font-size: 18px;
     text-align: center;
@@ -144,14 +145,14 @@
     height: 35px;
     background-color: gainsboro;
     font-size: 20px;
-    font-family: "Trebuchet MS";
+    font-family: "Fira Sans";
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
 
-#parSweep {
+#parana {
     position: absolute;
     top: 55px;
     left: 680px;
@@ -160,7 +161,7 @@
     font-weight: 700;
     color: black;
     font-size: 18px;
-    font-family: "Trebuchet MS";
+    font-family: "Fira Sans";
     background-color: gainsboro;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -177,7 +178,7 @@
     font-weight: 700;
     color: black;
     font-size: 18px;
-    font-family: "Trebuchet MS";
+    font-family: "Fira Sans";
     background-color: gainsboro;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -191,7 +192,7 @@
     left: 680px;
     width: 250px;
     height: 60px;
-    font-family: "Trebuchet MS";
+    font-family: "Fira Sans";
      color: black;
     font-size: 18px;
     font-weight: 700;
@@ -211,7 +212,7 @@
      color: black;
     font-size: 18px;
     font-weight: 700;
-    font-family: "Trebuchet MS";
+    font-family: "Fira Sans";
     background-color: gainsboro;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -226,7 +227,7 @@
     width: 250px;
     height: 60px;
     font-weight: 700;
-    font-family: "Trebuchet MS";
+    font-family: "Fira Sans";
     background-color: gainsboro;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -248,7 +249,7 @@
     left: 665px;
     background-color: darkgray;
     width: 2px;
-    height: 155px;
+    height: 220px;
 }
 
 #lineComp {
@@ -289,28 +290,139 @@
     left: 851px;
     cursor:pointer;
     }
+#base-chiFlag {
+    position: absolute;
+    top: 535px;
+    left: 763px;
+    height: 50px;
+    cursor:pointer;
+    }
+#base-rusFlag {
+    position: absolute;
+    top: 535px;
+    left: 851px;
+    height: 50px;
+    cursor:pointer;
+    }
+#base-fraFlag {
+    position: absolute;
+    top: 600px;
+    left: 675px;
+    height: 50px;
+    cursor:pointer;
+    }
+#base-porFlag {
+    position: absolute;
+    top: 600px;
+    left: 851px;
+    height: 50px;
+    cursor:pointer;
+    }
+#base-espFlag {
+    position: absolute;
+    top: 600px;
+    left: 763px;
+    height: 50px;
+    cursor:pointer;
+    }    
 #base-jpFlag {
     position: absolute;
     top: 535px;
     left: 675px;
     cursor:pointer;
+    height: 50px;
     }
- /*.mainSideBar {
-   Tool buttons in base
+
+#plot_bb_button_two {
     position: absolute;
-    top: 80px;
+  top: 220px;
+  left: -228px;
+  height: 30px;
+  width: 75px;
+  border-width: 0px;
+  border-radius: 1px;
 }
 
-#exit {
+#map_bb_button_two {
     position: absolute;
-    top: 581px;
-    left: 670px;
-    width: 260px;
-    height: 70px;
-    border: 1px solid gray;
-    border-radius:4px;
-    
-}*/
+  top: 220px;
+  left: -228px;
+  height: 30px;
+  width: 75px;
+  border-width: 0px;
+  border-radius: 1px;
+}
+
+#site_bb_button_two {
+    position: absolute;
+  top: 220px;
+  left: -228px;
+  height: 30px;
+  width: 75px;
+  border-width: 0px;
+  border-radius: 1px;
+}
+
+#grid_bb_button_two {
+    position: absolute;
+  top: 220px;
+  left: -228px;
+  height: 30px;
+  width: 75px;
+  border-width: 0px;
+  border-radius: 1px;
+}
+
+#grid_bb_button {
+    position: absolute;
+  top: 220px;
+  left: -138px;
+  height: 30px;
+  width: 75px;
+  border-width: 0px;
+  border-radius: 1px;
+}
+
+#site_bb_button {
+    position: absolute;
+  top: 220px;
+  left: -138px;
+  height: 30px;
+  width: 75px;
+  border-width: 0px;
+  border-radius: 1px;
+}
+
+#map_bb_button {
+    position: absolute;
+  top: 260px;
+  left: -138px;
+  height: 30px;
+  width: 75px;
+  border-width: 0px;
+  border-radius: 1px;
+}
+
+#plot_bb_button {
+    position: absolute;
+  top: 260px;
+  left: -138px;
+  height: 30px;
+  width: 75px;
+  border-width: 0px;
+  border-radius: 1px;
+}
+
+#base_bb_button {
+    position: absolute;
+  top: 260px;
+  left: -228px;
+  height: 30px;
+  width: 75px;
+  border-width: 0px;
+  border-radius: 1px;
+}
+
 #exit {
     position: absolute;
     top: 210px;

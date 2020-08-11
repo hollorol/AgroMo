@@ -1,6 +1,0 @@
-SELECT CASE 
-       WHEN nuts3 = 'HU211' 
-	   THEN nuts3 
-	   ELSE NULL 
-	   END 
-FROM soil.griddata10km;

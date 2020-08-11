@@ -8,7 +8,7 @@ position: absolute;
 top: 94px;
 left: 407px;
 font-size: 16px;
-font-family: Trebuchet MS;
+font-family: Fira Sans;
 color: black;
 -webkit-user-select: none;
 -moz-user-select: none;
@@ -21,7 +21,7 @@ position: absolute;
 top: 94px;
 left: 535px;
 font-size: 16px;
-font-family: Trebuchet MS;
+font-family: Fira Sans;
 color: black;
 width: 180px;
 -webkit-user-select: none;
@@ -35,7 +35,7 @@ position: absolute;
 top: 94px;
 left: 718px;
 font-size: 16px;
-font-family: Trebuchet MS;
+font-family: Fira Sans;
 color: black;
 width: 180px;
 -webkit-user-select: none;
@@ -49,8 +49,8 @@ position: absolute;
 top: 18px;
 right: 730px;
 font-size: 16px;
-font-family: Trebuchet MS;
-font-weight: normal;
+font-family: Fira Sans;
+font-weight: bold;
 color: black;
 -webkit-user-select: none;
 -moz-user-select: none;
@@ -66,7 +66,7 @@ top: 12px;
 left: 105px;
 width: 815px;
 font-size: 16px;
-font-family: Trebuchet MS;
+font-family: Fira Sans;
 color: black;
 -webkit-user-select: none;
 -moz-user-select: none;
@@ -81,8 +81,8 @@ position: absolute;
 top: 60px; 
 right: 730px;
 font-size: 16px;
-font-family: Trebuchet MS;
-font-weight: normal;
+font-family: Fira Sans;
+font-weight: bold;
 color: black;
 -webkit-user-select: none;
 -moz-user-select: none;
@@ -96,7 +96,7 @@ top: 54px;
 left: 105px;
 width: 815px;
 font-size: 16px;
-font-family: Trebuchet MS;
+font-family: Fira Sans;
 color: black;
 -webkit-user-select: none;
 -moz-user-select: none;
@@ -109,8 +109,8 @@ position: absolute;
 top: 102px;
 right: 730px;
 font-size: 16px;
-font-family: Trebuchet MS;
-font-weight: normal;
+font-family: Fira Sans;
+font-weight: bold;
 color: black;
 -webkit-user-select: none;
 -moz-user-select: none;
@@ -126,7 +126,7 @@ top: 97px;
 left: 105px;
 width: 260px;
 font-size: 16px;
-font-family: Trebuchet MS;
+font-family: Fira Sans;
 color: black;
 -webkit-user-select: none;
 -moz-user-select: none;
@@ -136,29 +136,27 @@ user-select: none;
 }
 
 #mapdiv-colnumb_container .form-group.shiny-input-container label{
-
 position: absolute;
 top: 185px;
 left: 353px;
 font-size: 16px;
-font-family: Trebuchet MS;
+font-family: Fira Sans;
 font-weight: normal;
 color: black;
 -webkit-user-select: none;
 -moz-user-select: none;
 -ms-user-select: none;
 user-select: none;
-
 }
 
 #mapdiv-colnumb_container .selectize-control{
-
+/*#mapdiv-colnumb_container .form-control.shinyjs-resettable{*/
 position: absolute;
 top: 180px;
-left: 407px;
+left: 406px;
 width: 80px;
 font-size: 16px;
-font-family: Trebuchet MS;
+font-family: Fira Sans;
 color: black;
 -webkit-user-select: none;
 -moz-user-select: none;
@@ -171,7 +169,7 @@ position: absolute;
 top: 185px;
 left: 528px;
 font-size: 16px;
-font-family: Trebuchet MS;
+font-family: Fira Sans;
 font-weight: normal;
 color: black;
 -webkit-user-select: none;
@@ -186,7 +184,7 @@ top: 180px;
 left: 593px;
 width: 95px;
 font-size: 16px;
-font-family: Trebuchet MS;
+font-family: Fira Sans;
 color: black;
 -webkit-user-select: none;
 -moz-user-select: none;
@@ -200,8 +198,8 @@ top: 185px;
 right: 730px;
 font-size: 16px;
 white-space: nowrap;
-font-family: Trebuchet MS;
-font-weight: normal;
+font-family: Fira Sans;
+font-weight: bold;
 color: black;
 -webkit-user-select: none;
 -moz-user-select: none;
@@ -217,7 +215,7 @@ top: 180px;
 left: 105px;
 width: 95px;
 font-size: 16px;
-font-family: Trebuchet MS;
+font-family: Fira Sans;
 color: black;
 -webkit-user-select: none;
 -moz-user-select: none;
@@ -230,7 +228,7 @@ position: absolute;
 top: 185px;
 right: -2px;
 font-size: 16px;
-font-family: Trebuchet MS;
+font-family: Fira Sans;
 font-weight: normal;
 color: black;
 -webkit-user-select: none;
@@ -247,7 +245,7 @@ top: 180px;
 left: 837px;
 width: 83px;
 font-size: 16px;
-font-family: Trebuchet MS;
+font-family: Fira Sans;
 color: black;
 -webkit-user-select: none;
 -moz-user-select: none;
@@ -260,7 +258,7 @@ position: absolute;
 top: 184px;
 left: 205px;
 font-size: 16px;
-font-family: Trebuchet MS;
+font-family: Fira Sans;
 font-weight: normal;
 color: black;
 -webkit-user-select: none;
@@ -276,7 +274,7 @@ top: 180px;
 left: 215px;
 width: 95px;
 font-size: 16px;
-font-family: Trebuchet MS;
+font-family: Fira Sans;
 color: black;
 -webkit-user-select: none;
 -moz-user-select: none;
@@ -286,22 +284,20 @@ user-select: none;
 
 #mapdiv-radio_container {
     position: absolute;
-
-    top: 156px;
-    left: 200px;
+    top: 185.5px;
+    left: 184px;
     display: inline !important;
 }
 
-#mapdiv-radio_container .shiny-options-group{
-
-    position: absolute;
+#mapdiv-radio_container .checkbox-inline, #mapdiv-radio_container .radio-inline, #mapdiv-radio_container .shiny-options-group{
     border-width: 0px;
+    margin-right: 145px;
+    display: inline !important;
 }
 
 #mapdiv-radio_container input {
     position: absolute;
-    left: 160px;
-    margin-right: 50px;
+    left: 173px;
 }
 
 #mapdiv-maxprec_container .form-group.shiny-input-container label{
@@ -309,7 +305,7 @@ position: absolute;
 top: 180px;
 right: 340px;
 font-size: 16px;
-font-family: Trebuchet MS;
+font-family: Fira Sans;
 font-weight: normal;
 color: black;
 -webkit-user-select: none;
@@ -324,7 +320,7 @@ top: 180px;
 left: 340px;
 width: 100px;
 font-size: 16px;
-font-family: Trebuchet MS;
+font-family: Fira Sans;
 color: black;
 -webkit-user-select: none;
 -moz-user-select: none;
@@ -338,8 +334,8 @@ position: absolute;
 top: 228px;
 right: 730px;
 font-size: 16px;
-font-family: Trebuchet MS;
-font-weight: normal;
+font-family: Fira Sans;
+font-weight: bold;
 color: black;
 -webkit-user-select: none;
 -moz-user-select: none;
@@ -355,7 +351,7 @@ top: 223px;
 left: 105px;
 width: 260px;
 font-size: 16px;
-font-family: Trebuchet MS;
+font-family: Fira Sans;
 color: black;
 -webkit-user-select: none;
 -moz-user-select: none;
@@ -370,8 +366,8 @@ position: absolute;
 top: 271px; 
 right: 730px;
 font-size: 16px;
-font-family: Trebuchet MS;
-font-weight: normal;
+font-family: Fira Sans;
+font-weight: bold;
 color: black;
 -webkit-user-select: none;
 -moz-user-select: none;
@@ -387,7 +383,7 @@ top: 266px;
 left: 105px;
 width: 815px;
 font-size: 16px;
-font-family: Trebuchet MS;
+font-family: Fira Sans;
 color: black;
 -webkit-user-select: none;
 -moz-user-select: none;
@@ -428,7 +424,7 @@ left: -20px;
 height: 60px;
 width: 940px;
 font-size: 26px;
-font-family: Trebuchet MS;
+font-family: Fira Sans;
 font-weight: bold;
 background-color: gainsboro;
 color: black;
@@ -471,25 +467,6 @@ width: 423px;
 height: 30px;
 }
 
-#basearrow {
-position: absolute;
-top: 220px;
-left: -228px;
-height: 43px;
-width: 75px;
-border-width: 0px;
-border-radius: 1px;
-}
-
-#backgrid {
-position: absolute;
-top: 220px;
-left: -138px;
-height: 43px;
-width: 75px;
-border-width: 0px;
-border-radius: 1px;
-}
 
 #Map-banner-div img{
 cursor: default; 

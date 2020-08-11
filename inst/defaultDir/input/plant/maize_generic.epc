@@ -1,4 +1,4 @@
-ECOPHYS FILE -    maize MuSo6  2019 03 04 AZ EDDIGI LEGJOBB muso5-tel bealitva
+ECOPHYS FILE -  maize NOSZTEP, majd Zoli Klingenberg es mas tesztek alapjan allitva 
 ----------------------------------------------------------------------------------------
 FLAGS
 0	(flag)		biome type flag (1 = WOODY 0 = NON-WOODY)
@@ -8,8 +8,8 @@ FLAGS
 PLANT FUNCTIONING PARAMETERS
 0	(yday)		yearday to start new growth (when phenology flag = 0)
 364	(yday)		yearday to end litterfall (when phenology flag = 0)
-0.4	(prop.)		transfer growth period as fraction of growing season (when transferGDD_flag = 0)
-0.0	(prop.) 	litterfall as fraction of growing season (when transferGDD_flag = 0)
+0.1	(prop.)		transfer growth period as fraction of growing season (when transferGDD_flag = 0)
+0.	(prop.) 	litterfall as fraction of growing season (when transferGDD_flag = 0)
 8	(Celsius) 	base temperature
 -9999	(Celsius) 	minimum  temperature for growth displayed on current day (-9999: no T-dependence of allocation)
 -9999	(Celsius) 	optimal1 temperature for growth displayed on current day (-9999: no T-dependence of allocation) 
@@ -23,11 +23,11 @@ PLANT FUNCTIONING PARAMETERS
 0.00	(1/yr)		annual live wood turnover fraction
 0.0	(1/yr)		annual fire mortality fraction
 0.01	(1/vegper)	whole-plant mortality fraction in vegetation period
-40.0	(kgC/kgN)	C:N of leaves 
+40.5	(kgC/kgN)	C:N of leaves 
 65.0	(kgC/kgN)	C:N of leaf litter, after retranslocation
 42.0	(kgC/kgN)	C:N of fine roots 
-50.0   *(kgC/kgN)       C:N of fruit  
-50.0    (kgC/kgN)  	C:N of soft stem  
+40.5   *(kgC/kgN)       C:N of fruit  
+40.5    (kgC/kgN)  	C:N of soft stem  
 0.0	(kgC/kgN)	C:N of live wood
 0.0 	(kgC/kgN)	C:N of dead wood
 0.4	(kgC/kgDM)	dry matter carbon content of leaves
@@ -53,18 +53,18 @@ PLANT FUNCTIONING PARAMETERS
 -13.596 (DIM)           radiation parameter2 (Jiang et al.2015)
 2.0	(DIM)		all-sided to projected leaf area ratio
 2.0	(DIM)		ratio of shaded SLA:sunlit SLA
-0.2	(DIM)		fraction of leaf N in Rubisco
+0.175	(DIM)		fraction of leaf N in Rubisco
 0.03	(DIM)		fraction of leaf N in PEP Carboxylase 
 0.012	(m/s)		maximum stomatal conductance (projected area basis)
 0.00006	(m/s)		cuticular conductance (projected area basis)
-0.04	(m/s)		boundary layer conductance (projected area basis)
+0.04	(m/s)		boundary layer conductance (projected area basis)  *0.04
 2.0     (m) 		maximum height of plant
-0.18    Nandi (kgC) 	stem weight corresponding to maximum height
+0.2     (kgC) 	        stem weight corresponding to maximum height
 0.5     (dimless) 	plant height function shape parameter (slope)
-1.7     (m) 		maximum depth of rooting zone
-3.67	(DIM) 		root distribution parameter
-0.4	(kgC)	        root weight corresponding to max root depth
-0.5	(dimless)	root depth function shape parameter (slope)
+2.0     (m) 		maximum depth of rooting zone
+4 	(DIM) 		root distribution parameter
+0.1	(kgC)	        root weight corresponding to max root depth
+2.0	(dimless)	root depth function shape parameter (slope)
 1000	(m/kg)		root weight to rooth length conversion factor
 0.3     (prop.) 	growth resp per unit of C grown
 0.218   (kgC/kgN/d) 	maintenance respiration in kgC/day per kg of tissue N 
@@ -76,9 +76,9 @@ PLANT FUNCTIONING PARAMETERS
 CROP SPECIFIC PARAMETERS
 1   	(DIM)           number of phenophase of germination (from 1 to 7; 0: NO specific)
 2   	(DIM)           number of phenophase of emergence (from 1 to 7; 0: NO specific)
-0.5     (prop.)         critical VWCratio (prop. to FC-WP) in germination
+0.4     (prop.)         critical VWCratio (prop. to FC-WP) in germination
 0       (DIM)           number of phenophase of photoperiodic slowing effect (from 1 to 7; 0: NO effect)
-16      (hour) 	        critical photoslow daylength
+20      (hour) 	        critical photoslow daylength
 0.005   (DIM) 	        slope of relative photoslow development rate 
 0       (DIM)           number of phenophase of vernalization (from 1 to 7; 0: NO effect)
 0       (Celsius) 	critical vernalization temperature 1
@@ -93,20 +93,21 @@ CROP SPECIFIC PARAMETERS
 0.2	(prop.)         theoretical maximum of flowering thermal stress mortality parameter 
 ----------------------------------------------------------------------------------------
 STRESS AND SENESCENCE PARAMETERS
-0.99	(prop)		VWC ratio to calc. soil moisture limit 1 (prop. to FC-WP)
-0.99	(prop)		VWC ratio to calc. soil moisture limit 2 (prop. to SAT-FC)
+0.6	(prop)		VWC ratio to calc. soil moisture limit 1 (prop. to FC-WP)
+0.95	(prop)		VWC ratio to calc. soil moisture limit 2 (prop. to SAT-FC)
 0.4     (prop)		minimum of soil moisture limit2 multiplicator (full anoxic stress value)
-1000	(Pa)		vapor pressure deficit: start of conductance reduction
-5000	(Pa)		vapor pressure deficit: complete conductance reduction
-0.03    (prop.) 	maximum senescence mortality coefficient of aboveground plant material
-0.01    (prop.) 	maximum senescence mortality coefficient of belowground plant material
-0.01    (prop.) 	maximum senescence mortality coefficient of non-structured plant material
-30	(Celsius) 	lower limit extreme high temperature effect on senescence mortality
+2000	(Pa)		vapor pressure deficit: start of conductance reduction  *1000
+4000	(Pa)		vapor pressure deficit: complete conductance reduction  *2800
+0.005    (prop.) 	maximum senescence mortality coefficient of aboveground plant material
+0.005    (prop.) 	maximum senescence mortality coefficient of belowground plant material
+0.0     (prop.) 	maximum senescence mortality coefficient of non-structured plant material
+35	(Celsius) 	lower limit extreme high temperature effect on senescence mortality
 40	(Celsius) 	upper limit extreme high temperature effect on senescence mortality
 0.01    (prop.) 	turnover rate of wilted standing biomass to litter
-0.05   (prop.) 	turnover rate of non-woody cut-down biomass to litter
+0.01   (prop.) 	turnover rate of non-woody cut-down biomass to litter
 0.01    (prop.) 	turnover rate of woody cut-down biomass to litter
-20	(nday)		drought tolerance parameter (critical value of DSWS)
+15	(nday)		drought tolerance parameter (critical value of DSWS)
+0.45	(dimless)	effect of soilstress factor on photosynthesis (1: full effect, 0: no effect)
 ----------------------------------------------------------------------------------------
 GROWING SEASON PARAMETERS
 5       (kg/m2) 	crit. amount of snow limiting photosyn.
@@ -124,15 +125,15 @@ GROWING SEASON PARAMETERS
 ----------------------------------------------------------------------------------------
 PHENOLOGICAL (ALLOCATION) PARAMETERS (7 phenological phases)
 csirazas  	keles   	levelnov_felfut levelnov_lin	viragzas	szemtelitodes	erett   (text) name of the phenophase
-0		45		225		500		90		730		10000	(Celsius) length of phenophase (GDD)
-0.5		0.5		0.60		0.30		0.05		0.0  		0.	(ratio) leaf ALLOCATION 	                                                                                                                                                                                                                                                           
-0.5		0.5		0.35		0.25		0.20		0.15  		0.	(ratio) fine root ALLOCATION	                                                                                                                                                                                                                                            
-0.0		0.		0.		0.		0.05		0.65		1.	(ratio) fruit ALLOCATION
-0.0		0.		0.05		0.45		0.70		0.20  		0.	(ratio) soft stem ALLOCATION 
+10		45		300		425		90		950		10000	(Celsius) length of phenophase (GDD)
+0.5		0.5		0.50		0.35		0.05		0.0  		0.	(ratio) leaf ALLOCATION 	                                                                                                                                                                                                                                                           
+0.5		0.5		0.45		0.30		0.15		0.05  		0.	(ratio) fine root ALLOCATION	                                                                                                                                                                                                                                            
+0.0		0.		0.		0.		0.05		0.80		0.	(ratio) fruit ALLOCATION
+0.0		0.		0.05		0.35		0.75		0.15  		0.	(ratio) soft stem ALLOCATION 
 0		0		0		0		0		0		0	(ratio) live woody stem ALLOCATION 
 0		0		0		0		0		0		0	(ratio) dead woody stem ALLOCATION 
 0		0		0		0		0		0		0	(ratio) live coarse root ALLOCATION 
 0		0		0		0		0		0		0	(ratio) dead coarse root ALLOCATION 
-50		50		40		40		40		40		4	(m2/kgC) canopy average specific leaf area (projected area basis)
+50		50		40		35		35		28		28	(m2/kgC) canopy average specific leaf area (projected area basis)
 1.0		1.0		1.0		1.0		1.0		1.0     	1.0	(prop.)	current growth proportion
 1000		800		600		1000		1000		1000		1000     (Celsius) maximal lifetime of plant tissue
