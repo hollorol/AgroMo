@@ -709,7 +709,7 @@ position: absolute;
      user-select: none;
 }
 
-#griddiv-sqlfunc_1_container .selectize-input.items.full.has-options.has-items {
+#griddiv-sqlfunc_1_container .selectize-input.items {
     position: absolute;
     left: 0px;
     width: 365px;
@@ -755,7 +755,7 @@ position: absolute;
      user-select: none;
 }
 
-#griddiv-sqlfunc_2_container .selectize-input.items.full.has-options.has-items {
+#griddiv-sqlfunc_2_container .selectize-input.items {
     position: absolute;
     left: 0px;
     width: 365px;
@@ -801,7 +801,7 @@ position: absolute;
      user-select: none;
 }
 
-#griddiv-sqlfunc_3_container .selectize-input.items.full.has-options.has-items {
+#griddiv-sqlfunc_3_container .selectize-input.items {
     position: absolute;
     left: 0px;
     width: 365px;
@@ -830,12 +830,12 @@ position: absolute;
 
 #griddiv-sqlfunc_4_container {
     position: absolute;
-    top: 708px;
+    top: 716px;
 }
 
 #griddiv-sqlfunc_4_container .control-label {
     position: absolute;
-    top: 15px;
+    top: 5px;
     right: 304px;
     font-size: 16px;
     font-family: Fira Sans;
@@ -847,9 +847,7 @@ position: absolute;
      user-select: none;
 }
 
-#griddiv-sqlfunc_4_container .selectize-input.items.full.has-options.has-items {
-    position: absolute;
-    left: 0px;
+#griddiv-sqlfunc_4_container .selectize-input.items {
     width: 365px;
     font-size: 16px;
     font-family: Fira Sans;
@@ -863,7 +861,6 @@ position: absolute;
 #griddiv-sqlfunc_4_container .selectize-dropdown-content {
     position: absolute;
     bottom: 0px;
-    width: 365px;
     font-size: 16px;
     font-family: Fira Sans;
     color: black;
