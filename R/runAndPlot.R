@@ -34,6 +34,7 @@ dat<-reactiveValues(dataenv = NULL)
 
     
     ## browser()
+
     readAndChangeFiles(isolate(baseDir()), iniFile(), weatherFile(), soilFile(), managementFile(),
                        planting(), harvest(), fertilization(), irrigation(), grazing(),
                        mowing(), thinning(), planshift_date(), planshift_density(),
@@ -41,6 +42,7 @@ dat<-reactiveValues(dataenv = NULL)
                        irrshift_date(), fertshift_amount(), irrshift_amount())
     # browser()
     settings <- setupGUI(isolate(iniFile()),isolate(baseDir()),isolate(centralData()))
+    file.remove(file.path(baseDir(), "output", sprintf("%s.dayout", settings$outputName)))
     runModel <- reactive({future({runMuso(isolate(iniFile()),isolate(baseDir()))})})
     showModal(shiny::tags$div(id = "runIndicator", modalDialog(
                                                 shiny::tags$img(id = "runningGif", src= "www/img/iu.gif", width = "150px"),
