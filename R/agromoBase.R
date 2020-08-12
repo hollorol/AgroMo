@@ -40,6 +40,26 @@ agromoBaseUI <- function(id){
                         shiny::tags$img(id = ns("espFlag"),src="www/img/ESPflag.png", title = "Versión en español", langID = "ESP", class = "languageButton"),
                         shiny::tags$img(id = ns("porFlag"),src="www/img/PORflag.png", title = "Versão portugal", langID = "POR", class = "languageButton"),
                         shiny::tags$img(id = ns("jpFlag"),src="www/img/JPflag_s.png", langID = "JPN", class = "languageButton"),
+                        shiny::tags$script(HTML("
+
+                                            function dictChange(dictionary, lang){
+                                                dictionary.map(function(elem){
+                                              let elemID = document.querySelector(elem.ID);
+                                                  let innerLang = `TEXT_${lang}`; 
+                                                  //console.log(innerLang);
+                                              if(elem[innerLang] === undefined){
+                                              } else {
+                                                elemID.innerHTML = elem[innerLang];
+                                              }})
+                                            }
+
+                                            $(\".languageButton\").on(\"click\",function(){
+                                              console.log(this.getAttribute(\"langID\"));
+                                              dictChange(dictionary,this.getAttribute(\"langID\"));
+                                            })
+
+
+                                             ")),
                         # shiny::tags$img(id = ns("exit_z"),src="www/img/exit.png", title = "EXIT"),
                  #actionButton("exit", "",onclick="function(){window.close()}", title="EXIT",
                               #style=("background: url('www/img/exit.png'); background-size: 260px 70px;")),

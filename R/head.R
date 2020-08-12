@@ -33,4 +33,3 @@ baseHead<-function(){
          shiny::tags$script(src = "www/getIndexesFromSelection.js"),
          shiny::tags$script(src="www/jquery-ui-min.js"))
 }
-"inst/"
