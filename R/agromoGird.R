@@ -15,7 +15,7 @@
     ),
     tags$div(
       id =paste0(ns("repcheck"),"_container"),
-      shinyWidgets::switchInput(ns("repcheck"), label = NULL, onLabel="show", offLabel="save", labelWidth = "auto", handleWidth = "auto", value = TRUE)
+      shinyWidgets::switchInput(ns("repcheck"), label = NULL, onLabel="show", offLabel="save", value = TRUE)
     ),
     #tags$div(
     #  id =paste0(ns("checkone"),"_container"), title ="query all items if checked",
