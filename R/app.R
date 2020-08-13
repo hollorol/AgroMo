@@ -249,6 +249,8 @@ agroServer <- function(input, output, session) {
        shinyjs::show("Show-banner-div")
      })
    }
+
+   # observe({print(input$languageState)})
    
   ## GRID
    {
@@ -257,7 +259,7 @@ agroServer <- function(input, output, session) {
      #                   dataenv = reactive(datas$dataenv),
      #                   baseDir = reactive({datas$baseDir}),
      #                   reactive({datas$connection}),centralData=centralData)
-     griddi <- callModule(agroMoGrid,"griddiv",baseDir=reactive({datas$baseDir}))
+     griddi <- callModule(agroMoGrid,"griddiv",baseDir=reactive({datas$baseDir}),reactive({input$languageState}))
      
    observeEvent(griddi$showMap,{
         shinyjs::show("mapdiv-mapdiv")

@@ -54,7 +54,12 @@ agromoBaseUI <- function(id){
                                             }
 
                                             $(\".languageButton\").on(\"click\",function(){
-                                              console.log(this.getAttribute(\"langID\"));
+                                              // console.log(this.getAttribute(\"langID\"));
+                                              if(this.getAttribute(\"langID\")===\"HUN\"){
+                                                  Shiny.setInputValue(\"languageState\",\"hu\");
+                                              } else {
+                                                  Shiny.setInputValue(\"languageState\",\"en\");
+                                              }
                                               dictChange(dictionary,this.getAttribute(\"langID\"));
                                             })
 
