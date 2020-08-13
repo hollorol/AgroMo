@@ -177,8 +177,7 @@ tags$div(
 #' @importFrom DBI dbExecute dbGetQuery dbConnect dbDisconnect
 #' @importFrom openxlsx write.xlsx
 
-agroMoGrid <- function(input, output, session,baseDir){
-    language <- "en"
+agroMoGrid <- function(input, output, session, baseDir, language){
     ns <- session$ns
     dat <- reactiveValues(storyVars=NULL,
                           storyCSV=NULL,
@@ -191,6 +190,11 @@ agroMoGrid <- function(input, output, session,baseDir){
                           querySelector=NULL,
                           queries=NULL,
                           language="en")
+    observe({
+        if(!is.null(language())){
+            dat$language <- language()
+        }
+    })
     vari <- reactiveValues()
     toreturn <- reactiveValues(showMap=NULL)
     observe({
