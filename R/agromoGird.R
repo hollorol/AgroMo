@@ -129,7 +129,7 @@
                       lapply(1:9,function(x){
                                  tags$div(
                                           id= ns(sprintf("sqlfunc_%s_container",x)),
-                                          selectInput(ns(sprintf("sqlfunc_%s",x)),sprintf("{%s}:",x),choices=c("NA"), multiple=TRUE)
+                                          selectInput(ns(sprintf("sqlfunc_%s",x)),sprintf("{%s}:",x),choices=c("NA"))
                                  )
                       })
     )),
