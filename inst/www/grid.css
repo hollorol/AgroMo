@@ -138,7 +138,7 @@
 
 #griddiv-ensclim_container {
     position: absolute;
-    top: 110px;
+    top: 120px;
     left: 835px;
     font-size: 16px;
     color: black;
@@ -152,7 +152,7 @@
 
 #griddiv-ensalg_container {
     position: absolute;
-    top: 160px;
+    top: 167px;
     left: 835px;
     font-size: 16px;
     color: black;
@@ -166,7 +166,7 @@
 
 #griddiv-enssoil_container {
     position: absolute;
-    top: 60px;
+    top: 70px;
     left: 835px;
     font-size: 16px;
     color: black;
@@ -349,28 +349,13 @@
      user-select: none;
 }
 
-#griddiv-annual_container {
+#griddiv-annual_container .bootstrap-switch-id-griddiv-annual {
     position: absolute;
-    top: 240px;
-    left: 352px;
+    top: 250px;
+    left: 190px;
     font-size: 16px;
     color: black;
     font-family: Fira Sans;
-    width: 150px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-     user-select: none;
-}
-
-#griddiv-daily_container {
-    position: absolute;
-    top: 240px;
-    left: 192px;
-    font-size: 16px;
-    color: black;
-    font-family: Fira Sans;
-    width: 150px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -435,7 +420,7 @@
     position: absolute;
     top: 210px;
     left: 600px;
-    height: 60px;
+    height: 75px;
     width: 320px;
     font-size: 26px;
     font-family: Fira Sans;
@@ -640,7 +625,7 @@ position: absolute;
 #griddiv-time_container .selectize-input {
     position: absolute;
     right: 35px;
-    top: 505px;
+    top: 540px;
     width: 85px;
     font-size: 16px;
     font-family: Fira Sans;
@@ -1187,5 +1172,20 @@ span.timeSlice {
 
 #griddiv-alias_container {
     position: absolute;
-    left: 400px;
+    top:16px;
+    left: 360px;
+    border-radius: 3px;
+    width: 582px;
+    height: 31px;
+    padding-left: 5px;
+    padding-top: 5px;
+    background-color: white;
+    font-size: 16px;
+    color: black;
+    font-family: Fira Sans;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
+    
 }

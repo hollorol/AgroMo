@@ -31,15 +31,35 @@ agromoBaseUI <- function(id){
                         shiny::tags$hr(id="lineLang",""),
                         shiny::tags$div(id="mainSideBarTools", "TOOLS"),
                         shiny::tags$div(id="mainSideBarLang", "LANGUAGES"),
-                        shiny::tags$img(id = ns("huFlag"),src="www/img/HUflag_s.png", title = "Magyar változat"),
-                        shiny::tags$img(id = ns("ukFlag"),src="www/img/UKflag_s.png", title = "English version"),
-                        shiny::tags$img(id = ns("gerFlag"),src="www/img/GERflag_s.png", title = "Deutsch Version"),
-                        shiny::tags$img(id = ns("chiFlag"),src="www/img/CHIflag.png"),
-                        shiny::tags$img(id = ns("rusFlag"),src="www/img/RUSflag.png"),
-                        shiny::tags$img(id = ns("fraFlag"),src="www/img/FRAflag.png", title = "Version française"),
-                        shiny::tags$img(id = ns("espFlag"),src="www/img/ESPflag.png", title = "Versión en español"),
-                        shiny::tags$img(id = ns("porFlag"),src="www/img/PORflag.png", title = "Versão portugal"),
-                        shiny::tags$img(id = ns("jpFlag"),src="www/img/JPflag_s.png"),
+                        shiny::tags$img(id = ns("huFlag"),src="www/img/HUflag_s.png", title = "Magyar változat", langID = "HUN", class = "languageButton"),
+                        shiny::tags$img(id = ns("ukFlag"),src="www/img/UKflag_s.png", title = "English version", langID = "ENG", class = "languageButton"),
+                        shiny::tags$img(id = ns("gerFlag"),src="www/img/GERflag_s.png", title = "Deutsch Version", langID = "GER", class = "languageButton"),
+                        shiny::tags$img(id = ns("chiFlag"),src="www/img/CHIflag.png", langID = "CHN", class = "languageButton"),
+                        shiny::tags$img(id = ns("rusFlag"),src="www/img/RUSflag.png", langID = "RUS", class = "languageButton"),
+                        shiny::tags$img(id = ns("fraFlag"),src="www/img/FRAflag.png", title = "Version française", langID = "FRA", class = "languageButton"),
+                        shiny::tags$img(id = ns("espFlag"),src="www/img/ESPflag.png", title = "Versión en español", langID = "ESP", class = "languageButton"),
+                        shiny::tags$img(id = ns("porFlag"),src="www/img/PORflag.png", title = "Versão portugal", langID = "POR", class = "languageButton"),
+                        shiny::tags$img(id = ns("jpFlag"),src="www/img/JPflag_s.png", langID = "JPN", class = "languageButton"),
+                        shiny::tags$script(HTML("
+
+                                            function dictChange(dictionary, lang){
+                                                dictionary.map(function(elem){
+                                              let elemID = document.querySelector(elem.ID);
+                                                  let innerLang = `TEXT_${lang}`; 
+                                                  //console.log(innerLang);
+                                              if(elem[innerLang] === undefined){
+                                              } else {
+                                                elemID.innerHTML = elem[innerLang];
+                                              }})
+                                            }
+
+                                            $(\".languageButton\").on(\"click\",function(){
+                                              console.log(this.getAttribute(\"langID\"));
+                                              dictChange(dictionary,this.getAttribute(\"langID\"));
+                                            })
+
+
+                                             ")),
                         # shiny::tags$img(id = ns("exit_z"),src="www/img/exit.png", title = "EXIT"),
                  #actionButton("exit", "",onclick="function(){window.close()}", title="EXIT",
                               #style=("background: url('www/img/exit.png'); background-size: 260px 70px;")),
