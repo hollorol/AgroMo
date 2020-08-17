@@ -87,7 +87,7 @@ plotSingle <- function(outputNames = NULL, dataenv, varName, timeFrame, groupFun
                         linewidth = 2),
 
            yaxis = list(ticks = "outside",
-                        title = yTitle, # bold title, to get itali title use <i>
+                        title = yTitle, # bold title, to get italic title use <i>
                         titlefont = titlefont,
                         ticklen = 10,
                         tickwidth = 2,
@@ -224,12 +224,12 @@ addMeasuredData <- function(p, measurements, varName){
                        x= measurements$date,
                        y= measurements$min,
                        mode="l", type="scatter",
-                       name = "min")
+                       name = "observed min")
         p <- add_trace(p,
                        x= measurements$date,
                        y= measurements$max, mode="l",
                        fill="tonexty", type="scatter",
-                       name= "max")
+                       name = "observed max")
     }
 
     if(is.element("sd",givenDataLabels)){
@@ -238,14 +238,14 @@ addMeasuredData <- function(p, measurements, varName){
                        y= measurements$mean - measurements$sd,
                        mode="l",
                        type="scatter",
-                       name = "mean - sd")
+                       name = "observed mean - sd")
         p <- add_trace(p,
                        x= measurements$date,
                        y= measurements$mean + measurements$sd,
                        mode="l",
                        fill="tonexty",
                        type="scatter",
-                       name = "mean + sd")
+                       name = "observed mean + sd")
     }
 
     add_trace(p,
@@ -253,7 +253,7 @@ addMeasuredData <- function(p, measurements, varName){
               y= measurements$mean,
               mode="l",
               type="scatter",
-              name="mean")
+              name="observed mean")
 
 }
 
