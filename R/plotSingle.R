@@ -223,12 +223,16 @@ addMeasuredData <- function(p, measurements, varName){
         p <- add_trace(p,
                        x= measurements$date,
                        y= measurements$min,
-                       mode="l", type="scatter",
+                       mode="l",
+                       type="scatter",
+                       line = list(color = "rgb(105,105,105)", width = 1),
                        name = "observed min")
         p <- add_trace(p,
                        x= measurements$date,
                        y= measurements$max, mode="l",
                        fill="tonexty", type="scatter",
+                       line = list(color = "rgb(105,105,105)", width = 1),
+                       fillcolor = "rgb(128,128,128)",
                        name = "observed max")
     }
 
@@ -238,6 +242,7 @@ addMeasuredData <- function(p, measurements, varName){
                        y= measurements$mean - measurements$sd,
                        mode="l",
                        type="scatter",
+                       line = list(color = "rgb(192,192,192)", width = 1),
                        name = "observed mean - sd")
         p <- add_trace(p,
                        x= measurements$date,
@@ -245,6 +250,8 @@ addMeasuredData <- function(p, measurements, varName){
                        mode="l",
                        fill="tonexty",
                        type="scatter",
+                       line = list(color = "rgb(192,192,192)", width = 1),
+                       fillcolor = "rgb(211,211,211)",
                        name = "observed mean + sd")
     }
 
@@ -253,6 +260,7 @@ addMeasuredData <- function(p, measurements, varName){
               y= measurements$mean,
               mode="l",
               type="scatter",
+              line = list(color = "rgb(0,0,0)", width = 1),
               name="observed mean")
 
 }
