@@ -87,7 +87,7 @@ plotSingle <- function(outputNames = NULL, dataenv, varName, timeFrame, groupFun
                         linewidth = 2),
 
            yaxis = list(ticks = "outside",
-                        title = yTitle, # bold title, to get itali title use <i>
+                        title = yTitle, # bold title, to get italic title use <i>
                         titlefont = titlefont,
                         ticklen = 10,
                         tickwidth = 2,
@@ -223,13 +223,17 @@ addMeasuredData <- function(p, measurements, varName){
         p <- add_trace(p,
                        x= measurements$date,
                        y= measurements$min,
-                       mode="l", type="scatter",
-                       name = "min")
+                       mode="l",
+                       type="scatter",
+                       line = list(color = "rgba(169,169,169,0.3)", width = 1),
+                       name = "observed min")
         p <- add_trace(p,
                        x= measurements$date,
                        y= measurements$max, mode="l",
                        fill="tonexty", type="scatter",
-                       name= "max")
+                       line = list(color = "rgba(169,169,169,0.3)", width = 1),
+                       fillcolor = "rgba(189,189,189,0.3)",
+                       name = "observed max")
     }
 
     if(is.element("sd",givenDataLabels)){
@@ -238,14 +242,17 @@ addMeasuredData <- function(p, measurements, varName){
                        y= measurements$mean - measurements$sd,
                        mode="l",
                        type="scatter",
-                       name = "mean - sd")
+                       line = list(color = "rgba(108,108,108,0.3))", width = 1),
+                       name = "observed mean - sd")
         p <- add_trace(p,
                        x= measurements$date,
                        y= measurements$mean + measurements$sd,
                        mode="l",
                        fill="tonexty",
                        type="scatter",
-                       name = "mean + sd")
+                       line = list(color = "rgba(108,108,108,0.3)", width = 1),
+                       fillcolor = "rgba(128,128,128,0.3)",
+                       name = "observed mean + sd")
     }
 
     add_trace(p,
@@ -253,7 +260,8 @@ addMeasuredData <- function(p, measurements, varName){
               y= measurements$mean,
               mode="l",
               type="scatter",
-              name="mean")
+              line = list(color = "rgb(0,0,0)", width = 1),
+              name="observed mean")
 
 }
 
