@@ -29,6 +29,10 @@ agroMoParAnaUI <- function(id){
              selectInput(ns("paranaexp"),"OBSERVATION DATA file:",choices=c(""))
            ),
            tags$div(
+              id = paste0(ns("ctlfile"),"_container"),
+              selectInput(ns("ctlfile"),"CONTROL file:",choices=c(""))
+           ),
+           tags$div(
              id = paste0(ns("charfunc"),"_container"),
              selectInput(ns("charfunc"),"characterization function for sensitivity:",choices=c("mean"))
            ),
