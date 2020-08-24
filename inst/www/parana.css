@@ -22,7 +22,7 @@
 #paranadiv-paranaini_container label{
     position: absolute;
     top: 10px;
-    left: 355px;
+    left: 315px;
     font-weight: bold;
     font-size: 16px;
     font-family: Fira Sans;
@@ -36,8 +36,8 @@
 #paranadiv-paranaini_container .selectize-control{
     position: absolute;
     top: 33px;
-    width: 580px;
-    left: 354px;
+    width: 620px;
+    left: 314px;
     font-weight: normal;
     font-size: 16px;
     font-family: Fira Sans;
@@ -80,7 +80,7 @@
 #paranadiv-paranaexp_container label {
     position: absolute;
     top: 80px;
-    left: 355px;
+    left: 315px;
     font-weight: bold;
     font-size: 16px;
     font-family: Fira Sans;
@@ -94,8 +94,37 @@
 #paranadiv-paranaexp_container .selectize-control {
     position: absolute;
     top: 103px;
-    width: 580px;
-    left: 354px;
+    width: 305px;
+    left: 314px;
+    font-weight: normal;
+    font-size: 16px;
+    font-family: Fira Sans;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#paranadiv-ctlfile_container label {
+    position: absolute;
+    top: 80px;
+    left: 630px;
+    font-weight: bold;
+    font-size: 16px;
+    font-family: Fira Sans;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#paranadiv-ctlfile_container .selectize-control {
+    position: absolute;
+    top: 103px;
+    width: 305px;
+    left: 629px;
     font-weight: normal;
     font-size: 16px;
     font-family: Fira Sans;
