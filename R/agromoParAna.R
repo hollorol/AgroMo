@@ -22,7 +22,7 @@ agroMoParAnaUI <- function(id){
 #          ),  
            tags$div(
              id = paste0(ns("paranaini"),"_container"),
-             selectInput(ns("paranaini"),"INI file:",choices=c(""))
+             selectInput(ns("paranaini"),"WORKING DIRECTORY:",choices=c(""))
            ),
            tags$div(
              id = paste0(ns("paranaexp"),"_container"),
