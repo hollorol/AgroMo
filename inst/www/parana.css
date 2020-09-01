@@ -50,7 +50,7 @@
 
 #paranadiv-paranait_container label {
     position: absolute;
-    top: 506px;
+    top: 556px;
     left: 196px;
     font-weight: normal;
     font-size: 16px;
@@ -64,7 +64,7 @@
 
 #paranadiv-paranait_container .form-control {
     position: absolute;
-    top: 500px;
+    top: 550px;
     left: 354px;
     width: 180px;
     font-weight: normal;
@@ -166,7 +166,7 @@
 
 #paranadiv-charfunc_container label {
     position: absolute;
-    top: 556px;
+    top: 606px;
     width: 580px;
     left: 60px;
     font-weight: normal;
@@ -181,7 +181,7 @@
 
 #paranadiv-charfunc_container .selectize-input {
     position: absolute;
-    top: 535px;
+    top: 585px;
     width: 580px;
     left: 354px;
     font-weight: normal;
@@ -207,6 +207,7 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  display: none;
 }
 
 #paranadiv-metfunc_container .selectize-input {
@@ -222,6 +223,7 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  display: none;
 }
 
 #paranatype {
