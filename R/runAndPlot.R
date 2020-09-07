@@ -157,7 +157,8 @@ changingMGM <- function(mgmFile, baseDir, planting=NULL, harvest=NULL, fertiliza
   managementTypes <- c("planting", "harvest", "fertilization", "irrigation", "cultivation", "grazing", "mowing", "thinning")
   manFileList <- grep("\\.[a-z]{3}$",manFileList,value = TRUE)
   ## browser()
-  inpFiles <- sapply(manFileList,function(x) grep("\\/tmp\\/",grep(x,list.files(baseDir, recursive = TRUE),value=TRUE),invert = TRUE, value=TRUE))
+  inpFiles <- sapply(manFileList,function(x) grep("\\/tmp\\/",grep(x,list.files(file.path(baseDir,"input"), recursive = TRUE),value=TRUE),invert = TRUE, value=TRUE))
+  print(inpFiles)
   destFiles <- gsub("(.*)(\\/.*\\..*)","\\1/tmp\\2",inpFiles)
   sapply(destFiles, function(m){
     dir.create(dirname(file.path(baseDir,m)),showWarnings = FALSE)
