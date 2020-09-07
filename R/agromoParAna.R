@@ -22,11 +22,15 @@ agroMoParAnaUI <- function(id){
 #          ),  
            tags$div(
              id = paste0(ns("paranaini"),"_container"),
-             selectInput(ns("paranaini"),"INI file:",choices=c(""))
+             selectInput(ns("paranaini"),"WORKING DIRECTORY:",choices=c(""))
            ),
            tags$div(
              id = paste0(ns("paranaexp"),"_container"),
              selectInput(ns("paranaexp"),"OBSERVATION DATA file:",choices=c(""))
+           ),
+           tags$div(
+              id = paste0(ns("ctlfile"),"_container"),
+              selectInput(ns("ctlfile"),"CONTROL file:",choices=c(""))
            ),
            tags$div(
              id = paste0(ns("charfunc"),"_container"),
@@ -42,7 +46,7 @@ agroMoParAnaUI <- function(id){
              radioButtons(ns("paranaradio"),"",choices=c("Parameter Sweep","Sensitivity Analysis","Calibration"), inline = TRUE)
            ),
            tags$div(id = ns("Buttons"),
-                    actionButton(ns("paranado"),label = "DO ANALYSIS"))
+                    actionButton(ns("paranado"),label = "PERFORM ANALYSIS"))
            
            
            
