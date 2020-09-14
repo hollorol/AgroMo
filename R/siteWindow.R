@@ -9,7 +9,7 @@ agroMoSiteUI <- function(id){
 
   baseDir <- "defaultDir"
   baseTable<- data.frame(selectorId <- c(ns("iniFile"), ns("weatherFile"), ns("soilFile"), ns("managementFile")),
-                         label <- c("STORYLINE:", "WEATHER file:", "SOIL file:", "MANAGEMENT file:"),
+                         label <- c("INI file:", "WEATHER file:", "SOIL file:", "MANAGEMENT file:"),
                          place <- c("input/initialization/site", "input/weather/site", "input/soil/site", "input/management/site"                          ),
                          pattern <- c("*.ini","*.wth","*.soi","*.mgm"))
 
@@ -42,7 +42,7 @@ agroMoSiteUI <- function(id){
                  
                            tags$div(
                              id =paste0(ns("siteswitch"),"_container"),
-                             shinyWidgets::switchInput(ns("siteswitch"), label = NULL, onLabel="site", offLabel="grid", value = FALSE)
+                             shinyWidgets::switchInput(ns("siteswitch"), label = NULL, onLabel="site", offLabel="grid", value = TRUE)
                            ),
                            tags$div(
                              id = paste0(ns("sitecellid"),"_container"),

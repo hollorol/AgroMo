@@ -69,7 +69,7 @@
 
 #sitediv-siteswitch_container {
     position: absolute;
-    top: 42px;
+    top: 41px;
     left: 700px;
     font-size: 16px;
     font-family: Fira Sans;
@@ -710,6 +710,7 @@ color: #A9A9A9;
   width:70px;
   height: 248px;
   cursor: pointer;
+  border-radius: 15px;
 }
 
 #Site-banner-div img{
