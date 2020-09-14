@@ -6,9 +6,10 @@
 #' @keywords internal
 agroMoSiteUI <- function(id){
   ns <- NS(id)
+
   baseDir <- "defaultDir"
   baseTable<- data.frame(selectorId <- c(ns("iniFile"), ns("weatherFile"), ns("soilFile"), ns("managementFile")),
-                         label <- c("INI file:", "WEATHER file:", "SOIL file:", "MANAGEMENT file:"),
+                         label <- c("STORYLINE:", "WEATHER file:", "SOIL file:", "MANAGEMENT file:"),
                          place <- c("input/initialization/site", "input/weather/site", "input/soil/site", "input/management/site"                          ),
                          pattern <- c("*.ini","*.wth","*.soi","*.mgm"))
 
@@ -20,7 +21,7 @@ agroMoSiteUI <- function(id){
                      "grazing" = "grz",
                      "mowing" = "mow",
                      "thinning" = "thn")
-
+  
   dropdownElements <- shiny::tags$div(id = "fileOutput", class="inFile",
                                apply(baseTable, 1,function (x){
                                  if(!grepl("management",x[1])){
@@ -38,7 +39,16 @@ agroMoSiteUI <- function(id){
 
 
   shiny::tags$div(id = ns(id),
-
+                 
+                           tags$div(
+                             id =paste0(ns("siteswitch"),"_container"),
+                             shinyWidgets::switchInput(ns("siteswitch"), label = NULL, onLabel="site", offLabel="grid", value = FALSE)
+                           ),
+                           tags$div(
+                             id = paste0(ns("sitecellid"),"_container"),
+                             selectInput(ns("sitecellid"),"CELL id:",choices=c(1:1104))
+                           ),
+                           
            tagList(
              #shiny::tags$img(id = ns("base_bb"),src="www/img/base_banner_button.svg"),
              #shiny::tags$img(id = ns("map_bb"),src="www/img/map_banner_button.svg"),

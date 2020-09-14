@@ -17,7 +17,34 @@
     position: absolute;
     top: 25px;
     left:-1px;
-    width: 800px;
+    width: 550px;
+    font-size: 16px;
+    font-family: Fira Sans;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#sitediv-sitecellid_container .control-label{
+    position: absolute;
+    top: 20px;
+  left: 570px;
+  font-size: 16px;
+    font-family: Fira Sans;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#sitediv-sitecellid_container .selectize-control.shinyjs-resettable.single .selectize-input{
+    position: absolute;
+    top: 25px;
+    left:569px;
+    width: 100px;
     font-size: 16px;
     font-family: Fira Sans;
     color: black;
@@ -38,6 +65,22 @@
   -ms-user-select: none;
   user-select: none;
    
+}
+
+#sitediv-siteswitch_container {
+    position: absolute;
+    top: 42px;
+    left: 700px;
+    font-size: 16px;
+    font-family: Fira Sans;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
+}
+
+#sitediv-siteswitch_container .bootstrap-switch-container .bootstrap-switch-handle-on {
+    height: 30px;
 }
 
 #sitediv-weatherFile_container .selectize-control.shinyjs-resettable.single .selectize-input{
@@ -64,7 +107,6 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;    
-   
 }
 
 #sitediv-soilFile_container .selectize-control.shinyjs-resettable.single .selectize-input{
