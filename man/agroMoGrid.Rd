@@ -4,7 +4,7 @@
 \alias{agroMoGrid}
 \title{agromoGrid}
 \usage{
-agroMoGrid(input, output, session, baseDir)
+agroMoGrid(input, output, session, baseDir, language)
 }
 \description{
 This is agromoGrid main function

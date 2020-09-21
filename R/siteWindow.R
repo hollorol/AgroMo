@@ -129,6 +129,7 @@ agroMoSiteUI <- function(id){
 #' @param dataenv The central datastructure of the AgroMo
 #' @param baseDir baseDir is the base directory for the modell inputs/outputs
 #' @importFrom shiny reactive updateSelectInput observe textInput renderUI reactiveValues callModule observeEvent isolate 
+#' @importFrom DBI dbListTables
 #' @importFrom jsonlite read_json
 #' @keywords internal
 
@@ -188,8 +189,10 @@ agroMoSite <- function(input, output, session, dataenv, baseDir, connection,cent
      # browser()
       if(iniFile()!=""){
           settings <- tryCatch(setupGUI(iniFile(),isolate(baseDir()), centralData),error=function(e){
-                            showNotification("Your iniFile is corrupt, please check it!",type="error")
-                            browser()
+                                   if(isolate(input$siteswitch)){
+                                        showNotification("Your iniFile is corrupt, please check it!",type="error")
+                                   }
+                            # browser()
                             NULL
                         })
           # sapply(ls(settings),function(x){print(settings$x)})
@@ -233,6 +236,7 @@ agroMoSite <- function(input, output, session, dataenv, baseDir, connection,cent
     updateSelectInput(session,"thinning", selected = manType()[7])
   })
 
+ 
   observeEvent(input$Show,{
     dat$show <- dat$show + 1
   })
@@ -261,9 +265,18 @@ agroMoSite <- function(input, output, session, dataenv, baseDir, connection,cent
                                                                     baseDir(),"input/management/site")
                                                ,recursive = TRUE),value = TRUE))), selected = mgmState)
   })
-  # observe({
-  #   print(input$outFile)
-  # })
+
+   observeEvent(input$siteswitch, {
+                    if(!isolate(input$siteswitch)){
+                         connDB <- dbConnect(RSQLite::SQLite(),file.path(baseDir(),"output","grid.db")) 
+                         updateSelectInput(session,"iniFile", choices=grep(".*_error",dbListTables(connDB), value=TRUE, invert=TRUE),
+                                           label="OUTPUT DATABASE tables:")
+                         dbDisconnect(connDB)
+                    } else {
+        updateSelectInput(session,"iniFile", choices = grep("spinup",grep("*.ini",list.files(file.path(baseDir(),"input/initialization/site")),value = TRUE),invert=TRUE, value=TRUE),selected = input$iniFile, label = "INI file:")
+                    }
+
+  })
   callModule(runAndPlot,"popRun",baseDir, reactive({input$iniFile}),
              reactive({input$weatherFile}), reactive({input$soilFile}),
              reactive({input$managementFile}), reactive({stringSanitizer(input$outFile)}),
@@ -278,6 +291,6 @@ agroMoSite <- function(input, output, session, dataenv, baseDir, connection,cent
              reactive({input$irrshift_date}),
              reactive({input$fertshift_amount}),
              reactive({input$irrshift_amount}),
-  reactive({connection}),reactive({centralData}))
+             reactive({connection}),reactive({centralData}), siteRun=reactive({input$siteswitch}), plotid=reactive({input$sitecellid}))
     return(dat)
  }

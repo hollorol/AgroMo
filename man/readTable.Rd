@@ -4,7 +4,7 @@
 \alias{readTable}
 \title{writeChainToDB}
 \usage{
-readTable(fName, variables, type)
+readTable(fName, variables, type, plotid, numDays, startYear, endYear)
 }
 \arguments{
 \item{fName}{the name of the file}

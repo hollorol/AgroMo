@@ -22,7 +22,7 @@ runAndPlot <- function(input, output, session,baseDir,
                        iniFile, weatherFile, soilFile, managementFile, outputName,
                        planting, harvest, fertilization, irrigation, grazing, mowing,
                        thinning, planshift_date, planshift_density, harvshift_date,
-                       fertshift_date, irrshift_date, fertshift_amount, irrshift_amount, connection, centralData
+                       fertshift_date, irrshift_date, fertshift_amount, irrshift_amount, connection, centralData, siteRun, plotid
                        ){
   ##preparation
 dat<-reactiveValues(dataenv = NULL)
@@ -31,44 +31,54 @@ dat<-reactiveValues(dataenv = NULL)
 #     print(irrshift_amount())
 # })
   observeEvent(input$runModel,{
+                   if(siteRun()){
 
-    
-    ## browser()
+       ## browser()
 
-    readAndChangeFiles(isolate(baseDir()), iniFile(), weatherFile(), soilFile(), managementFile(),
-                       planting(), harvest(), fertilization(), irrigation(), grazing(),
-                       mowing(), thinning(), planshift_date(), planshift_density(),
-                       harvshift_date(), fertshift_date(),
-                       irrshift_date(), fertshift_amount(), irrshift_amount())
-    # browser()
-    settings <- setupGUI(isolate(iniFile()),isolate(baseDir()),isolate(centralData()))
-    file.remove(file.path(baseDir(), "output", sprintf("%s.dayout", settings$outputName)))
-    runModel <- reactive({future({runMuso(isolate(iniFile()),isolate(baseDir()))})})
-    showModal(shiny::tags$div(id = "runIndicator", modalDialog(
-                                                shiny::tags$img(id = "runningGif", src= "www/img/iu.gif", width = "150px"),
-                                                hide(tags$img(id = "finishedGif", src= "www/img/iu_check.gif",width = "150px"))
-      ,renderText({
-        # browser()
-        runModel() %...>% {
-         print(connection())
-         print(baseDir())
-         print(outputName())
-                  writeDataToDB(settings = settings, dbConnection = isolate(connection()),
-                         binaryName = file.path(baseDir(), "output", sprintf("%s.dayout", settings$outputName)),
-                         isolate(outputName()))          
-          # removeUI(selector = "#runningGif")
-          hide("runningGif")
-          removeModal()
-          # show("finishedGif")
-          # "Finished"
-        }
+       readAndChangeFiles(isolate(baseDir()), iniFile(), weatherFile(), soilFile(), managementFile(),
+                          planting(), harvest(), fertilization(), irrigation(), grazing(),
+                          mowing(), thinning(), planshift_date(), planshift_density(),
+                          harvshift_date(), fertshift_date(),
+                          irrshift_date(), fertshift_amount(), irrshift_amount())
+       # browser()
+       settings <- setupGUI(isolate(iniFile()),isolate(baseDir()),isolate(centralData()))
+       file.remove(file.path(baseDir(), "output", sprintf("%s.dayout", settings$outputName)))
+       runModel <- reactive({future({runMuso(isolate(iniFile()),isolate(baseDir()))})})
+       showModal(shiny::tags$div(id = "runIndicator", modalDialog(
+                                                                  shiny::tags$img(id = "runningGif", src= "www/img/iu.gif", width = "150px"),
+                                                                  hide(tags$img(id = "finishedGif", src= "www/img/iu_check.gif",width = "150px"))
+                                                                  ,renderText({
+                                                                      # browser()
+                                                                      runModel() %...>% {
+                                                                          print(connection())
+                                                                          print(baseDir())
+                                                                          print(outputName())
+                                                                          writeDataToDB(settings = settings, dbConnection = isolate(connection()),
+                                                                                        binaryName = file.path(baseDir(), "output", sprintf("%s.dayout", settings$outputName)),
+                                                                                        isolate(outputName()))          
+                                                                          # removeUI(selector = "#runningGif")
+                                                                          hide("runningGif")
+                                                                          removeModal()
+                                                                          # show("finishedGif")
+                                                                          # "Finished"
+                                                                      }
 
-      }),
-      footer = NULL,
-      easyClose = TRUE
-    ))
-    )
-  })
+                                                                  }),
+                                                     footer = NULL,
+                                                     easyClose = TRUE
+                                                     ))
+       )
+                   }   else {
+                           tableName <- isolate(iniFile())
+                           showNotification(sprintf("Querying table: %s in grid.db...", tableName))
+                           gridDB <- dbConnect(RSQLite::SQLite(),file.path(isolate(baseDir()),"output", "grid.db"))
+                           siteDB <- dbConnect(RSQLite::SQLite(),file.path(isolate(baseDir()),"output", "site.db"))
+                           res <- dbGetQuery(gridDB,sprintf("SELECT * FROM %s WHERE plotid = %s", tableName, isolate(plotid())))
+                           dbWriteTable(siteDB, isolate(outputName()), res, overwrite=TRUE)
+                           showNotification("Grid run is saved into site database")
+                           dbDisconnect(gridDB)
+                   }
+        })
 
 }
 
