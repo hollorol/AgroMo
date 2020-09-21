@@ -58,6 +58,13 @@ plotSingle <- function(outputNames = NULL, dataenv, varName, timeFrame, groupFun
   if(!is.null(measurements)){
         measurements$date <- as.Date(measurements$date)
   }
+
+  p <- plot_ly()
+
+  if(!is.null(measurements)){
+    p <- addMeasuredData(p, measurements, varName)
+  }
+
   ## browser()
   dataenv[[outputNames[1]]] <- data.table(dataenv[[outputNames[1]]])
   dataenv[[outputNames[1]]][,year:=as.Date(date)]
@@ -66,7 +73,6 @@ plotSingle <- function(outputNames = NULL, dataenv, varName, timeFrame, groupFun
   timeFrameF <- match.fun(timeFrame)
   pd <- dataenv[[outputNames[1]]][,eval(quote(conversionFactor))*get(groupFun)(get(varName)),timeFrameF(date)]
   colnames(pd)<- c(timeFrame, paste0(varName,"_",groupFun))
-  p <- plot_ly()
   p <- add_trace(p,x = fDate(unlist(pd[,timeFrame,with = FALSE]),timeFrame), y =  unlist(pd[,paste0(varName,"_",groupFun),with = FALSE]), type = plotType, mode = plotMode, name = outputNames[1],line = list( width = 2,
               xaxs = "i", yaxs = "i") ) %>%
      # title = "<b>x tengely</b>", # bold title, to get itali title use <i>
@@ -124,12 +130,8 @@ plotSingle <- function(outputNames = NULL, dataenv, varName, timeFrame, groupFun
   # }
   
     # p %>% layout(yaxis=list(title=sprintf("%s|%s|%s", varName, timeFrame, groupFun))) # %>% toWebGL()
+  p
     
-  if(!is.null(measurements)){
-    addMeasuredData(p, measurements, varName)
-  } else {
-      p
-  }
 }
 
 plotMeasuredLayers <- function(p,measurement,timeFrame,experiment_id, treatment, measAlias=""){
