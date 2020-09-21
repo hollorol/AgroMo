@@ -187,7 +187,7 @@ agroMoShow <- function(input, output, session, dataenv, baseDir, connection,cent
      
    observe({
        if(!(is.null(initData$measurementConn))){
-           updateSelectInput(session,"experimentID", choices = list.files(initData$measurementConn))
+           updateSelectInput(session,"experimentID", choices = c("NO OBSERVATION",list.files(initData$measurementConn)))
        }
 
    })

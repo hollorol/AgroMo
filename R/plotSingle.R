@@ -52,8 +52,12 @@ plotSingle <- function(outputNames = NULL, dataenv, varName, timeFrame, groupFun
     timeFrame <- "identity" # This gaves us back the current date, it will create numDays separate groups. The group function will also the identity
   }
 
-  measurements <- read.csv(file.path(measurementConn,experiment_id), sep=";",stringsAsFactors=FALSE)
-  measurements$date <- as.Date(measurements$date)
+  measurements <- tryCatch(read.csv(file.path(measurementConn,experiment_id), sep=";",stringsAsFactors=FALSE), error=function(e){
+                               NULL
+  })
+  if(!is.null(measurements)){
+        measurements$date <- as.Date(measurements$date)
+  }
   ## browser()
   dataenv[[outputNames[1]]] <- data.table(dataenv[[outputNames[1]]])
   dataenv[[outputNames[1]]][,year:=as.Date(date)]
@@ -120,7 +124,12 @@ plotSingle <- function(outputNames = NULL, dataenv, varName, timeFrame, groupFun
   # }
   
     # p %>% layout(yaxis=list(title=sprintf("%s|%s|%s", varName, timeFrame, groupFun))) # %>% toWebGL()
+    
+  if(!is.null(measurements)){
     addMeasuredData(p, measurements, varName)
+  } else {
+      p
+  }
 }
 
 plotMeasuredLayers <- function(p,measurement,timeFrame,experiment_id, treatment, measAlias=""){
