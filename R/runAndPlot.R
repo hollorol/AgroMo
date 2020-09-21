@@ -74,6 +74,14 @@ dat<-reactiveValues(dataenv = NULL)
                            gridDB <- dbConnect(RSQLite::SQLite(),file.path(isolate(baseDir()),"output", "grid.db"))
                            siteDB <- dbConnect(RSQLite::SQLite(),file.path(isolate(baseDir()),"output", "site.db"))
                            res <- dbGetQuery(gridDB,sprintf("SELECT * FROM %s WHERE plotid = %s", tableName, isolate(plotid())))
+                           if(is.element("year",colnames(res))){
+                               norig <- ncol(res)
+                               res[,"udate"] <- paste0(res[,"year"],"-12-31")
+                               res[,"umonth"] <- 12
+                               res[,"uday"] <- 31
+                               res <- res[,c(seq(from=norig+1, by=1, length.out=3), 1:norig)]
+                           }
+
                            dbWriteTable(siteDB, isolate(outputName()), res, overwrite=TRUE)
                            showNotification("Grid run is saved into site database")
                            dbDisconnect(gridDB)
