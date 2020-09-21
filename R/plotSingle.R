@@ -62,9 +62,13 @@ plotSingle <- function(outputNames = NULL, dataenv, varName, timeFrame, groupFun
   timeFrameF <- match.fun(timeFrame)
   pd <- dataenv[[outputNames[1]]][,eval(quote(conversionFactor))*get(groupFun)(get(varName)),timeFrameF(date)]
   colnames(pd)<- c(timeFrame, paste0(varName,"_",groupFun))
+  
+  # Defining colorscale:
+  colorscale <- c("rgb(192,0,0)","rgb(0,112,192)","rgb(0,176,80)","rgb(255,192,0)","rgb(112,48,160)")
+  
   p <- plot_ly()
-  p <- add_trace(p,x = fDate(unlist(pd[,timeFrame,with = FALSE]),timeFrame), y =  unlist(pd[,paste0(varName,"_",groupFun),with = FALSE]), type = plotType, mode = plotMode, name = outputNames[1],line = list( width = 2,
-              xaxs = "i", yaxs = "i") ) %>%
+  p <- add_trace(p,x = fDate(unlist(pd[,timeFrame,with = FALSE]),timeFrame), y =  unlist(pd[,paste0(varName,"_",groupFun),with = FALSE]),
+                 type = plotType, mode = plotMode, name = outputNames[1],line = list(col = colorscale[1], width = 2, xaxs = "i", yaxs = "i") ) %>%
      # title = "<b>x tengely</b>", # bold title, to get itali title use <i>
      #                    titlefont = titlefont,
     layout(autosize=TRUE,
