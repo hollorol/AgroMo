@@ -587,4 +587,5 @@ div.profPlotCont .form-control {
 .modal-body {
   overflow: scroll !important;
   overflow-x: hidden !important;
+  height: 700px !important;
 }
