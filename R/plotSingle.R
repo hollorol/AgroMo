@@ -77,7 +77,7 @@ plotSingle <- function(outputNames = NULL, dataenv, varName, timeFrame, groupFun
   p <- add_trace(p,x = fDate(unlist(pd[,timeFrame,with = FALSE]),timeFrame), 
                  y =  unlist(pd[,paste0(varName,"_",groupFun),with = FALSE]), 
                  type = plotType, mode = plotMode, name = outputNames[1],
-                 line = list( color = colorscale, lty=2,  width = 2, xaxs = "i", yaxs = "i") ) %>%
+                 line = list( color = colorscale[1],  width = 2, xaxs = "i", yaxs = "i") ) %>%
     # title = "<b>x tengely</b>", # bold title, to get itali title use <i>
     #                    titlefont = titlefont,
     layout(autosize=TRUE,
@@ -121,8 +121,10 @@ plotSingle <- function(outputNames = NULL, dataenv, varName, timeFrame, groupFun
       pd <- dataenv[[outputNames[i]]][,eval(quote(conversionFactor))*get(groupFun)(get(varName)),timeFrameF(date)]
       colnames(pd)<- c(timeFrame, paste0(varName,"_",groupFun))
       # print(str(pd))
-      p <- add_trace(p, x = fDate(unlist(pd[,timeFrame, with = FALSE]),timeFrame), y =  unlist(pd[,paste0(varName,"_",groupFun),with = FALSE]), name = outputNames[i],type = plotType, mode = plotMode, line = list( width = 2,
-                                                                                                                                                                                                                     xaxs = "i", yaxs = "i") )
+      p <- add_trace(p, x = fDate(unlist(pd[,timeFrame, with = FALSE]),timeFrame), 
+                     y =  unlist(pd[,paste0(varName,"_",groupFun),with = FALSE]), 
+                     name = outputNames[i],type = plotType, mode = plotMode, 
+                     line = list( color = colorscale[i], width = 2, xaxs = "i", yaxs = "i") )
       
     }
   }
