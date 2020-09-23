@@ -4,27 +4,6 @@
 
 AgroMo is an Integrated Assessment and Modelling software that integrates 4M (Fodor et al. 2014) a CERES based crop model, the Biome-BGCMuSo (Hidy et al. 2016) biogeochemical and a simple agro-economical model in order to support decision makers at multiple scales.
 
-## Install AgroMo
-
-### Using Installer
-
-[Direct link to the Installer](https://owncloud.agrar.mta.hu/owncloud/index.php/s/tN5JaGuLsjBrjzv/download)
-
-- [x] After starting the Installer, choose installation folder by entering a valid folder name with full path or by clicking the Modify icon or leave default unaltered. If the folder does not exist the installer will create it.
-- [x] AgroMo can be started from this folder later by launching the AgroMo_Launch.exe application.
-
-### Using pure R
-
-AgroMo can be used from your browser with your current R installation. The package can be installed in the following way:
-```{r}
-install.packages("remotes") # if you have already installed devtools or remotes, skip this step.
-remotes::install_github("hollorol/AgroMo", upgrade = "never") # You can replace remotes with devtools.
-```
-After the installation process, the application starts with the following command:
-```{r}
-AgroMo::launchApp()
-```
-
 ## AgroMo User Interface
 
 A graphical user interface (GUI) has been developed for providing easy and user friendly access to the functions of the AgroMo system. When lunching the AgroMo App the user meets the AgroMo Base form first.
@@ -105,3 +84,27 @@ A graphical user interface (GUI) has been developed for providing easy and user 
 ![alt text](img/map_gui.png "AgroMo Map")
 
 - [x] Coming soon
+
+
+
+
+## Install AgroMo
+
+### Using Installer
+
+[Direct link to the Installer](https://owncloud.agrar.mta.hu/owncloud/index.php/s/tN5JaGuLsjBrjzv/download)
+
+- [x] After starting the Installer, choose installation folder by entering a valid folder name with full path or by clicking the Modify icon or leave default unaltered. If the folder does not exist the installer will create it.
+- [x] AgroMo can be started from this folder later by launching the AgroMo_Launch.exe application.
+
+### Using pure R
+
+AgroMo can be used from your browser with your current R installation. The package can be installed in the following way:
+```{r}
+install.packages("remotes") # if you have already installed devtools or remotes, skip this step.
+remotes::install_github("hollorol/AgroMo", upgrade = "never") # You can replace remotes with devtools.
+```
+After the installation process, the application starts with the following command:
+```{r}
+AgroMo::launchApp()
+```
