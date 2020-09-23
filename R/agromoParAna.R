@@ -54,7 +54,7 @@ agroMoParAnaUI <- function(id){
   )
 }
 
-#' agroMoMap 
+#' agroMoParAna 
 #' 
 #' asdfasfd
 #' @param input input
@@ -62,13 +62,70 @@ agroMoParAnaUI <- function(id){
 #' @importFrom DBI dbConnect
 
 
-agroMoParAna <- function(input, output, session){
+agroMoParAna <- function(input, output, session, baseDir){
   
   
   ns <- session$ns
   output$paranatable = DT::renderDataTable({valami})
+
+  observe({
+      updateSelectInput(session,"paranaini",
+                        choices = list.dirs(file.path(baseDir(),"calibration"), full.names=FALSE, recursive=FALSE))
+  })
+
+  observe({
+      updateSelectInput(session,"paranaexp",
+                        choices = list.files(file.path(baseDir(),"calibration",input$paranaini), pattern="\\.obs$"))
+  })
+
+  observe({
+
+      updateSelectInput(session,"ctlfile",
+                        choices = list.files(file.path(baseDir(),"calibration",input$paranaini), pattern="\\.cal$"))
+  })
+
+
+  observeEvent(input$paranado,{
+                   settings <- RBBGCMuso::setupMuso(inputLoc=file.path(isolate(baseDir()), "calibration",isolate(input$paranaini)))
+                   obs <- prepareFromAgroMo(file.path(isolate(baseDir()), "calibration", isolate(input$paranaini), isolate(input$paranaexp)))
+                   obs[,5:8] <- obs[,5:8] /10000
+                   parameters <- read.csv(file.path(isolate(baseDir()), "calibration", isolate(input$paranaini), isolate(input$ctlfile)),
+                                          stringsAsFactors=FALSE, skip=1)
+                   svg(file.path(isolate(baseDir()), "calibration",input$paranaini, "calibResult.svg"))
+                   withProgress(min=0,max=as.numeric(isolate(input$paranait), value=0, message="Calibration state"),
+                                message="Calibrating...",
+                                detail="This may take a while...",{
+                       RBBGCMuso::calibrateMuso(measuredData = obs,
+                                     settings=settings,
+                                     dataVar = c(grainDM=3054),
+                                     parameters=parameters,
+                                     likelihood = list(grainDM=agroLikelihood), iterations=as.numeric(isolate(input$paranait)), method="GLUE",
+                                     lg = TRUE, pb=NULL, pbUpdate=function(x)(setProgress(value=x,detail=x)))
+                   })
+                   dev.off()
+  })
+
   #  observe({
 #    output$paranaTable <- renderTable(dat$querySelector,colnames=FALSE,width="100%", sanitize.text.function = function(x) x )
 #  })
   
 }
+
+
+prepareFromAgroMo <- function(fName){
+    obs <- read.table(fName, stringsAsFactors=FALSE, sep = ";", header=T)
+    obs <- reshape(obs, timevar="var_id", idvar = "date", direction = "wide")
+    dateCols <- apply(do.call(rbind,(strsplit(obs$date, split = "-"))),2,as.numeric)
+    colnames(dateCols) <- c("year", "month", "day")
+    cbind.data.frame(dateCols, obs)
+}
+
+agroLikelihood <- function(modVector,measured){
+    mu <- measured[,grep("mean", colnames(measured))]
+    stdev <- measured[,grep("^sd", colnames(measured))]
+    ndata <- nrow(measured)
+    sum(sapply(1:ndata, function(x){
+                  dnorm(modVector, mu[x], stdev[x], log = TRUE)
+               }), na.rm=TRUE)
+}
+

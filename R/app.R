@@ -463,7 +463,7 @@ agroServer <- function(input, output, session) {
     ## PARANA
     {
       
-      callModule(agroMoParAna,"paranadiv")
+      callModule(agroMoParAna, "paranadiv", baseDir = reactive({datas$baseDir}))
       observeEvent(input$parana,{
         shinyjs::hide("base")
         shinyjs::hide("base-tools")
