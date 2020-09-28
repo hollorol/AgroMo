@@ -16,7 +16,7 @@ agroMoParAnaUI <- function(id){
              id = paste0(ns("paranait"),"_container"), 
              textInput(ns("paranait"),"number of iterations:","")
            ),
-           DT::dataTableOutput("paranatable"),
+           imageOutput(ns("paranaimage")),
 #           tags$div(
 #             tableOutput(ns("paranaTable"))
 #          ),  
@@ -86,23 +86,41 @@ agroMoParAna <- function(input, output, session, baseDir){
 
 
   observeEvent(input$paranado,{
-                   settings <- RBBGCMuso::setupMuso(inputLoc=file.path(isolate(baseDir()), "calibration",isolate(input$paranaini)))
-                   obs <- prepareFromAgroMo(file.path(isolate(baseDir()), "calibration", isolate(input$paranaini), isolate(input$paranaexp)))
+                   inputLoc <- file.path(isolate(baseDir()), "calibration",isolate(input$paranaini))
+                   settings <- RBBGCMuso::setupMuso(inputLoc=inputLoc)
+                   centralData <- getOption("AgroMo_centralData")
+                   obs <- prepareFromAgroMo(file.path(inputLoc,isolate(input$paranaexp)))
                    obs[,5:8] <- obs[,5:8] /10000
-                   parameters <- read.csv(file.path(isolate(baseDir()), "calibration", isolate(input$paranaini), isolate(input$ctlfile)),
-                                          stringsAsFactors=FALSE, skip=1)
-                   svg(file.path(isolate(baseDir()), "calibration",input$paranaini, "calibResult.svg"))
-                   withProgress(min=0,max=as.numeric(isolate(input$paranait), value=0, message="Calibration state"),
+                   parameterLocation <- file.path(inputLoc, isolate(input$ctlfile)) 
+                   parameters <- read.csv(parameterLocation, stringsAsFactors=FALSE, skip=1)
+                   agroVarName = readLines(parameterLocation, n=1)
+                   musoCode = as.numeric(centralData$VARCODE[centralData$VARIABLE == agroVarName])
+                   dataVar <- musoCode
+                   names(dataVar) <- agroVarName
+                   likelihood <- list()
+                   likelihood[[agroVarName]] <- agroLikelihood
+                   # browser()
+                   png(file.path(inputLoc, "calibResult.png"))
+                   withProgress(min=0, max=as.numeric(isolate(input$paranait), value=0, message="Calibration state"),
                                 message="Calibrating...",
                                 detail="This may take a while...",{
                        RBBGCMuso::calibrateMuso(measuredData = obs,
                                      settings=settings,
-                                     dataVar = c(grainDM=3054),
+                                     dataVar = dataVar,
                                      parameters=parameters,
-                                     likelihood = list(grainDM=agroLikelihood), iterations=as.numeric(isolate(input$paranait)), method="GLUE",
-                                     lg = TRUE, pb=NULL, pbUpdate=function(x)(setProgress(value=x,detail=x)))
+                                     likelihood = likelihood,
+                                     outputLoc=inputLoc,
+                                     iterations=as.numeric(isolate(input$paranait)),
+                                     method="agromo", lg = TRUE, pb=NULL,
+                                     pbUpdate=function(x)(setProgress(value=x,detail=x)))
                    })
                    dev.off()
+                   output$paranaimage <- renderImage({
+                      print(file.path(inputLoc, "calibResult.png"))
+                       list(src =file.path(inputLoc, "calibResult.png"),
+                            alt ="result of the calibration")
+                   })
+
   })
 
   #  observe({
