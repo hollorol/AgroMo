@@ -119,7 +119,7 @@ agroMoParAna <- function(input, output, session, baseDir){
                       print(file.path(inputLoc, "calibResult.png"))
                        list(src =file.path(inputLoc, "calibResult.png"),
                             alt ="result of the calibration")
-                   })
+                   }, deleteFile=FALSE)
 
   })
 
