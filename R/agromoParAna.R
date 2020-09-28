@@ -117,8 +117,10 @@ agroMoParAna <- function(input, output, session, baseDir){
                    dev.off()
                    output$paranaimage <- renderImage({
                       print(file.path(inputLoc, "calibResult.png"))
-                      browser()
                        list(src =file.path(inputLoc, "calibResult.png"),
+                            contentType="image/png+xml"
+                            width=920,
+                            height=340,
                             alt ="result of the calibration")
                    }, deleteFile=FALSE)
 
