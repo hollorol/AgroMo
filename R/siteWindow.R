@@ -72,7 +72,10 @@ agroMoSiteUI <- function(id){
              lapply(managementTypes,function(man){
                         # browser()
                # if(man=="planting") browser()
-               choices <- basename(grep(paste0(managementExt[man],"$"),list.files("./input/management",recursive=TRUE),value = TRUE))
+               choices <- basename(grep("*/tmp/*",
+                                        grep(paste0(managementExt[man],"$"),list.files("./input/management/site",recursive=TRUE),value = TRUE),
+                                        invert = TRUE,
+                                        value=TRUE))
                if(length(choices)==0){
                  choices <- NULL
                }
