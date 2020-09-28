@@ -181,7 +181,7 @@ changingMGM <- function(mgmFile, baseDir, planting=NULL, harvest=NULL, fertiliza
   sapply(destFiles, function(m){
     dir.create(dirname(file.path(baseDir,m)),showWarnings = FALSE)
   })
- Map(function(x,y){file.copy(x,y,overwrite = TRUE)}, file.path(baseDir,inpFiles), file.path(baseDir,destFiles))
+ Map(function(x,y){file.copy(x,y,overwrite = TRUE)}, file.path(baseDir,"input",inpFiles), file.path(baseDir,destFiles))
  choosenRows <- managementRows[gsub(".*\\.","",inpFiles)]
  delRows <- setdiff(managementRows, choosenRows)
  managementTemplate[delRows-1] <- 0
@@ -201,7 +201,7 @@ changingMGM <- function(mgmFile, baseDir, planting=NULL, harvest=NULL, fertiliza
     shiftFile(file.path(baseDir,harvestFile), destFile = file.path(baseDir,harvestFile), shiftDate = harvshift_date)
   }
 
-  fertilFile <- grep("frt$",destFiles,value = TRUE)
+  fertilFile <- grep("frz$",destFiles,value = TRUE)
   if(length(fertilFile)!=0){
     shiftFile(file.path(baseDir,fertilFile), destFile = file.path(baseDir,fertilFile), shiftDate = fertshift_date, varCol = 3, as.numeric(fertshift_amount))
   }
