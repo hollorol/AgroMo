@@ -8,7 +8,7 @@
 
 runAndPlotUI <- function(id, label){
   ns <- NS(id)
-  actionButton(ns("runModel"),label)
+  actionButton(ns("runModel"),label = "START SIMULATION")
 }
 
 #' runAndPlot
@@ -22,7 +22,8 @@ runAndPlot <- function(input, output, session,baseDir,
                        iniFile, weatherFile, soilFile, managementFile, outputName,
                        planting, harvest, fertilization, irrigation, grazing, mowing,
                        thinning, planshift_date, planshift_density, harvshift_date,
-                       fertshift_date, irrshift_date, fertshift_amount, irrshift_amount, connection, centralData, siteRun, plotid
+                       fertshift_date, irrshift_date, fertshift_amount, irrshift_amount, connection, centralData, siteRun, plotid,
+                       runModel
                        ){
   ##preparation
 dat<-reactiveValues(dataenv = NULL)

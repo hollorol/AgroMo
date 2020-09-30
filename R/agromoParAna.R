@@ -127,7 +127,7 @@ agroMoParAna <- function(input, output, session, baseDir){
 
   })
 
-  #  observe({
+#  observe({
 #    output$paranaTable <- renderTable(dat$querySelector,colnames=FALSE,width="100%", sanitize.text.function = function(x) x )
 #  })
   

@@ -88,6 +88,7 @@ agroMoSiteUI <- function(id){
              uiOutput(ns("outputFile")),
              shiny::tags$div(id = ns("Buttons"),
              runAndPlotUI(ns("popRun"),label = "START SIMULATION"),
+             # actionButton(ns("runModel"),"START SIMULATION"),
              actionButton(ns("Show"),label="PLOT", title="Create plots using simulation results")),
              shiny::tags$div(
                     id = paste0(ns("planshift_date"),"_container"),
@@ -275,8 +276,11 @@ agroMoSite <- function(input, output, session, dataenv, baseDir, connection,cent
                          updateSelectInput(session,"iniFile", choices=grep(".*_error",dbListTables(connDB), value=TRUE, invert=TRUE),
                                            label="OUTPUT DATABASE tables:")
                          dbDisconnect(connDB)
+                         updateActionButton(session,"popRun-runModel",label = "RETRIEVE CELL DATA")
                     } else {
         updateSelectInput(session,"iniFile", choices = grep("spinup",grep("*.ini",list.files(file.path(baseDir(),"input/initialization/site")),value = TRUE),invert=TRUE, value=TRUE),selected = input$iniFile, label = "INI file:")
+                    
+                         updateActionButton(session,"popRun-runModel",label = "START SIMULATION")
                     }
 
   })
@@ -294,6 +298,8 @@ agroMoSite <- function(input, output, session, dataenv, baseDir, connection,cent
              reactive({input$irrshift_date}),
              reactive({input$fertshift_amount}),
              reactive({input$irrshift_amount}),
-             reactive({connection}),reactive({centralData}), siteRun=reactive({input$siteswitch}), plotid=reactive({input$sitecellid}))
+             reactive({connection}),reactive({centralData}),
+             siteRun=reactive({input$siteswitch}),
+             plotid=reactive({input$sitecellid}))
     return(dat)
  }
