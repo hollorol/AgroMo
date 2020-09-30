@@ -49,7 +49,7 @@ A graphical user interface (GUI) has been developed for providing easy and user 
 - [x] An activity indicator is on while the simulation is running. 
 - [x] To see simulation results on graphs click the [PLOT] button.
 - [x] Navigate to the [BASE], [GRID] or [MAP] component by clicking the corresponding button on the banner to the left.
-- [x] In case a GRID run  to the [BASE], [GRID] or [MAP] component by clicking the corresponding button on the banner to the left.
+- [x] In case at least one GRID run has already been carried out, grid cell specific outputs can be retrieved and plotted by (1) setting the site/grid switch to grid state, (2) selecting the OUTPUT DATABASE table, and the (3) CELL id, (4) setting the name of the OUTPUT DATA TABLE, and finally clicking the [RETRIEVE DATA] button.
 
 ### AgroMo Plot
 
