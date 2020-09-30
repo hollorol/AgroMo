@@ -14,7 +14,7 @@ agroMoParAnaUI <- function(id){
            
            tags$div(
              id = paste0(ns("paranait"),"_container"), 
-             textInput(ns("paranait"),"number of iterations:","")
+             textInput(ns("paranait"),"number of iterations:","100")
            ),
            imageOutput(ns("paranaimage")),
 #           tags$div(
