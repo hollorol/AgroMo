@@ -85,12 +85,6 @@ agroMoParAna <- function(input, output, session, baseDir){
   })
   
   
-  output$paranaimage <- renderImage({
-    inputLoc <- file.path(isolate(baseDir()), "calibration",isolate(input$paranaini))
-    file.copy(file.path(inputLoc, "calibResult.png"),"./")
-    list(src = "./calibResult.png",
-         alt ="result of the calibration")
-  }, deleteFile=FALSE)
 
 
   observeEvent(input$paranado,{
@@ -123,6 +117,11 @@ agroMoParAna <- function(input, output, session, baseDir){
                                      pbUpdate=function(x)(setProgress(value=x,detail=x)))
                    })
                    dev.off()
+                   output$paranaimage <- renderImage({
+                       file.copy(file.path(inputLoc, "calibResult.png"),"./")
+                       list(src = "./calibResult.png",
+                           alt ="result of the calibration")
+                       }, deleteFile=FALSE)
 
 
 
