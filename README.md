@@ -87,8 +87,9 @@ A graphical user interface (GUI) has been developed for providing easy and user 
 
 
 
-
 ## Install AgroMo
+
+AgroMo GUI uses the freely available Fira Sans font family. Please, install the font in order to obtain the proper outlook. The font is available [here](https://fonts.google.com/specimen/Fira+Sans) 
 
 ### Using Installer
 
