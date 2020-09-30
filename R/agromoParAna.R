@@ -108,7 +108,7 @@ agroMoParAna <- function(input, output, session, baseDir){
                    likelihood <- list()
                    likelihood[[agroVarName]] <- agroLikelihood
                    # browser()
-                   png(file.path(inputLoc, "calibResult.png"))
+                   png(file.path(inputLoc, "calibResult.png", style=("background-size: 920px 350px;")))
                    withProgress(min=0, max=as.numeric(isolate(input$paranait), value=0, message="Calibration state"),
                                 message="Calibrating...",
                                 detail="This may take a while...",{

@@ -181,7 +181,7 @@
 
 #paranadiv-charfunc_container .selectize-input {
     position: absolute;
-    top: 585px;
+    top: 170px;
     width: 580px;
     left: 354px;
     font-weight: normal;
@@ -261,4 +261,15 @@
 
 #paranadiv-paranaradio_container .shiny-options-group {
   border-width: 0px;
+}
+
+#paranadiv-paranaimage img{
+position: absolute;
+  top: 180px;
+  left: 10px;
+  width: 920px;
+  height: 350px;
+  border-color: black;
+  border-style: solid;
+  border-width: 3px;
 }
