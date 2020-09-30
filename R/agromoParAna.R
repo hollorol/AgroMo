@@ -83,6 +83,14 @@ agroMoParAna <- function(input, output, session, baseDir){
       updateSelectInput(session,"ctlfile",
                         choices = list.files(file.path(baseDir(),"calibration",input$paranaini), pattern="\\.cal$"))
   })
+  
+  
+  output$paranaimage <- renderImage({
+    inputLoc <- file.path(isolate(baseDir()), "calibration",isolate(input$paranaini))
+    file.copy(file.path(inputLoc, "calibResult.png"),"./")
+    list(src = "./calibResult.png",
+         alt ="result of the calibration")
+  }, deleteFile=FALSE)
 
 
   observeEvent(input$paranado,{
@@ -116,11 +124,7 @@ agroMoParAna <- function(input, output, session, baseDir){
                    })
                    dev.off()
 
-                   Sys.sleep(1)
-                   output$paranaimage <- renderImage({
-                       list(src =file.path(inputLoc, "calibResult.png"),
-                            alt ="result of the calibration")
-                   }, deleteFile=FALSE)
+
 
   })
 
