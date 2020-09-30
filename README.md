@@ -49,6 +49,7 @@ A graphical user interface (GUI) has been developed for providing easy and user 
 - [x] An activity indicator is on while the simulation is running. 
 - [x] To see simulation results on graphs click the [PLOT] button.
 - [x] Navigate to the [BASE], [GRID] or [MAP] component by clicking the corresponding button on the banner to the left.
+- [x] In case a GRID run  to the [BASE], [GRID] or [MAP] component by clicking the corresponding button on the banner to the left.
 
 ### AgroMo Plot
 
