@@ -444,7 +444,7 @@ agroMoGrid <- function(input, output, session, baseDir, language){
              })
              suppressWarnings(dir.create(file.path(baseDir(),"output/report")))
              write.csv(queryResults,file.path(baseDir(),"output/report",sprintf("%s.csv",input$queryalias)),row.names=FALSE)
-             write.xlsx(queryResults,file.path(baseDir(),"output/report",sprintf("%s.xlsx",input$queryalias)))
+             # write.xlsx(queryResults,file.path(baseDir(),"output/report",sprintf("%s.xlsx",input$queryalias)))
          }
 
          removeNotification("query")
