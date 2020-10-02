@@ -188,7 +188,7 @@
 #shiftIn{
   position: absolute;
   top: 295px;
-  left: 570px;
+  left: 545px;
   font-size: 16px;
   font-weight:bold;
   font-family: Fira Sans;
@@ -696,10 +696,10 @@ color: #A9A9A9;
 #sitediv-littleblacklinetwo {
   position: absolute;
   top: 297px;
-  left: 570px;
+  left: 545px;
   height: 1px;
   background-color: #A9A9A9;
-  width: 324px;
+  width: 347px;
   color: #A9A9A9;
 }
 
