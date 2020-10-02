@@ -188,7 +188,8 @@
 #shiftIn{
   position: absolute;
   top: 295px;
-  left: 545px;
+  left: 530px;
+  width: 200px;
   font-size: 16px;
   font-weight:bold;
   font-family: Fira Sans;
