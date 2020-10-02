@@ -188,7 +188,8 @@
 #shiftIn{
   position: absolute;
   top: 295px;
-  left: 570px;
+  left: 530px;
+  width: 200px;
   font-size: 16px;
   font-weight:bold;
   font-family: Fira Sans;
@@ -216,7 +217,7 @@
   position: absolute;
   top: 309px;
   left: 105px;
-  width: 450px;
+  width: 400px;
   font-size: 16px;
   font-family: Fira Sans;
   color: black;
@@ -243,7 +244,7 @@
   position: absolute;
   top: 347px;
   left: 105px;
-  width: 450px;
+  width: 400px;
   font-size: 16px;
   font-family: Fira Sans;
   color: black;
@@ -270,7 +271,7 @@
   position: absolute;
   top: 385px;
   left: 105px;
-  width: 450px;
+  width: 400px;
   font-size: 16px;
   font-family: Fira Sans;
   color: black;
@@ -297,7 +298,7 @@
   position: absolute;
   top: 423px;
   left: 105px;
-  width: 450px;
+  width: 400px;
   font-size: 16px;
   font-family: Fira Sans;
   color: black;
@@ -324,7 +325,7 @@
   position: absolute;
   top: 461px;
   left: 105px;
-  width: 450px;
+  width: 400px;
   font-size: 16px;
   font-family: Fira Sans;
   color: black;
@@ -351,7 +352,7 @@
   position: absolute;
   top: 499px;
   left: 105px;
-  width: 450px;
+ width: 400px;
   font-size: 16px;
   font-family: Fira Sans;
   color: black;
@@ -377,7 +378,7 @@
 #sitediv-mowing_container .selectize-control.single .selectize-input{
   top: 537px;
   left: 105px;
-  width: 450px;
+  width: 400px;
   font-size: 16px;
   font-family: Fira Sans;
   color: black;
@@ -404,7 +405,7 @@
   position: absolute;
   top: 521px;
   left: 105px;
-  width: 450px;
+  width: 400px;
   font-size: 16px;
   font-family: Fira Sans;
   color: black;
@@ -476,7 +477,7 @@
 #sitediv-planshift_date_container .form-control{
   position: absolute;
   top: 324px;
-  left: 650px;
+  left: 625px;
    width: 55px;
    font-size: 16px;
    font-family: Fira Sans;
@@ -491,7 +492,7 @@
 #sitediv-planshift_date_container label{
   position: absolute;
   top: 329px;
-  right: 182px;
+  right: 210px;
   font-size: 16px;
   font-family: Fira Sans;
   color: black;
@@ -547,7 +548,7 @@
 #sitediv-harvshift_date_container .form-control{
   position: absolute;
   top: 362px;
-  left: 650px;
+  left: 625px;
   width: 55px;
   font-size: 16px;
   font-family: Fira Sans;
@@ -561,7 +562,7 @@
 #sitediv-harvshift_date_container label{
   position: absolute;
   top: 367px;
-  right: 182px;
+  right: 210px;
   font-size: 16px;
   font-family: Fira Sans;
   color: black;
@@ -575,7 +576,7 @@
 #sitediv-fertshift_date_container .form-control{
   position: absolute;
   top: 400px;
-  left: 650px;
+  left: 625px;
   width: 55px;
   font-size: 16px;
   font-family: Fira Sans;
@@ -589,7 +590,7 @@
 #sitediv-fertshift_date_container label{
   position: absolute;
   top: 405px;
-  right: 182px;
+  right: 210px;
   font-size: 16px;
   font-family: Fira Sans;
   color: black;
@@ -603,7 +604,7 @@
 #sitediv-irrshift_date_container .form-control{
   position: absolute;
   top: 438px;
-  left: 650px;
+  left: 625px;
   width: 55px;
   font-size: 16px;
   font-family: Fira Sans;
@@ -617,7 +618,7 @@
 #sitediv-irrshift_date_container label{
   position: absolute;
   top: 443px;
-  right: 182px;
+  right: 210px;
   font-size: 16px;
   font-family: Fira Sans;
   color: black;
@@ -689,17 +690,17 @@ position: absolute;
 top: 297px;
 height: 1px;
 background-color: #A9A9A9;
-width: 552px;
+width: 504px;
 color: #A9A9A9;  
 }
 
 #sitediv-littleblacklinetwo {
   position: absolute;
   top: 297px;
-  left: 570px;
+  left: 530px;
   height: 1px;
   background-color: #A9A9A9;
-  width: 324px;
+  width: 362px;
   color: #A9A9A9;
 }
 
