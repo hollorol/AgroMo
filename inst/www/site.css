@@ -491,7 +491,7 @@
 #sitediv-planshift_date_container label{
   position: absolute;
   top: 329px;
-  left: 569px;
+  right: 182px;
   font-size: 16px;
   font-family: Fira Sans;
   color: black;
@@ -561,7 +561,7 @@
 #sitediv-harvshift_date_container label{
   position: absolute;
   top: 367px;
-  left: 569px;
+  right: 182px;
   font-size: 16px;
   font-family: Fira Sans;
   color: black;
@@ -589,7 +589,7 @@
 #sitediv-fertshift_date_container label{
   position: absolute;
   top: 405px;
-  left: 569px;
+  right: 182px;
   font-size: 16px;
   font-family: Fira Sans;
   color: black;
@@ -617,7 +617,7 @@
 #sitediv-irrshift_date_container label{
   position: absolute;
   top: 443px;
-  left: 569px;
+  right: 182px;
   font-size: 16px;
   font-family: Fira Sans;
   color: black;
