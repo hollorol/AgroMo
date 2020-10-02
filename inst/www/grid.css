@@ -99,7 +99,7 @@
 #griddiv-climproj_container label {
     position: absolute;
     top: 75px;
-    left: 43px;
+    right: 644px;
     font-size: 16px;
     color: black;
     font-family: Fira Sans;
@@ -126,7 +126,7 @@
 #griddiv-soildb_container label {
     position: absolute;
     top: 125px;
-    left: 72px;
+    right: 644px;
     font-size: 16px;
     color: black;
     font-family: Fira Sans;
@@ -380,9 +380,11 @@ display: none;
 #griddiv-algosel_container .control-label{
     position: absolute;
     top: 170px;
-    left: 9px;
+    right: 644px;
     font-size: 16px;
     color: black;
+    width: 220px;
+    text-align: end;
     font-family: Fira Sans;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -420,7 +422,7 @@ display: none;
 
 #griddiv-outsq_container label {
     position: absolute;
-    left: 35px;
+    right: 644px;
     top: 215px;
     font-size: 16px;
     color: black;

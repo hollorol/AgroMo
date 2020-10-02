@@ -137,10 +137,11 @@ div.profPlotCont .form-control {
 #showdiv-varset_container .control-label{
   position: absolute;
   top: 143px;
-  left: 397px;
-  width: 65px;
+  right: 100px;
+  width: 150px;
   font-weight: normal;
   color: black;
+  text-align: end;
   font-size: 16px;
   font-family: Fira Sans;
   -webkit-user-select: none;

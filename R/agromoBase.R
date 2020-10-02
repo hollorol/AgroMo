@@ -22,7 +22,7 @@ agromoBaseUI <- function(id){
                  id = ns("tools"), #base-tools
                  class= "mainSideBar",
                         shiny::tags$div(id="mainSideBarDirectory", "MAIN DIRECTORY"),
-                        shinyDirButton("choose", "CHOOSE","Please choose an AgroMo base directory!", class="mainSideBar"),
+                        shinyDirButton("choose", "MODIFY","Please choose an AgroMo base directory!", class="mainSideBar"),
                         # actionButton("choose","CHOOSE", class = "mainSideBar"),
                         textOutput("mdd"),##mdd is not a good name
                         shiny::tags$hr(id="lineComp",""),
