@@ -26,8 +26,10 @@
 
 #griddiv-story_container .control-label {
     position: absolute;
-    top: 20px;
-    left: 3px;
+    top: 21px;
+    right: 745px;
+    width: 125px;
+    text-align:end;
     font-size: 16px;
     color: black;
     font-family: Fira Sans;
@@ -98,7 +100,7 @@
 
 #griddiv-climproj_container label {
     position: absolute;
-    top: 75px;
+    top: 76px;
     right: 644px;
     font-size: 16px;
     color: black;
@@ -125,7 +127,7 @@
 
 #griddiv-soildb_container label {
     position: absolute;
-    top: 125px;
+    top: 126px;
     right: 644px;
     font-size: 16px;
     color: black;
@@ -138,7 +140,7 @@
 
 .bootstrap-switch-id-griddiv-ensclim {
     position: absolute;
-    top: 120px;
+    top: 70px;
     left: 815px;
     font-size: 16px;
     color: black;
@@ -172,7 +174,7 @@ height: 33px;
 
 .bootstrap-switch-id-griddiv-enssoil {
     position: absolute;
-    top: 70px;
+    top: 120px;
     left: 815px;
     font-size: 16px;
     color: black;
@@ -190,7 +192,7 @@ height: 33px;
 #griddiv-repcheck_container .bootstrap-switch{
     position: absolute;
     top: 662px;
-    left: 807px;
+    left: 809px;
     color: black;
     font-family: Fira Sans;
     cursor: pointer;
@@ -379,7 +381,7 @@ display: none;
 
 #griddiv-algosel_container .control-label{
     position: absolute;
-    top: 170px;
+    top: 173px;
     right: 644px;
     font-size: 16px;
     color: black;
@@ -423,7 +425,7 @@ display: none;
 #griddiv-outsq_container label {
     position: absolute;
     right: 644px;
-    top: 215px;
+    top: 216px;
     font-size: 16px;
     color: black;
     font-family: Fira Sans;
@@ -438,7 +440,7 @@ display: none;
     top: 210px;
     left: 600px;
     height: 75px;
-    width: 320px;
+    width: 323px;
     font-size: 26px;
     font-family: Fira Sans;
     color: black;
@@ -455,7 +457,7 @@ display: none;
     top: 687px;
     left: 785px;
     height: 65px;
-    width: 130px;
+    width: 133px;
     font-size: 26px;
     font-family: Fira Sans;
     color: black;
@@ -472,7 +474,7 @@ display: none;
     top: 614px;
     left: 785px;
     height: 45px;
-    width: 130px;
+    width: 133px;
     font-size: 26px;
     font-family: Fira Sans;
     color: black;
@@ -486,13 +488,14 @@ display: none;
 
 #griddiv-RunQuery {
     position: absolute;
-    top: 559px;
+    top: 557px;
     left: 785px;
     height: 45px;
-    width: 130px;
+    width: 133px;
     font-size: 26px;
     font-family: Fira Sans;
     color: black;
+    padding: 0px;
     font-weight: bold;
     background-color: gainsboro;
     white-space: normal !important;
@@ -505,7 +508,7 @@ display: none;
 #griddiv-queryalias_container .form-control.shinyjs-resettable.shiny-bound-input {
     width: 300px;
     position: absolute;
-    top: 512px;
+    top: 509px;
     font-size: 16px;
     font-family: Fira Sans;
     color: black;
@@ -540,11 +543,12 @@ display: none;
 
 #griddiv-metadata_container label {
     position: absolute;
-    top: 488px;
-    left: 317px;
+    top: 485px;
+    left: 316px;
     font-size: 16px;
     font-family: Fira Sans;
     color: black;
+    width: 150px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -625,7 +629,7 @@ position: absolute;
 
 #griddiv-time_container .control-label {
     position: absolute;
-    top: 559px;
+    top: 561px;
     right: 640px;
     font-size: 16px;
     font-family: Fira Sans;
@@ -693,7 +697,7 @@ position: absolute;
 
 #griddiv-sqlfunc_1_container .control-label {
     position: absolute;
-    top: 15px;
+    top: 16px;
     right: 304px;
     font-size: 16px;
     font-family: Fira Sans;
@@ -739,7 +743,7 @@ position: absolute;
 
 #griddiv-sqlfunc_2_container .control-label {
     position: absolute;
-    top: 15px;
+    top: 16px;
     right: 304px;
     font-size: 16px;
     font-family: Fira Sans;
@@ -785,7 +789,7 @@ position: absolute;
 
 #griddiv-sqlfunc_3_container .control-label {
     position: absolute;
-    top: 15px;
+    top: 16px;
     right: 304px;
     font-size: 16px;
     font-family: Fira Sans;
@@ -831,7 +835,7 @@ position: absolute;
 
 #griddiv-sqlfunc_4_container .control-label {
     position: absolute;
-    top: 5px;
+    top: 6px;
     right: 304px;
     font-size: 16px;
     font-family: Fira Sans;
@@ -875,7 +879,7 @@ position: absolute;
 
 #griddiv-sqlfunc_5_container .control-label {
     position: absolute;
-    top: 15px;
+    top: 16px;
     left: 378px;
     font-size: 16px;
     font-family: Fira Sans;
@@ -922,7 +926,7 @@ position: absolute;
 
 #griddiv-sqlfunc_6_container .control-label {
     position: absolute;
-    top: 15px;
+    top: 16px;
     left: 377px;
     font-size: 16px;
     font-family: Fira Sans;
@@ -968,7 +972,7 @@ position: absolute;
 
 #griddiv-sqlfunc_7_container .control-label {
     position: absolute;
-    top: 15px;
+    top: 16px;
     left: 377px;
     font-size: 16px;
     font-family: Fira Sans;
@@ -1014,7 +1018,7 @@ position: absolute;
 
 #griddiv-sqlfunc_8_container .control-label {
     position: absolute;
-    top: 15px;
+    top: 16px;
     left: 377px;
     font-size: 16px;
     font-family: Fira Sans;
@@ -1060,7 +1064,7 @@ position: absolute;
 
 #griddiv-sqlfunc_9_container .control-label {
     position: absolute;
-    top: 15px;
+    top: 16px;
     left: 377px;
     font-size: 16px;
     font-family: Fira Sans;
@@ -1105,7 +1109,7 @@ position: absolute;
     font-family: Fira Sans;
     color: black;
     font-weight: bold;
-    top: 275px;
+    top: 278px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
