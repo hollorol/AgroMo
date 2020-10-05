@@ -905,6 +905,11 @@
             "TEXT_HUN": "csoport"
         },
         {
+            "ID": "#griddiv-ensalg_container span",
+            "TEXT_ENG": "ensemble",
+            "TEXT_HUN": "csoport"
+        },
+        {
             "ID": "#griddiv-repcheck_container span",
             "TEXT_ENG": "show & save",
             "TEXT_HUN": "mutat & ment"
