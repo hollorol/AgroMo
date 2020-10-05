@@ -781,5 +781,113 @@
             "TEXT_RUS": "ВЫБОР ALGORYTHM:",
             "TEXT_CHN": "ALGORYTHM 选择：",
             "TEXT_JPN": "アルゴリスムの選択:"
+        },
+        {
+            "ID": "#griddiv-outsq_container label",
+            "TEXT_ENG": "OUTPUT DATA TABLE:",
+            "TEXT_HUN": "KIMENETI ADATTÁBLA:",
+            "TEXT_GER": "AUSGABEDATENTABELLE:",
+            "TEXT_FRA": "TABLEAU DES DONNÉES DE SORTIE :",
+            "TEXT_ESP": "TABLA DE DATOS DE SALIDA:",
+            "TEXT_POR": "TABELA DE DADOS DE SAÍDA:",
+            "TEXT_RUS": "ТАБЛИЦА ВЫВОДНЫХ ДАННЫХ:",
+            "TEXT_CHN": "输出数据表：",
+            "TEXT_JPN": "出力データ テーブル:"
+        },
+        {
+            "ID": "#griddiv-StartSim",
+            "TEXT_ENG": "START SIMULATION",
+            "TEXT_HUN": "SZIMULÁCIÓ INDÍTÁSA",
+            "TEXT_GER": "START SIMULATION",
+            "TEXT_FRA": "SIMULATION DE DÉMARRAGE",
+            "TEXT_ESP": "INICIAR SIMULACIÓN",
+            "TEXT_POR": "SIMULAÇÃO DE INÍCIO",
+            "TEXT_RUS": "НАЧАЛО МОДЕЛИРОВАНИЯ",
+            "TEXT_CHN": "开始模拟",
+            "TEXT_JPN": "シミュレーションを開始する"
+        },
+        {
+            "ID": "#query",
+            "TEXT_ENG": "QUERIES:",
+            "TEXT_HUN": "LEKÉRDEZÉSEK:",
+            "TEXT_GER": "Abfragen:",
+            "TEXT_FRA": "Requêtes:",
+            "TEXT_ESP": "Consultas:",
+            "TEXT_POR": "CONSULTAS:",
+            "TEXT_RUS": "Запросов:",
+            "TEXT_CHN": "查询：",
+            "TEXT_JPN": "クエリ："
+        },
+        {
+            "ID": "#griddiv-queryalias_container label",
+            "TEXT_ENG": "QUERY ALIAS:",
+            "TEXT_HUN": "LEKÉRDEZÉS ALIAS:",
+            "TEXT_GER": "ABFRAGE-ALIAS:",
+            "TEXT_FRA": "ALIAS DE REQUÊTE :",
+            "TEXT_ESP": "ALIAS DE CONSULTA:",
+            "TEXT_POR": "PSEUDÓNIMO DE CONSULTA:",
+            "TEXT_RUS": "ПСЕВДОНИМ ЗАПРОСА:",
+            "TEXT_CHN": "查询别名：",
+            "TEXT_JPN": "クエリ エイリアス:"
+        },
+        {
+            "ID": "#griddiv-metadata_container label",
+            "TEXT_ENG": "DESCRIPTION:",
+            "TEXT_HUN": "LEÍRÁS:",
+            "TEXT_GER": "Beschreibung:",
+            "TEXT_FRA": "Description:",
+            "TEXT_ESP": "Descripción:",
+            "TEXT_POR": "DESCRIÇÃO:",
+            "TEXT_RUS": "Описание:",
+            "TEXT_CHN": "描述：",
+            "TEXT_JPN": "説明："
+        },
+        {
+            "ID": "#griddiv-RunQuery",
+            "TEXT_ENG": "QUERY",
+            "TEXT_HUN": "LEKÉRDEZÉS",
+            "TEXT_GER": "STARTABFRAGE",
+            "TEXT_FRA": "START QUERY",
+            "TEXT_ESP": "CONSULTA DE INICIO",
+            "TEXT_POR": "INICIAR CONSULTA",
+            "TEXT_RUS": "СТАРТОВЫЙ ЗАПРОС",
+            "TEXT_CHN": "开始查询",
+            "TEXT_JPN": "クエリの開始"
+        },
+        {
+            "ID": "#griddiv-Report",
+            "TEXT_ENG": "REPORT",
+            "TEXT_HUN": "JELENTÉS",
+            "TEXT_GER": "Bericht",
+            "TEXT_FRA": "Rapport",
+            "TEXT_ESP": "Informe",
+            "TEXT_POR": "RELATÓRIO",
+            "TEXT_RUS": "Отчет",
+            "TEXT_CHN": "报告",
+            "TEXT_JPN": "レポート"
+        },
+        {
+            "ID": "#griddiv-Map",
+            "TEXT_ENG": "MAP",
+            "TEXT_HUN": "TÉRKÉP",
+            "TEXT_GER": "Karte",
+            "TEXT_FRA": "Carte",
+            "TEXT_ESP": "Mapa",
+            "TEXT_POR": "MAPA",
+            "TEXT_RUS": "Карта",
+            "TEXT_CHN": "地图",
+            "TEXT_JPN": "マップ"
+        },
+        {
+            "ID": "#griddiv-time_container label",
+            "TEXT_ENG": "[start-end]:",
+            "TEXT_HUN": "[start-end]:",
+            "TEXT_GER": "[Start-End]:",
+            "TEXT_FRA": "[début]:",
+            "TEXT_ESP": "[inicio-fin]:",
+            "TEXT_POR": "[início]:",
+            "TEXT_RUS": "«Старт-конец»:",
+            "TEXT_CHN": "[开始结束]：",
+            "TEXT_JPN": "[スタートエンド]:"
         }
 ]
