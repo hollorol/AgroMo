@@ -138,12 +138,31 @@
      user-select: none;
 }
 
-.bootstrap-switch-id-griddiv-ensclim {
+#griddiv-ensclim_container {
     position: absolute;
-    top: 70px;
+    top: 67px;
     left: 815px;
     font-size: 16px;
     color: black;
+    font-family: Fira Sans;
+    width: 130px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
+}
+
+/*.bootstrap-switch-id-griddiv-ensclim .bootstrap-switch-label{
+height: 33px;
+}*/
+
+#griddiv-ensalg_container {
+    position: absolute;
+    top: 164px;
+    left: 815px;
+    font-size: 16px;
+    color: black;
+    width: 130px;
     font-family: Fira Sans;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -151,34 +170,18 @@
      user-select: none;
 }
 
-.bootstrap-switch-id-griddiv-ensclim .bootstrap-switch-label{
+/*.bootstrap-switch-id-griddiv-ensalg .bootstrap-switch-label {
 height: 33px;
-}
+}*/
 
-.bootstrap-switch-id-griddiv-ensalg {
+#griddiv-enssoil_container {
     position: absolute;
-    top: 167px;
+    top: 117px;
     left: 815px;
     font-size: 16px;
     color: black;
     font-family: Fira Sans;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-     user-select: none;
-}
-
-.bootstrap-switch-id-griddiv-ensalg .bootstrap-switch-label {
-height: 33px;
-}
-
-.bootstrap-switch-id-griddiv-enssoil {
-    position: absolute;
-    top: 120px;
-    left: 815px;
-    font-size: 16px;
-    color: black;
-    font-family: Fira Sans;
+    width: 130px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -189,15 +192,15 @@ height: 33px;
 height: 33px;
 }
 
-#griddiv-repcheck_container .bootstrap-switch{
+#griddiv-repcheck_container {
     position: absolute;
-    top: 662px;
-    left: 809px;
+    top: 650px;
+    left: 785px;
     color: black;
     font-family: Fira Sans;
-    cursor: pointer;
     z-index: 1;
-    height: 20px !important;
+    width: 130px;
+    height: 30px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -357,13 +360,14 @@ height: 33px;
      user-select: none;
 }
 
-.bootstrap-switch-id-griddiv-annual {
+#griddiv-annual_container {
     position: absolute;
-    top: 250px;
-    left: 345px;
+    top: 240px;
+    left: 190px;
     font-size: 16px;
     height: 35px;
     color: black;
+    width: 180px;
     font-family: Fira Sans;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -371,13 +375,27 @@ height: 33px;
      user-select: none;
 }
 
-.bootstrap-switch-id-griddiv-annual .bootstrap-switch-label {
+#griddiv-dailyout_container {
+    position: absolute;
+    top: 240px;
+    left: 375px;
+    font-size: 16px;
+    height: 35px;
+    color: black;
+    width: 220px;
+    font-family: Fira Sans;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
+}
+/*.bootstrap-switch-id-griddiv-annual .bootstrap-switch-label {
     height: 35px;
 }
 
 #griddiv-annual_container .sw-switchInput{
 display: none;
-}
+}*/
 
 #griddiv-algosel_container .control-label{
     position: absolute;
@@ -532,9 +550,9 @@ display: none;
 }
 
 #griddiv-metadata_container .form-control.shinyjs-resettable.shiny-bound-input {
-    width: 600px;
+    width: 603px;
     position: absolute;
-    top: 512px;
+    top: 509px;
     left: 316px;
     font-size: 16px;
     font-family: Fira Sans;
