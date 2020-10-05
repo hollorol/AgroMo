@@ -3,19 +3,19 @@
     tags$div(id = ns(id),
     tags$div(
     id = paste0(ns("ensclim"),"_container"),
-    checkboxInput(ns("ensclim"), label = "ensembles", value = FALSE)
+    checkboxInput(ns("ensclim"), label = "ensemble", value = FALSE)
     ),
-#    tags$div(
-#    id =paste0(ns("ensalg"),"_container"),
-#    checkboxInput(ns("ensalg"), label = "annual", value = TRUE)
-#    ),   
+    tags$div(
+    id =paste0(ns("ensalg"),"_container"),
+    checkboxInput(ns("ensalg"), label = "ensemble", value = FALSE)
+    ),   
     tags$div(
       id =paste0(ns("dailyout"),"_container"),
-      checkboxInput(ns("dailyout"), label = "daily", value = TRUE)
+      checkboxInput(ns("dailyout"), label = "daily outputs", value = TRUE)
     ), 
     tags$div(
       id =paste0(ns("enssoil"),"_container"),
-      checkboxInput(ns("enssoil"), label = "ensembles", value = FALSE)
+      checkboxInput(ns("enssoil"), label = "ensemble", value = FALSE)
     ),
     tags$div(
       id =paste0(ns("repcheck"),"_container"),
@@ -59,7 +59,7 @@
     #),
     tags$div(
       id =paste0(ns("annual"),"_container"),
-      checkboxInput(ns("annual"), label = "annual", value = TRUE)
+      checkboxInput(ns("annual"), label = "annual outputs", value = TRUE)
     ),
     tags$div(
       id = paste0(ns("gridres"),"_container"),

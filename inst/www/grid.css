@@ -140,7 +140,7 @@
 
 #griddiv-ensclim_container {
     position: absolute;
-    top: 70px;
+    top: 67px;
     left: 815px;
     font-size: 16px;
     color: black;
@@ -158,10 +158,11 @@ height: 33px;
 
 #griddiv-ensalg_container {
     position: absolute;
-    top: 167px;
+    top: 164px;
     left: 815px;
     font-size: 16px;
     color: black;
+    width: 130px;
     font-family: Fira Sans;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -175,7 +176,7 @@ height: 33px;
 
 #griddiv-enssoil_container {
     position: absolute;
-    top: 120px;
+    top: 117px;
     left: 815px;
     font-size: 16px;
     color: black;
@@ -361,7 +362,7 @@ height: 33px;
 
 #griddiv-annual_container {
     position: absolute;
-    top: 250px;
+    top: 240px;
     left: 190px;
     font-size: 16px;
     height: 35px;
@@ -376,12 +377,12 @@ height: 33px;
 
 #griddiv-dailyout_container {
     position: absolute;
-    top: 250px;
-    left: 395px;
+    top: 240px;
+    left: 375px;
     font-size: 16px;
     height: 35px;
     color: black;
-    width: 180px;
+    width: 220px;
     font-family: Fira Sans;
     -webkit-user-select: none;
     -moz-user-select: none;
