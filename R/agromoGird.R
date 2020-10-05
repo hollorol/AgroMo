@@ -3,19 +3,23 @@
     tags$div(id = ns(id),
     tags$div(
     id = paste0(ns("ensclim"),"_container"),
-    shinyWidgets::switchInput(ns("ensclim"), label = NULL, onLabel="selected", offLabel="ensemble", value = TRUE)
+    checkboxInput(ns("ensclim"), label = "ensembles", value = FALSE)
     ),
+#    tags$div(
+#    id =paste0(ns("ensalg"),"_container"),
+#    checkboxInput(ns("ensalg"), label = "annual", value = TRUE)
+#    ),   
     tags$div(
-    id =paste0(ns("ensalg"),"_container"),
-    shinyWidgets::switchInput(ns("ensalg"), label = NULL, onLabel="selected", offLabel="ensemble", value = TRUE)
-    ),         
+      id =paste0(ns("dailyout"),"_container"),
+      checkboxInput(ns("dailyout"), label = "daily", value = TRUE)
+    ), 
     tags$div(
       id =paste0(ns("enssoil"),"_container"),
-      shinyWidgets::switchInput(ns("enssoil"), label = NULL, onLabel="selected", offLabel="ensemble", value = TRUE)
+      checkboxInput(ns("enssoil"), label = "ensembles", value = FALSE)
     ),
     tags$div(
       id =paste0(ns("repcheck"),"_container"),
-      shinyWidgets::switchInput(ns("repcheck"), label = NULL, onLabel="show", offLabel="save", value = TRUE)
+      checkboxInput(ns("repcheck"), label = "show and save", value = TRUE)
     ),
     #tags$div(
     #  id =paste0(ns("checkone"),"_container"), title ="query all items if checked",
@@ -55,7 +59,7 @@
     #),
     tags$div(
       id =paste0(ns("annual"),"_container"),
-      shinyWidgets::switchInput(ns("annual"), label = NULL, onLabel="annual outputs", offLabel="daily outputs", value = TRUE)
+      checkboxInput(ns("annual"), label = "annual", value = TRUE)
     ),
     tags$div(
       id = paste0(ns("gridres"),"_container"),
