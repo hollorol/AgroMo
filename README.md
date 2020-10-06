@@ -70,7 +70,9 @@ A graphical user interface (GUI) has been developed for providing easy and user 
 ![alt text](img/plotly_graph01.png "AgroMo Graph")
 
 - [x] Zoom in the graph by selecting an area on the graph while holding down the left mouse button.
-- [ ] Move the x/y axes by dragging them in the middle (cursor changes) and moving the pointer horizontally/vertically. 
+- [x] Move the x/y axes by dragging them in the middle (cursor changes) and move the pointer horizontally/vertically.
+- [x] Expand/Contract the x/y axes by dragging the end of the axis (cursor changes) and move the pointer horizontally/vertically.
+- [x] Hide/Expose a curve on the plot by clicking the corresponding label in the legend.
 - [ ] Export plot data into various file formats (e.g. xlsx, csv) by clicking the [EXPORT] button.
 - [x] Navigate to the [BASE], [SITE], [GRID] or [MAP] component by clicking the corresponding button on the banner to the left.
 
