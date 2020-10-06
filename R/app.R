@@ -829,7 +829,101 @@ agroServer <- function(input, output, session) {
        shinyjs::show("Grid-banner-div")
      })
    }
+
    
+   ## ##  BBGCDB MODUL
+   #  {
+ #    callModule(BBGCUI,"BBGCDB",dataenv = reactive(datas$dataenv),baseDir = reactive(datas$baseDir), connection = reactive({datas$connection}),centralData=centralData)
+     
+     
+     #    observeEvent(input$storEditor,{
+     # shinyjs::hide("base")
+     # shinyjs::hide("base-tools")
+     # shinyjs::show("showdiv-showdiv")
+     # shinyjs::hide(selector = ".banner")
+     # shinyjs::show("BDB-banner-div")
+     # shinyjs::show("base_bb_button")
+     # shinyjs::hide("site_bb_button")
+     # shinyjs::hide("plot_bb_button")
+     # shinyjs::show("map_bb_button")
+     # shinyjs::show("grid_bb_button")
+     # shinyjs::show("site_bb_button_two")
+     # shinyjs::hide("plot_bb_button_two")
+     # shinyjs::hide("map_bb_button_two")
+     # shinyjs::hide("grid_bb_button_two")
+     # datas$dataenv <- dbListTables(datas$connection) 
+     #})
+     #}
+     #{
+     # observeEvent(input$base_bb_button,{
+     # shinyjs::show("base")
+     # shinyjs::show("base-tools")
+     # shinyjs::hide("showdiv-showdiv")
+     # shinyjs::hide("base_bb_button")
+     # shinyjs::hide("site_bb_button")
+     # shinyjs::hide("grid_bb_button")
+     # shinyjs::hide("map_bb_button")
+     # shinyjs::hide("plot_bb_button")
+     # shinyjs::hide("site_bb_button_two")
+     # shinyjs::hide("plot_bb_button_two")
+     # shinyjs::hide("map_bb_button_two")
+     # shinyjs::hide("grid_bb_button_two")
+     # shinyjs::hide(selector = ".banner")
+     # shinyjs::show("Base-banner-div")
+     # shinyjs::hide("BBGCDB")
+     #})
+     #}
+     #{
+     #observeEvent(input$site_bb_button_two,{
+     # shinyjs::show("sitediv-sitediv")
+     # shinyjs::hide("showdiv-showdiv")
+     # shinyjs::show("base_bb_button")
+     # shinyjs::hide("site_bb_button")
+     # shinyjs::show("grid_bb_button")
+     # shinyjs::show("map_bb_button")
+     # shinyjs::hide("plot_bb_button")
+     # shinyjs::hide("site_bb_button_two")
+     # shinyjs::show("plot_bb_button_two")
+     # shinyjs::hide("map_bb_button_two")
+     # shinyjs::hide("grid_bb_button_two")
+     # shinyjs::hide(selector = ".banner")
+     # shinyjs::show("Site-banner-div")
+     #})
+     #}
+     #{
+     # observeEvent(input$map_bb_button,{
+     # shinyjs::show("mapdiv-mapdiv")
+     # shinyjs::hide("showdiv-showdiv")
+     # shinyjs::show("base_bb_button")
+     ## shinyjs::show("site_bb_button")
+     # shinyjs::hide("grid_bb_button")
+     # shinyjs::hide("map_bb_button")
+     # shinyjs::show("plot_bb_button")
+     # shinyjs::hide("site_bb_button_two")
+     # shinyjs::hide("plot_bb_button_two")
+     # shinyjs::hide("map_bb_button_two")
+     # shinyjs::show("grid_bb_button_two")
+     # shinyjs::hide(selector = ".banner")
+     # shinyjs::show("Map-banner-div")
+     #})
+     #}
+     #{
+     #observeEvent(input$grid_bb_button,{
+     # shinyjs::show("griddiv-griddiv")
+     # shinyjs::hide("showdiv-showdiv")
+     # shinyjs::show("base_bb_button")
+     # shinyjs::show("site_bb_button")
+     # shinyjs::hide("grid_bb_button")
+     # shinyjs::hide("map_bb_button")
+     # shinyjs::show("plot_bb_button")
+     # shinyjs::hide("site_bb_button_two")
+     # shinyjs::hide("plot_bb_button_two")
+     # shinyjs::show("map_bb_button_two")
+     # shinyjs::hide("grid_bb_button_two")
+     # shinyjs::hide(selector = ".banner")
+     # shinyjs::show("Grid-banner-div")
+     #})
+     #}   
    ## ##  GRID MODUL
    ##{
    ##callModule(agroMoGrid,"griddiv",dataenv = reactive(datas$dataenv),baseDir = reactive(datas$baseDir), connection = reactive({datas$connection}),centralData=centralData)

@@ -42,7 +42,7 @@ agroMoSiteUI <- function(id){
                  
                            tags$div(
                              id =paste0(ns("siteswitch"),"_container"),
-                             shinyWidgets::switchInput(ns("siteswitch"), label = NULL, onLabel="site", offLabel="grid", value = TRUE)
+                             shinyWidgets::switchInput(ns("siteswitch"), label = NULL, onLabel="SITE", offLabel="GRID", value = TRUE)
                            ),
                            tags$div(
                              id = paste0(ns("sitecellid"),"_container"),

@@ -43,8 +43,11 @@ agroMoParAnaUI <- function(id){
            tags$div(id="paranatype","TYPE OF PARAMETER ANALYSIS:"),
            tags$div(
              id = paste0(ns("paranaradio"), "_container"), 
-             radioButtons(ns("paranaradio"),"",choices=c("Parameter Sweep","Sensitivity Analysis","Calibration"), inline = TRUE)
+             radioButtons(ns("paranaradio"),"",choices=c(" ", " ", " "), inline = FALSE)
            ),
+           tags$div(id="paranaradsweep","Parameter Sweep"),
+           tags$div(id="paranaradsens","Sensitivity Analysis"),
+           tags$div(id="paranaradcal","Calibration"),
            tags$div(id = ns("Buttons"),
                     actionButton(ns("paranado"),label = "PERFORM ANALYSIS"))
            
