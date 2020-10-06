@@ -81,6 +81,7 @@ A graphical user interface (GUI) has been developed for providing easy and user 
 
 ![alt text](img/grid_gui.png "AgroMo Grid")
 
+As an INI file controls a site specific simulation a STORY file defines a whole STORYLINE for a gridded simulation.
 - [x] Coming soon
 
 #### Queries:
