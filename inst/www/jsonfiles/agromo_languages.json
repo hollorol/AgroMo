@@ -1413,7 +1413,7 @@
             "ID": "#dbmandiv-datatable_container label",
             "TEXT_ENG": "DATA TABLE:",
             "TEXT_HUN": "ADATTÁBLA:",
-            "TEXT_GER": "DATENTABELLE"
+            "TEXT_GER": "DATENTABELLE:"
         },
         {
             "ID": "#dbmandiv-sqlquery_container label",
