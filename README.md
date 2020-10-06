@@ -56,18 +56,20 @@ A graphical user interface (GUI) has been developed for providing easy and user 
 
 ![alt text](img/plot_gui.png "AgroMo Plot")
 - [x] Select a maximum of 5 simulation results from the left side list by clicking the items. Clicking again deselects the item.
-- [x] Select variable(s) from the right side list for presenting them on the plot(s).
-- [ ] Observed data could be added to the plots by selecting the EXPERIMENT and TREATMENT ids from the corrresponding dropdown lists. NOTE, that data in the observed data tables should be structured according to the prescribed rules. Observed (experimental) data should be stored in the '.\observation\' folder in a SQLite database: one table for one experiment. Observed data available in multiple repetitions could be presented on the plot in two ways: 1) each repetition as separate data point, or 2) one single data point representing the mean of the repetitions. Leaving the EXPERIMENT ID dropdown list empty results in presenting simulation results only on the plot(s).
-- [x] For each selected variable select:
+- [x] Select output variable(s) from the right side list for presenting them on the plot(s).
+- [x] Observed data could be added to the plots by selecting the data file from the corrresponding dropdown lists. NOTE, that data in the observed data tables should be structured according to prescribed rules. Observed (experimental) data should be stored in the '.\observation\' folder in a semicolon separated text file with .obs extension. var_id, date and mean (of the observations) values are compulsory for each record, optionally followed by the sd, min and max of the observed values.
+- [x] For each selected output variable select:
   - a |time step| for which the daily data are to be aggregated into one single value (e.g. for presenting annual values the 'year' option should be selected).
   - a |function| that defines the aggregation (e.g. for presenting the final yield for each year the 'max' option should be selected)
   - a |plot type| 
 - [x] Options in the |time step|, |function| and |plot type| columns can be selected via circular menus operated by clicking/scrolling in the corresponding cells.
-- [x] Having all the desired options selected create plot(s) by clicking the [PLOT] button.
+- [x] Having all the desired options selected, create plot(s) by clicking the [CREATE PLOT] button.
+- [x] Output variables can be filtered accoording to a couple of predefined tags, that may be edited in the centralData.json file.
 
 ![alt text](img/plotly_graph01.png "AgroMo Graph")
 
 - [x] Zoom in the graph by selecting an area on the graph while holding down the left mouse button.
+- [ ] Move the x/y axes...
 - [ ] Export plot data into various file formats (e.g. xlsx, csv) by clicking the [EXPORT] button.
 - [x] Navigate to the [BASE] or [SITE] component by clicking the corresponding button on the banner to the left.
 
