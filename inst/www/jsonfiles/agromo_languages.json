@@ -1423,20 +1423,20 @@
         },
         {
             "ID": "#dbmandiv-showtab",
-            "TEXT_ENG": "SHOW TABLE",
-            "TEXT_HUN": "TÁBLÁZAT",
-            "TEXT_GER": "ERSTELLEN TABELLE"
+            "TEXT_ENG": "SHOW",
+            "TEXT_HUN": "MEGJELENÍTÉS",
+            "TEXT_GER": "ZEIGEN"
         },
         {
             "ID": "#dbmandiv-querytab",
-            "TEXT_ENG": "QUERY TABLE",
+            "TEXT_ENG": "QUERY",
             "TEXT_HUN": "LEKÉRDEZÉS",
-            "TEXT_GER": "QUERY TABELLE"
+            "TEXT_GER": "QUERY"
         },
         {
             "ID": "#dbmandiv-deltab",
-            "TEXT_ENG": "DELETE TABLE",
-            "TEXT_HUN": "ADATTÁBLA TÖRLÉSE",
-            "TEXT_GER": "LÖSCHEN TABELLE"
+            "TEXT_ENG": "DELETE",
+            "TEXT_HUN": "TÖRLÉS",
+            "TEXT_GER": "LÖSCHEN"
         }
 ]
