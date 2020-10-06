@@ -57,6 +57,7 @@ A graphical user interface (GUI) has been developed for providing easy and user 
 ![alt text](img/plot_gui.png "AgroMo Plot")
 - [x] Select a maximum of 5 simulation results from the left side list by clicking the items. Clicking again deselects the item.
 - [x] Select output variable(s) from the right side list for presenting them on the plot(s).
+- [x] Enter an alias for the observed data to be presented on the graph.
 - [x] Observed data could be added to the plots by selecting the data file from the corrresponding dropdown lists. NOTE, that data in the observed data tables should be structured according to prescribed rules. Observed (experimental) data should be stored in the '.\observation\' folder in a semicolon separated text file with .obs extension. var_id, date and mean (of the observations) values are compulsory for each record, optionally followed by the sd, min and max of the observed values.
 - [x] For each selected output variable select:
   - a |time step| for which the daily data are to be aggregated into one single value (e.g. for presenting annual values the 'year' option should be selected).
@@ -69,9 +70,9 @@ A graphical user interface (GUI) has been developed for providing easy and user 
 ![alt text](img/plotly_graph01.png "AgroMo Graph")
 
 - [x] Zoom in the graph by selecting an area on the graph while holding down the left mouse button.
-- [ ] Move the x/y axes...
+- [ ] Move the x/y axes by dragging them in the middle (cursor changes) and moving the pointer horizontally/vertically. 
 - [ ] Export plot data into various file formats (e.g. xlsx, csv) by clicking the [EXPORT] button.
-- [x] Navigate to the [BASE] or [SITE] component by clicking the corresponding button on the banner to the left.
+- [x] Navigate to the [BASE], [SITE], [GRID] or [MAP] component by clicking the corresponding button on the banner to the left.
 
 
 ### AgroMo Grid
