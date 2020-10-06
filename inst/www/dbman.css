@@ -1,7 +1,9 @@
 #dbmandiv-sqlquery_container label{
   position:absolute;
   top: 76px;
-  left: 10px;
+  right: 735px;
+  width: 140px;
+  text-align: end;
   color: black;
   font-family: Fira Sans;
   font-weight: bold;
@@ -21,7 +23,9 @@
 #dbmandiv-database_container label {
   position: absolute;
   top: 31px;
-  left: 17px;
+  right: 735px;
+  width: 140px;
+  text-align: end;
   color: black;
   font-size: 16px;
   font-family: Fira Sans;
@@ -45,7 +49,9 @@
 #dbmandiv-datatable_container label {
   position:absolute;
    top: 31px;
-  left: 421px;
+  right: 320px;
+  width: 105px;
+  text-align: end;
   color: black;
   font-size: 16px;
   font-family: Fira Sans;
