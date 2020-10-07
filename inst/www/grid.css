@@ -649,12 +649,13 @@ position: absolute;
 #griddiv-time_container .control-label {
     position: absolute;
     top: 561px;
-    right: 640px;
+    right: 653px;
     font-size: 16px;
     font-family: Fira Sans;
     color: black;
     font-weight: bold;
-    width: 100px;
+    width: 150px;
+    text-align: end;
     color: blue;
     -webkit-user-select: none;
     -moz-user-select: none;
