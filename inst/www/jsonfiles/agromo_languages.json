@@ -38,7 +38,7 @@
         {
             "ID": "#parana",
             "TEXT_ENG": "PARAMETER ANALYSIS",
-            "TOOLTIP_ENG": "Model calibration, and more...",
+            "TOOLTIP_ENG": "Parameter sweep & calibration and sensitivity analysis",
             "TEXT_HUN": "PARAMÉTERANALÍZIS",
             "TOOLTIP_HUN": "Modell kalibrálás és egyebek...",
             "TEXT_GER": "PARAMETERANALYSE",
@@ -80,6 +80,7 @@
         {
             "ID": "#calibration",
             "TEXT_ENG": "DATABASE MANAGER",
+            "TOOLTIP_ENG": "Manage data tables and run SQL queries",
             "TEXT_HUN": "ADATBÁZISKEZELŐ",
             "TEXT_GER": "DATABASE-MANAGER",
             "TEXT_FRA": "GESTIONNAIRE DE BASE DE DONNÉES",
@@ -92,7 +93,14 @@
         {
             "ID": "#storEditor",
             "TEXT_ENG": "INPUT CREATOR",
+            "TOOLTIP_ENG": "Create storylines and input files for gridded runs",
             "TEXT_HUN": "BEMENŐ ADAT KÉSZÍTŐ"
+        },
+        {
+            "ID": "#fileMan",
+            "TEXT_ENG": "HELP",
+            "TEXT_HUN": "SÚGÓ",
+            "TEXT_GER": "HILFE"
         },
         {
             "ID": "#mainSideBarLang",
@@ -156,7 +164,7 @@
         },
         {
             "ID": "#base-fraFlag",
-            "TOOLTIP_ENG": "version française",
+            "TOOLTIP_ENG": "Version française",
             "TOOLTIP_HUN": "Version française",
             "TOOLTIP_GER": "Version française",
             "TOOLTIP_FRA": "Version française",
@@ -168,7 +176,7 @@
         },
         {
             "ID": "#base-espFlag",
-            "TOOLTIP_ENG": "versión en español",
+            "TOOLTIP_ENG": "Versión en español",
             "TOOLTIP_HUN": "Versión en español",
             "TOOLTIP_GER": "Versión en español",
             "TOOLTIP_FRA": "Versión en español",
@@ -240,7 +248,7 @@
         },
         {
             "ID": "#site",
-            "TOOLTIP_ENG": "Plot level simulations",
+            "TOOLTIP_ENG": "Site/Plot level simulations",
             "TOOLTIP_HUN": "Parcella szintű szimulációk",
             "TOOLTIP_GER": "Simulationen auf Parzellen",
             "TOOLTIP_FRA": "Simulations de niveau de parcelle",
@@ -252,8 +260,8 @@
         },
         {
             "ID": "#show",
-            "TOOLTIP_ENG": "Plot creator",
-            "TOOLTIP_HUN": "Grafikon készítő",
+            "TOOLTIP_ENG": "Plot simulation results",
+            "TOOLTIP_HUN": "Szimulációs eredmények grafinokos megjelenítése",
             "TOOLTIP_GER": "Plot-Ersteller",
             "TOOLTIP_FRA": "Créateur de l’intrigue",
             "TOOLTIP_ESP": "Creador de trazados",
@@ -265,7 +273,7 @@
         {
             "ID": "#grid",
             "TOOLTIP_ENG": "Grid level simulations",
-            "TOOLTIP_HUN": "Régió szintű szimulációk",
+            "TOOLTIP_HUN": "Régió/Rács szintű szimulációk",
             "TOOLTIP_GER": "Simulationen auf Grid",
             "TOOLTIP_FRA": "Simulations au niveau de la grille",
             "TOOLTIP_ESP": "Simulaciones de nivel de cuadrícula",
@@ -276,8 +284,8 @@
         },
         {
             "ID": "#map",
-            "TOOLTIP_ENG": "Map creator",
-            "TOOLTIP_HUN": "Térkép készítő",
+            "TOOLTIP_ENG": "Map simulation results",
+            "TOOLTIP_HUN": "Szimulációs eredmények térképes megjelenítése",
             "TOOLTIP_GER": "Kartenersteller",
             "TOOLTIP_FRA": "Créateur de carte",
             "TOOLTIP_ESP": "Creador de mapas",
@@ -288,8 +296,8 @@
         },
         {
             "ID": "#sitediv-refresh",
-            "TOOLTIP_ENG": "Refresh content of the dropdown menus based on the file list of the corresponding folders",
-            "TOOLTIP_HUN": "Frissítse a legördülő menük tartalmát a megfelelő mappák fájllistája alapján",
+            "TOOLTIP_ENG": "Refresh content of the dropdown menus",
+            "TOOLTIP_HUN": "Legördülő menük tartalmának frissítése",
             "TOOLTIP_GER": "Aktualisieren die Dropdownmenüs basierend auf der Dateiliste der entsprechenden Ordner",
             "TOOLTIP_FRA": "Actualiser le contenu des menus déroulants en fonction de la liste de fichiers des dossiers correspondants",
             "TOOLTIP_ESP": "Actualizar el contenido de los menús desplegables en función de la lista de archivos de las carpetas correspondientes",
@@ -493,9 +501,9 @@
         {
             "ID": "#sitediv-Show",
             "TEXT_ENG": "PLOT",
-            "TOOLTIP_ENG": "Create plots using simulation results",
+            "TOOLTIP_ENG": "Plot simulation results",
             "TEXT_HUN": "EREDMÉNYEK ÁBRÁZOLÁSA",
-            "TOOLTIP_HUN": "Parcella létrehozása a szimuláció eredményei alapján",
+            "TOOLTIP_HUN": "Szimulációs eredmények grafinokos megjelenítése",
             "TEXT_GER": "PLOT ERSTELLEN:",
             "TOOLTIP_GER": "Erstellen die Parzellen von Simulationsergebnissen",
             "TEXT_FRA": "Intrigue",
@@ -909,11 +917,6 @@
             "ID": "#griddiv-repcheck_container span",
             "TEXT_ENG": "show & save",
             "TEXT_HUN": "mutat & ment"
-        },
-        {
-            "ID": "#griddiv-dailyout_container span",
-            "TEXT_ENG": "daily outputs",
-            "TEXT_HUN": "naponkénti kimenetek"
         },
         {
             "ID": "#griddiv-annual_container span",
@@ -1424,7 +1427,7 @@
         {
             "ID": "#dbmandiv-showtab",
             "TEXT_ENG": "SHOW",
-            "TEXT_HUN": "MEGJELENÍTÉS",
+            "TEXT_HUN": "MEGJELENÍT",
             "TEXT_GER": "ZEIGEN"
         },
         {
