@@ -94,7 +94,7 @@ As an INI file controls a site specific simulation, a STORY file defines a whole
 #### Queries:
 - [x] Each item in the QUERIES list stands for an SQL sentence in which key sections were made to be selectable. After choosing a query, set/finalize the SQL sentence by picking items from the available {1}, {2}, etc. dropdown menus. You may select the data table the query referring to; you may select the time frame you want to focus on; and/or you may select the aggregation function (max, min, mean, etc.) you want to apply on the data the SELECT SQL statement retrieved from the data table.
 
-An example the retrieves the average annual Net Primary Production for each grid cell for a given time period:
+An example that retrieves the average annual Net Primary Production for each grid cell for a given time period from the results of the TestRun simulation:
 
 - Raw query item: {1} annual NPP in the [T-T] period for model output {2}
 - Finalized query item: {1: mean} annual NPP in the [1981-2010] period for model output {2: TestRun}
