@@ -92,7 +92,7 @@ As an INI file controls a site specific simulation, a STORY file defines a whole
 - [x] Click the [START SIMULATION] button to start the simulation. All available (minus one) threads are used for the calculations. 
 
 #### Queries:
-- [x] Coming soon
+- [x] Each item in the QUERIES list stands for an SQL query in which key sections were made to be selectable: e.g. data table, time frame and/or aggregation function.     
 
 ### AgroMo Map
 
