@@ -562,7 +562,7 @@ display: none;
 
 #griddiv-metadata_container label {
     position: absolute;
-    top: 485px;
+    top: 487px;
     left: 316px;
     font-size: 16px;
     font-family: Fira Sans;
@@ -649,7 +649,7 @@ position: absolute;
 #griddiv-time_container .control-label {
     position: absolute;
     top: 561px;
-    right: 653px;
+    right: 655px;
     font-size: 16px;
     font-family: Fira Sans;
     color: black;
