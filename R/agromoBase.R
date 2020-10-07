@@ -80,7 +80,7 @@ agromoBaseUI <- function(id){
                           class = "mainSideBar"),
                         actionButton("storEditor","INPUT CREATOR",
                               class = "mainSideBar"),
-                        actionButton("fileMan","",
+                        actionButton("fileMan","HELP",
                               class = "mainSideBar"))
            )
 }

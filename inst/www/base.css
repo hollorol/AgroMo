@@ -226,6 +226,8 @@
     left: 680px;
     width: 250px;
     height: 60px;
+    color: black;
+    font-size: 18px;
     font-weight: 700;
     font-family: "Fira Sans";
     background-color: gainsboro;

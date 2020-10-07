@@ -38,6 +38,7 @@
   color: black;
   font-size: 16px;
   font-family: Fira Sans;
+  width: 270px;
 }
 
 #dbmandiv-database-selectized {
@@ -50,7 +51,7 @@
   position:absolute;
    top: 31px;
   right: 320px;
-  width: 105px;
+  width: 135px;
   text-align: end;
   color: black;
   font-size: 16px;
