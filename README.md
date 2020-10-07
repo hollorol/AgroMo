@@ -87,7 +87,9 @@ As an INI file controls a site specific simulation, a STORY file defines a whole
 - [x] Select soil database to provide physical and chemical soil parameters for the simulations. 
 - [x] Select algorythm combos defining calculation methods of photosynthesis, potential evapotranspiration and water stress
 - [ ] In case an ensemble checkbox is checked simulations are carried out with all available options 
-- [x] Provide a name for the output data table in which the simulation results are stored. The results of each simulation are stored 
+- [x] Provide a name for the output data table in which the simulation results are stored. The results of each simulation are stored in separate data tables of the grid.db SQLite database.
+- [x] In case the annual outputs checkbox is checked only annual outputs are stored. In case it is unchecked daily outputs are stored in the data table.
+- [x] Click the [START SIMULATION] button to start the simulation. All available (minus one) threads are used for the calculations. 
 
 #### Queries:
 - [x] Coming soon
