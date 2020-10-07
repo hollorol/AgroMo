@@ -239,6 +239,14 @@ agroMoGrid <- function(input, output, session, baseDir, language){
         }
     })
 
+    observeEvent(input$annual,{
+                     if(input$story!=""){
+                         choosenStoryFile <- dat$storyFiles[match(input$story,dat$storyOptions)]
+                         skip <- ifelse(isolate(input$annual),2,1)
+                         dat$storyVars <- as.character(read.table(choosenStoryFile,skip=1, nrows=1, sep=";",stringsAsFactors=FALSE))
+                     }
+    })
+
     observeEvent(input$story,{
                      if(input$story!=""){
                          # browser()
@@ -246,8 +254,9 @@ agroMoGrid <- function(input, output, session, baseDir, language){
                          suppressWarnings(dir.create(file.path(baseDir(),"output/grid/",input$story)))
                          suppressWarnings(dir.create(file.path(baseDir(),"endpoint/grid/",input$story)))
                          output$alias <- renderText({readLines(choosenStoryFile,n=1)})
-                         dat$storyVars <- as.character(read.table(choosenStoryFile,skip=1, nrows=1, sep=";",stringsAsFactors=FALSE))
-                         dat$storyCSV <- read.table(choosenStoryFile,skip=2, sep=";",stringsAsFactors=FALSE)
+                         skip <- ifelse(isolate(input$annual),2,1)
+                         dat$storyVars <- as.character(read.table(choosenStoryFile,skip=skip, nrows=1, sep=";",stringsAsFactors=FALSE))
+                         dat$storyCSV <- read.table(choosenStoryFile,skip=3, sep=";",stringsAsFactors=FALSE)
                          dat$storyTimeRange <- range(dat$storyCSV[,c(3,4)])
                          storyRow <- as.data.frame((function(x){
                                                      list(site=x[,1],
@@ -257,8 +266,6 @@ agroMoGrid <- function(input, output, session, baseDir, language){
                                                           numDays=365*(x[,4]-x[,3]+1))
                                                 })(dat$storyCSV),stringsAsFactor=FALSE)
                          dat$story <-split(storyRow,storyRow$site)
-                         # browser()
-                        
                          # sites <- split(dat$storyCSV, dat$storyCSV[,1])
                          # dat$numYears <- as.numeric(lapply(sites,function(m){
                          #                        m[nrow(m),4] - m[1,3] + 1
@@ -471,6 +478,7 @@ agroMoGrid <- function(input, output, session, baseDir, language){
                          gridType <- ".annout"
                         outputTypeIni <- c(0,2)
                      }
+
         showNotification("Starting simulation... Removing previous .dayout files")
         suppressWarnings(file.remove(list.files(file.path(baseDir(),"output/grid",input$story),full.names=TRUE)))
 
