@@ -19,6 +19,48 @@
   user-select: none;
 }
 
+#paranaradsweep {
+    position: absolute;
+    top: 44px;
+    left: 28px;
+    font-weight: normal;
+    font-size: 16px;
+    font-family: Fira Sans;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#paranaradsens {
+    position: absolute;
+    top: 75px;
+    left: 28px;
+    font-weight: normal;
+    font-size: 16px;
+    font-family: Fira Sans;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#paranaradcal {
+    position: absolute;
+    top: 105px;
+    left: 28px;
+    font-weight: normal;
+    font-size: 16px;
+    font-family: Fira Sans;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
 #paranadiv-paranaini_container label{
     position: absolute;
     top: 10px;
@@ -51,11 +93,12 @@
 #paranadiv-paranait_container label {
     position: absolute;
     top: 556px;
-    left: 196px;
+    right: 480px;
     font-weight: normal;
     font-size: 16px;
     font-family: Fira Sans;
     color: black;
+    text-align: end;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -168,11 +211,12 @@
     position: absolute;
     top: 606px;
     width: 580px;
-    left: 60px;
+    right: 480px;
     font-weight: normal;
     font-size: 16px;
     font-family: Fira Sans;
     color: black;
+    text-align: end;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -261,6 +305,8 @@
 
 #paranadiv-paranaradio_container .shiny-options-group {
   border-width: 0px;
+  position: absolute;
+  top: 35px;
 }
 
 #paranadiv-paranaimage img{

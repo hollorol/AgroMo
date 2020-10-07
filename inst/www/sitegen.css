@@ -122,7 +122,9 @@
 #sitegendiv-sitename_container label{
     position: absolute;
     top: 276px;
-    left: 36px;
+    right: 715px;
+    width: 160px;
+    text-align: end;
     font-weight: bold; 
     font-size: 16px;
     font-family: Fira Sans;
@@ -150,7 +152,7 @@
 #sitegendiv-erareg_container label{
     position: absolute;
     top: 30px;
-    left: 30px;
+    right: 610px;
     font-size: 16px;
     font-family: Fira Sans;
     color: black;
@@ -177,7 +179,9 @@
 #sitegendiv-settlement_container label{
     position: absolute;
     top: 191px;
-    left: -27px;
+    right: 710px;
+    width: 160px;
+    text-align: end;
     font-weight: normal;
     font-size: 16px;
     font-family: Fira Sans;
@@ -206,7 +210,9 @@
 #sitegendiv-lat_container label {
     position: absolute;
     top: 111px;
-    left: 17px;
+    right: 710px;
+    width: 160px;
+    text-align: end;
     font-weight: normal;
     font-size: 16px;
     font-family: Fira Sans;
@@ -235,7 +241,9 @@
 #sitegendiv-lon_container label {
     position: absolute;
     top: 151px;
-    left: 5px;
+    right: 710px;
+    width: 160px;
+    text-align: end;
     font-weight: normal;
     font-size: 16px;
     font-family: Fira Sans;
@@ -264,7 +272,9 @@
 #sitegendiv-start_container label{
     position: absolute;
     top: 111px;
-    left: 713px;
+    right: 45px;
+    width: 190px;
+    text-align: end;
     font-weight: normal;
     font-size: 16px;
     font-family: Fira Sans;
@@ -293,7 +303,9 @@
 #sitegendiv-end_container label {
     position: absolute;
     top: 151px;
-    left: 720px;
+    right: 45px;
+    width: 190px;
+    text-align: end;
     font-weight: normal;
     font-size: 16px;
     font-family: Fira Sans;
