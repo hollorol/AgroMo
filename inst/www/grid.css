@@ -383,6 +383,7 @@ height: 33px;
     height: 35px;
     color: black;
     width: 220px;
+    display: none;
     font-family: Fira Sans;
     -webkit-user-select: none;
     -moz-user-select: none;
