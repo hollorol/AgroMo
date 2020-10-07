@@ -81,9 +81,13 @@ A graphical user interface (GUI) has been developed for providing easy and user 
 
 ![alt text](img/grid_gui.png "AgroMo Grid")
 
-As an INI file controls a site specific simulation a STORY file defines a whole STORYLINE for a gridded simulation. A STORYLINE is set ot INI file sets: comprises a set/series of INI files for every individual cells in the grid. A STORYLINE defines what happens, where and when in the grid inlcuding crop rotation or even land use changes facilitated by INI file changes. In a STORY file all the grid cells are listed and for each cell a series of INI files are listed with an indication of the start and end years when the INI file needs to be activated and deactivated. 
+As an INI file controls a site specific simulation, a STORY file defines a whole STORYLINE for a gridded simulation. A STORYLINE is set of INI file sets: comprises a set/series of INI files for every individual cells in the grid. A STORYLINE defines what happens, where and when in the grid inlcuding changes in crop rotation or even land use changes facilitated by INI file changes. In a STORY file all the grid cells are listed and for each cell a series of INI files are listed with an indication of the start and end years when the INI file needs to be activated and deactivated. 
 
-- [x] Coming soon
+- [x] Select climate database to provide daily weather data for the simulations. 
+- [x] Select soil database to provide physical and chemical soil parameters for the simulations. 
+- [x] Select algorythm combos defining calculation methods of photosynthesis, potential evapotranspiration and water stress
+- [ ] In case an ensemble checkbox is checked simulations are carried out with all available options 
+- [x] Provide a name for the output data table in which the simulation results are stored. The results of each simulation are stored 
 
 #### Queries:
 - [x] Coming soon
