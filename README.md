@@ -96,9 +96,9 @@ As an INI file controls a site specific simulation, a STORY file defines a whole
 
 An example the retrieves the average annual Net Primary Production for each grid cell for a given time period:
 
-Raw query item: {1} annual NPP in the [T-T] period for model output {2}
-Finalized query item: {1: mean} annual NPP in the [1981-2010] period for model output {2: TestRun}
-SQL sentence: SELECT plotid, AVG(cNPP) FROM (SELECT MAX(cumNPP) AS cNPP, plotid, year FROM TestRun WHERE year >= 1981 AND year <= 2010 GROUP BY year, plotid) GROUP BY plotid
+- Raw query item: {1} annual NPP in the [T-T] period for model output {2}
+- Finalized query item: {1: mean} annual NPP in the [1981-2010] period for model output {2: TestRun}
+- SQL sentence: SELECT plotid, AVG(cNPP) FROM (SELECT MAX(cumNPP) AS cNPP, plotid, year FROM TestRun WHERE year >= 1981 AND year <= 2010 GROUP BY year, plotid) GROUP BY plotid
 
 - [x] New, self made SQL sentences can be added to the system by placing properly formatted .json files to the .\data\template\grid\ folder.
 
