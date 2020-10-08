@@ -3,7 +3,7 @@
             "ID": "#exit",
             "TOOLTIP_ENG": "Exit",
             "TOOLTIP_HUN": "Kilépés",
-            "TOOLTIP_GER": "Ausfahren",
+            "TOOLTIP_GER": "Ausfahrt",
             "TOOLTIP_FRA": "Sortie",
             "TOOLTIP_ESP": "Salida",
             "TOOLTIP_POR": "SAÍDA",
@@ -40,7 +40,7 @@
             "TEXT_ENG": "PARAMETER ANALYSIS",
             "TOOLTIP_ENG": "Parameter sweep & calibration and sensitivity analysis",
             "TEXT_HUN": "PARAMÉTERANALÍZIS",
-            "TOOLTIP_HUN": "Modell kalibrálás és egyebek...",
+            "TOOLTIP_HUN": "Modell kalibrálás és érzékenységvizsgálat",
             "TEXT_GER": "PARAMETERANALYSE",
             "TOOLTIP_GER": "Modellkalibrierung und mehr...",
             "TEXT_FRA": "ANALYSE DES PARAMÈTRES",
@@ -82,6 +82,7 @@
             "TEXT_ENG": "DATABASE MANAGER",
             "TOOLTIP_ENG": "Manage data tables and run SQL queries",
             "TEXT_HUN": "ADATBÁZISKEZELŐ",
+            "TOOLTIP_HUN": "Adattáblák kezelése és SQL lekérdezése",
             "TEXT_GER": "DATABASE-MANAGER",
             "TEXT_FRA": "GESTIONNAIRE DE BASE DE DONNÉES",
             "TEXT_ESP": "ADMINISTRADOR DE BASES DE DATOS",
@@ -94,7 +95,9 @@
             "ID": "#storEditor",
             "TEXT_ENG": "INPUT CREATOR",
             "TOOLTIP_ENG": "Create storylines and input files for gridded runs",
-            "TEXT_HUN": "BEMENŐ ADAT KÉSZÍTŐ"
+            "TEXT_HUN": "BEMENŐ ADAT KÉSZÍTŐ",
+            "TOOLTIP_HUN": "Forgatókönyv és kapcsolódó inputfájlok készítése",
+            "TEXT_GER": "INPUT-BILDNER"
         },
         {
             "ID": "#fileMan",
@@ -466,7 +469,7 @@
             "ID": "#sitediv-thinning_container label",
             "TEXT_ENG": "thinning:",
             "TEXT_HUN": "ritkítás:",
-            "TEXT_GER": "Auslichtung",
+            "TEXT_GER": "Auslichtung:",
             "TEXT_FRA": "Amincissement:",
             "TEXT_ESP": "Adelgazamiento:",
             "TEXT_POR": "desbaste:",
@@ -504,7 +507,7 @@
             "TOOLTIP_ENG": "Plot simulation results",
             "TEXT_HUN": "EREDMÉNYEK ÁBRÁZOLÁSA",
             "TOOLTIP_HUN": "Szimulációs eredmények grafinokos megjelenítése",
-            "TEXT_GER": "PLOT ERSTELLEN:",
+            "TEXT_GER": "PLOT ERSTELLEN",
             "TOOLTIP_GER": "Erstellen die Parzellen von Simulationsergebnissen",
             "TEXT_FRA": "Intrigue",
             "TOOLTIP_FRA": "Créer des parcelles à l’aide de résultats de simulation",
@@ -642,7 +645,8 @@
         {
             "ID": "#showdiv-experimentID_container label",
             "TEXT_ENG": "data file:",
-            "TEXT_HUN": "adat fájl:"
+            "TEXT_HUN": "adat fájl:",
+            "TEXT_GER": "daten file:"
         },
         {
             "ID": "#showdiv-alias_container label",
@@ -725,22 +729,26 @@
         {
             "ID": "#colone",
             "TEXT_ENG": "VARIABLE",
-            "TEXT_HUN": "VÁLTOZÓ"
+            "TEXT_HUN": "VÁLTOZÓ",
+            "TEXT_GER": "VARIABLE"
         },
         {
             "ID": "#coltwo",
             "TEXT_ENG": "T-STEP",
-            "TEXT_HUN": "LÉPTÉK"
+            "TEXT_HUN": "LÉPTÉK",
+            "TEXT_GER": "ABSTAND"
         },
         {
             "ID": "#colthree",
             "TEXT_ENG": "FUNC",
-            "TEXT_HUN": "FÜGV"
+            "TEXT_HUN": "FÜGV",
+            "TEXT_GER": "FUNK"
         },
         {
             "ID": "#colfour",
             "TEXT_ENG": "PLOT TYPE",
-            "TEXT_HUN": "TÍPUS"
+            "TEXT_HUN": "TÍPUS",
+            "TEXT_GER": "TYPUS"
         },
         {
             "ID": "#griddiv-story_container label",
@@ -757,7 +765,7 @@
         {
             "ID": "#griddiv-climproj_container label",
             "TEXT_ENG": "CLIMATE DATABASE:",
-            "TEXT_HUN": "ÉGHAJLAT ADATBÁZIS",
+            "TEXT_HUN": "ÉGHAJLAT ADATBÁZIS:",
             "TEXT_GER": "KLIMADATENBANK:",
             "TEXT_FRA": "BASE DE DONNÉES SUR LE CLIMAT :",
             "TEXT_ESP": "BASE DE DATOS DE CLIMATE:",
@@ -901,27 +909,32 @@
         {
             "ID": "#griddiv-enssoil_container span",
             "TEXT_ENG": "ensemble",
-            "TEXT_HUN": "csoport"
+            "TEXT_HUN": "csoport",
+            "TEXT_GER": "Ensemble"
         },
         {
             "ID": "#griddiv-ensclim_container span",
             "TEXT_ENG": "ensemble",
-            "TEXT_HUN": "csoport"
+            "TEXT_HUN": "csoport",
+            "TEXT_GER": "Ensemble"
         },
         {
             "ID": "#griddiv-ensalg_container span",
             "TEXT_ENG": "ensemble",
-            "TEXT_HUN": "csoport"
+            "TEXT_HUN": "csoport",
+            "TEXT_GER": "Ensemble"
         },
         {
             "ID": "#griddiv-repcheck_container span",
             "TEXT_ENG": "show & save",
-            "TEXT_HUN": "mutat & ment"
+            "TEXT_HUN": "mutat & ment",
+            "TEXT_GER": "anzeigen & speichern"
         },
         {
             "ID": "#griddiv-annual_container span",
             "TEXT_ENG": "annual outputs",
-            "TEXT_HUN": "éves kimenetek"
+            "TEXT_HUN": "éves kimenetek",
+            "TEXT_GER": "jährlichen Outputs"
         },
         {
             "ID": "#mapdiv-invert_container span",
@@ -1166,17 +1179,20 @@
         {
             "ID": "#paranadiv-paranaini_container label",
             "TEXT_ENG": "WORKING DIRECTORY:",
-            "TEXT_HUN": "MUNKAKÖNYVTÁR:"
+            "TEXT_HUN": "MUNKAKÖNYVTÁR:",
+            "TEXT_GER": "ARBEITSVERZEICHNIS:"
         },
         {
             "ID": "#paranadiv-paranaexp_container label",
             "TEXT_ENG": "OBSERVATION DATA file:",
-            "TEXT_HUN": "MEGFIGYELÉSIADAT fájl:"
+            "TEXT_HUN": "MEGFIGYELÉSIADAT fájl:",
+            "TEXT_GER": "BEOBACHTUNGSDATEN file:"
         },
         {
             "ID": "#paranadiv-ctlfile_container label",
             "TEXT_ENG": "CONTROL file:",
-            "TEXT_HUN": "VEZÉRLŐ fájl:"
+            "TEXT_HUN": "VEZÉRLŐ fájl:",
+            "TEXT_GER": "KONTROLL file:"
         },
         {
             "ID": "#paranadiv-paranait_container label",
