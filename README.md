@@ -92,7 +92,7 @@ As an INI file controls a site specific simulation, a STORY file defines a whole
 - [x] Click the [START SIMULATION] button to start the simulation. All available (minus one) threads are used for the calculations. 
 
 #### Queries:
-- [x] Each item in the QUERIES list stands for an SQL sentence in which key sections were made to be selectable. After choosing a query, set/finalize the SQL sentence by picking items from the available {1}, {2}, etc. dropdown menus. You may select the data table the query referring to; you may select the time frame you want to focus on; and/or you may select the aggregation function (max, min, mean, etc.) you want to apply on the data the SELECT SQL statement retrieved from the data table.
+- [x] Each item in the QUERIES list stands for an SQL sentence in which key sections were made to be selectable. After choosing a query, set/finalize the SQL sentence by picking items from the available {1}, {2}, etc. dropdown menus. You may select the data table the query is applied for; you may select the time frame you want to focus on; and/or you may select the aggregation function (max, min, mean, etc.) you want to apply on the data the SELECT SQL statement retrieved from the data table.
 
 An example that retrieves the average annual Net Primary Production for each grid cell for a given time period from the results of the TestRun simulation:
 
@@ -101,8 +101,8 @@ An example that retrieves the average annual Net Primary Production for each gri
 - SQL sentence: SELECT plotid, AVG(cNPP) FROM (SELECT MAX(cumNPP) AS cNPP, plotid, year FROM TestRun WHERE year >= 1981 AND year <= 2010 GROUP BY year, plotid) GROUP BY plotid
 
 - [x] New, self made SQL sentences can be added to the system by placing properly formatted .json files to the .\data\template\grid\ folder.
-
-
+- [x] Provide an alias/name and a short description for your query and click the [QUERY] or the [REPORT] button to run the query. The first option (if possible) results in a datafile that can be presented as a gridded map, while the secong option results in a simple data table that can be viewed (it is automatically saved). 
+- [x] Click the [MAP] button to create gridded maps of simulation results.
 
 ### AgroMo Map
 
