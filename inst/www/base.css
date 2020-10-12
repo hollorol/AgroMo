@@ -203,7 +203,7 @@
   user-select: none;
 }
 
-#helpme {
+#fileMan {
     position: absolute;
     top: 195px;
     left: 677px;
@@ -220,7 +220,7 @@
   user-select: none;
 }
 
-#fileMan {
+#helpme {
     position: absolute;
     top: 335px;
     left: 677px;
