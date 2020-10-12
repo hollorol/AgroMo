@@ -18,7 +18,7 @@ agroUI <- function(){
             hidden(agroMoSiteGeneratorUI(id = "sitegendiv")),
             hidden(agroMoParAnaUI(id = "paranadiv")),
             hidden(agroMoDBManUI(id = "dbmandiv")),
-            hidden(BBGCUI(id="BBGCDB")),
+            hidden(BBGCUI(id="help")),
             hidden(actionButton(inputId = "base_bb_button",label="",title="Navigateto the BASE window", style="background: url('www/img/base.png');background-size: 75px 30px;", draggable = FALSE)),
             hidden(actionButton(inputId = "plot_bb_button",label="",title="Navigate to the PLOT window", style="background: url('www/img/plot.png');background-size: 75px 30px;", draggable = FALSE)),
             hidden(actionButton(inputId = "plot_bb_button_two",label="",title="Navigate to the PLOT window", style="background: url('www/img/plot.png');background-size: 75px 30px;", draggable = FALSE)),
@@ -848,7 +848,7 @@ agroServer <- function(input, output, session) {
    ##}
    
 
-   observeEvent(input$storEditor,{
+   observeEvent(input$help,{
         tryCatch(system(sprintf("%s",file.path(system.file("tool",package="AgroMo"),"AgroMo_Apps.exe"))), warning=function(e){
           showNotification("Currently Story editor is only usable from Windows", type="error")  
        }) 

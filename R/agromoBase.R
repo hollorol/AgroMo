@@ -78,7 +78,7 @@ agromoBaseUI <- function(id){
                           class = "mainSideBar", title="Download site specific weather and soil data from ERA5 and ISRIC databases"),
                         actionButton("calibration","DATABASE MANAGER",
                           class = "mainSideBar"),
-                        actionButton("storEditor","INPUT CREATOR",
+                        actionButton("helpme","HELP",
                               class = "mainSideBar"),
                         actionButton("fileMan","HELP",
                               class = "mainSideBar"))
