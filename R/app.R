@@ -848,7 +848,7 @@ agroServer <- function(input, output, session) {
    ##}
    
 
-   observeEvent(input$help,{
+   observeEvent(input$fileMan,{
         tryCatch(system(sprintf("%s",file.path(system.file("tool",package="AgroMo"),"AgroMo_Apps.exe"))), warning=function(e){
           showNotification("Currently Story editor is only usable from Windows", type="error")  
        }) 
