@@ -3,7 +3,7 @@
             "ID": "#exit",
             "TOOLTIP_ENG": "Exit",
             "TOOLTIP_HUN": "Kilépés",
-            "TOOLTIP_GER": "Ausfahren",
+            "TOOLTIP_GER": "Ausfahrt",
             "TOOLTIP_FRA": "Sortie",
             "TOOLTIP_ESP": "Salida",
             "TOOLTIP_POR": "SAÍDA",
@@ -38,9 +38,9 @@
         {
             "ID": "#parana",
             "TEXT_ENG": "PARAMETER ANALYSIS",
-            "TOOLTIP_ENG": "Model calibration, and more...",
+            "TOOLTIP_ENG": "Parameter sweep & calibration and sensitivity analysis",
             "TEXT_HUN": "PARAMÉTERANALÍZIS",
-            "TOOLTIP_HUN": "Modell kalibrálás és egyebek...",
+            "TOOLTIP_HUN": "Modell kalibrálás és érzékenységvizsgálat",
             "TEXT_GER": "PARAMETERANALYSE",
             "TOOLTIP_GER": "Modellkalibrierung und mehr...",
             "TEXT_FRA": "ANALYSE DES PARAMÈTRES",
@@ -80,7 +80,9 @@
         {
             "ID": "#calibration",
             "TEXT_ENG": "DATABASE MANAGER",
+            "TOOLTIP_ENG": "Manage data tables and run SQL queries",
             "TEXT_HUN": "ADATBÁZISKEZELŐ",
+            "TOOLTIP_HUN": "Adattáblák kezelése és SQL lekérdezése",
             "TEXT_GER": "DATABASE-MANAGER",
             "TEXT_FRA": "GESTIONNAIRE DE BASE DE DONNÉES",
             "TEXT_ESP": "ADMINISTRADOR DE BASES DE DATOS",
@@ -92,14 +94,25 @@
         {
             "ID": "#storEditor",
             "TEXT_ENG": "INPUT CREATOR",
-            "TEXT_HUN": "BEMENŐ ADAT KÉSZÍTŐ"
+            "TOOLTIP_ENG": "Create storylines and input files for gridded runs",
+            "TEXT_HUN": "BEMENŐ ADAT KÉSZÍTŐ",
+            "TOOLTIP_HUN": "Forgatókönyv és kapcsolódó inputfájlok készítése",
+            "TEXT_GER": "INPUT-BILDNER",
+            "TEXT_FRA": "CRÉATEUR D'ENTRÉES"
+        },
+        {
+            "ID": "#fileMan",
+            "TEXT_ENG": "HELP",
+            "TEXT_HUN": "SÚGÓ",
+            "TEXT_GER": "HILFE",
+            "TEXT_FRA": "ASSISTANCE"
         },
         {
             "ID": "#mainSideBarLang",
             "TEXT_ENG": "LANGUAGES",
             "TEXT_HUN": "NYELVEK",
             "TEXT_GER": "SPRACHEN",
-            "TEXT_FRA": "Traduction",
+            "TEXT_FRA": "LANGUES",
             "TEXT_ESP": "Idiomas",
             "TEXT_POR": "Idiomas",
             "TEXT_RUS": "Языки",
@@ -156,7 +169,7 @@
         },
         {
             "ID": "#base-fraFlag",
-            "TOOLTIP_ENG": "version française",
+            "TOOLTIP_ENG": "Version française",
             "TOOLTIP_HUN": "Version française",
             "TOOLTIP_GER": "Version française",
             "TOOLTIP_FRA": "Version française",
@@ -168,7 +181,7 @@
         },
         {
             "ID": "#base-espFlag",
-            "TOOLTIP_ENG": "versión en español",
+            "TOOLTIP_ENG": "Versión en español",
             "TOOLTIP_HUN": "Versión en español",
             "TOOLTIP_GER": "Versión en español",
             "TOOLTIP_FRA": "Versión en español",
@@ -240,7 +253,7 @@
         },
         {
             "ID": "#site",
-            "TOOLTIP_ENG": "Plot level simulations",
+            "TOOLTIP_ENG": "Site/Plot level simulations",
             "TOOLTIP_HUN": "Parcella szintű szimulációk",
             "TOOLTIP_GER": "Simulationen auf Parzellen",
             "TOOLTIP_FRA": "Simulations de niveau de parcelle",
@@ -252,8 +265,8 @@
         },
         {
             "ID": "#show",
-            "TOOLTIP_ENG": "Plot creator",
-            "TOOLTIP_HUN": "Grafikon készítő",
+            "TOOLTIP_ENG": "Plot simulation results",
+            "TOOLTIP_HUN": "Szimulációs eredmények grafinokos megjelenítése",
             "TOOLTIP_GER": "Plot-Ersteller",
             "TOOLTIP_FRA": "Créateur de l’intrigue",
             "TOOLTIP_ESP": "Creador de trazados",
@@ -265,7 +278,7 @@
         {
             "ID": "#grid",
             "TOOLTIP_ENG": "Grid level simulations",
-            "TOOLTIP_HUN": "Régió szintű szimulációk",
+            "TOOLTIP_HUN": "Régió/Rács szintű szimulációk",
             "TOOLTIP_GER": "Simulationen auf Grid",
             "TOOLTIP_FRA": "Simulations au niveau de la grille",
             "TOOLTIP_ESP": "Simulaciones de nivel de cuadrícula",
@@ -276,8 +289,8 @@
         },
         {
             "ID": "#map",
-            "TOOLTIP_ENG": "Map creator",
-            "TOOLTIP_HUN": "Térkép készítő",
+            "TOOLTIP_ENG": "Map simulation results",
+            "TOOLTIP_HUN": "Szimulációs eredmények térképes megjelenítése",
             "TOOLTIP_GER": "Kartenersteller",
             "TOOLTIP_FRA": "Créateur de carte",
             "TOOLTIP_ESP": "Creador de mapas",
@@ -288,8 +301,8 @@
         },
         {
             "ID": "#sitediv-refresh",
-            "TOOLTIP_ENG": "Refresh content of the dropdown menus based on the file list of the corresponding folders",
-            "TOOLTIP_HUN": "Frissítse a legördülő menük tartalmát a megfelelő mappák fájllistája alapján",
+            "TOOLTIP_ENG": "Refresh content of the dropdown menus",
+            "TOOLTIP_HUN": "Legördülő menük tartalmának frissítése",
             "TOOLTIP_GER": "Aktualisieren die Dropdownmenüs basierend auf der Dateiliste der entsprechenden Ordner",
             "TOOLTIP_FRA": "Actualiser le contenu des menus déroulants en fonction de la liste de fichiers des dossiers correspondants",
             "TOOLTIP_ESP": "Actualizar el contenido de los menús desplegables en función de la lista de archivos de las carpetas correspondientes",
@@ -423,7 +436,7 @@
             "TEXT_ENG": "cultivation:",
             "TEXT_HUN": "talajművelés:",
             "TEXT_GER": "Anbau:",
-            "TEXT_FRA": "Culture:",
+            "TEXT_FRA": "Cultivation:",
             "TEXT_ESP": "Cultivo:",
             "TEXT_POR": "cultivo:",
             "TEXT_RUS": "Выращивания:",
@@ -458,7 +471,7 @@
             "ID": "#sitediv-thinning_container label",
             "TEXT_ENG": "thinning:",
             "TEXT_HUN": "ritkítás:",
-            "TEXT_GER": "Auslichtung",
+            "TEXT_GER": "Auslichtung:",
             "TEXT_FRA": "Amincissement:",
             "TEXT_ESP": "Adelgazamiento:",
             "TEXT_POR": "desbaste:",
@@ -483,7 +496,7 @@
             "TEXT_ENG": "START SIMULATION",
             "TEXT_HUN": "SZIMULÁCIÓ INDÍTÁSA",
             "TEXT_GER": "START SIMULATION",
-            "TEXT_FRA": "SIMULATION DE DÉMARRAGE",
+            "TEXT_FRA": "DÉBUT DE LA SIMULATION",
             "TEXT_ESP": "INICIAR SIMULACIÓN",
             "TEXT_POR": "SIMULAÇÃO DE INÍCIO",
             "TEXT_RUS": "НАЧАЛО МОДЕЛИРОВАНИЯ",
@@ -493,10 +506,10 @@
         {
             "ID": "#sitediv-Show",
             "TEXT_ENG": "PLOT",
-            "TOOLTIP_ENG": "Create plots using simulation results",
+            "TOOLTIP_ENG": "Plot simulation results",
             "TEXT_HUN": "EREDMÉNYEK ÁBRÁZOLÁSA",
-            "TOOLTIP_HUN": "Parcella létrehozása a szimuláció eredményei alapján",
-            "TEXT_GER": "PLOT ERSTELLEN:",
+            "TOOLTIP_HUN": "Szimulációs eredmények grafinokos megjelenítése",
+            "TEXT_GER": "PLOT ERSTELLEN",
             "TOOLTIP_GER": "Erstellen die Parzellen von Simulationsergebnissen",
             "TEXT_FRA": "Intrigue",
             "TOOLTIP_FRA": "Créer des parcelles à l’aide de résultats de simulation",
@@ -624,7 +637,7 @@
             "TEXT_ENG": "CREATE PLOT WITH:",
             "TEXT_HUN": "ÁBRA LÉTREHOZÁS EZEKKEL:",
             "TEXT_GER": "PLOT ERSTELLEN MIT:",
-            "TEXT_FRA": "CRÉEZ UNE PARCELLE AVEC :",
+            "TEXT_FRA": "CRÉER UNE PARCELLE AVEC :",
             "TEXT_ESP": "CREAR PARCELA CON:",
             "TEXT_POR": "CRIAR ENREDO COM:",
             "TEXT_RUS": "СОЗДАЙТЕ СЮЖЕТ С ПОМОЩЬЮ:",
@@ -634,7 +647,9 @@
         {
             "ID": "#showdiv-experimentID_container label",
             "TEXT_ENG": "data file:",
-            "TEXT_HUN": "adat fájl:"
+            "TEXT_HUN": "adat fájl:",
+            "TEXT_GER": "daten file:",
+            "TEXT_FRA": "FICHIER DE DONNÉES"
         },
         {
             "ID": "#showdiv-alias_container label",
@@ -717,22 +732,30 @@
         {
             "ID": "#colone",
             "TEXT_ENG": "VARIABLE",
-            "TEXT_HUN": "VÁLTOZÓ"
+            "TEXT_HUN": "VÁLTOZÓ",
+            "TEXT_GER": "VARIABLE",
+            "TEXT_FRA": "Variable"
         },
         {
             "ID": "#coltwo",
             "TEXT_ENG": "T-STEP",
-            "TEXT_HUN": "LÉPTÉK"
+            "TEXT_HUN": "LÉPTÉK",
+            "TEXT_GER": "ABSTAND",
+            "TEXT_FRA": "échelle"
         },
         {
             "ID": "#colthree",
             "TEXT_ENG": "FUNC",
-            "TEXT_HUN": "FÜGV"
+            "TEXT_HUN": "FÜGV",
+            "TEXT_GER": "FUNK",
+            "TEXT_FRA": "Fonction"
         },
         {
             "ID": "#colfour",
             "TEXT_ENG": "PLOT TYPE",
-            "TEXT_HUN": "TÍPUS"
+            "TEXT_HUN": "TÍPUS",
+            "TEXT_GER": "TYPUS",
+            "TEXT_FRA": "Type"
         },
         {
             "ID": "#griddiv-story_container label",
@@ -749,7 +772,7 @@
         {
             "ID": "#griddiv-climproj_container label",
             "TEXT_ENG": "CLIMATE DATABASE:",
-            "TEXT_HUN": "ÉGHAJLAT ADATBÁZIS",
+            "TEXT_HUN": "ÉGHAJLAT ADATBÁZIS:",
             "TEXT_GER": "KLIMADATENBANK:",
             "TEXT_FRA": "BASE DE DONNÉES SUR LE CLIMAT :",
             "TEXT_ESP": "BASE DE DATOS DE CLIMATE:",
@@ -799,7 +822,7 @@
             "TEXT_ENG": "START SIMULATION",
             "TEXT_HUN": "SZIMULÁCIÓ INDÍTÁSA",
             "TEXT_GER": "START SIMULATION",
-            "TEXT_FRA": "SIMULATION DE DÉMARRAGE",
+            "TEXT_FRA": "DÉBUT DE SIMULATION",
             "TEXT_ESP": "INICIAR SIMULACIÓN",
             "TEXT_POR": "SIMULAÇÃO DE INÍCIO",
             "TEXT_RUS": "НАЧАЛО МОДЕЛИРОВАНИЯ",
@@ -847,7 +870,7 @@
             "TEXT_ENG": "QUERY",
             "TEXT_HUN": "LEKÉRDEZ",
             "TEXT_GER": "STARTABFRAGE",
-            "TEXT_FRA": "START QUERY",
+            "TEXT_FRA": "QUERY",
             "TEXT_ESP": "CONSULTA DE INICIO",
             "TEXT_POR": "INICIAR CONSULTA",
             "TEXT_RUS": "СТАРТОВЫЙ ЗАПРОС",
@@ -871,7 +894,7 @@
             "TEXT_ENG": "MAP",
             "TEXT_HUN": "ÁBRA",
             "TEXT_GER": "ABBILDUNG",
-            "TEXT_FRA": "Carte",
+            "TEXT_FRA": "graphique",
             "TEXT_ESP": "Mapa",
             "TEXT_POR": "MAPA",
             "TEXT_RUS": "Карта",
@@ -883,7 +906,7 @@
             "TEXT_ENG": "[start-end]:",
             "TEXT_HUN": "[tól-ig]:",
             "TEXT_GER": "[Start-End]:",
-            "TEXT_FRA": "[début]:",
+            "TEXT_FRA": "[début-fin]:",
             "TEXT_ESP": "[inicio-fin]:",
             "TEXT_POR": "[início]:",
             "TEXT_RUS": "«Старт-конец»:",
@@ -893,32 +916,37 @@
         {
             "ID": "#griddiv-enssoil_container span",
             "TEXT_ENG": "ensemble",
-            "TEXT_HUN": "csoport"
+            "TEXT_HUN": "csoport",
+            "TEXT_GER": "Ensemble",
+            "TEXT_FRA": "ensemble"
         },
         {
             "ID": "#griddiv-ensclim_container span",
             "TEXT_ENG": "ensemble",
-            "TEXT_HUN": "csoport"
+            "TEXT_HUN": "csoport",
+            "TEXT_GER": "Ensemble",
+            "TEXT_FRA": "ensemble"
         },
         {
             "ID": "#griddiv-ensalg_container span",
             "TEXT_ENG": "ensemble",
-            "TEXT_HUN": "csoport"
+            "TEXT_HUN": "csoport",
+            "TEXT_GER": "Ensemble",
+            "TEXT_FRA": "ensemble"
         },
         {
             "ID": "#griddiv-repcheck_container span",
             "TEXT_ENG": "show & save",
-            "TEXT_HUN": "mutat & ment"
-        },
-        {
-            "ID": "#griddiv-dailyout_container span",
-            "TEXT_ENG": "daily outputs",
-            "TEXT_HUN": "naponkénti kimenetek"
+            "TEXT_HUN": "mutat & ment",
+            "TEXT_GER": "anzeigen & speichern",
+            "TEXT_FRA": "le show & sauver"
         },
         {
             "ID": "#griddiv-annual_container span",
             "TEXT_ENG": "annual outputs",
-            "TEXT_HUN": "éves kimenetek"
+            "TEXT_HUN": "éves kimenetek",
+            "TEXT_GER": "jährlichen Outputs",
+            "TEXT_FRA": "annuel outputs"
         },
         {
             "ID": "#mapdiv-invert_container span",
@@ -949,7 +977,7 @@
             "TEXT_ENG": "lat/lon lines",
             "TEXT_HUN": "lat/lon vonalak",
             "TEXT_GER": "lat/lon-Linien",
-            "TEXT_FRA": "lignes lat/lon",
+            "TEXT_FRA": "lignes de lat/lon",
             "TEXT_ESP": "líneas lat/lon",
             "TEXT_POR": "linhas lat/lon",
             "TEXT_RUS": "линии лат/лон",
@@ -1111,7 +1139,7 @@
             "TOOLTIP_HUN": "Adjon egy címet az ábrának",
             "TEXT_GER": "Titel:",
             "TOOLTIP_GER": "Namen die Abbildung",
-            "TEXT_FRA": "titre de la carte:",
+            "TEXT_FRA": "titre de la graphique:",
             "TOOLTIP_FRA": "Ajouter un titre à la carte",
             "TEXT_ESP": "título del mapa:",
             "TOOLTIP_ESP": "Añadir título al mapa",
@@ -1141,7 +1169,7 @@
             "TEXT_ENG": "CREATE MAP",
             "TEXT_HUN": "TÉRKÉP LÉTREHOZÁSA",
             "TEXT_GER": "ABBILDUNG ERSTELLEN",
-            "TEXT_FRA": "CRÉER UNE CARTE",
+            "TEXT_FRA": "CRÉER UN PLAN",
             "TEXT_ESP": "CREAR MAPA",
             "TEXT_POR": "CRIAR MAPA",
             "TEXT_RUS": "СОЗДАНИЕ КАРТЫ",
@@ -1163,17 +1191,23 @@
         {
             "ID": "#paranadiv-paranaini_container label",
             "TEXT_ENG": "WORKING DIRECTORY:",
-            "TEXT_HUN": "MUNKAKÖNYVTÁR:"
+            "TEXT_HUN": "MUNKAKÖNYVTÁR:",
+            "TEXT_GER": "ARBEITSVERZEICHNIS:",
+            "TEXT_FRA": "directeur de travail"
         },
         {
             "ID": "#paranadiv-paranaexp_container label",
             "TEXT_ENG": "OBSERVATION DATA file:",
-            "TEXT_HUN": "MEGFIGYELÉSIADAT fájl:"
+            "TEXT_HUN": "MEGFIGYELÉSIADAT fájl:",
+            "TEXT_GER": "BEOBACHTUNGSDATEN file:",
+            "TEXT_FRA": "FICHIER DE DONNÉES D'OBSERVATION"
         },
         {
             "ID": "#paranadiv-ctlfile_container label",
             "TEXT_ENG": "CONTROL file:",
-            "TEXT_HUN": "VEZÉRLŐ fájl:"
+            "TEXT_HUN": "VEZÉRLŐ fájl:",
+            "TEXT_GER": "KONTROLL file:",
+            "TEXT_FRA": "FICHIER DE CONTRÔLE"
         },
         {
             "ID": "#paranadiv-paranait_container label",
@@ -1240,7 +1274,7 @@
             "TEXT_ENG": "Calibration",
             "TEXT_HUN": "Kalibráció",
             "TEXT_GER": "Kalibrierung",
-            "TEXT_FRA": "Étalonnage",
+            "TEXT_FRA": "Calibrage",
             "TEXT_ESP": "Calibración",
             "TEXT_POR": "Calibração",
             "TEXT_RUS": "Калибровки",
@@ -1407,36 +1441,42 @@
             "ID": "#dbmandiv-database_container label",
             "TEXT_ENG": "DATABASE:",
             "TEXT_HUN": "ADATBÁZIS:",
-            "TEXT_GER": "DATABASE:"
+            "TEXT_GER": "DATABASE:",
+            "TEXT_FRA": "BASE DE DONNÉES"
         },
         {
             "ID": "#dbmandiv-datatable_container label",
             "TEXT_ENG": "DATA TABLE:",
             "TEXT_HUN": "ADATTÁBLA:",
-            "TEXT_GER": "DATENTABELLE:"
+            "TEXT_GER": "DATENTABELLE:",
+            "TEXT_FRA": "TABLEAU DE DONNÉES"
         },
         {
             "ID": "#dbmandiv-sqlquery_container label",
             "TEXT_ENG": "SQL QUERY:",
             "TEXT_HUN": "SQL LEKÉRDEZÉS:",
-            "TEXT_GER": "SQL QUERY:"
+            "TEXT_GER": "SQL QUERY:",
+            "TEXT_FRA": "Requête SQL"
         },
         {
             "ID": "#dbmandiv-showtab",
             "TEXT_ENG": "SHOW",
-            "TEXT_HUN": "MEGJELENÍTÉS",
-            "TEXT_GER": "ZEIGEN"
+            "TEXT_HUN": "MEGJELENÍT",
+            "TEXT_GER": "ZEIGEN",
+            "TEXT_FRA": "MONTRER"
         },
         {
             "ID": "#dbmandiv-querytab",
             "TEXT_ENG": "QUERY",
             "TEXT_HUN": "LEKÉRDEZÉS",
-            "TEXT_GER": "QUERY"
+            "TEXT_GER": "QUERY",
+            "TEXT_FRA": "REQUETE"
         },
         {
             "ID": "#dbmandiv-deltab",
             "TEXT_ENG": "DELETE",
             "TEXT_HUN": "TÖRLÉS",
-            "TEXT_GER": "LÖSCHEN"
+            "TEXT_GER": "LÖSCHEN",
+            "TEXT_FRA": "EFFACER"
         }
 ]
