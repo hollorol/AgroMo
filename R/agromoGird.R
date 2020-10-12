@@ -449,10 +449,12 @@ agroMoGrid <- function(input, output, session, baseDir, language){
          if(is.null(queryResults)){
              showNotification("Something went wrong with the query...",type="error")
          } else {
-             showModal(modalDialog(tableOutput(ns("pukli")),title="REPORT", size="l",easyClose=TRUE))
-             output$pukli <- renderTable({
-                 queryResults
-             })
+             if(input$repcheck){
+                 showModal(modalDialog(tableOutput(ns("pukli")),title="REPORT", size="l",easyClose=TRUE))
+                 output$pukli <- renderTable({
+                     queryResults
+                 })
+             }
              suppressWarnings(dir.create(file.path(baseDir(),"output/report")))
              write.csv(queryResults,file.path(baseDir(),"output/report",sprintf("%s.csv",input$queryalias)),row.names=FALSE)
              # write.xlsx(queryResults,file.path(baseDir(),"output/report",sprintf("%s.xlsx",input$queryalias)))
