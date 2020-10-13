@@ -92,8 +92,8 @@
             "TEXT_JPN": "データベース・マネージャー"
         },
         {
-            "ID": "#storEditor",
-            "TEXT_ENG": "INPUT CREATOR",
+            "ID": "#fileMan",
+            "TEXT_ENG": "STORYLINE CREATOR",
             "TOOLTIP_ENG": "Create storylines and input files for gridded runs",
             "TEXT_HUN": "BEMENŐ ADAT KÉSZÍTŐ",
             "TOOLTIP_HUN": "Forgatókönyv és kapcsolódó inputfájlok készítése",
@@ -101,7 +101,7 @@
             "TEXT_FRA": "CRÉATEUR D'ENTRÉES"
         },
         {
-            "ID": "#fileMan",
+            "ID": "#helpme",
             "TEXT_ENG": "HELP",
             "TEXT_HUN": "SÚGÓ",
             "TEXT_GER": "HILFE",
@@ -1478,5 +1478,10 @@
             "TEXT_HUN": "TÖRLÉS",
             "TEXT_GER": "LÖSCHEN",
             "TEXT_FRA": "EFFACER"
+        },
+        {
+            "ID": "#helpback",
+            "TEXT_ENG": "BACK",
+            "TEXT_HUN": "VISSZA"
         }
 ]
