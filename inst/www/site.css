@@ -713,6 +713,15 @@ color: #A9A9A9;
   cursor: pointer;
 }
 
+/*#runningGif {
+  position:absolute;
+  top: 350px !important;
+  width:150px !important;
+  height: 150px !important;
+   overflow-y: hidden !important;
+  overflow-x: hidden !important;
+}*/
+
 #Site-banner-div img{
   cursor: default; 
     }
