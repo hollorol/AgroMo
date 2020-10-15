@@ -40,6 +40,11 @@
   user-select: none;
 }
 
+#runIndicator .modal-body {
+    max-height: 180px;
+    overflow: hidden !important;
+}
+
 #sitediv-sitecellid_container .selectize-control.shinyjs-resettable.single .selectize-input{
     position: absolute;
     top: 25px;

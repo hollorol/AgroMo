@@ -366,103 +366,97 @@ agroServer <- function(input, output, session) {
    }
    
    ## HELP
-   #{
-     # browser()
-     # dat <- callModule(agroMoGrid,"griddiv",
-     #                   dataenv = reactive(datas$dataenv),
-     #                   baseDir = reactive({datas$baseDir}),
-     #                   reactive({datas$connection}),centralData=centralData)
-     #griddi <- callModule(agroMoGrid,"help",baseDir=reactive({datas$baseDir}),reactive({input$languageState}))
-   # callModule(BBGCUI,"help")
+   {
+   #callModule(BBGCUI,"help")
      
      
-   # observeEvent(input$help,{
-   #   shinyjs::hide("base")
-   #   shinyjs::hide("base-tools")
-   #   shinyjs::show("help")
-   #   shinyjs::hide(selector = ".banner")
-   #   shinyjs::show("Help-banner-div")
-   #   shinyjs::show("base_bb_button")
-   #   shinyjs::show("site_bb_button")
-   #   shinyjs::show("plot_bb_button")
-   #   shinyjs::hide("map_bb_button")
-   #   shinyjs::hide("grid_bb_button")
-   #   shinyjs::hide("site_bb_button_two")
-   #   shinyjs::hide("plot_bb_button_two")
-   #   shinyjs::show("map_bb_button_two")
-   #   shinyjs::hide("grid_bb_button_two")
-   # })
-   #}
-   #{
-   # observeEvent(input$base_bb_button,{
-   #   shinyjs::show("base")
-   #   shinyjs::show("base-tools")
-   #   shinyjs::hide("help")
-   #   shinyjs::hide("base_bb_button")
-   #   shinyjs::hide("site_bb_button")
-   #   shinyjs::hide("plot_bb_button")
-   #   shinyjs::hide("map_bb_button")
-   #   shinyjs::hide("grid_bb_button")
-   #   shinyjs::hide("site_bb_button_two")
-   #   shinyjs::hide("plot_bb_button_two")
-   #   shinyjs::hide("map_bb_button_two")
-   #   shinyjs::hide("grid_bb_button_two")
-   #   shinyjs::hide(selector = ".banner")
-   #   shinyjs::show("Base-banner-div")
-   # })
-   #}
-   #{
-   # observeEvent(input$map_bb_button_two,{
-   #   shinyjs::show("mapdiv-mapdiv")
-   #   shinyjs::hide("help")
-   #   shinyjs::hide("base")
-   #   shinyjs::show("base_bb_button")
-   #   shinyjs::show("site_bb_button")
-   #   shinyjs::show("plot_bb_button")
-   #   shinyjs::hide("map_bb_button")
-   #   shinyjs::hide("grid_bb_button")
-   #   shinyjs::hide("site_bb_button_two")
-   #   shinyjs::hide("plot_bb_button_two")
-   #   shinyjs::hide("map_bb_button_two")
-   #   shinyjs::show("grid_bb_button_two")
-   #   shinyjs::hide(selector = ".banner")
-   #   shinyjs::show("Map-banner-div")
-   # })
-   #}
-   #{
-   # observeEvent(input$site_bb_button,{
-   #   shinyjs::show("sitediv-sitediv")
-   #   shinyjs::hide("help")
-   #   shinyjs::show("base_bb_button")
-   #   shinyjs::hide("site_bb_button")
-   #   shinyjs::hide("plot_bb_button")
-   #   shinyjs::show("map_bb_button")
-   #   shinyjs::show("grid_bb_button")
-   #   shinyjs::hide("site_bb_button_two")
-   #   shinyjs::show("plot_bb_button_two")
-   #   shinyjs::hide("map_bb_button_two")
-   #   shinyjs::hide("grid_bb_button_two")
-   #   shinyjs::hide(selector = ".banner")
-   #   shinyjs::show("Site-banner-div")
-   # })
-   #}
-   # {
-   # observeEvent(input$plot_bb_button,{
-   #   shinyjs::show("showdiv-showdiv")
-   #   shinyjs::hide("help")
-   #   shinyjs::show("base_bb_button")
-   #   shinyjs::hide("site_bb_button")
-   #   shinyjs::hide("plot_bb_button")
-   #   shinyjs::show("map_bb_button")
-   #   shinyjs::show("grid_bb_button")
-   #   shinyjs::show("site_bb_button_two")
-   #   shinyjs::hide("plot_bb_button_two")
-   #   shinyjs::hide("map_bb_button_two")
-   #   shinyjs::hide("grid_bb_button_two")
-   #   shinyjs::hide(selector = ".banner")
-   #   shinyjs::show("Show-banner-div")
-   # })
-   #}
+   observeEvent(input$helpme,{
+     shinyjs::hide("base")
+     shinyjs::hide("base-tools")
+     shinyjs::show("help")
+     shinyjs::hide(selector = ".banner")
+     shinyjs::show("Help-banner-div")
+     shinyjs::show("base_bb_button")
+     shinyjs::show("site_bb_button")
+     shinyjs::show("plot_bb_button")
+     shinyjs::hide("map_bb_button")
+     shinyjs::hide("grid_bb_button")
+     shinyjs::hide("site_bb_button_two")
+     shinyjs::hide("plot_bb_button_two")
+     shinyjs::show("map_bb_button_two")
+     shinyjs::hide("grid_bb_button_two")
+   })
+   }
+   {
+    observeEvent(input$base_bb_button,{
+      shinyjs::show("base")
+      shinyjs::show("base-tools")
+      shinyjs::hide("help")
+      shinyjs::hide("base_bb_button")
+      shinyjs::hide("site_bb_button")
+      shinyjs::hide("plot_bb_button")
+      shinyjs::hide("map_bb_button")
+      shinyjs::hide("grid_bb_button")
+      shinyjs::hide("site_bb_button_two")
+      shinyjs::hide("plot_bb_button_two")
+      shinyjs::hide("map_bb_button_two")
+      shinyjs::hide("grid_bb_button_two")
+      shinyjs::hide(selector = ".banner")
+      shinyjs::show("Base-banner-div")
+    })
+   }
+   {
+    observeEvent(input$map_bb_button_two,{
+      shinyjs::show("mapdiv-mapdiv")
+      shinyjs::hide("help")
+      shinyjs::hide("base")
+      shinyjs::show("base_bb_button")
+      shinyjs::show("site_bb_button")
+      shinyjs::show("plot_bb_button")
+      shinyjs::hide("map_bb_button")
+      shinyjs::hide("grid_bb_button")
+      shinyjs::hide("site_bb_button_two")
+      shinyjs::hide("plot_bb_button_two")
+      shinyjs::hide("map_bb_button_two")
+      shinyjs::show("grid_bb_button_two")
+      shinyjs::hide(selector = ".banner")
+      shinyjs::show("Map-banner-div")
+    })
+   }
+   {
+    observeEvent(input$site_bb_button,{
+      shinyjs::show("sitediv-sitediv")
+      shinyjs::hide("help")
+      shinyjs::show("base_bb_button")
+      shinyjs::hide("site_bb_button")
+      shinyjs::hide("plot_bb_button")
+      shinyjs::show("map_bb_button")
+      shinyjs::show("grid_bb_button")
+      shinyjs::hide("site_bb_button_two")
+      shinyjs::show("plot_bb_button_two")
+      shinyjs::hide("map_bb_button_two")
+      shinyjs::hide("grid_bb_button_two")
+      shinyjs::hide(selector = ".banner")
+      shinyjs::show("Site-banner-div")
+    })
+   }
+    {
+    observeEvent(input$plot_bb_button,{
+      shinyjs::show("showdiv-showdiv")
+      shinyjs::hide("help")
+      shinyjs::show("base_bb_button")
+      shinyjs::hide("site_bb_button")
+      shinyjs::hide("plot_bb_button")
+      shinyjs::show("map_bb_button")
+      shinyjs::show("grid_bb_button")
+      shinyjs::show("site_bb_button_two")
+      shinyjs::hide("plot_bb_button_two")
+      shinyjs::hide("map_bb_button_two")
+      shinyjs::hide("grid_bb_button_two")
+      shinyjs::hide(selector = ".banner")
+      shinyjs::show("Show-banner-div")
+    })
+   }
    
    
     ## SITEGENERATOR
