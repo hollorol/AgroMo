@@ -425,6 +425,14 @@
   border-radius: 1px;
 }
 
+#helpback {
+    position: absolute;
+    top: 700px;
+    left: 20px !important;
+    width: 40px;
+    height: 30px;
+}
+
 #exit {
     position: absolute;
     top: 210px;

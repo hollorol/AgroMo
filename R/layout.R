@@ -28,6 +28,8 @@ createLayout <- function(...){
                                   shiny::tags$img("",src="www/img/banner/DBManBanner.png", draggable = FALSE))),
                         hidden(shiny::tags$div(id = "Grid-banner-div", class = "banner",
                                     shiny::tags$img("",src="www/img/banner/GridBanner.png", draggable = FALSE))),
+                        hidden(shiny::tags$div(id = "Help-banner-div", class = "banner",
+                                    shiny::tags$img("",src="www/img/banner/HelpBanner.png", draggable = FALSE))),
                         hidden(shiny::tags$div(id = "BDB-banner-div", class = "banner",
                                     shiny::tags$img("",src="www/img/banner/BDB.png", draggable = FALSE)))))),
              fluidRow(class= "innerGui", shiny::tags$div(id = "root",args)))
