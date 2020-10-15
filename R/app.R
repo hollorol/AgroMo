@@ -367,31 +367,25 @@ agroServer <- function(input, output, session) {
    
    ## HELP
    #{
-     # browser()
-     # dat <- callModule(agroMoGrid,"griddiv",
-     #                   dataenv = reactive(datas$dataenv),
-     #                   baseDir = reactive({datas$baseDir}),
-     #                   reactive({datas$connection}),centralData=centralData)
-     #griddi <- callModule(agroMoGrid,"help",baseDir=reactive({datas$baseDir}),reactive({input$languageState}))
-   # callModule(BBGCUI,"help")
+   #callModule(BBGCUI,"help")
      
      
-   # observeEvent(input$help,{
-   #   shinyjs::hide("base")
-   #   shinyjs::hide("base-tools")
-   #   shinyjs::show("help")
-   #   shinyjs::hide(selector = ".banner")
-   #   shinyjs::show("Help-banner-div")
-   #   shinyjs::show("base_bb_button")
-   #   shinyjs::show("site_bb_button")
-   #   shinyjs::show("plot_bb_button")
-   #   shinyjs::hide("map_bb_button")
-   #   shinyjs::hide("grid_bb_button")
-   #   shinyjs::hide("site_bb_button_two")
-   #   shinyjs::hide("plot_bb_button_two")
-   #   shinyjs::show("map_bb_button_two")
-   #   shinyjs::hide("grid_bb_button_two")
-   # })
+   #observeEvent(input$help,{
+   #  shinyjs::hide("base")
+   #  shinyjs::hide("base-tools")
+   #  shinyjs::show("help")
+   #  shinyjs::hide(selector = ".banner")
+   #  shinyjs::show("Help-banner-div")
+   #  shinyjs::show("base_bb_button")
+   #  shinyjs::show("site_bb_button")
+   #  shinyjs::show("plot_bb_button")
+   #  shinyjs::hide("map_bb_button")
+   #  shinyjs::hide("grid_bb_button")
+   #  shinyjs::hide("site_bb_button_two")
+   #  shinyjs::hide("plot_bb_button_two")
+   #  shinyjs::show("map_bb_button_two")
+   #  shinyjs::hide("grid_bb_button_two")
+   #})
    #}
    #{
    # observeEvent(input$base_bb_button,{
