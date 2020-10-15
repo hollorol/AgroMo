@@ -14,7 +14,7 @@
 }
 
 #sitediv-iniFile_container .selectize-control.shinyjs-resettable.single .selectize-input{
-    position: absolute;
+   position: absolute;
     top: 25px;
     left:-1px;
     width: 550px;
@@ -43,9 +43,9 @@
 #runIndicator .modal-body {
     max-height: 180px;
     overflow: hidden !important;
-    position: absolute;
-    /*top: 250px;*/
- left: 100px;
+    /*position: absolute;
+    top: 250px;
+ left: 100px;*/
 }
 
 #sitediv-sitecellid_container .selectize-control.shinyjs-resettable.single .selectize-input{
