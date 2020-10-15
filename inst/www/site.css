@@ -43,6 +43,9 @@
 #runIndicator .modal-body {
     max-height: 180px;
     overflow: hidden !important;
+    position: absolute;
+    top: 250px;
+    left: 100px;
 }
 
 #sitediv-sitecellid_container .selectize-control.shinyjs-resettable.single .selectize-input{
