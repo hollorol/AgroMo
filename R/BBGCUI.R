@@ -15,10 +15,10 @@ BBGCUI <- function (id) {
 
            #style="position: fixed; z-index: 1; width: 100vw; height: 100vh;"
            
-           tags$iframe(src="www/readme.html",style="width: 1007px;height:770px;background-color:wheat; position: absolute; top:0;left:-50px;"),
+           tags$iframe(src="www/readme.html",style="width: 1007px;height:768px;background-color:wheat; position: absolute; top:0;left:-50px;"),
            #tags$button(id="helpback",'back', style="position: absolute; bottom: 0;left:0; width: 10vw; z-index: 1;"),
            #tags$script(HTML(sprintf("$('#helpback').on('click', function(){$('#%s').toggleClass('shinyjs-hide')})",id))),
            
-           style="position: absolute; z-index: 1; width: 1007px; height: 770px;"
+           style="position: absolute; z-index: 1; width: 1007px; height: 768px;"
       )
 }
