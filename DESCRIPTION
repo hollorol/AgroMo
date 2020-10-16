@@ -1,11 +1,23 @@
 Package: AgroMo
 Title: The AgroMo GUI provider
-Version: 0.1.2
+Version: 1.0
 Authors@R: 
-    person(given = "Roland",
-           family = "Hollós",
-           role = c("aut", "cre"),
-           email = "hollorol@gmail.com")
+  c(person(given = "Roland",
+          family = "Hollós",
+          role = c("aut", "cre"),
+          email = "hollorol@caesar.elte.hu"),
+  person(given = "Nándor",
+         family = "Fodor",
+         role = "aut",
+         email = "fodor.nandor@atk.hu"),
+  person(given = "Anna",
+         family = "Kis",
+         role = "aut",
+         email = "kisanna0610@gmail.com"),
+  person(given = "Erzsébet",
+         family = "Kristóf",
+         role = "aut",
+         email = "e.kristof1@gmail.com"))
 Description: This package is provides the R-code and the model executable for running AgroMo GUI
 Imports:
   shiny,

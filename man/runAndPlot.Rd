@@ -30,7 +30,9 @@ runAndPlot(
   irrshift_amount,
   connection,
   centralData,
-  siteRun
+  siteRun,
+  plotid,
+  runModel
 )
 }
 \description{
