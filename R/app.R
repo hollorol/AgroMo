@@ -92,40 +92,6 @@ agroServer <- function(input, output, session) {
             
         })
     }
-    ## BASE "MODULE"
-#    onclick("Site-banner-div",{
-    #        hide("sitediv-sitediv")
-    #    show("base")
-    #    show("base-tools")
-    #    hide(selector = ".banner")
-    #    show("Base-banner-div")
-    #})
-    
-   # onclick("Show-banner-div",{
-    #  shinyjs::hide("showdiv-showdiv")
-    #  shinyjs::show("base")
-    #  shinyjs::show("base-tools")
-    #  shinyjs::hide(selector = ".banner")
-    #  shinyjs::show("Base-banner-div")
-    #})
-
-    #onclick("Grid-banner-div",{
-    #  shinyjs::hide("griddiv-griddiv")
-    #  shinyjs::show("base")
-    #  shinyjs::show("base-tools")
-    #  shinyjs::hide(selector = ".banner")
-    #  shinyjs::show("Base-banner-div")
-    #})
-   
-    #onclick("Map-banner-div",{
-    # shinyjs::hide("mapdiv-mapdiv")
-    # shinyjs::show("base")
-    # shinyjs::show("base-tools")
-    # shinyjs::hide(selector = ".banner")
-    # shinyjs::show("Base-banner-div")
-    #})
-
-    # SITE MODULE
 {
     # browser()
     dat <- callModule(agroMoSite,"sitediv",

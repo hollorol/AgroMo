@@ -21,42 +21,6 @@
       id =paste0(ns("repcheck"),"_container"),
       checkboxInput(ns("repcheck"), label = "show and save", value = TRUE)
     ),
-    #tags$div(
-    #  id =paste0(ns("checkone"),"_container"), title ="query all items if checked",
-    #  checkboxInput(ns("checkone"), label = "", value = TRUE)
-    #),
-    #tags$div(
-    # id =paste0(ns("checktwo"),"_container"),
-    # checkboxInput(ns("checktwo"), label = "", value = TRUE)
-    #),
-    #tags$div(
-    # id =paste0(ns("checkthree"),"_container"),
-    # checkboxInput(ns("checkthree"), label = "", value = TRUE)
-    #),
-    #tags$div(
-    # id =paste0(ns("checkfour"),"_container"),
-    # checkboxInput(ns("checkfour"), label = "", value = TRUE)
-    #),
-    #tags$div(
-    # id =paste0(ns("checkfive"),"_container"),
-    # checkboxInput(ns("checkfive"), label = "", value = TRUE)
-    #),
-    #tags$div(
-    # id =paste0(ns("checksix"),"_container"),
-    # checkboxInput(ns("checksix"), label = "", value = TRUE)
-    #),
-    #tags$div(
-    # id =paste0(ns("checkseven"),"_container"),
-    # checkboxInput(ns("checkseven"), label = "", value = TRUE)
-    #),
-    #tags$div(
-    # id =paste0(ns("checkeight"),"_container"),
-    # checkboxInput(ns("checkeight"), label = "", value = TRUE)
-    #),
-    #tags$div(
-    # id =paste0(ns("checknine"),"_container"),
-    #  checkboxInput(ns("checknine"), label = "", value = TRUE)
-    #),
     tags$div(
       id =paste0(ns("annual"),"_container"),
       checkboxInput(ns("annual"), label = "annual outputs", value = TRUE)
@@ -269,6 +233,26 @@ agroMoGrid <- function(input, output, session, baseDir, language){
                                                           endYear=x[,4],
                                                           numDays=365*(x[,4]-x[,3]+1))
                                                 })(dat$storyCSV),stringsAsFactor=FALSE)
+                         inF <- readLines(file.path(baseDir(),
+                                                    "input/initialization/grid",
+                                                    input$story,
+                                                    paste0(storyRow[1,"name"],".ini")))
+                         weather <- basename(dirname(inF[4]))
+                         soil <- basename(dirname(inF[39]))
+                        tryCatch({updateSelectInput(session,"climproj",selected=weather)},
+                            error=function(e){
+                                showNotification("Climate file directory (defined in storyLine) not found",type="error")
+                            }
+                                
+                        )
+
+                        tryCatch({updateSelectInput(session,"soildb",selected=soil)},
+                            error=function(e){
+                                showNotification("Soil file directory (defined in storyLine) not found",type="error")
+                            }
+                                
+                        )
+
                          dat$story <-split(storyRow,storyRow$site)
                          # sites <- split(dat$storyCSV, dat$storyCSV[,1])
                          # dat$numYears <- as.numeric(lapply(sites,function(m){
