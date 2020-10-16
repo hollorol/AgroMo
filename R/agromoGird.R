@@ -157,7 +157,9 @@ agroMoGrid <- function(input, output, session, baseDir, language){
                           jsonNumbers=NULL,
                           querySelector=NULL,
                           queries=NULL,
-                          language="en")
+                          language="en",
+                          weatherOptions=NULL,
+                          soilOptions=NULL)
     observe({
         if(!is.null(language())){
             dat$language <- language()
@@ -197,6 +199,7 @@ agroMoGrid <- function(input, output, session, baseDir, language){
         projections <- basename(list.dirs(file.path(baseDir(),"input/weather/grid"))[-1])
         if(length(projections)!=0){
             updateSelectInput(session,"climproj",choices=projections)
+            dat$weatherOptions <- projections
         }
     })
 
@@ -204,6 +207,7 @@ agroMoGrid <- function(input, output, session, baseDir, language){
         soils <- basename(list.dirs(file.path(baseDir(),"input/soil/grid"))[-1])
         if(length(soils)!=0){
             updateSelectInput(session,"soildb",choices=soils)
+            dat$soilOptions <- soils
         }
     })
 
@@ -239,19 +243,19 @@ agroMoGrid <- function(input, output, session, baseDir, language){
                                                     paste0(storyRow[1,"name"],".ini")))
                          weather <- basename(dirname(inF[4]))
                          soil <- basename(dirname(inF[39]))
-                        tryCatch({updateSelectInput(session,"climproj",selected=weather)},
-                            error=function(e){
-                                showNotification("Climate file directory (defined in storyLine) not found",type="error")
-                            }
-                                
-                        )
 
-                        tryCatch({updateSelectInput(session,"soildb",selected=soil)},
-                            error=function(e){
+                         if(is.element(weather,dat$weatherOptions)){
+                             updateSelectizeInput(session,"climproj",choices=unique(dat$weatherOptions),selected=weather)
+                         } else {
+                                showNotification("Climate file directory (defined in storyLine) not found",type="error")
+                         }
+
+                         if(is.element(soil,dat$soilOptions)){
+                             updateSelectizeInput(session,"soildb",choices=unique(dat$soilOptions),selected=soil)
+                         } else {
                                 showNotification("Soil file directory (defined in storyLine) not found",type="error")
-                            }
-                                
-                        )
+                         }
+
 
                          dat$story <-split(storyRow,storyRow$site)
                          # sites <- split(dat$storyCSV, dat$storyCSV[,1])
