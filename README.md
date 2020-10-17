@@ -122,10 +122,12 @@ AgroMo GUI uses the freely available Fira Sans font family. Please, install the 
 
 ### Using Installer
 
-[Direct link to the Installer](https://owncloud.agrar.mta.hu/owncloud/index.php/s/tN5JaGuLsjBrjzv/download)
+[Direct link to the Installer](https://owncloud.atk.hu/index.php/s/7ODCTJU8qPpckUs/download)
 
-- [x] After starting the Installer, choose installation folder by entering a valid folder name with full path or by clicking the Modify icon or leave default unaltered. If the folder does not exist the installer will create it.
-- [x] AgroMo can be started from this folder later by launching the AgroMo_Launch.exe application.
+- [x] AgroMo does not require installation, actually. Download the Installer that is practically a zipped AgroMo folder.
+- [x] Unzip/extract the AgroMo folder to any (convenient) location on your PC. Note: there is no need to create an extra AgroMo or any other folder before extracting. Though, you may decide to use another main folder (e.g. MyAgroMo). In this case, copy/extract the content of the zipped AgroMo folder into your folder.
+- [x] AgroMo starts with .\AgroMo\AgroMo_Launch.exe and by clicking the [LAUNCH AGROMO] button.
+
 
 ### Using pure R
 
