@@ -108,8 +108,12 @@ An example that retrieves the average annual Net Primary Production for each gri
 
 ![alt text](img/map_gui.png "AgroMo Map")
 
-- [x] Coming soon
-
+- [x] Query results are stored in .sql files that can be selected from the data source drop down menu. Data in an .sql file usually define a gridded map.
+- [x] Set some basic features of the map by selecting a palette, switching on/off the the country contour and the latitude/longitude lines, selecting a color for the masked cells.
+- [x] Two options can be selected for creating the map: 1) select the number of colors to be used on the map; 2) define an interval that will be used to partitioning the range of the presented values and define the range by setting the minimum and maximum values to be presented on the map. Note: the max-min difference should be larger than the interval.
+- [x] Set the number of decimal places for the values to be presented on the map.
+- [x] Provide a map title and click the [CREATE MAP] button.
+- [x] A preview map is presented that can enlarged by clicking it. A larger resolution version of the map (.png) is automatically saved in the .\data\output\map_image\ folder.
 
 
 ## Install AgroMo
