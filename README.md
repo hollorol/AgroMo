@@ -4,6 +4,18 @@
 
 AgroMo is an Integrated Assessment and Modelling software that integrates 4M (Fodor et al. 2014) a CERES based crop model, the Biome-BGCMuSo (Hidy et al. 2016) biogeochemical and a simple agro-economical model in order to support decision makers at multiple scales.
 
+## Install AgroMo
+
+AgroMo GUI uses the freely available Fira Sans font family. Please, install the font in order to obtain proper outlook. The font is available [here](https://fonts.google.com/specimen/Fira+Sans).
+
+### Using Installer
+
+[Direct link to the Installer](https://owncloud.atk.hu/index.php/s/7ODCTJU8qPpckUs/download)
+
+- [x] AgroMo does not require installation, actually. Download the Installer that is practically a zipped AgroMo folder.
+- [x] Unzip/extract the AgroMo folder to any (convenient) location on your PC. Note: there is no need to create an extra AgroMo or any other folder before extracting. Though, you may decide to use another main folder (e.g. MyAgroMo). In this case, copy/extract the content of the zipped AgroMo folder into your folder.
+- [x] AgroMo starts with .\AgroMo\AgroMo_Launch.exe and by clicking the [LAUNCH AGROMO] button.
+
 ## AgroMo User Interface
 
 A graphical user interface (GUI) has been developed for providing easy and user friendly access to the functions of the AgroMo system. When lunching the AgroMo App the user meets the AgroMo Base form first.
@@ -120,13 +132,6 @@ An example that retrieves the average annual Net Primary Production for each gri
 
 AgroMo GUI uses the freely available Fira Sans font family. Please, install the font in order to obtain proper outlook. The font is available [here](https://fonts.google.com/specimen/Fira+Sans).
 
-### Using Installer
-
-[Direct link to the Installer](https://owncloud.atk.hu/index.php/s/7ODCTJU8qPpckUs/download)
-
-- [x] AgroMo does not require installation, actually. Download the Installer that is practically a zipped AgroMo folder.
-- [x] Unzip/extract the AgroMo folder to any (convenient) location on your PC. Note: there is no need to create an extra AgroMo or any other folder before extracting. Though, you may decide to use another main folder (e.g. MyAgroMo). In this case, copy/extract the content of the zipped AgroMo folder into your folder.
-- [x] AgroMo starts with .\AgroMo\AgroMo_Launch.exe and by clicking the [LAUNCH AGROMO] button.
 
 
 ### Using pure R
