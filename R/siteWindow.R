@@ -66,7 +66,7 @@ agroMoSiteUI <- function(id){
              #        checkboxInput(ns("sitep"), label = "Observed data only", value = TRUE)
              #      ),
              shiny::tags$div(id="manModuls","management options:"),
-             shiny::tags$div(id="shiftIn","shift in ..."),
+             shiny::tags$div(id="shiftIn","change (+/-):"),
              #shiny::tags$div(id="negyzet","2"),
              shiny::tags$div(id="outputid-label","OUTPUT DATA TABLE:"),
              lapply(managementTypes,function(man){
