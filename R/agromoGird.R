@@ -255,7 +255,9 @@ agroMoGrid <- function(input, output, session, baseDir, language){
                          } else {
                                 showNotification("Soil file directory (defined in storyLine) not found",type="error")
                          }
-
+                         # outName <- paste(input$story, match(weather,unique(dat$weatherOptions)),
+                         #                               match(soil,unique(dat$soilOptions)), sep="__")
+                         # updateTextInput(session,"outsq", value=outName)
 
                          dat$story <-split(storyRow,storyRow$site)
                          # sites <- split(dat$storyCSV, dat$storyCSV[,1])
@@ -525,6 +527,11 @@ agroMoGrid <- function(input, output, session, baseDir, language){
    observeEvent(input$Map,{
     toreturn$showMap <- input$Map
     })
+
+   observe({
+        outN <- paste(input$story, match(input$climproj,dat$weatherOptions),match(input$soildb,dat$soilOptions), sep="_")
+        updateTextInput(session,"outsq", value=outN)
+   })
 
    return(toreturn)
 }
