@@ -325,10 +325,10 @@
         },
         {
             "ID": "#shiftIn",
-            "TEXT_ENG": "shift in ...",
-            "TEXT_HUN": "ezek módosítása ...",
-            "TEXT_GER": "Verschiebung in ...",
-            "TEXT_FRA": "changement dans ...",
+            "TEXT_ENG": "change (+/-):",
+            "TEXT_HUN": "módosítás (+/-):",
+            "TEXT_GER": "änderung (+/-):",
+            "TEXT_FRA": "amendement (+/-):",
             "TEXT_ESP": "cambio en ...",
             "TEXT_POR": "mudança em ...",
             "TEXT_RUS": "сдвиг в ...",
@@ -746,7 +746,7 @@
         {
             "ID": "#colthree",
             "TEXT_ENG": "FUNC",
-            "TEXT_HUN": "FÜGV",
+            "TEXT_HUN": "FÜGGV",
             "TEXT_GER": "FUNK",
             "TEXT_FRA": "Fonction"
         },
