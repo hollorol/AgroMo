@@ -52,7 +52,7 @@
             "TEXT_RUS": "АНАЛИЗ ПАРАМЕТРОВ",
             "TOOLTIP_RUS": "Калибровка модели, и многое другое...",
             "TEXT_CHN": "参数分析",
-            "TOOLTIP_CHN": "模型校准等...",
+            "TOOLTIP_CHN": "参数读取、校正和敏感性分析",
             "TEXT_JPN": "パラメータ分析",
             "TOOLTIP_JPN": "モデルキャリブレーションなど."
         },
@@ -73,7 +73,7 @@
             "TEXT_RUS": "МЕНЕДЖЕР ВВОДА",
             "TOOLTIP_RUS": "Загрузка данных из открытых баз данных",
             "TEXT_CHN": "输入管理器",
-            "TOOLTIP_CHN": "从打开的数据库下载数据",
+            "TOOLTIP_CHN": "从公开的数据库下载数据",
             "TEXT_JPN": "インプットマネージャー",
             "TOOLTIP_JPN": "開いているデータベースからデータをダウンロードする"
         },
@@ -89,6 +89,7 @@
             "TEXT_POR": "GESTOR DE BASE DE DADOs",
             "TEXT_RUS": "МЕНЕДЖЕР БАЗ ДАННЫХ",
             "TEXT_CHN": "数据库管理器",
+            "TOOLTIP_CHN": "管理数据表和运行SQL查询",
             "TEXT_JPN": "データベース・マネージャー"
         },
         {
@@ -98,14 +99,17 @@
             "TEXT_HUN": "BEMENŐ ADAT KÉSZÍTŐ",
             "TOOLTIP_HUN": "Forgatókönyv és kapcsolódó inputfájlok készítése",
             "TEXT_GER": "INPUT-BILDNER",
-            "TEXT_FRA": "CRÉATEUR D'ENTRÉES"
+            "TEXT_FRA": "CRÉATEUR D'ENTRÉES",
+            "TEXT_CHN": "模型框架",
+            "TOOLTIP_CHN": "为栅格运行创建框架和输入文件"
         },
         {
             "ID": "#helpme",
             "TEXT_ENG": "HELP",
             "TEXT_HUN": "SÚGÓ",
             "TEXT_GER": "HILFE",
-            "TEXT_FRA": "ASSISTANCE"
+            "TEXT_FRA": "ASSISTANCE",
+            "TEXT_CHN": "帮助"
         },
         {
             "ID": "#mainSideBarLang",
@@ -164,7 +168,7 @@
             "TOOLTIP_ESP": "日本語版",
             "TOOLTIP_POR": "日本語版",
             "TOOLTIP_RUS": "日本語版",
-            "TOOLTIP_CHN": "日本語版",
+            "TOOLTIP_CHN": "日语版",
             "TOOLTIP_JPN": "日本語版"
         },
         {
@@ -260,7 +264,7 @@
             "TOOLTIP_ESP": "Simulaciones de nivel de trazado",
             "TOOLTIP_POR": "Simulações de nível de enredo",
             "TOOLTIP_RUS": "Моделирование уровня участка",
-            "TOOLTIP_CHN": "绘图级别模拟",
+            "TOOLTIP_CHN": "站点/格点模拟",
             "TOOLTIP_JPN": "プロット レベル シミュレーション"
         },
         {
@@ -272,7 +276,7 @@
             "TOOLTIP_ESP": "Creador de trazados",
             "TOOLTIP_POR": "Criador de enredo",
             "TOOLTIP_RUS": "Создатель участка",
-            "TOOLTIP_CHN": "绘图创建者",
+            "TOOLTIP_CHN": "格点模拟结果",
             "TOOLTIP_JPN": "プロット作成者"
         },
         {
@@ -284,7 +288,7 @@
             "TOOLTIP_ESP": "Simulaciones de nivel de cuadrícula",
             "TOOLTIP_POR": "Simulações de nível de grelha",
             "TOOLTIP_RUS": "Моделирование уровня сетки",
-            "TOOLTIP_CHN": "网格级模拟",
+            "TOOLTIP_CHN": "网格尺度模拟",
             "TOOLTIP_JPN": "グリッド レベルシミュレーション"
         },
         {
@@ -296,7 +300,7 @@
             "TOOLTIP_ESP": "Creador de mapas",
             "TOOLTIP_POR": "Criador de mapas",
             "TOOLTIP_RUS": "Создатель карты",
-            "TOOLTIP_CHN": "地图创建者",
+            "TOOLTIP_CHN": "地图模拟结果",
             "TOOLTIP_JPN": "マップ作成者"
         },
         {
@@ -325,14 +329,14 @@
         },
         {
             "ID": "#shiftIn",
-            "TEXT_ENG": "change (+/-):",
-            "TEXT_HUN": "módosítás (+/-):",
-            "TEXT_GER": "änderung (+/-):",
-            "TEXT_FRA": "amendement (+/-):",
+            "TEXT_ENG": "shift in ...",
+            "TEXT_HUN": "ezek módosítása ...",
+            "TEXT_GER": "Verschiebung in ...",
+            "TEXT_FRA": "changement dans ...",
             "TEXT_ESP": "cambio en ...",
             "TEXT_POR": "mudança em ...",
             "TEXT_RUS": "сдвиг в ...",
-            "TEXT_CHN": "换班...",
+            "TEXT_CHN": "转换...",
             "TEXT_JPN": "でシフト."
         },
         {
@@ -344,7 +348,7 @@
             "TEXT_ESP": "Archivo INI:",
             "TEXT_POR": "Ficheiro INI:",
             "TEXT_RUS": "ФАЙЛ INI:",
-            "TEXT_CHN": "INI 文件：",
+            "TEXT_CHN": "初始化数据：",
             "TEXT_JPN": "INI ファイル:"
         },
         {
@@ -356,7 +360,7 @@
             "TEXT_ESP": "Archivo WEATHER:",
             "TEXT_POR": "Ficheiro WEATHER:",
             "TEXT_RUS": "Файл WEATHER:",
-            "TEXT_CHN": "天气文件：",
+            "TEXT_CHN": "气候数据：",
             "TEXT_JPN": "天気ファイル:"
         },
         {
@@ -368,7 +372,7 @@
             "TEXT_ESP": "Archivo SOIL:",
             "TEXT_POR": "Ficheiro SOLO:",
             "TEXT_RUS": "Файл SOIL:",
-            "TEXT_CHN": "土壤文件：",
+            "TEXT_CHN": "土壤数据：",
             "TEXT_JPN": "土壌ファイル:"
         },
         {
@@ -380,7 +384,7 @@
             "TEXT_ESP": "Archivo MANAGEMENT:",
             "TEXT_POR": "Ficheiro MANAGEMENT:",
             "TEXT_RUS": "Файл MANAGEMENT:",
-            "TEXT_CHN": "管理文件：",
+            "TEXT_CHN": "管理数据：",
             "TEXT_JPN": "管理ファイル:"
         },
         {
@@ -404,7 +408,7 @@
             "TEXT_ESP": "Cosecha:",
             "TEXT_POR": "Colheita:",
             "TEXT_RUS": "Урожай:",
-            "TEXT_CHN": "收获：",
+            "TEXT_CHN": "收割：",
             "TEXT_JPN": "収穫："
         },
         {
@@ -440,7 +444,7 @@
             "TEXT_ESP": "Cultivo:",
             "TEXT_POR": "cultivo:",
             "TEXT_RUS": "Выращивания:",
-            "TEXT_CHN": "培养：",
+            "TEXT_CHN": "耕作：",
             "TEXT_JPN": "栽培："
         },
         {
@@ -519,7 +523,7 @@
             "TOOLTIP_POR": "Criar enredos usando resultados de simulação",
             "TEXT_RUS": "Печати",
             "TOOLTIP_RUS": "Создание участков с использованием результатов моделирования",
-            "TEXT_CHN": "情节",
+            "TEXT_CHN": "绘图",
             "TOOLTIP_CHN": "使用模拟结果创建绘图",
             "TEXT_JPN": "プロット",
             "TOOLTIP_JPN": "シミュレーション結果を使用してプロットを作成する"
@@ -593,7 +597,7 @@
             "TEXT_ESP": "cantidad (kg/ha):",
             "TEXT_POR": "quantidade (kg/ha):",
             "TEXT_RUS": "количество (кг/га):",
-            "TEXT_CHN": "数量（公斤/公顷）：",
+            "TEXT_CHN": "数量（kg/ha）：",
             "TEXT_JPN": "量(kg /ha):"
         },
         {
@@ -605,7 +609,7 @@
             "TEXT_ESP": "cantidad (mm):",
             "TEXT_POR": "montante (mm):",
             "TEXT_RUS": "количество (мм):",
-            "TEXT_CHN": "数量（毫米）：",
+            "TEXT_CHN": "数量（mm）：",
             "TEXT_JPN": "金額 (mm):"
         },
         {
@@ -641,7 +645,7 @@
             "TEXT_ESP": "CREAR PARCELA CON:",
             "TEXT_POR": "CRIAR ENREDO COM:",
             "TEXT_RUS": "СОЗДАЙТЕ СЮЖЕТ С ПОМОЩЬЮ:",
-            "TEXT_CHN": "使用：",
+            "TEXT_CHN": "绘图：",
             "TEXT_JPN": "次の方法でプロットを作成します。"
         },
         {
@@ -649,7 +653,8 @@
             "TEXT_ENG": "data file:",
             "TEXT_HUN": "adat fájl:",
             "TEXT_GER": "daten file:",
-            "TEXT_FRA": "FICHIER DE DONNÉES"
+            "TEXT_FRA": "FICHIER DE DONNÉES",
+            "TEXT_CHN": "数据文件"
         },
         {
             "ID": "#showdiv-alias_container label",
@@ -679,7 +684,7 @@
             "TOOLTIP_POR": "Delet resultados de simulação selecionados da lista",
             "TEXT_RUS": "УДАЛЕНИЕ ВЫБРАНО",
             "TOOLTIP_RUS": "Удаление выбранных результатов моделирования из списка",
-            "TEXT_CHN": "删除已选择",
+            "TEXT_CHN": "删除所选项",
             "TOOLTIP_CHN": "从列表中删除选定的模拟结果",
             "TEXT_JPN": "選択した削除",
             "TOOLTIP_JPN": "選択したシミュレーション結果をリストから削除します"
@@ -700,7 +705,7 @@
             "TOOLTIP_POR": "Exportar dados de enredo num ficheiro Excel",
             "TEXT_RUS": "Экспорт",
             "TOOLTIP_RUS": "Экспорт данных участка в файл Excel",
-            "TEXT_CHN": "出口",
+            "TEXT_CHN": "输出",
             "TOOLTIP_CHN": "将绘图数据导出到 Excel 文件中",
             "TEXT_JPN": "エクスポート",
             "TOOLTIP_JPN": "Excel ファイルへの印刷データのエクスポート"
@@ -726,7 +731,7 @@
             "TEXT_ESP": "filtro para:",
             "TEXT_POR": "filtro para:",
             "TEXT_RUS": "фильтр для:",
-            "TEXT_CHN": "筛选器到：",
+            "TEXT_CHN": "筛选：",
             "TEXT_JPN": "フィルタの適用範囲:"
         },
         {
@@ -766,7 +771,7 @@
             "TEXT_ESP": "Historia:",
             "TEXT_POR": "ENREDO:",
             "TEXT_RUS": "Сюжет:",
-            "TEXT_CHN": "故事 情节：",
+            "TEXT_CHN": "框架：",
             "TEXT_JPN": "ストーリー："
         },
         {
@@ -886,7 +891,7 @@
             "TEXT_ESP": "Informe",
             "TEXT_POR": "RELATÓRIO",
             "TEXT_RUS": "Отчет",
-            "TEXT_CHN": "报告",
+            "TEXT_CHN": "结果",
             "TEXT_JPN": "レポート"
         },
         {
@@ -910,7 +915,7 @@
             "TEXT_ESP": "[inicio-fin]:",
             "TEXT_POR": "[início]:",
             "TEXT_RUS": "«Старт-конец»:",
-            "TEXT_CHN": "[开始结束]：",
+            "TEXT_CHN": "[开始-结束]：",
             "TEXT_JPN": "[スタートエンド]:"
         },
         {
@@ -918,35 +923,40 @@
             "TEXT_ENG": "ensemble",
             "TEXT_HUN": "csoport",
             "TEXT_GER": "Ensemble",
-            "TEXT_FRA": "ensemble"
+            "TEXT_FRA": "ensemble",
+            "TEXT_CHN": "全选"
         },
         {
             "ID": "#griddiv-ensclim_container span",
             "TEXT_ENG": "ensemble",
             "TEXT_HUN": "csoport",
             "TEXT_GER": "Ensemble",
-            "TEXT_FRA": "ensemble"
+            "TEXT_FRA": "ensemble",
+            "TEXT_CHN": "全选"
         },
         {
             "ID": "#griddiv-ensalg_container span",
             "TEXT_ENG": "ensemble",
             "TEXT_HUN": "csoport",
             "TEXT_GER": "Ensemble",
-            "TEXT_FRA": "ensemble"
+            "TEXT_FRA": "ensemble",
+            "TEXT_CHN": "全选"
         },
         {
             "ID": "#griddiv-repcheck_container span",
             "TEXT_ENG": "show & save",
             "TEXT_HUN": "mutat & ment",
             "TEXT_GER": "anzeigen & speichern",
-            "TEXT_FRA": "le show & sauver"
+            "TEXT_FRA": "le show & sauver",
+            "TEXT_CHN": "示例并保存"
         },
         {
             "ID": "#griddiv-annual_container span",
             "TEXT_ENG": "annual outputs",
             "TEXT_HUN": "éves kimenetek",
             "TEXT_GER": "jährlichen Outputs",
-            "TEXT_FRA": "annuel outputs"
+            "TEXT_FRA": "annuel outputs",
+            "TEXT_CHN": "年输出"
         },
         {
             "ID": "#mapdiv-invert_container span",
@@ -957,7 +967,7 @@
             "TEXT_ESP": "Invertido",
             "TEXT_POR": "invertido",
             "TEXT_RUS": "Перевернутый",
-            "TEXT_CHN": "倒",
+            "TEXT_CHN": "倒置",
             "TEXT_JPN": "反転"
         },
         {
@@ -969,7 +979,7 @@
             "TEXT_ESP": "contorno del país",
             "TEXT_POR": "contorno país",
             "TEXT_RUS": "контур страны",
-            "TEXT_CHN": "国家轮廓",
+            "TEXT_CHN": "国界线",
             "TEXT_JPN": "国の輪郭"
         },
         {
@@ -981,7 +991,7 @@
             "TEXT_ESP": "líneas lat/lon",
             "TEXT_POR": "linhas lat/lon",
             "TEXT_RUS": "линии лат/лон",
-            "TEXT_CHN": "lat/lon 线",
+            "TEXT_CHN": "纬度/经度 线",
             "TEXT_JPN": "ラット/ロンライン"
         },
         {
@@ -1001,7 +1011,7 @@
             "TEXT_RUS": "источник данных:",
             "TOOLTIP_RUS": "Выберите файл sql для представления результатов запроса на карте",
             "TEXT_CHN": "数据源：",
-            "TOOLTIP_CHN": "选择 sql 文件在地图上显示查询结果",
+            "TOOLTIP_CHN": "在地图上显示选择 sql 文件的查询结果",
             "TEXT_JPN": "データ ソース:",
             "TOOLTIP_JPN": "マップ上にクエリ結果を表示する SQL ファイルを選択します。"
         },
@@ -1022,7 +1032,7 @@
             "TEXT_RUS": "Палитры:",
             "TOOLTIP_RUS": "Выберите цветовую палитру для карты",
             "TEXT_CHN": "调色板：",
-            "TOOLTIP_CHN": "为地图选择调色板",
+            "TOOLTIP_CHN": "选择地图调色板",
             "TEXT_JPN": "パレット：",
             "TOOLTIP_JPN": "マップのカラー パレットを選択する"
         },
@@ -1043,7 +1053,7 @@
             "TEXT_RUS": "Цвета:",
             "TOOLTIP_RUS": "Выберите количество цветов/подзагосок, которые будут отличаться на карте",
             "TEXT_CHN": "颜色：",
-            "TOOLTIP_CHN": "选择要在地图上区分的颜色/子范围数",
+            "TOOLTIP_CHN": "选择地图的颜色和子区域个数",
             "TEXT_JPN": "色：",
             "TOOLTIP_JPN": "マップ上で識別する色/部分範囲の数を選択します。"
         },
@@ -1063,8 +1073,8 @@
             "TOOLTIP_POR": "Selecione o número de locais decimais mostrados nos valores apresentados",
             "TEXT_RUS": "десятичные места:",
             "TOOLTIP_RUS": "Выберите количество десятичных мест, указанных в представленных значениях",
-            "TEXT_CHN": "小数位：",
-            "TOOLTIP_CHN": "选择显示的值中显示的小数位数",
+            "TEXT_CHN": "小数位数：",
+            "TOOLTIP_CHN": "选择显示的值中的小数位数",
             "TEXT_JPN": "小数点：",
             "TOOLTIP_JPN": "表示された値に表示される小数点以下の桁数を選択します。"
         },
@@ -1084,8 +1094,8 @@
             "TOOLTIP_POR": "Definir o valor mínimo para os dados apresentados no mapa",
             "TEXT_RUS": "значение мин-макс:",
             "TOOLTIP_RUS": "Установите минимальное значение для данных, представленных на карте",
-            "TEXT_CHN": "最小最大值：",
-            "TOOLTIP_CHN": "为地图上显示的数据设置最小值",
+            "TEXT_CHN": "最小-最大值：",
+            "TOOLTIP_CHN": "为地图上显示的数据设置最小值和最大值",
             "TEXT_JPN": "最小の最大値:",
             "TOOLTIP_JPN": "マップ上に表示されるデータの最小値を設定する"
         },
@@ -1106,7 +1116,7 @@
             "TEXT_RUS": "Интервал:",
             "TOOLTIP_RUS": "Установить интервал",
             "TEXT_CHN": "区间：",
-            "TOOLTIP_CHN": "设置间隔",
+            "TOOLTIP_CHN": "设置区间范围",
             "TEXT_JPN": "間隔：",
             "TOOLTIP_JPN": "間隔を設定する"
         },
@@ -1126,8 +1136,8 @@
             "TOOLTIP_POR": "Selecione a cor da máscara (para regiões sem dados)",
             "TEXT_RUS": "цвет маски:",
             "TOOLTIP_RUS": "Выберите цвет маски (для регионов без данных)",
-            "TEXT_CHN": "蒙版颜色：",
-            "TOOLTIP_CHN": "选择蒙版颜色（对于没有数据的区域）",
+            "TEXT_CHN": "掩膜色：",
+            "TOOLTIP_CHN": "选择掩膜色（对于没有数据的区域）",
             "TEXT_JPN": "マスク色:",
             "TOOLTIP_JPN": "マスクの色を選択する(データのない領域の場合)"
         },
@@ -1148,7 +1158,7 @@
             "TEXT_RUS": "название карты:",
             "TOOLTIP_RUS": "Добавить название на карту",
             "TEXT_CHN": "地图标题：",
-            "TOOLTIP_CHN": "向地图添加标题",
+            "TOOLTIP_CHN": "添加地图标题",
             "TEXT_JPN": "マップタイトル:",
             "TOOLTIP_JPN": "マップにタイトルを追加する"
         },
@@ -1161,7 +1171,7 @@
             "TEXT_ESP": "Metadatos:",
             "TEXT_POR": "Metadados:",
             "TEXT_RUS": "Метаданных:",
-            "TEXT_CHN": "元：",
+            "TEXT_CHN": "元数据：",
             "TEXT_JPN": "メタデータ："
         },
         {
@@ -1193,21 +1203,24 @@
             "TEXT_ENG": "WORKING DIRECTORY:",
             "TEXT_HUN": "MUNKAKÖNYVTÁR:",
             "TEXT_GER": "ARBEITSVERZEICHNIS:",
-            "TEXT_FRA": "directeur de travail"
+            "TEXT_FRA": "directeur de travail",
+            "TEXT_CHN": "工作目录"
         },
         {
             "ID": "#paranadiv-paranaexp_container label",
             "TEXT_ENG": "OBSERVATION DATA file:",
             "TEXT_HUN": "MEGFIGYELÉSIADAT fájl:",
             "TEXT_GER": "BEOBACHTUNGSDATEN file:",
-            "TEXT_FRA": "FICHIER DE DONNÉES D'OBSERVATION"
+            "TEXT_FRA": "FICHIER DE DONNÉES D'OBSERVATION",
+            "TEXT_CHN": "观测数据文件"
         },
         {
             "ID": "#paranadiv-ctlfile_container label",
             "TEXT_ENG": "CONTROL file:",
             "TEXT_HUN": "VEZÉRLŐ fájl:",
             "TEXT_GER": "KONTROLL file:",
-            "TEXT_FRA": "FICHIER DE CONTRÔLE"
+            "TEXT_FRA": "FICHIER DE CONTRÔLE",
+            "TEXT_CHN": "控制文件"
         },
         {
             "ID": "#paranadiv-paranait_container label",
@@ -1230,7 +1243,7 @@
             "TEXT_ESP": "función de caracterización para la sensibilidad",
             "TEXT_POR": "função de caracterização para sensibilidade",
             "TEXT_RUS": "функция характеристики чувствительности",
-            "TEXT_CHN": "灵敏度表征功能",
+            "TEXT_CHN": "敏感性特征函数",
             "TEXT_JPN": "感度のための特性評価関数"
         },
         {
@@ -1242,7 +1255,7 @@
             "TEXT_ESP": "ANÁLISIS DE DO",
             "TEXT_POR": "FAZER ANÁLISE",
             "TEXT_RUS": "ПРО АНАЛИЗ",
-            "TEXT_CHN": "做分析",
+            "TEXT_CHN": "分析",
             "TEXT_JPN": "分析を行う"
         },
         {
@@ -1254,7 +1267,7 @@
             "TEXT_ESP": "Barrido de parámetros",
             "TEXT_POR": "Varredura de Parâmetros",
             "TEXT_RUS": "Параметр Подметать",
-            "TEXT_CHN": "参数扫描",
+            "TEXT_CHN": "参数读取",
             "TEXT_JPN": "パラメータ スイープ"
         },
         {
@@ -1314,7 +1327,7 @@
             "TEXT_ESP": "PERIODO DE TIEMPO PARA DATOS TIEMPO:",
             "TEXT_POR": "PERÍODO DE TEMPO PARA OS DADOS METEOROLÓGICOS:",
             "TEXT_RUS": "ПЕРИОД ВРЕМЕНИ ДЛЯ ДАННЫХ О ПОГОДЕ:",
-            "TEXT_CHN": "天气数据的时间段：",
+            "TEXT_CHN": "气象数据的时间段：",
             "TEXT_JPN": "気象データの期間:"
         },
         {
@@ -1350,7 +1363,7 @@
             "TEXT_ESP": "nombre de la liquidación:",
             "TEXT_POR": "nome da liquidação:",
             "TEXT_RUS": "название поселения:",
-            "TEXT_CHN": "结算名称：",
+            "TEXT_CHN": "结果命名：",
             "TEXT_JPN": "決済の名前:"
         },
         {
@@ -1362,7 +1375,7 @@
             "TEXT_ESP": "año de inicio:",
             "TEXT_POR": "início do ano:",
             "TEXT_RUS": "начало года:",
-            "TEXT_CHN": "开始一年：",
+            "TEXT_CHN": "开始年份：",
             "TEXT_JPN": "開始年:"
         },
         {
@@ -1374,7 +1387,7 @@
             "TEXT_ESP": "fin del año:",
             "TEXT_POR": "final do ano:",
             "TEXT_RUS": "конец года:",
-            "TEXT_CHN": "年底：",
+            "TEXT_CHN": "结束年份：",
             "TEXT_JPN": "終年:"
         },
         {
@@ -1434,7 +1447,7 @@
             "TEXT_ESP": "Cree un archivo ini utilizando el archivo seleccionado como plantilla:",
             "TEXT_POR": "Crie o ficheiro ini utilizando o ficheiro selecionado como modelo:",
             "TEXT_RUS": "Создание файла ini с помощью выбранного файла в качестве шаблона:",
-            "TEXT_CHN": "使用所选文件创建 ini 文件作为模板：",
+            "TEXT_CHN": "以所选文件作为模板创建初始文件：",
             "TEXT_JPN": "選択したファイルをテンプレートとして使用して ini ファイルを作成します。"
         },
         {
@@ -1442,46 +1455,39 @@
             "TEXT_ENG": "DATABASE:",
             "TEXT_HUN": "ADATBÁZIS:",
             "TEXT_GER": "DATABASE:",
-            "TEXT_FRA": "BASE DE DONNÉES"
+            "TEXT_FRA": "BASE DE DONNÉES",
+            "TEXT_CHN": "数据库："
         },
         {
             "ID": "#dbmandiv-datatable_container label",
             "TEXT_ENG": "DATA TABLE:",
             "TEXT_HUN": "ADATTÁBLA:",
             "TEXT_GER": "DATENTABELLE:",
-            "TEXT_FRA": "TABLEAU DE DONNÉES"
+            "TEXT_FRA": "TABLEAU DE DONNÉES",
+            "TEXT_CHN": "数据表格："
         },
         {
             "ID": "#dbmandiv-sqlquery_container label",
             "TEXT_ENG": "SQL QUERY:",
             "TEXT_HUN": "SQL LEKÉRDEZÉS:",
             "TEXT_GER": "SQL QUERY:",
-            "TEXT_FRA": "Requête SQL"
+            "TEXT_FRA": "Requête SQL",
+            "TEXT_CHN": "SQL查询"
         },
         {
             "ID": "#dbmandiv-showtab",
             "TEXT_ENG": "SHOW",
             "TEXT_HUN": "MEGJELENÍT",
             "TEXT_GER": "ZEIGEN",
-            "TEXT_FRA": "MONTRER"
+            "TEXT_FRA": "MONTRER",
+            "TEXT_CHN": "展示"
         },
         {
             "ID": "#dbmandiv-querytab",
             "TEXT_ENG": "QUERY",
             "TEXT_HUN": "LEKÉRDEZÉS",
             "TEXT_GER": "QUERY",
-            "TEXT_FRA": "REQUETE"
-        },
-        {
-            "ID": "#dbmandiv-deltab",
-            "TEXT_ENG": "DELETE",
-            "TEXT_HUN": "TÖRLÉS",
-            "TEXT_GER": "LÖSCHEN",
-            "TEXT_FRA": "EFFACER"
-        },
-        {
-            "ID": "#helpback",
-            "TEXT_ENG": "BACK",
-            "TEXT_HUN": "VISSZA"
+            "TEXT_FRA": "REQUETE",
+            "TEXT_CHN": "查询"
         }
 ]
