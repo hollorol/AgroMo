@@ -44,7 +44,8 @@ A graphical user interface (GUI) has been developed for providing easy and user 
 
 ### AgroMo Site
 
-<img src"img/site_gui.png" style="width: 100%">
+<img src="img/site_gui.png" style="width: 100%">
+
 - [x] The dropdown menus display the content, files only with the prescribed extension, of the corresponding directories within the input folder:
   - INI file (extension: .ini): .\input\initialization\
   - WEATHER file (extension: .wth): .\input\weather\site\
@@ -71,7 +72,8 @@ A graphical user interface (GUI) has been developed for providing easy and user 
 
 ### AgroMo Plot
 
-<img src"img/plot_gui.png" style="width: 100%">
+<img src="img/plot_gui.png" style="width: 100%">
+
 - [x] Select a maximum of 5 simulation results from the left side list by clicking the items. Clicking again deselects the item.
 - [x] Select variable(s) from the right side list for presenting them on the plot(s).
 - [ ] Observed data could be added to the plots by selecting the EXPERIMENT and TREATMENT ids from the corrresponding dropdown lists. NOTE, that data in the observed data tables should be structured according to the prescribed rules. Observed (experimental) data should be stored in the '.\observation\' folder in a SQLite database: one table for one experiment. Observed data available in multiple repetitions could be presented on the plot in two ways: 1) each repetition as separate data point, or 2) one single data point representing the mean of the repetitions. Leaving the EXPERIMENT ID dropdown list empty results in presenting simulation results only on the plot(s).
@@ -82,7 +84,7 @@ A graphical user interface (GUI) has been developed for providing easy and user 
 - [x] Options in the |time step|, |function| and |plot type| columns can be selected via circular menus operated by clicking/scrolling in the corresponding cells.
 - [x] Having all the desired options selected create plot(s) by clicking the [PLOT] button.
 
-<img src"img/plotly_graph01.png" style="width: 100%">
+<img src="img/plotly_graph01.png" style="width: 100%">
 
 - [x] Zoom in the graph by selecting an area on the graph while holding down the left mouse button.
 - [ ] Export plot data into various file formats (e.g. xlsx, csv) by clicking the [EXPORT] button.
@@ -93,13 +95,11 @@ A graphical user interface (GUI) has been developed for providing easy and user 
 
 #### Queries:
 NOTES: 1) in case no depth info is provided in a soil related query, by default it referes to the top soil (0-30 cm depth); 2) time slice dependent queries with no indication of the time period, by default refere to the baseline period (1981-2010); 
-- sandy soils | homok talajok
-- soils with SOM greater than 2% | >2% szervesanyag-tartalmú talajok
-- places 200+ m above sea level | a tengerszint felett 200 m-nél magasabban fekvő területek
-- arable lands | szántó területek
-- places with average temperature greater then 10 °C | 10 °C-nél magasabb átlaghőmérsékletű területek
-- average/minimum/maximum/10th/90th percentile yield | a termés átlaga/minimuma/maximuma/10-ik/90-ik percentilise
-- 0-3 cm soil layer mean temperature in May in the 2071-2100 period | 0-3 cm talajréteg májusi átlaghőmérséklete a 2071-2100 időszakban
 
-
-  
+- sandy soils \| homok talajok
+- soils with SOM greater than 2% \| >2% szervesanyag-tartalmú talajok
+- places 200+ m above sea level \| a tengerszint felett 200 m-nél magasabban fekvő területek
+- arable lands \| szántó területek
+- places with average temperature greater then 10 °C \| 10 °C-nél magasabb átlaghőmérsékletű területek
+- average/minimum/maximum/10th/90th percentile yield \| a termés átlaga/minimuma/maximuma/10-ik/90-ik percentilise
+- 0-3 cm soil layer mean temperature in May in the 2071-2100 period \| 0-3 cm talajréteg májusi átlaghőmérséklete a 2071-2100 időszakban
