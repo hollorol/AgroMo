@@ -93,7 +93,7 @@ A graphical user interface (GUI) has been developed for providing easy and user 
 
 ### AgroMo Grid
 
-![alt text](img/grid_gui.png "AgroMo Grid")
+<img src="img/grid_gui.png" style="width: 100%">
 
 As an INI file controls a site specific simulation, a STORY file defines a whole STORYLINE for a gridded simulation. A STORYLINE is set of INI file sets: comprises a set/series of INI files for every individual cells in the grid. A STORYLINE defines what happens, where and when in the grid inlcuding changes in crop rotation or even land use changes facilitated by INI file changes. In a STORY file all the grid cells are listed and for each cell a series of INI files are listed with an indication of the start and end years when the INI file needs to be activated and deactivated. 
 
@@ -120,7 +120,7 @@ An example that retrieves the average annual Net Primary Production for each gri
 
 ### AgroMo Map
 
-![alt text](img/map_gui.png "AgroMo Map")
+<img="img/map_gui.png" style="width: 100%">
 
 - [x] Query results are stored in .sql files that can be selected from the data source drop down menu. Data in an .sql file usually define a gridded map.
 - [x] Set some basic features of the map by selecting a palette, switching on/off the the country contour and the latitude/longitude lines, selecting a color for the masked cells.
