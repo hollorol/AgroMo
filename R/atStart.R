@@ -1,6 +1,6 @@
 .onLoad <- function(libname, pkgname) {
   ## future::plan(multisession)
-  print("This is AgroMo")
+  print("This is AgroMo 1.0")
   options(AgroMo_centralData=suppressWarnings(jsonlite::read_json(system.file("centralData.json", package = "AgroMo"), simplifyVector=TRUE))) 
   shiny::addResourcePath('defaultDir',
                          system.file('defaultDir',

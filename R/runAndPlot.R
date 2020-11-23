@@ -8,7 +8,7 @@
 
 runAndPlotUI <- function(id, label){
   ns <- NS(id)
-  actionButton(ns("runModel"),label)
+  actionButton(ns("runModel"),label = "START SIMULATION")
 }
 
 #' runAndPlot
@@ -22,7 +22,8 @@ runAndPlot <- function(input, output, session,baseDir,
                        iniFile, weatherFile, soilFile, managementFile, outputName,
                        planting, harvest, fertilization, irrigation, grazing, mowing,
                        thinning, planshift_date, planshift_density, harvshift_date,
-                       fertshift_date, irrshift_date, fertshift_amount, irrshift_amount, connection, centralData
+                       fertshift_date, irrshift_date, fertshift_amount, irrshift_amount, connection, centralData, siteRun, plotid,
+                       runModel
                        ){
   ##preparation
 dat<-reactiveValues(dataenv = NULL)
@@ -31,42 +32,62 @@ dat<-reactiveValues(dataenv = NULL)
 #     print(irrshift_amount())
 # })
   observeEvent(input$runModel,{
+                   if(siteRun()){
 
-    
-    ## browser()
-    readAndChangeFiles(isolate(baseDir()), iniFile(), weatherFile(), soilFile(), managementFile(),
-                       planting(), harvest(), fertilization(), irrigation(), grazing(),
-                       mowing(), thinning(), planshift_date(), planshift_density(),
-                       harvshift_date(), fertshift_date(),
-                       irrshift_date(), fertshift_amount(), irrshift_amount())
-    # browser()
-    settings <- setupGUI(isolate(iniFile()),isolate(baseDir()),isolate(centralData()))
-    runModel <- reactive({future({runMuso(isolate(iniFile()),isolate(baseDir()))})})
-    showModal(shiny::tags$div(id = "runIndicator", modalDialog(
-                                                shiny::tags$img(id = "runningGif", src= "www/img/iu.gif", width = "150px"),
-                                                hide(tags$img(id = "finishedGif", src= "www/img/iu_check.gif",width = "150px"))
-      ,renderText({
-        # browser()
-        runModel() %...>% {
-         print(connection())
-         print(baseDir())
-         print(outputName())
-                  writeDataToDB(settings = settings, dbConnection = isolate(connection()),
-                         binaryName = file.path(baseDir(), "output", sprintf("%s.dayout", settings$outputName)),
-                         isolate(outputName()))          
-          # removeUI(selector = "#runningGif")
-          hide("runningGif")
-          removeModal()
-          # show("finishedGif")
-          # "Finished"
-        }
+       ## browser()
 
-      }),
-      footer = NULL,
-      easyClose = TRUE
-    ))
-    )
-  })
+       readAndChangeFiles(isolate(baseDir()), iniFile(), weatherFile(), soilFile(), managementFile(),
+                          planting(), harvest(), fertilization(), irrigation(), grazing(),
+                          mowing(), thinning(), planshift_date(), planshift_density(),
+                          harvshift_date(), fertshift_date(),
+                          irrshift_date(), fertshift_amount(), irrshift_amount())
+       # browser()
+       settings <- setupGUI(isolate(iniFile()),isolate(baseDir()),isolate(centralData()))
+       file.remove(file.path(baseDir(), "output", sprintf("%s.dayout", settings$outputName)))
+       runModel <- reactive({future({runMuso(isolate(iniFile()),isolate(baseDir()))})})
+       showModal(shiny::tags$div(id = "runIndicator", modalDialog(
+                                                                  shiny::tags$img(id = "runningGif", src= "www/img/iu.gif", width = "150px"),
+                                                                  hide(tags$img(id = "finishedGif", src= "www/img/iu_check.gif",width = "150px"))
+                                                                  ,renderText({
+                                                                      # browser()
+                                                                      runModel() %...>% {
+                                                                          print(connection())
+                                                                          print(baseDir())
+                                                                          print(outputName())
+                                                                          writeDataToDB(settings = settings, dbConnection = isolate(connection()),
+                                                                                        binaryName = file.path(baseDir(), "output", sprintf("%s.dayout", settings$outputName)),
+                                                                                        isolate(outputName()))          
+                                                                          # removeUI(selector = "#runningGif")
+                                                                          hide("runningGif")
+                                                                          removeModal()
+                                                                          # show("finishedGif")
+                                                                          # "Finished"
+                                                                      }
+
+                                                                  }),
+                                                     footer = NULL,
+                                                     easyClose = TRUE
+                                                     ))
+       )
+                   }   else {
+                           tableName <- isolate(iniFile())
+                           showNotification(sprintf("Querying table: %s in grid.db...", tableName))
+                           gridDB <- dbConnect(RSQLite::SQLite(),file.path(isolate(baseDir()),"output", "grid.db"))
+                           siteDB <- dbConnect(RSQLite::SQLite(),file.path(isolate(baseDir()),"output", "site.db"))
+                           res <- dbGetQuery(gridDB,sprintf("SELECT * FROM %s WHERE plotid = %s", tableName, isolate(plotid())))
+                           if(is.element("year",colnames(res))){
+                               norig <- ncol(res)
+                               res[,"udate"] <- paste0(res[,"year"],"-12-31")
+                               res[,"umonth"] <- 12
+                               res[,"uday"] <- 31
+                               res <- res[,c(seq(from=norig+1, by=1, length.out=3), 1:norig)]
+                           }
+
+                           dbWriteTable(siteDB, isolate(outputName()), res, overwrite=TRUE)
+                           showNotification("Grid run is saved into site database")
+                           dbDisconnect(gridDB)
+                   }
+        })
 
 }
 
@@ -124,7 +145,7 @@ readAndChangeFiles <- function(baseDir, iniFile, weatherFile, soilFile, manageme
 #' @importFrom data.table fread fwrite
 
 shiftFile <- function(manFile, destFile, shiftDate, varCol=NULL, shiftVar=NULL){
-## browser()
+  #browser()
   manDT <- fread(manFile)
   manDT[,DATE:=format.Date(as.Date(DATE,format="%Y.%m.%d")+as.numeric(shiftDate),format="%Y.%m.%d")]
   if(is.null(varCol)){
@@ -154,13 +175,14 @@ changingMGM <- function(mgmFile, baseDir, planting=NULL, harvest=NULL, fertiliza
   manFileList <- c(planting, harvest, fertilization, irrigation, grazing, mowing, thinning)
   managementTypes <- c("planting", "harvest", "fertilization", "irrigation", "cultivation", "grazing", "mowing", "thinning")
   manFileList <- grep("\\.[a-z]{3}$",manFileList,value = TRUE)
-  ## browser()
-  inpFiles <- sapply(manFileList,function(x) grep("\\/tmp\\/",grep(x,list.files(baseDir, recursive = TRUE),value=TRUE),invert = TRUE, value=TRUE))
-  destFiles <- gsub("(.*)(\\/.*\\..*)","\\1/tmp\\2",inpFiles)
+  # browser()
+  inpFiles <- sapply(manFileList,function(x) grep("\\/tmp\\/",grep(x,list.files(file.path(baseDir,"input"), recursive = TRUE),value=TRUE),invert = TRUE, value=TRUE))
+  # print(inpFiles)
+  destFiles <- paste0("input/",gsub("(.*)(\\/.*\\..*)","\\1/tmp\\2",inpFiles))
   sapply(destFiles, function(m){
     dir.create(dirname(file.path(baseDir,m)),showWarnings = FALSE)
   })
- Map(function(x,y){file.copy(x,y,overwrite = TRUE)}, file.path(baseDir,inpFiles), file.path(baseDir,destFiles))
+ Map(function(x,y){file.copy(x,y,overwrite = TRUE)}, file.path(baseDir,"input",inpFiles), file.path(baseDir,destFiles))
  choosenRows <- managementRows[gsub(".*\\.","",inpFiles)]
  delRows <- setdiff(managementRows, choosenRows)
  managementTemplate[delRows-1] <- 0
@@ -180,7 +202,7 @@ changingMGM <- function(mgmFile, baseDir, planting=NULL, harvest=NULL, fertiliza
     shiftFile(file.path(baseDir,harvestFile), destFile = file.path(baseDir,harvestFile), shiftDate = harvshift_date)
   }
 
-  fertilFile <- grep("frt$",destFiles,value = TRUE)
+  fertilFile <- grep("frz$",destFiles,value = TRUE)
   if(length(fertilFile)!=0){
     shiftFile(file.path(baseDir,fertilFile), destFile = file.path(baseDir,fertilFile), shiftDate = fertshift_date, varCol = 3, as.numeric(fertshift_amount))
   }

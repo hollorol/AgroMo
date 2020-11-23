@@ -3,63 +3,27 @@
     tags$div(id = ns(id),
     tags$div(
     id = paste0(ns("ensclim"),"_container"),
-    checkboxInput(ns("ensclim"), label = "Ensemble", value = FALSE)
+    checkboxInput(ns("ensclim"), label = "ensemble", value = FALSE)
     ),
     tags$div(
     id =paste0(ns("ensalg"),"_container"),
-    checkboxInput(ns("ensalg"), label = "Ensemble", value = FALSE)
-    ),         
+    checkboxInput(ns("ensalg"), label = "ensemble", value = FALSE)
+    ),   
+    tags$div(
+      id =paste0(ns("dailyout"),"_container"),
+      checkboxInput(ns("dailyout"), label = "daily outputs", value = TRUE)
+    ), 
     tags$div(
       id =paste0(ns("enssoil"),"_container"),
-      checkboxInput(ns("enssoil"), label = "Ensemble", value = FALSE)
+      checkboxInput(ns("enssoil"), label = "ensemble", value = FALSE)
     ),
     tags$div(
       id =paste0(ns("repcheck"),"_container"),
-      checkboxInput(ns("repcheck"), label = "", value = TRUE)
-    ),
-    tags$div(
-      id =paste0(ns("checkone"),"_container"), title ="query all items if checked",
-      checkboxInput(ns("checkone"), label = "", value = TRUE)
-    ),
-    tags$div(
-      id =paste0(ns("checktwo"),"_container"),
-      checkboxInput(ns("checktwo"), label = "", value = TRUE)
-    ),
-    tags$div(
-      id =paste0(ns("checkthree"),"_container"),
-      checkboxInput(ns("checkthree"), label = "", value = TRUE)
-    ),
-    tags$div(
-      id =paste0(ns("checkfour"),"_container"),
-      checkboxInput(ns("checkfour"), label = "", value = TRUE)
-    ),
-    tags$div(
-      id =paste0(ns("checkfive"),"_container"),
-      checkboxInput(ns("checkfive"), label = "", value = TRUE)
-    ),
-    tags$div(
-      id =paste0(ns("checksix"),"_container"),
-      checkboxInput(ns("checksix"), label = "", value = TRUE)
-    ),
-    tags$div(
-      id =paste0(ns("checkseven"),"_container"),
-      checkboxInput(ns("checkseven"), label = "", value = TRUE)
-    ),
-    tags$div(
-      id =paste0(ns("checkeight"),"_container"),
-      checkboxInput(ns("checkeight"), label = "", value = TRUE)
-    ),
-    tags$div(
-      id =paste0(ns("checknine"),"_container"),
-      checkboxInput(ns("checknine"), label = "", value = TRUE)
+      checkboxInput(ns("repcheck"), label = "show and save", value = TRUE)
     ),
     tags$div(
       id =paste0(ns("annual"),"_container"),
-      checkboxInput(ns("annual"), label = "annual outputs", value = FALSE)
-    ),
-    tags$div(
-      id =paste0(ns("daily"),"_container"),
-      checkboxInput(ns("daily"), label = "daily outputs", value = FALSE)
+      checkboxInput(ns("annual"), label = "annual outputs", value = TRUE)
     ),
     tags$div(
       id = paste0(ns("gridres"),"_container"),
@@ -181,8 +145,7 @@ tags$div(
 #' @importFrom DBI dbExecute dbGetQuery dbConnect dbDisconnect
 #' @importFrom openxlsx write.xlsx
 
-agroMoGrid <- function(input, output, session,baseDir){
-    language <- "en"
+agroMoGrid <- function(input, output, session, baseDir, language){
     ns <- session$ns
     dat <- reactiveValues(storyVars=NULL,
                           storyCSV=NULL,
@@ -194,7 +157,14 @@ agroMoGrid <- function(input, output, session,baseDir){
                           jsonNumbers=NULL,
                           querySelector=NULL,
                           queries=NULL,
-                          language="en")
+                          language="en",
+                          weatherOptions=NULL,
+                          soilOptions=NULL)
+    observe({
+        if(!is.null(language())){
+            dat$language <- language()
+        }
+    })
     vari <- reactiveValues()
     toreturn <- reactiveValues(showMap=NULL)
     observe({
@@ -229,6 +199,7 @@ agroMoGrid <- function(input, output, session,baseDir){
         projections <- basename(list.dirs(file.path(baseDir(),"input/weather/grid"))[-1])
         if(length(projections)!=0){
             updateSelectInput(session,"climproj",choices=projections)
+            dat$weatherOptions <- projections
         }
     })
 
@@ -236,7 +207,16 @@ agroMoGrid <- function(input, output, session,baseDir){
         soils <- basename(list.dirs(file.path(baseDir(),"input/soil/grid"))[-1])
         if(length(soils)!=0){
             updateSelectInput(session,"soildb",choices=soils)
+            dat$soilOptions <- soils
         }
+    })
+
+    observeEvent(input$annual,{
+                     if(input$story!=""){
+                         choosenStoryFile <- dat$storyFiles[match(input$story,dat$storyOptions)]
+                         skip <- ifelse(isolate(input$annual),2,1)
+                         dat$storyVars <- as.character(read.table(choosenStoryFile,skip=1, nrows=1, sep=";",stringsAsFactors=FALSE))
+                     }
     })
 
     observeEvent(input$story,{
@@ -246,8 +226,9 @@ agroMoGrid <- function(input, output, session,baseDir){
                          suppressWarnings(dir.create(file.path(baseDir(),"output/grid/",input$story)))
                          suppressWarnings(dir.create(file.path(baseDir(),"endpoint/grid/",input$story)))
                          output$alias <- renderText({readLines(choosenStoryFile,n=1)})
-                         dat$storyVars <- as.character(read.table(choosenStoryFile,skip=1, nrows=1, sep=";",stringsAsFactors=FALSE))
-                         dat$storyCSV <- read.table(choosenStoryFile,skip=2, sep=";",stringsAsFactors=FALSE)
+                         skip <- ifelse(isolate(input$annual),2,1)
+                         dat$storyVars <- as.character(read.table(choosenStoryFile,skip=skip, nrows=1, sep=";",stringsAsFactors=FALSE))
+                         dat$storyCSV <- read.table(choosenStoryFile,skip=3, sep=";",stringsAsFactors=FALSE)
                          dat$storyTimeRange <- range(dat$storyCSV[,c(3,4)])
                          storyRow <- as.data.frame((function(x){
                                                      list(site=x[,1],
@@ -256,9 +237,29 @@ agroMoGrid <- function(input, output, session,baseDir){
                                                           endYear=x[,4],
                                                           numDays=365*(x[,4]-x[,3]+1))
                                                 })(dat$storyCSV),stringsAsFactor=FALSE)
+                         inF <- readLines(file.path(baseDir(),
+                                                    "input/initialization/grid",
+                                                    input$story,
+                                                    paste0(storyRow[1,"name"],".ini")))
+                         weather <- basename(dirname(inF[4]))
+                         soil <- basename(dirname(inF[39]))
+
+                         if(is.element(weather,dat$weatherOptions)){
+                             updateSelectizeInput(session,"climproj",choices=unique(dat$weatherOptions),selected=weather)
+                         } else {
+                                showNotification("Climate file directory (defined in storyLine) not found",type="error")
+                         }
+
+                         if(is.element(soil,dat$soilOptions)){
+                             updateSelectizeInput(session,"soildb",choices=unique(dat$soilOptions),selected=soil)
+                         } else {
+                                showNotification("Soil file directory (defined in storyLine) not found",type="error")
+                         }
+                         # outName <- paste(input$story, match(weather,unique(dat$weatherOptions)),
+                         #                               match(soil,unique(dat$soilOptions)), sep="__")
+                         # updateTextInput(session,"outsq", value=outName)
+
                          dat$story <-split(storyRow,storyRow$site)
-                         # browser()
-                        
                          # sites <- split(dat$storyCSV, dat$storyCSV[,1])
                          # dat$numYears <- as.numeric(lapply(sites,function(m){
                          #                        m[nrow(m),4] - m[1,3] + 1
@@ -438,13 +439,15 @@ agroMoGrid <- function(input, output, session,baseDir){
          if(is.null(queryResults)){
              showNotification("Something went wrong with the query...",type="error")
          } else {
-             showModal(modalDialog(tableOutput(ns("pukli")),title="REPORT", size="l",easyClose=TRUE))
-             output$pukli <- renderTable({
-                 queryResults
-             })
+             if(input$repcheck){
+                 showModal(modalDialog(tableOutput(ns("pukli")),title="REPORT", size="l",easyClose=TRUE))
+                 output$pukli <- renderTable({
+                     queryResults
+                 })
+             }
              suppressWarnings(dir.create(file.path(baseDir(),"output/report")))
              write.csv(queryResults,file.path(baseDir(),"output/report",sprintf("%s.csv",input$queryalias)),row.names=FALSE)
-             write.xlsx(queryResults,file.path(baseDir(),"output/report",sprintf("%s.xlsx",input$queryalias)))
+             # write.xlsx(queryResults,file.path(baseDir(),"output/report",sprintf("%s.xlsx",input$queryalias)))
          }
 
          removeNotification("query")
@@ -463,13 +466,23 @@ agroMoGrid <- function(input, output, session,baseDir){
                                                                 "PHOTOS: DSSAT | PET: Priestly-Taylor | WSTRESS: TransDemBased" = c(1,1,1)
                                                                 )
     observeEvent(input$StartSim,{
+        
+                     if(!isolate(input$annual)){
+                        gridType <- ".dayout"
+                        outputTypeIni <- c(1,0)
+                     } else {
+                         gridType <- ".annout"
+                        outputTypeIni <- c(0,2)
+                     }
 
         showNotification("Starting simulation... Removing previous .dayout files")
         suppressWarnings(file.remove(list.files(file.path(baseDir(),"output/grid",input$story),full.names=TRUE)))
 
         showNotification("Setting climate projections and algorithms")
-        indexOfRows <- c(4,39,58,59,61)
-        replacements <- c(sprintf("grid/%s/",input$climproj),sprintf("grid/%s/",input$soildb),algorithms[[input$algosel]])
+        indexOfRows <- c(4,39,58,59,61,107,110)
+        replacements <- c(sprintf("grid/%s/",input$climproj),
+                          sprintf("grid/%s/",input$soildb),
+                          algorithms[[input$algosel]],outputTypeIni[1],outputTypeIni[2])
         regex <- c("grid/.*?/","grid/.*?/")
         changeFilesWithRegex(list.files(file.path(baseDir(),"input/initialization/grid",input$story),full.names=TRUE),
                               indexOfRows,replacements,regex)
@@ -484,7 +497,8 @@ agroMoGrid <- function(input, output, session,baseDir){
          withProgress(message="Writing data to database, it can be slow...",value=0,{
                           for(i in seq_along(dat$story)){
                               if(errorDF[i,"error"] == 0){
-                                  writeChainToDB(baseDir(),input$story, sqlDB, input$outsq, dat$story[[i]], dat$storyVars)
+                                  writeChainToDB(baseDir(),input$story, sqlDB, input$outsq, dat$story[[i]], dat$storyVars,
+                                                type=gridType)
                               }
 
                               incProgress(1/length(dat$story),detail=sprintf("Writing site %s into grid database",names(dat$story)[i])) 
@@ -513,6 +527,11 @@ agroMoGrid <- function(input, output, session,baseDir){
    observeEvent(input$Map,{
     toreturn$showMap <- input$Map
     })
+
+   observe({
+        outN <- paste(input$story, match(input$climproj,dat$weatherOptions),match(input$soildb,dat$soilOptions), sep="_")
+        updateTextInput(session,"outsq", value=outN)
+   })
 
    return(toreturn)
 }
@@ -623,27 +642,51 @@ runGrid <- function(baseDir,storyName,chainMatrixFull){
 #' @importFrom DBI dbWriteTable
 #' @importFrom lubridate year month yday
 
-writeChainToDB <- function(baseDir,storyName, dbConnection, outputName, chainMatrix, variables,errorVector){
-    outFiles <- file.path(baseDir,"output/grid",storyName,paste0(chainMatrix$name,".dayout"))
-    binaryName <- paste0(file.path(baseDir,"output/grid/",storyName,chainMatrix[,2]),".dayout")
-    toWrite <- do.call("rbind",lapply(seq_along(binaryName),function(i){
-                                    con <- file(binaryName[i],"rb")
-                                    dayoutput <- matrix(readBin(con,"double",size=8,n=(chainMatrix[i,5]*length(variables))),chainMatrix[i,5],byrow=TRUE)
-                                    udates <- grep("[0-9]{4}-02-29",
-                                                   as.character(seq(from=as.Date(sprintf("%s-01-01", chainMatrix[i,"startYear"])),
-                                                                    to=(as.Date(sprintf("%s-01-01", (chainMatrix[i,"endYear"] + 1)))-1), by=1
-                                                                    )),invert=TRUE, value=TRUE)
-                                    year <- year(udates)
-                                    month <- month(udates)
-                                    yday <- yday(udates)
-                                    dayoutput <- cbind.data.frame(udates,year,month,yday, dayoutput, site=as.character(chainMatrix[i,1]), stringsAsFactors=FALSE)
-                                    colnames(dayoutput) <- as.character(c("udate","year","month","yday", variables, "plotid"))
-                                    close(con)
-                                    dayoutput
-                                       }))
+writeChainToDB <- function(baseDir, storyName, dbConnection, outputName, chainMatrix, variables, errorVector, type){
+    fName <- paste0(file.path(baseDir,"output/grid/",storyName,chainMatrix[,2]),type)
+    toWrite <- do.call("rbind",lapply(fName, function(fn){readTable(fn,
+                                                                    variables,
+                                                                    type,
+                                                                    plotid=as.character(chainMatrix[,1]),
+                                                                    numDays=chainMatrix[,5],
+                                                                    startYear=chainMatrix[,"startYear"],
+                                                                    endYear=chainMatrix[,"endYear"])}))
     dbWriteTable(dbConnection, outputName, toWrite, append = TRUE)
 }
 
+
+#' writeChainToDB
+#'
+#' This function reads the model binary and put that into a database
+#' @param fName the name of the file
+#' @param variables The variable names 
+#' @param type .dayout or .annout
+#' @importFrom lubridate year month yday
+
+readTable <- function(fName,variables, type, plotid, numDays, startYear, endYear){   
+
+    if(type == ".dayout"){
+        con <- file(fName,"rb")
+        dayoutput <- matrix(readBin(con,"double",size=8,n=(numDays*length(variables))),
+                                       numDays,byrow=TRUE)
+        udates <- grep("[0-9]{4}-02-29", as.character(seq(from=as.Date(sprintf("%s-01-01",startYear)),
+                                                          to=(as.Date(sprintf("%s-01-01", (endYear + 1)))-1),
+                                                          by=1)),
+                       invert=TRUE, value=TRUE)
+        year <- year(udates)
+        month <- month(udates)
+        yday <- yday(udates)
+        dayoutput <- cbind.data.frame(udates,year,month,yday, dayoutput,
+                                      site=plotid, stringsAsFactors=FALSE)
+        colnames(dayoutput) <- as.character(c("udate","year","month","yday", variables, "plotid"))
+        close(con)
+        return(dayoutput)
+    } else {
+        annuOutput <- cbind.data.frame(read.table(fName, skip=1, header=FALSE),plotid)
+        colnames(annuOutput) <- c("year", variables,"plotid")
+        return(annuOutput)
+    }
+}
 
 tables_get <- function(baseDir){
          dbDir <- file.path(baseDir,"output")

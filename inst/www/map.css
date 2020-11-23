@@ -3,7 +3,6 @@ place. The positions starts at the top-left corner of the root window,
 which is the window except the banner. */
   
 #mapdiv-invert_container {
-
 position: absolute;
 top: 94px;
 left: 407px;
@@ -56,11 +55,9 @@ color: black;
 -moz-user-select: none;
 -ms-user-select: none;
 user-select: none;
-
 }
 
 #mapdiv-datasource_container .selectize-control{
-
 position: absolute;
 top: 12px;
 left: 105px;
@@ -72,11 +69,9 @@ color: black;
 -moz-user-select: none;
 -ms-user-select: none;
 user-select: none;
-
 }
 
 #mapdiv-metadata_container .form-group.shiny-input-container label{
-
 position: absolute;
 top: 60px; 
 right: 730px;
@@ -88,8 +83,8 @@ color: black;
 -moz-user-select: none;
 -ms-user-select: none;
 user-select: none;
-
 }
+
 #mapdiv-metadata_container .form-control.shinyjs-resettable{
 position: absolute;
 top: 54px; 
@@ -116,11 +111,9 @@ color: black;
 -moz-user-select: none;
 -ms-user-select: none;
 user-select: none;
-
 }
 
 #mapdiv-palette_container .selectize-control{
-
 position: absolute;
 top: 97px;
 left: 105px;
@@ -132,13 +125,12 @@ color: black;
 -moz-user-select: none;
 -ms-user-select: none;
 user-select: none;
-
 }
 
 #mapdiv-colnumb_container .form-group.shiny-input-container label{
 position: absolute;
-top: 185px;
-left: 353px;
+top: 225px;
+left: 125px;
 font-size: 16px;
 font-family: Fira Sans;
 font-weight: normal;
@@ -152,8 +144,8 @@ user-select: none;
 #mapdiv-colnumb_container .selectize-control{
 /*#mapdiv-colnumb_container .form-control.shinyjs-resettable{*/
 position: absolute;
-top: 180px;
-left: 406px;
+top: 245px;
+left: 105px;
 width: 80px;
 font-size: 16px;
 font-family: Fira Sans;
@@ -166,12 +158,13 @@ user-select: none;
 
 #mapdiv-bw_container .form-group.shiny-input-container label{
 position: absolute;
-top: 185px;
-left: 528px;
+top: 225px;
+left: 240px;
 font-size: 16px;
 font-family: Fira Sans;
 font-weight: normal;
 color: black;
+width: 100px;
 -webkit-user-select: none;
 -moz-user-select: none;
 -ms-user-select: none;
@@ -180,9 +173,9 @@ user-select: none;
 
 #mapdiv-bw_container .form-control.shinyjs-resettable{
 position: absolute;
-top: 180px;
-left: 593px;
-width: 95px;
+top: 245px;
+left: 220px;
+width: 108px;
 font-size: 16px;
 font-family: Fira Sans;
 color: black;
@@ -194,25 +187,23 @@ user-select: none;
 
 #mapdiv-min_container .form-group.shiny-input-container label{
 position: absolute;
-top: 185px;
-right: 730px;
+top: 250px;
+right: 350px;
 font-size: 16px;
 white-space: nowrap;
 font-family: Fira Sans;
-font-weight: bold;
 color: black;
+font-weight: normal;
 -webkit-user-select: none;
 -moz-user-select: none;
 -ms-user-select: none;
 user-select: none;
-
 }
 
 #mapdiv-min_container .form-control.shinyjs-resettable{
-
 position: absolute;
-top: 180px;
-left: 105px;
+top: 245px;
+left: 485px;
 width: 95px;
 font-size: 16px;
 font-family: Fira Sans;
@@ -225,8 +216,8 @@ user-select: none;
 
 #mapdiv-minprec_container .form-group.shiny-input-container label{
 position: absolute;
-top: 185px;
-right: -2px;
+top: 250px;
+right: 0px;
 font-size: 16px;
 font-family: Fira Sans;
 font-weight: normal;
@@ -235,13 +226,11 @@ color: black;
 -moz-user-select: none;
 -ms-user-select: none;
 user-select: none;
-
 }
 
 #mapdiv-minprec_container .selectize-control{
-
 position: absolute;
-top: 180px;
+top: 245px;
 left: 837px;
 width: 83px;
 font-size: 16px;
@@ -255,8 +244,8 @@ user-select: none;
 
 #mapdiv-max_container .form-group.shiny-input-container label{
 position: absolute;
-top: 184px;
-left: 205px;
+top: 250px;
+left: 582px;
 font-size: 16px;
 font-family: Fira Sans;
 font-weight: normal;
@@ -265,13 +254,12 @@ color: black;
 -moz-user-select: none;
 -ms-user-select: none;
 user-select: none;
-
 }
 
 #mapdiv-max_container .form-control.shinyjs-resettable{
 position: absolute;
-top: 180px;
-left: 215px;
+top: 245px;
+left: 590px;
 width: 95px;
 font-size: 16px;
 font-family: Fira Sans;
@@ -284,20 +272,20 @@ user-select: none;
 
 #mapdiv-radio_container {
     position: absolute;
-    top: 185.5px;
-    left: 184px;
+    top: 223.5px;
     display: inline !important;
 }
 
 #mapdiv-radio_container .checkbox-inline, #mapdiv-radio_container .radio-inline, #mapdiv-radio_container .shiny-options-group{
     border-width: 0px;
-    margin-right: 145px;
+    margin-right: 85px;
     display: inline !important;
 }
 
 #mapdiv-radio_container input {
     position: absolute;
-    left: 173px;
+    left: 126px;
+    top: 0px;
 }
 
 #mapdiv-maxprec_container .form-group.shiny-input-container label{
@@ -329,9 +317,8 @@ user-select: none;
 }
 
 #mapdiv-maskcol_container .form-group.shiny-input-container label{
-
 position: absolute;
-top: 228px;
+top: 189px;
 right: 730px;
 font-size: 16px;
 font-family: Fira Sans;
@@ -341,13 +328,11 @@ color: black;
 -moz-user-select: none;
 -ms-user-select: none;
 user-select: none;
-
 }
 
 #mapdiv-maskcol_container .selectize-control{
-
 position: absolute;
-top: 223px;
+top: 185px;
 left: 105px;
 width: 260px;
 font-size: 16px;
@@ -357,13 +342,11 @@ color: black;
 -moz-user-select: none;
 -ms-user-select: none;
 user-select: none;
-
 }
 
 #mapdiv-maptitle_container .form-group.shiny-input-container label{
-
 position: absolute;
-top: 271px; 
+top: 291px; 
 right: 730px;
 font-size: 16px;
 font-family: Fira Sans;
@@ -373,13 +356,11 @@ color: black;
 -moz-user-select: none;
 -ms-user-select: none;
 user-select: none;
-
 }
 
 #mapdiv-maptitle_container .form-control.shinyjs-resettable{
-
 position: absolute;
-top: 266px; 
+top: 286px; 
 left: 105px;
 width: 815px;
 font-size: 16px;
@@ -389,7 +370,6 @@ color: black;
 -moz-user-select: none;
 -ms-user-select: none;
 user-select: none;
-
 }
 
 /*#maskpreview {
@@ -417,9 +397,8 @@ user-select: none;
 }*/
 
 #mapdiv-create {
-
 position: absolute;
-top: 314px;
+top: 334px;
 left: -20px;
 height: 60px;
 width: 940px;
@@ -432,7 +411,6 @@ color: black;
 -moz-user-select: none;
 -ms-user-select: none;
 user-select: none;
-
 }
 /*#mapdiv-save {
   position: absolute;
@@ -451,19 +429,18 @@ user-select: none;
 }*/
   
 #mapdiv-greensc {
-
 position: absolute;
 top: 141px;
 left: 105px;
 width: 700px;
 height: 30px;
 }
+
 #mapdiv-greysc {
 position: absolute;
-top: 226px;
+top: 187px;
 left: 379.5px;
 width: 423px;
-
 height: 30px;
 }
 

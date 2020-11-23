@@ -26,8 +26,10 @@
 
 #griddiv-story_container .control-label {
     position: absolute;
-    top: 20px;
-    left: 3px;
+    top: 21px;
+    right: 745px;
+    width: 125px;
+    text-align:end;
     font-size: 16px;
     color: black;
     font-family: Fira Sans;
@@ -83,7 +85,7 @@
 }
 
 #griddiv-climproj_container .selectize-input.items.full.has-options.has-items {
-    width: 635px;
+    width: 615px;
     position: absolute;
     top: 55px;
     left: 190px;
@@ -98,8 +100,8 @@
 
 #griddiv-climproj_container label {
     position: absolute;
-    top: 75px;
-    left: 43px;
+    top: 76px;
+    right: 644px;
     font-size: 16px;
     color: black;
     font-family: Fira Sans;
@@ -110,7 +112,7 @@
 }
 
 #griddiv-soildb_container .selectize-input.items.full.has-options.has-items {
-    width: 635px;
+    width: 615px;
     position: absolute;
     top: 105px;
     left: 190px;
@@ -125,8 +127,8 @@
 
 #griddiv-soildb_container label {
     position: absolute;
-    top: 125px;
-    left: 72px;
+    top: 126px;
+    right: 644px;
     font-size: 16px;
     color: black;
     font-family: Fira Sans;
@@ -138,58 +140,67 @@
 
 #griddiv-ensclim_container {
     position: absolute;
-    top: 110px;
-    left: 835px;
+    top: 67px;
+    left: 815px;
     font-size: 16px;
     color: black;
     font-family: Fira Sans;
-    width: 100px;
+    width: 130px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
      user-select: none;
 }
+
+/*.bootstrap-switch-id-griddiv-ensclim .bootstrap-switch-label{
+height: 33px;
+}*/
 
 #griddiv-ensalg_container {
     position: absolute;
-    top: 160px;
-    left: 835px;
+    top: 164px;
+    left: 815px;
     font-size: 16px;
     color: black;
+    width: 130px;
     font-family: Fira Sans;
-    width: 100px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
      user-select: none;
 }
 
+/*.bootstrap-switch-id-griddiv-ensalg .bootstrap-switch-label {
+height: 33px;
+}*/
+
 #griddiv-enssoil_container {
     position: absolute;
-    top: 60px;
-    left: 835px;
+    top: 117px;
+    left: 815px;
     font-size: 16px;
     color: black;
     font-family: Fira Sans;
-    width: 100px;
+    width: 130px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
      user-select: none;
+}
+
+.bootstrap-switch-id-griddiv-enssoil .bootstrap-switch-label {
+height: 33px;
 }
 
 #griddiv-repcheck_container {
     position: absolute;
-    top: 628px;
-    left: 899px;
-    font-size: 16px;
+    top: 650px;
+    left: 785px;
     color: black;
     font-family: Fira Sans;
-    cursor: pointer;
     z-index: 1;
-    height: 29px;
-    width: 14px;
-    transform: scale(1.1);
+    width: 130px;
+    height: 30px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -352,37 +363,49 @@
 #griddiv-annual_container {
     position: absolute;
     top: 240px;
-    left: 352px;
+    left: 190px;
     font-size: 16px;
+    height: 35px;
     color: black;
+    width: 180px;
     font-family: Fira Sans;
-    width: 150px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
      user-select: none;
 }
 
-#griddiv-daily_container {
+#griddiv-dailyout_container {
     position: absolute;
     top: 240px;
-    left: 192px;
+    left: 375px;
     font-size: 16px;
+    height: 35px;
     color: black;
+    width: 220px;
+    display: none;
     font-family: Fira Sans;
-    width: 150px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
      user-select: none;
 }
+/*.bootstrap-switch-id-griddiv-annual .bootstrap-switch-label {
+    height: 35px;
+}
+
+#griddiv-annual_container .sw-switchInput{
+display: none;
+}*/
 
 #griddiv-algosel_container .control-label{
     position: absolute;
-    top: 170px;
-    left: 9px;
+    top: 173px;
+    right: 644px;
     font-size: 16px;
     color: black;
+    width: 220px;
+    text-align: end;
     font-family: Fira Sans;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -391,7 +414,7 @@
 }
 
 #griddiv-algosel_container .selectize-input.items.full.has-options.has-items {
-    width: 635px;
+    width: 615px;
     position: absolute;
     left: 190px;
     top: 152px;
@@ -420,8 +443,8 @@
 
 #griddiv-outsq_container label {
     position: absolute;
-    left: 35px;
-    top: 215px;
+    right: 644px;
+    top: 216px;
     font-size: 16px;
     color: black;
     font-family: Fira Sans;
@@ -435,8 +458,8 @@
     position: absolute;
     top: 210px;
     left: 600px;
-    height: 60px;
-    width: 320px;
+    height: 75px;
+    width: 323px;
     font-size: 26px;
     font-family: Fira Sans;
     color: black;
@@ -450,10 +473,10 @@
 
 #griddiv-Map {
     position: absolute;
-    top: 670px;
+    top: 687px;
     left: 785px;
-    height: 85px;
-    width: 130px;
+    height: 65px;
+    width: 133px;
     font-size: 26px;
     font-family: Fira Sans;
     color: black;
@@ -470,7 +493,7 @@
     top: 614px;
     left: 785px;
     height: 45px;
-    width: 130px;
+    width: 133px;
     font-size: 26px;
     font-family: Fira Sans;
     color: black;
@@ -484,13 +507,14 @@
 
 #griddiv-RunQuery {
     position: absolute;
-    top: 559px;
+    top: 557px;
     left: 785px;
     height: 45px;
-    width: 130px;
+    width: 133px;
     font-size: 26px;
     font-family: Fira Sans;
     color: black;
+    padding: 0px;
     font-weight: bold;
     background-color: gainsboro;
     white-space: normal !important;
@@ -503,7 +527,7 @@
 #griddiv-queryalias_container .form-control.shinyjs-resettable.shiny-bound-input {
     width: 300px;
     position: absolute;
-    top: 512px;
+    top: 509px;
     font-size: 16px;
     font-family: Fira Sans;
     color: black;
@@ -527,9 +551,9 @@
 }
 
 #griddiv-metadata_container .form-control.shinyjs-resettable.shiny-bound-input {
-    width: 600px;
+    width: 603px;
     position: absolute;
-    top: 512px;
+    top: 509px;
     left: 316px;
     font-size: 16px;
     font-family: Fira Sans;
@@ -538,11 +562,12 @@
 
 #griddiv-metadata_container label {
     position: absolute;
-    top: 488px;
-    left: 317px;
+    top: 487px;
+    left: 316px;
     font-size: 16px;
     font-family: Fira Sans;
     color: black;
+    width: 150px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -623,13 +648,14 @@ position: absolute;
 
 #griddiv-time_container .control-label {
     position: absolute;
-    top: 559px;
-    right: 640px;
+    top: 561px;
+    right: 655px;
     font-size: 16px;
     font-family: Fira Sans;
     color: black;
     font-weight: bold;
-    width: 100px;
+    width: 150px;
+    text-align: end;
     color: blue;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -640,7 +666,7 @@ position: absolute;
 #griddiv-time_container .selectize-input {
     position: absolute;
     right: 35px;
-    top: 505px;
+    top: 540px;
     width: 85px;
     font-size: 16px;
     font-family: Fira Sans;
@@ -691,7 +717,7 @@ position: absolute;
 
 #griddiv-sqlfunc_1_container .control-label {
     position: absolute;
-    top: 15px;
+    top: 16px;
     right: 304px;
     font-size: 16px;
     font-family: Fira Sans;
@@ -703,7 +729,7 @@ position: absolute;
      user-select: none;
 }
 
-#griddiv-sqlfunc_1_container .selectize-input.items.full.has-options.has-items {
+#griddiv-sqlfunc_1_container .selectize-input.items {
     position: absolute;
     left: 0px;
     width: 365px;
@@ -737,7 +763,7 @@ position: absolute;
 
 #griddiv-sqlfunc_2_container .control-label {
     position: absolute;
-    top: 15px;
+    top: 16px;
     right: 304px;
     font-size: 16px;
     font-family: Fira Sans;
@@ -749,7 +775,7 @@ position: absolute;
      user-select: none;
 }
 
-#griddiv-sqlfunc_2_container .selectize-input.items.full.has-options.has-items {
+#griddiv-sqlfunc_2_container .selectize-input.items {
     position: absolute;
     left: 0px;
     width: 365px;
@@ -783,7 +809,7 @@ position: absolute;
 
 #griddiv-sqlfunc_3_container .control-label {
     position: absolute;
-    top: 15px;
+    top: 16px;
     right: 304px;
     font-size: 16px;
     font-family: Fira Sans;
@@ -795,7 +821,7 @@ position: absolute;
      user-select: none;
 }
 
-#griddiv-sqlfunc_3_container .selectize-input.items.full.has-options.has-items {
+#griddiv-sqlfunc_3_container .selectize-input.items {
     position: absolute;
     left: 0px;
     width: 365px;
@@ -824,12 +850,12 @@ position: absolute;
 
 #griddiv-sqlfunc_4_container {
     position: absolute;
-    top: 708px;
+    top: 716px;
 }
 
 #griddiv-sqlfunc_4_container .control-label {
     position: absolute;
-    top: 15px;
+    top: 6px;
     right: 304px;
     font-size: 16px;
     font-family: Fira Sans;
@@ -841,9 +867,7 @@ position: absolute;
      user-select: none;
 }
 
-#griddiv-sqlfunc_4_container .selectize-input.items.full.has-options.has-items {
-    position: absolute;
-    left: 0px;
+#griddiv-sqlfunc_4_container .selectize-input.items {
     width: 365px;
     font-size: 16px;
     font-family: Fira Sans;
@@ -857,7 +881,6 @@ position: absolute;
 #griddiv-sqlfunc_4_container .selectize-dropdown-content {
     position: absolute;
     bottom: 0px;
-    width: 365px;
     font-size: 16px;
     font-family: Fira Sans;
     color: black;
@@ -871,12 +894,13 @@ position: absolute;
 #griddiv-sqlfunc_5_container {
     position: absolute;
     top: 547px;
+
 }
 
 #griddiv-sqlfunc_5_container .control-label {
     position: absolute;
-    top: 15px;
-    left: 377px;
+    top: 16px;
+    left: 378px;
     font-size: 16px;
     font-family: Fira Sans;
     color: red;
@@ -887,7 +911,7 @@ position: absolute;
      user-select: none;
 }
 
-#griddiv-sqlfunc_5_container .selectize-input.items.full.has-options.has-items {
+#griddiv-sqlfunc_5_container .selectize-input.items {
     position: absolute;
     left: 405px;
     width: 365px;
@@ -903,7 +927,7 @@ position: absolute;
 #griddiv-sqlfunc_5_container .selectize-dropdown-content {
     position: absolute;
     bottom: 0px;
-    width: 365px;
+    width: 385px;
     font-size: 16px;
     font-family: Fira Sans;
     color: black;
@@ -914,6 +938,7 @@ position: absolute;
      user-select: none;
 }
 
+
 #griddiv-sqlfunc_6_container {
     position: absolute;
     top: 588px;
@@ -921,7 +946,7 @@ position: absolute;
 
 #griddiv-sqlfunc_6_container .control-label {
     position: absolute;
-    top: 15px;
+    top: 16px;
     left: 377px;
     font-size: 16px;
     font-family: Fira Sans;
@@ -967,7 +992,7 @@ position: absolute;
 
 #griddiv-sqlfunc_7_container .control-label {
     position: absolute;
-    top: 15px;
+    top: 16px;
     left: 377px;
     font-size: 16px;
     font-family: Fira Sans;
@@ -1013,7 +1038,7 @@ position: absolute;
 
 #griddiv-sqlfunc_8_container .control-label {
     position: absolute;
-    top: 15px;
+    top: 16px;
     left: 377px;
     font-size: 16px;
     font-family: Fira Sans;
@@ -1059,7 +1084,7 @@ position: absolute;
 
 #griddiv-sqlfunc_9_container .control-label {
     position: absolute;
-    top: 15px;
+    top: 16px;
     left: 377px;
     font-size: 16px;
     font-family: Fira Sans;
@@ -1104,7 +1129,7 @@ position: absolute;
     font-family: Fira Sans;
     color: black;
     font-weight: bold;
-    top: 275px;
+    top: 278px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -1187,5 +1212,31 @@ span.timeSlice {
 
 #griddiv-alias_container {
     position: absolute;
-    left: 400px;
+    top:16px;
+    left: 360px;
+    border-radius: 3px;
+    width: 562px;
+    height: 31px;
+    padding-left: 5px;
+    padding-top: 5px;
+    background-color: white;
+    font-size: 16px;
+    color: black;
+    font-family: Fira Sans;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
+}
+
+
+.bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-default {
+    background-color: lightblue;
+    color: black;
+}
+
+.bootstrap-switch .bootstrap-switch-handle-off, .bootstrap-switch .bootstrap-switch-handle-on, .bootstrap-switch .bootstrap-switch-label {
+
+        line-height: unset!important;
+
 }

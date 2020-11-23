@@ -2,9 +2,9 @@
 % Please edit documentation in R/agromoParAna.R
 \name{agroMoParAna}
 \alias{agroMoParAna}
-\title{agroMoMap}
+\title{agroMoParAna}
 \usage{
-agroMoParAna(input, output, session)
+agroMoParAna(input, output, session, baseDir)
 }
 \arguments{
 \item{input}{input}

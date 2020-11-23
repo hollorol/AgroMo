@@ -6,6 +6,7 @@
 #' @keywords internal
 agroMoSiteUI <- function(id){
   ns <- NS(id)
+
   baseDir <- "defaultDir"
   baseTable<- data.frame(selectorId <- c(ns("iniFile"), ns("weatherFile"), ns("soilFile"), ns("managementFile")),
                          label <- c("INI file:", "WEATHER file:", "SOIL file:", "MANAGEMENT file:"),
@@ -20,7 +21,7 @@ agroMoSiteUI <- function(id){
                      "grazing" = "grz",
                      "mowing" = "mow",
                      "thinning" = "thn")
-
+  
   dropdownElements <- shiny::tags$div(id = "fileOutput", class="inFile",
                                apply(baseTable, 1,function (x){
                                  if(!grepl("management",x[1])){
@@ -38,7 +39,16 @@ agroMoSiteUI <- function(id){
 
 
   shiny::tags$div(id = ns(id),
-
+                 
+                           tags$div(
+                             id =paste0(ns("siteswitch"),"_container"),
+                             shinyWidgets::switchInput(ns("siteswitch"), label = NULL, onLabel="SITE", offLabel="GRID", value = TRUE)
+                           ),
+                           tags$div(
+                             id = paste0(ns("sitecellid"),"_container"),
+                             selectInput(ns("sitecellid"),"CELL id:",choices=c(1:1104))
+                           ),
+                           
            tagList(
              #shiny::tags$img(id = ns("base_bb"),src="www/img/base_banner_button.svg"),
              #shiny::tags$img(id = ns("map_bb"),src="www/img/map_banner_button.svg"),
@@ -56,13 +66,16 @@ agroMoSiteUI <- function(id){
              #        checkboxInput(ns("sitep"), label = "Observed data only", value = TRUE)
              #      ),
              shiny::tags$div(id="manModuls","management options:"),
-             shiny::tags$div(id="shiftIn","shift in ..."),
-             shiny::tags$div(id="negyzet","2"),
+             shiny::tags$div(id="shiftIn","change (+/-):"),
+             #shiny::tags$div(id="negyzet","2"),
              shiny::tags$div(id="outputid-label","OUTPUT DATA TABLE:"),
              lapply(managementTypes,function(man){
                         # browser()
                # if(man=="planting") browser()
-               choices <- basename(grep(paste0(managementExt[man],"$"),list.files("./",recursive=TRUE),value = TRUE))
+               choices <- basename(grep("*/tmp/*",
+                                        grep(paste0(managementExt[man],"$"),list.files("./input/management/site",recursive=TRUE),value = TRUE),
+                                        invert = TRUE,
+                                        value=TRUE))
                if(length(choices)==0){
                  choices <- NULL
                }
@@ -75,6 +88,7 @@ agroMoSiteUI <- function(id){
              uiOutput(ns("outputFile")),
              shiny::tags$div(id = ns("Buttons"),
              runAndPlotUI(ns("popRun"),label = "START SIMULATION"),
+             # actionButton(ns("runModel"),"START SIMULATION"),
              actionButton(ns("Show"),label="PLOT", title="Create plots using simulation results")),
              shiny::tags$div(
                     id = paste0(ns("planshift_date"),"_container"),
@@ -82,7 +96,7 @@ agroMoSiteUI <- function(id){
              ),
              shiny::tags$div(
                     id = paste0(ns("planshift_density"),"_container"),
-                    textInput(ns("planshift_density"), "density (p/m ):", 0)
+                    textInput(ns("planshift_density"), "density (p/m²):", 0)
              ),
              shiny::tags$div(
                     id = paste0(ns("harvshift_date"),"_container"),
@@ -119,6 +133,7 @@ agroMoSiteUI <- function(id){
 #' @param dataenv The central datastructure of the AgroMo
 #' @param baseDir baseDir is the base directory for the modell inputs/outputs
 #' @importFrom shiny reactive updateSelectInput observe textInput renderUI reactiveValues callModule observeEvent isolate 
+#' @importFrom DBI dbListTables
 #' @importFrom jsonlite read_json
 #' @keywords internal
 
@@ -178,8 +193,10 @@ agroMoSite <- function(input, output, session, dataenv, baseDir, connection,cent
      # browser()
       if(iniFile()!=""){
           settings <- tryCatch(setupGUI(iniFile(),isolate(baseDir()), centralData),error=function(e){
-                            showNotification("Your iniFile is corrupt, please check it!",type="error")
-                            browser()
+                                   if(isolate(input$siteswitch)){
+                                        showNotification("Your iniFile is corrupt, please check it!",type="error")
+                                   }
+                            # browser()
                             NULL
                         })
           # sapply(ls(settings),function(x){print(settings$x)})
@@ -223,6 +240,7 @@ agroMoSite <- function(input, output, session, dataenv, baseDir, connection,cent
     updateSelectInput(session,"thinning", selected = manType()[7])
   })
 
+ 
   observeEvent(input$Show,{
     dat$show <- dat$show + 1
   })
@@ -251,9 +269,21 @@ agroMoSite <- function(input, output, session, dataenv, baseDir, connection,cent
                                                                     baseDir(),"input/management/site")
                                                ,recursive = TRUE),value = TRUE))), selected = mgmState)
   })
-  # observe({
-  #   print(input$outFile)
-  # })
+
+   observeEvent(input$siteswitch, {
+                    if(!isolate(input$siteswitch)){
+                         connDB <- dbConnect(RSQLite::SQLite(),file.path(baseDir(),"output","grid.db")) 
+                         updateSelectInput(session,"iniFile", choices=grep(".*_error",dbListTables(connDB), value=TRUE, invert=TRUE),
+                                           label="OUTPUT DATABASE tables:")
+                         dbDisconnect(connDB)
+                         updateActionButton(session,"popRun-runModel",label = "RETRIEVE CELL DATA")
+                    } else {
+        updateSelectInput(session,"iniFile", choices = grep("spinup",grep("*.ini",list.files(file.path(baseDir(),"input/initialization/site")),value = TRUE),invert=TRUE, value=TRUE),selected = input$iniFile, label = "INI file:")
+                    
+                         updateActionButton(session,"popRun-runModel",label = "START SIMULATION")
+                    }
+
+  })
   callModule(runAndPlot,"popRun",baseDir, reactive({input$iniFile}),
              reactive({input$weatherFile}), reactive({input$soilFile}),
              reactive({input$managementFile}), reactive({stringSanitizer(input$outFile)}),
@@ -268,6 +298,8 @@ agroMoSite <- function(input, output, session, dataenv, baseDir, connection,cent
              reactive({input$irrshift_date}),
              reactive({input$fertshift_amount}),
              reactive({input$irrshift_amount}),
-  reactive({connection}),reactive({centralData}))
+             reactive({connection}),reactive({centralData}),
+             siteRun=reactive({input$siteswitch}),
+             plotid=reactive({input$sitecellid}))
     return(dat)
  }

@@ -3,7 +3,7 @@
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: local('Fira Sans Medium'), local('FiraSans-Medium'), url('../font/FiraSans-Medium.ttf') format('truetype');
+  src: url('../font/FiraSans-Medium.ttf'); /* format('truetype'), local('Fira Sans Medium'), local('FiraSans-Medium')*/;
 }
 
 .base-baseInputs {

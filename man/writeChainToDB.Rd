@@ -11,7 +11,8 @@ writeChainToDB(
   outputName,
   chainMatrix,
   variables,
-  errorVector
+  errorVector,
+  type
 )
 }
 \arguments{

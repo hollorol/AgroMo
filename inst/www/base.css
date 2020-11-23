@@ -155,7 +155,7 @@
 #parana {
     position: absolute;
     top: 55px;
-    left: 680px;
+    left: 677px;
     width: 250px;
     height: 60px;
     font-weight: 700;
@@ -172,7 +172,7 @@
 #sitegen {
     position: absolute;
     top: 125px;
-    left: 680px;
+    left: 677px;
     width: 250px;
     height: 60px;
     font-weight: 700;
@@ -188,31 +188,14 @@
 
 #calibration {
     position: absolute;
-    top: 195px;
-    left: 680px;
-    width: 250px;
-    height: 60px;
-    font-family: "Fira Sans";
-     color: black;
-    font-size: 18px;
-    font-weight: 700;
-    background-color: gainsboro;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-#storEditor {
-    position: absolute;
     top: 265px;
-    left: 680px;
+    left: 677px;
     width: 250px;
     height: 60px;
+    font-family: "Fira Sans";
      color: black;
     font-size: 18px;
     font-weight: 700;
-    font-family: "Fira Sans";
     background-color: gainsboro;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -222,10 +205,29 @@
 
 #fileMan {
     position: absolute;
-    top: 335px;
-    left: 680px;
+    top: 195px;
+    left: 677px;
     width: 250px;
     height: 60px;
+     color: black;
+    font-size: 18px;
+    font-weight: 700;
+    font-family: "Fira Sans";
+    background-color: gainsboro;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#helpme {
+    position: absolute;
+    top: 335px;
+    left: 677px;
+    width: 250px;
+    height: 60px;
+    color: black;
+    font-size: 18px;
     font-weight: 700;
     font-family: "Fira Sans";
     background-color: gainsboro;
@@ -421,6 +423,14 @@
   width: 75px;
   border-width: 0px;
   border-radius: 1px;
+}
+
+#helpback {
+    position: absolute;
+    top: 700px;
+    left: 20px !important;
+    width: 40px;
+    height: 30px;
 }
 
 #exit {

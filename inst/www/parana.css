@@ -19,10 +19,52 @@
   user-select: none;
 }
 
+#paranaradsweep {
+    position: absolute;
+    top: 44px;
+    left: 28px;
+    font-weight: normal;
+    font-size: 16px;
+    font-family: Fira Sans;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#paranaradsens {
+    position: absolute;
+    top: 75px;
+    left: 28px;
+    font-weight: normal;
+    font-size: 16px;
+    font-family: Fira Sans;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#paranaradcal {
+    position: absolute;
+    top: 105px;
+    left: 28px;
+    font-weight: normal;
+    font-size: 16px;
+    font-family: Fira Sans;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
 #paranadiv-paranaini_container label{
     position: absolute;
     top: 10px;
-    left: 355px;
+    left: 315px;
     font-weight: bold;
     font-size: 16px;
     font-family: Fira Sans;
@@ -36,8 +78,8 @@
 #paranadiv-paranaini_container .selectize-control{
     position: absolute;
     top: 33px;
-    width: 580px;
-    left: 354px;
+    width: 620px;
+    left: 314px;
     font-weight: normal;
     font-size: 16px;
     font-family: Fira Sans;
@@ -50,12 +92,13 @@
 
 #paranadiv-paranait_container label {
     position: absolute;
-    top: 506px;
-    left: 196px;
+    top: 556px;
+    right: 480px;
     font-weight: normal;
     font-size: 16px;
     font-family: Fira Sans;
     color: black;
+    text-align: end;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -64,7 +107,7 @@
 
 #paranadiv-paranait_container .form-control {
     position: absolute;
-    top: 500px;
+    top: 550px;
     left: 354px;
     width: 180px;
     font-weight: normal;
@@ -80,7 +123,7 @@
 #paranadiv-paranaexp_container label {
     position: absolute;
     top: 80px;
-    left: 355px;
+    left: 315px;
     font-weight: bold;
     font-size: 16px;
     font-family: Fira Sans;
@@ -94,8 +137,37 @@
 #paranadiv-paranaexp_container .selectize-control {
     position: absolute;
     top: 103px;
-    width: 580px;
-    left: 354px;
+    width: 305px;
+    left: 314px;
+    font-weight: normal;
+    font-size: 16px;
+    font-family: Fira Sans;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#paranadiv-ctlfile_container label {
+    position: absolute;
+    top: 80px;
+    left: 630px;
+    font-weight: bold;
+    font-size: 16px;
+    font-family: Fira Sans;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#paranadiv-ctlfile_container .selectize-control {
+    position: absolute;
+    top: 103px;
+    width: 305px;
+    left: 629px;
     font-weight: normal;
     font-size: 16px;
     font-family: Fira Sans;
@@ -137,13 +209,14 @@
 
 #paranadiv-charfunc_container label {
     position: absolute;
-    top: 556px;
+    top: 606px;
     width: 580px;
-    left: 60px;
+    right: 480px;
     font-weight: normal;
     font-size: 16px;
     font-family: Fira Sans;
     color: black;
+    text-align: end;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -152,7 +225,7 @@
 
 #paranadiv-charfunc_container .selectize-input {
     position: absolute;
-    top: 535px;
+    top: 170px;
     width: 580px;
     left: 354px;
     font-weight: normal;
@@ -178,6 +251,7 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  display: none;
 }
 
 #paranadiv-metfunc_container .selectize-input {
@@ -193,6 +267,7 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  display: none;
 }
 
 #paranatype {
@@ -230,4 +305,17 @@
 
 #paranadiv-paranaradio_container .shiny-options-group {
   border-width: 0px;
+  position: absolute;
+  top: 35px;
+}
+
+#paranadiv-paranaimage img{
+position: absolute;
+  top: 180px;
+  left: 10px;
+  width: 920px;
+  height: 350px;
+  border-color: black;
+  border-style: solid;
+  border-width: 1.5px;
 }

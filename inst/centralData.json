@@ -1,5 +1,6 @@
 [
     {"VARCODE":3054,"LABEL NAME":"Grain Dry Matter Content","FROM":"kg/m^2","TO":"kg/ha","TYPE":"real","VARIABLE":"grainDM","TIMESTEP":"day","FUNCTION":"identity","PLOT TYPE":"line","CONV FACTOR":10000,"TAG":"plant, favorite"},
+    {"VARCODE":3037,"LABEL NAME":"All Harvested Dry Matter","FROM":"kgC/m^2","TO":"kg/ha","TYPE":"real","VARIABLE":"allharvDM","TIMESTEP":"day","FUNCTION":"identity","PLOT TYPE":"line","CONV FACTOR":22222,"TAG":"plant, favorite"},
     {"VARCODE":2794,"LABEL NAME":"Flowering day","FROM":"DOY","TO":"DOY","TYPE":"integer","VARIABLE":"flwrdoy","TIMESTEP":"day","FUNCTION":"identity","PLOT TYPE":"line","CONV FACTOR":1,"TAG":"plant, favorite"},
     {"VARCODE":2520,"LABEL NAME":"Leaf Area Index","FROM":"m^2/m^2","TO":"m^2/m^2","TYPE":"real","VARIABLE":"lai","TIMESTEP":"day","FUNCTION":"identity","PLOT TYPE":"line","CONV FACTOR":1,"TAG":"plant, favorite"},
     {"VARCODE":2636,"LABEL NAME":"Rooting Depth","FROM":"m","TO":"m","TYPE":"real","VARIABLE":"rootdep","TIMESTEP":"day","FUNCTION":"identity","PLOT TYPE":"line","CONV FACTOR":1,"TAG":"plant, favorite"},
@@ -90,7 +91,8 @@
     {"VARCODE":1184,"LABEL NAME":"Soil CH4 emission","FROM":"kg/m^2/d","TO":"kg/m^2/d","TYPE":"real","VARIABLE":"dCH4emiss","TIMESTEP":"day","FUNCTION":"identity","PLOT TYPE":"line","CONV FACTOR":1,"TAG":"soil, carbon, GHG"},
     {"VARCODE":1185,"LABEL NAME":"Daily manure CH4 emission","FROM":"kg/m^2/d","TO":"kg/m^2/d","TYPE":"real","VARIABLE":"manCH4emis","TIMESTEP":"day","FUNCTION":"identity","PLOT TYPE":"line","CONV FACTOR":1,"TAG":"soil, carbon, GHG"},
     {"VARCODE":1186,"LABEL NAME":"Daily CH4 emission from animals","FROM":"kg/m^2/d","TO":"kg/m^2/d","TYPE":"real","VARIABLE":"animCH4emis","TIMESTEP":"day","FUNCTION":"identity","PLOT TYPE":"line","CONV FACTOR":1,"TAG":"soil, carbon, GHG"},
-    {"VARCODE":3004,"LABEL NAME":"Soil N2O emission","FROM":"kg/m^2/d","TO":"kg/m^2/d","TYPE":"real","VARIABLE":"dN2Oemiss","TIMESTEP":"day","FUNCTION":"identity","PLOT TYPE":"line","CONV FACTOR":1,"TAG":"soil, nitrogen, GHG"},
+    {"VARCODE":3004,"LABEL NAME":"Daily Soil N2O emission","FROM":"kg/m^2/d","TO":"kg/m^2/d","TYPE":"real","VARIABLE":"dN2Oemiss","TIMESTEP":"day","FUNCTION":"identity","PLOT TYPE":"line","CONV FACTOR":1,"TAG":"soil, nitrogen, GHG"},
+    {"VARCODE":3030,"LABEL NAME":"Cum. Soil N2O emission","FROM":"kg/m^2","TO":"kg/m^2","TYPE":"real","VARIABLE":"cN2Oemiss","TIMESTEP":"day","FUNCTION":"identity","PLOT TYPE":"line","CONV FACTOR":1,"TAG":"soil, nitrogen, GHG"},
     {"VARCODE":3005,"LABEL NAME":"Daily NEP","FROM":"kg/m^2/d","TO":"kg/m^2/d","TYPE":"real","VARIABLE":"dNEP","TIMESTEP":"day","FUNCTION":"identity","PLOT TYPE":"line","CONV FACTOR":1,"TAG":"plant"},
     {"VARCODE":3006,"LABEL NAME":"Daily NPP","FROM":"kg/m^2/d","TO":"kg/m^2/d","TYPE":"real","VARIABLE":"dNPP","TIMESTEP":"day","FUNCTION":"identity","PLOT TYPE":"line","CONV FACTOR":1,"TAG":"plant"},
     {"VARCODE":3007,"LABEL NAME":"Daily NEE","FROM":"kg/m^2/d","TO":"kg/m^2/d","TYPE":"real","VARIABLE":"dNEE","TIMESTEP":"day","FUNCTION":"identity","PLOT TYPE":"line","CONV FACTOR":1,"TAG":"plant"},

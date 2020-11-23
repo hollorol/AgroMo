@@ -34,7 +34,6 @@ multiPlot <- function(input, output, session, measurement, outputNames, outputTa
     simplePlots <- cbind.data.frame(simplePlots,centralData[centralDataIndex,"CONV FACTOR"]) 
     simplePlots[,5]<- as.numeric(as.character(simplePlots[,5]))
   }
-# browser()
   dataenv <- new.env()
   sapply(dbListTables(connection()),function(tableName){
    dataenv[[tableName]] <- dbReadTable(connection(),tableName)

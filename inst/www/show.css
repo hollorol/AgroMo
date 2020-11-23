@@ -137,10 +137,11 @@ div.profPlotCont .form-control {
 #showdiv-varset_container .control-label{
   position: absolute;
   top: 143px;
-  left: 397px;
-  width: 65px;
+  right: 100px;
+  width: 150px;
   font-weight: normal;
   color: black;
+  text-align: end;
   font-size: 16px;
   font-family: Fira Sans;
   -webkit-user-select: none;
@@ -468,7 +469,7 @@ div.profPlotCont .form-control {
 }
 #showdiv-alias_container label{
     position: absolute;
-    top: 85px;
+    top: 87px;
     left:160px;
   font-size: 16px;
   font-family: Fira Sans;
@@ -576,9 +577,16 @@ div.profPlotCont .form-control {
 
 .modal-lg {
     width: 95%;
+      height: 95%;
 }
 
 .bigholder {
     display: flex;
     height: 50px;
+}
+
+.modal-body {
+  overflow: scroll !important;
+  overflow-x: hidden !important;
+  height: 700px !important;
 }

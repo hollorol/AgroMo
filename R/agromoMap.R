@@ -164,7 +164,6 @@ agroMoMapUI <- function(id){
                             let paletteMask = {
                             \"src\":[\"www/img/palette_samples/LightGre_mask.png\",
                             \"www/img/palette_samples/DarkGre_mask.png\",
-                            \"www/img/palette_samples/Black_mask.png\",
                             \"www/img/palette_samples/White_mask.png\"
                             ],
                             \"colorscheme\" : [      \"Light Grey\", \"Dark Grey\", \"White\"

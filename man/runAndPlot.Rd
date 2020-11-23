@@ -29,7 +29,10 @@ runAndPlot(
   fertshift_amount,
   irrshift_amount,
   connection,
-  centralData
+  centralData,
+  siteRun,
+  plotid,
+  runModel
 )
 }
 \description{
