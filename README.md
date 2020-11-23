@@ -22,7 +22,7 @@ A graphical user interface (GUI) has been developed for providing easy and user 
 
 ### AgroMo Base
 
-![alt text](img/base_gui.png "AgroMo Base")
+<img src="img/base_gui.png" style="width: 100%">
 
 - [x] Choose/change the main directory where your data files are located (in the required [subdirectory system](img/AgroMo_File_System.pdf)) by clicking the [MODIFY] button. The default location is the AgroMo\data folder.
 - [x] Run the model for a specific site/plot by clicking the [SITE] button.
@@ -38,7 +38,8 @@ A graphical user interface (GUI) has been developed for providing easy and user 
 
 ### AgroMo Site
 
-![alt text](img/site_gui.png "AgroMo Site")
+<img src="img/site_gui.png" style="width: 100%">
+
 - [x] The dropdown menus display the files, only with the prescribed extension, of the corresponding directories within the prescribed input folder system:
   - INI files (extension: .ini): .\input\initialization\site\
   - WEATHER files (extension: .wth): .\input\weather\site\
@@ -66,20 +67,21 @@ A graphical user interface (GUI) has been developed for providing easy and user 
 
 ### AgroMo Plot
 
-![alt text](img/plot_gui.png "AgroMo Plot")
+<img src="img/plot_gui.png" style="width: 100%">
+
 - [x] Select a maximum of 5 simulation results from the left side list by clicking the items. Clicking again deselects the item.
 - [x] Select output variable(s) from the right side list for presenting them on the plot(s).
 - [x] Enter an alias for the observed data to be presented on the graph.
 - [x] Observed data could be added to the plots by selecting the data file from the corrresponding dropdown lists. NOTE, that data in the observed data tables should be structured according to prescribed rules. Observed (experimental) data should be stored in the '.\observation\' folder in a semicolon separated text file with .obs extension. var_id, date and mean (of the observations) values are compulsory for each record, optionally followed by the sd, min and max of the observed values.
 - [x] For each selected output variable select:
-  - a |time step| for which the daily data are to be aggregated into one single value (e.g. for presenting annual values the 'year' option should be selected).
-  - a |function| that defines the aggregation (e.g. for presenting the final yield for each year the 'max' option should be selected)
-  - a |plot type| 
-- [x] Options in the |time step|, |function| and |plot type| columns can be selected via circular menus operated by clicking/scrolling in the corresponding cells.
+  - a \|time step\| for which the daily data are to be aggregated into one single value (e.g. for presenting annual values the 'year' option should be selected).
+  - a \|function\| that defines the aggregation (e.g. for presenting the final yield for each year the 'max' option should be selected)
+  - a \|plot type\| 
+- [x] Options in the \|time step\|, \|function\| and \|plot type\| columns can be selected via circular menus operated by clicking/scrolling in the corresponding cells.
 - [x] Having all the desired options selected, create plot(s) by clicking the [CREATE PLOT] button.
 - [x] Output variables can be filtered accoording to a couple of predefined tags, that may be edited in the centralData.json file.
 
-![alt text](img/plotly_graph01.png "AgroMo Graph")
+<img src="img/plotly_graph01.png" style="width: 100%">
 
 - [x] Zoom in the graph by selecting an area on the graph while holding down the left mouse button.
 - [x] Move the x/y axes by dragging them in the middle (cursor changes) and move the pointer horizontally/vertically.
