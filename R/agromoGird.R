@@ -367,6 +367,15 @@ agroMoGrid <- function(input, output, session, baseDir, language){
          } else {
             showNotification("Cannot find soil database, queries which contains soil data will not run",type="warning")
          }
+
+         showNotification("Attaching weather database...")
+         weatherDBName <- file.path(normalizePath(dbDir),"weather.db")
+         if(file.exists(weatherDBName)){
+            dbExecute(sqlDB,sprintf("ATTACH DATABASE '%s' AS weather", weatherDBName))
+         } else {
+            showNotification("Cannot find weather database, queries which contains weather data will not run",type="warning")
+         }
+
          if(file.exists(observationDBName)){
             dbExecute(sqlDB,sprintf("ATTACH DATABASE '%s' AS observation",observationDBName))
          } else {
