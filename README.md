@@ -120,7 +120,7 @@ An example that retrieves the average annual Net Primary Production for each gri
 
 ### AgroMo Map
 
-<img="img/map_gui.png" style="width: 100%">
+<img src="img/map_gui.png" style="width: 100%">
 
 - [x] Query results are stored in .sql files that can be selected from the data source drop down menu. Data in an .sql file usually define a gridded map.
 - [x] Set some basic features of the map by selecting a palette, switching on/off the the country contour and the latitude/longitude lines, selecting a color for the masked cells.
