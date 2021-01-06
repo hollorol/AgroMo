@@ -29,6 +29,8 @@ agroMoDBManUI <- function(id){
            tags$div(id = ns("Buttons"),
                     actionButton(ns("querytab"),label = "QUERY TABLE")),
            tags$div(id = ns("Buttons"),
+                    actionButton(ns("reper"),label = "REPORT ERROR")),
+           tags$div(id = ns("Buttons"),
                     actionButton(ns("deltab"),label = "DELETE TABLE")),
 
             tableOutput(ns("result"))

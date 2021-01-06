@@ -74,6 +74,19 @@
   font-family: Fira Sans;
 }
 
+#dbmandiv-reper{
+  position:absolute;
+  top: 120px;
+  left:-20px;
+  width:220px;
+  height: 45px;
+  background-color: gainsboro;
+  font-size: 24px;
+  font-family: Fira Sans;
+  font-weight: bold;
+  color: black;
+}
+
 #dbmandiv-showtab{
   position:absolute;
   top: 120px;
