@@ -3,6 +3,7 @@
 #' Bla
 #' @param id id
 #' @importFrom shiny NS tags checkboxInput selectInput textInput actionButton plotOutput updateSelectInput observe imageOutput
+#' @importFrom shinyFiles shinyFilesButton
 
 agroMoDBManUI <- function(id){
   
@@ -29,7 +30,7 @@ agroMoDBManUI <- function(id){
            tags$div(id = ns("Buttons"),
                     actionButton(ns("querytab"),label = "QUERY TABLE")),
            tags$div(id = ns("Buttons"),
-                    actionButton(ns("reper"),label = "REPORT ERROR")),
+                    shinyFilesButton(ns("reper"), label = "REPORT ERROR", title="Please choose an ini file!", "single")),
            tags$div(id = ns("Buttons"),
                     actionButton(ns("deltab"),label = "DELETE TABLE")),
 
@@ -46,9 +47,11 @@ agroMoDBManUI <- function(id){
 #' asdfasfd
 #' @param input input
 #' @importFrom shiny reactiveValues observe updateSelectInput observe renderPlot renderImage 
+#' @importFrom shinyFiles shinyFileChoose
 #' @importFrom DBI dbConnect dbListTables dbRemoveTable dbGetQuery 
 
 agroMoDBMan <- function(input, output, session, baseDir, dbGridConn, dbConn){
+    shinyFileChoose(input,'reper', session=session,roots=c(wd='input/initialization'))
     ns <- session$ns
 
     dbconnections <- reactiveValues(soil = NULL,"grid output" = NULL, "site output" = NULL) 
@@ -89,4 +92,15 @@ agroMoDBMan <- function(input, output, session, baseDir, dbGridConn, dbConn){
                      })
 
     })
+
+    observe({
+        if(is.list(input$reper)){
+            iniName <- file.path("input","initialization",do.call(file.path,input$reper$files$`0`))
+            flatMuso(iniName, options("AgroMo_depTree")[[1]], sprintf("input/initialization/flat_%s",basename(iniName)))
+        }
+                # if(input$reper !=0){
+                #     flatMuso(input$reper,options("AgroMo_deptree"), sprintf("input/initialization/flat_%s",input$reper))
+                # }
+    })
+
 }

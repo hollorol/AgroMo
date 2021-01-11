@@ -20,7 +20,7 @@ getFilePath <- function(iniName, fileType, depTree){
     parentFile <- Reduce(function(x,y){
                              tryCatch(gsub(sprintf("\\.%s.*",y),
                                    sprintf("\\.%s",y),
-                                   grep(sprintf("\\.%s",y),readLines(x),value=TRUE)), error = function(e){
+                                   grep(sprintf("\\.%s",y),readLines(x),value=TRUE,perl=TRUE)), error = function(e){
                                         stop(sprintf("Cannot find %s",x))
                              })
                         },
@@ -30,13 +30,13 @@ getFilePath <- function(iniName, fileType, depTree){
         tryCatch(
          gsub(sprintf("\\.%s.*", startExt),
               sprintf("\\.%s", startExt),
-              grep(sprintf("\\.%s",startExt),readLines(parentFile),value=TRUE))[startRow$mod]
+              grep(sprintf("\\.%s",startExt),readLines(parentFile),value=TRUE,perl=TRUE))[startRow$mod]
         ,error = function(e){stop(sprintf("Cannot read %s",parentFile))})
     } else {
         res <- tryCatch(
          gsub(sprintf("\\.%s.*", startExt),
                      sprintf("\\.%s",startExt),
-                     grep(sprintf("\\.%s",startExt),readLines(parentFile),value=TRUE))
+                     grep(sprintf("\\.%s",startExt),readLines(parentFile),value=TRUE, perl=TRUE))
         ,error = function(e){stop(sprintf("Cannot read %s", parentFile))})
         unique(gsub(".*\\t","",res))
     }
@@ -58,7 +58,6 @@ flatMuso <- function(iniName,depTree,directory="trial"){
     file.copy(unlist(files), directory, overwrite=TRUE)
     file.copy(iniName, directory, overwrite=TRUE)
 
-
     filesByName <- getFilesFromIni(iniName,depTree)
     for(i in seq_along(filesByName)){
         fileLines <- readLines(file.path(directory,list.files(directory, pattern = sprintf("*\\.%s", depTree$parent[i])))[1])
@@ -70,13 +69,13 @@ flatMuso <- function(iniName,depTree,directory="trial"){
         })
 
         if(!is.na(filesByName[[i]][1])){
-            writeLines(fileLines, file.path(directory,list.files(directory, pattern = sprintf("*\\.%s", depTree$parent[i])))[0])
+            writeLines(fileLines, file.path(directory,list.files(directory, pattern = sprintf("*\\.%s", depTree$parent[i])))[1])
         }
 
     }
 
     iniLines <- readLines(file.path(directory, basename(iniName)))
-    outPlace <- grep("OUTPUT_CONTROL", iniLines)+1
+    outPlace <- grep("OUTPUT_CONTROL", iniLines, perl=TRUE)+1
     iniLines[outPlace] <-  basename(strsplit(iniLines[outPlace], split = "\\s+")[[1]][1])
     writeLines(iniLines, file.path(directory, basename(iniName)))    
 }
