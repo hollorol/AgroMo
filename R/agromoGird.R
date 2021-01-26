@@ -227,6 +227,7 @@ agroMoGrid <- function(input, output, session, baseDir, language){
                          suppressWarnings(dir.create(file.path(baseDir(),"endpoint/grid/",input$story)))
                          output$alias <- renderText({readLines(choosenStoryFile,n=1)})
                          skip <- ifelse(isolate(input$annual),2,1)
+                         browser()
                          dat$storyVars <- as.character(read.table(choosenStoryFile,skip=skip, nrows=1, sep=";",stringsAsFactors=FALSE))
                          dat$storyCSV <- read.table(choosenStoryFile,skip=3, sep=";",stringsAsFactors=FALSE)
                          dat$storyTimeRange <- range(dat$storyCSV[,c(3,4)])
@@ -395,12 +396,12 @@ agroMoGrid <- function(input, output, session, baseDir, language){
              errorColumns <- lapply(errorTables,function(tableName){
                                        dbGetQuery(sqlDB,sprintf("SELECT * FROM %s",tableName))
                                         })
-             # queryResults$plotid <- as.numeric(as.numeric(queryResults$plotid))
+             # queryResults$site_id <- as.numeric(as.numeric(queryResults$site_id))
             #doing a left outer join, the reduce part ads the columns
              finalDF <- tryCatch(merge((Reduce(function(x,y){x$error <- x$error+y$error; return(x)},errorColumns)),
-                               queryResults,by.x="site",by.y="plotid",all.x=TRUE),
+                               queryResults,by.x="site",by.y="site_id",all.x=TRUE),
                                error=function(e){cbind.data.frame(queryResults[,1],0,queryResults[,2])})
-             colnames(finalDF) <- c("plotid","error","value")
+             colnames(finalDF) <- c("site_id","error","value")
              write.csv(finalDF,file.path(baseDir(),"output/map_data",sprintf("%s.csv",input$queryalias)),row.names=FALSE)
          }
 
@@ -503,6 +504,7 @@ agroMoGrid <- function(input, output, session, baseDir, language){
          errorDF <- data.frame(site=names(errorDF),error=errorDF)
          dbWriteTable(sqlDB,sprintf("%s_error",input$outsq),errorDF,overwrite=TRUE)
          dbExecute(sqlDB,sprintf("DROP TABLE IF EXISTS %s",input$outsq))
+         browser()
          withProgress(message="Writing data to database, it can be slow...",value=0,{
                           for(i in seq_along(dat$story)){
                               if(errorDF[i,"error"] == 0){
@@ -515,7 +517,7 @@ agroMoGrid <- function(input, output, session, baseDir, language){
          })
 
          indexSQL<- c(
-                      "site" = "CREATE INDEX site_%s ON %s(plotid)",
+                      "site" = "CREATE INDEX site_%s ON %s(site_id)",
                       "year" = "CREATE INDEX year_%s ON %s(year)"
          )
          if(is.element(input$outsq,dbListTables(sqlDB))){
@@ -651,15 +653,22 @@ runGrid <- function(baseDir,storyName,chainMatrixFull){
 #' @importFrom DBI dbWriteTable
 #' @importFrom lubridate year month yday
 
-writeChainToDB <- function(baseDir, storyName, dbConnection, outputName, chainMatrix, variables, errorVector, type){
-    fName <- paste0(file.path(baseDir,"output/grid/",storyName,chainMatrix[,2]),type)
-    toWrite <- do.call("rbind",lapply(fName, function(fn){readTable(fn,
-                                                                    variables,
-                                                                    type,
-                                                                    plotid=as.character(chainMatrix[,1]),
-                                                                    numDays=chainMatrix[,5],
-                                                                    startYear=chainMatrix[,"startYear"],
-                                                                    endYear=chainMatrix[,"endYear"])}))
+writeChainToDB <- function(baseDir, storyName, dbConnection, outputName,
+                           chainMatrix, variables, errorVector, type){
+
+    fName <- paste0(file.path(baseDir, "output/grid/",
+                              storyName, chainMatrix[,2]), type)
+
+    browser()
+    toWrite <- do.call("rbind",
+        lapply(fName, function(fn){readTable(fn,
+                      variables,
+                      type,
+                      site_id=as.character(chainMatrix[,1]),
+                      numDays=as.integer(chainMatrix[,5]),
+                      startYear=as.integer(chainMatrix[,"startYear"]),
+                      endYear=as.integer(chainMatrix[,"endYear"]))}))
+
     dbWriteTable(dbConnection, outputName, toWrite, append = TRUE)
 }
 
@@ -672,7 +681,7 @@ writeChainToDB <- function(baseDir, storyName, dbConnection, outputName, chainMa
 #' @param type .dayout or .annout
 #' @importFrom lubridate year month yday
 
-readTable <- function(fName,variables, type, plotid, numDays, startYear, endYear){   
+readTable <- function(fName,variables, type, site_id, numDays, startYear, endYear){   
 
     if(type == ".dayout"){
         con <- file(fName,"rb")
@@ -686,13 +695,13 @@ readTable <- function(fName,variables, type, plotid, numDays, startYear, endYear
         month <- month(udates)
         yday <- yday(udates)
         dayoutput <- cbind.data.frame(udates,year,month,yday, dayoutput,
-                                      site=plotid, stringsAsFactors=FALSE)
-        colnames(dayoutput) <- as.character(c("udate","year","month","yday", variables, "plotid"))
+                                      site=site_id, stringsAsFactors=FALSE)
+        colnames(dayoutput) <- as.character(c("udate","year","month","yday", variables, "site_id"))
         close(con)
         return(dayoutput)
     } else {
-        annuOutput <- cbind.data.frame(read.table(fName, skip=1, header=FALSE),plotid)
-        colnames(annuOutput) <- c("year", variables,"plotid")
+        annuOutput <- cbind.data.frame(read.table(fName, skip=1, header=FALSE),site_id)
+        colnames(annuOutput) <- c("year", variables,"site_id")
         return(annuOutput)
     }
 }
