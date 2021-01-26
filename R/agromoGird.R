@@ -227,7 +227,6 @@ agroMoGrid <- function(input, output, session, baseDir, language){
                          suppressWarnings(dir.create(file.path(baseDir(),"endpoint/grid/",input$story)))
                          output$alias <- renderText({readLines(choosenStoryFile,n=1)})
                          skip <- ifelse(isolate(input$annual),2,1)
-                         browser()
                          dat$storyVars <- as.character(read.table(choosenStoryFile,skip=skip, nrows=1, sep=";",stringsAsFactors=FALSE))
                          dat$storyCSV <- read.table(choosenStoryFile,skip=3, sep=";",stringsAsFactors=FALSE)
                          dat$storyTimeRange <- range(dat$storyCSV[,c(3,4)])
@@ -504,7 +503,6 @@ agroMoGrid <- function(input, output, session, baseDir, language){
          errorDF <- data.frame(site=names(errorDF),error=errorDF)
          dbWriteTable(sqlDB,sprintf("%s_error",input$outsq),errorDF,overwrite=TRUE)
          dbExecute(sqlDB,sprintf("DROP TABLE IF EXISTS %s",input$outsq))
-         browser()
          withProgress(message="Writing data to database, it can be slow...",value=0,{
                           for(i in seq_along(dat$story)){
                               if(errorDF[i,"error"] == 0){
@@ -604,7 +602,6 @@ colorReplacements <- function(stringVector){
 }
 
 queryCreator <- function(fileN, description, index, optis, connectionBase, dat){
-    browser()
    interpolateInto(dat$replNumbers[[index]],optis,dat$query)
 }
 
@@ -659,7 +656,6 @@ writeChainToDB <- function(baseDir, storyName, dbConnection, outputName,
     fName <- paste0(file.path(baseDir, "output/grid/",
                               storyName, chainMatrix[,2]), type)
 
-    browser()
     toWrite <- do.call("rbind",
         lapply(fName, function(fn){readTable(fn,
                       variables,
