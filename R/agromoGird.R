@@ -395,12 +395,12 @@ agroMoGrid <- function(input, output, session, baseDir, language){
              errorColumns <- lapply(errorTables,function(tableName){
                                        dbGetQuery(sqlDB,sprintf("SELECT * FROM %s",tableName))
                                         })
-             # queryResults$site_id <- as.numeric(as.numeric(queryResults$site_id))
+             # queryResults$cell_id <- as.numeric(as.numeric(queryResults$cell_id))
             #doing a left outer join, the reduce part ads the columns
              finalDF <- tryCatch(merge((Reduce(function(x,y){x$error <- x$error+y$error; return(x)},errorColumns)),
-                               queryResults,by.x="site",by.y="site_id",all.x=TRUE),
+                               queryResults,by.x="site",by.y="cell_id",all.x=TRUE),
                                error=function(e){cbind.data.frame(queryResults[,1],0,queryResults[,2])})
-             colnames(finalDF) <- c("site_id","error","value")
+             colnames(finalDF) <- c("cell_id","error","value")
              write.csv(finalDF,file.path(baseDir(),"output/map_data",sprintf("%s.csv",input$queryalias)),row.names=FALSE)
          }
 
@@ -515,7 +515,7 @@ agroMoGrid <- function(input, output, session, baseDir, language){
          })
 
          indexSQL<- c(
-                      "site" = "CREATE INDEX site_%s ON %s(site_id)",
+                      "site" = "CREATE INDEX site_%s ON %s(cell_id)",
                       "year" = "CREATE INDEX year_%s ON %s(year)"
          )
          if(is.element(input$outsq,dbListTables(sqlDB))){
@@ -660,7 +660,7 @@ writeChainToDB <- function(baseDir, storyName, dbConnection, outputName,
         lapply(fName, function(fn){readTable(fn,
                       variables,
                       type,
-                      site_id=as.character(chainMatrix[,1]),
+                      cell_id=as.character(chainMatrix[,1]),
                       numDays=as.integer(chainMatrix[,5]),
                       startYear=as.integer(chainMatrix[,"startYear"]),
                       endYear=as.integer(chainMatrix[,"endYear"]))}))
@@ -677,7 +677,7 @@ writeChainToDB <- function(baseDir, storyName, dbConnection, outputName,
 #' @param type .dayout or .annout
 #' @importFrom lubridate year month yday
 
-readTable <- function(fName,variables, type, site_id, numDays, startYear, endYear){   
+readTable <- function(fName,variables, type, cell_id, numDays, startYear, endYear){   
 
     if(type == ".dayout"){
         con <- file(fName,"rb")
@@ -691,13 +691,13 @@ readTable <- function(fName,variables, type, site_id, numDays, startYear, endYea
         month <- month(udates)
         yday <- yday(udates)
         dayoutput <- cbind.data.frame(udates,year,month,yday, dayoutput,
-                                      site=site_id, stringsAsFactors=FALSE)
-        colnames(dayoutput) <- as.character(c("udate","year","month","yday", variables, "site_id"))
+                                      site=cell_id, stringsAsFactors=FALSE)
+        colnames(dayoutput) <- as.character(c("udate","year","month","yday", variables, "cell_id"))
         close(con)
         return(dayoutput)
     } else {
-        annuOutput <- cbind.data.frame(read.table(fName, skip=1, header=FALSE),site_id)
-        colnames(annuOutput) <- c("year", variables,"site_id")
+        annuOutput <- cbind.data.frame(read.table(fName, skip=1, header=FALSE),cell_id)
+        colnames(annuOutput) <- c("year", variables,"cell_id")
         return(annuOutput)
     }
 }
