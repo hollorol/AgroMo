@@ -2,6 +2,10 @@
 
 export(agroMapVector)
 export(checkDirStucture)
+export(checkFileSystem)
+export(flatMuso)
+export(getFilePath)
+export(getFilesFromIni)
 export(launchApp)
 export(readQueryFromDB)
 export(trimColorSet)

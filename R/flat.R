@@ -1,4 +1,4 @@
-getQueue <- function(depTree, startPoint){
+getQueue <- function(depTree=options("AgroMo_depTree")[[1]], startPoint){
     
     if(length(startPoint) == 0){
         return(c())
@@ -8,7 +8,15 @@ getQueue <- function(depTree, startPoint){
 }
 
 
-getFilePath <- function(iniName, fileType, depTree){
+#' getFilePath
+#'
+#' This function reads the ini file and for a chosen fileType it gives you the filePath
+#' @param iniName The name of the ini file
+#' @param filetype The type of the choosen file. For options see options("AgroMo_depTree")[[1]]$name
+#' @param depTree The file dependency defining dataframe. At default it is:  options("AgroMo_depTree")[[1]]
+#' @export
+
+getFilePath <- function(iniName, fileType, depTree=options("AgroMo_depTree")[[1]]){
     if(!file.exists(iniName) || dir.exists(iniName)){
         stop(sprintf("Cannot find iniFile: %s", iniName))
     }
@@ -46,13 +54,28 @@ getFilePath <- function(iniName, fileType, depTree){
 
 
 
-getFilesFromIni <- function(iniName,depTree){
+#' getFilesFromIni
+#'
+#' This function reads the ini file and gives yout back the path of all file involved in model run
+#' @param iniName The name of the ini file
+#' @param depTree The file dependency defining dataframe. At default it is:  options("AgroMo_depTree")[[1]]
+#' @export
+
+getFilesFromIni <- function(iniName, depTree=options("AgroMo_depTree")[[1]]){
     res <- lapply(depTree$name,function(x){getFilePath(iniName,x,depTree)})
     names(res) <- depTree$name
     res
 }
 
-flatMuso <- function(iniName,depTree,directory="trial"){
+#' flatMuso
+#'
+#' This function reads the ini file and creates a directory (named after the directory argument) with all the files the modell uses with this file. the directory will be flat.
+#' @param iniName The name of the ini file
+#' @param depTree The file dependency defining dataframe. At default it is:  options("AgroMo_depTree")[[1]]
+#' @param directory The destination directory for flattening. At default it will be flatdir 
+#' @export
+
+flatMuso <- function(iniName, depTree=options("AgroMo_depTree")[[1]], directory="flatdir"){
     dir.create(directory, showWarnings=FALSE)
     files <- getFilesFromIni(iniName,depTree)
     file.copy(unlist(files), directory, overwrite=TRUE)
@@ -80,11 +103,35 @@ flatMuso <- function(iniName,depTree,directory="trial"){
     writeLines(iniLines, file.path(directory, basename(iniName)))    
 }
 
-checkFileSystem <- function(iniName, depTree){
-    fileNames <- getFilesFromIni(iniName, depTree)
-    fileNames <- fileNames[!is.na(fileNames)]
-    errorFiles <- fileNames[!file.exists(unlist(fileNames))]
-    if(length(errorFiles) != 0){
-        return(errorFiles)
-    }
+#' checkFileSystem
+#'
+#' This function checks the MuSo file system, if it is correct
+#' @param iniName The name of the ini file
+#' @param depTree The file dependency defining dataframe. At default it is:  options("AgroMo_depTree")[[1]]
+#' @export
+
+checkFileSystem <- function(iniName,root = ".", depTree = options("AgroMo_depTree")[[1]]){
+    recoverAfterEval({
+        setwd()
+        fileNames <- getFilesFromIni(iniName, depTree)
+        fileNames <- fileNames[!is.na(fileNames)]
+        errorFiles <- fileNames[!file.exists(unlist(fileNames))]
+    })
+    return(errorFiles)
 }
+
+recoverAfterEval <- function(expr){
+    wd <- getwd()
+    tryCatch({
+        eval(expr)
+        setwd(wd) 
+    }, error=function(e){
+            setwd(wd)
+            stop(e)
+    })
+}
+
+# recoverDirIfError({
+#     setwd("/")
+#     alsdkfj*ßä$đĐ
+# })
