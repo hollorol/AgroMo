@@ -112,7 +112,7 @@ flatMuso <- function(iniName, depTree=options("AgroMo_depTree")[[1]], directory=
 
 checkFileSystem <- function(iniName,root = ".", depTree = options("AgroMo_depTree")[[1]]){
     recoverAfterEval({
-        setwd()
+        setwd(root)
         fileNames <- getFilesFromIni(iniName, depTree)
         fileNames <- fileNames[!is.na(fileNames)]
         errorFiles <- fileNames[!file.exists(unlist(fileNames))]

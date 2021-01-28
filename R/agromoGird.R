@@ -484,6 +484,11 @@ agroMoGrid <- function(input, output, session, baseDir, language){
                         outputTypeIni <- c(0,2)
                      }
 
+    showNotification("Checking file system for errors")
+    firstIni <- sprintf("input/initialization/grid/%s/%s.ini",input$story,dat$story[[1]]$name)
+    errorFiles <- checkFileSystem(firstIni)
+
+    if(length(errorFiles) == 0) {
         showNotification("Starting simulation... Removing previous .dayout files")
         suppressWarnings(file.remove(list.files(file.path(baseDir(),"output/grid",input$story),full.names=TRUE)))
 
@@ -494,43 +499,49 @@ agroMoGrid <- function(input, output, session, baseDir, language){
                           algorithms[[input$algosel]],outputTypeIni[1],outputTypeIni[2])
         regex <- c("grid/.*?/","grid/.*?/")
         changeFilesWithRegex(list.files(file.path(baseDir(),"input/initialization/grid",input$story),full.names=TRUE),
-                              indexOfRows,replacements,regex)
+                             indexOfRows,replacements,regex)
         ## runChain(baseDir(),input$story,dat$story[[5]])
-         dbDir <- file.path(baseDir(),"output")
-         sqlDB <- DBI::dbConnect(RSQLite::SQLite(),file.path(dbDir,"grid.db"))
-         error <- runGrid(baseDir(),input$story,dat$story) # dat$story is a list containing all running groups
-         errorDF <- tapply(error,as.numeric(gsub("_.*","",names(error))),sum)
-         errorDF <- data.frame(site=names(errorDF),error=errorDF)
-         dbWriteTable(sqlDB,sprintf("%s_error",input$outsq),errorDF,overwrite=TRUE)
-         dbExecute(sqlDB,sprintf("DROP TABLE IF EXISTS %s",input$outsq))
-         withProgress(message="Writing data to database, it can be slow...",value=0,{
-                          for(i in seq_along(dat$story)){
-                              if(errorDF[i,"error"] == 0){
-                                  writeChainToDB(baseDir(),input$story, sqlDB, input$outsq, dat$story[[i]], dat$storyVars,
+        dbDir <- file.path(baseDir(),"output")
+        sqlDB <- DBI::dbConnect(RSQLite::SQLite(),file.path(dbDir,"grid.db"))
+        error <- runGrid(baseDir(),input$story,dat$story) # dat$story is a list containing all running groups
+        errorDF <- tapply(error,as.numeric(gsub("_.*","",names(error))),sum)
+        errorDF <- data.frame(site=names(errorDF),error=errorDF)
+        dbWriteTable(sqlDB,sprintf("%s_error",input$outsq),errorDF,overwrite=TRUE)
+        dbExecute(sqlDB,sprintf("DROP TABLE IF EXISTS %s",input$outsq))
+        withProgress(message="Writing data to database, it can be slow...",value=0,{
+                         for(i in seq_along(dat$story)){
+                             if(errorDF[i,"error"] == 0){
+                                 writeChainToDB(baseDir(),input$story, sqlDB, input$outsq, dat$story[[i]], dat$storyVars,
                                                 type=gridType)
-                              }
+                             }
 
-                              incProgress(1/length(dat$story),detail=sprintf("Writing site %s into grid database",names(dat$story)[i])) 
-                          }
-         })
+                             incProgress(1/length(dat$story),detail=sprintf("Writing site %s into grid database",names(dat$story)[i])) 
+                         }
+                             })
 
-         indexSQL<- c(
-                      "site" = "CREATE INDEX site_%s ON %s(cell_id)",
-                      "year" = "CREATE INDEX year_%s ON %s(year)"
-         )
-         if(is.element(input$outsq,dbListTables(sqlDB))){
-             withProgress(message="Creating Database Indexes",value=0,{
-                              for(i in seq_along(indexSQL)){
-                                  dbExecute(sqlDB,sprintf("DROP INDEX IF EXISTS %s_%s",names(indexSQL[i]),input$outsq))
-                                  dbExecute(sqlDB,sprintf(indexSQL[i],input$outsq,input$outsq,input$outsq))
-                                  incProgress(1/length(indexSQL), sprintf("Creating index on %s",names(indexSQL)[i]))
-                              }
-         })
-         }
+        indexSQL<- c(
+                     "site" = "CREATE INDEX site_%s ON %s(cell_id)",
+                     "year" = "CREATE INDEX year_%s ON %s(year)"
+        )
+        if(is.element(input$outsq,dbListTables(sqlDB))){
+            withProgress(message="Creating Database Indexes",value=0,{
+                             for(i in seq_along(indexSQL)){
+                                 dbExecute(sqlDB,sprintf("DROP INDEX IF EXISTS %s_%s",names(indexSQL[i]),input$outsq))
+                                 dbExecute(sqlDB,sprintf(indexSQL[i],input$outsq,input$outsq,input$outsq))
+                                 incProgress(1/length(indexSQL), sprintf("Creating index on %s",names(indexSQL)[i]))
+                             }
+        })
+        }
 
 
-         dat$modelOutputs <-grep("_error$",dbListTables(sqlDB),invert=TRUE,value=TRUE)
-         dbDisconnect(sqlDB)
+        dat$modelOutputs <-grep("_error$",dbListTables(sqlDB),invert=TRUE,value=TRUE)
+        dbDisconnect(sqlDB)
+    } else {
+        showNotification(tags$html(paste(sapply(names(errorFiles),function(eFile){
+                                    sprintf(" the %s file (%s) is missing", eFile, errorFiles)
+                                 } ),collapse="<br>")), type="error", duration = 10) 
+    }
+
     })
 
    observeEvent(input$Map,{
