@@ -74,9 +74,9 @@ dat<-reactiveValues(dataenv = NULL)
                                                      ))
        )
        } else {
-        showNotification2(paste(sapply(names(errorFiles),function(eFile){
+        showNotification2(ui=paste(sapply(names(errorFiles),function(eFile){
                                     sprintf(" the %s file (%s) is missing", eFile, errorFiles[[eFile]])
-                                 } ),collapse="<br/>"), type="error", duration = NULL) 
+                                 } ),collapse="<br/>"), type="error", duration = NULL, id = session$ns("siteerror")) 
 
        }
                    }   else {
