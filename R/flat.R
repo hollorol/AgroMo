@@ -62,7 +62,11 @@ getFilePath <- function(iniName, fileType, depTree=options("AgroMo_depTree")[[1]
 #' @export
 
 getFilesFromIni <- function(iniName, depTree=options("AgroMo_depTree")[[1]]){
-    res <- lapply(depTree$name,function(x){getFilePath(iniName,x,depTree)})
+    res <- lapply(depTree$name,function(x){
+                      tryCatch(getFilePath(iniName,x,depTree), error = function(e){
+                            return("CANNOT READ!");
+                     })
+        })
     names(res) <- depTree$name
     res
 }
@@ -114,6 +118,9 @@ checkFileSystem <- function(iniName,root = ".", depTree = options("AgroMo_depTre
     recoverAfterEval({
         setwd(root)
         fileNames <- getFilesFromIni(iniName, depTree)
+        if(is.na(fileNames$management)){
+            fileNames[getLeafs("management")] <- NA
+        }
         fileNames <- fileNames[!is.na(fileNames)]
         errorFiles <- fileNames[!file.exists(unlist(fileNames))]
     })
@@ -131,7 +138,36 @@ recoverAfterEval <- function(expr){
     })
 }
 
-# recoverDirIfError({
-#     setwd("/")
-#     alsdkfj*ßä$đĐ
-# })
+getLeafs <- function(name, depTree=options("AgroMo_depTree")[[1]]){
+
+    if(length(name) == 0){
+        return(NULL)
+    }
+
+    if(name[1] == "ini"){
+        return(getLeafs(depTree$name))
+    }
+
+    pname <- depTree[ depTree[,"name"] == name[1] , "child"]
+    children <- depTree[depTree[,"parent"] == pname,"child"]  
+    if(length(children)==0){
+        if(length(name) == 1){
+            return(NULL)
+        } else{
+            apname <- depTree[ depTree[,"name"] == name[2] , "child"]
+            achildren <- depTree[depTree[,"parent"] == apname,"child"]  
+            if(length(achildren)!=0){
+                return(c(name[1],name[2],getLeafs(name[-1])))
+            } else{
+                return(c(name[1], getLeafs(name[-1])))
+            }
+
+        }
+    }
+    childrenLogic <-depTree[,"child"] %in% children 
+    parentLogic <- depTree[,"parent"] ==pname
+    res <- depTree[childrenLogic & parentLogic, "name"]
+    getChildelem <- depTree[depTree[,"child"] == intersect(depTree[,"parent"], children), "name"]
+    unique(c(res,getLeafs(getChildelem)))
+    
+}

@@ -35,18 +35,22 @@ dat<-reactiveValues(dataenv = NULL)
                    if(siteRun()){
 
        ## browser()
+       chosenIni <- file.path(isolate(baseDir()),"input", "initialization",
+                               "site", iniFile())
+       errorFiles <- checkFileSystem(chosenIni)
 
-       readAndChangeFiles(isolate(baseDir()), iniFile(), weatherFile(), soilFile(), managementFile(),
-                          planting(), harvest(), fertilization(), irrigation(), grazing(),
-                          mowing(), thinning(), planshift_date(), planshift_density(),
-                          harvshift_date(), fertshift_date(),
-                          irrshift_date(), fertshift_amount(), irrshift_amount())
-       # browser()
-       settings <- setupGUI(isolate(iniFile()),isolate(baseDir()),isolate(centralData()))
-       file.remove(file.path(baseDir(), "output", sprintf("%s.dayout", settings$outputName)))
-       runModel <- reactive({future({runMuso(isolate(iniFile()),isolate(baseDir()))})})
-       showModal(shiny::tags$div(id = "runIndicator", modalDialog(
-                                                                  shiny::tags$img(id = "runningGif", src= "www/img/iu.gif", width = "150px"),
+       if(length(errorFiles) == 0){ 
+           readAndChangeFiles(isolate(baseDir()), iniFile(), weatherFile(), soilFile(), managementFile(),
+                              planting(), harvest(), fertilization(), irrigation(), grazing(),
+                              mowing(), thinning(), planshift_date(), planshift_density(),
+                              harvshift_date(), fertshift_date(),
+                              irrshift_date(), fertshift_amount(), irrshift_amount())
+           # browser()
+           settings <- setupGUI(isolate(iniFile()),isolate(baseDir()),isolate(centralData()))
+           file.remove(file.path(baseDir(), "output", sprintf("%s.dayout", settings$outputName)))
+           runModel <- reactive({future({runMuso(isolate(iniFile()),isolate(baseDir()))})})
+           showModal(shiny::tags$div(id = "runIndicator", modalDialog(
+                                                                      shiny::tags$img(id = "runningGif", src= "www/img/iu.gif", width = "150px"),
                                                                   hide(tags$img(id = "finishedGif", src= "www/img/iu_check.gif",width = "150px"))
                                                                   ,renderText({
                                                                       # browser()
@@ -69,6 +73,12 @@ dat<-reactiveValues(dataenv = NULL)
                                                      easyClose = TRUE
                                                      ))
        )
+       } else {
+        showNotification2(paste(sapply(names(errorFiles),function(eFile){
+                                    sprintf(" the %s file (%s) is missing", eFile, errorFiles[[eFile]])
+                                 } ),collapse="<br/>"), type="error", duration = NULL) 
+
+       }
                    }   else {
                            tableName <- isolate(iniFile())
                            showNotification(sprintf("Querying table: %s in grid.db...", tableName))
