@@ -37,7 +37,7 @@ dat<-reactiveValues(dataenv = NULL)
        ## browser()
        chosenIni <- file.path(isolate(baseDir()),"input", "initialization",
                                "site", iniFile())
-       errorFiles <- checkFileSystem(chosenIni)
+       errorFiles <- checkFileSystemForNotif(chosenIni)
 
        if(length(errorFiles) == 0){ 
            readAndChangeFiles(isolate(baseDir()), iniFile(), weatherFile(), soilFile(), managementFile(),
@@ -74,8 +74,10 @@ dat<-reactiveValues(dataenv = NULL)
                                                      ))
        )
        } else {
-        showNotification2(ui=paste(sapply(names(errorFiles),function(eFile){
-                                    sprintf(" the %s file (%s) is missing", eFile, errorFiles[[eFile]])
+        # TODO: Nasty convoluted fast solution.
+        showNotification2(ui=paste(sapply(names(errorFiles), function(eFile){
+                                    sprintf(" the file indicated in [%s] file is missing: %s", errorFiles[eFile][[1]]$parent,
+                                            errorFiles[eFile][[1]]$children)
                                  } ),collapse="<br/>"), type="error", duration = NULL, id = session$ns("siteerror")) 
 
        }

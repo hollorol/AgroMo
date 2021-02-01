@@ -48,8 +48,6 @@ getFilePath <- function(iniName, fileType, depTree=options("AgroMo_depTree")[[1]
         ,error = function(e){stop(sprintf("Cannot read %s", parentFile))})
         unique(gsub(".*\\t","",res))
     }
-
-
 }
 
 
@@ -64,7 +62,7 @@ getFilePath <- function(iniName, fileType, depTree=options("AgroMo_depTree")[[1]
 getFilesFromIni <- function(iniName, depTree=options("AgroMo_depTree")[[1]]){
     res <- lapply(depTree$name,function(x){
                       tryCatch(getFilePath(iniName,x,depTree), error = function(e){
-                            return("CANNOT READ!");
+                            return(NA);
                      })
         })
     names(res) <- depTree$name
@@ -150,6 +148,7 @@ getLeafs <- function(name, depTree=options("AgroMo_depTree")[[1]]){
 
     pname <- depTree[ depTree[,"name"] == name[1] , "child"]
     children <- depTree[depTree[,"parent"] == pname,"child"]  
+
     if(length(children)==0){
         if(length(name) == 1){
             return(NULL)
@@ -164,10 +163,87 @@ getLeafs <- function(name, depTree=options("AgroMo_depTree")[[1]]){
 
         }
     }
+    
     childrenLogic <-depTree[,"child"] %in% children 
     parentLogic <- depTree[,"parent"] ==pname
     res <- depTree[childrenLogic & parentLogic, "name"]
     getChildelem <- depTree[depTree[,"child"] == intersect(depTree[,"parent"], children), "name"]
     unique(c(res,getLeafs(getChildelem)))
-    
 }
+
+getParent <- function (name, depTree=options("AgroMo_depTree")[[1]]) {
+    parentExt <- depTree[depTree$name == name,"parent"]
+    if(parentExt == "ini"){
+        return("iniFile")
+    }
+
+    depTree[depTree[,"child"] == parentExt,"name"]
+}
+
+
+
+getFilePath2 <- function(iniName, fileType, depTree=options("AgroMo_depTree")[[1]]){
+    if(!file.exists(iniName) || dir.exists(iniName)){
+        stop(sprintf("Cannot find iniFile: %s", iniName))
+    }
+
+    startPoint <- fileType
+    startRow <- depTree[depTree[,"name"] == startPoint,]
+    startExt <- startRow$child
+
+    parentFile <- Reduce(function(x,y){
+                             tryCatch(gsub(sprintf("\\.%s.*",y),
+                                   sprintf("\\.%s",y),
+                                   grep(sprintf("\\.%s",y),readLines(x),value=TRUE,perl=TRUE)), error = function(e){
+                                        stop(sprintf("Cannot find %s",x))
+                             })
+                        },
+                        getQueue(depTree,startPoint)[-1],
+                        init=iniName)
+    res <- list()
+    res["parent"] <- parentFile
+    if(startRow$mod > 0){
+    res["children"] <-    tryCatch(
+         gsub(sprintf("\\.%s.*", startExt),
+              sprintf("\\.%s", startExt),
+              grep(sprintf("\\.%s",startExt),readLines(parentFile),value=TRUE,perl=TRUE))[startRow$mod]
+        ,error = function(e){stop(sprintf("Cannot read %s",parentFile))})
+
+    } else {
+        res["children"] <- tryCatch(
+         gsub(sprintf("\\.%s.*", startExt),
+                     sprintf("\\.%s",startExt),
+                     grep(sprintf("\\.%s",startExt),readLines(parentFile),value=TRUE, perl=TRUE))
+        ,error = function(e){stop(sprintf("Cannot read %s", parentFile))})
+        unique(gsub(".*\\t","",res))
+    }
+    res
+}
+
+getFilesFromIni2 <- function(iniName, depTree=options("AgroMo_depTree")[[1]]){
+    res <- lapply(depTree$name,function(x){
+                      tryCatch(getFilePath2(iniName,x,depTree), error = function(e){
+                            return(NA);
+                     })
+        })
+    names(res) <- depTree$name
+    res
+}
+
+checkFileSystemForNotif <- function(iniName,root = ".", depTree = options("AgroMo_depTree")[[1]]){
+    recoverAfterEval({
+        setwd(root)
+        fileNames <- suppressWarnings(getFilesFromIni2(iniName, depTree))
+        if(is.atomic(fileNames$management)){
+            fileNames[getLeafs("management")] <- NA
+        }
+
+        hasparent   <- sapply(fileNames, function(x){
+                                  !is.atomic(x)
+                     })
+        errorIndex <- ! sapply(fileNames[hasparent], function(x) file.exists(x$children))
+
+    })
+    return(fileNames[hasparent][errorIndex])
+}
+
