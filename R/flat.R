@@ -210,12 +210,14 @@ getFilePath2 <- function(iniName, fileType, depTree=options("AgroMo_depTree")[[1
         ,error = function(e){stop(sprintf("Cannot read %s",parentFile))})
 
     } else {
-        res["children"] <- tryCatch(
-         gsub(sprintf("\\.%s.*", startExt),
+         rows <- tryCatch(
+        gsub(sprintf("\\.%s.*", startExt),
                      sprintf("\\.%s",startExt),
                      grep(sprintf("\\.%s",startExt),readLines(parentFile),value=TRUE, perl=TRUE))
+         
         ,error = function(e){stop(sprintf("Cannot read %s", parentFile))})
         unique(gsub(".*\\t","",res))
+        res["children"] <- unique(gsub(".*\\s+(.*\\.epc)","\\1",rows))
     }
     res
 }
@@ -241,9 +243,10 @@ checkFileSystemForNotif <- function(iniName,root = ".", depTree = options("AgroM
         hasparent   <- sapply(fileNames, function(x){
                                   !is.atomic(x)
                      })
-        errorIndex <- ! sapply(fileNames[hasparent], function(x) file.exists(x$children))
+        notNA <- ! sapply(fileNames[hasparent], function(x) {is.na(x$children)})
+        errorIndex <- ! sapply(fileNames[hasparent & notNA], function(x) file.exists(x$children))
 
     })
-    return(fileNames[hasparent][errorIndex])
+    return(fileNames[hasparent & notNA][errorIndex])
 }
 
