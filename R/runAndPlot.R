@@ -39,6 +39,8 @@ dat<-reactiveValues(dataenv = NULL)
                                "site", iniFile())
        errorFiles <- checkFileSystemForNotif(chosenIni)
 
+       unlink(file.path(isolate(baseDir()),"input", "initialization",
+                               "site","tmp"))
        if(length(errorFiles) == 0){ 
            readAndChangeFiles(isolate(baseDir()), iniFile(), weatherFile(), soilFile(), managementFile(),
                               planting(), harvest(), fertilization(), irrigation(), grazing(),
@@ -73,6 +75,7 @@ dat<-reactiveValues(dataenv = NULL)
                                                      easyClose = TRUE
                                                      ))
        )
+
        } else {
         # TODO: Nasty convoluted fast solution.
         showNotification2(ui=paste(sapply(names(errorFiles), function(eFile){
