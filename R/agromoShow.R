@@ -112,7 +112,7 @@ agroMoShowUI <- function(id){
                                           )),
                     ## This js file generates a DataTable into the #showdiv-table-output_container div. See the sourcecode for further information.
                     actionButton(ns("show"),"CREATE PLOT"),
-                    actionButton(ns("export"),"EXPORT", title="Export plot data into an Excel file"),
+                    actionButton(ns("export"),"EXPORT", title="Export plot data into an Excel file",class="invisible"),
                     actionButton(ns("del"),"DELETE SELECTED", title="Delet selected simulation results from the list")
                                         )
            )
