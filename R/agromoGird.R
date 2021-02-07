@@ -409,7 +409,7 @@ agroMoGrid <- function(input, output, session, baseDir, language){
                         removeNotification("query")
                         dbDisconnect(sqlDB)
                     } else {
-                            showNotification("You should choose at least one query")
+                            showNotification("You should choose at least one query", duration=NULL)
                         }
 
     })
@@ -469,7 +469,7 @@ agroMoGrid <- function(input, output, session, baseDir, language){
                         removeNotification("query")
                         dbDisconnect(sqlDB)
                     } else {
-                            showNotification("You should choose at least one query")
+                            showNotification("You should choose at least one query", duration = TRUE)
                     }
     })
 

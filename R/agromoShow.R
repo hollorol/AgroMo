@@ -228,7 +228,7 @@ agroMoShow <- function(input, output, session, dataenv, baseDir, connection,cent
           callModule(multiPlot,"plotka",reactive(initData$measurementConn),isolate(modellOutputNames),reactive({tableForPlot}),
               reactive({input$experimentID}),reactive({input$treatmentID}),repetAvg = reactive({input$averagep}),connection=connection,centralData=centralData,reactive({measAlias}))
       } else {
-         showNotification("There is no simulation result selected for plotting")        
+         showNotification("There is no simulation or variable selected for plotting", duration = NULL)        
       }
    })
 }
