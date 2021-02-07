@@ -4,7 +4,7 @@
 \alias{checkFileSystem}
 \title{checkFileSystem}
 \usage{
-checkFileSystem(iniName, depTree = options("AgroMo_depTree")[[1]])
+checkFileSystem(iniName, root = ".", depTree = options("AgroMo_depTree")[[1]])
 }
 \arguments{
 \item{iniName}{The name of the ini file}

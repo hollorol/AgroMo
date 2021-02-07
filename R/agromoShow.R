@@ -123,7 +123,7 @@ agroMoShowUI <- function(id){
 #' agroMoShow
 #' 
 #' Bla
-#' @importFrom shiny reactiveValues updateSelectInput NS tagList tags column checkboxInput HTML actionButton renderDataTable
+#' @importFrom shiny reactiveValues updateSelectInput NS tagList tags column checkboxInput HTML actionButton renderDataTable showNotification
 #' @importFrom data.table fread
 #' @importFrom DT renderDT
 #' @importFrom DBI dbListTables dbGetQuery dbSendQuery
@@ -227,6 +227,8 @@ agroMoShow <- function(input, output, session, dataenv, baseDir, connection,cent
           }
           callModule(multiPlot,"plotka",reactive(initData$measurementConn),isolate(modellOutputNames),reactive({tableForPlot}),
               reactive({input$experimentID}),reactive({input$treatmentID}),repetAvg = reactive({input$averagep}),connection=connection,centralData=centralData,reactive({measAlias}))
+      } else {
+         showNotification("There is no simulation result selected for plotting")        
       }
    })
 }

@@ -338,129 +338,139 @@ agroMoGrid <- function(input, output, session, baseDir, language){
 
     observeEvent(input$RunQuery,{
                     queryIndex <- input$queryList
-                    sqlSentence <- dat$queries[input$queryList]
-                    optionList <- sapply(1:9,function(x){input[[sprintf("sqlfunc_%s",x)]]}) # These are just the optionAliaces
-                    possibilities <- lapply(dat$jsonList[[queryIndex]]$optionAlias[[dat$language]],unlist)
-                    optionList <- optionList[optionList!="NA"]
-                    selectedNum <- (sapply(seq_along(optionList),function(i){match(optionList[i],possibilities[[i]])}))
-                    datoptions <- lapply(dat$jsonList[[queryIndex]]$options,unlist)
-                    textContent <- sapply(seq_along(selectedNum),function(i){
-                                              if(is.na(selectedNum[i])){
-                                                 input[[sprintf("sqlfunc_%s",i)]] 
-                                              } else {
-                                                  datoptions[[i]][selectedNum[i]]
-                                              }
-                                        })
-                    sentenceToSQL <- interpolateInto(dat$replNumbers[[input$queryList]],textContent,sqlSentence,TRUE)
-                    sentenceToSQL <- gsub("\\[T1\\]",sprintf("%s",input$time),sentenceToSQL)
-                    sentenceToSQL <- gsub("\\[T2\\]",sprintf("%s",input$until),sentenceToSQL)
-                    writeLines(c(sprintf("/*%s*/",input$metadata),"\n\n",sentenceToSQL),file.path(baseDir(),"output/query",sprintf("%s.sql",input$queryalias)))
-         outputDB <- file.path(baseDir(),"output")
-         dbDir <- file.path(baseDir(),"database")
-         sqlDB <- DBI::dbConnect(RSQLite::SQLite(),file.path(outputDB,"grid.db"))
-         # browser()
-         showNotification("Attaching Soil database...")
-         soilDBName <- file.path(normalizePath(dbDir),"soil.db")
-         observationDBName <- file.path(normalizePath(dbDir),"observation.db")
-         if(file.exists(soilDBName)){
-            dbExecute(sqlDB,sprintf("ATTACH DATABASE '%s' AS soil",soilDBName))
-         } else {
-            showNotification("Cannot find soil database, queries which contains soil data will not run",type="warning")
-         }
+        
+                    if(!is.null(queryIndex)){
+                        sqlSentence <- dat$queries[input$queryList]
+                        optionList <- sapply(1:9,function(x){input[[sprintf("sqlfunc_%s",x)]]}) # These are just the optionAliaces
+                        possibilities <- lapply(dat$jsonList[[queryIndex]]$optionAlias[[dat$language]],unlist)
+                        optionList <- optionList[optionList!="NA"]
+                        selectedNum <- (sapply(seq_along(optionList),function(i){match(optionList[i],possibilities[[i]])}))
+                        datoptions <- lapply(dat$jsonList[[queryIndex]]$options,unlist)
+                        textContent <- sapply(seq_along(selectedNum),function(i){
+                                                  if(is.na(selectedNum[i])){
+                                                      input[[sprintf("sqlfunc_%s",i)]] 
+                                                  } else {
+                                                      datoptions[[i]][selectedNum[i]]
+                                                  }
+                                                })
+                        sentenceToSQL <- interpolateInto(dat$replNumbers[[input$queryList]],textContent,sqlSentence,TRUE)
+                        sentenceToSQL <- gsub("\\[T1\\]",sprintf("%s",input$time),sentenceToSQL)
+                        sentenceToSQL <- gsub("\\[T2\\]",sprintf("%s",input$until),sentenceToSQL)
+                        writeLines(c(sprintf("/*%s*/",input$metadata),"\n\n",sentenceToSQL),file.path(baseDir(),"output/query",sprintf("%s.sql",input$queryalias)))
+                        outputDB <- file.path(baseDir(),"output")
+                        dbDir <- file.path(baseDir(),"database")
+                        sqlDB <- DBI::dbConnect(RSQLite::SQLite(),file.path(outputDB,"grid.db"))
+                        # browser()
+                        showNotification("Attaching Soil database...")
+                        soilDBName <- file.path(normalizePath(dbDir),"soil.db")
+                        observationDBName <- file.path(normalizePath(dbDir),"observation.db")
+                        if(file.exists(soilDBName)){
+                            dbExecute(sqlDB,sprintf("ATTACH DATABASE '%s' AS soil",soilDBName))
+                        } else {
+                            showNotification("Cannot find soil database, queries which contains soil data will not run",type="warning")
+                        }
 
-         showNotification("Attaching weather database...")
-         weatherDBName <- file.path(normalizePath(dbDir),"weather.db")
-         if(file.exists(weatherDBName)){
-            dbExecute(sqlDB,sprintf("ATTACH DATABASE '%s' AS weather", weatherDBName))
-         } else {
-            showNotification("Cannot find weather database, queries which contains weather data will not run",type="warning")
-         }
+                        showNotification("Attaching weather database...")
+                        weatherDBName <- file.path(normalizePath(dbDir),"weather.db")
+                        if(file.exists(weatherDBName)){
+                            dbExecute(sqlDB,sprintf("ATTACH DATABASE '%s' AS weather", weatherDBName))
+                        } else {
+                            showNotification("Cannot find weather database, queries which contains weather data will not run",type="warning")
+                        }
 
-         if(file.exists(observationDBName)){
-            dbExecute(sqlDB,sprintf("ATTACH DATABASE '%s' AS observation",observationDBName))
-         } else {
-            showNotification("Cannot find observation database, queries which contains soil data will not run",type="warning")
-         }
-         showNotification("Running the query, please wait, it can take for a while", id="query", duration=NULL)
-         queryResults <- tryCatch(dbGetQuery(sqlDB,sentenceToSQL),error=function(e){NULL})
-         if(is.null(queryResults)){
-             showNotification("Something went wrong with the query...",type="error")
-         } else {
-             errorTables <- unlist(lapply(seq_along(dat$jsonList[[queryIndex]]$options),function(i){
-                               if(length(dat$jsonList[[queryIndex]]$options[[i]])!=0){
-                                   if(dat$jsonList[[queryIndex]]$options[[i]][1]=="*tables*"){
-                                      paste0(textContent[i],"_error")
-                                   }
-                               }}))
-             errorColumns <- lapply(errorTables,function(tableName){
-                                       dbGetQuery(sqlDB,sprintf("SELECT * FROM %s",tableName))
-                                        })
-             # queryResults$cell_id <- as.numeric(as.numeric(queryResults$cell_id))
-            #doing a left outer join, the reduce part ads the columns
-             finalDF <- tryCatch(merge((Reduce(function(x,y){x$error <- x$error+y$error; return(x)},errorColumns)),
-                               queryResults,by.x="site",by.y="cell_id",all.x=TRUE),
-                               error=function(e){cbind.data.frame(queryResults[,1],0,queryResults[,2])})
-             colnames(finalDF) <- c("cell_id","error","value")
-             write.csv(finalDF,file.path(baseDir(),"output/map_data",sprintf("%s.csv",input$queryalias)),row.names=FALSE)
-         }
+                        if(file.exists(observationDBName)){
+                            dbExecute(sqlDB,sprintf("ATTACH DATABASE '%s' AS observation",observationDBName))
+                        } else {
+                            showNotification("Cannot find observation database, queries which contains soil data will not run",type="warning")
+                        }
+                        showNotification("Running the query, please wait, it can take for a while", id="query", duration=NULL)
+                        queryResults <- tryCatch(dbGetQuery(sqlDB,sentenceToSQL),error=function(e){NULL})
+                        if(is.null(queryResults)){
+                            showNotification("Something went wrong with the query...",type="error")
+                        } else {
+                            errorTables <- unlist(lapply(seq_along(dat$jsonList[[queryIndex]]$options),function(i){
+                                                             if(length(dat$jsonList[[queryIndex]]$options[[i]])!=0){
+                                                                 if(dat$jsonList[[queryIndex]]$options[[i]][1]=="*tables*"){
+                                                                     paste0(textContent[i],"_error")
+                                                                 }
+                                          }}))
+                            errorColumns <- lapply(errorTables,function(tableName){
+                                                       dbGetQuery(sqlDB,sprintf("SELECT * FROM %s",tableName))
+                                                })
+                            # queryResults$cell_id <- as.numeric(as.numeric(queryResults$cell_id))
+                            #doing a left outer join, the reduce part ads the columns
+                            finalDF <- tryCatch(merge((Reduce(function(x,y){x$error <- x$error+y$error; return(x)},errorColumns)),
+                                                      queryResults,by.x="site",by.y="cell_id",all.x=TRUE),
+                                                error=function(e){cbind.data.frame(queryResults[,1],0,queryResults[,2])})
+                            colnames(finalDF) <- c("cell_id","error","value")
+                            write.csv(finalDF,file.path(baseDir(),"output/map_data",sprintf("%s.csv",input$queryalias)),row.names=FALSE)
+                        }
 
-         removeNotification("query")
-         dbDisconnect(sqlDB)
+                        removeNotification("query")
+                        dbDisconnect(sqlDB)
+                    } else {
+                            showNotification("You should choose at least one query")
+                        }
+
     })
 
     observeEvent(input$Report,{
                     queryIndex <- input$queryList
-                    sqlSentence <- dat$queries[input$queryList]
-                    optionList <- sapply(1:9,function(x){input[[sprintf("sqlfunc_%s",x)]]}) # These are just the optionAliaces
-                    possibilities <- lapply(dat$jsonList[[queryIndex]]$optionAlias[[dat$language]],unlist)
-                    optionList <- optionList[optionList!="NA"]
-                    selectedNum <- (sapply(seq_along(optionList),function(i){match(optionList[i],possibilities[[i]])}))
-                    datoptions <- lapply(dat$jsonList[[queryIndex]]$options,unlist)
-                    textContent <- sapply(seq_along(selectedNum),function(i){
-                                              if(is.na(selectedNum[i])){
-                                                 input[[sprintf("sqlfunc_%s",i)]] 
-                                              } else {
-                                                  datoptions[[i]][selectedNum[i]]
-                                              }
-                                        })
-                    sentenceToSQL <- interpolateInto(dat$replNumbers[[input$queryList]],textContent,sqlSentence,TRUE)
-                    sentenceToSQL <- gsub("\\[T1\\]",sprintf("%s",input$time),sentenceToSQL)
-                    sentenceToSQL <- gsub("\\[T2\\]",sprintf("%s",input$until),sentenceToSQL)
-         outputDB <- file.path(baseDir(),"output")
-         dbDir <- file.path(baseDir(),"database")
-         sqlDB <- DBI::dbConnect(RSQLite::SQLite(),file.path(outputDB,"grid.db"))
-         # browser()
-         showNotification("Attaching Soil database...")
-         soilDBName <- file.path(normalizePath(dbDir),"soil.db")
-         observationDBName <- file.path(normalizePath(dbDir),"observation.db")
-         if(file.exists(soilDBName)){
-            dbExecute(sqlDB,sprintf("ATTACH DATABASE '%s' AS soil",soilDBName))
-         } else {
-            showNotification("Cannot find soil database, queries which contains soil data will not run",type="warning")
-         }
-         if(file.exists(observationDBName)){
-            dbExecute(sqlDB,sprintf("ATTACH DATABASE '%s' AS observation",observationDBName))
-         } else {
-            showNotification("Cannot find observation database, queries which contains soil data will not run",type="warning")
-         }
-         showNotification("Running the query, please wait, it can take for a while", id="query", duration=NULL)
-         queryResults <- tryCatch(dbGetQuery(sqlDB,sentenceToSQL),error=function(e){NULL})
-         if(is.null(queryResults)){
-             showNotification("Something went wrong with the query...",type="error")
-         } else {
-             if(input$repcheck){
-                 showModal(modalDialog(tableOutput(ns("pukli")),title="REPORT", size="l",easyClose=TRUE))
-                 output$pukli <- renderTable({
-                     queryResults
-                 })
-             }
-             suppressWarnings(dir.create(file.path(baseDir(),"output/report")))
-             write.csv(queryResults,file.path(baseDir(),"output/report",sprintf("%s.csv",input$queryalias)),row.names=FALSE)
-             # write.xlsx(queryResults,file.path(baseDir(),"output/report",sprintf("%s.xlsx",input$queryalias)))
-         }
+                    if(!is.null(queryIndex)){
+                        sqlSentence <- dat$queries[input$queryList]
+                        optionList <- sapply(1:9,function(x){input[[sprintf("sqlfunc_%s",x)]]}) # These are just the optionAliaces
+                        possibilities <- lapply(dat$jsonList[[queryIndex]]$optionAlias[[dat$language]],unlist)
+                        optionList <- optionList[optionList!="NA"]
+                        selectedNum <- (sapply(seq_along(optionList),function(i){match(optionList[i],possibilities[[i]])}))
+                        datoptions <- lapply(dat$jsonList[[queryIndex]]$options,unlist)
+                        textContent <- sapply(seq_along(selectedNum),function(i){
+                                                  if(is.na(selectedNum[i])){
+                                                      input[[sprintf("sqlfunc_%s",i)]] 
+                                                  } else {
+                                                      datoptions[[i]][selectedNum[i]]
+                                                  }
+                                                })
+                        sentenceToSQL <- interpolateInto(dat$replNumbers[[input$queryList]],textContent,sqlSentence,TRUE)
+                        sentenceToSQL <- gsub("\\[T1\\]",sprintf("%s",input$time),sentenceToSQL)
+                        sentenceToSQL <- gsub("\\[T2\\]",sprintf("%s",input$until),sentenceToSQL)
+                        outputDB <- file.path(baseDir(),"output")
+                        dbDir <- file.path(baseDir(),"database")
+                        sqlDB <- DBI::dbConnect(RSQLite::SQLite(),file.path(outputDB,"grid.db"))
+                        # browser()
+                        showNotification("Attaching Soil database...")
+                        soilDBName <- file.path(normalizePath(dbDir),"soil.db")
+                        observationDBName <- file.path(normalizePath(dbDir),"observation.db")
+                        if(file.exists(soilDBName)){
+                            dbExecute(sqlDB,sprintf("ATTACH DATABASE '%s' AS soil",soilDBName))
+                        } else {
+                            showNotification("Cannot find soil database, queries which contains soil data will not run",type="warning")
+                        }
+                        if(file.exists(observationDBName)){
+                            dbExecute(sqlDB,sprintf("ATTACH DATABASE '%s' AS observation",observationDBName))
+                        } else {
+                            showNotification("Cannot find observation database, queries which contains soil data will not run",type="warning")
+                        }
+                        showNotification("Running the query, please wait, it can take for a while", id="query", duration=NULL)
+                        queryResults <- tryCatch(dbGetQuery(sqlDB,sentenceToSQL),error=function(e){NULL})
+                        if(is.null(queryResults)){
+                            showNotification("Something went wrong with the query...",type="error")
+                        } else {
+                            if(input$repcheck){
+                                showModal(modalDialog(tableOutput(ns("pukli")),title="REPORT", size="l",easyClose=TRUE))
+                                output$pukli <- renderTable({
+                                    queryResults
+                                })
+                            }
+                            suppressWarnings(dir.create(file.path(baseDir(),"output/report")))
+                            write.csv(queryResults,file.path(baseDir(),"output/report",sprintf("%s.csv",input$queryalias)),row.names=FALSE)
+                            # write.xlsx(queryResults,file.path(baseDir(),"output/report",sprintf("%s.xlsx",input$queryalias)))
+                        }
 
-         removeNotification("query")
-         dbDisconnect(sqlDB)
+                        removeNotification("query")
+                        dbDisconnect(sqlDB)
+                    } else {
+                            showNotification("You should choose at least one query")
+                    }
     })
 
     # DT::datatable(data.frame(outputName = queryNames), options = list(autowidth = FALSE, paginate = FALSE, scrollX = FALSE, scrollY = 600, searching = TRUE, info = FALSE, header=FALSE,rownames=FALSE))
