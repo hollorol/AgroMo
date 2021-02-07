@@ -27,6 +27,21 @@
   user-select: none;
 }
 
+#shiny-notification-sitediv-popRun-siteerror {
+  font-size: 8pt; 
+}
+
+#shiny-notification-panel {
+  width: 540px !important;
+}
+
+/*#shiny-notification-panel {
+  position: absolute!important;
+  right: 50px;
+  bottom: 25px;
+}
+*/
+
 #sitediv-sitecellid_container .control-label{
     position: absolute;
     top: 20px;

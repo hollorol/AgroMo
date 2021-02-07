@@ -395,12 +395,12 @@ agroMoGrid <- function(input, output, session, baseDir, language){
              errorColumns <- lapply(errorTables,function(tableName){
                                        dbGetQuery(sqlDB,sprintf("SELECT * FROM %s",tableName))
                                         })
-             # queryResults$plotid <- as.numeric(as.numeric(queryResults$plotid))
+             # queryResults$cell_id <- as.numeric(as.numeric(queryResults$cell_id))
             #doing a left outer join, the reduce part ads the columns
              finalDF <- tryCatch(merge((Reduce(function(x,y){x$error <- x$error+y$error; return(x)},errorColumns)),
-                               queryResults,by.x="site",by.y="plotid",all.x=TRUE),
+                               queryResults,by.x="site",by.y="cell_id",all.x=TRUE),
                                error=function(e){cbind.data.frame(queryResults[,1],0,queryResults[,2])})
-             colnames(finalDF) <- c("plotid","error","value")
+             colnames(finalDF) <- c("cell_id","error","value")
              write.csv(finalDF,file.path(baseDir(),"output/map_data",sprintf("%s.csv",input$queryalias)),row.names=FALSE)
          }
 
@@ -484,6 +484,11 @@ agroMoGrid <- function(input, output, session, baseDir, language){
                         outputTypeIni <- c(0,2)
                      }
 
+    showNotification("Checking file system for errors")
+    firstIni <- sprintf("input/initialization/grid/%s/%s.ini",input$story,dat$story[[1]]$name)
+    errorFiles <- checkFileSystem(firstIni)
+
+    if(length(errorFiles) == 0) {
         showNotification("Starting simulation... Removing previous .dayout files")
         suppressWarnings(file.remove(list.files(file.path(baseDir(),"output/grid",input$story),full.names=TRUE)))
 
@@ -494,43 +499,49 @@ agroMoGrid <- function(input, output, session, baseDir, language){
                           algorithms[[input$algosel]],outputTypeIni[1],outputTypeIni[2])
         regex <- c("grid/.*?/","grid/.*?/")
         changeFilesWithRegex(list.files(file.path(baseDir(),"input/initialization/grid",input$story),full.names=TRUE),
-                              indexOfRows,replacements,regex)
+                             indexOfRows,replacements,regex)
         ## runChain(baseDir(),input$story,dat$story[[5]])
-         dbDir <- file.path(baseDir(),"output")
-         sqlDB <- DBI::dbConnect(RSQLite::SQLite(),file.path(dbDir,"grid.db"))
-         error <- runGrid(baseDir(),input$story,dat$story) # dat$story is a list containing all running groups
-         errorDF <- tapply(error,as.numeric(gsub("_.*","",names(error))),sum)
-         errorDF <- data.frame(site=names(errorDF),error=errorDF)
-         dbWriteTable(sqlDB,sprintf("%s_error",input$outsq),errorDF,overwrite=TRUE)
-         dbExecute(sqlDB,sprintf("DROP TABLE IF EXISTS %s",input$outsq))
-         withProgress(message="Writing data to database, it can be slow...",value=0,{
-                          for(i in seq_along(dat$story)){
-                              if(errorDF[i,"error"] == 0){
-                                  writeChainToDB(baseDir(),input$story, sqlDB, input$outsq, dat$story[[i]], dat$storyVars,
+        dbDir <- file.path(baseDir(),"output")
+        sqlDB <- DBI::dbConnect(RSQLite::SQLite(),file.path(dbDir,"grid.db"))
+        error <- runGrid(baseDir(),input$story,dat$story) # dat$story is a list containing all running groups
+        errorDF <- tapply(error,as.numeric(gsub("_.*","",names(error))),sum)
+        errorDF <- data.frame(site=names(errorDF),error=errorDF)
+        dbWriteTable(sqlDB,sprintf("%s_error",input$outsq),errorDF,overwrite=TRUE)
+        dbExecute(sqlDB,sprintf("DROP TABLE IF EXISTS %s",input$outsq))
+        withProgress(message="Writing data to database, it can be slow...",value=0,{
+                         for(i in seq_along(dat$story)){
+                             if(errorDF[i,"error"] == 0){
+                                 writeChainToDB(baseDir(),input$story, sqlDB, input$outsq, dat$story[[i]], dat$storyVars,
                                                 type=gridType)
-                              }
+                             }
 
-                              incProgress(1/length(dat$story),detail=sprintf("Writing site %s into grid database",names(dat$story)[i])) 
-                          }
-         })
+                             incProgress(1/length(dat$story),detail=sprintf("Writing site %s into grid database",names(dat$story)[i])) 
+                         }
+                             })
 
-         indexSQL<- c(
-                      "site" = "CREATE INDEX site_%s ON %s(plotid)",
-                      "year" = "CREATE INDEX year_%s ON %s(year)"
-         )
-         if(is.element(input$outsq,dbListTables(sqlDB))){
-             withProgress(message="Creating Database Indexes",value=0,{
-                              for(i in seq_along(indexSQL)){
-                                  dbExecute(sqlDB,sprintf("DROP INDEX IF EXISTS %s_%s",names(indexSQL[i]),input$outsq))
-                                  dbExecute(sqlDB,sprintf(indexSQL[i],input$outsq,input$outsq,input$outsq))
-                                  incProgress(1/length(indexSQL), sprintf("Creating index on %s",names(indexSQL)[i]))
-                              }
-         })
-         }
+        indexSQL<- c(
+                     "site" = "CREATE INDEX site_%s ON %s(cell_id)",
+                     "year" = "CREATE INDEX year_%s ON %s(year)"
+        )
+        if(is.element(input$outsq,dbListTables(sqlDB))){
+            withProgress(message="Creating Database Indexes",value=0,{
+                             for(i in seq_along(indexSQL)){
+                                 dbExecute(sqlDB,sprintf("DROP INDEX IF EXISTS %s_%s",names(indexSQL[i]),input$outsq))
+                                 dbExecute(sqlDB,sprintf(indexSQL[i],input$outsq,input$outsq,input$outsq))
+                                 incProgress(1/length(indexSQL), sprintf("Creating index on %s",names(indexSQL)[i]))
+                             }
+        })
+        }
 
 
-         dat$modelOutputs <-grep("_error$",dbListTables(sqlDB),invert=TRUE,value=TRUE)
-         dbDisconnect(sqlDB)
+        dat$modelOutputs <-grep("_error$",dbListTables(sqlDB),invert=TRUE,value=TRUE)
+        dbDisconnect(sqlDB)
+    } else {
+        showNotification(tags$html(paste(sapply(names(errorFiles),function(eFile){
+                                    sprintf(" the %s file (%s) is missing", eFile, errorFiles)
+                                 } ),collapse="<br>")), type="error", duration = 10) 
+    }
+
     })
 
    observeEvent(input$Map,{
@@ -602,7 +613,6 @@ colorReplacements <- function(stringVector){
 }
 
 queryCreator <- function(fileN, description, index, optis, connectionBase, dat){
-    browser()
    interpolateInto(dat$replNumbers[[index]],optis,dat$query)
 }
 
@@ -651,15 +661,21 @@ runGrid <- function(baseDir,storyName,chainMatrixFull){
 #' @importFrom DBI dbWriteTable
 #' @importFrom lubridate year month yday
 
-writeChainToDB <- function(baseDir, storyName, dbConnection, outputName, chainMatrix, variables, errorVector, type){
-    fName <- paste0(file.path(baseDir,"output/grid/",storyName,chainMatrix[,2]),type)
-    toWrite <- do.call("rbind",lapply(fName, function(fn){readTable(fn,
-                                                                    variables,
-                                                                    type,
-                                                                    plotid=as.character(chainMatrix[,1]),
-                                                                    numDays=chainMatrix[,5],
-                                                                    startYear=chainMatrix[,"startYear"],
-                                                                    endYear=chainMatrix[,"endYear"])}))
+writeChainToDB <- function(baseDir, storyName, dbConnection, outputName,
+                           chainMatrix, variables, errorVector, type){
+
+    fName <- paste0(file.path(baseDir, "output/grid/",
+                              storyName, chainMatrix[,2]), type)
+
+    toWrite <- do.call("rbind",
+        lapply(fName, function(fn){readTable(fn,
+                      variables,
+                      type,
+                      cell_id=as.character(chainMatrix[,1]),
+                      numDays=as.integer(chainMatrix[,5]),
+                      startYear=as.integer(chainMatrix[,"startYear"]),
+                      endYear=as.integer(chainMatrix[,"endYear"]))}))
+
     dbWriteTable(dbConnection, outputName, toWrite, append = TRUE)
 }
 
@@ -672,7 +688,7 @@ writeChainToDB <- function(baseDir, storyName, dbConnection, outputName, chainMa
 #' @param type .dayout or .annout
 #' @importFrom lubridate year month yday
 
-readTable <- function(fName,variables, type, plotid, numDays, startYear, endYear){   
+readTable <- function(fName,variables, type, cell_id, numDays, startYear, endYear){   
 
     if(type == ".dayout"){
         con <- file(fName,"rb")
@@ -686,13 +702,13 @@ readTable <- function(fName,variables, type, plotid, numDays, startYear, endYear
         month <- month(udates)
         yday <- yday(udates)
         dayoutput <- cbind.data.frame(udates,year,month,yday, dayoutput,
-                                      site=plotid, stringsAsFactors=FALSE)
-        colnames(dayoutput) <- as.character(c("udate","year","month","yday", variables, "plotid"))
+                                      site=cell_id, stringsAsFactors=FALSE)
+        colnames(dayoutput) <- as.character(c("udate","year","month","yday", variables, "cell_id"))
         close(con)
         return(dayoutput)
     } else {
-        annuOutput <- cbind.data.frame(read.table(fName, skip=1, header=FALSE),plotid)
-        colnames(annuOutput) <- c("year", variables,"plotid")
+        annuOutput <- cbind.data.frame(read.table(fName, skip=1, header=FALSE),cell_id)
+        colnames(annuOutput) <- c("year", variables,"cell_id")
         return(annuOutput)
     }
 }
