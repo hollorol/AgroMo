@@ -40,13 +40,13 @@
     tags$div(
       id = paste0(ns("algosel"),"_container"),
       selectInput(ns("algosel"),"ALGORYTHM SELECTION:",choices=c("PHOTOS: Farquhar | PET: Penman-Monteith | WSTRESS: WCBased",
-                                                                "PHOTOS: Farquhar | PET: Priestly-Taylor | WSTRESS: WCBased",
+                                                                "PHOTOS: Farquhar | PET: Priestley-Taylor | WSTRESS: WCBased",
                                                                 "PHOTOS: Farquhar | PET: Penman-Monteith | WSTRESS: TransDemBased",
-                                                                "PHOTOS: Farquhar | PET: Priestly-Taylor | WSTRESS: TransDemBased ",
+                                                                "PHOTOS: Farquhar | PET: Priestley-Taylor | WSTRESS: TransDemBased ",
                                                                 "PHOTOS: DSSAT | PET: Penman-Monteith | WSTRESS: WCBased",
-                                                                "PHOTOS: DSSAT | PET: Priestly-Taylor | WSTRESS: WCBased",
+                                                                "PHOTOS: DSSAT | PET: Priestley-Taylor | WSTRESS: WCBased",
                                                                 "PHOTOS: DSSAT | PET: Penman-Monteith | WSTRESS: TransDemBased",
-                                                                "PHOTOS: DSSAT | PET: Priestly-Taylor | WSTRESS: TransDemBased"
+                                                                "PHOTOS: DSSAT | PET: Priestley-Taylor | WSTRESS: TransDemBased"
                                                                 ))
     ),    
     tags$div(
