@@ -339,7 +339,7 @@ agroMoGrid <- function(input, output, session, baseDir, language){
     observeEvent(input$RunQuery,{
                     queryIndex <- input$queryList
         
-                    if(!identical(queryIndex, NULL) && !identical(input$queryalias, NULL)){
+                    if(!identical(queryIndex, NULL) && !identical(input$queryalias, "")){
                         sqlSentence <- dat$queries[input$queryList]
                         optionList <- sapply(1:9,function(x){input[[sprintf("sqlfunc_%s",x)]]}) # These are just the optionAliaces
                         possibilities <- lapply(dat$jsonList[[queryIndex]]$optionAlias[[dat$language]],unlist)
