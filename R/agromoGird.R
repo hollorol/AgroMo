@@ -339,7 +339,7 @@ agroMoGrid <- function(input, output, session, baseDir, language){
     observeEvent(input$RunQuery,{
                     queryIndex <- input$queryList
         
-                    if(!is.null(queryIndex)){
+                    if(!identical(queryIndex, NULL) && !identical(input$queryalias, NULL)){
                         sqlSentence <- dat$queries[input$queryList]
                         optionList <- sapply(1:9,function(x){input[[sprintf("sqlfunc_%s",x)]]}) # These are just the optionAliaces
                         possibilities <- lapply(dat$jsonList[[queryIndex]]$optionAlias[[dat$language]],unlist)
@@ -409,7 +409,7 @@ agroMoGrid <- function(input, output, session, baseDir, language){
                         removeNotification("query")
                         dbDisconnect(sqlDB)
                     } else {
-                            showNotification("You should choose at least one query", duration=NULL)
+                            showNotification("You should choose one query and provide an alias", duration=NULL)
                         }
 
     })
