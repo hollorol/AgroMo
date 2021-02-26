@@ -12,12 +12,12 @@
     font-weight: bold;
     padding: 0px !important;
     position: absolute;
-    top: 7px;
+    top: 1px;
 }
 
-.modal-header {
+/*.modal-header {
 height: 50px;
-}
+} */
 
 #griddiv-pukli {
     height: 690px;
