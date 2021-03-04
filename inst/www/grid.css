@@ -1,16 +1,23 @@
 /* Suggestions: I would suggest to use posinition: absolute css declaration in every
                 place. The positions starts at the top-left corner of the root window,
-                which is the window except the banner. */
+                which is the window except the banner. 
 .modal-body {
     height: 650px;
     overflow: hidden;    
-}
+}*/
 
 .modal-title {
     font-size: 20px; 
     color: black;
     font-weight: bold;
+    padding: 0px !important;
+    position: absolute;
+    top: 1px;
 }
+
+/*.modal-header {
+height: 50px;
+} */
 
 #griddiv-pukli {
     height: 690px;
