@@ -1,5 +1,6 @@
 [
     {"VARCODE":3054,"LABEL NAME":"Grain Dry Matter Content","FROM":"kg/m^2","TO":"kg/ha","TYPE":"real","VARIABLE":"grainDM","TIMESTEP":"day","FUNCTION":"identity","PLOT TYPE":"line","CONV FACTOR":10000,"TAG":"plant, favorite"},
+    {"VARCODE":3116,"LABEL NAME":"Total Grain Dry Matter Content","FROM":"kg/m^2","TO":"kg/ha","TYPE":"real","VARIABLE":"grainDMtot","TIMESTEP":"day","FUNCTION":"identity","PLOT TYPE":"line","CONV FACTOR":10000,"TAG":"plant"},
     {"VARCODE":3037,"LABEL NAME":"All Harvested Dry Matter","FROM":"kgC/m^2","TO":"kg/ha","TYPE":"real","VARIABLE":"allharvDM","TIMESTEP":"day","FUNCTION":"identity","PLOT TYPE":"line","CONV FACTOR":22222,"TAG":"plant, favorite"},
     {"VARCODE":2794,"LABEL NAME":"Flowering day","FROM":"DOY","TO":"DOY","TYPE":"integer","VARIABLE":"flwrdoy","TIMESTEP":"day","FUNCTION":"identity","PLOT TYPE":"line","CONV FACTOR":1,"TAG":"plant, favorite"},
     {"VARCODE":2520,"LABEL NAME":"Leaf Area Index","FROM":"m^2/m^2","TO":"m^2/m^2","TYPE":"real","VARIABLE":"lai","TIMESTEP":"day","FUNCTION":"identity","PLOT TYPE":"line","CONV FACTOR":1,"TAG":"plant, favorite"},
