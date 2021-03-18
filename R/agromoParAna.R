@@ -66,7 +66,7 @@ agroMoParAnaUI <- function(id){
 
 
 agroMoParAna <- function(input, output, session, baseDir){
-  
+ 
   
   ns <- session$ns
   output$paranatable = DT::renderDataTable({valami})
@@ -91,43 +91,50 @@ agroMoParAna <- function(input, output, session, baseDir){
 
 
   observeEvent(input$paranado,{
-                   inputLoc <- file.path(isolate(baseDir()), "calibration",isolate(input$paranaini))
-                   settings <- RBBGCMuso::setupMuso(inputLoc=inputLoc)
-                   centralData <- getOption("AgroMo_centralData")
-                   obs <- prepareFromAgroMo(file.path(inputLoc,isolate(input$paranaexp)))
-                   obs[,5:8] <- obs[,5:8] /10000
-                   parameterLocation <- file.path(inputLoc, isolate(input$ctlfile)) 
-                   parameters <- read.csv(parameterLocation, stringsAsFactors=FALSE, skip=1)
-                   agroVarName = readLines(parameterLocation, n=1)
-                   musoCode = as.numeric(centralData$VARCODE[centralData$VARIABLE == agroVarName])
-                   dataVar <- musoCode
-                   names(dataVar) <- agroVarName
-                   likelihood <- list()
-                   likelihood[[agroVarName]] <- agroLikelihood
-                   # browser()
-                   png(file.path(inputLoc, "calibResult.png"), width=920, height=350)
+                   tryCatch({
+                      setwd(file.path(baseDir(),"calibration",input$paranaini))
+                      execPath <- baseDir()
+                      calFileName <- input$ctlfile
+                      calFileConn <- file(calFileName,"r")
+                      measureFile <-  readLines(calFileConn,n=1)
+                      paramFile <- readLines(calFileConn,n=1)
+                      sourceDir <- readLines(calFileConn,n=1)
+                      parameters <- read.csv(paramFile, stringsAsFactors=FALSE, skip=1)
+                      parameters <- parameters[order(parameters[,2]),]
+                      variableName <- read.table(paramFile, nrows=1, sep = ",",stringsAsFactors = FALSE)
+                      measurements <- read.csv2(measureFile, stringsAsFactors=FALSE)
+                      calTable <- read.csv2(calFileConn, stringsAsFactor=FALSE)
+                      colnames(calTable) <- c("site_id","domain_id")
+                      calTable$site_id <- paste0(file.path(execPath,"input/initialization",sourceDir,calTable$site_id),"_1.ini")
+                      close(calFileConn)
+                      if(file.exists("measurement.prep")){
+                          source("measurement.prep", local=TRUE)
+                      }
+                     dataVar <- as.numeric(options("AgroMo_centralData")[[1]][options("AgroMo_centralData")[[1]][,"VARIABLE"]==unlist(variableName),"VARCODE"])
+                     names(dataVar) <- variableName
+                     likelihood <- list(agroLikelihood)
+                     names(likelihood) <- variableName
+
                    withProgress(min=0, max=as.numeric(isolate(input$paranait), value=0, message="Calibration state"),
                                 message="Calibrating...",
                                 detail="This may take a while...",{
-                       RBBGCMuso::calibrateMuso(measuredData = obs,
-                                     settings=settings,
-                                     dataVar = dataVar,
-                                     parameters=parameters,
-                                     likelihood = likelihood,
-                                     outputLoc=inputLoc,
-                                     iterations=as.numeric(isolate(input$paranait)),
-                                     method="agromo", lg = TRUE, pb=NULL,
-                                     pbUpdate=function(x)(setProgress(value=x,detail=x)))
+                        results <- RBBGCMuso::multiSiteCalib(measurements = measurements,
+                                                  parameters = parameters,
+                                                  calTable = calTable,
+                                                  dataVar = dataVar,
+                                                  iterations = as.numeric(isolate(input$paranait)),
+                                                  pb=NULL,
+                                                  pbUpdate = function(x){setProgress(value=x,detail=x)},
+                                                  likelihood = likelihood,
+                                                  execPath = execPath)
+
+                            })
+                        setwd(baseDir())
+                   }, error=function(e){
+                       # browser()
+                       showNotification("Something went wrong",type="error", duration=NULL) 
+                       setwd(baseDir())
                    })
-                   dev.off()
-                   output$paranaimage <- renderImage({
-                       file.copy(file.path(inputLoc, "calibResult.png"),"./")
-                       list(src = "./calibResult.png",
-                           alt ="result of the calibration")
-                       }, deleteFile=FALSE)
-
-
-
   })
 
 #  observe({
