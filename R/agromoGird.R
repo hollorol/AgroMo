@@ -579,7 +579,7 @@ changeFilesWithRegex <- function (iniFiles, indexOfRows, replacements, regex=NUL
         } else {
             Map(function(x,ind){
                     if(regex[ind]!=""){
-                        a[x] <<- gsub(regex[ind],replacements[ind],a[x])
+                        a[x] <<- gsub(regex[ind],replacements[ind],a[x], perl = TRUE)
                     } else {
                     # browser()
                         a[x] <<-as.character(replacements[ind])
