@@ -133,6 +133,7 @@ agroMoParAna <- function(input, output, session, baseDir){
                    }, error=function(e){
                        # browser()
                        showNotification("Something went wrong",type="error", duration=NULL) 
+                       print(e)
                        setwd(baseDir())
                    })
   })
