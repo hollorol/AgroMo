@@ -6,6 +6,7 @@
     {"VARCODE":2520,"LABEL NAME":"Leaf Area Index","FROM":"m^2/m^2","TO":"m^2/m^2","TYPE":"real","VARIABLE":"lai","TIMESTEP":"day","FUNCTION":"identity","PLOT TYPE":"line","CONV FACTOR":1,"TAG":"plant, favorite"},
     {"VARCODE":2636,"LABEL NAME":"Rooting Depth","FROM":"m","TO":"m","TYPE":"real","VARIABLE":"rootdep","TIMESTEP":"day","FUNCTION":"identity","PLOT TYPE":"line","CONV FACTOR":1,"TAG":"plant, favorite"},
     {"VARCODE":2519,"LABEL NAME":"Cumulative water stress","FROM":"NA","TO":"NA","TYPE":"real","VARIABLE":"cumwatstr","TIMESTEP":"day","FUNCTION":"identity","PLOT TYPE":"line","CONV FACTOR":1,"TAG":"plant, water, favorite"},
+    {"VARCODE":2754,"LABEL NAME":"Cumulative N stress","FROM":"NA","TO":"NA","TYPE":"real","VARIABLE":"cumNstr","TIMESTEP":"day","FUNCTION":"identity","PLOT TYPE":"line","CONV FACTOR":1,"TAG":"plant, nitrogen, favorite"},
     {"VARCODE":3061,"LABEL NAME":"Total Soil Carbon Content","FROM":"kg/m^2","TO":"kg/m^2","TYPE":"real","VARIABLE":"tSOC","TIMESTEP":"day","FUNCTION":"identity","PLOT TYPE":"line","CONV FACTOR":1,"TAG":"soil, carbon, favorite"},
     {"VARCODE":90,"LABEL NAME":"Water stored in soil","FROM":"kg/m^2","TO":"kg/m^2","TYPE":"real","VARIABLE":"totsoilwat","TIMESTEP":"day","FUNCTION":"identity","PLOT TYPE":"line","CONV FACTOR":1,"TAG":"soil, water"},
     {"VARCODE":91,"LABEL NAME":"Pond water","FROM":"kg/m^2","TO":"kg/m^2","TYPE":"real","VARIABLE":"pondwat","TIMESTEP":"day","FUNCTION":"identity","PLOT TYPE":"line","CONV FACTOR":1,"TAG":"soil, water"},
