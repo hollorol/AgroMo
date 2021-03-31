@@ -131,11 +131,15 @@ agroMoParAna <- function(input, output, session, baseDir){
                             })
                         setwd(baseDir())
                    }, error=function(e){
-                       # browser()
                        showNotification("Something went wrong",type="error", duration=NULL) 
                        print(e)
                        setwd(baseDir())
                    })
+
+                         output$paranaimage <- renderImage({
+                           list(src = file.path(baseDir(), "calibration", input$paranaini ,"calibRes.png"),
+                               alt ="result of the calibration")
+                       }, deleteFile=FALSE)
   })
 
 #  observe({
