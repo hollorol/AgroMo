@@ -117,7 +117,7 @@ agroMoParAna <- function(input, output, session, baseDir){
 
                    withProgress(min=0, max=as.numeric(isolate(input$paranait), value=0, message="Calibration state"),
                                 message="Calibrating...",
-                                detail="This may take a while...",{
+                                detail="Preparing processes...",{
                         results <- RBBGCMuso::multiSiteCalib(measurements = measurements,
                                                   parameters = parameters,
                                                   calTable = calTable,
