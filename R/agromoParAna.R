@@ -143,9 +143,10 @@ agroMoParAna <- function(input, output, session, baseDir){
                    output$resultsTable <- renderTable({
 
                        resObj <- readRDS(file.path(baseDir(), "calibration", input$paranaini ,"results.RDS"))
-                       data.frame(original = c(resObj[["originalMAE"]], resObj[["originalRMSE"]]),
-                                  calibrated = c(resObj[["MAE"]], resObj[["RMSE"]]),
-                                  row.names = c("MAE", "RMSE"))
+                       data.frame(original = c(resObj[["originalMAE"]], resObj[["originalRMSE"]],
+                                                                        resObj[["originalR2"]] ),
+                                  calibrated = c(resObj[["MAE"]], resObj[["RMSE"]],resObj[["R2"]]),
+                                  row.names = c("MAE", "RMSE", "R2"))
 
                    },rownames=TRUE)
   })
