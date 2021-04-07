@@ -17,9 +17,9 @@ agroMoParAnaUI <- function(id){
              textInput(ns("paranait"),"number of iterations:","100")
            ),
            imageOutput(ns("paranaimage")),
-#           tags$div(
-#             tableOutput(ns("paranaTable"))
-#          ),  
+           tags$div(
+             tableOutput(ns("resultsTable"))
+           ),  
            tags$div(
              id = paste0(ns("paranaini"),"_container"),
              selectInput(ns("paranaini"),"WORKING DIRECTORY:",choices=c(""))
@@ -140,6 +140,14 @@ agroMoParAna <- function(input, output, session, baseDir){
                            list(src = file.path(baseDir(), "calibration", input$paranaini ,"calibRes.png"),
                                alt ="result of the calibration")
                        }, deleteFile=FALSE)
+                   output$resultsTable <- renderTable({
+
+                       resObj <- readRDS(file.path(baseDir(), "calibration", input$paranaini ,"results.RDS"))
+                       data.frame(original = c(resObj[["originalMAE"]], resObj[["originalRMSE"]]),
+                                  calibrated = c(resObj[["MAE"]], resObj[["RMSE"]]),
+                                  row.names = c("MAE", "RMSE"))
+
+                   },rownames=TRUE)
   })
 
 #  observe({

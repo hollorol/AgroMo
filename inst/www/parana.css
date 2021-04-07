@@ -310,12 +310,18 @@
 }
 
 #paranadiv-paranaimage img{
-position: absolute;
-  top: 180px;
-  left: 10px;
-  width: 920px;
-  height: 350px;
-  border-color: black;
-  border-style: solid;
-  border-width: 1.5px;
+  position:   absolute;
+  top:           180px;
+  left:          314px;
+  width:         350px;
+  height:        350px;
+  border-color:  black;
+  border-style:  solid;
+  border-width:  1.5px;
+}
+
+#paranadiv-resultsTable {
+  position:   absolute;
+  top:           195px;
+  left:          699px;
 }
