@@ -48,6 +48,7 @@ agroMoParAnaUI <- function(id){
            tags$div(id="paranaradsweep","Parameter Sweep"),
            tags$div(id="paranaradsens","Sensitivity Analysis"),
            tags$div(id="paranaradcal","Calibration"),
+           tags$div(id=ns("cT"), checkboxInput(ns("copyThread"), "(re)create file system", value = TRUE)),
            tags$div(id = ns("Buttons"),
                     actionButton(ns("paranado"),label = "PERFORM ANALYSIS"))
            
@@ -126,7 +127,9 @@ agroMoParAna <- function(input, output, session, baseDir){
                                                   pb=NULL,
                                                   pbUpdate = function(x){setProgress(value=x,detail=x)},
                                                   likelihood = likelihood,
-                                                  execPath = execPath)
+                                                  execPath = execPath,
+                                                  copyThread = input$copyThread
+                        )
 
                             })
                         setwd(baseDir())
