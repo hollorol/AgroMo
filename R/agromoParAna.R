@@ -107,17 +107,15 @@ agroMoParAna <- function(input, output, session, baseDir){
                       position <- seek(calFileConn)
                       calTable <- read.csv2(calFileConn, stringsAsFactor=FALSE)
                       if(nrow(calTable) == 0){
-                          seek(calFileConn,position)
-                          siteLine <- readLines(calFileConn)
+                      close(calFileConn)
+                          siteLine <- readLines(calFileName)[4]
                           siteLine <- strsplit(siteLine,split=";")[[1]]
-                          siteLine[1] <-gsub("\\s*(\\S.*\\S)\\s*","\\1",siteLine[1],perl=TRUE)
+                          # siteLine[1] <-gsub("\\s*(\\S.*\\S)\\s*","\\1",siteLine[1],perl=TRUE)
                           siteLine[2] <- as.numeric(siteLine[2])
                           calTable <- data.frame("site_id"=siteLine[1],"domain_id"=siteLine[2])
                       }
                       colnames(calTable) <- c("site_id","domain_id")
-                      # TODO: Talk with Nandi about "_1.ini" is not a good idea
-                      calTable$site_id <- paste0(file.path(execPath,"input/initialization",sourceDir,calTable$site_id),"_1.ini")
-                      close(calFileConn)
+                      calTable$site_id <- paste0(file.path(execPath,"input/initialization",sourceDir,calTable$site_id),".ini")
                       if(file.exists("measurement.prep")){
                           source("measurement.prep", local=TRUE)
                       }
