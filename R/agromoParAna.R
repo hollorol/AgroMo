@@ -62,7 +62,7 @@ agroMoParAnaUI <- function(id){
 #' 
 #' asdfasfd
 #' @param input input
-#' @importFrom shiny reactiveValues observe updateSelectInput observe renderPlot renderImage 
+#' @importFrom shiny reactiveValues observe updateSelectInput observe renderPlot renderImage renderTable
 #' @importFrom DBI dbConnect
 
 
@@ -89,7 +89,13 @@ agroMoParAna <- function(input, output, session, baseDir){
   })
   
   
-
+  output$resultsTable <- renderTable({
+                       data.frame(original = c(100, 99, 0.01),
+                                  calibrated = c(0.01, 0.01, 0.99),
+                                  row.names = c("MAE", "RMSE", "R2"))
+  },
+                        rownames = TRUE
+  )
 
   observeEvent(input$paranado,{
                    tryCatch({
