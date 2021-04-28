@@ -61,6 +61,32 @@
   user-select: none;
 }
 
+#paranadiv-cT {
+    font-weight: normal;
+    font-size: 16px;
+    font-family: Fira Sans;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#paranadiv-resultsTable {
+    font-weight: normal;
+    font-size: 16px;
+    font-family: Fira Sans;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#paranadiv-resultsTable td {
+text-align: left;
+}
+
 #paranadiv-paranaini_container label{
     position: absolute;
     top: 10px;

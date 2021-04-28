@@ -92,7 +92,7 @@ agroMoParAna <- function(input, output, session, baseDir){
   output$resultsTable <- renderTable({
                        data.frame(original = c(100, 99, 0.01),
                                   calibrated = c(0.01, 0.01, 0.99),
-                                  row.names = c("MAE", "RMSE", "R2"))
+                                  row.names = c("MAE", "RMSE", "R²"))
   },
                         rownames = TRUE
   )
@@ -163,7 +163,7 @@ agroMoParAna <- function(input, output, session, baseDir){
                        data.frame(original = c(resObj[["originalMAE"]], resObj[["originalRMSE"]],
                                                                         resObj[["originalR2"]] ),
                                   calibrated = c(resObj[["MAE"]], resObj[["RMSE"]],resObj[["R2"]]),
-                                  row.names = c("MAE", "RMSE", "R2"))
+                                  row.names = c("MAE", "RMSE", "R²"))
 
                    },rownames=TRUE)
   })
