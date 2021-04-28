@@ -89,13 +89,6 @@ agroMoParAna <- function(input, output, session, baseDir){
   })
   
   
-  output$resultsTable <- renderTable({
-                       data.frame(original = c(100, 99, 0.01),
-                                  calibrated = c(0.01, 0.01, 0.99),
-                                  row.names = c("MAE", "RMSE", "R<sup>2</sup>"))
-  },
-                        rownames = TRUE,  sanitize.text.function = function(x) x 
-  )
 
   observeEvent(input$paranado,{
                    tryCatch({
