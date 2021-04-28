@@ -92,9 +92,9 @@ agroMoParAna <- function(input, output, session, baseDir){
   output$resultsTable <- renderTable({
                        data.frame(original = c(100, 99, 0.01),
                                   calibrated = c(0.01, 0.01, 0.99),
-                                  row.names = c("MAE", "RMSE", "R²"))
+                                  row.names = c("MAE", "RMSE", "R<sup>2</sup>"))
   },
-                        rownames = TRUE
+                        rownames = TRUE,  sanitize.text.function = function(x) x 
   )
 
   observeEvent(input$paranado,{
@@ -163,9 +163,9 @@ agroMoParAna <- function(input, output, session, baseDir){
                        data.frame(original = c(resObj[["originalMAE"]], resObj[["originalRMSE"]],
                                                                         resObj[["originalR2"]] ),
                                   calibrated = c(resObj[["MAE"]], resObj[["RMSE"]],resObj[["R2"]]),
-                                  row.names = c("MAE", "RMSE", "R²"))
+                                  row.names = c("MAE", "RMSE", "R<sup>2</sup>"))
 
-                   },rownames=TRUE)
+                   },rownames=TRUE,sanitize.text.function = function(x) x  )
   })
 
 #  observe({
