@@ -1,10 +1,14 @@
+#' agroTextInut
+#'
+#' custom text input with html
+#' @keywords internal
 agroTextInput <- function (inputId, label, value = "", width = NULL, placeholder = NULL)
 {
-    value <- restoreInput(id = inputId, default = value)
-    div(class = "form-group shiny-input-container", style = if (!is.null(width))
+    value <- shiny::restoreInput(id = inputId, default = value)
+    shiny::div(class = "form-group shiny-input-container", style = if (!is.null(width))
 
-        paste0("width: ", validateCssUnit(width), ";"),
-        HTML(sprintf("<label>%s</label>",label)), tags$input(id = inputId,
+        paste0("width: ", shiny::validateCssUnit(width), ";"),
+        shiny::HTML(sprintf("<label>%s</label>",label)), shiny::tags$input(id = inputId,
         type = "text", class = "form-control", value = value,
         placeholder = placeholder))
 }
