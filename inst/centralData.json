@@ -1,5 +1,5 @@
-[
-    {"VARCODE":3054,"LABEL NAME":"Grain Dry Matter Content","FROM":"kg/m^2","TO":"kg/ha","TYPE":"real","VARIABLE":"grainDM","TIMESTEP":"day","FUNCTION":"identity","PLOT TYPE":"line","CONV FACTOR":10000,"TAG":"plant, favorite"},
+﻿[
+    {"VARCODE":3054,"LABEL NAME":"Grain Dry Matter Content","FROM":"kg/m^2","TO":"kg/haF","TYPE":"real","VARIABLE":"grainDM","TIMESTEP":"day","FUNCTION":"identity","PLOT TYPE":"line","CONV FACTOR":10000,"TAG":"plant, favorite"},
     {"VARCODE":3116,"LABEL NAME":"Total Grain Dry Matter Content","FROM":"kg/m^2","TO":"kg/ha","TYPE":"real","VARIABLE":"grainDMtot","TIMESTEP":"day","FUNCTION":"identity","PLOT TYPE":"line","CONV FACTOR":10000,"TAG":"plant"},
     {"VARCODE":3037,"LABEL NAME":"All Harvested Dry Matter","FROM":"kgC/m^2","TO":"kg/ha","TYPE":"real","VARIABLE":"allharvDM","TIMESTEP":"day","FUNCTION":"identity","PLOT TYPE":"line","CONV FACTOR":22222,"TAG":"plant, favorite"},
     {"VARCODE":2794,"LABEL NAME":"Flowering day","FROM":"DOY","TO":"DOY","TYPE":"integer","VARIABLE":"flwrdoy","TIMESTEP":"day","FUNCTION":"identity","PLOT TYPE":"line","CONV FACTOR":1,"TAG":"plant, favorite"},
@@ -60,7 +60,7 @@
     {"VARCODE":75,"LABEL NAME":"Growing Degree Day","FROM":"°Cd","TO":"°Cd","TYPE":"real","VARIABLE":"gdd","TIMESTEP":"day","FUNCTION":"identity","PLOT TYPE":"line","CONV FACTOR":1,"TAG":"plant"},
     {"VARCODE":76,"LABEL NAME":"Modified Growing Degree Day","FROM":"°Cd","TO":"°Cd","TYPE":"real","VARIABLE":"modgdd","TIMESTEP":"day","FUNCTION":"identity","PLOT TYPE":"line","CONV FACTOR":1,"TAG":"plant"},
     {"VARCODE":407,"LABEL NAME":"Wilted aboveground biomass","FROM":"kg/m^2","TO":"kg/m^2","TYPE":"real","VARIABLE":"wiltagbiomassC","TIMESTEP":"day","FUNCTION":"identity","PLOT TYPE":"line","CONV FACTOR":1,"TAG":"plant"},
-    {"VARCODE":408,"LABEL NAME":"Wilted belowground biomass","FROM":"kg/m^2","TO":"kg/m^2","TYPE":"real","VARIABLE":"wiltagbiomassC","TIMESTEP":"day","FUNCTION":"identity","PLOT TYPE":"line","CONV FACTOR":1,"TAG":"plant"},
+    {"VARCODE":408,"LABEL NAME":"Wilted belowground biomass","FROM":"kg/m^2","TO":"kg/m^2","TYPE":"real","VARIABLE":"wiltbgbiomassC","TIMESTEP":"day","FUNCTION":"identity","PLOT TYPE":"line","CONV FACTOR":1,"TAG":"plant"},
     {"VARCODE":2724,"LABEL NAME":"Daily water limitation stress","FROM":"NA","TO":"NA","TYPE":"real","VARIABLE":"dailywatstr","TIMESTEP":"day","FUNCTION":"identity","PLOT TYPE":"line","CONV FACTOR":1,"TAG":"plant, water"},
     {"VARCODE":2751,"LABEL NAME":"Daily nitrogen limitation stress","FROM":"NA","TO":"NA","TYPE":"real","VARIABLE":"dailynitstr","TIMESTEP":"day","FUNCTION":"identity","PLOT TYPE":"line","CONV FACTOR":1,"TAG":"plant"},
     {"VARCODE":3075,"LABEL NAME":"Live and dead leaf carbon content","FROM":"kg/m^2","TO":"kg/m^2","TYPE":"real","VARIABLE":"ldleafC","TIMESTEP":"day","FUNCTION":"identity","PLOT TYPE":"line","CONV FACTOR":1,"TAG":"plant, carbon"},
