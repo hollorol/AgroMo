@@ -5,6 +5,7 @@
     {"VARCODE":2794,"LABEL NAME":"Flowering day","FROM":"DOY","TO":"DOY","TYPE":"integer","VARIABLE":"flwrdoy","TIMESTEP":"day","FUNCTION":"identity","PLOT TYPE":"line","CONV FACTOR":1,"TAG":"plant, favorite"},
     {"VARCODE":2520,"LABEL NAME":"Leaf Area Index","FROM":"m^2/m^2","TO":"m^2/m^2","TYPE":"real","VARIABLE":"lai","TIMESTEP":"day","FUNCTION":"identity","PLOT TYPE":"line","CONV FACTOR":1,"TAG":"plant, favorite"},
     {"VARCODE":2734,"LABEL NAME":"Maximum Leaf Area Index","FROM":"m^2/m^2","TO":"m^2/m^2","TYPE":"real","VARIABLE":"laimax","TIMESTEP":"day","FUNCTION":"identity","PLOT TYPE":"line","CONV FACTOR":1,"TAG":"plant"},
+    {"VARCODE":3103,"LABEL NAME":"Harvest Index","FROM":"NA","TO":"NA","TYPE":"real","VARIABLE":"harvind","TIMESTEP":"day","FUNCTION":"identity","PLOT TYPE":"line","CONV FACTOR":1,"TAG":"plant"},
     {"VARCODE":2636,"LABEL NAME":"Rooting Depth","FROM":"m","TO":"m","TYPE":"real","VARIABLE":"rootdep","TIMESTEP":"day","FUNCTION":"identity","PLOT TYPE":"line","CONV FACTOR":1,"TAG":"plant, favorite"},
     {"VARCODE":2519,"LABEL NAME":"Cumulative water stress","FROM":"NA","TO":"NA","TYPE":"real","VARIABLE":"cumwatstr","TIMESTEP":"day","FUNCTION":"identity","PLOT TYPE":"line","CONV FACTOR":1,"TAG":"plant, water, favorite"},
     {"VARCODE":2754,"LABEL NAME":"Cumulative N stress","FROM":"NA","TO":"NA","TYPE":"real","VARIABLE":"cumNstr","TIMESTEP":"day","FUNCTION":"identity","PLOT TYPE":"line","CONV FACTOR":1,"TAG":"plant, nitrogen, favorite"},
