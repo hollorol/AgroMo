@@ -104,7 +104,7 @@ text-align: left;
 #paranadiv-paranaini_container .selectize-control{
     position: absolute;
     top: 33px;
-    width: 620px;
+    width: 305px;
     left: 314px;
     font-weight: normal;
     font-size: 16px;
@@ -148,6 +148,35 @@ text-align: left;
 
 #paranadiv-paranaexp_container label {
     position: absolute;
+    top: 10px;
+    left: 630px;
+    font-weight: bold;
+    font-size: 16px;
+    font-family: Fira Sans;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#paranadiv-paranaexp_container .selectize-control {
+    position: absolute;
+    top: 33px;
+    width: 305px;
+    left: 629px;
+    font-weight: normal;
+    font-size: 16px;
+    font-family: Fira Sans;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#paranadiv-ctlfile_container label {
+    position: absolute;
     top: 80px;
     left: 315px;
     font-weight: bold;
@@ -160,7 +189,7 @@ text-align: left;
   user-select: none;
 }
 
-#paranadiv-paranaexp_container .selectize-control {
+#paranadiv-ctlfile_container .selectize-control {
     position: absolute;
     top: 103px;
     width: 305px;
@@ -175,7 +204,7 @@ text-align: left;
   user-select: none;
 }
 
-#paranadiv-ctlfile_container label {
+#paranadiv-ctinfo_container label {
     position: absolute;
     top: 80px;
     left: 630px;
@@ -189,7 +218,7 @@ text-align: left;
   user-select: none;
 }
 
-#paranadiv-ctlfile_container .selectize-control {
+#paranadiv-ctinfo_container .selectize-control {
     position: absolute;
     top: 103px;
     width: 305px;
