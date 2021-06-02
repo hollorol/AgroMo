@@ -33,6 +33,10 @@ agroMoParAnaUI <- function(id){
               selectInput(ns("ctlfile"),"CONTROL file:",choices=c(""))
            ),
            tags$div(
+             id = paste0(ns("ctinfo"),"_container"),
+             selectInput(ns("ctinfo"),"CONSTRAINT INFO file:",choices=c(""))
+           ),
+           tags$div(
              id = paste0(ns("charfunc"),"_container"),
              selectInput(ns("charfunc"),"characterization function for sensitivity:",choices=c("mean"))
            ),
