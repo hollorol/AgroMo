@@ -122,7 +122,10 @@ agroMoParAna <- function(input, output, session, baseDir){
                      names(dataVar) <- variableName
                      likelihood <- list(agroLikelihood)
                      names(likelihood) <- variableName
-
+                     #TODO: constraints and th definition
+                     constraints<- read.csv("consts.csv",stringsAsFactors=FALSE)
+                     th <- as.numeric(readLines("th.txt")[1])
+                     print(th)
                    withProgress(min=0, max=as.numeric(isolate(input$paranait), value=0, message="Calibration state"),
                                 message="Calibrating...",
                                 detail="Preparing processes...",{
@@ -135,7 +138,9 @@ agroMoParAna <- function(input, output, session, baseDir){
                                                   pbUpdate = function(x){setProgress(value=x,detail=x)},
                                                   likelihood = likelihood,
                                                   execPath = execPath,
-                                                  copyThread = input$copyThread
+                                                  copyThread = input$copyThread,
+                                                  constraints = constraints,
+                                                  th = th
                         )
 
                             })
