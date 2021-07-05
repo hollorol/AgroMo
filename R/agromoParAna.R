@@ -129,7 +129,7 @@ agroMoParAna <- function(input, output, session, baseDir){
                      #TODO: constraints and th definition
                      const <- jsonlite::read_json("constraints.json",simplifyVector=TRUE) 
                      # constraints<- read.csv("consts.csv",stringsAsFactors=FALSE)
-                     contraints <- const$constraints
+                     constraints <- const$constraints
                      # th <- as.numeric(readLines("th.txt")[1])
                      th <- const$treshold
 
