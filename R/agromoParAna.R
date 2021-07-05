@@ -131,7 +131,7 @@ agroMoParAna <- function(input, output, session, baseDir){
                      # constraints<- read.csv("consts.csv",stringsAsFactors=FALSE)
                      contraints <- const$constraints
                      # th <- as.numeric(readLines("th.txt")[1])
-                     th <- consts$treshold
+                     th <- const$treshold
 
                    withProgress(min=0, max=as.numeric(isolate(input$paranait), value=0, message="Calibration state"),
                                 message="Calibrating...",
