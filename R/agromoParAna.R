@@ -127,7 +127,7 @@ agroMoParAna <- function(input, output, session, baseDir){
                      likelihood <- list(agroLikelihood)
                      names(likelihood) <- variableName
                      #TODO: constraints and th definition
-                     const <- jsonlite::read_json("consts.json",simplifyVector=TRUE) 
+                     const <- jsonlite::read_json("constraints.json",simplifyVector=TRUE) 
                      # constraints<- read.csv("consts.csv",stringsAsFactors=FALSE)
                      contraints <- const$constraints
                      # th <- as.numeric(readLines("th.txt")[1])
