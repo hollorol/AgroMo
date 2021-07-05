@@ -127,9 +127,12 @@ agroMoParAna <- function(input, output, session, baseDir){
                      likelihood <- list(agroLikelihood)
                      names(likelihood) <- variableName
                      #TODO: constraints and th definition
-                     constraints<- read.csv("consts.csv",stringsAsFactors=FALSE)
-                     th <- as.numeric(readLines("th.txt")[1])
-                     print(th)
+                     const <- jsonlite::read_json("consts.json",simplifyVector=TRUE) 
+                     # constraints<- read.csv("consts.csv",stringsAsFactors=FALSE)
+                     contraints <- const$constraints
+                     # th <- as.numeric(readLines("th.txt")[1])
+                     th <- consts$treshold
+
                    withProgress(min=0, max=as.numeric(isolate(input$paranait), value=0, message="Calibration state"),
                                 message="Calibrating...",
                                 detail="Preparing processes...",{
