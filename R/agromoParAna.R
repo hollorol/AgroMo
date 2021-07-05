@@ -153,7 +153,8 @@ agroMoParAna <- function(input, output, session, baseDir){
                             })
                         setwd(baseDir())
                    }, error=function(e){
-                       showNotification("Something went wrong",type="error", duration=NULL) 
+                       showNotification("Something went wrong: ",type="error", duration=NULL) 
+                       showNotification(e, type="error", duration=NULL) 
                        print(e)
                        setwd(baseDir())
                    })
