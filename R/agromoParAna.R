@@ -163,9 +163,12 @@ agroMoParAna <- function(input, output, session, baseDir){
                            list(src = file.path(baseDir(), "calibration", input$paranaini ,"calibRes.png"),
                                alt ="result of the calibration")
                        }, deleteFile=FALSE)
+
+                   calDir <- file.path(baseDir(), "calibration", input$paranaini)
+                   resObj <- readRDS(file.path(calDir,"results.RDS"))
+                   listToExcel(resObj,file.path(calDir,"results"))
                    output$resultsTable <- renderTable({
 
-                       resObj <- readRDS(file.path(baseDir(), "calibration", input$paranaini ,"results.RDS"))
                        data.frame(original = c(resObj[["originalMAE"]], resObj[["originalRMSE"]],
                                                                         resObj[["originalR2"]] ),
                                   calibrated = c(resObj[["MAE"]], resObj[["RMSE"]],resObj[["R2"]]),
