@@ -11,7 +11,7 @@ listToExcel <- function(list_object, fname) {
     invisible({
         lapply(names(list_object), function(n) {
            addWorksheet(w, n)
-           writeData(w, n, list_object[[n]])
+           writeData(w, n, list_object[[n]],rowNames=TRUE)
         })
     })
 

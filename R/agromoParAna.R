@@ -166,7 +166,7 @@ agroMoParAna <- function(input, output, session, baseDir){
 
                    calDir <- file.path(baseDir(), "calibration", input$paranaini)
                    resObj <- readRDS(file.path(calDir,"results.RDS"))
-                   listToExcel(resObj,file.path(calDir,"results"))
+                   listToExcel(resListToExcelList(resObj), file.path(calDir,"results"))
                    output$resultsTable <- renderTable({
 
                        data.frame(original = c(resObj[["originalMAE"]], resObj[["originalRMSE"]],
@@ -201,3 +201,15 @@ agroLikelihood <- function(modVector,measured){
                }), na.rm=TRUE)
 }
 
+resListToExcelList <- function (resList) {
+    toExcel <- list()
+    toExcel[["optimal results"]] <- data.frame(index = resList$calibrationPar,
+                                               value = unlist(resList$parameter)
+    )
+    toExcel[["comparision"]] <- resList$comparison
+    toExcel[["error metrics"]] <- data.frame(original = c(resList[["originalMAE"]], resList[["originalRMSE"]],
+                                                          resList[["originalR2"]] ),
+                               calibrated = c(resList[["MAE"]], resList[["RMSE"]],resList[["R2"]]),
+                               row.names = c("MAE", "RMSE", "R^2"))
+    toExcel
+}
