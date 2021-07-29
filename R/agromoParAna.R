@@ -206,7 +206,7 @@ resListToExcelList <- function (resList) {
     toExcel[["optimal results"]] <- data.frame(index = resList$calibrationPar,
                                                value = unlist(resList$parameter)
     )
-    toExcel[["comparision"]] <- resList$comparison
+    toExcel[["comparison"]] <- resList$comparison[,c(3, 1, 2)]
     toExcel[["error metrics"]] <- data.frame(original = c(resList[["originalMAE"]], resList[["originalRMSE"]],
                                                           resList[["originalR2"]] ),
                                calibrated = c(resList[["MAE"]], resList[["RMSE"]],resList[["R2"]]),
