@@ -144,7 +144,7 @@ plotMeasuredLayers <- function(p,measurement,timeFrame,experiment_id, treatment,
     measAlias =sprintf("%s-%s (mean)",experiment_id,treatment)
   }
   # if(is.null(measurement$repetition)){
-  p <- add_trace(p,x = unlist(get(timeFrame)(measurement$measurement_date)),y = unlist(measurement$measurement_value), name = measAlias, color="black")
+  p <- add_trace(p,x = unlist(get(timeFrame)(measurement$measurement_date)),y = unlist(measurement$measurement_value), name = measAlias, color="black", type="scatter", mode="markers")
   # } else {
   # # browser()
   #   #   repetitions<- unique(measurement$repetition)
@@ -235,48 +235,48 @@ addMeasuredData <- function(p, measurements, varName){
   
   measurements <- measurements[filtVar,]
   
-  if(all(c("min","max") %in% givenDataLabels)){
-    p <- add_trace(p,
-                   x= measurements$date,
-                   y= measurements$min,
-                   mode="l",
-                   type="scatter",
-                   line = list(color = "rgba(169,169,169,0.3)", width = 1),
-                   name = "observed min")
-    p <- add_trace(p,
-                   x= measurements$date,
-                   y= measurements$max, mode="l",
-                   fill="tonexty", type="scatter",
-                   line = list(color = "rgba(169,169,169,0.3)", width = 1),
-                   fillcolor = "rgba(189,189,189,0.3)",
-                   name = "observed max")
-  }
-  
-  if(is.element("sd",givenDataLabels)){
-    p <- add_trace(p,
-                   x= measurements$date,
-                   y= measurements$mean - measurements$sd,
-                   mode="l",
-                   type="scatter",
-                   line = list(color = "rgba(108,108,108,0.3))", width = 1),
-                   name = "observed mean - sd")
-    p <- add_trace(p,
-                   x= measurements$date,
-                   y= measurements$mean + measurements$sd,
-                   mode="l",
-                   fill="tonexty",
-                   type="scatter",
-                   line = list(color = "rgba(108,108,108,0.3)", width = 1),
-                   fillcolor = "rgba(128,128,128,0.3)",
-                   name = "observed mean + sd")
-  }
+  # if(all(c("min","max") %in% givenDataLabels)){
+  #   p <- add_trace(p,
+  #                  x= measurements$date,
+  #                  y= measurements$min,
+  #                  mode="l",
+  #                  type="scatter",
+  #                  line = list(color = "rgba(169,169,169,0.3)", width = 1),
+  #                  name = "observed min")
+  #   p <- add_trace(p,
+  #                  x= measurements$date,
+  #                  y= measurements$max, mode="l",
+  #                  fill="tonexty", type="scatter",
+  #                  line = list(color = "rgba(169,169,169,0.3)", width = 1),
+  #                  fillcolor = "rgba(189,189,189,0.3)",
+  #                  name = "observed max")
+  # }
+  #
+  # if(is.element("sd",givenDataLabels)){
+  #   p <- add_trace(p,
+  #                  x= measurements$date,
+  #                  y= measurements$mean - measurements$sd,
+  #                  mode="l",
+  #                  type="scatter",
+  #                  line = list(color = "rgba(108,108,108,0.3))", width = 1),
+  #                  name = "observed mean - sd")
+  #   p <- add_trace(p,
+  #                  x= measurements$date,
+  #                  y= measurements$mean + measurements$sd,
+  #                  mode="l",
+  #                  fill="tonexty",
+  #                  type="scatter",
+  #                  line = list(color = "rgba(108,108,108,0.3)", width = 1),
+  #                  fillcolor = "rgba(128,128,128,0.3)",
+  #                  name = "observed mean + sd")
+  # }
   
   add_trace(p,
             x= measurements$date,
             y= measurements$mean,
-            mode="l",
+            mode="markers",
             type="scatter",
-            line = list(color = "rgb(0,0,0)", width = 1),
+            # line = list(color = "rgb(0,0,0)", width = 1),
             name="observed mean")
   
 }
