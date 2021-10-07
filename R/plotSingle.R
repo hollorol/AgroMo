@@ -4,7 +4,7 @@
 #' @importFrom plotly plot_ly add_trace layout '%>%' toRGB
 
 
-plotSingle <- function(outputNames = NULL, dataenv, varName, timeFrame, groupFun, plotT = "scatter", conversionFactor = 1, measurementConn, experiment_id, treatment, repetationsAveraged, yTitle,measAlias=""){ 
+plotSingle <- function(outputNames = NULL, dataenv, varName, timeFrame, groupFun, plotT = "scatter", conversionFactor = 1, measurementConn, experiment_id, treatment, repetationsAveraged, yTitle,measAlias="", simplifyPoint){ 
   # print(ls(dataenv))
   plotType <- plotT
   plotMode <- NULL
@@ -60,7 +60,7 @@ plotSingle <- function(outputNames = NULL, dataenv, varName, timeFrame, groupFun
   p <- plot_ly()
   
   if(!is.null(measurements)){
-    p <- addMeasuredData(p, measurements, varName)
+    p <- addMeasuredData(p, measurements, varName, simplifyPoint)
   }
   
   # Defining colorscale:
@@ -139,7 +139,7 @@ plotSingle <- function(outputNames = NULL, dataenv, varName, timeFrame, groupFun
   
 }
 
-plotMeasuredLayers <- function(p,measurement,timeFrame,experiment_id, treatment, measAlias=""){
+plotMeasuredLayers <- function(p,measurement,timeFrame,experiment_id, treatment, measAlias="", simplifyPoint){
   if(measAlias==""){
     measAlias =sprintf("%s-%s (mean)",experiment_id,treatment)
   }
@@ -163,7 +163,7 @@ plotMeasuredLayers <- function(p,measurement,timeFrame,experiment_id, treatment,
   #
   # }
   
-  addMeasuredData(p, measurements, varName)
+  addMeasuredData(p, measurements, varName, simplifyPoint)
   
 }
 
@@ -223,7 +223,7 @@ getFilteredData <- function(dbConnection, treatment, experiment, repetationsAver
   
 }
 
-addMeasuredData <- function(p, measurements, varName){
+addMeasuredData <- function(p, measurements, varName, simplifyPoint){
   
   givenDataLabels <- colnames(measurements)
   
@@ -234,49 +234,59 @@ addMeasuredData <- function(p, measurements, varName){
   }
   
   measurements <- measurements[filtVar,]
+    print(sprintf("simplifyPoint is: %d", simplifyPoint))
+  if(simplifyPoint){
+      return(add_trace(p,
+                 x= measurements$date,
+                 y= measurements$mean,
+                 mode="markers",
+                 type="scatter",
+                 # line = list(color = "rgb(0,0,0)", width = 1),
+                 name="observed mean"))
+  }
   
-  # if(all(c("min","max") %in% givenDataLabels)){
-  #   p <- add_trace(p,
-  #                  x= measurements$date,
-  #                  y= measurements$min,
-  #                  mode="l",
-  #                  type="scatter",
-  #                  line = list(color = "rgba(169,169,169,0.3)", width = 1),
-  #                  name = "observed min")
-  #   p <- add_trace(p,
-  #                  x= measurements$date,
-  #                  y= measurements$max, mode="l",
-  #                  fill="tonexty", type="scatter",
-  #                  line = list(color = "rgba(169,169,169,0.3)", width = 1),
-  #                  fillcolor = "rgba(189,189,189,0.3)",
-  #                  name = "observed max")
-  # }
-  #
-  # if(is.element("sd",givenDataLabels)){
-  #   p <- add_trace(p,
-  #                  x= measurements$date,
-  #                  y= measurements$mean - measurements$sd,
-  #                  mode="l",
-  #                  type="scatter",
-  #                  line = list(color = "rgba(108,108,108,0.3))", width = 1),
-  #                  name = "observed mean - sd")
-  #   p <- add_trace(p,
-  #                  x= measurements$date,
-  #                  y= measurements$mean + measurements$sd,
-  #                  mode="l",
-  #                  fill="tonexty",
-  #                  type="scatter",
-  #                  line = list(color = "rgba(108,108,108,0.3)", width = 1),
-  #                  fillcolor = "rgba(128,128,128,0.3)",
-  #                  name = "observed mean + sd")
-  # }
+   if(all(c("min","max") %in% givenDataLabels)){
+     p <- add_trace(p,
+                    x= measurements$date,
+                    y= measurements$min,
+                    mode="l",
+                    type="scatter",
+                    line = list(color = "rgba(169,169,169,0.3)", width = 1),
+                    name = "observed min")
+     p <- add_trace(p,
+                    x= measurements$date,
+                    y= measurements$max, mode="l",
+                    fill="tonexty", type="scatter",
+                    line = list(color = "rgba(169,169,169,0.3)", width = 1),
+                    fillcolor = "rgba(189,189,189,0.3)",
+                    name = "observed max")
+   }
+  
+   if(is.element("sd",givenDataLabels)){
+     p <- add_trace(p,
+                    x= measurements$date,
+                    y= measurements$mean - measurements$sd,
+                    mode="l",
+                    type="scatter",
+                    line = list(color = "rgba(108,108,108,0.3))", width = 1),
+                    name = "observed mean - sd")
+     p <- add_trace(p,
+                    x= measurements$date,
+                    y= measurements$mean + measurements$sd,
+                    mode="l",
+                    fill="tonexty",
+                    type="scatter",
+                    line = list(color = "rgba(108,108,108,0.3)", width = 1),
+                    fillcolor = "rgba(128,128,128,0.3)",
+                    name = "observed mean + sd")
+   }
   
   add_trace(p,
             x= measurements$date,
             y= measurements$mean,
-            mode="markers",
+            mode="l",
             type="scatter",
-            # line = list(color = "rgb(0,0,0)", width = 1),
+            line = list(color = "rgb(0,0,0)", width = 1),
             name="observed mean")
   
 }
