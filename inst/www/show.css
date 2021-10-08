@@ -467,14 +467,40 @@ div.profPlotCont .form-control {
   -ms-user-select: none;
   user-select: none;
 }
-#showdiv-alias_container label{
+
+#alika {
     position: absolute;
     top: 87px;
-    left:160px;
+    left:165px;
   font-size: 16px;
   font-family: Fira Sans;
   color: black;
   font-weight: normal;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#showdiv-alias_container label{
+    position: absolute;
+    top: 87px;
+    left:485px;
+    width: 150px;
+  font-size: 16px;
+  font-family: Fira Sans;
+  color: black;
+  font-weight: normal;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#showdiv-alias_container input{
+    position: absolute;
+    top: -14px;
+    left:-11px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
