@@ -4,7 +4,7 @@
 \alias{listToExcel}
 \title{listToExcel}
 \usage{
-listToExcel(list_object)
+listToExcel(list_object, fname)
 }
 \arguments{
 \item{list_object}{The list to export}

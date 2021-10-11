@@ -16,7 +16,8 @@ multiPlot(
   repetAvg = TRUE,
   connection,
   centralData,
-  measAlias
+  measAlias,
+  simplifyPoint
 )
 }
 \arguments{

@@ -17,7 +17,8 @@ plotSingle(
   treatment,
   repetationsAveraged,
   yTitle,
-  measAlias = ""
+  measAlias = "",
+  simplifyPoint
 )
 }
 \arguments{

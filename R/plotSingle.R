@@ -60,7 +60,7 @@ plotSingle <- function(outputNames = NULL, dataenv, varName, timeFrame, groupFun
   p <- plot_ly()
   
   if(!is.null(measurements)){
-    p <- addMeasuredData(p, measurements, varName, simplifyPoint)
+    p <- addMeasuredData(p, measurements, varName, simplifyPoint, measAlias)
   }
   
   # Defining colorscale:
@@ -140,8 +140,10 @@ plotSingle <- function(outputNames = NULL, dataenv, varName, timeFrame, groupFun
 }
 
 plotMeasuredLayers <- function(p,measurement,timeFrame,experiment_id, treatment, measAlias="", simplifyPoint){
+    print(measAlias)
   if(measAlias==""){
     measAlias =sprintf("%s-%s (mean)",experiment_id,treatment)
+    print(measAlias)
   }
   # if(is.null(measurement$repetition)){
   p <- add_trace(p,x = unlist(get(timeFrame)(measurement$measurement_date)),y = unlist(measurement$measurement_value), name = measAlias, color="black", type="scatter", mode="markers")
@@ -223,7 +225,7 @@ getFilteredData <- function(dbConnection, treatment, experiment, repetationsAver
   
 }
 
-addMeasuredData <- function(p, measurements, varName, simplifyPoint){
+addMeasuredData <- function(p, measurements, varName, simplifyPoint, measAlias){
   
   givenDataLabels <- colnames(measurements)
   
@@ -232,6 +234,11 @@ addMeasuredData <- function(p, measurements, varName, simplifyPoint){
   if(all(!filtVar)){
     return(p)
   }
+
+  if(measAlias==""){
+      measAlias <- "observed mean"
+  }
+
   
   measurements <- measurements[filtVar,]
     print(sprintf("simplifyPoint is: %d", simplifyPoint))
@@ -244,7 +251,7 @@ addMeasuredData <- function(p, measurements, varName, simplifyPoint){
                  color="rgb(0,0,0)",
                  marker = list(color= "black", size=7),
                  # line = list(color = "rgb(0,0,0)", width = 1),
-                 name="observed mean"))
+                 name=measAlias))
   }
   
    if(all(c("min","max") %in% givenDataLabels)){
