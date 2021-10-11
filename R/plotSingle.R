@@ -241,6 +241,8 @@ addMeasuredData <- function(p, measurements, varName, simplifyPoint){
                  y= measurements$mean,
                  mode="markers",
                  type="scatter",
+                 color="rgb(0,0,0)",
+                 marker = list(color= "black", size=7),
                  # line = list(color = "rgb(0,0,0)", width = 1),
                  name="observed mean"))
   }
