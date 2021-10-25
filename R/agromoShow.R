@@ -28,6 +28,7 @@ agroMoShowUI <- function(id){
                     shiny::tags$hr(id=ns("framelinefour")),
                     #tags$div(id="repavg","repetitions averaged"),
                     tags$div(id="gridsimres","GRID SIMULATION RESULTS:"),
+                    tags$div(id="alika","alias:"),
                     #tags$div(
                     #  id = paste0(ns("cellid"),"_container"),
                     #  textInput(ns("cellid"), "cell ID(s):")
@@ -36,7 +37,7 @@ agroMoShowUI <- function(id){
                     #tags$div(id=ns("treatmentID_container"),selectInput(ns("treatmentID"), "treatment ID:",choices = '')),
                     #tags$div(id=ns("compfunc_container"),selectInput(ns("compfunc"), "compare function:",choices = '')),
                     #tags$div(id=ns("compbase_container"),selectInput(ns("compbase"), "compare base:",choices = '')),
-                    tags$div(id=ns("alias_container"),textInput(ns("alias"), "alias:",NA)),
+                    tags$div(id=ns("alias_container"),textInput(ns("alias"), "means only",NA), checkboxInput(ns("simplifyPoint"), "")),
                     tags$div(id=ns("varset_container"),title="Narrow down the list of selectable variables ",selectInput(ns("varset"), "filter to:",
                                         choices = c("all","user selected", "plant related","soil related","water related","carbon related","greenhouse gas","profiles"))),
                     
@@ -226,7 +227,7 @@ agroMoShow <- function(input, output, session, dataenv, baseDir, connection,cent
                 measAlias <- input$alias
           }
           callModule(multiPlot,"plotka",reactive(initData$measurementConn),isolate(modellOutputNames),reactive({tableForPlot}),
-              reactive({input$experimentID}),reactive({input$treatmentID}),repetAvg = reactive({input$averagep}),connection=connection,centralData=centralData,reactive({measAlias}))
+              reactive({input$experimentID}),reactive({input$treatmentID}),repetAvg = reactive({input$averagep}),connection=connection,centralData=centralData,reactive({measAlias}), reactive({input$simplifyPoint}))
       } else {
          showNotification("There is no simulation or variable selected for plotting", duration = NULL)        
       }

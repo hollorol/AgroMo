@@ -127,9 +127,12 @@ agroMoParAna <- function(input, output, session, baseDir){
                      likelihood <- list(agroLikelihood)
                      names(likelihood) <- variableName
                      #TODO: constraints and th definition
-                     constraints<- read.csv("consts.csv",stringsAsFactors=FALSE)
-                     th <- as.numeric(readLines("th.txt")[1])
-                     print(th)
+                     const <- jsonlite::read_json("constraints.json",simplifyVector=TRUE) 
+                     # constraints<- read.csv("consts.csv",stringsAsFactors=FALSE)
+                     constraints <- const$constraints
+                     # th <- as.numeric(readLines("th.txt")[1])
+                     th <- const$treshold
+
                    withProgress(min=0, max=as.numeric(isolate(input$paranait), value=0, message="Calibration state"),
                                 message="Calibrating...",
                                 detail="Preparing processes...",{
@@ -150,8 +153,9 @@ agroMoParAna <- function(input, output, session, baseDir){
                             })
                         setwd(baseDir())
                    }, error=function(e){
-                       showNotification("Something went wrong",type="error", duration=NULL) 
-                       print(e)
+                       showNotification(sprintf("Something went wrong: %s",e$message),
+                                        type="error", duration=NULL) 
+                       # showNotification(e, type="error", duration=NULL) 
                        setwd(baseDir())
                    })
 
@@ -159,9 +163,12 @@ agroMoParAna <- function(input, output, session, baseDir){
                            list(src = file.path(baseDir(), "calibration", input$paranaini ,"calibRes.png"),
                                alt ="result of the calibration")
                        }, deleteFile=FALSE)
+
+                   calDir <- file.path(baseDir(), "calibration", input$paranaini)
+                   resObj <- readRDS(file.path(calDir,"results.RDS"))
+                   listToExcel(resListToExcelList(resObj), file.path(calDir,"results"))
                    output$resultsTable <- renderTable({
 
-                       resObj <- readRDS(file.path(baseDir(), "calibration", input$paranaini ,"results.RDS"))
                        data.frame(original = c(resObj[["originalMAE"]], resObj[["originalRMSE"]],
                                                                         resObj[["originalR2"]] ),
                                   calibrated = c(resObj[["MAE"]], resObj[["RMSE"]],resObj[["R2"]]),
@@ -194,3 +201,15 @@ agroLikelihood <- function(modVector,measured){
                }), na.rm=TRUE)
 }
 
+resListToExcelList <- function (resList) {
+    toExcel <- list()
+    toExcel[["optimal results"]] <- data.frame(index = resList$calibrationPar,
+                                               value = unlist(resList$parameter)
+    )
+    toExcel[["comparison"]] <- resList$comparison[,c(3, 1, 2)]
+    toExcel[["error metrics"]] <- data.frame(original = c(resList[["originalMAE"]], resList[["originalRMSE"]],
+                                                          resList[["originalR2"]] ),
+                               calibrated = c(resList[["MAE"]], resList[["RMSE"]],resList[["R2"]]),
+                               row.names = c("MAE", "RMSE", "R^2"))
+    toExcel
+}
