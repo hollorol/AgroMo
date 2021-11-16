@@ -689,9 +689,11 @@ writeChainToDB <- function(baseDir, storyName, dbConnection, outputName,
 
     fName <- paste0(file.path(baseDir, "output/grid/",
                               storyName, chainMatrix[,2]), type)
+    econofName <-  paste0(file.path(baseDir, "output/grid/",
+                              storyName, chainMatrix[,2]), ".econout")
 
     toWrite <- do.call("rbind",
-        lapply(fName, function(fn){readTable(fn,
+        lapply(fName, function(fn){readTable(fn,econofName,
                       variables,
                       type,
                       cell_id=as.character(chainMatrix[,1]),
@@ -711,7 +713,7 @@ writeChainToDB <- function(baseDir, storyName, dbConnection, outputName,
 #' @param type .dayout or .annout
 #' @importFrom lubridate year month yday
 
-readTable <- function(fName,variables, type, cell_id, numDays, startYear, endYear){   
+readTable <- function(fName, econofName, variables, type, cell_id, numDays, startYear, endYear){   
 
     if(type == ".dayout"){
         con <- file(fName,"rb")
@@ -730,8 +732,18 @@ readTable <- function(fName,variables, type, cell_id, numDays, startYear, endYea
         close(con)
         return(dayoutput)
     } else {
+        if(file.exists(econofName)){
+            econonames <- c("crop_id","prim_prod","sec_prod","irr_amaunt","irr_type")
+            econoOutput <- read.table(fName, skip=1, header=FALSE)[-1]
+            econoOutput[,1] <- as.integer(econoOutput[,1])
+            econoOutput[,5] <- as.integer(econoOutput[,5])
+            annuOutput <- cbind.data.frame(read.table(fName, skip=1, header=FALSE),econoOutput,cell_id)
+            colnames(annuOutput) <- c("year", variables, econonames,"cell_id")
+            return(annuOutput)
+        }
+
         annuOutput <- cbind.data.frame(read.table(fName, skip=1, header=FALSE),cell_id)
-        colnames(annuOutput) <- c("year", variables,"cell_id")
+        colnames(annuOutput) <- c("year", variables, "cell_id")
         return(annuOutput)
     }
 }
