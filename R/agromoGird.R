@@ -383,6 +383,19 @@ agroMoGrid <- function(input, output, session, baseDir, language){
                         } else {
                             showNotification("Cannot find observation database, queries which contains soil data will not run",type="warning")
                         }
+
+
+                        showNotification("Attaching econo database...")
+                        econoDBName <- file.path(normalizePath(dbDir),"economy.db")
+                        if(file.exists(econoDBName)){
+                            dbExecute(sqlDB,sprintf("ATTACH DATABASE '%s' AS economy", econoDBName))
+                        } else {
+                            showNotification("Cannot find economy database, queries which contains economy data will not run",type="warning")
+                        }
+
+
+
+
                         showNotification("Running the query, please wait, it can take for a while", id="query", duration=NULL)
                         queryResults <- tryCatch(dbGetQuery(sqlDB,sentenceToSQL),error=function(e){NULL})
                         if(is.null(queryResults)){
@@ -451,7 +464,6 @@ agroMoGrid <- function(input, output, session, baseDir, language){
                             showNotification("Cannot find observation database, queries which contains soil data will not run",type="warning")
                         }
 
-
                         showNotification("Attaching weather database...")
                         weatherDBName <- file.path(normalizePath(dbDir),"weather.db")
                         if(file.exists(weatherDBName)){
@@ -461,6 +473,13 @@ agroMoGrid <- function(input, output, session, baseDir, language){
                         }
 
 
+                        showNotification("Attaching econo database...")
+                        econoDBName <- file.path(normalizePath(dbDir),"economy.db")
+                        if(file.exists(econoDBName)){
+                            dbExecute(sqlDB,sprintf("ATTACH DATABASE '%s' AS economy", econoDBName))
+                        } else {
+                            showNotification("Cannot find economy database, queries which contains economy data will not run",type="warning")
+                        }
 
 
                         showNotification("Running the query, please wait, it can take for a while", id="query", duration=NULL)
