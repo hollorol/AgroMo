@@ -162,7 +162,7 @@ readAndChangeFiles <- function(baseDir, iniFile, weatherFile, soilFile, manageme
 shiftFile <- function(manFile, destFile, shiftDate, varCol=NULL, shiftVar=NULL){
   #browser()
   manDT <- fread(manFile)
-  manDT[,DATE:=format.Date(as.Date(DATE,format="%Y.%m.%d")+as.numeric(shiftDate),format="%Y.%m.%d")]
+  manDT[,DATE:=format.Date(as.Date(DATE,format="%Y-%m-%d")+as.numeric(shiftDate),format="%Y-%m-%d")]
   if(is.null(varCol)){
     fwrite(manDT,destFile,sep = " ")
   } else {
@@ -190,14 +190,13 @@ changingMGM <- function(mgmFile, baseDir, planting=NULL, harvest=NULL, fertiliza
   manFileList <- c(planting, harvest, fertilization, irrigation, grazing, mowing, thinning)
   managementTypes <- c("planting", "harvest", "fertilization", "irrigation", "cultivation", "grazing", "mowing", "thinning")
   manFileList <- grep("\\.[a-z]{3}$",manFileList,value = TRUE)
-  # browser()
-  inpFiles <- sapply(manFileList,function(x) grep("\\/tmp\\/",grep(x,list.files(file.path(baseDir,"input"), recursive = TRUE),value=TRUE),invert = TRUE, value=TRUE))
+  inpFiles <- sapply(manFileList,function(x) grep("\\/tmp\\/",grep(x,list.files(file.path(baseDir,"input/management/site/"), recursive = TRUE),value=TRUE),invert = TRUE, value=TRUE))
   # print(inpFiles)
-  destFiles <- paste0("input/",gsub("(.*)(\\/.*\\..*)","\\1/tmp\\2",inpFiles))
+  destFiles <- paste0("input/management/site/",gsub("(.*)(\\/.*\\..*)","\\1/tmp\\2",inpFiles))
   sapply(destFiles, function(m){
     dir.create(dirname(file.path(baseDir,m)),showWarnings = FALSE)
   })
- Map(function(x,y){file.copy(x,y,overwrite = TRUE)}, file.path(baseDir,"input",inpFiles), file.path(baseDir,destFiles))
+ Map(function(x,y){file.copy(x,y,overwrite = TRUE)}, file.path(baseDir,"input/management/site/",inpFiles), file.path(baseDir,destFiles))
  choosenRows <- managementRows[gsub(".*\\.","",inpFiles)]
  delRows <- setdiff(managementRows, choosenRows)
  managementTemplate[delRows-1] <- 0

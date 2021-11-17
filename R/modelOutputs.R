@@ -9,7 +9,7 @@
 
 writeDataToDB <- function(settings, dbConnection, binaryName, outputName){
 
-#  browser()
+  # browser()
   con <- file(binaryName,"rb")
   dayoutput <- matrix(readBin(con,"double",size=8,n=(settings$numData)),(settings$numYears*365),byrow=TRUE)
   close(con)
@@ -20,5 +20,6 @@ writeDataToDB <- function(settings, dbConnection, binaryName, outputName){
   colnames(dayoutput) <- as.character(c("udate","uday","umonth","uyear",unlist(settings$variableNames),"outputName"))
   # browser()
   conn <- dbConnection()
+  str(dayoutput)
   dbWriteTable(conn, outputName, dayoutput,  overwrite = TRUE)
 }
