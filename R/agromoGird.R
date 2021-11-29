@@ -786,3 +786,6 @@ climate_get <- function(baseDir){
          result
 }
 
+months_get <- function(baseDir){
+         1:12
+}
