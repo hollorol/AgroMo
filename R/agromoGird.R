@@ -39,9 +39,10 @@
     ),
     tags$div(
       id = paste0(ns("algosel"),"_container"),
-      selectInput(ns("algosel"),"ALGORYTHM SELECTION:",choices=c("PHOTOS: Farquhar | PET: Penman-Monteith | WSTRESS: WCBased",
-                                                                "PHOTOS: Farquhar | PET: Priestley-Taylor | WSTRESS: WCBased",
+      selectInput(ns("algosel"),"ALGORYTHM SELECTION:",choices=c(
                                                                 "PHOTOS: Farquhar | PET: Penman-Monteith | WSTRESS: TransDemBased",
+                                                                 "PHOTOS: Farquhar | PET: Penman-Monteith | WSTRESS: WCBased",
+                                                                "PHOTOS: Farquhar | PET: Priestley-Taylor | WSTRESS: WCBased",
                                                                 "PHOTOS: Farquhar | PET: Priestley-Taylor | WSTRESS: TransDemBased ",
                                                                 "PHOTOS: DSSAT | PET: Penman-Monteith | WSTRESS: WCBased",
                                                                 "PHOTOS: DSSAT | PET: Priestley-Taylor | WSTRESS: WCBased",
@@ -370,10 +371,10 @@ agroMoGrid <- function(input, output, session, baseDir, language){
                             showNotification("Cannot find soil database, queries which contains soil data will not run",type="warning")
                         }
 
-                        showNotification("Attaching weather database...")
-                        weatherDBName <- file.path(normalizePath(dbDir),"weather.db")
+                        showNotification("Attaching climate database...")
+                        weatherDBName <- file.path(normalizePath(dbDir),"climate.db")
                         if(file.exists(weatherDBName)){
-                            dbExecute(sqlDB,sprintf("ATTACH DATABASE '%s' AS weather", weatherDBName))
+                            dbExecute(sqlDB,sprintf("ATTACH DATABASE '%s' AS climate", weatherDBName))
                         } else {
                             showNotification("Cannot find weather database, queries which contains weather data will not run",type="warning")
                         }
@@ -383,6 +384,19 @@ agroMoGrid <- function(input, output, session, baseDir, language){
                         } else {
                             showNotification("Cannot find observation database, queries which contains soil data will not run",type="warning")
                         }
+
+
+                        showNotification("Attaching econo database...")
+                        econoDBName <- file.path(normalizePath(dbDir),"economy.db")
+                        if(file.exists(econoDBName)){
+                            dbExecute(sqlDB,sprintf("ATTACH DATABASE '%s' AS economy", econoDBName))
+                        } else {
+                            showNotification("Cannot find economy database, queries which contains economy data will not run",type="warning")
+                        }
+
+
+
+
                         showNotification("Running the query, please wait, it can take for a while", id="query", duration=NULL)
                         queryResults <- tryCatch(dbGetQuery(sqlDB,sentenceToSQL),error=function(e){NULL})
                         if(is.null(queryResults)){
@@ -451,7 +465,6 @@ agroMoGrid <- function(input, output, session, baseDir, language){
                             showNotification("Cannot find observation database, queries which contains soil data will not run",type="warning")
                         }
 
-
                         showNotification("Attaching weather database...")
                         weatherDBName <- file.path(normalizePath(dbDir),"weather.db")
                         if(file.exists(weatherDBName)){
@@ -461,6 +474,13 @@ agroMoGrid <- function(input, output, session, baseDir, language){
                         }
 
 
+                        showNotification("Attaching econo database...")
+                        econoDBName <- file.path(normalizePath(dbDir),"economy.db")
+                        if(file.exists(econoDBName)){
+                            dbExecute(sqlDB,sprintf("ATTACH DATABASE '%s' AS economy", econoDBName))
+                        } else {
+                            showNotification("Cannot find economy database, queries which contains economy data will not run",type="warning")
+                        }
 
 
                         showNotification("Running the query, please wait, it can take for a while", id="query", duration=NULL)
@@ -689,9 +709,11 @@ writeChainToDB <- function(baseDir, storyName, dbConnection, outputName,
 
     fName <- paste0(file.path(baseDir, "output/grid/",
                               storyName, chainMatrix[,2]), type)
+    econofName <-  paste0(file.path(baseDir, "output/grid/",
+                              storyName, chainMatrix[,2]), ".econout")
 
     toWrite <- do.call("rbind",
-        lapply(fName, function(fn){readTable(fn,
+        lapply(fName, function(fn){readTable(fn,econofName,
                       variables,
                       type,
                       cell_id=as.character(chainMatrix[,1]),
@@ -711,7 +733,7 @@ writeChainToDB <- function(baseDir, storyName, dbConnection, outputName,
 #' @param type .dayout or .annout
 #' @importFrom lubridate year month yday
 
-readTable <- function(fName,variables, type, cell_id, numDays, startYear, endYear){   
+readTable <- function(fName, econofName, variables, type, cell_id, numDays, startYear, endYear){   
 
     if(type == ".dayout"){
         con <- file(fName,"rb")
@@ -730,8 +752,18 @@ readTable <- function(fName,variables, type, cell_id, numDays, startYear, endYea
         close(con)
         return(dayoutput)
     } else {
+        if(file.exists(econofName)){
+            econonames <- c("crop_id","prim_prod","sec_prod","irr_amaunt","irr_type")
+            econoOutput <- read.table(econofName, skip=1, header=FALSE)[-1]
+            econoOutput[,1] <- as.integer(econoOutput[,1])
+            econoOutput[,5] <- as.integer(econoOutput[,5])
+            annuOutput <- cbind.data.frame(read.table(fName, skip=1, header=FALSE),econoOutput,cell_id)
+            colnames(annuOutput) <- c("year", variables, econonames,"cell_id")
+            return(annuOutput)
+        }
+
         annuOutput <- cbind.data.frame(read.table(fName, skip=1, header=FALSE),cell_id)
-        colnames(annuOutput) <- c("year", variables,"cell_id")
+        colnames(annuOutput) <- c("year", variables, "cell_id")
         return(annuOutput)
     }
 }
@@ -745,4 +777,15 @@ tables_get <- function(baseDir){
          result
 }
 
+climate_get <- function(baseDir){
+         dbDir <- file.path(baseDir,"database")
+         dir.create(dbDir, showWarnings=FALSE)
+         sqlDB <- DBI::dbConnect(RSQLite::SQLite(),file.path(dbDir,"climate.db"))
+         result <- unlist(dbGetQuery(sqlDB,"SELECT source_name FROM datasources"))
+         dbDisconnect(sqlDB)
+         result
+}
 
+months_get <- function(baseDir){
+         1:12
+}
