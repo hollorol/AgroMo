@@ -586,7 +586,7 @@ agroMoGrid <- function(input, output, session, baseDir, language){
                                  incProgress(1/length(dat$story),detail=sprintf("Writing site %s into grid database",names(dat$story)[i])) 
                              }
                                  })
-            incProgress(1/length(climprojs), detail=sprintf("%s[%s/%s]",climprojs[ci], ci, length(climprojs)))
+            incProgress(1/length(climprojs), detail=sprintf("%s [%s/%s]",basename(climprojs[ci]), ci, length(climprojs)))
         }
 
     })
