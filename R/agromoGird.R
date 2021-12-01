@@ -341,12 +341,15 @@ agroMoGrid <- function(input, output, session, baseDir, language){
                     queryIndex <- input$queryList
         
                     if(!identical(queryIndex, NULL) && !identical(input$queryalias, "")){
+                        browser()
                         sqlSentence <- dat$queries[input$queryList]
                         optionList <- sapply(1:9,function(x){input[[sprintf("sqlfunc_%s",x)]]}) # These are just the optionAliaces
+                        
                         possibilities <- lapply(dat$jsonList[[queryIndex]]$optionAlias[[dat$language]],unlist)
                         optionList <- optionList[optionList!="NA"]
                         selectedNum <- (sapply(seq_along(optionList),function(i){match(optionList[i],possibilities[[i]])}))
                         datoptions <- lapply(dat$jsonList[[queryIndex]]$options,unlist)
+                        #BUGGER!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                         textContent <- sapply(seq_along(selectedNum),function(i){
                                                   if(is.na(selectedNum[i])){
                                                       input[[sprintf("sqlfunc_%s",i)]] 
@@ -543,8 +546,8 @@ agroMoGrid <- function(input, output, session, baseDir, language){
     DBI::dbDisconnect(climdb)
 
     withProgress(message="Climate Ensemble",value=0,{
-        for(i in seq_along(climprojs)){
-            clim <- climprojs[i]
+        for(ci in seq_along(climprojs)){
+            clim <- climprojs[ci]
             source_name <- basename(toupper(clim))
             source_name <- gsub("^\\.","",source_name)
             climid <- metaTable[toupper(metaTable[,"source_name"]) == toupper(source_name),"source_id"]
@@ -570,7 +573,7 @@ agroMoGrid <- function(input, output, session, baseDir, language){
             errorDF <- tapply(error,as.numeric(gsub("_.*","",names(error))),sum)
             errorDF <- data.frame(site=names(errorDF),error=errorDF)
             dbWriteTable(sqlDB,sprintf("%s_error",input$outsq),errorDF,overwrite=TRUE)
-            if(i == 0){
+            if(ci == 1){
                 dbExecute(sqlDB,sprintf("DROP TABLE IF EXISTS %s",input$outsq))
             }
             withProgress(message="Writing data to database, it can be slow...",value=0,{
@@ -583,7 +586,7 @@ agroMoGrid <- function(input, output, session, baseDir, language){
                                  incProgress(1/length(dat$story),detail=sprintf("Writing site %s into grid database",names(dat$story)[i])) 
                              }
                                  })
-            incProgress(1/length(climprojs), detail=sprintf("%s[%s/%s]",climprojs[i], i, length(climprojs)))
+            incProgress(1/length(climprojs), detail=sprintf("%s[%s/%s]",climprojs[ci], ci, length(climprojs)))
         }
 
     })
