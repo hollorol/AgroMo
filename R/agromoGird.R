@@ -594,9 +594,7 @@ agroMoGrid <- function(input, output, session, baseDir, language){
 
         indexSQL<- c(
                      "site" = "CREATE INDEX site_%s ON %s(cell_id)",
-                     "year" = "CREATE INDEX year_%s ON %s(year)",
-                     "siteyear" = "CREATE INDEX year_%s ON %s(cell_id, year)",
-                     "climidsiteyear" = "CREATE INDEX year_%s ON %s(climate_id, cell_id, year)"
+                     "year" = "CREATE INDEX year_%s ON %s(year)"
         )
 
         if(is.element(input$outsq,dbListTables(sqlDB))){
