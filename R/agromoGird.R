@@ -546,7 +546,7 @@ agroMoGrid <- function(input, output, session, baseDir, language){
         for(i in seq_along(climprojs)){
             clim <- climprojs[i]
             source_name <- basename(toupper(clim))
-            source_name <- gsub("^\\.","",soure_name)
+            source_name <- gsub("^\\.","",source_name)
             climid <- metaTable[toupper(metaTable[,"source_name"]) == toupper(source_name),"source_id"]
 
             showNotification("Starting simulation... Removing previous .dayout files")
