@@ -468,9 +468,9 @@ agroMoGrid <- function(input, output, session, baseDir, language){
                         }
 
                         showNotification("Attaching weather database...")
-                        weatherDBName <- file.path(normalizePath(dbDir),"weather.db")
+                        weatherDBName <- file.path(normalizePath(dbDir),"climate.db")
                         if(file.exists(weatherDBName)){
-                            dbExecute(sqlDB,sprintf("ATTACH DATABASE '%s' AS weather", weatherDBName))
+                            dbExecute(sqlDB,sprintf("ATTACH DATABASE '%s' AS climate", weatherDBName))
                         } else {
                             showNotification("Cannot find weather database, queries which contains weather data will not run",type="warning")
                         }
@@ -535,7 +535,7 @@ agroMoGrid <- function(input, output, session, baseDir, language){
 
     if(length(errorFiles) == 0) {
 
-    climprojs <- input$cliproj
+    climprojs <- input$climproj
     if(input$ensclim){
         climprojs <- sprintf("grid/%s/",list.files(file.path(baseDir(),"input/weather/grid")))
         climprojs <- climprojs[grep('^\\.',basename(climprojs),invert=TRUE)]
@@ -543,7 +543,6 @@ agroMoGrid <- function(input, output, session, baseDir, language){
     climdb <- DBI::dbConnect(RSQLite::SQLite(),file.path(baseDir(),"/database/climate.db"))
     metaTable <- DBI::dbReadTable(climdb,"meta_data")
     DBI::dbDisconnect(climdb)
-
     withProgress(message="Climate Ensemble",value=0,{
         for(ci in seq_along(climprojs)){
             clim <- climprojs[ci]
@@ -597,6 +596,7 @@ agroMoGrid <- function(input, output, session, baseDir, language){
                      "site" = "CREATE INDEX site_%s ON %s(cell_id)",
                      "year" = "CREATE INDEX year_%s ON %s(year)"
         )
+
         if(is.element(input$outsq,dbListTables(sqlDB))){
             withProgress(message="Creating Database Indexes",value=0,{
                              for(i in seq_along(indexSQL)){
