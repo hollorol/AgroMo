@@ -546,8 +546,8 @@ agroMoGrid <- function(input, output, session, baseDir, language){
         for(i in seq_along(climprojs)){
             clim <- climprojs[i]
             source_name <- basename(toupper(clim))
-            climid <- metaTable[metaTable[,"source_name"] == source_name,"source_id"]
-
+            source_name <- gsub("^\\.","",soure_name)
+            climid <- metaTable[toupper(metaTable[,"source_name"]) == toupper(source_name),"source_id"]
 
             showNotification("Starting simulation... Removing previous .dayout files")
             suppressWarnings(file.remove(
@@ -583,7 +583,7 @@ agroMoGrid <- function(input, output, session, baseDir, language){
                                  incProgress(1/length(dat$story),detail=sprintf("Writing site %s into grid database",names(dat$story)[i])) 
                              }
                                  })
-            incProgress(1/length(climprojs))
+            incProgress(1/length(climprojs), detail=sprintf("%s[%d/%d]",climprojs[i], i, length(climprojs)))
         }
 
     })
