@@ -536,6 +536,7 @@ agroMoGrid <- function(input, output, session, baseDir, language){
     climprojs <- input$cliproj
     if(input$ensclim){
         climprojs <- sprintf("grid/%s/",list.files(file.path(baseDir(),"input/weather/grid")))
+        climprojs <- climprojs[grep('^\\.',basename(climprojs),invert=TRUE)]
     }
     climdb <- DBI::dbConnect(RSQLite::SQLite(),file.path(baseDir(),"/database/climate.db"))
     metaTable <- DBI::dbReadTable(climdb,"meta_data")
