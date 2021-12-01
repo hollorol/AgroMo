@@ -12,6 +12,7 @@ climate_get <- function(baseDir){
          dir.create(dbDir, showWarnings=FALSE)
          sqlDB <- DBI::dbConnect(RSQLite::SQLite(),file.path(dbDir,"climate.db"))
          result <- unlist(dbGetQuery(sqlDB,"SELECT source_name FROM meta_data"))
+         names(result) <- NULL
          dbDisconnect(sqlDB)
          result
 }
