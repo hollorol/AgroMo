@@ -1,3 +1,8 @@
+#' centralDataToVarTable
+#'
+#' converts central daata to vartable
+#' @export
+
 centralDataToVarTable <- function(){
     loadNamespace("RBBGCMuso")
     varTable <- options()$AgroMo_centralData[,c("VARCODE","VARIABLE","FROM","LABEL NAME")]
