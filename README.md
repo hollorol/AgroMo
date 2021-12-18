@@ -33,7 +33,7 @@ A graphical user interface (GUI) has been developed for providing easy and user 
 - [x] Carry out Sensitivity analysis, Parameter sweep or Parameter calibration by clicking the [PARAMETER ANALYSIS] button. 
 - [x] Import weather and soil data from international databases into local input files by clicking the [INPUT IMPORT] button.
 - [x] Create storyline and corresponding input files for gridded model runs by clicking the [INPUT CREATOR] button.
-- [x] Select GUI language by click one of the flag icons to the right. Hungarian, English and German versions are available at the moment.
+- [x] Select GUI language by click one of the flag icons to the right. Hungarian, English, German and Chinese versions are available at the moment.
 - [x] Exit AgroMo by clicking the EXIT icon on the banner to the left.
 
 
