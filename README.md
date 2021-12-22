@@ -19,7 +19,7 @@ AgroMo GUI uses the freely available Fira Sans font family. Please, install the 
 
 A graphical user interface (GUI) has been developed for providing easy and user friendly access to the functions of the AgroMo system.
 
-- [x] AgroMo starts with .\AgroMo\AgroMo_Launch.exe and by clicking the [LAUNCH AGROMO] button.
+- [x] AgroMo starts with .\AgroMo\AgroMo_Launch.exe and then by clicking the [LAUNCH AGROMO] button.
 
 ### AgroMo Base
 
