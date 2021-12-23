@@ -1,4 +1,4 @@
-#AgroMo project
+# AgroMo project
 
 [English version](#english-version)
 
@@ -6,17 +6,17 @@
 
 ---
 
-#English version 
+# English version 
 
-##Introduction
+## Introduction
 
 AgroMo is an Integrated Assessment and Modelling software that integrates 4M (Fodor et al. 2014) a CERES based crop model, the Biome-BGCMuSo (Hidy et al. 2016) biogeochemical and a simple agro-economical model in order to support decision makers at multiple scales.
 
-##Install AgroMo
+## Install AgroMo
 
 AgroMo GUI uses the freely available Fira Sans font family. Please, install the font in order to obtain proper outlook. The font is available [here](https://fonts.google.com/specimen/Fira+Sans).
 
-###Using AgroMo Launcher
+### Using AgroMo Launcher
 
 - [x] AgroMo does not require installation, actually. Create a folder for your AgroMo: e.g. 'D:\AgroMo' and download AgroMo Launcher into this folder.
 - [x] Start AgroMo_LAUNCH.exe in your AgroMo folder, select the 'Install / Full Update' option and click the [UPDATE AGROMO] button.
@@ -139,4 +139,4 @@ An example that retrieves the average annual Net Primary Production for each gri
 - [x] A preview map is presented that can enlarged by clicking it. A larger resolution version of the map (.png) is automatically saved in the .\data\output\map_image\ folder.
 
 
-#Hungarian version 
+# Hungarian version 
