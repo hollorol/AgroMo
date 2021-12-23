@@ -4,6 +4,8 @@
 
 [Hungarian version](#hungarian-version)
 
+---
+
 #English version 
 
 ##Introduction
