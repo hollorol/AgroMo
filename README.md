@@ -1,5 +1,10 @@
 # AgroMo project
 
+[English version](english-vesrison)
+[Hungarian version](english-vesrison)
+
+# English version 
+
 ## Introduction
 
 AgroMo is an Integrated Assessment and Modelling software that integrates 4M (Fodor et al. 2014) a CERES based crop model, the Biome-BGCMuSo (Hidy et al. 2016) biogeochemical and a simple agro-economical model in order to support decision makers at multiple scales.
@@ -130,21 +135,4 @@ An example that retrieves the average annual Net Primary Production for each gri
 - [x] Provide a map title and click the [CREATE MAP] button.
 - [x] A preview map is presented that can enlarged by clicking it. A larger resolution version of the map (.png) is automatically saved in the .\data\output\map_image\ folder.
 
-
-## Install AgroMo
-
-AgroMo GUI uses the freely available Fira Sans font family. Please, install the font in order to obtain proper outlook. The font is available [here](https://fonts.google.com/specimen/Fira+Sans).
-
-
-
-### Using pure R
-
-AgroMo can be used from your browser with your current R installation. The package can be installed in the following way:
-```{r}
-install.packages("remotes") # if you have already installed devtools or remotes, skip this step.
-remotes::install_github("hollorol/AgroMo", upgrade = "never") # You can replace remotes with devtools.
-```
-After the installation process, the application starts with the following command:
-```{r}
-AgroMo::launchApp()
-```
+# Hungarian version 
