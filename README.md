@@ -1,7 +1,7 @@
 # AgroMo project
 
-[English version](english-vesrison)
-[Hungarian version](english-vesrison)
+[English version](english-version)
+[Hungarian version](hungarian-version)
 
 # English version 
 
