@@ -1,11 +1,11 @@
-# AgroMo project
+#AgroMo project
 
 [English version](english-version)
 [Hungarian version](hungarian-version)
 
-# English version 
+#English version 
 
-## Introduction
+##Introduction
 
 AgroMo is an Integrated Assessment and Modelling software that integrates 4M (Fodor et al. 2014) a CERES based crop model, the Biome-BGCMuSo (Hidy et al. 2016) biogeochemical and a simple agro-economical model in order to support decision makers at multiple scales.
 
@@ -135,4 +135,4 @@ An example that retrieves the average annual Net Primary Production for each gri
 - [x] Provide a map title and click the [CREATE MAP] button.
 - [x] A preview map is presented that can enlarged by clicking it. A larger resolution version of the map (.png) is automatically saved in the .\data\output\map_image\ folder.
 
-# Hungarian version 
+#Hungarian version 
