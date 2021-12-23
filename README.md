@@ -2,7 +2,7 @@
 
 [English version](#english-version)
 
-[Hungarian version](#hungarian-version)
+[Hungarian version](#Hungarian-version)
 
 #English version 
 
