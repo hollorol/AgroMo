@@ -141,4 +141,16 @@ An example that retrieves the average annual Net Primary Production for each gri
 
 ## Bevezetés
 
-AgroMo is an Integrated Assessment and Modelling software that integrates 4M (Fodor et al. 2014) a CERES based crop model, the Biome-BGCMuSo (Hidy et al. 2016) biogeochemical and a simple agro-economical model in order to support decision makers at multiple scales. Biome-BGCMuSo v6.1 is a detailed biogeochemical model extended with many features from the 4M crop model, thus merges many capabilities from both model families. The hybrid model is capable of simulating all major land use types, any kind of land use changes, a large number of agro-management operations, as well as the full water, carbon and nitrogen cycle of the plant-soil system including its GHG (greenhouse gas) balance. 
+Az AgroMo egy integrált modellezési keretrendzser, amely magába foglalja a 4M (Fodor et al. 2014) növénytermesztési, a Biome-BGCMuSo (Hidy et al. 2016) biogeokémiai szimulációs modellt valamint egy egyszerű agrár-gazdálkodási modellt azért hogy az agrárszektor döntéshozóinak munkáját segítse több léptékben is. A Biome-BGCMuSo v6.1 biogeokémiai modellt több 4M modellből származó modullal egészítettünk ki, amely így mindkét modelltípus előnyös tulajdonságait ötvözi. A hibrid modell képes valamenyi földhasználati típus szimulációjára, bármilyen fölhasználat-váltás modellezésére, számos agrotechnikai beavatkozás valamint a talaj-növény rendszer teljes víz-, szén- és nitrogénforgalmának szimulációjára, beleértve a legfontosabb üvegházhatású gázok forgalmát is.
+
+## Az AgroMo telepítése
+
+AgroMo GUI uses the freely available Fira Sans font family. Please, install the font in order to obtain proper outlook. The font is available [here](https://fonts.google.com/specimen/Fira+Sans).
+
+### AgroMo Indító
+
+- [x] AgroMo does not require installation, actually. Create a folder for your AgroMo: e.g. 'D:\AgroMo' and download AgroMo Launcher into this folder.
+- [x] Start AgroMo_LAUNCH.exe in your AgroMo folder, select the 'Install / Full Update' option and click the [UPDATE AGROMO] button.
+
+### [AgroMo Indító letöltő linkje](https://owncloud.atk.hu/index.php/s/7T5GWv1wYqqlJFE/download)
+
