@@ -1,6 +1,6 @@
 # AgroMo project
 
-[<img src="img/UKflag.gif" style="width: 10%" title="English version">](#english-version) &emsp; [<img src="img/HUflag.gif" style="width: 10%" title="Hungarian version">](#hungarian-version)   
+[<img src="img/UKflag.gif" style="width: 10%" title="English version">](#english-version) &emsp; [<img src="img/HUflag.gif" style="width: 10%" title="Magyar változat">](#magyar-változat)   
 
 ---
 
@@ -137,4 +137,8 @@ An example that retrieves the average annual Net Primary Production for each gri
 - [x] A preview map is presented that can enlarged by clicking it. A larger resolution version of the map (.png) is automatically saved in the .\data\output\map_image\ folder.
 
 
-# Hungarian version 
+# Magyar változat 
+
+## Bevezetés
+
+AgroMo is an Integrated Assessment and Modelling software that integrates 4M (Fodor et al. 2014) a CERES based crop model, the Biome-BGCMuSo (Hidy et al. 2016) biogeochemical and a simple agro-economical model in order to support decision makers at multiple scales. Biome-BGCMuSo v6.1 is a detailed biogeochemical model extended with many features from the 4M crop model, thus merges many capabilities from both model families. The hybrid model is capable of simulating all major land use types, any kind of land use changes, a large number of agro-management operations, as well as the full water, carbon and nitrogen cycle of the plant-soil system including its GHG (greenhouse gas) balance. 
