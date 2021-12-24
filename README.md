@@ -1,6 +1,6 @@
 # AgroMo project
 
-[<img src="img/UKflag.png" style="width: 10%" title="English version">](#english-version)    [<img src="img/HUflag.gif" style="width: 10%">](#hungarian-version)   
+[<img src="img/UKflag.gif" style="width: 10%" title="English version">](#english-version)    [<img src="img/HUflag.gif" style="width: 10%">](#hungarian-version)   
 
 [English version](#english-version)
 
