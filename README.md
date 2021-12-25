@@ -146,9 +146,12 @@ An example that retrieves the average annual Net Primary Production for each gri
 
 Az AgroMo egy integrált modellezési keretrendzser, amely magába foglalja a 4M (Fodor et al. 2014) növénytermesztési, a Biome-BGCMuSo (Hidy et al. 2016) biogeokémiai szimulációs modellt valamint egy egyszerű agrár-gazdálkodási modellt azért hogy az agrárszektor döntéshozóinak munkáját segítse több léptékben is. A Biome-BGCMuSo v6.1 biogeokémiai modellt több 4M modellből származó modullal egészítettünk ki, amely így mindkét modelltípus előnyös tulajdonságait ötvözi. A hibrid modell képes valamenyi földhasználati típus szimulációjára, bármilyen fölhasználat-váltás modellezésére, számos agrotechnikai beavatkozás valamint a talaj-növény rendszer teljes víz-, szén- és nitrogénforgalmának szimulációjára, beleértve a legfontosabb üvegházhatású gázok forgalmát is.
 
+- [x] Jelöli a már elérhető/működő funkciókat.
+- [ ] Jelöli a fejlesztés alatt álló funnkciókat.
+
 ## Az AgroMo telepítése
 
-AgroMo GUI uses the freely available Fira Sans font family. Please, install the font in order to obtain proper outlook. The font is available [here](https://fonts.google.com/specimen/Fira+Sans).
+Az AgroMo grafikus kezelőfelület (GUI) a szabadon használható Fira Sans font-készletet használja. Kérjük használat előtt telepítse ezt a font-készletet a megfelelő kinézet érdekében. A font-készlet [innen tölthető le](https://fonts.google.com/specimen/Fira+Sans).
 
 ### AgroMo Indító
 
