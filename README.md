@@ -10,6 +10,9 @@
 
 AgroMo is an Integrated Assessment and Modelling software that integrates 4M (Fodor et al. 2014) a CERES based crop model, the Biome-BGCMuSo (Hidy et al. 2016) biogeochemical and a simple agro-economical model in order to support decision makers at multiple scales. Biome-BGCMuSo v6.1 is a detailed biogeochemical model extended with many features from the 4M crop model, thus merges many capabilities from both model families. The hybrid model is capable of simulating all major land use types, any kind of land use changes, a large number of agro-management operations, as well as the full water, carbon and nitrogen cycle of the plant-soil system including its GHG (greenhouse gas) balance. 
 
+[x] Denotes the options/functions that are available.
+[ ] Denotes the options/functions that are under construction.
+
 ## Install AgroMo
 
 AgroMo GUI uses the freely available Fira Sans font family. Please, install the font in order to obtain proper outlook. The font is available [here](https://fonts.google.com/specimen/Fira+Sans).
@@ -31,13 +34,13 @@ A graphical user interface (GUI) has been developed for providing easy and user 
 
 <img src="img/base_gui.png" style="width: 100%">
 
-- [x] Choose/change the main directory where your data files are located (in the required [subdirectory system](img/AgroMo_File_System.pdf)) by clicking the [MODIFY] button. The default location is the AgroMo\data folder.
+- [ ] Choose/change the main directory where your data files are located (in the required [subdirectory system](img/AgroMo_File_System.pdf)) by clicking the [MODIFY] button. The default location is the AgroMo\data folder.
 - [x] Run the model for a specific site/plot by clicking the [SITE] button.
 - [x] Create plots of the simulation results by clicking the [PLOT] button.
 - [x] Make gridded model runs by clicking the [GRID] button.
 - [x] Present the results of a gridded simulation on a map by clicking the [MAP] button.
 - [x] Carry out Sensitivity analysis, Parameter sweep or Parameter calibration by clicking the [PARAMETER ANALYSIS] button. 
-- [x] Import weather and soil data from international databases into local input files by clicking the [INPUT IMPORT] button.
+- [ ] Import weather and soil data from international databases into local input files by clicking the [INPUT IMPORT] button.
 - [x] Create storyline and corresponding input files for gridded model runs by clicking the [INPUT CREATOR] button.
 - [x] Select GUI language by click one of the flag icons to the right. Hungarian, English, German and Chinese versions are available at the moment.
 - [x] Exit AgroMo by clicking the EXIT icon on the banner to the left.
