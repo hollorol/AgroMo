@@ -789,8 +789,10 @@ readTable <- function(fName, econofName, variables, type, cell_id, numDays, star
             econoOutput <- read.table(econofName, skip=1, header=FALSE)
             econoOutput[,1] <- as.integer(econoOutput[,1])
             econoOutput[,5] <- as.integer(econoOutput[,5])
+            annual <- read.table(fName, skip=1, header=FALSE)
+            colnames(annual) <- c("year",variables)
             annuOutput <- cbind.data.frame(
-                            merge(x = read.table(fName, skip=1, header=FALSE),
+                            merge(x = annual,
                                   y = econoOutput,all=TRUE,by="year",sort = FALSE),
                             cell_id)
             colnames(annuOutput) <- c("year", variables, econonames,"cell_id")
