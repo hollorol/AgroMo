@@ -785,12 +785,18 @@ readTable <- function(fName, econofName, variables, type, cell_id, numDays, star
         return(dayoutput)
     } else {
         if(file.exists(econofName)){
-            econonames <- c("crop_id","prim_prod","sec_prod","irr_amaunt","irr_type")
-            econoOutput <- read.table(econofName, skip=1, header=FALSE)[-1]
+            econonames <- c("year","crop_id","prim_prod","sec_prod","irr_amaunt","irr_type")
+            econoOutput <- read.table(econofName, skip=1, header=FALSE)
             econoOutput[,1] <- as.integer(econoOutput[,1])
             econoOutput[,5] <- as.integer(econoOutput[,5])
-            annuOutput <- cbind.data.frame(read.table(fName, skip=1, header=FALSE),econoOutput,cell_id)
-            colnames(annuOutput) <- c("year", variables, econonames,"cell_id")
+            colnames(econoOutput) <- econonames
+            annual <- read.table(fName, skip=1, header=FALSE)
+            colnames(annual) <- c("year",variables)
+            annuOutput <- cbind.data.frame(
+                            merge(x = annual,
+                                  y = econoOutput,all=TRUE,by="year",sort = FALSE),
+                            cell_id)
+            colnames(annuOutput) <- c("year", variables, econonames[-1],"cell_id")
             return(annuOutput)
         }
 
