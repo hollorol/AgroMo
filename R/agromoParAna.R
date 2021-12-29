@@ -14,7 +14,7 @@ agroMoParAnaUI <- function(id){
            
            tags$div(
              id = paste0(ns("paranait"),"_container"), 
-             textInput(ns("paranait"),"number of iterations:","100")
+             textInput(ns("paranait"),"ITERATION CYCLES:","100")
            ),
            imageOutput(ns("paranaimage")),
            tags$div(
@@ -38,7 +38,7 @@ agroMoParAnaUI <- function(id){
            ),
            tags$div(
              id = paste0(ns("charfunc"),"_container"),
-             selectInput(ns("charfunc"),"characterization function for sensitivity:",choices=c("mean"))
+             selectInput(ns("charfunc"),"PARAMETER SET file:",choices=c("mean"))
            ),
            tags$div(
              id = paste0(ns("metfunc"),"_container"),

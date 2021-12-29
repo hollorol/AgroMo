@@ -61,7 +61,11 @@
   user-select: none;
 }
 
-#paranadiv-cT {
+#paranadiv-cT div {
+    position: absolute; 
+    top: -170px; 
+    left: -115px;
+    width: 250px;
     font-weight: normal;
     font-size: 16px;
     font-family: Fira Sans;
@@ -118,13 +122,12 @@ text-align: left;
 
 #paranadiv-paranait_container label {
     position: absolute;
-    top: 556px;
-    right: 480px;
-    font-weight: normal;
+    top: 150px;
+    left: 315px;
+    font-weight: bold;
     font-size: 16px;
     font-family: Fira Sans;
     color: black;
-    text-align: end;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -133,8 +136,8 @@ text-align: left;
 
 #paranadiv-paranait_container .form-control {
     position: absolute;
-    top: 550px;
-    left: 354px;
+    top: 175px;
+    left: 314px;
     width: 180px;
     font-weight: normal;
     font-size: 16px;
@@ -148,7 +151,7 @@ text-align: left;
 
 #paranadiv-paranaexp_container label {
     position: absolute;
-    top: 10px;
+    top: 80px;
     left: 630px;
     font-weight: bold;
     font-size: 16px;
@@ -162,7 +165,7 @@ text-align: left;
 
 #paranadiv-paranaexp_container .selectize-control {
     position: absolute;
-    top: 33px;
+    top: 103px;
     width: 305px;
     left: 629px;
     font-weight: normal;
@@ -177,8 +180,8 @@ text-align: left;
 
 #paranadiv-ctlfile_container label {
     position: absolute;
-    top: 80px;
-    left: 315px;
+    top: 10px;
+    left: 630px;
     font-weight: bold;
     font-size: 16px;
     font-family: Fira Sans;
@@ -191,9 +194,9 @@ text-align: left;
 
 #paranadiv-ctlfile_container .selectize-control {
     position: absolute;
-    top: 103px;
+    top: 33px;
     width: 305px;
-    left: 314px;
+    left: 629px;
     font-weight: normal;
     font-size: 16px;
     font-family: Fira Sans;
@@ -206,7 +209,7 @@ text-align: left;
 
 #paranadiv-ctinfo_container label {
     position: absolute;
-    top: 80px;
+    top: 220px;
     left: 630px;
     font-weight: bold;
     font-size: 16px;
@@ -220,7 +223,7 @@ text-align: left;
 
 #paranadiv-ctinfo_container .selectize-control {
     position: absolute;
-    top: 103px;
+    top: 243px;
     width: 305px;
     left: 629px;
     font-weight: normal;
@@ -264,14 +267,12 @@ text-align: left;
 
 #paranadiv-charfunc_container label {
     position: absolute;
-    top: 606px;
-    width: 580px;
-    right: 480px;
-    font-weight: normal;
+    top: 150px;
+    left: 630px;
+    font-weight: bold;
     font-size: 16px;
     font-family: Fira Sans;
     color: black;
-    text-align: end;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -280,9 +281,9 @@ text-align: left;
 
 #paranadiv-charfunc_container .selectize-input {
     position: absolute;
-    top: 170px;
-    width: 580px;
-    left: 354px;
+    top: -255px;
+    width: 305px;
+    left: 629px;
     font-weight: normal;
     font-size: 16px;
     font-family: Fira Sans;
@@ -366,8 +367,8 @@ text-align: left;
 
 #paranadiv-paranaimage img{
   position:   absolute;
-  top:           180px;
-  left:          314px;
+  top:           300px;
+  left:          294px;
   width:         350px;
   height:        350px;
   border-color:  black;
@@ -377,8 +378,8 @@ text-align: left;
 
 #paranadiv-resultsTable {
   position:   absolute;
-  top:           195px;
-  left:          699px;
+  top:           315px;
+  left:          679px;
 }
 
 #paranadiv-cT {

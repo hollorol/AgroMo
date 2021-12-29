@@ -39,9 +39,10 @@
     ),
     tags$div(
       id = paste0(ns("algosel"),"_container"),
-      selectInput(ns("algosel"),"ALGORYTHM SELECTION:",choices=c("PHOTOS: Farquhar | PET: Penman-Monteith | WSTRESS: WCBased",
-                                                                "PHOTOS: Farquhar | PET: Priestley-Taylor | WSTRESS: WCBased",
+      selectInput(ns("algosel"),"ALGORYTHM SELECTION:",choices=c(
                                                                 "PHOTOS: Farquhar | PET: Penman-Monteith | WSTRESS: TransDemBased",
+                                                                 "PHOTOS: Farquhar | PET: Penman-Monteith | WSTRESS: WCBased",
+                                                                "PHOTOS: Farquhar | PET: Priestley-Taylor | WSTRESS: WCBased",
                                                                 "PHOTOS: Farquhar | PET: Priestley-Taylor | WSTRESS: TransDemBased ",
                                                                 "PHOTOS: DSSAT | PET: Penman-Monteith | WSTRESS: WCBased",
                                                                 "PHOTOS: DSSAT | PET: Priestley-Taylor | WSTRESS: WCBased",
@@ -342,10 +343,12 @@ agroMoGrid <- function(input, output, session, baseDir, language){
                     if(!identical(queryIndex, NULL) && !identical(input$queryalias, "")){
                         sqlSentence <- dat$queries[input$queryList]
                         optionList <- sapply(1:9,function(x){input[[sprintf("sqlfunc_%s",x)]]}) # These are just the optionAliaces
+                        
                         possibilities <- lapply(dat$jsonList[[queryIndex]]$optionAlias[[dat$language]],unlist)
                         optionList <- optionList[optionList!="NA"]
                         selectedNum <- (sapply(seq_along(optionList),function(i){match(optionList[i],possibilities[[i]])}))
                         datoptions <- lapply(dat$jsonList[[queryIndex]]$options,unlist)
+                        #BUGGER!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                         textContent <- sapply(seq_along(selectedNum),function(i){
                                                   if(is.na(selectedNum[i])){
                                                       input[[sprintf("sqlfunc_%s",i)]] 
@@ -370,10 +373,10 @@ agroMoGrid <- function(input, output, session, baseDir, language){
                             showNotification("Cannot find soil database, queries which contains soil data will not run",type="warning")
                         }
 
-                        showNotification("Attaching weather database...")
-                        weatherDBName <- file.path(normalizePath(dbDir),"weather.db")
+                        showNotification("Attaching climate database...")
+                        weatherDBName <- file.path(normalizePath(dbDir),"climate.db")
                         if(file.exists(weatherDBName)){
-                            dbExecute(sqlDB,sprintf("ATTACH DATABASE '%s' AS weather", weatherDBName))
+                            dbExecute(sqlDB,sprintf("ATTACH DATABASE '%s' AS climate", weatherDBName))
                         } else {
                             showNotification("Cannot find weather database, queries which contains weather data will not run",type="warning")
                         }
@@ -383,6 +386,19 @@ agroMoGrid <- function(input, output, session, baseDir, language){
                         } else {
                             showNotification("Cannot find observation database, queries which contains soil data will not run",type="warning")
                         }
+
+
+                        showNotification("Attaching econo database...")
+                        econoDBName <- file.path(normalizePath(dbDir),"economy.db")
+                        if(file.exists(econoDBName)){
+                            dbExecute(sqlDB,sprintf("ATTACH DATABASE '%s' AS economy", econoDBName))
+                        } else {
+                            showNotification("Cannot find economy database, queries which contains economy data will not run",type="warning")
+                        }
+
+
+
+
                         showNotification("Running the query, please wait, it can take for a while", id="query", duration=NULL)
                         queryResults <- tryCatch(dbGetQuery(sqlDB,sentenceToSQL),error=function(e){NULL})
                         if(is.null(queryResults)){
@@ -451,16 +467,22 @@ agroMoGrid <- function(input, output, session, baseDir, language){
                             showNotification("Cannot find observation database, queries which contains soil data will not run",type="warning")
                         }
 
-
                         showNotification("Attaching weather database...")
-                        weatherDBName <- file.path(normalizePath(dbDir),"weather.db")
+                        weatherDBName <- file.path(normalizePath(dbDir),"climate.db")
                         if(file.exists(weatherDBName)){
-                            dbExecute(sqlDB,sprintf("ATTACH DATABASE '%s' AS weather", weatherDBName))
+                            dbExecute(sqlDB,sprintf("ATTACH DATABASE '%s' AS climate", weatherDBName))
                         } else {
                             showNotification("Cannot find weather database, queries which contains weather data will not run",type="warning")
                         }
 
 
+                        showNotification("Attaching econo database...")
+                        econoDBName <- file.path(normalizePath(dbDir),"economy.db")
+                        if(file.exists(econoDBName)){
+                            dbExecute(sqlDB,sprintf("ATTACH DATABASE '%s' AS economy", econoDBName))
+                        } else {
+                            showNotification("Cannot find economy database, queries which contains economy data will not run",type="warning")
+                        }
 
 
                         showNotification("Running the query, please wait, it can take for a while", id="query", duration=NULL)
@@ -512,40 +534,69 @@ agroMoGrid <- function(input, output, session, baseDir, language){
     errorFiles <- checkFileSystem(firstIni)
 
     if(length(errorFiles) == 0) {
-        showNotification("Starting simulation... Removing previous .dayout files")
-        suppressWarnings(file.remove(list.files(file.path(baseDir(),"output/grid",input$story),full.names=TRUE)))
 
-        showNotification("Setting climate projections and algorithms")
-        indexOfRows <- c(4,39,58,59,61,107,110)
-        replacements <- c(sprintf("grid/%s/",input$climproj),
-                          sprintf("grid/%s/",input$soildb),
-                          algorithms[[input$algosel]],outputTypeIni[1],outputTypeIni[2])
-        regex <- c("grid/.*?/","grid/.*?/")
-        changeFilesWithRegex(list.files(file.path(baseDir(),"input/initialization/grid",input$story),full.names=TRUE),
-                             indexOfRows,replacements,regex)
-        ## runChain(baseDir(),input$story,dat$story[[5]])
-        dbDir <- file.path(baseDir(),"output")
-        sqlDB <- DBI::dbConnect(RSQLite::SQLite(),file.path(dbDir,"grid.db"))
-        error <- runGrid(baseDir(),input$story,dat$story) # dat$story is a list containing all running groups
-        errorDF <- tapply(error,as.numeric(gsub("_.*","",names(error))),sum)
-        errorDF <- data.frame(site=names(errorDF),error=errorDF)
-        dbWriteTable(sqlDB,sprintf("%s_error",input$outsq),errorDF,overwrite=TRUE)
-        dbExecute(sqlDB,sprintf("DROP TABLE IF EXISTS %s",input$outsq))
-        withProgress(message="Writing data to database, it can be slow...",value=0,{
-                         for(i in seq_along(dat$story)){
-                             if(errorDF[i,"error"] == 0){
-                                 writeChainToDB(baseDir(),input$story, sqlDB, input$outsq, dat$story[[i]], dat$storyVars,
-                                                type=gridType)
+    climprojs <- input$climproj
+    if(input$ensclim){
+        climprojs <- sprintf("grid/%s/",list.files(file.path(baseDir(),"input/weather/grid")))
+        climprojs <- climprojs[grep('^\\.',basename(climprojs),invert=TRUE)]
+    }
+    climdb <- DBI::dbConnect(RSQLite::SQLite(),file.path(baseDir(),"/database/climate.db"))
+    metaTable <- DBI::dbReadTable(climdb,"meta_data")
+    DBI::dbDisconnect(climdb)
+    withProgress(message="Climate Ensemble",value=0,{
+        for(ci in seq_along(climprojs)){
+            clim <- climprojs[ci]
+            source_name <- basename(toupper(clim))
+            source_name <- gsub("^\\.","",source_name)
+            climid <- metaTable[toupper(metaTable[,"source_name"]) == toupper(source_name),"source_id"]
+
+            showNotification("Starting simulation... Removing previous .dayout files")
+            suppressWarnings(file.remove(
+                                list.files(file.path(baseDir(),
+                                                              "output/grid",
+                                                              input$story),full.names=TRUE)))
+
+            showNotification("Setting climate projections and algorithms")
+            indexOfRows <- c(4,39,58,59,61,107,110)
+            replacements <- c(sprintf("grid/%s/",basename(clim)),
+                              sprintf("grid/%s/",input$soildb),
+                              algorithms[[input$algosel]],outputTypeIni[1],outputTypeIni[2])
+            regex <- c("grid/.*?/","grid/.*?/")
+            changeFilesWithRegex(list.files(file.path(baseDir(),"input/initialization/grid",input$story),full.names=TRUE),
+                                 indexOfRows,replacements,regex)
+            ## runChain(baseDir(),input$story,dat$story[[5]])
+            dbDir <- file.path(baseDir(),"output")
+            sqlDB <- DBI::dbConnect(RSQLite::SQLite(),file.path(dbDir,"grid.db"))
+            error <- runGrid(baseDir(),input$story,dat$story) # dat$story is a list containing all running groups
+            errorDF <- tapply(error,as.numeric(gsub("_.*","",names(error))),sum)
+            errorDF <- data.frame(site=names(errorDF),error=errorDF)
+            dbWriteTable(sqlDB,sprintf("%s_error",input$outsq),errorDF,overwrite=TRUE)
+            if(ci == 1){
+                dbExecute(sqlDB,sprintf("DROP TABLE IF EXISTS %s",input$outsq))
+            }
+            withProgress(message="Writing data to database, it can be slow...",value=0,{
+                             for(i in seq_along(dat$story)){
+                                 if(errorDF[i,"error"] == 0){
+                                     writeChainToDB(baseDir(),input$story, sqlDB, input$outsq, dat$story[[i]], dat$storyVars,
+                                                    type=gridType,climid=climid)
+                                 }
+
+                                 incProgress(1/length(dat$story),detail=sprintf("Writing site %s into grid database",names(dat$story)[i])) 
                              }
+                                 })
+            incProgress(1/length(climprojs), detail=sprintf("%s [%s/%s]",basename(climprojs[ci]), ci, length(climprojs)))
+        }
 
-                             incProgress(1/length(dat$story),detail=sprintf("Writing site %s into grid database",names(dat$story)[i])) 
-                         }
-                             })
+    })
+    
+    
+
 
         indexSQL<- c(
                      "site" = "CREATE INDEX site_%s ON %s(cell_id)",
                      "year" = "CREATE INDEX year_%s ON %s(year)"
         )
+
         if(is.element(input$outsq,dbListTables(sqlDB))){
             withProgress(message="Creating Database Indexes",value=0,{
                              for(i in seq_along(indexSQL)){
@@ -685,19 +736,22 @@ runGrid <- function(baseDir,storyName,chainMatrixFull){
 #' @importFrom lubridate year month yday
 
 writeChainToDB <- function(baseDir, storyName, dbConnection, outputName,
-                           chainMatrix, variables, errorVector, type){
+                           chainMatrix, variables, errorVector, type, climid){
 
     fName <- paste0(file.path(baseDir, "output/grid/",
                               storyName, chainMatrix[,2]), type)
+    econofName <-  paste0(file.path(baseDir, "output/grid/",
+                              storyName, chainMatrix[,2]), ".econout")
 
     toWrite <- do.call("rbind",
-        lapply(fName, function(fn){readTable(fn,
+        lapply(fName, function(fn){readTable(fn,econofName,
                       variables,
                       type,
                       cell_id=as.character(chainMatrix[,1]),
                       numDays=as.integer(chainMatrix[,5]),
                       startYear=as.integer(chainMatrix[,"startYear"]),
                       endYear=as.integer(chainMatrix[,"endYear"]))}))
+    toWrite <- cbind.data.frame(toWrite, climate_id =climid)
 
     dbWriteTable(dbConnection, outputName, toWrite, append = TRUE)
 }
@@ -711,7 +765,7 @@ writeChainToDB <- function(baseDir, storyName, dbConnection, outputName,
 #' @param type .dayout or .annout
 #' @importFrom lubridate year month yday
 
-readTable <- function(fName,variables, type, cell_id, numDays, startYear, endYear){   
+readTable <- function(fName, econofName, variables, type, cell_id, numDays, startYear, endYear){   
 
     if(type == ".dayout"){
         con <- file(fName,"rb")
@@ -730,19 +784,107 @@ readTable <- function(fName,variables, type, cell_id, numDays, startYear, endYea
         close(con)
         return(dayoutput)
     } else {
+        if(file.exists(econofName)){
+            econonames <- c("year","crop_id","prim_prod","sec_prod","irr_amaunt","irr_type")
+            econoOutput <- read.table(econofName, skip=1, header=FALSE)
+            econoOutput[,1] <- as.integer(econoOutput[,1])
+            econoOutput[,5] <- as.integer(econoOutput[,5])
+            colnames(econoOutput) <- econonames
+            annual <- read.table(fName, skip=1, header=FALSE)
+            colnames(annual) <- c("year",variables)
+            annuOutput <- cbind.data.frame(
+                            merge(x = annual,
+                                  y = econoOutput,all=TRUE,by="year",sort = FALSE),
+                            cell_id)
+            colnames(annuOutput) <- c("year", variables, econonames[-1],"cell_id")
+            return(annuOutput)
+        }
+
         annuOutput <- cbind.data.frame(read.table(fName, skip=1, header=FALSE),cell_id)
-        colnames(annuOutput) <- c("year", variables,"cell_id")
+        colnames(annuOutput) <- c("year", variables, "cell_id")
         return(annuOutput)
     }
 }
 
-tables_get <- function(baseDir){
-         dbDir <- file.path(baseDir,"output")
-         dir.create(dbDir, showWarnings=FALSE)
-         sqlDB <- DBI::dbConnect(RSQLite::SQLite(),file.path(dbDir,"grid.db"))
-         result <- grep("_error$",dbListTables(sqlDB),invert=TRUE,value=TRUE)
-         dbDisconnect(sqlDB)
-         result
-}
 
-
+# runGrid <- function(baseDir,climproj, soildb, algo, input, outputTypeIni, dat){
+#     showNotification("Starting simulation... Removing previous .dayout files")
+#     suppressWarnings(file.remove(list.files(file.path(baseDir(),"output/grid",input$story),full.names=TRUE)))
+#
+#     showNotification("Setting climate projections and algorithms")
+#     indexOfRows <- c(4,39,58,59,61,107,110)
+#     replacements <- c(sprintf("grid/%s/",climproj),
+#                       sprintf("grid/%s/",soildb),
+#                       algorithms[[algo]],outputTypeIni[1],outputTypeIni[2])
+#     regex <- c("grid/.*?/","grid/.*?/")
+#     changeFilesWithRegex(list.files(file.path(baseDir(),"input/initialization/grid",input$story),full.names=TRUE),
+#                          indexOfRows,replacements,regex)
+#     ## runChain(baseDir(),input$story,dat$story[[5]])
+#     dbDir <- file.path(baseDir(),"output")
+#     sqlDB <- DBI::dbConnect(RSQLite::SQLite(),file.path(dbDir,"grid.db"))
+#     error <- runGrid(baseDir(),input$story,dat$story) # dat$story is a list containing all running groups
+#     errorDF <- tapply(error,as.numeric(gsub("_.*","",names(error))),sum)
+#     errorDF <- data.frame(site=names(errorDF),error=errorDF)
+#     dbWriteTable(sqlDB,sprintf("%s_error",input$outsq),errorDF,overwrite=TRUE)
+#     dbExecute(sqlDB,sprintf("DROP TABLE IF EXISTS %s",input$outsq))
+#
+#     climproj_index <- ""
+#     soildb_index <- ""
+#     withProgress(message="Writing data to database, it can be slow...",value=0,{
+#                      for(i in seq_along(dat$story)){
+#                          if(errorDF[i,"error"] == 0){
+#                              writeChainToDB(baseDir(),input$story, sqlDB, input$outsq, dat$story[[i]], dat$storyVars,
+#                                             type=gridType, climproj, soildb, )
+#                          }
+#
+#                          incProgress(1/length(dat$story),detail=sprintf("Writing site %s into grid database",names(dat$story)[i])) 
+#                      }
+#                          })
+#
+#     indexSQL<- c(
+#                  "site" = "CREATE INDEX site_%s ON %s(cell_id)",
+#                  "year" = "CREATE INDEX year_%s ON %s(year)"
+#     )
+#     if(is.element(input$outsq,dbListTables(sqlDB))){
+#         withProgress(message="Creating Database Indexes",value=0,{
+#                          for(i in seq_along(indexSQL)){
+#                              dbExecute(sqlDB,sprintf("DROP INDEX IF EXISTS %s_%s",names(indexSQL[i]),input$outsq))
+#                              dbExecute(sqlDB,sprintf(indexSQL[i],input$outsq,input$outsq,input$outsq))
+#                              incProgress(1/length(indexSQL), sprintf("Creating index on %s",names(indexSQL)[i]))
+#                          }
+#     })
+#     }
+#
+#
+#     dat$modelOutputs <-grep("_error$",dbListTables(sqlDB),invert=TRUE,value=TRUE)
+#     dbDisconnect(sqlDB)
+# }
+#
+# get_datasource_index <- function(baseDir, source_type, content=NULL){
+#     switch(source_type,
+#            soil = {
+#                 grep(content,list.dirs(baseDir,
+#                                        recursive=FALSE,
+#                                        full.names=FALSE),
+#                      fixed=TRUE)
+#            },
+#            climate = {
+#                tryCatch({
+#                     climDB <- DBI::dbConnect(RSQLite(),file.path(baseDir(),"database/climate.db"))
+#                     climDB <- DBI::dbConnect(RSQLite::SQLite(),file.path("~/nandi","database/climate.db"))
+#                     indTable <- DBI::dbReadTable(climDB,"metadata")
+#                     DBI::dbDisconnect(climDB)
+#                     subset(indTable,source_name %in% content)$source_id
+#                 }, error=function(e){
+#                     return(-1*seq_along(content))
+#                 }
+#                )
+#            },
+#
+#            algo = {
+#
+#            }
+#
+#     )
+#
+# }

@@ -12,7 +12,8 @@ writeChainToDB(
   chainMatrix,
   variables,
   errorVector,
-  type
+  type,
+  climid
 )
 }
 \arguments{
