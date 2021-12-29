@@ -367,7 +367,7 @@ text-align: left;
 
 #paranadiv-paranaimage img{
   position:   absolute;
-  top:           180px;
+  top:           300px;
   left:          314px;
   width:         350px;
   height:        350px;
@@ -378,7 +378,7 @@ text-align: left;
 
 #paranadiv-resultsTable {
   position:   absolute;
-  top:           195px;
+  top:           315px;
   left:          699px;
 }
 
