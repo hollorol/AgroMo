@@ -184,7 +184,7 @@ Az integrált modellezési keretrendzser egy grafikus felhasználói felülettel
 
 ### AgroMo Site
 
-<img src="img/site_gui.png" style="width: 100%">
+<img src="img/site_gui_hu.png" style="width: 100%">
 
 - [x] The dropdown menus display the files, only with the prescribed extension, of the corresponding directories within the prescribed input folder system:
   - INI files (extension: .ini): .\input\initialization\site\
