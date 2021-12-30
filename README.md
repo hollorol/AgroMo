@@ -170,7 +170,7 @@ Az integrált modellezési keretrendzser egy grafikus felhasználói felülettel
 
 <img src="img/base_gui_hu.png" style="width: 100%">
 
-- [ ] Adja meg azt a mappát, ahol az AgroMo működéséhez szükséges adatait tárolja (az almappák elvárt rendzsere: [subdirectory system](img/AgroMo_File_System.pdf)) és kattintson a [MÓDOSÍT] gombra. Az adatok alapértelmezett helye az AgroMo\data mappa.
+- [ ] Adja meg azt a mappát, ahol az AgroMo működéséhez szükséges adatait tárolja (az almappák elvárt [rendszere](img/AgroMo_File_System.pdf)) és kattintson a [MÓDOSÍT] gombra. Az adatok alapértelmezett helye az AgroMo\data mappa.
 - [x] Lokális, parcella léptékű modellfutásokhoz kattintson [SITE] gombra.
 - [x] A szimulációk eredményeinek grafikonokon történő ábrázolásához kattintson a [PLOT] gombra.
 - [x] Adatrácsokra vonatkozó, nagyobb léptékű modellfutásokhoz kattintson a [GRID] gombra.
