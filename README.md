@@ -183,3 +183,22 @@ Az integrált modellezési keretrendzser egy grafikus felhasználói felülettel
 
 
 ### AgroMo Site
+
+<img src="img/site_gui.png" style="width: 100%">
+
+- [x] The dropdown menus display the files, only with the prescribed extension, of the corresponding directories within the prescribed input folder system:
+  - INI files (extension: .ini): .\input\initialization\site\
+  - WEATHER files (extension: .wth): .\input\weather\site\
+  - SOIL files (extension: .soi): .\input\soil\site\
+  - MANAGEMENT files (extension: .mgm): .\input\management\site\
+     - planting management option file (extension: .plt): .\input\management\site\planting\
+     - harvest management option file (extension: .hrv): .\input\management\site\harvest\
+     - fertilization management option file (extension: .frz): .\input\management\site\fertilization\
+     - irrigation management option file (extension: .irr): .\input\management\site\irrigation\
+     - cultivation management option file (extension: .cul): .\input\management\site\cultivation\
+     - grazing management option file (extension: .grz): .\input\management\site\grazing\
+     - mowing management option file (extension: .mow): .\input\management\site\mowing\
+     - thinning management option file (extension: .thn): .\input\management\site\thinning\
+  - PLANT specific input files (extension: .epc; folder: .\input\plant\) are referred to in the planting files
+  
+  
