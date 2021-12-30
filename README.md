@@ -155,8 +155,8 @@ Az AgroMo grafikus kezelőfelület (GUI) a szabadon használható Fira Sans font
 
 ### AgroMo Indító
 
-- [x] AgroMo does not require installation, actually. Create a folder for your AgroMo: e.g. 'D:\AgroMo' and download AgroMo Launcher into this folder.
-- [x] Start AgroMo_LAUNCH.exe in your AgroMo folder, select the 'Install / Full Update' option and click the [UPDATE AGROMO] button.
+- [x] Az AgroMo nem igényel igazi telepítést. Csak hozzon létre egy mappát az AgroMo példánya számára: pl. 'D:\AgroMo' és töltse le az AgroMo Indítót ebbe a mappába.
+- [x] Indítsa el az AgroMo_LAUNCH.exe alkalmazást, válassza a 'Telepítés / Frissítés' opciót és kattintson az [AGROMO FRISSÍTÉSE] gombra.
 
 ### [AgroMo Indító letöltő linkje](https://owncloud.atk.hu/index.php/s/7T5GWv1wYqqlJFE/download)
 
