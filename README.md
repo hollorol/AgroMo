@@ -168,4 +168,4 @@ Az integrált modellezési keretrendzser egy grafikus felhasználói felülettel
 
 ### AgroMo Base
 
-<img src="img/base_gui.png" style="width: 100%">
+<img src="img/base_gui_hu.png" style="width: 100%">
