@@ -169,3 +169,17 @@ Az integrált modellezési keretrendzser egy grafikus felhasználói felülettel
 ### AgroMo Base
 
 <img src="img/base_gui_hu.png" style="width: 100%">
+
+- [ ] Adja meg azt a mappát, ahol az AgroMo működéséhez szükséges adatait tárolja (az almappák elvárt rendzsere: [subdirectory system](img/AgroMo_File_System.pdf)) és kattintson a [MÓDOSÍT] gombra. Az adatok alapértelmezett helye az AgroMo\data mappa.
+- [x] Lokális, parcella léptékű modellfutásokhoz kattintson [SITE] gombra.
+- [x] A szimulációk eredményeinek grafikonokon történő ábrázolásához kattintson a [PLOT] gombra.
+- [x] Adatrácsokra vonatkozó, nagyobb léptékű modellfutásokhoz kattintson a [GRID] gombra.
+- [x] Nagyléptékű szimulációk eredményeinek térképen történő ábrázolásához kattintson a [MAP] gombra.
+- [x] Carry out Sensitivity analysis, Parameter sweep or Parameter calibration by clicking the [PARAMETER ANALYSIS] button. 
+- [ ] Import weather and soil data from international databases into local input files by clicking the [INPUT IMPORT] button.
+- [x] Create storyline and corresponding input files for gridded model runs by clicking the [INPUT CREATOR] button.
+- [x] Select GUI language by click one of the flag icons to the right. Hungarian, English, German and Chinese versions are available at the moment.
+- [x] Exit AgroMo by clicking the EXIT icon on the banner to the left.
+
+
+### AgroMo Site
