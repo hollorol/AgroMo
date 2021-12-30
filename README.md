@@ -175,11 +175,11 @@ Az integrált modellezési keretrendzser egy grafikus felhasználói felülettel
 - [x] A szimulációk eredményeinek grafikonokon történő ábrázolásához kattintson a [PLOT] gombra.
 - [x] Adatrácsokra vonatkozó, nagyobb léptékű modellfutásokhoz kattintson a [GRID] gombra.
 - [x] Nagyléptékű szimulációk eredményeinek térképen történő ábrázolásához kattintson a [MAP] gombra.
-- [x] Carry out Sensitivity analysis, Parameter sweep or Parameter calibration by clicking the [PARAMETER ANALYSIS] button. 
-- [ ] Import weather and soil data from international databases into local input files by clicking the [INPUT IMPORT] button.
-- [x] Create storyline and corresponding input files for gridded model runs by clicking the [INPUT CREATOR] button.
-- [x] Select GUI language by click one of the flag icons to the right. Hungarian, English, German and Chinese versions are available at the moment.
-- [x] Exit AgroMo by clicking the EXIT icon on the banner to the left.
+- [x] Paraméter kalibrációhoz és érzékenység vizsgálatokhoz kattintson a [PARAMÉTERANALÍZIS] gombra. 
+- [ ] Időjárás és talaj adatok nemzetközi adatbázisokból való importálásához kattintson a [BEMENŐ ADAT KEZELŐ] gombra.
+- [x] Futási forgatókönyvek és hozzátartozó bemenő adatfájlok nagyléptékű szimulációkhoz való előállításához kattintson a [BEMENŐ ADAT KÉSZÍTŐ] gombra.
+- [x] A Kezelőfelület nyelvének kiválasztásához kattintson a megfelelő zászlóra. Jelenleg magyar, angol, német és kínai változatok elérhetők.
+- [x] Kilépéshez kattintson a bal-szegélyen található KILÉPÉS ikonra.
 
 
 ### AgroMo Site
