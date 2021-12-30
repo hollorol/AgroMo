@@ -160,3 +160,12 @@ Az AgroMo grafikus kezelőfelület (GUI) a szabadon használható Fira Sans font
 
 ### [AgroMo Indító letöltő linkje](https://owncloud.atk.hu/index.php/s/7T5GWv1wYqqlJFE/download)
 
+## AgroMo Felhasználói Felület
+
+Az integrált modellezési keretrendzser egy grafikus felhasználói felülettel (GUI) rendelkezik, amely könnyű és felhasználóbarát elérést bizosít az AgroMo rendszer funkcióihoz.
+
+- [x] Az AgroMo az .\AgroMo\AgroMo_LAUNCH.exe alkalmazással majd az [AGROMO INDÍTÁSA] gombra kattintva indul.
+
+### AgroMo Base
+
+<img src="img/base_gui.png" style="width: 100%">
