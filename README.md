@@ -73,7 +73,7 @@ A graphical user interface (GUI) has been developed for providing easy and user 
 - [x] An activity indicator is on while the simulation is running. 
 - [x] To see simulation results on graphs click the [PLOT] button.
 - [x] Navigate to the [BASE], [GRID] or [MAP] component by clicking the corresponding button on the banner to the left.
-- [x] In case at least one GRID run has already been carried out, grid cell specific outputs can be retrieved and plotted by (1) setting the SITE/GRID switch to grid state, (2) selecting the OUTPUT DATABASE table, and the (3) CELL id, (4) setting the name of the OUTPUT DATA TABLE, and finally clicking the [RETRIEVE CELL DATA] button.
+- [x] Simulation for a cell of a datagrid can be carried out as if it would be a site in the following way: (1) set the SITE/GRID switch to GRID state, (2) select a GRIDDED DATASET, (3) select a CELL id, (4) click the (green) [REFRESH] button, (5) set the SITE/GRID switch back to SITE state, and (6) select the corresponding INI file (dataset_name+cell_id.ini) for the simulation. 
 
 ### AgroMo Plot
 
@@ -200,5 +200,14 @@ Az integrált modellezési keretrendzser egy grafikus felhasználói felülettel
      - kaszálási adat fájl; kiterjesztés: .mow; mappa: .\input\management\site\mowing\
      - ritkítási adat fájl; kiterjesztés: .thn; mappa: .\input\management\site\thinning\
   - NÖVÉNY fájlok; kiterjesztés: .epc; mappa: .\input\plant\ , melyekre a vetési adat fájlokban történik hivatkozás.
-  
+- [x] When selecting an INI file the WEATHER, SOIL and MANAGEMENT files that are referred to in the INI file are automatically selected from the corresponding dropdown menus, but those could be changed freely any time.
+- [x] In case new INI, WEATHER, SOIL, MANAGEMENT, etc. files are placed to the corresponding folders of the file system, click the green [REFRESH] button to see the new files in the corresponding dropdown menus.
+- [x] When selecting a MANAGEMENT file the management option files that are referred to in the MANAGEMENT file are automatically selected from the corresponding dropdown menus, but those could be changed freely any time.
+- [x] The most important parameters of the management options could be changed without accessing the management option file by adjusting the input values using the corresponding textboxes within the 'shift in...' section. Negative values could also be used.
+- [x] Give a name to the simulation run in the 'OUTPUT DATA TABLE' textbox. Output data are stored in an SQLite data table using the name defined in the textbox.
+- [x] After selecting the desired input files and optionally set up the changes in the 'shift in...' section simulation starts by clicking the [START SIMULATION] button.
+- [x] An activity indicator is on while the simulation is running. 
+- [x] To see simulation results on graphs click the [PLOT] button.
+- [x] Navigate to the [BASE], [GRID] or [MAP] component by clicking the corresponding button on the banner to the left.
+- [x] In case at least one GRID run has already been carried out, grid cell specific outputs can be retrieved and plotted by (1) setting the SITE/GRID switch to grid state, (2) selecting the OUTPUT DATABASE table, and the (3) CELL id, (4) setting the name of the OUTPUT DATA TABLE, and finally clicking the [RETRIEVE CELL DATA] button. 
   
