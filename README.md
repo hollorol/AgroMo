@@ -211,3 +211,6 @@ Az integrált modellezési keretrendzser egy grafikus felhasználói felülettel
 - [x] Navigate to the [BASE], [GRID] or [MAP] component by clicking the corresponding button on the banner to the left.
 - [x] In case at least one GRID run has already been carried out, grid cell specific outputs can be retrieved and plotted by (1) setting the SITE/GRID switch to grid state, (2) selecting the OUTPUT DATABASE table, and the (3) CELL id, (4) setting the name of the OUTPUT DATA TABLE, and finally clicking the [RETRIEVE CELL DATA] button. 
   
+### AgroMo Plot
+
+<img src="img/plot_gui_hu.png" style="width: 100%">
