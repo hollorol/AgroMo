@@ -197,7 +197,7 @@ agroLikelihood <- function(modVector,measured){
     stdev <- measured[,grep("^sd", colnames(measured))]
     ndata <- nrow(measured)
     sum(sapply(1:ndata, function(x){
-                  dnorm(modVector, mu[x], stdev[x], log = TRUE)
+                  dnorm(modVector[x], mu[x], stdev[x], log = TRUE)
                }), na.rm=TRUE)
 }
 
