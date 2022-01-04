@@ -190,7 +190,11 @@ changingMGM <- function(mgmFile, baseDir, planting=NULL, harvest=NULL, fertiliza
   manFileList <- c(planting, harvest, fertilization, irrigation, grazing, mowing, thinning)
   managementTypes <- c("planting", "harvest", "fertilization", "irrigation", "cultivation", "grazing", "mowing", "thinning")
   manFileList <- grep("\\.[a-z]{3}$",manFileList,value = TRUE)
-  inpFiles <- sapply(manFileList,function(x) grep("\\/tmp\\/",grep(x,list.files(file.path(baseDir,"input/management/site/"), recursive = TRUE),value=TRUE),invert = TRUE, value=TRUE))
+  inpFiles <- sapply(manFileList,function(x) {
+                         grep("\\/tmp\\/",
+                              grep(paste0("/",x),
+                                   list.files(file.path(baseDir,"input/management/site/"),
+                                              recursive = TRUE),value=TRUE),invert = TRUE, value=TRUE)})
   # print(inpFiles)
   destFiles <- paste0("input/management/site/",gsub("(.*)(\\/.*\\..*)","\\1/tmp\\2",inpFiles))
   sapply(destFiles, function(m){
