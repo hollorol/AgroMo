@@ -80,7 +80,7 @@ A graphical user interface (GUI) has been developed for providing easy and user 
 <img src="img/plot_gui.png" style="width: 100%">
 
 - [x] Select a maximum of 5 simulation results from the left side list by clicking the items. Clicking again deselects the item.
-- [x] Select output variable(s) from the right side list for presenting them on the plot(s).
+- [x] Select output variable(s) from the right side list for presenting them on plot(s).
 - [x] Enter an alias for the observed data to be presented on the graph.
 - [x] Observed data could be added to the plots by selecting the data file from the corrresponding dropdown lists. NOTE, that data in the observed data tables should be structured according to prescribed rules. Observed (experimental) data should be stored in the '.\observation\' folder in a semicolon separated text file with .obs extension. var_id, date and mean (of the observations) values are compulsory for each record, optionally followed by the sd, min and max of the observed values.
 - [x] For each selected output variable select:
