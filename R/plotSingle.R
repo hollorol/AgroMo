@@ -226,6 +226,8 @@ getFilteredData <- function(dbConnection, treatment, experiment, repetationsAver
 }
 
 addMeasuredData <- function(p, measurements, varName, simplifyPoint, measAlias){
+
+    print(measAlias)
   
   givenDataLabels <- colnames(measurements)
   
@@ -236,7 +238,7 @@ addMeasuredData <- function(p, measurements, varName, simplifyPoint, measAlias){
   }
 
   if(measAlias==""){
-      measAlias <- "observed mean"
+      measAlias <- "observed"
   }
 
   
@@ -251,8 +253,9 @@ addMeasuredData <- function(p, measurements, varName, simplifyPoint, measAlias){
                  color="rgb(0,0,0)",
                  marker = list(color= "black", size=7),
                  # line = list(color = "rgb(0,0,0)", width = 1),
-                 name=measAlias))
+                 name=paste(measAlias,"mean")))
   }
+
   
    if(all(c("min","max") %in% givenDataLabels)){
      p <- add_trace(p,
@@ -261,14 +264,14 @@ addMeasuredData <- function(p, measurements, varName, simplifyPoint, measAlias){
                     mode="l",
                     type="scatter",
                     line = list(color = "rgba(169,169,169,0.3)", width = 1),
-                    name = "observed min")
+                    name = sprintf("%s min", measAlias))
      p <- add_trace(p,
                     x= measurements$date,
                     y= measurements$max, mode="l",
                     fill="tonexty", type="scatter",
                     line = list(color = "rgba(169,169,169,0.3)", width = 1),
                     fillcolor = "rgba(189,189,189,0.3)",
-                    name = "observed max")
+                    name = sprintf("%s max", measAlias))
    }
   
    if(is.element("sd",givenDataLabels)){
@@ -278,7 +281,7 @@ addMeasuredData <- function(p, measurements, varName, simplifyPoint, measAlias){
                     mode="l",
                     type="scatter",
                     line = list(color = "rgba(108,108,108,0.3))", width = 1),
-                    name = "observed mean - sd")
+                    name = sprintf("%s mean - sd", measAlias))
      p <- add_trace(p,
                     x= measurements$date,
                     y= measurements$mean + measurements$sd,
@@ -287,7 +290,7 @@ addMeasuredData <- function(p, measurements, varName, simplifyPoint, measAlias){
                     type="scatter",
                     line = list(color = "rgba(108,108,108,0.3)", width = 1),
                     fillcolor = "rgba(128,128,128,0.3)",
-                    name = "observed mean + sd")
+                    name = sprintf("%s mean + sd", measAlias))
    }
   
   add_trace(p,
@@ -296,7 +299,7 @@ addMeasuredData <- function(p, measurements, varName, simplifyPoint, measAlias){
             mode="l",
             type="scatter",
             line = list(color = "rgb(0,0,0)", width = 1),
-            name="observed mean")
+            name=sprintf("%s mean",measAlias))
   
 }
 
