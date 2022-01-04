@@ -289,9 +289,9 @@ agroMoSite <- function(input, output, session, dataenv, baseDir, connection,cent
                     if(!isolate(input$siteswitch)){
                          connDB <- dbConnect(RSQLite::SQLite(),file.path(baseDir(),"output","grid.db")) 
                          updateSelectInput(session,"iniFile", choices=grep(".*_error",dbListTables(connDB), value=TRUE, invert=TRUE),
-                                           label="OUTPUT DATABASE tables:")
+                                           label="GRIDDED DATASET:")
                          dbDisconnect(connDB)
-                         updateActionButton(session,"popRun-runModel",label = "RETRIEVE CELL DATA")
+                         updateActionButton(session,"popRun-runModel",label = "START SIMULATION")
                     } else {
         updateSelectInput(session,"iniFile", choices = grep("spinup",grep("*.ini",list.files(file.path(baseDir(),"input/initialization/site")),value = TRUE),invert=TRUE, value=TRUE),selected = input$iniFile, label = "INI file:")
                     
