@@ -64,6 +64,7 @@ A graphical user interface (GUI) has been developed for providing easy and user 
      - mowing management option file (extension: .mow): .\input\management\site\mowing\
      - thinning management option file (extension: .thn): .\input\management\site\thinning\
   - PLANT specific input files (extension: .epc; folder: .\input\plant\) are referred to in the planting files
+
 - [x] When selecting an INI file the WEATHER, SOIL and MANAGEMENT files that are referred to in the INI file are automatically selected from the corresponding dropdown menus, but those could be changed freely any time.
 - [x] In case new INI, WEATHER, SOIL, MANAGEMENT, etc. files are placed to the corresponding folders of the file system, click the green [REFRESH] button to see the new files in the corresponding dropdown menus.
 - [x] When selecting a MANAGEMENT file the management option files that are referred to in the MANAGEMENT file are automatically selected from the corresponding dropdown menus, but those could be changed freely any time.
@@ -200,7 +201,8 @@ Az integrált modellezési keretrendzser egy grafikus felhasználói felülettel
      - kaszálási adat fájl; kiterjesztés: .mow; mappa: .\input\management\site\mowing\
      - ritkítási adat fájl; kiterjesztés: .thn; mappa: .\input\management\site\thinning\
   - NÖVÉNY fájlok; kiterjesztés: .epc; mappa: .\input\plant\ , melyekre a vetési adat fájlokban történik hivatkozás.
-- [x] When selecting an INI file the WEATHER, SOIL and MANAGEMENT files that are referred to in the INI file are automatically selected from the corresponding dropdown menus, but those could be changed freely any time.
+
+- [x] Az INICIALIZÁCIÓS fájl kiválasztásakor, az INI fájlban hivatkozott IDŐJÁRÁS, TALAJ és AGROTECHNIKA fájlok automatikusan kiválasztásra kerülnek a megfelelő legördülő menük listáiból, melyek helyett más fájlok is választhatók.
 - [x] In case new INI, WEATHER, SOIL, MANAGEMENT, etc. files are placed to the corresponding folders of the file system, click the green [REFRESH] button to see the new files in the corresponding dropdown menus.
 - [x] When selecting a MANAGEMENT file the management option files that are referred to in the MANAGEMENT file are automatically selected from the corresponding dropdown menus, but those could be changed freely any time.
 - [x] The most important parameters of the management options could be changed without accessing the management option file by adjusting the input values using the corresponding textboxes within the 'shift in...' section. Negative values could also be used.
@@ -214,3 +216,17 @@ Az integrált modellezési keretrendzser egy grafikus felhasználói felülettel
 ### AgroMo Plot
 
 <img src="img/plot_gui_hu.png" style="width: 100%">
+
+- [x] Select a maximum of 5 simulation results from the left side list by clicking the items. Clicking again deselects the item.
+- [x] Select output variable(s) from the right side list for presenting them on plot(s).
+- [x] Enter an alias for the observed data to be presented on the graph.
+- [x] Observed data could be added to the plots by selecting the data file from the corrresponding dropdown lists. NOTE, that data in the observed data tables should be structured according to prescribed rules. Observed (experimental) data should be stored in the '.\observation\' folder in a semicolon separated text file with .obs extension. var_id, date and mean (of the observations) values are compulsory for each record, optionally followed by the sd, min and max of the observed values.
+- [x] For each selected output variable select:
+  - a \|time step\| for which the daily data are to be aggregated into one single value (e.g. for presenting annual values the 'year' option should be selected).
+  - a \|function\| that defines the aggregation (e.g. for presenting the final yield for each year the 'max' option should be selected)
+  - a \|plot type\| 
+- [x] Options in the \|time step\|, \|function\| and \|plot type\| columns can be selected via circular menus operated by clicking/scrolling in the corresponding cells.
+- [x] Having all the desired options selected, create plot(s) by clicking the [CREATE PLOT] button.
+- [x] Output variables can be filtered accoording to a couple of predefined tags, that may be edited in the centralData.json file.
+
+<img src="img/plotly_graph01.png" style="width: 100%">
