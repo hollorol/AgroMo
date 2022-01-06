@@ -156,7 +156,7 @@ agroMoShow <- function(input, output, session, dataenv, baseDir, connection,cent
                    # print(input$tableList)
                    if(length(tablesToDelete)!=0){
                        sapply(tablesToDelete,function(sqlTable){
-                            dbSendQuery(connection(),sprintf("DROP TABLE IF EXISTS %s",sqlTable))   # It is sad that in SQLite DROP TABLE a,b,c; not working...  
+                            dbSendQuery(connection(),sprintf("DROP TABLE IF EXISTS '%s'",sqlTable))   # It is sad that in SQLite DROP TABLE a,b,c; not working...  
                        })
                        initData$data <- setdiff(initData$data, tablesToDelete)
                    }
