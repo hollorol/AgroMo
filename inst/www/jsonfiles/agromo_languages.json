@@ -658,15 +658,15 @@
         },
         {
             "ID": "#showdiv-alias_container label",
-            "TEXT_ENG": "alias:",
-            "TEXT_HUN": "alias:",
-            "TEXT_GER": "Alias:",
-            "TEXT_FRA": "Alias:",
-            "TEXT_ESP": "Alias:",
-            "TEXT_POR": "pseudónimo:",
-            "TEXT_RUS": "Псевдоним:",
-            "TEXT_CHN": "别名：",
-            "TEXT_JPN": "エイリアス："
+            "TEXT_ENG": "means only",
+            "TEXT_HUN": "csak átlagok",
+            "TEXT_GER": "means only",
+            "TEXT_FRA": "means only",
+            "TEXT_ESP": "means only",
+            "TEXT_POR": "means only",
+            "TEXT_RUS": "means only",
+            "TEXT_CHN": "means only",
+            "TEXT_JPN": "means only"
         },
         {
             "ID": "#showdiv-del",
