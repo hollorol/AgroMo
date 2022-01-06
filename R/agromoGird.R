@@ -279,16 +279,16 @@ agroMoGrid <- function(input, output, session, baseDir, language){
     })
 
 
-    observe({
-        if(input$story != ""){
-          if(!is.null(dat$storyTimeRange)){
-            updateSelectInput(session,"time",choices=dat$storyTimeRange[1]:dat$storyTimeRange[2], selected=dat$storyTimeRange[1])
-            updateSelectInput(session,"until",choices=dat$storyTimeRange[1]:dat$storyTimeRange[2], selected=dat$storyTimeRange[2])
-          }
- 
-        }
-    })
-
+    # observe({
+    #     if(input$story != ""){
+    #       if(!is.null(dat$storyTimeRange)){
+    #         updateSelectInput(session,"time",choices=dat$storyTimeRange[1]:dat$storyTimeRange[2], selected=dat$storyTimeRange[1])
+    #         updateSelectInput(session,"until",choices=dat$storyTimeRange[1]:dat$storyTimeRange[2], selected=dat$storyTimeRange[2])
+    #       }
+    #
+    #     }
+    # })
+    #
     observeEvent(input$time,{
         if(input$time!=""){
             updateSelectInput(session,"until",choices=input$time:dat$storyTimeRange[2], selected=dat$storyTimeRange[2])
@@ -314,6 +314,11 @@ agroMoGrid <- function(input, output, session, baseDir, language){
                         updateSelectInput(session,sprintf("sqlfunc_%s",x),
                                           choices=choices)
                       })
+            minYear <- dat$jsonList[[input$queryList]]$timeFrame$min
+            maxYear <- dat$jsonList[[input$queryList]]$timeFrame$max
+            updateSelectInput(session,"time",choices=minYear:maxYear, selected=minYear)
+            updateSelectInput(session,"until",choices=minYear:maxYear, selected=maxYear)
+
         }
     })
 
