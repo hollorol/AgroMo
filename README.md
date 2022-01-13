@@ -85,12 +85,12 @@ A graphical user interface (GUI) has been developed for providing easy and user 
 - [x] Enter an alias for the observed data to be presented on the graph.
 - [x] Observed data could be added to the plots by selecting the data file from the corrresponding dropdown lists. NOTE, that data in the observed data tables should be structured according to prescribed rules. Observed (experimental) data should be stored in the '.\AgroMo\data\observation\' folder in a semicolon separated text file with .obs extension. var_id, date and mean (of the observations) values are compulsory for each record, optionally followed by the sd, min and max of the observed values.
 - [x] For each selected output variable select:
-  - a \|time step\| for which the daily data are to be aggregated into one single value (e.g. for presenting annual values the 'year' option should be selected).
-  - a \|function\| that defines the aggregation (e.g. for presenting the final yield for each year the 'max' option should be selected)
-  - a \|plot type\| 
+  - a \|T STEP\| (time step) for which the daily data are to be aggregated into one single value (e.g. for presenting annual values the 'year' option should be selected).
+  - a \|FUNC\| (function) that defines the aggregation (e.g. for presenting the final yield for each year the 'max' option should be selected)
+  - a \|PLOT TYPE\| 
 - [x] Options in the \|time step\|, \|function\| and \|plot type\| columns can be selected via circular menus operated by clicking/scrolling in the corresponding cells.
+- [x] Output variables can be filtered accoording to a couple of predefined tags, that may be edited in the centralData.json file located in the '.\AgroMo\app\R-Portable\library\AgroMo\' folder.
 - [x] Having all the desired options selected, create plot(s) by clicking the [CREATE PLOT] button.
-- [x] Output variables can be filtered accoording to a couple of predefined tags, that may be edited in the centralData.json file.
 
 <img src="img/plotly_graph01.png" style="width: 100%">
 
@@ -223,11 +223,11 @@ Az integrált modellezési keretrendzser egy grafikus felhasználói felülettel
 - [x] Megfigyelési adatok is megjeleníthetők, amennyiben kiválaszt egy adat fájlt a MEGFIGYELÉSEK: legördülő menüből. FONTOS, hogy a megfigyelési adatokat az előírt formában kell az adatfájlokban (egyszerű szövegfájl) tárolni, az értékeket pontosvesszővel elválasztva. Ezeket az adatfájlokat az '.\AgroMo\data\observation\' mappában kell tárolni '.obs' kiterjesztéssel. változó_név, dátum és átlagérték a kötelező mezők (adatoszlopok), melyeket opcionálisan követhetnek a szórás, minimum és maximum értékek. 
 - [x] Adjon nevet (alias) a megjeleníteni kívánt megfigyelési adatoknak.
 - [x] Minden megjeleníteni kívánt kimeneti adathoz válassza ki:
-  - a \|time step\| for which the daily data are to be aggregated into one single value (e.g. for presenting annual values the 'year' option should be selected).
-  - a \|function\| that defines the aggregation (e.g. for presenting the final yield for each year the 'max' option should be selected)
-  - a \|plot type\| 
-- [x] Options in the \|time step\|, \|function\| and \|plot type\| columns can be selected via circular menus operated by clicking/scrolling in the corresponding cells.
-- [x] Having all the desired options selected, create plot(s) by clicking the [CREATE PLOT] button.
-- [x] Output variables can be filtered accoording to a couple of predefined tags, that may be edited in the centralData.json file.
+  - az időbeli \|LÉPTÉK\|-et melyre a napi adatokat aggregálni szeretné (pl. éves értékek megjelenítéséhez a 'year' opciót kell választani).
+  - a \|FÜGGV\|-ényt, amely meghatározza az aggregáció módját (pl. a termés évenkénti végső értékének ábrázolásához a 'max' opciót kell választani).
+  - a megjeleníteni kívánt függvény \|TÍPUS\|-át.
+- [x] A \|LÉPTÉK\|, \|FÜGGV\| and \|TÍPUS\| oszlopok cellái körkörös menük. Az egyes opciók a cellákra (egyszer vagy többször) kattintva érhetők el.
+- [x] A kimeneti változókat filterezhetjük a hozzájuk rendelt címkék segítségével, melyeket a centralData.json fájlban adhatunk meg a '.\AgroMo\app\R-Portable\library\AgroMo\' mappában.
+- [x] Az opciók kiválasztása után a grafikonokat az [ÁBRA LÉTREHOZÁSA] gombra kattintva lehet megjeleníteni.
 
 <img src="img/plotly_graph01.png" style="width: 100%">
