@@ -94,7 +94,7 @@ A graphical user interface (GUI) has been developed for providing easy and user 
 
 <img src="img/plotly_graph01.png" style="width: 100%">
 
-- [x] Zoom in the graph by selecting an area on the graph while holding down the left mouse button.
+- [x] Zoom in the graph by selecting an area on the graph while holding down the left mouse button. Zoom out with a double click
 - [x] Move the x/y axes by dragging them in the middle (cursor changes) and move the pointer horizontally/vertically.
 - [x] Expand/Contract the x/y axes by dragging the end of the axis (cursor changes) and move the pointer horizontally/vertically.
 - [x] Hide/Expose a curve on the plot by clicking the corresponding label in the legend.
@@ -233,8 +233,8 @@ Az integrált modellezési keretrendzser egy grafikus felhasználói felülettel
 <img src="img/plotly_graph01.png" style="width: 100%">
 
 - [x] A bal egérgombot nyomva tartva egy terület kijelölésével az ábra tetszőleges részét kinagyíthatja. Dupla kattintással visszaállítható a teljes nézet.
-- [x] Move the x/y axes by dragging them in the middle (cursor changes) and move the pointer horizontally/vertically.
-- [x] Expand/Contract the x/y axes by dragging the end of the axis (cursor changes) and move the pointer horizontally/vertically.
+- [x] A tengelyeken megjelenített tartomány elmozdítható ha megragadja a tengely közepét (a kurzor kinézete: <->) és az egeret vízszintesen illetve függőlegesen mozgatja.
+- [x] A tengelyeken megjelenített tartomány zsugorítható illetve tágítható ha megragadja a tengely bal vagy jobb szélét (a kurzor kinézete: <->) és az egeret vízszintesen illetve függőlegesen mozgatja.
 - [x] Hide/Expose a curve on the plot by clicking the corresponding label in the legend.
 - [ ] Export plot data into various file formats (e.g. xlsx, csv) by clicking the [EXPORT] button.
 - [x] Navigate to the [BASE], [SITE], [GRID] or [MAP] component by clicking the corresponding button on the banner to the left.
