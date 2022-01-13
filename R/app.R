@@ -97,7 +97,7 @@ agroServer <- function(input, output, session) {
     dat <- callModule(agroMoSite,"sitediv",
                       dataenv = reactive(datas$dataenv),
                       baseDir = reactive({datas$baseDir}),
-                      reactive({datas$connection}),centralData=centralData)
+                      reactive({datas$connection}),centralData=centralData,languageState=reactive({input$languageState}))
 
     observeEvent(dat$show,{
       if(dat$show > 0){
