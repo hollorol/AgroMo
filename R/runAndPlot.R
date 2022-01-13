@@ -63,6 +63,8 @@ dat<-reactiveValues(dataenv = NULL)
                                                                           writeDataToDB(settings = settings, dbConnection = isolate(connection()),
                                                                                         binaryName = file.path(baseDir(), "output", sprintf("%s.dayout", settings$outputName)),
                                                                                         isolate(outputName()))          
+                                                                          unlink(file.path("input/initialization/site/tmp"),recursive=TRUE)
+                                                                          unlink(file.path("input/management/tmp"),recursive=TRUE)
                                                                           # removeUI(selector = "#runningGif")
                                                                           hide("runningGif")
                                                                           removeModal()
