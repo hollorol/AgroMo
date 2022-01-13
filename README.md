@@ -203,14 +203,14 @@ Az integrált modellezési keretrendzser egy grafikus felhasználói felülettel
   - NÖVÉNY fájlok; kiterjesztés: .epc; mappa: .\input\plant\ , melyekre a vetési adat fájlokban történik hivatkozás.
 
 - [x] Az INICIALIZÁCIÓS fájl kiválasztásakor, az INI fájlban hivatkozott IDŐJÁRÁS, TALAJ és AGROTECHNIKA fájlok automatikusan kiválasztásra kerülnek a megfelelő legördülő menük listáiból, melyek helyett más fájlok is választhatók.
-- [x] In case new INI, WEATHER, SOIL, MANAGEMENT, etc. files are placed to the corresponding folders of the file system, click the green [REFRESH] button to see the new files in the corresponding dropdown menus.
-- [x] When selecting a MANAGEMENT file the management option files that are referred to in the MANAGEMENT file are automatically selected from the corresponding dropdown menus, but those could be changed freely any time.
-- [x] The most important parameters of the management options could be changed without accessing the management option file by adjusting the input values using the corresponding textboxes within the 'shift in...' section. Negative values could also be used.
-- [x] Give a name to the simulation run in the 'OUTPUT DATA TABLE' textbox. Output data are stored in an SQLite data table using the name defined in the textbox.
-- [x] After selecting the desired input files and optionally set up the changes in the 'shift in...' section simulation starts by clicking the [START SIMULATION] button.
-- [x] An activity indicator is on while the simulation is running. 
-- [x] To see simulation results on graphs click the [PLOT] button.
-- [x] Navigate to the [BASE], [GRID] or [MAP] component by clicking the corresponding button on the banner to the left.
+- [x] Amennyiben futási idő alatt új INI, WEATHER, SOIL, MANAGEMENT, stb. fájlokat helyez a megfelelő mappákba, kattintson a zöld [FRISSÍTÉS] gombra és az új fájlok megjelennek a megfelelő legördülő menükben.
+- [x] Az AGRO-MENEDZSMENT fájl megnyitásakor a fájlban hivatkozott agrotechnikai műveletek fájljai automatikusan kiválasztásra kerülnek a vonatkozó legördülő menükben, de ezek helyett mások is kiválaszthatók.
+- [x] Az agrotechnikai műveletek legfontosabb paraméterei a fájlok módosítása nélkül is megváltoztathatók az 'ezek módosítása...' panel megfelelő szövegdobozainak értelemszerű kitöltésével. Negatív étékek is megadhatók.
+- [x] A szimulációnak a 'KIMENETI ADATTÁBLA' szövegdobozban adhat nevet. A szimulációs eredmények ezen a néven kerülnek tárolásra egy SQLite adattáblában.
+- [x] A bemenő adatok kiválasztása és esetleges módosítása után a szimuláció a [SZIMULÁCIÓ INDÍTÁSA] gombra kattintva indítható.
+- [x] A szimuláció előrehaladását egy animált GIF jelzi.
+- [x] Az eredmények grafikonokon történő bemutatásához kattintson az [EREDMÉNYEK ÁBRÁZOLÁSA] gombra.
+- [x] Az indítóképernyőre, az adatrács alapú szimulációkhoz illetve a térképes megjelenítő modulhoz való navigáláshoz kattintson a [BASE], [GRID] illetve [MAP] gombokra a baloldali szegélyen.
 - [x] In case at least one GRID run has already been carried out, grid cell specific outputs can be retrieved and plotted by (1) setting the SITE/GRID switch to grid state, (2) selecting the OUTPUT DATABASE table, and the (3) CELL id, (4) setting the name of the OUTPUT DATA TABLE, and finally clicking the [RETRIEVE CELL DATA] button. 
   
 ### AgroMo Plot
