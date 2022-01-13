@@ -153,7 +153,7 @@ agroMoSiteUI <- function(id){
 #' @keywords internal
 
 
-agroMoSite <- function(input, output, session, dataenv, baseDir, connection,centralData){
+agroMoSite <- function(input, output, session, dataenv, baseDir, connection,centralData, languageState){
   managementExt <- c("planting" = "plt", "harvest" = "hrv",
                      "fertilization" = "frz",
                      "irrigation" = "irr",
@@ -306,9 +306,44 @@ agroMoSite <- function(input, output, session, dataenv, baseDir, connection,cent
               
   })
 
+
+  observe(
+   {
+       if(!isolate(input$siteswitch)){
+
+                gridLab<- switch(paste0(languageState(),""),
+                                 "hu"={"RÁCSALAPÚ ADATBÁZISOK:"},
+                                      "GRIDDED DATASET:")
+
+         updateSelectInput(session, "iniFile", label=gridLab)
+
+
+
+       }
+   }
+  )
+
+
    observeEvent(input$siteswitch, {
                     if(!isolate(input$siteswitch)){
-                         updateSelectInput(session,"iniFile", choices=list.dirs("input/initialization/grid",recursive=FALSE,full.names=FALSE),label="GRIDDED DATASET:")
+
+                        gridLab<- switch(paste0(languageState(),""),
+                                         "hu"={"RÁCSALAPÚ ADATBÁZISOK:"},
+                                              "GRIDDED DATASET:")
+
+
+                        if(is.null(languageState())){
+                            gridLab <- "GRIDDED DATASET:"
+                        } else {
+                            if(languageState()=="hu"){
+                                gridLab <- "RÁCSALAPÚ ADATBÁZISOK:"
+                            } else {
+
+                                gridLab <- "RÁCSALAPÚ ADATBÁZISOK:"
+                            }
+                        }
+
+                         updateSelectInput(session,"iniFile", choices=list.dirs("input/initialization/grid",recursive=FALSE,full.names=FALSE),label=gridLab)
 
                          updateActionButton(session,"popRun-runModel",label = "START SIMULATION")
                     } else {
