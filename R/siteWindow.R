@@ -200,6 +200,13 @@ agroMoSite <- function(input, output, session, dataenv, baseDir, connection,cent
   })
 
   observe({
+      if(!isolate(input$siteswitch)){
+          inis <- gsub("_[0-9]+\\.ini", "", list.files(file.path("input/initialization/grid",input$iniFile)))
+          updateSelectInput(session,"sitecellid", choices=inis, label="GRIDDED DATASET:")
+      }
+  })
+
+  observe({
     updateSelectInput(session,"iniFile", choices = grep("spinup",grep("*.ini",list.files(file.path(baseDir(),"input/initialization/site")),value = TRUE),invert=TRUE, value=TRUE))
   })
   iniFile <- reactive({input$iniFile})
@@ -212,6 +219,7 @@ agroMoSite <- function(input, output, session, dataenv, baseDir, connection,cent
                                         showNotification("Your iniFile is corrupt, please check it!",type="error")
                                    }
                             # browser()
+
                             NULL
                         })
           # sapply(ls(settings),function(x){print(settings$x)})
@@ -261,36 +269,47 @@ agroMoSite <- function(input, output, session, dataenv, baseDir, connection,cent
   })
 
   onclick("refresh",{
+              if(!isolate(input$siteswitch)){
+                    tryCatch({
+                        createSiteFromGrid(input$iniFile, input$sitecellid, baseDir())
+                       iniselected <- paste0(input$iniFile, "_", input$sitecellid, ".ini")
+                        shinyWidgets::updateSwitchInput(session, "siteswitch", value=TRUE)
+                        updateSelectInput(session,"iniFile", choices = grep("spinup",grep("*.ini",list.files(file.path(baseDir(),"input/initialization/site")),value = TRUE),invert=TRUE, value=TRUE),selected = iniselected)
+                    },
+                             error = function(e){
+                    showNotification("Your iniFile is corrupted, please check it!",type="error")})
 
-    ## browser()
-    iniState <- input$iniFile
-    soilState <- input$soilFile
-    weatherState <- input$weatherFile
-    mgmState <- input$managementFile
-    
-    updateSelectInput(session,"iniFile", choices = grep("spinup",grep("*.ini",list.files(file.path(baseDir(),"input/initialization/site")),value = TRUE),invert=TRUE, value=TRUE),selected = iniState)
-    
-    updateSelectInput(session,"soilFile",
-                      choices = basename(grep("*.soi",
-                                              list.files(file.path(baseDir(),"input","soil","site"),recursive = TRUE),value = TRUE)), selected = soilState)
 
-    updateSelectInput(session,"weatherFile",
-                      choices = basename(grep("*.wth",
-                                              list.files(file.path(baseDir(),"input","weather","site"),recursive = TRUE),value = TRUE)), selected = weatherState)
+              }
+                  ## browser()
+                  iniState <- input$iniFile
+                  
+                  soilState <- input$soilFile
+                  weatherState <- input$weatherFile
+                  mgmState <- input$managementFile
 
-    updateSelectInput(session,"managementFile",
-                      choices = c("none",basename(grep("*.mgm",
-                                               list.files(file.path(
-                                                                    baseDir(),"input/management/site")
-                                               ,recursive = TRUE),value = TRUE))), selected = mgmState)
+                  updateSelectInput(session,"iniFile", choices = grep("spinup",grep("*.ini",list.files(file.path(baseDir(),"input/initialization/site")),value = TRUE),invert=TRUE, value=TRUE),selected = iniState)
+                  
+                  updateSelectInput(session,"soilFile",
+                                    choices = basename(grep("*.soi",
+                                                            list.files(file.path(baseDir(),"input","soil","site"),recursive = TRUE),value = TRUE)), selected = soilState)
+
+                  updateSelectInput(session,"weatherFile",
+                                    choices = basename(grep("*.wth",
+                                                            list.files(file.path(baseDir(),"input","weather","site"),recursive = TRUE),value = TRUE)), selected = weatherState)
+
+                  updateSelectInput(session,"managementFile",
+                                    choices = c("none",basename(grep("*.mgm",
+                                                                     list.files(file.path(
+                                                                                          baseDir(),"input/management/site")
+                                                                     ,recursive = TRUE),value = TRUE))), selected = mgmState)
+              
   })
 
    observeEvent(input$siteswitch, {
                     if(!isolate(input$siteswitch)){
-                         connDB <- dbConnect(RSQLite::SQLite(),file.path(baseDir(),"output","grid.db")) 
-                         updateSelectInput(session,"iniFile", choices=grep(".*_error",dbListTables(connDB), value=TRUE, invert=TRUE),
-                                           label="GRIDDED DATASET:")
-                         dbDisconnect(connDB)
+                         updateSelectInput(session,"iniFile", choices=list.dirs("input/initialization/grid",recursive=FALSE,full.names=FALSE),label="GRIDDED DATASET:")
+
                          updateActionButton(session,"popRun-runModel",label = "START SIMULATION")
                     } else {
         updateSelectInput(session,"iniFile", choices = grep("spinup",grep("*.ini",list.files(file.path(baseDir(),"input/initialization/site")),value = TRUE),invert=TRUE, value=TRUE),selected = input$iniFile, label = "INI file:")
