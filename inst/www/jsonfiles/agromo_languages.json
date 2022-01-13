@@ -352,6 +352,18 @@
             "TEXT_JPN": "INI ファイル:"
         },
         {
+            "ID": "#sitediv-sitecellid_container label",
+            "TEXT_ENG": "CELL id:",
+            "TEXT_HUN": "CELLA id:",
+            "TEXT_GER": "ZELLE id:",
+            "TEXT_FRA": "CELLULE id:",
+            "TEXT_ESP": "CELDA id:",
+            "TEXT_POR": "CÉLULA id:",
+            "TEXT_RUS": "КЛЕТКА id:",
+            "TEXT_CHN": "细胞 id:",
+            "TEXT_JPN": "細胞 id:"
+        },		
+        {
             "ID": "#sitediv-weatherFile_container label",
             "TEXT_ENG": "WEATHER file:",
             "TEXT_HUN": "IDŐJÁRÁS fájl:",
