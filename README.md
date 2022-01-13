@@ -232,7 +232,7 @@ Az integrált modellezési keretrendzser egy grafikus felhasználói felülettel
 
 <img src="img/plotly_graph01.png" style="width: 100%">
 
-- [x] Zoom in the graph by selecting an area on the graph while holding down the left mouse button.
+- [x] A bal egérgombot nyomva tartva egy terület kijelölésével az ábra tetszőleges részét kinagyíthatja. Dupla kattintással visszaállítható a teljes nézet.
 - [x] Move the x/y axes by dragging them in the middle (cursor changes) and move the pointer horizontally/vertically.
 - [x] Expand/Contract the x/y axes by dragging the end of the axis (cursor changes) and move the pointer horizontally/vertically.
 - [x] Hide/Expose a curve on the plot by clicking the corresponding label in the legend.
@@ -242,4 +242,4 @@ Az integrált modellezési keretrendzser egy grafikus felhasználói felülettel
 
 ### AgroMo Grid
 
-<img src="img/grid_gui_HU.png" style="width: 100%">
+<img src="img/grid_gui_hu.png" style="width: 100%">
