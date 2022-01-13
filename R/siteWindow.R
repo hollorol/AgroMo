@@ -61,7 +61,7 @@ agroMoSiteUI <- function(id){
                            ),
                            tags$div(
                              id = paste0(ns("sitecellid"),"_container"),
-                             selectInput(ns("sitecellid"),"CELL id:",choices=c(1:1104))
+                             selectizeInput(ns("sitecellid"),"CELL id:",choices=c(1:1104),options=list(maxOptions = 2000))
                            ),
                            
            tagList(
@@ -147,7 +147,7 @@ agroMoSiteUI <- function(id){
 #' @param session environment to get information about the current session
 #' @param dataenv The central datastructure of the AgroMo
 #' @param baseDir baseDir is the base directory for the modell inputs/outputs
-#' @importFrom shiny reactive updateSelectInput observe textInput renderUI reactiveValues callModule observeEvent isolate 
+#' @importFrom shiny reactive updateSelectInput selectizeInput updateSelectizeInput observe textInput renderUI reactiveValues callModule observeEvent isolate 
 #' @importFrom DBI dbListTables
 #' @importFrom jsonlite read_json
 #' @keywords internal
@@ -202,7 +202,7 @@ agroMoSite <- function(input, output, session, dataenv, baseDir, connection,cent
   observe({
       if(!isolate(input$siteswitch)){
           inis <- gsub("_[0-9]+\\.ini", "", list.files(file.path("input/initialization/grid",input$iniFile)))
-          updateSelectInput(session,"sitecellid", choices=inis, label="GRIDDED DATASET:")
+          updateSelectizeInput(session,"sitecellid", choices=inis, label="GRIDDED DATASET:")
       }
   })
 
