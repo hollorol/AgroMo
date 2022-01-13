@@ -83,7 +83,7 @@ A graphical user interface (GUI) has been developed for providing easy and user 
 - [x] Select a maximum of 5 simulation results from the left side list by clicking the items. Clicking again deselects the item.
 - [x] Select output variable(s) from the right side list for presenting them on plot(s).
 - [x] Enter an alias for the observed data to be presented on the graph.
-- [x] Observed data could be added to the plots by selecting the data file from the corrresponding dropdown lists. NOTE, that data in the observed data tables should be structured according to prescribed rules. Observed (experimental) data should be stored in the '.\observation\' folder in a semicolon separated text file with .obs extension. var_id, date and mean (of the observations) values are compulsory for each record, optionally followed by the sd, min and max of the observed values.
+- [x] Observed data could be added to the plots by selecting the data file from the corrresponding dropdown lists. NOTE, that data in the observed data tables should be structured according to prescribed rules. Observed (experimental) data should be stored in the '.\AgroMo\data\observation\' folder in a semicolon separated text file with .obs extension. var_id, date and mean (of the observations) values are compulsory for each record, optionally followed by the sd, min and max of the observed values.
 - [x] For each selected output variable select:
   - a \|time step\| for which the daily data are to be aggregated into one single value (e.g. for presenting annual values the 'year' option should be selected).
   - a \|function\| that defines the aggregation (e.g. for presenting the final yield for each year the 'max' option should be selected)
@@ -211,17 +211,18 @@ Az integrált modellezési keretrendzser egy grafikus felhasználói felülettel
 - [x] A szimuláció előrehaladását egy animált GIF jelzi.
 - [x] Az eredmények grafikonokon történő bemutatásához kattintson az [EREDMÉNYEK ÁBRÁZOLÁSA] gombra.
 - [x] Az indítóképernyőre, az adatrács alapú szimulációkhoz illetve a térképes megjelenítő modulhoz való navigáláshoz kattintson a [BASE], [GRID] illetve [MAP] gombokra a baloldali szegélyen.
-- [x] Egy rácsalapú szimuláció egy tetszőleges cellájára is végezhetünk szimulációt ha a hozzátartoző bemenő adatokat importáljuk: (1) állítsa a SITE/GRID kapcsolót GRID állásba, (2) válasszon a RÁCSALAPÚ ADATBÁZISOK közül, (3) válasszon cella id-t, (4) kattintson a zöld [FRISSÍTÉS] gombra.
+- [x] Egy rácsalapú szimuláció egy tetszőleges cellájára is végezhetünk szimulációt ha a hozzátartoző bemenő adatokat importáljuk: (1) állítsa a SITE/GRID kapcsolót GRID állásba, (2) válasszon a RÁCSALAPÚ ADATBÁZISOK közül, (3) válasszon cella id-t, (4) kattintson a zöld [FRISSÍTÉS] gombra, , (5) állítsa a SITE/GRID kapcsolót SITE állásba, és (6) válassza ki a megfelelő INI fájlt (adatbázis_név+cella_id.ini). 
+
   
 ### AgroMo Plot
 
 <img src="img/plot_gui_hu.png" style="width: 100%">
 
-- [x] Select a maximum of 5 simulation results from the left side list by clicking the items. Clicking again deselects the item.
-- [x] Select output variable(s) from the right side list for presenting them on plot(s).
-- [x] Enter an alias for the observed data to be presented on the graph.
-- [x] Observed data could be added to the plots by selecting the data file from the corrresponding dropdown lists. NOTE, that data in the observed data tables should be structured according to prescribed rules. Observed (experimental) data should be stored in the '.\observation\' folder in a semicolon separated text file with .obs extension. var_id, date and mean (of the observations) values are compulsory for each record, optionally followed by the sd, min and max of the observed values.
-- [x] For each selected output variable select:
+- [x] Válasszon ki legfeljebb 5 szimulációs eredményt a baloldali listából rájuk kattintva. Egy újabb kattintás megszünteti a kijelölést.
+- [x] Válasszon ki kimeneti változókat a jobboldali listából, amelyeket grafikon szeretne megjeleníteni.
+- [x] Megfigyelési adatok is megjeleníthetők, amennyiben kiválaszt egy adat fájlt a MEGFIGYELÉSEK: legördülő menüből. FONTOS, hogy a megfigyelési adatokat az előírt formában kell az adatfájlokban (egyszerű szövegfájl) tárolni, az értékeket pontosvesszővel elválasztva. Ezeket az adatfájlokat az '.\AgroMo\data\observation\' mappában kell tárolni '.obs' kiterjesztéssel. változó_név, dátum és átlagérték a kötelező mezők (adatoszlopok), melyeket opcionálisan követhetnek a szórás, minimum és maximum értékek. 
+- [x] Adjon nevet (alias) a megjeleníteni kívánt megfigyelési adatoknak.
+- [x] Minden megjeleníteni kívánt kimeneti adathoz válassza ki:
   - a \|time step\| for which the daily data are to be aggregated into one single value (e.g. for presenting annual values the 'year' option should be selected).
   - a \|function\| that defines the aggregation (e.g. for presenting the final yield for each year the 'max' option should be selected)
   - a \|plot type\| 
