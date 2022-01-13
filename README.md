@@ -211,7 +211,7 @@ Az integrált modellezési keretrendzser egy grafikus felhasználói felülettel
 - [x] A szimuláció előrehaladását egy animált GIF jelzi.
 - [x] Az eredmények grafikonokon történő bemutatásához kattintson az [EREDMÉNYEK ÁBRÁZOLÁSA] gombra.
 - [x] Az indítóképernyőre, az adatrács alapú szimulációkhoz illetve a térképes megjelenítő modulhoz való navigáláshoz kattintson a [BASE], [GRID] illetve [MAP] gombokra a baloldali szegélyen.
-- [x] In case at least one GRID run has already been carried out, grid cell specific outputs can be retrieved and plotted by (1) setting the SITE/GRID switch to grid state, (2) selecting the OUTPUT DATABASE table, and the (3) CELL id, (4) setting the name of the OUTPUT DATA TABLE, and finally clicking the [RETRIEVE CELL DATA] button. 
+- [x] Egy rácsalapú szimuláció egy tetszőleges cellájára is végezhetünk szimulációt ha a hozzátartoző bemenő adatokat importáljuk: (1) állítsa a SITE/GRID kapcsolót GRID állásba, (2) válasszon a RÁCSALAPÚ ADATBÁZISOK közül, (3) válasszon cella id-t, (4) kattintson a zöld [FRISSÍTÉS] gombra.
   
 ### AgroMo Plot
 
