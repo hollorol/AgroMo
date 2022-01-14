@@ -6,8 +6,6 @@
 
 agroMoParAnaUI <- function(id){
   
-  
-  
   ns <- NS(id)
   tags$div(id = ns(id),
            
@@ -56,9 +54,6 @@ agroMoParAnaUI <- function(id){
            tags$div(id = ns("Buttons"),
                     actionButton(ns("paranado"),label = "PERFORM ANALYSIS"))
            
-           
-           
-           
   )
 }
 
@@ -76,46 +71,84 @@ agroMoParAna <- function(input, output, session, baseDir){
   ns <- session$ns
   output$paranatable = DT::renderDataTable({valami})
 
+  calInput <- reactiveValues()
+
   observe({
       updateSelectInput(session,"paranaini",
                         choices = list.dirs(file.path(baseDir(),"calibration"), full.names=FALSE, recursive=FALSE))
   })
 
   observe({
-      updateSelectInput(session,"paranaexp",
-                        choices = list.files(file.path(baseDir(),"calibration",input$paranaini), pattern="\\.obs$"))
+      updateSelectInput(session,"charfunc",
+                        choices = list.files(file.path(baseDir(),"calibration",input$paranaini), pattern="\\.set$"))
+  })
+
+
+  observe({
+      updateSelectInput(session,"ctinfo",
+                        choices = list.files(file.path(baseDir(),"calibration",input$paranaini), pattern="\\.json$"))
   })
 
   observe({
 
-      updateSelectInput(session,"ctlfile",
-                        choices = list.files(file.path(baseDir(),"calibration",input$paranaini), pattern="\\.cal$"))
+
+      try({
+              calFile <- list.files(file.path(baseDir(),"calibration",input$paranaini), pattern="\\.cal$",full.names=TRUE)
+              calInput$calFile <- calFile
+
+              callines <- readLines(calFile)
+              calInput$obsfile <- file.path(baseDir(),"calibration", isolate(input$paranaini), callines[1])
+
+              updateSelectInput(session,"paranaexp",
+                                choices = list.files(file.path(baseDir(),
+                                                               "calibration",
+                                                               input$paranaini), pattern="\\.obs$"),
+                                selected = basename(isolate(calInput$obsfile))
+              )
+              calInput$setfile <- file.path(baseDir(),"calibration", isolate(input$paranaini), callines[2])
+              updateSelectInput(session,"charfunc",
+                                selected = basename(isolate(calInput$setfile)))
+              calInput$constraints <- file.path(baseDir(),"calibration", isolate(input$paranaini), callines[3])
+              updateSelectInput(session,"ctinfo",
+                                selected = basename(isolate(calInput$constraints)))
+              calInput$sourceDir <- callines[4]
+      })
+      
   })
-  
-  
+
+  observe({
+              calInput$obsfile <- input$paranaexp
+  }) 
+
+  observe({
+              calInput$setfile <- input$charfunc
+  }) 
+
+  observe({
+              calInput$constraints <- input$ctinfo
+  }) 
 
   observeEvent(input$paranado,{
                    tryCatch({
                       setwd(file.path(baseDir(),"calibration",input$paranaini))
                       execPath <- baseDir()
-                      calFileName <- input$ctlfile
-                      calFileConn <- file(calFileName,"r")
-                      measureFile <-  readLines(calFileConn,n=1)
-                      paramFile <- readLines(calFileConn,n=1)
-                      sourceDir <- readLines(calFileConn,n=1)
-                      parameters <- read.csv(paramFile, stringsAsFactors=FALSE, skip=1)
-                      parameters <- parameters[order(parameters[,2]),]
-                      variableName <- read.table(paramFile, nrows=1, sep = ",",stringsAsFactors = FALSE)
+                      calFileName <- calInput$calFile
+                      measureFile <- calInput$obsfile
+                      sourceDir <- calInput$sourceDir
+                      parameters <- read.csv(calInput$setfile, stringsAsFactors=FALSE, skip=1)
+                      variableName <- read.table(calInput$setfile, nrows=1, sep = ",",stringsAsFactors = FALSE)
                       measurements <- read.csv2(measureFile, stringsAsFactors=FALSE)
-                      position <- seek(calFileConn)
-                      calTable <- read.csv2(calFileConn, stringsAsFactor=FALSE)
+                      calLines <- readLines(calFileName)
+                      calLines <- calLines[setdiff(1:length(calLines),1:4)]
+                      calTable <- read.csv2(textConnection(calLines),stringsAsFactors=FALSE)
                       if(nrow(calTable) == 0){
-                      close(calFileConn)
-                          siteLine <- readLines(calFileName)[4]
+                          siteLine <- calLines
                           siteLine <- strsplit(siteLine,split=";")[[1]]
                           # siteLine[1] <-gsub("\\s*(\\S.*\\S)\\s*","\\1",siteLine[1],perl=TRUE)
-                          siteLine[2] <- as.numeric(siteLine[2])
-                          calTable <- data.frame("site_id"=siteLine[1],"domain_id"=siteLine[2])
+                          calTable <- data.frame("site_id"=siteLine[1],
+                                                 "domain_id"=as.numeric(siteLine[2]),
+                                                 stringsAsFactors=FALSE
+                          )
                       }
                       colnames(calTable) <- c("site_id","domain_id")
                       calTable$site_id <- paste0(file.path(execPath,"input/initialization",sourceDir,calTable$site_id),".ini")
@@ -126,12 +159,13 @@ agroMoParAna <- function(input, output, session, baseDir){
                      names(dataVar) <- variableName
                      likelihood <- list(agroLikelihood)
                      names(likelihood) <- variableName
-                     #TODO: constraints and th definition
-                     const <- jsonlite::read_json("constraints.json",simplifyVector=TRUE) 
+
+                     const <- jsonlite::read_json(calInput$constraints,simplifyVector=TRUE) 
                      # constraints<- read.csv("consts.csv",stringsAsFactors=FALSE)
                      constraints <- const$constraints
                      # th <- as.numeric(readLines("th.txt")[1])
                      th <- const$treshold
+
 
                    withProgress(min=0, max=as.numeric(isolate(input$paranait), value=0, message="Calibration state"),
                                 message="Calibrating...",
