@@ -115,7 +115,18 @@ agroMoParAna <- function(input, output, session, baseDir){
       })
       
   })
-  
+
+  observe({
+              calInput$obsfile <- input$paranaexp
+  }) 
+
+  observe({
+              calInput$setfile <- input$charfunc
+  }) 
+
+  observe({
+              calInput$constraints <- input$ctinfo
+  }) 
 
   observeEvent(input$paranado,{
                    tryCatch({
