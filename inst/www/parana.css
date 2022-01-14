@@ -151,7 +151,7 @@ text-align: left;
 
 #paranadiv-paranaexp_container label {
     position: absolute;
-    top: 80px;
+    top: 10px;
     left: 630px;
     font-weight: bold;
     font-size: 16px;
@@ -165,7 +165,7 @@ text-align: left;
 
 #paranadiv-paranaexp_container .selectize-control {
     position: absolute;
-    top: 103px;
+    top: 33px;
     width: 305px;
     left: 629px;
     font-weight: normal;
@@ -178,7 +178,7 @@ text-align: left;
   user-select: none;
 }
 
-#paranadiv-ctlfile_container label {
+/*#paranadiv-ctlfile_container label {
     position: absolute;
     top: 10px;
     left: 630px;
@@ -205,11 +205,11 @@ text-align: left;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}
+}*/
 
 #paranadiv-ctinfo_container label {
     position: absolute;
-    top: 220px;
+    top: 150px;
     left: 630px;
     font-weight: bold;
     font-size: 16px;
@@ -223,7 +223,7 @@ text-align: left;
 
 #paranadiv-ctinfo_container .selectize-control {
     position: absolute;
-    top: 243px;
+    top: 175px;
     width: 305px;
     left: 629px;
     font-weight: normal;
@@ -267,7 +267,7 @@ text-align: left;
 
 #paranadiv-charfunc_container label {
     position: absolute;
-    top: 150px;
+    top: 80px;
     left: 630px;
     font-weight: bold;
     font-size: 16px;
@@ -281,7 +281,7 @@ text-align: left;
 
 #paranadiv-charfunc_container .selectize-input {
     position: absolute;
-    top: -255px;
+    top: -325px;
     width: 305px;
     left: 629px;
     font-weight: normal;
