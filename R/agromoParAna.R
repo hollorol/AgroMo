@@ -28,10 +28,10 @@ agroMoParAnaUI <- function(id){
              id = paste0(ns("paranaexp"),"_container"),
              selectInput(ns("paranaexp"),"OBSERVATION DATA file:",choices=c(""))
            ),
-           tags$div(
-              id = paste0(ns("ctlfile"),"_container"),
-              selectInput(ns("ctlfile"),"CONTROL file:",choices=c(""))
-           ),
+           #tags$div(
+           #   id = paste0(ns("ctlfile"),"_container"),
+           #  selectInput(ns("ctlfile"),"CONTROL file:",choices=c(""))
+           #),
            tags$div(
              id = paste0(ns("ctinfo"),"_container"),
              selectInput(ns("ctinfo"),"CONSTRAINT INFO file:",choices=c(""))
