@@ -226,7 +226,7 @@ Az integrált modellezési keretrendzser egy grafikus felhasználói felülettel
   - az időbeli \|LÉPTÉK\|-et melyre a napi adatokat aggregálni szeretné (pl. éves értékek megjelenítéséhez a 'year' opciót kell választani).
   - a \|FÜGGV\|-ényt, amely meghatározza az aggregáció módját (pl. a termés évenkénti végső értékének ábrázolásához a 'max' opciót kell választani).
   - a megjeleníteni kívánt függvény \|TÍPUS\|-át.
-- [x] A \|LÉPTÉK\|, \|FÜGGV\| and \|TÍPUS\| oszlopok cellái körkörös menük. Az egyes opciók a cellákra (egyszer vagy többször) kattintva érhetők el.
+- [x] A \|LÉPTÉK\|, \|FÜGGV\| and \|TÍPUS\| oszlopok cellái körkörös menük. Az egyes opciók a cellákra (egyszer vagy többször) kattintva, vagy a cellák felett görgetve érhetők el.
 - [x] A kimeneti változókat filterezhetjük a hozzájuk rendelt címkék segítségével, melyeket a centralData.json fájlban adhatunk meg a '.\AgroMo\app\R-Portable\library\AgroMo\' mappában.
 - [x] Az opciók kiválasztása után a grafikonokat az [ÁBRA LÉTREHOZÁSA] gombra kattintva lehet megjeleníteni.
 
