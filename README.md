@@ -235,9 +235,9 @@ Az integrált modellezési keretrendzser egy grafikus felhasználói felülettel
 - [x] A bal egérgombot nyomva tartva egy terület kijelölésével az ábra tetszőleges részét kinagyíthatja. Dupla kattintással visszaállítható a teljes nézet.
 - [x] A tengelyeken megjelenített tartomány elmozdítható ha megragadja a tengely közepét (a kurzor kinézete: <->) és az egeret vízszintesen illetve függőlegesen mozgatja.
 - [x] A tengelyeken megjelenített tartomány zsugorítható illetve tágítható ha megragadja a tengely bal vagy jobb szélét (a kurzor kinézete: <->) és az egeret vízszintesen illetve függőlegesen mozgatja.
-- [x] Hide/Expose a curve on the plot by clicking the corresponding label in the legend.
+- [x] Rejtsen el illetve hozzon elő görbét a grafikonon a jelmagyarázat megfelelő címkéjéra kattintva illetve újra rákattintva.
 - [ ] Export plot data into various file formats (e.g. xlsx, csv) by clicking the [EXPORT] button.
-- [x] Navigate to the [BASE], [SITE], [GRID] or [MAP] component by clicking the corresponding button on the banner to the left.
+- [x] Az indítóképernyőre, a lokális illetve az adatrács alapú szimulációkhoz illetve a térképes megjelenítő modulhoz való navigáláshoz kattintson a [BASE], [SITE], [GRID] illetve [MAP] gombokra a baloldali szegélyen.
 
 
 ### AgroMo Grid
@@ -270,7 +270,7 @@ Az alábbi példa minden cellára megadja a 2001-2020 időszakra vonatkozó átl
 
 - [x] Tetszőleges új, saját készítésű sablonok adhatók a rendszerhez betartva a fájl felépítésére vonatkozó előírásokat. A sablonokat .json formátumban a .\data\template\grid\ mappába kell helyezni.
 - [x] Fedőnév (alias) és egy (opcionális) rövid leírás után kattintson a [LEKÉRDEZ] vagy [JELENTÉS] gombra a lekérdezés futtatásához. Az első lekérdezés típus kimenete térképes megjelenítésre ad lehetőséget (erre utal a sablonban a TÉRKÉP kifejezés) míg a másik csak táblázatos megjelenítésre ad lehetőséget The first option (if possible) results in a datafile that can be presented as a gridded map, while the secong option results in a simple data table, amely automatikusan megjelenítésre és mentésre kerül.
-- [x] Kattintson a [TÉRKÉP] gombra az eredmények térlépen történő megjelenítéséhez.
+- [x] Kattintson a [TÉRKÉP] gombra az eredmények térképen történő megjelenítéséhez.
 
 ### AgroMo Map
 
