@@ -251,8 +251,8 @@ Ahogy egy inicializációs (INI) fájl definiálja egy lokális (parcella) szint
 
 - [x] Válasszon éghajlat adatbázist a szimulációhoz. 
 - [x] Válasszon talaj adatbázist a szimulációhoz. 
-- [x] Select algorythm combos defining calculation methods of photosynthesis, potential evapotranspiration and water stress
-- [ ] In case an ensemble checkbox is checked simulations are carried out with all available options 
+- [x] Válasszon algoritmus kombinációt, melyek a főbb rendszerfolyamatokat leíró almodelleket illetvetve azok használatát definiálják, úgy mint fotoszintézis, potenciális evapotranszspiráció és aszálystressz.
+- [×] Amennyiben a csoport jelölő négyzet bejelölésre kerül a szimuláció a csoport minden tagjára végrehejtásra kerül. Megjegyzés: egyelőre csak klíma adatbázisokra működik. Azon adatbázisak mappanevét, melyeket szeretnék kihagyni a csoportból ponttal kell kezdeni: pl.: \.foresee40
 - [x] Provide a name for the output data table in which the simulation results are stored. The results of each simulation are stored in separate data tables of the grid.db SQLite database.
 - [x] In case the annual outputs checkbox is checked only annual outputs are stored. In case it is unchecked daily outputs are stored in the data table.
 - [x] Click the [START SIMULATION] button to start the simulation. All available (minus one) threads are used for the calculations. 
