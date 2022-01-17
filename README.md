@@ -244,7 +244,10 @@ Az integrált modellezési keretrendzser egy grafikus felhasználói felülettel
 
 <img src="img/grid_gui_hu.png" style="width: 100%">
 
-Ahogy egy inicializációs (INI) fájl definiálja egy lokális (parcella) szintű szimuláció részleteit a rácsszintű szimulációkat az un. FORGATÓKÖNYV fájlok segítségével definiálhatjuk. Egy FORGATÓKÖNYV tulajonképpen INI fájl csoportok együttese, ahol az együttes tagjai a rács egyik cellájára vonatkozó INI fájlok csoportjai. A FORGATÓKÖNYV fájl határozza meg hol, mikor, mi történik a rács celláiban beleértve a vetséforgókban vagy éppen a fölhasználati módokban történő változásokat is, melyeket INI fájl váltások segítségével adhatunk meg. Egy FORGATÓKÖNYV fájlban a grid valamennyi cellájára felsoroljuk azokat az INI fájlokat (_1, _2, stb. utótaggal) amelyek időben leírják a cella történéseit, minden INI fájlhoz megadva hogy melyik évben aktiválódik és melyik évig definiálja a cella történéseit.
+Ahogy egy inicializációs (INI) fájl definiálja egy lokális (parcella) szintű szimuláció részleteit a rácsszintű szimulációkat az un. FORGATÓKÖNYV fájlok segítségével definiálhatjuk. Egy FORGATÓKÖNYV tulajonképpen INI fájl csoportok együttese, ahol az együttes tagjai a rács egyik cellájára vonatkozó INI fájlok csoportjai. A FORGATÓKÖNYV fájl határozza meg hol, mikor, mi történik a rács celláiban beleértve a vetséforgókban vagy éppen a fölhasználati módokban történő változásokat is, melyeket INI fájl váltások segítségével adhatunk meg. Egy FORGATÓKÖNYV fájlban a grid valamennyi cellájára felsoroljuk azokat az INI fájlokat (_1, _2, stb. utótaggal) amelyek időben leírják a cella történéseit, minden INI fájlhoz megadva hogy melyik évben aktiválódik és melyik évig definiálja a cella történéseit. Jelenleg az alábbi rács került implementálásra Magyarországra vonatkozóan. Valamennyi klíma (meteorológiai) illetve talaj adatbázis ezen rács egyes celláira adja meg a modell által szükséges bemeneő adatokat.
+
+<img src="img/AgroMo_grid.jpg" style="width: 100%">
+
 
 - [x] Válasszon éghajlat adatbázist a szimulációhoz. 
 - [x] Válasszon talaj adatbázist a szimulációhoz. 
