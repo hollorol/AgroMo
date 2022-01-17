@@ -244,10 +244,10 @@ Az integrált modellezési keretrendzser egy grafikus felhasználói felülettel
 
 <img src="img/grid_gui_hu.png" style="width: 100%">
 
-Ahogy egy inicializációs (INI) fájl definiálja egy lokális (parcella) szintű szimuláció részleteit a rácsszintű szimulációkat az un. STORY fájlok segítségével definiálhatjuk. Egy STORY fájl tulajonképpen INI fájl csoportok együttese, ahol az együttes tagjai a rács egyik cellájára vonatkozó INI fájlok csoportjai. A STORY fájl határozza meg hol, mikor, mi történik a rács celláiban beleértve a vetséforgókban vagy éppen a fölhasználati módokban történő változásokat is, melyeket INI fájl váltások segítségével adhatunk meg. Egy STORY fájlban a grid valamennyi cellájára felsoroljuk azokat az INI fájlokat (_1, _2, stb. utótaggal) amelyek időben leírják a cella történéseit, minden INI fájlhoz megadva hogy melyik évben aktiválódik és melyik évig definiálja a cella történéseit.
+Ahogy egy inicializációs (INI) fájl definiálja egy lokális (parcella) szintű szimuláció részleteit a rácsszintű szimulációkat az un. FORGATÓKÖNYV fájlok segítségével definiálhatjuk. Egy FORGATÓKÖNYV tulajonképpen INI fájl csoportok együttese, ahol az együttes tagjai a rács egyik cellájára vonatkozó INI fájlok csoportjai. A FORGATÓKÖNYV fájl határozza meg hol, mikor, mi történik a rács celláiban beleértve a vetséforgókban vagy éppen a fölhasználati módokban történő változásokat is, melyeket INI fájl váltások segítségével adhatunk meg. Egy FORGATÓKÖNYV fájlban a grid valamennyi cellájára felsoroljuk azokat az INI fájlokat (_1, _2, stb. utótaggal) amelyek időben leírják a cella történéseit, minden INI fájlhoz megadva hogy melyik évben aktiválódik és melyik évig definiálja a cella történéseit.
 
-- [x] Select climate database to provide daily weather data for the simulations. 
-- [x] Select soil database to provide physical and chemical soil parameters for the simulations. 
+- [x] Válasszon éghajlat adatbázist a szimulációhoz. 
+- [x] Válasszon talaj adatbázist a szimulációhoz. 
 - [x] Select algorythm combos defining calculation methods of photosynthesis, potential evapotranspiration and water stress
 - [ ] In case an ensemble checkbox is checked simulations are carried out with all available options 
 - [x] Provide a name for the output data table in which the simulation results are stored. The results of each simulation are stored in separate data tables of the grid.db SQLite database.
