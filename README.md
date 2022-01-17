@@ -266,7 +266,7 @@ Az alábbi példa minden cellára megadja a 2001-2020 időszakra vonatkozó átl
 - Végleges lekérdezés sablon: ÁTL|MAX|MIN TERMÉS CELLÁNKÉNT | TÉRKÉP: {1: átlag} a(z) [2071-2100] időszakban a(z) {3: MPI_CCLM_RCP45} projekcióra a(z) {2: TestRun} szimuláció alapján
 - SQL mondat: SELECT cell_id, AVG(TgrainDM*10) FROM TestRun WHERE climate_id=17 AND year >= 1971 AND year <= 2100 GROUP BY cell_id;
 
-- [x] New, self made SQL sentences can be added to the system by placing properly formatted .json files to the .\data\template\grid\ folder.
+- [x] Tetszőleges új, saját készítésű sablonok adhatók a rendszerhez betartva a fájl felépítésére vonatkozó előírásokat. A sablonokat .json formátumban a .\data\template\grid\ mappába kell helyezni.
 - [x] Provide an alias/name and a short description for your query and click the [QUERY] or the [REPORT] button to run the query. The first option (if possible) results in a datafile that can be presented as a gridded map, while the secong option results in a simple data table that can be viewed (it is automatically saved). 
 - [x] Click the [MAP] button to create gridded maps of simulation results.
 
