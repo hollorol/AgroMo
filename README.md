@@ -251,11 +251,11 @@ Ahogy egy inicializációs (INI) fájl definiálja egy lokális (parcella) szint
 
 - [x] Válasszon éghajlat adatbázist a szimulációhoz. 
 - [x] Válasszon talaj adatbázist a szimulációhoz. 
-- [x] Válasszon algoritmus kombinációt, melyek a főbb rendszerfolyamatokat leíró almodelleket illetvetve azok használatát definiálják, úgy mint fotoszintézis, potenciális evapotranszspiráció és aszálystressz.
-- [×] Amennyiben a csoport jelölő négyzet bejelölésre kerül a szimuláció a csoport minden tagjára végrehejtásra kerül. Megjegyzés: egyelőre csak klíma adatbázisokra működik. Azon adatbázisak mappanevét, melyeket szeretnék kihagyni a csoportból ponttal kell kezdeni: pl.: \.foresee40
-- [x] Provide a name for the output data table in which the simulation results are stored. The results of each simulation are stored in separate data tables of the grid.db SQLite database.
-- [x] In case the annual outputs checkbox is checked only annual outputs are stored. In case it is unchecked daily outputs are stored in the data table.
-- [x] Click the [START SIMULATION] button to start the simulation. All available (minus one) threads are used for the calculations. 
+- [x] Válasszon algoritmus kombinációt, melyek a főbb rendszerfolyamatokat leíró almodelleket illetve azok szimuláció során használt variánsait definiálják, úgy mint fotoszintézis, potenciális evapotranszspiráció és aszálystressz.
+- [×] Amennyiben a 'csoport' jelölő négyzet bejelölésre kerül a szimuláció a csoport minden tagjára végrehejtásra kerül. Megjegyzés: egyelőre csak klíma adatbázisokra működik. Azon adatbázisak mappanevét, melyeket szeretnék kihagyni a csoportból ponttal kell kezdeni: pl.: \.foresee40
+- [x] Adjon nevet a szimulációnak (opcionálisan felülírva a program által generált nevet), amely egyben a szimulációs eredményeket tartalmazó adattábla neve is lesz a grid.db SQLite adatbázisban.
+- [x] Amennyiben az 'éves kimenetek' jelölő négyzet bejelölésre kerül kizárólag éves kimenő adatok kerülnek tárolásra, ami gyorsítja a szimulációt és csökkenti a szükséges tárhelyet. A jelölőnégyzet üresen hagyása esetén napi léptékben történik a kimenő adatok kiíratása illetve tárolása.
+- [x] A szimuláció megkezdéséhez kattintson a [SZIMULÁCIÓ INDÍTÁSA] gombra. A szimuláció párhuzamosítva zajlik, egyetlen kivétellel felhasználva az összes elérhető processzor szálat.
 
 #### Queries:
 - [x] Each item in the QUERIES list stands for an SQL sentence in which key sections were made to be selectable. After choosing a query, set/finalize the SQL sentence by picking items from the available {1}, {2}, etc. dropdown menus. You may select the data table the query is applied for; you may select the time frame you want to focus on; and/or you may select the aggregation function (max, min, mean, etc.) you want to apply on the data the SELECT SQL statement retrieved from the data table.
