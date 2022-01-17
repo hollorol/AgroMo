@@ -257,8 +257,8 @@ Ahogy egy inicializációs (INI) fájl definiálja egy lokális (parcella) szint
 - [x] Amennyiben az 'éves kimenetek' jelölő négyzet bejelölésre kerül kizárólag éves kimenő adatok kerülnek tárolásra, ami gyorsítja a szimulációt és csökkenti a szükséges tárhelyet. A jelölőnégyzet üresen hagyása esetén napi léptékben történik a kimenő adatok kiíratása illetve tárolása.
 - [x] A szimuláció megkezdéséhez kattintson a [SZIMULÁCIÓ INDÍTÁSA] gombra. A szimuláció párhuzamosítva zajlik, egyetlen kivétellel felhasználva az összes elérhető processzor szálat.
 
-#### Queries:
-- [x] Each item in the QUERIES list stands for an SQL sentence in which key sections were made to be selectable. After choosing a query, set/finalize the SQL sentence by picking items from the available {1}, {2}, etc. dropdown menus. You may select the data table the query is applied for; you may select the time frame you want to focus on; and/or you may select the aggregation function (max, min, mean, etc.) you want to apply on the data the SELECT SQL statement retrieved from the data table.
+#### Lekérdezések:
+- [x] A LEKÉRDEZÉSEK lista minden eleme egy SQL mondatot takar, amelyben a meghatározó kifejezések/részek a kicserélhetők  a [tól-ig] illetve {1}, {2}, stb.  legördülő menükből történő választással, melyek segítségével megadható hogy a lekérdezés milyen adattáblára illetve időszakra vonatkozzon, továbbá megadható az adatok aggregálásának módja (max, min, mean, etc.) amely a lekérdezés SELECT utasításának egyik paramétere.
 
 An example that retrieves the average annual Net Primary Production for each grid cell for a given time period from the results of the TestRun simulation:
 
