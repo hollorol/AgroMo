@@ -257,7 +257,7 @@ Ahogy egy inicializációs (INI) fájl definiálja egy lokális (parcella) szint
 - [x] Amennyiben az 'éves kimenetek' jelölő négyzet bejelölésre kerül kizárólag éves kimenő adatok kerülnek tárolásra, ami gyorsítja a szimulációt és csökkenti a szükséges tárhelyet. A jelölőnégyzet üresen hagyása esetén napi léptékben történik a kimenő adatok kiíratása illetve tárolása.
 - [x] A szimuláció megkezdéséhez kattintson a [SZIMULÁCIÓ INDÍTÁSA] gombra. A szimuláció párhuzamosítva zajlik, egyetlen kivétellel felhasználva az összes elérhető processzor szálat.
 
-#### Lekérdezések:
+### Lekérdezések:
 - [x] A LEKÉRDEZÉSEK lista minden eleme egy SQL mondat sablont takar, amelyben a meghatározó kifejezések/részek a kicserélhetők  a [tól-ig] illetve {1}, {2}, stb.  legördülő menükből történő választással, melyek segítségével megadható hogy a lekérdezés milyen adattáblára illetve időszakra vonatkozzon, továbbá megadható az adatok aggregálásának módja (max, min, mean, etc.) amely a lekérdezés SELECT utasításának egyik paramétere.
 
 Az alábbi példa minden cellára megadja a 2001-2020 időszakra vonatkozó átlagtermést a TestRun adattábla (szimuláció) alapján:
@@ -274,7 +274,7 @@ Az alábbi példa minden cellára megadja a 2001-2020 időszakra vonatkozó átl
 
 ### AgroMo Map
 
-<img src="img/map_gui.png" style="width: 100%">
+<img src="img/map_gui_hu.png" style="width: 100%">
 
 - [x] Query results are stored in .sql files that can be selected from the data source drop down menu. Data in an .sql file usually define a gridded map.
 - [x] Set some basic features of the map by selecting a palette, switching on/off the the country contour and the latitude/longitude lines, selecting a color for the masked cells.
