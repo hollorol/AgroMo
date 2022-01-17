@@ -243,3 +243,37 @@ Az integrált modellezési keretrendzser egy grafikus felhasználói felülettel
 ### AgroMo Grid
 
 <img src="img/grid_gui_hu.png" style="width: 100%">
+
+Ahogy egy inicializációs (INI) fájl definiálja egy lokális (parcella) szintű szimuláció részleteit a rácsszintű szimulációkat az un. STORY fájlok segítségével definiálhatjuk. Egy STORY fájl tulajonképpen INI fájl csoportok együttese, ahol az együttes tagjai a rács egyik cellájára vonatkozó INI fájlok csoportjai. A STORY fájl határozza meg hol, mikor, mi történik a rács celláiban beleértve a vetséforgókban vagy éppen a fölhasználati módokban történő változásokat is, melyeket INI fájl váltások segítségével adhatunk meg. Egy STORY fájlban a grid valamennyi cellájára felsoroljuk azokat az INI fájlokat (_1, _2, stb. utótaggal) amelyek időben leírják a cella történéseit, minden INI fájlhoz megadva hogy melyik évben aktiválódik és melyik évig definiálja a cella történéseit.
+
+- [x] Select climate database to provide daily weather data for the simulations. 
+- [x] Select soil database to provide physical and chemical soil parameters for the simulations. 
+- [x] Select algorythm combos defining calculation methods of photosynthesis, potential evapotranspiration and water stress
+- [ ] In case an ensemble checkbox is checked simulations are carried out with all available options 
+- [x] Provide a name for the output data table in which the simulation results are stored. The results of each simulation are stored in separate data tables of the grid.db SQLite database.
+- [x] In case the annual outputs checkbox is checked only annual outputs are stored. In case it is unchecked daily outputs are stored in the data table.
+- [x] Click the [START SIMULATION] button to start the simulation. All available (minus one) threads are used for the calculations. 
+
+#### Queries:
+- [x] Each item in the QUERIES list stands for an SQL sentence in which key sections were made to be selectable. After choosing a query, set/finalize the SQL sentence by picking items from the available {1}, {2}, etc. dropdown menus. You may select the data table the query is applied for; you may select the time frame you want to focus on; and/or you may select the aggregation function (max, min, mean, etc.) you want to apply on the data the SELECT SQL statement retrieved from the data table.
+
+An example that retrieves the average annual Net Primary Production for each grid cell for a given time period from the results of the TestRun simulation:
+
+- Raw query item: {1} annual NPP in the [T-T] period for model output {2}
+- Finalized query item: {1: mean} annual NPP in the [1981-2010] period for model output {2: TestRun}
+- SQL sentence: SELECT plotid, AVG(cNPP) FROM (SELECT MAX(cumNPP) AS cNPP, plotid, year FROM TestRun WHERE year >= 1981 AND year <= 2010 GROUP BY year, plotid) GROUP BY plotid
+
+- [x] New, self made SQL sentences can be added to the system by placing properly formatted .json files to the .\data\template\grid\ folder.
+- [x] Provide an alias/name and a short description for your query and click the [QUERY] or the [REPORT] button to run the query. The first option (if possible) results in a datafile that can be presented as a gridded map, while the secong option results in a simple data table that can be viewed (it is automatically saved). 
+- [x] Click the [MAP] button to create gridded maps of simulation results.
+
+### AgroMo Map
+
+<img src="img/map_gui.png" style="width: 100%">
+
+- [x] Query results are stored in .sql files that can be selected from the data source drop down menu. Data in an .sql file usually define a gridded map.
+- [x] Set some basic features of the map by selecting a palette, switching on/off the the country contour and the latitude/longitude lines, selecting a color for the masked cells.
+- [x] Two options can be selected for creating the map: 1) select the number of colors to be used on the map; 2) define an interval that will be used to partitioning the range of the presented values and define the range by setting the minimum and maximum values to be presented on the map. Note: the max-min difference should be larger than the interval.
+- [x] Set the number of decimal places for the values to be presented on the map.
+- [x] Provide a map title and click the [CREATE MAP] button.
+- [x] A preview map is presented that can enlarged by clicking it. A larger resolution version of the map (.png) is automatically saved in the .\data\output\map_image\ folder.
