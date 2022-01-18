@@ -269,16 +269,16 @@ Az alábbi példa minden cellára megadja a 2001-2020 időszakra vonatkozó átl
 
 
 - [x] Tetszőleges új, saját készítésű sablonok adhatók a rendszerhez betartva a fájl felépítésére vonatkozó előírásokat. A sablonokat .json formátumban a .\data\template\grid\ mappába kell helyezni.
-- [x] Fedőnév (alias) és egy (opcionális) rövid leírás után kattintson a [LEKÉRDEZ] vagy [JELENTÉS] gombra a lekérdezés futtatásához. Az első lekérdezés típus kimenete térképes megjelenítésre ad lehetőséget (erre utal a sablonban a TÉRKÉP kifejezés) míg a másik csak táblázatos megjelenítésre ad lehetőséget The first option (if possible) results in a datafile that can be presented as a gridded map, while the secong option results in a simple data table, amely automatikusan megjelenítésre és mentésre kerül.
+- [x] Fedőnév (alias) és egy (opcionális) rövid leírás után kattintson a [LEKÉRDEZ] vagy [JELENTÉS] gombra a lekérdezés futtatásához. Az első lekérdezés típus kimenete térképes megjelenítésre ad lehetőséget (erre utal a sablonban a TÉRKÉP kifejezés) míg a másik csak táblázatos megjelenítésre ad lehetőséget, amely automatikusan megjelenítésre és mentésre kerül, amennyiben a [JELENTÉS] gombra kattint.
 - [x] Kattintson a [TÉRKÉP] gombra az eredmények térképen történő megjelenítéséhez.
 
 ### AgroMo Map
 
 <img src="img/map_gui_hu.png" style="width: 100%">
 
-- [x] Query results are stored in .sql files that can be selected from the data source drop down menu. Data in an .sql file usually define a gridded map.
-- [x] Set some basic features of the map by selecting a palette, switching on/off the the country contour and the latitude/longitude lines, selecting a color for the masked cells.
-- [x] Two options can be selected for creating the map: 1) select the number of colors to be used on the map; 2) define an interval that will be used to partitioning the range of the presented values and define the range by setting the minimum and maximum values to be presented on the map. Note: the max-min difference should be larger than the interval.
+- [x] A lekérdezés eredménye egy .sql fájlban (SQL mondat) és egy .csv fájlban (lekérdezés eredménytáblája) kerül elmentésre. Amennyiben a lekérdezés sikeres az sql fájl megjelenik és kiválasztható az 'adat forrás:' legördülő menüből.
+- [x] Állítsa be a térkép kinézetét meghatározó jellemzőt: színpaletta; országhatár, szélességi és hosszúsági vonalak megjelenítése; kimaszkolni kívánt cellák színe.
+- [x] A térkép skálabeosztását két opció szerint készítheti el: 1) válassza ki a megjelníteni kívánt színek számát. Ekkor a skála legkisebb és legnagyobb értékét a megleníteni kívánt értékek határozzák meg. 2) define an interval that will be used to partitioning the range of the presented values and define the range by setting the minimum and maximum values to be presented on the map. Note: the max-min difference should be larger than the interval.
 - [x] Set the number of decimal places for the values to be presented on the map.
 - [x] Provide a map title and click the [CREATE MAP] button.
 - [x] A preview map is presented that can enlarged by clicking it. A larger resolution version of the map (.png) is automatically saved in the .\data\output\map_image\ folder.
