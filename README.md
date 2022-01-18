@@ -278,7 +278,7 @@ Az alábbi példa minden cellára megadja a 2001-2020 időszakra vonatkozó átl
 
 - [x] A lekérdezés eredménye egy .sql fájlban (SQL mondat) és egy .csv fájlban (lekérdezés eredménytáblája) kerül elmentésre. Amennyiben a lekérdezés sikeres az sql fájl megjelenik és kiválasztható az 'adat forrás:' legördülő menüből.
 - [x] Állítsa be a térkép kinézetét meghatározó jellemzőt: színpaletta; országhatár, szélességi és hosszúsági vonalak megjelenítése; kimaszkolni kívánt cellák színe.
-- [x] A térkép skálabeosztását két opció szerint készítheti el: 1) válassza ki a megjelníteni kívánt színek számát. Ekkor a skála legkisebb és legnagyobb értékét a megleníteni kívánt értékek határozzák meg. 2) define an interval that will be used to partitioning the range of the presented values and define the range by setting the minimum and maximum values to be presented on the map. Note: the max-min difference should be larger than the interval.
-- [x] Set the number of decimal places for the values to be presented on the map.
-- [x] Provide a map title and click the [CREATE MAP] button.
-- [x] A preview map is presented that can enlarged by clicking it. A larger resolution version of the map (.png) is automatically saved in the .\data\output\map_image\ folder.
+- [x] A térkép skálabeosztását két opció szerint készítheti el: 1) válassza ki a megjelníteni kívánt színek számát. Ekkor a skála legkisebb és legnagyobb értékét a megleníteni kívánt értékek határozzák meg. 2) adja meg megjeleníteni kívánt értéktartomány felbontását (lépték), minimumát és maximumát (min-max érték). Fontos, hogy a maximum és minimum értékek különbsége legyen nagyobb mint a lépték.
+- [x] Állítsa be a megjeleníteni kívánt tizedesjegyek számát.
+- [x] Adjon meg egy címet a térkép számára és kattintson a [TÉRKÉP LÉTREHOZÁSA] gombra.
+- [x] Egy előnézeti térkép kerül létrehozásra, melyet rákattintva kinagyíthat. A térkép nagyobb változata .png formátumban automatikusan mentésre kerül a .\data\output\map_image\ mappába.
