@@ -1,6 +1,6 @@
 Package: AgroMo
 Title: The AgroMo GUI provider
-Version: 1.1
+Version: 2.0
 Authors@R: 
   c(person(given = "Roland",
           family = "Hollós",
