@@ -352,6 +352,18 @@
             "TEXT_JPN": "INI ファイル:"
         },
         {
+            "ID": "#sitediv-sitecellid_container label",
+            "TEXT_ENG": "CELL id:",
+            "TEXT_HUN": "CELLA id:",
+            "TEXT_GER": "ZELLE id:",
+            "TEXT_FRA": "CELLULE id:",
+            "TEXT_ESP": "CELDA id:",
+            "TEXT_POR": "CÉLULA id:",
+            "TEXT_RUS": "КЛЕТКА id:",
+            "TEXT_CHN": "细胞 id:",
+            "TEXT_JPN": "細胞 id:"
+        },		
+        {
             "ID": "#sitediv-weatherFile_container label",
             "TEXT_ENG": "WEATHER file:",
             "TEXT_HUN": "IDŐJÁRÁS fájl:",
@@ -658,15 +670,15 @@
         },
         {
             "ID": "#showdiv-alias_container label",
-            "TEXT_ENG": "alias:",
-            "TEXT_HUN": "alias:",
-            "TEXT_GER": "Alias:",
-            "TEXT_FRA": "Alias:",
-            "TEXT_ESP": "Alias:",
-            "TEXT_POR": "pseudónimo:",
-            "TEXT_RUS": "Псевдоним:",
-            "TEXT_CHN": "别名：",
-            "TEXT_JPN": "エイリアス："
+            "TEXT_ENG": "means only",
+            "TEXT_HUN": "csak átlagok",
+            "TEXT_GER": "means only",
+            "TEXT_FRA": "means only",
+            "TEXT_ESP": "means only",
+            "TEXT_POR": "means only",
+            "TEXT_RUS": "means only",
+            "TEXT_CHN": "means only",
+            "TEXT_JPN": "means only"
         },
         {
             "ID": "#showdiv-del",

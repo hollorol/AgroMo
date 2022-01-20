@@ -63,6 +63,8 @@ dat<-reactiveValues(dataenv = NULL)
                                                                           writeDataToDB(settings = settings, dbConnection = isolate(connection()),
                                                                                         binaryName = file.path(baseDir(), "output", sprintf("%s.dayout", settings$outputName)),
                                                                                         isolate(outputName()))          
+                                                                          unlink(file.path("input/initialization/site/tmp"),recursive=TRUE)
+                                                                          unlink(file.path("input/management/tmp"),recursive=TRUE)
                                                                           # removeUI(selector = "#runningGif")
                                                                           hide("runningGif")
                                                                           removeModal()
@@ -172,7 +174,7 @@ shiftFile <- function(manFile, destFile, shiftDate, varCol=NULL, shiftVar=NULL){
   }
 }
 
-managementTemplate <- c("MANAGEMENT_INFORMATION MuSo6", "-", "PLANTING", "1", "input/management/planting/maize_mono.plt", "-", "THINNING", "1", "blubancsek.thn", "-", "MOWING", "1", "input/mowing/mow/mov.mow", "-", "GRAZING", "1", "input/management/grazin/bla.grz", "-", "HARVESTING", "1", "input/management/harvest/maize_mono.hrv", "-", "PLOUGHING", "1", "bibcsek.plt", "-", "FERTILIZING", "1", "input/management/fertilization/maize_mono.frz", "-", "IRRIGATING", "1", "input/management/irrigation/maize.irr")
+managementTemplate <- c("MANAGEMENT_INFORMATION MuSo6", "-", "PLANTING", "1", "none", "-", "THINNING", "1", "none", "-", "MOWING", "1", "none", "-", "GRAZING", "1", "none", "-", "HARVESTING", "1", "none", "-", "PLOUGHING", "1", "none", "-", "FERTILIZING", "1", "none", "-", "IRRIGATING", "1", "none")
 managementRows <- c("plt" = 5, "thn" =  9, "mow" = 13, "grz"= 17, "hrv"= 21, "plo" = 25, "frz" = 29, "irr" = 33)
 
 #' changingMGM
@@ -190,7 +192,11 @@ changingMGM <- function(mgmFile, baseDir, planting=NULL, harvest=NULL, fertiliza
   manFileList <- c(planting, harvest, fertilization, irrigation, grazing, mowing, thinning)
   managementTypes <- c("planting", "harvest", "fertilization", "irrigation", "cultivation", "grazing", "mowing", "thinning")
   manFileList <- grep("\\.[a-z]{3}$",manFileList,value = TRUE)
-  inpFiles <- sapply(manFileList,function(x) grep("\\/tmp\\/",grep(x,list.files(file.path(baseDir,"input/management/site/"), recursive = TRUE),value=TRUE),invert = TRUE, value=TRUE))
+  inpFiles <- sapply(manFileList,function(x) {
+                         grep("\\/tmp\\/",
+                              grep(paste0("/",x),
+                                   list.files(file.path(baseDir,"input/management/site/"),
+                                              recursive = TRUE),value=TRUE),invert = TRUE, value=TRUE)})
   # print(inpFiles)
   destFiles <- paste0("input/management/site/",gsub("(.*)(\\/.*\\..*)","\\1/tmp\\2",inpFiles))
   sapply(destFiles, function(m){

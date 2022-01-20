@@ -256,15 +256,8 @@ agroMoGrid <- function(input, output, session, baseDir, language){
                          } else {
                                 showNotification("Soil file directory (defined in storyLine) not found",type="error")
                          }
-                         # outName <- paste(input$story, match(weather,unique(dat$weatherOptions)),
-                         #                               match(soil,unique(dat$soilOptions)), sep="__")
-                         # updateTextInput(session,"outsq", value=outName)
 
                          dat$story <-split(storyRow,storyRow$site)
-                         # sites <- split(dat$storyCSV, dat$storyCSV[,1])
-                         # dat$numYears <- as.numeric(lapply(sites,function(m){
-                         #                        m[nrow(m),4] - m[1,3] + 1
-                         # }))
                      }
     })
 
@@ -279,19 +272,10 @@ agroMoGrid <- function(input, output, session, baseDir, language){
     })
 
 
-    observe({
-        if(input$story != ""){
-          if(!is.null(dat$storyTimeRange)){
-            updateSelectInput(session,"time",choices=dat$storyTimeRange[1]:dat$storyTimeRange[2], selected=dat$storyTimeRange[1])
-            updateSelectInput(session,"until",choices=dat$storyTimeRange[1]:dat$storyTimeRange[2], selected=dat$storyTimeRange[2])
-          }
- 
-        }
-    })
-
     observeEvent(input$time,{
         if(input$time!=""){
-            updateSelectInput(session,"until",choices=input$time:dat$storyTimeRange[2], selected=dat$storyTimeRange[2])
+            maxYear <- dat$jsonList[[input$queryList]]$timeFrame$max
+            updateSelectInput(session,"until",choices=input$time:maxYear, selected=maxYear)
         }
     })
 
@@ -300,7 +284,6 @@ agroMoGrid <- function(input, output, session, baseDir, language){
             a <- dat$queryNames
              sapply(1:9,function(x){
                         choices <- unlist(dat$jsonList[[input$queryList]]$optionAlias[[dat$language]][[as.character(x)]], use.names=TRUE)
-                        # choices <- unlist(dat$jsonList[[input$queryList]]$options[[dat$language]][[as.character(x)]], use.names=TRUE)
                         if(is.null(choices)){
                             choices <- "NA"
                         }
@@ -314,6 +297,11 @@ agroMoGrid <- function(input, output, session, baseDir, language){
                         updateSelectInput(session,sprintf("sqlfunc_%s",x),
                                           choices=choices)
                       })
+            minYear <- dat$jsonList[[input$queryList]]$timeFrame$min
+            maxYear <- dat$jsonList[[input$queryList]]$timeFrame$max
+            updateSelectInput(session,"time",choices=minYear:maxYear, selected=minYear)
+            updateSelectInput(session,"until",choices=minYear:maxYear, selected=maxYear)
+
         }
     })
 
@@ -413,7 +401,6 @@ agroMoGrid <- function(input, output, session, baseDir, language){
                             errorColumns <- lapply(errorTables,function(tableName){
                                                        dbGetQuery(sqlDB,sprintf("SELECT * FROM %s",tableName))
                                                 })
-                            # queryResults$cell_id <- as.numeric(as.numeric(queryResults$cell_id))
                             #doing a left outer join, the reduce part ads the columns
                             finalDF <- tryCatch(merge((Reduce(function(x,y){x$error <- x$error+y$error; return(x)},errorColumns)),
                                                       queryResults,by.x="site",by.y="cell_id",all.x=TRUE),
@@ -508,8 +495,6 @@ agroMoGrid <- function(input, output, session, baseDir, language){
                     }
     })
 
-    # DT::datatable(data.frame(outputName = queryNames), options = list(autowidth = FALSE, paginate = FALSE, scrollX = FALSE, scrollY = 600, searching = TRUE, info = FALSE, header=FALSE,rownames=FALSE))
-    #}) 
    algorithms <- list("PHOTOS: Farquhar | PET: Penman-Monteith | WSTRESS: WCBased" = c(0,0,0),
                                                                 "PHOTOS: Farquhar | PET: Priestly-Taylor | WSTRESS: WCBased" = c(0,1,0),
                                                                 "PHOTOS: Farquhar | PET: Penman-Monteith | WSTRESS: TransDemBased" = c(0,0,1),
@@ -805,86 +790,3 @@ readTable <- function(fName, econofName, variables, type, cell_id, numDays, star
         return(annuOutput)
     }
 }
-
-
-# runGrid <- function(baseDir,climproj, soildb, algo, input, outputTypeIni, dat){
-#     showNotification("Starting simulation... Removing previous .dayout files")
-#     suppressWarnings(file.remove(list.files(file.path(baseDir(),"output/grid",input$story),full.names=TRUE)))
-#
-#     showNotification("Setting climate projections and algorithms")
-#     indexOfRows <- c(4,39,58,59,61,107,110)
-#     replacements <- c(sprintf("grid/%s/",climproj),
-#                       sprintf("grid/%s/",soildb),
-#                       algorithms[[algo]],outputTypeIni[1],outputTypeIni[2])
-#     regex <- c("grid/.*?/","grid/.*?/")
-#     changeFilesWithRegex(list.files(file.path(baseDir(),"input/initialization/grid",input$story),full.names=TRUE),
-#                          indexOfRows,replacements,regex)
-#     ## runChain(baseDir(),input$story,dat$story[[5]])
-#     dbDir <- file.path(baseDir(),"output")
-#     sqlDB <- DBI::dbConnect(RSQLite::SQLite(),file.path(dbDir,"grid.db"))
-#     error <- runGrid(baseDir(),input$story,dat$story) # dat$story is a list containing all running groups
-#     errorDF <- tapply(error,as.numeric(gsub("_.*","",names(error))),sum)
-#     errorDF <- data.frame(site=names(errorDF),error=errorDF)
-#     dbWriteTable(sqlDB,sprintf("%s_error",input$outsq),errorDF,overwrite=TRUE)
-#     dbExecute(sqlDB,sprintf("DROP TABLE IF EXISTS %s",input$outsq))
-#
-#     climproj_index <- ""
-#     soildb_index <- ""
-#     withProgress(message="Writing data to database, it can be slow...",value=0,{
-#                      for(i in seq_along(dat$story)){
-#                          if(errorDF[i,"error"] == 0){
-#                              writeChainToDB(baseDir(),input$story, sqlDB, input$outsq, dat$story[[i]], dat$storyVars,
-#                                             type=gridType, climproj, soildb, )
-#                          }
-#
-#                          incProgress(1/length(dat$story),detail=sprintf("Writing site %s into grid database",names(dat$story)[i])) 
-#                      }
-#                          })
-#
-#     indexSQL<- c(
-#                  "site" = "CREATE INDEX site_%s ON %s(cell_id)",
-#                  "year" = "CREATE INDEX year_%s ON %s(year)"
-#     )
-#     if(is.element(input$outsq,dbListTables(sqlDB))){
-#         withProgress(message="Creating Database Indexes",value=0,{
-#                          for(i in seq_along(indexSQL)){
-#                              dbExecute(sqlDB,sprintf("DROP INDEX IF EXISTS %s_%s",names(indexSQL[i]),input$outsq))
-#                              dbExecute(sqlDB,sprintf(indexSQL[i],input$outsq,input$outsq,input$outsq))
-#                              incProgress(1/length(indexSQL), sprintf("Creating index on %s",names(indexSQL)[i]))
-#                          }
-#     })
-#     }
-#
-#
-#     dat$modelOutputs <-grep("_error$",dbListTables(sqlDB),invert=TRUE,value=TRUE)
-#     dbDisconnect(sqlDB)
-# }
-#
-# get_datasource_index <- function(baseDir, source_type, content=NULL){
-#     switch(source_type,
-#            soil = {
-#                 grep(content,list.dirs(baseDir,
-#                                        recursive=FALSE,
-#                                        full.names=FALSE),
-#                      fixed=TRUE)
-#            },
-#            climate = {
-#                tryCatch({
-#                     climDB <- DBI::dbConnect(RSQLite(),file.path(baseDir(),"database/climate.db"))
-#                     climDB <- DBI::dbConnect(RSQLite::SQLite(),file.path("~/nandi","database/climate.db"))
-#                     indTable <- DBI::dbReadTable(climDB,"metadata")
-#                     DBI::dbDisconnect(climDB)
-#                     subset(indTable,source_name %in% content)$source_id
-#                 }, error=function(e){
-#                     return(-1*seq_along(content))
-#                 }
-#                )
-#            },
-#
-#            algo = {
-#
-#            }
-#
-#     )
-#
-# }
