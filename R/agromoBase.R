@@ -46,11 +46,19 @@ agromoBaseUI <- function(id){
                                                 dictionary.map(function(elem){
                                               let elemID = document.querySelector(elem.ID);
                                                   let innerLang = `TEXT_${lang}`; 
+                                                  let tooltip = `TOOLTIP_${lang}`; 
                                                   //console.log(innerLang);
+
                                               if(elem[innerLang] === undefined){
                                               } else {
                                                 elemID.innerHTML = elem[innerLang];
-                                              }})
+                                              }
+
+                                              if(elem[tooltip] === undefined){
+                                              } else {
+                                                elemID.setAttribute(\"title\", elem[tooltip]);
+                                              }
+                                            })
                                             }
 
                                             $(\".languageButton\").on(\"click\",function(){
