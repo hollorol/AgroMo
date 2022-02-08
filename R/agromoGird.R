@@ -770,7 +770,7 @@ readTable <- function(fName, econofName, variables, type, cell_id, numDays, star
         return(dayoutput)
     } else {
         if(file.exists(econofName)){
-            econonames <- c("year","crop_id","prim_prod","sec_prod","irr_amaunt","irr_type")
+            econonames <- c("year","crop_id","prim_prod","sec_prod","irr_amount","irr_type")
             econoOutput <- read.table(econofName, skip=1, header=FALSE)
             econoOutput[,1] <- as.integer(econoOutput[,1])
             econoOutput[,5] <- as.integer(econoOutput[,5])
