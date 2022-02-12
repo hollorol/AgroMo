@@ -324,6 +324,8 @@ agroMap <- function(connection=NULL, query=NULL, myData=NULL, attachedDBS = NULL
   # browser()
   errorVector <- myData[,2]
   agroVector <- myData[,3]
+  agroVector[agroVector < minimum] <- minimum
+  agroVector[agroVector > maximum] <- maximum
   agroMapVector(agroVector, errorVector, nticks=nticks, binwidth=binwidth, minimum=minimum, maximum=maximum,
                 roundPrecision=roundPrecision, reverseColorScale=reverseColorScale, colorSet=colorSet,
                 center=center, plotTitle=plotTitle, imageTitle=imageTitle, lonlat=lonlat, countrycont=countrycont,
