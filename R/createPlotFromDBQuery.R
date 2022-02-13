@@ -123,7 +123,7 @@ trimColorSet <- function(minim, maxim, center=NULL, nticks=6, roundPrecision=NUL
 agroMapVector <- function(data, errorVector, nticks=NULL, binwidth=NULL, minimum=NULL, maximum=NULL, roundPrecision=NULL, reverseColorScale=FALSE,
                           colorSet="RdYlGn", center=NULL, plotTitle=NULL, imageTitle=NULL, lonlat=FALSE, countrycont=TRUE,categorical,maskCol) {
 
-    if(is.na(minumum)){
+    if(is.na(minimum)){
         minimum <- min(data, na.rm=TRUE)
     }
 
