@@ -128,7 +128,7 @@ agroMapVector <- function(data, errorVector, nticks=NULL, binwidth=NULL, minimum
     }
 
     if(is.na(maximum)){
-        maximum <- min(data, na.rm=TRUE)
+        maximum <- max(data, na.rm=TRUE)
     }
 
     if(!categorical){
