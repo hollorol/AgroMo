@@ -288,11 +288,12 @@ agroMapVector <- function(data, errorVector, nticks=NULL, binwidth=NULL, minimum
     }
     image.plot(lon_ext, lat_ext, grid_array_ext, xaxt="n", yaxt="n", ann=FALSE, col=colorbar, breaks=brks, 
                lab.breaks=brks, axis.args=list(cex.axis=3.5, family="fira"))#, asp=1.5555555555)
+    image(lon_ext, lat_ext, err_array_ext, col=c("#000000","#000000"), add=TRUE)
     image(lon_ext, lat_ext, mask_array_ext, col=c(maskCol,"#FFFFFF"), add=TRUE)
     if(lonlat==TRUE) {
       abline(h=seq(46,48,1), v=seq(16,23,1), lty=2)
     }
-    title(main=plotTitle, cex.main=6, family="fira")
+    title(main=plotTitle, cex.main=6, family="fira_title")
     axis(1, at=seq(16,23,1), labels=longitudes, 
          cex.axis=4, family="fira")
     axis(1, at=seq(16,23,0.5), labels=FALSE, tck=-0.01)
