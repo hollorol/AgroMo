@@ -708,7 +708,7 @@ runGrid <- function(baseDir, storyName, chainMatrixFull){
     os  <- Sys.info()["sysname"]
     if(os == "Windows"){
         withProgress(message = "simulation", value = 0, {
-                         result <- foreach(site = 1:unique(chainMatrixFull$site), .export="runChain", .combine = c, 
+                         result <- foreach(site = unique(chainMatrixFull$site), .export="runChain", .combine = c, 
                                            .options.snow = opts) %dopar% {
                                 runChain(baseDir,storyName, site, chainMatrixFull)
                          }
