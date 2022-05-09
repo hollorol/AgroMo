@@ -4,10 +4,27 @@
 
 #paranadiv-paranado {
     position: absolute;
-    top: 675px;
+    top: 325px;
     left: -19px;
     height: 70px;
     width: 953px;
+    font-size: 34px;
+    font-weight: bold;
+    background-color: gainsboro;
+    color: black;
+      font-family: Fira Sans;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#paranadiv-viewrep {
+    position: absolute;
+    top: 675px;
+    right: -100px;
+    height: 70px;
+    width: 280px;
     font-size: 34px;
     font-weight: bold;
     background-color: gainsboro;
@@ -63,9 +80,9 @@
 
 #paranadiv-cT div {
     position: absolute; 
-    top: -170px; 
-    left: -115px;
-    width: 250px;
+    top: -168px; 
+    left: -100px;
+    width: 100px;
     font-weight: normal;
     font-size: 16px;
     font-family: Fira Sans;
@@ -107,7 +124,7 @@ text-align: left;
 
 #paranadiv-paranaini_container .selectize-control{
     position: absolute;
-    top: 33px;
+    top: 31px;
     width: 305px;
     left: 314px;
     font-weight: normal;
@@ -138,7 +155,36 @@ text-align: left;
     position: absolute;
     top: 175px;
     left: 314px;
-    width: 180px;
+    width: 305px;
+    font-weight: normal;
+    font-size: 16px;
+    font-family: Fira Sans;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#paranadiv-success_container label {
+    position: absolute;
+    top: 220px;
+    left: 315px;
+    font-weight: bold;
+    font-size: 16px;
+    font-family: Fira Sans;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#paranadiv-success_container .form-control {
+    position: absolute;
+    top: 175px;
+    left: 314px;
+    width: 305px;
     font-weight: normal;
     font-size: 16px;
     font-family: Fira Sans;
@@ -165,7 +211,7 @@ text-align: left;
 
 #paranadiv-paranaexp_container .selectize-control {
     position: absolute;
-    top: 33px;
+    top: 31px;
     width: 305px;
     left: 629px;
     font-weight: normal;
@@ -209,7 +255,7 @@ text-align: left;
 
 #paranadiv-ctinfo_container label {
     position: absolute;
-    top: 150px;
+    top: 80px;
     left: 630px;
     font-weight: bold;
     font-size: 16px;
@@ -223,6 +269,36 @@ text-align: left;
 
 #paranadiv-ctinfo_container .selectize-control {
     position: absolute;
+    top: 103px;
+    width: 305px;
+    left: 629px;
+    font-weight: normal;
+    font-size: 16px;
+    font-family: Fira Sans;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#paranadiv-maxcycle_container label {
+    position: absolute;
+    top: 150px;
+    left: 630px;
+    width: 300px;
+    font-weight: bold;
+    font-size: 16px;
+    font-family: Fira Sans;
+    color: black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#paranadiv-maxcycle_container .selectize-control {
+    position: absolute;
     top: 175px;
     width: 305px;
     left: 629px;
@@ -235,6 +311,7 @@ text-align: left;
   -ms-user-select: none;
   user-select: none;
 }
+
 
 #paranadiv-paranatreat_container label {
     position: absolute;
@@ -268,7 +345,7 @@ text-align: left;
 #paranadiv-charfunc_container label {
     position: absolute;
     top: 80px;
-    left: 630px;
+    left: 314px;
     font-weight: bold;
     font-size: 16px;
     font-family: Fira Sans;
@@ -281,9 +358,9 @@ text-align: left;
 
 #paranadiv-charfunc_container .selectize-input {
     position: absolute;
-    top: -325px;
+    top: -373px;
     width: 305px;
-    left: 629px;
+    left: 315px;
     font-weight: normal;
     font-size: 16px;
     font-family: Fira Sans;
@@ -385,5 +462,5 @@ text-align: left;
 #paranadiv-cT {
 	position: absolute;
 	top: 545px;
-	left: 550px;
+	left: 680px;
 }
