@@ -4,7 +4,7 @@
 
 #paranadiv-paranado {
     position: absolute;
-    top: 325px;
+    top: 300px;
     left: -19px;
     height: 70px;
     width: 953px;
@@ -80,9 +80,9 @@
 
 #paranadiv-cT div {
     position: absolute; 
-    top: -168px; 
-    left: -100px;
-    width: 100px;
+    top: -155px; 
+    left: -85px;
+    width: 300px;
     font-weight: normal;
     font-size: 16px;
     font-family: Fira Sans;
