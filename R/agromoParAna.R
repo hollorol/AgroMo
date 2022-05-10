@@ -18,6 +18,10 @@ agroMoParAnaUI <- function(id){
              id = paste0(ns("maxcycle"),"_container"), 
              textInput(ns("maxcycle"),"MAX. CIRM ITERATION CYCLES:","10")
            ),
+           tags$div(
+             id = paste0(ns("success"),"_container"), 
+             textInput(ns("success"),"SUCCESS RATE:","")
+           ),
            imageOutput(ns("paranaimage")),
            tags$div(
              tableOutput(ns("resultsTable"))
@@ -41,10 +45,6 @@ agroMoParAnaUI <- function(id){
            tags$div(
              id = paste0(ns("charfunc"),"_container"),
              selectInput(ns("charfunc"),"PARAMETER SET file:",choices=c("mean"))
-           ),
-           tags$div(
-             id = paste0(ns("success"),"_container"),
-             selectInput(ns("success"),"SUCCESS RATE:",choices=c("mean"))
            ),
            tags$div(
              id = paste0(ns("metfunc"),"_container"),
