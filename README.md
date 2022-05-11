@@ -22,7 +22,7 @@ AgroMo GUI uses the freely available Fira Sans font family. Please, install the 
 - [x] AgroMo does not require installation, actually. Create a folder for your AgroMo: e.g. 'D:\AgroMo' and download AgroMo Launcher into this folder.
 - [x] Start AgroMo_LAUNCH.exe in your AgroMo folder, select the 'Install / Full Update' option and click the [INSTALL/UPDATE AGROMO] button.
 
-### [Direct link to the Launcher](https://owncloud.atk.hu/index.php/s/7T5GWv1wYqqlJFE/download)
+### [Direct link to the Launcher](https://owncloud.atk.hu/index.php/s/splXWJVTJ4kWkAA/download)
 
 ## AgroMo User Interface
 
