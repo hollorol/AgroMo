@@ -137,7 +137,7 @@ agroMoParAna <- function(input, output, session, baseDir){
                       sourceDir <- calInput$sourceDir
                       parameters <- read.csv(calInput$setfile, stringsAsFactors=FALSE, skip=1)
                       variableName <- read.table(calInput$setfile, nrows=1, sep = ",",stringsAsFactors = FALSE)
-                      measurements <- read.csv2(measureFile, stringsAsFactors=FALSE)
+                      measurements <- read.table(measureFile, stringsAsFactors = FALSE,sep=";", header=TRUE)
                       calLines <- readLines(calFileName)
                       calLines <- calLines[setdiff(1:length(calLines),1:4)]
                       calTable <- read.csv2(textConnection(calLines),stringsAsFactors=FALSE)
@@ -166,7 +166,6 @@ agroMoParAna <- function(input, output, session, baseDir){
                      # th <- as.numeric(readLines("th.txt")[1])
                      th <- const$treshold
 
-
                    withProgress(min=0, max=as.numeric(isolate(input$paranait), value=0, message="Calibration state"),
                                 message="Calibrating...",
                                 detail="Preparing processes...",{
@@ -187,6 +186,7 @@ agroMoParAna <- function(input, output, session, baseDir){
                             })
                         setwd(baseDir())
                    }, error=function(e){
+                     
                        showNotification(sprintf("Something went wrong: %s",e$message),
                                         type="error", duration=NULL) 
                        # showNotification(e, type="error", duration=NULL) 
