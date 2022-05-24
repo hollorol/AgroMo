@@ -8,7 +8,7 @@ paraProgress(
   X,
   FUN,
   cores,
-  pb = txtProgressBar(min = 1, max = max(X), style = 3),
+  pb = txtProgressBar(min = 1, max = length(X), style = 3),
   pbUpdate = setTxtProgressBar,
   prepB = NULL,
   prepUpdate = NULL
