@@ -12,7 +12,15 @@ agroMoParAnaUI <- function(id){
            
            tags$div(
              id = paste0(ns("paranait"),"_container"), 
-             textInput(ns("paranait"),"ITERATION CYCLES:","100")
+             textInput(ns("paranait"),"MONTE-CARLO ITERATION CYCLES:","100")
+           ),
+           tags$div(
+             id = paste0(ns("maxcycle"),"_container"), 
+             textInput(ns("maxcycle"),"MAX. CIRM ITERATION CYCLES:","10")
+           ),
+           tags$div(
+             id = paste0(ns("success"),"_container"), 
+             textInput(ns("success"),"SUCCESS RATE:","")
            ),
            imageOutput(ns("paranaimage")),
            tags$div(
@@ -52,7 +60,8 @@ agroMoParAnaUI <- function(id){
            tags$div(id="paranaradcal","Calibration"),
            tags$div(id=ns("cT"), checkboxInput(ns("copyThread"), "(re)create file system", value = TRUE)),
            tags$div(id = ns("Buttons"),
-                    actionButton(ns("paranado"),label = "PERFORM ANALYSIS"))
+                    actionButton(ns("paranado"),label = "PERFORM ANALYSIS"),
+                    actionButton(ns("viewrep"),label = "VIEW REPORT"))
            
   )
 }
