@@ -62,7 +62,8 @@ agroMoParAnaUI <- function(id){
            tags$div(id = ns("Buttons"),
                     actionButton(ns("paranado"),label = "PERFORM ANALYSIS"),
                     actionButton(ns("viewrep"),label = "VIEW REPORT"))
-           
+
+                    
   )
 }
 
@@ -96,6 +97,29 @@ agroMoParAna <- function(input, output, session, baseDir){
   observe({
       updateSelectInput(session,"ctinfo",
                         choices = list.files(file.path(baseDir(),"calibration",input$paranaini), pattern="\\.json$"))
+  })
+
+  observeEvent(input$viewrep,{
+                   showModal(modalDialog(
+                                title="Parameter Analysis Report",
+                                renderUI({
+                                    fpath <- file.path(baseDir(), "calibration",
+                                                        input$paranaini)
+                                    results      <-   readRDS(file.path(fpath, "results.RDS"))
+                                    compareImage <- knitr::image_uri(file.path(fpath, "calibRes.png"))
+                                    compareTable <- kableExtra::kable_styling(knitr::kable(results$comparison,
+                                                                                      format="html"),"hover", full_width = F)
+
+                                    HTML(sprintf("
+                                                 <h1>Parameter Analysis Report</h1>
+                                                 <img src=\"%s\" />
+                                                 %s 
+                                                 ", compareImage,compareTable
+                                                 )) 
+                                }),
+                                size = "l",
+                                easyClose = TRUE
+                                ))
   })
 
   observe({

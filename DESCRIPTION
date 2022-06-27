@@ -41,10 +41,11 @@ Imports:
   shinyFiles,
   openxlsx,
   showtext,
+  knitr,
+  kableExtra,
   filelock
 Suggests: testhat,
-  rmarkdown,
-  knitr
+  rmarkdown
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
