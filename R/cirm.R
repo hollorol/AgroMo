@@ -1,6 +1,6 @@
 #' zero_var
 #'
-#' A small internal function which determines for each column in 
+#' A small internal function which determines for each column in
 #' a dataframe or matrixf the variance is 0 or not
 #'
 #' @param m dataframe or matrix
@@ -104,7 +104,7 @@ parse_rule_row <- function(string){
 }
 
 
-#' change_parameters_on_node 
+#' change_parameters_on_node
 #'
 #' Changing the parameters on a node based on the splitting rule on it's label
 #'
@@ -144,7 +144,7 @@ change_parameters_on_node <- function(nodes,node,parameters2){
 }
 
 
-#' update_parameters_based_on_tree 
+#' update_parameters_based_on_tree
 #'
 #' Update parameter intervals based on the decesion tree.
 #'
@@ -160,7 +160,7 @@ update_parameters_based_on_tree <- function(rp, parameters){
   node <- get_start_node(frm)
   parameters <- change_parameters_on_node(nodes,node,parameters)
   while(node !=1){
-    node <- get_parent_node(node) 
+    node <- get_parent_node(node)
      if(node == 1){
        break()
      }
@@ -169,13 +169,13 @@ update_parameters_based_on_tree <- function(rp, parameters){
   parameters
 }
 
-#' svg_html 
-#' 
-#' This function plots the ˙code˙ in an svg graphic environment, reads the 
+#' svg_html
+#'
+#' This function plots the ˙code˙ in an svg graphic environment, reads the
 #' temparary file created, and after that it returns the svg string element.
 #'
-#' @param code The code used for plot making 
-#' @export 
+#' @param code The code used for plot making
+#' @export
 
 svg_html <- function(code){
   tmp <- tempfile()
@@ -186,15 +186,15 @@ svg_html <- function(code){
 }
 
 
-#' glue 
-#' 
+#' glue
+#'
 #' This function is the general GLUE method
-#' 
+#'
 #' @param results The result.csv file after one montecarlo iteration
 #' @param res_r comparison results
 #' @param output the output file name
 #' @param epcname The name of the epc file
-#' @export 
+#' @export
 
 
 glue <- function(results="result.csv",res_r="results.RDS",
@@ -242,7 +242,7 @@ glue <- function(results="result.csv",res_r="results.RDS",
   dev.off()
 }
 
-#' cirmi_glue_agromo 
+#' cirmi_glue_agromo
 #'
 #' This is the AgroMo implementation of CIRMI_GLUE
 #'
@@ -271,17 +271,17 @@ cirmi_glue_agromo <- function(parameters, measurements, mc_iterations,
                  parameters = vector(mode = "list", cirm_iterations))
   for (cirm_i in 1:cirm_iterations) {
     results <- RBBGCMuso::multiSiteCalib(measurements = measurements,
-                            parameters = parameters, 
+                            parameters = parameters,
                             calTable = calTable,
                             dataVar = dataVar,
-                            iterations = as.numeric(isolate(input$paranait)), 
+                            iterations = as.numeric(isolate(input$paranait)),
                             pb = NULL,
                             pbUpdate = function(x) {
                                            setProgress(value = x, detail = x)
                                                    },
                             likelihood = likelihood,
                             execPath = execPath,
-                            copyThread = input$copyThread, 
+                            copyThread = input$copyThread,
                             constraints = constraints, th = th)
     len <- round(log(max(results$failType), 2))
     failTypes <- do.call(rbind, lapply(results$failType, function(x) {
