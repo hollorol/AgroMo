@@ -4,7 +4,7 @@ Please cite this work as follows:
 Fodor, N., Hollós, R., Kiss, A., Hidy, D., Kristóf, E., Barcza Z., (2022).
 AgroMo: An agro-ecological modelling Framework. URL https://github.com/hollorol/AgroMo.
 
-[<img src="img/UKflag.gif" style="width: 10%" title="English version">](#english-version) &emsp; [<img src="img/HUflag.gif" style="width: 10%" title="Magyar változat">](#magyar-változat)   
+[<img src="img/UKflag.gif" style="width: 100px" title="English version">](#english-version) &emsp; [<img src="img/HUflag.gif" style="width: 100px" title="Magyar változat">](#magyar-változat)   
 
 ---
 
