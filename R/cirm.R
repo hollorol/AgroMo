@@ -309,4 +309,5 @@ cirmi_glue_agromo <- function(parameters, measurements, mc_iterations,
     to_out$treesvgs[cirm_i] <- paste(images, collapse = "")
     to_out$parameters[[cirm_i]] <- parameters
   }
+  return(to_out)
 }
