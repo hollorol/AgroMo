@@ -39,18 +39,26 @@ agromoBaseUI <- function(id){
                         shiny::tags$img(id = ns("fraFlag"),src="www/img/FRAflag.png", title = "Version française", langID = "FRA", class = "languageButton"),
                         shiny::tags$img(id = ns("espFlag"),src="www/img/ESPflag.png", title = "Versión en español", langID = "ESP", class = "languageButton"),
                         shiny::tags$img(id = ns("porFlag"),src="www/img/PORflag.png", title = "Versão portugal", langID = "POR", class = "languageButton"),
-                        shiny::tags$img(id = ns("jpFlag"),src="www/img/JPflag_s.png", langID = "JPN", class = "languageButton"),
+                        shiny::tags$img(id = ns("uzbFlag"),src="www/img/UZBflag.png", title = "English version", langID = "UZB", class = "languageButton"),
                         shiny::tags$script(HTML("
 
                                             function dictChange(dictionary, lang){
                                                 dictionary.map(function(elem){
                                               let elemID = document.querySelector(elem.ID);
                                                   let innerLang = `TEXT_${lang}`; 
+                                                  let tooltip = `TOOLTIP_${lang}`; 
                                                   //console.log(innerLang);
-                                              if(elem[innerLang] === undefined){
-                                              } else {
-                                                elemID.innerHTML = elem[innerLang];
-                                              }})
+                                                  if(elemID){
+                                                      if(elem[innerLang] !== undefined){
+                                                        elemID.innerHTML = elem[innerLang];
+                                                      }
+
+                                                      if(elem[tooltip] !== undefined){
+                                                        elemID.setAttribute(\"title\", elem[tooltip]);
+                                                      }
+
+                                                  }
+                                            })
                                             }
 
                                             $(\".languageButton\").on(\"click\",function(){
