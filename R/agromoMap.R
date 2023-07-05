@@ -223,8 +223,6 @@ agroMoMap <- function(input, output, session, baseDir, initialList){
 
   observe({
               if(input$radio=="colnumb"){
-                  # updateTextInput(session, "min", value=as.numeric(NA)) 
-                  # updateTextInput(session, "max", value=as.numeric(NA)) 
                   datas$colnumbSelected <- TRUE
               } else {
                   datas$colnumbSelected <- FALSE

@@ -123,15 +123,11 @@ trimColorSet <- function(minim, maxim, center=NULL, nticks=6, roundPrecision=NUL
 agroMapVector <- function(data, errorVector, nticks=NULL, binwidth=NULL, minimum=NULL, maximum=NULL, roundPrecision=NULL, reverseColorScale=FALSE,
                           colorSet="RdYlGn", center=NULL, plotTitle=NULL, imageTitle=NULL, lonlat=FALSE, countrycont=TRUE,categorical,maskCol) {
 
-    if(is.na(minimum)){
-        minimum <- min(data, na.rm=TRUE)
-    }
-
-    if(is.na(maximum)){
-        maximum <- max(data, na.rm=TRUE)
-    }
-
     if(!categorical){
+        if((is.na(minimum) && is.na(maximum))){
+            showNotification("Please provide minimum or maximum value for mapping",type="error")
+            return(1)
+        }
 
         if(minimum >= maximum){
             showNotification("Minimum must be less than maximum",type="error")
@@ -235,7 +231,7 @@ agroMapVector <- function(data, errorVector, nticks=NULL, binwidth=NULL, minimum
   # browser() 
   # if (is.null(binwidth)) {
   if ((nticks > 1) && categorical) { # With this parameter, plotting of maps is possible by choosing (min,max,bw) and nticks, respectively.
-    colorbar <- trimColorSet(minimum, maximum, center=center, nticks=nticks,
+    colorbar <- trimColorSet(min(data,na.rm=TRUE),max(data,na.rm=TRUE),center=center, nticks=nticks,
                              roundPrecision=roundPrecision, reverseColorScale=reverseColorScale, colorSet=colorSet)
     if(!is.null(imageTitle)){
       png(imageTitle, units="in", width=14, height=9, pointsize=14, res=300)  
@@ -288,12 +284,11 @@ agroMapVector <- function(data, errorVector, nticks=NULL, binwidth=NULL, minimum
     }
     image.plot(lon_ext, lat_ext, grid_array_ext, xaxt="n", yaxt="n", ann=FALSE, col=colorbar, breaks=brks, 
                lab.breaks=brks, axis.args=list(cex.axis=3.5, family="fira"))#, asp=1.5555555555)
-    image(lon_ext, lat_ext, err_array_ext, col=c("#000000","#000000"), add=TRUE)
     image(lon_ext, lat_ext, mask_array_ext, col=c(maskCol,"#FFFFFF"), add=TRUE)
     if(lonlat==TRUE) {
       abline(h=seq(46,48,1), v=seq(16,23,1), lty=2)
     }
-    title(main=plotTitle, cex.main=6, family="fira_title")
+    title(main=plotTitle, cex.main=6, family="fira")
     axis(1, at=seq(16,23,1), labels=longitudes, 
          cex.axis=4, family="fira")
     axis(1, at=seq(16,23,0.5), labels=FALSE, tck=-0.01)
@@ -329,8 +324,6 @@ agroMap <- function(connection=NULL, query=NULL, myData=NULL, attachedDBS = NULL
   # browser()
   errorVector <- myData[,2]
   agroVector <- myData[,3]
-  agroVector[agroVector < minimum] <- minimum
-  agroVector[agroVector > maximum] <- maximum
   agroMapVector(agroVector, errorVector, nticks=nticks, binwidth=binwidth, minimum=minimum, maximum=maximum,
                 roundPrecision=roundPrecision, reverseColorScale=reverseColorScale, colorSet=colorSet,
                 center=center, plotTitle=plotTitle, imageTitle=imageTitle, lonlat=lonlat, countrycont=countrycont,

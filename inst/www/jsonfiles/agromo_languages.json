@@ -9,8 +9,7 @@
             "TOOLTIP_POR": "SAÍDA",
             "TOOLTIP_RUS": "Выход",
             "TOOLTIP_CHN": "退出",
-            "TOOLTIP_JPN": "終了",
-            "TOOLTIP_UZB": "Chiqish"
+            "TOOLTIP_JPN": "終了"
         },
         {
             "ID": "#components",
@@ -22,8 +21,7 @@
             "TEXT_POR": "MÓDULOS",
             "TEXT_RUS": "Модули",
             "TEXT_CHN": "模块",
-            "TEXT_JPN": "モジュール",
-            "TEXT_UZB": "MODULLAR"
+            "TEXT_JPN": "モジュール"
         },
         {
             "ID": "#mainSideBarTools",
@@ -35,8 +33,7 @@
             "TEXT_POR": "FERRAMENTAS",
             "TEXT_RUS": "Инструменты",
             "TEXT_CHN": "工具",
-            "TEXT_JPN": "ツール",
-            "TEXT_UZB": "ASBOBLAR"
+            "TEXT_JPN": "ツール"
         },
         {
             "ID": "#parana",
@@ -57,9 +54,7 @@
             "TEXT_CHN": "参数分析",
             "TOOLTIP_CHN": "参数读取、校正和敏感性分析",
             "TEXT_JPN": "パラメータ分析",
-            "TOOLTIP_JPN": "モデルキャリブレーションなど.",
-            "TOOL_UZB": "PARAMETRLIK TAHLILLAR",
-            "TOOLTIP_UZB": "Parametrlarni tekshirish va kalibrlash va sezgirlikni tahlil qilish"
+            "TOOLTIP_JPN": "モデルキャリブレーションなど."
         },
         {
             "ID": "#sitegen",
@@ -80,9 +75,7 @@
             "TEXT_CHN": "输入管理器",
             "TOOLTIP_CHN": "从公开的数据库下载数据",
             "TEXT_JPN": "インプットマネージャー",
-            "TOOLTIP_JPN": "開いているデータベースからデータをダウンロードする",
-            "TEXT_UZB": "KIRISH BOSHQARUVI",
-            "TOOLTIP_UZB": "Ochiq ma'lumotlar bazalaridan ma'lumotlarni yuklab oling"
+            "TOOLTIP_JPN": "開いているデータベースからデータをダウンロードする"
         },
         {
             "ID": "#calibration",
@@ -97,9 +90,7 @@
             "TEXT_RUS": "МЕНЕДЖЕР БАЗ ДАННЫХ",
             "TEXT_CHN": "数据库管理器",
             "TOOLTIP_CHN": "管理数据表和运行SQL查询",
-            "TEXT_JPN": "データベース・マネージャー",
-            "TEXT_UZB": "MA'LUMOTLAR BAZASI MENEJERI",
-            "TOOLTIP_UZB": "Ma'lumotlar jadvallarini boshqaring va SQL so'rovlarini bajaring"
+            "TEXT_JPN": "データベース・マネージャー"
         },
         {
             "ID": "#fileMan",
@@ -110,9 +101,7 @@
             "TEXT_GER": "INPUT-BILDNER",
             "TEXT_FRA": "CRÉATEUR D'ENTRÉES",
             "TEXT_CHN": "模型框架",
-            "TOOLTIP_CHN": "为栅格运行创建框架和输入文件",
-            "TEXT_UZB": "VOQEA CHIZIG'I YARATUVCHISI",
-            "TOOLTIP_UZB": "Voqealar chizig'i va kirish fayllarni to'rlar paydo bo'lishi uchun yarating"
+            "TOOLTIP_CHN": "为栅格运行创建框架和输入文件"
         },
         {
             "ID": "#helpme",
@@ -120,8 +109,7 @@
             "TEXT_HUN": "SÚGÓ",
             "TEXT_GER": "HILFE",
             "TEXT_FRA": "ASSISTANCE",
-            "TEXT_CHN": "帮助",
-            "TEXT_UZB": "YORDAM"
+            "TEXT_CHN": "帮助"
         },
         {
             "ID": "#mainSideBarLang",
@@ -133,8 +121,7 @@
             "TEXT_POR": "Idiomas",
             "TEXT_RUS": "Языки",
             "TEXT_CHN": "语言",
-            "TEXT_JPN": "言語",
-            "TEXT_UZB": "TILLAR"
+            "TEXT_JPN": "言語"
         },
         {
             "ID": "#base-huFlag",
@@ -146,8 +133,7 @@
             "TOOLTIP_POR": "Magyar változat",
             "TOOLTIP_RUS": "Magyar változat",
             "TOOLTIP_CHN": "Magyar változat",
-            "TOOLTIP_JPN": "Magyar változat",
-            "TOOLTIP_UZB": "Magyar változat"
+            "TOOLTIP_JPN": "Magyar változat"
         },
         {
             "ID": "#base-ukFlag",
@@ -159,8 +145,7 @@
             "TOOLTIP_POR": "English version",
             "TOOLTIP_RUS": "English version",
             "TOOLTIP_CHN": "English version",
-            "TOOLTIP_JPN": "English version",
-            "TOOLTIP_UZB": "English version"
+            "TOOLTIP_JPN": "English version"
         },
         {
             "ID": "#base-gerFlag",
@@ -172,8 +157,7 @@
             "TOOLTIP_POR": "Deutsch Version",
             "TOOLTIP_RUS": "Deutsch Version",
             "TOOLTIP_CHN": "Deutsch Version",
-            "TOOLTIP_JPN": "Deutsch Version",
-            "TOOLTIP_UZB": "Deutsch Version"
+            "TOOLTIP_JPN": "Deutsch Version"
         },
         {
             "ID": "#base-jpFlag",
@@ -185,8 +169,7 @@
             "TOOLTIP_POR": "日本語版",
             "TOOLTIP_RUS": "日本語版",
             "TOOLTIP_CHN": "日语版",
-            "TOOLTIP_JPN": "日本語版",
-            "TOOLTIP_UZB": "日本語版"
+            "TOOLTIP_JPN": "日本語版"
         },
         {
             "ID": "#base-fraFlag",
@@ -198,8 +181,7 @@
             "TOOLTIP_POR": "Version française",
             "TOOLTIP_RUS": "Version française",
             "TOOLTIP_CHN": "Version française",
-            "TOOLTIP_JPN": "Version française",
-            "TOOLTIP_UZB": "Version française"
+            "TOOLTIP_JPN": "Version française"
         },
         {
             "ID": "#base-espFlag",
@@ -211,8 +193,7 @@
             "TOOLTIP_POR": "Versión en español",
             "TOOLTIP_RUS": "Versión en español",
             "TOOLTIP_CHN": "Versión en español",
-            "TOOLTIP_JPN": "Versión en español",
-            "TOOLTIP_UZB": "Versión en español"
+            "TOOLTIP_JPN": "Versión en español"
         },
         {
             "ID": "#base-porFlag",
@@ -224,8 +205,7 @@
             "TOOLTIP_POR": "Versão em português",
             "TOOLTIP_RUS": "Versão em português",
             "TOOLTIP_CHN": "Versão em português",
-            "TOOLTIP_JPN": "Versão em português",
-            "TOOLTIP_UZB": "Versão em português"
+            "TOOLTIP_JPN": "Versão em português"
         },
         {
             "ID": "#base-rusFlag",
@@ -237,8 +217,7 @@
             "TOOLTIP_POR": "Русская версия",
             "TOOLTIP_RUS": "Русская версия",
             "TOOLTIP_CHN": "Русская версия",
-            "TOOLTIP_JPN": "Русская версия",
-            "TOOLTIP_UZB": "Русская версия"
+            "TOOLTIP_JPN": "Русская версия"
         },
         {
             "ID": "#base-chiFlag",
@@ -250,21 +229,7 @@
             "TOOLTIP_POR": "英文版",
             "TOOLTIP_RUS": "英文版",
             "TOOLTIP_CHN": "英文版",
-            "TOOLTIP_JPN": "英文版",
-            "TOOLTIP_UZB": "英文版"},
-
-        {
-            "ID": "#base-rusFlag",
-            "TOOLTIP_ENG": "O'zbekcha versiya",
-            "TOOLTIP_HUN": "O'zbekcha versiya",
-            "TOOLTIP_GER": "O'zbekcha versiya",
-            "TOOLTIP_FRA": "O'zbekcha versiya",
-            "TOOLTIP_ESP": "O'zbekcha versiya",
-            "TOOLTIP_POR": "O'zbekcha versiya",
-            "TOOLTIP_RUS": "O'zbekcha versiya",
-            "TOOLTIP_CHN": "O'zbekcha versiya",
-            "TOOLTIP_JPN": "O'zbekcha versiya",
-            "TOOLTIP_UZB": "O'zbekcha versiya"
+            "TOOLTIP_JPN": "英文版"
         },
         {
             "ID": "#mainSideBarDirectory",
@@ -276,8 +241,7 @@
             "TEXT_POR": "DIRETÓRIO PRINCIPAL",
             "TEXT_RUS": "ГЛАВНЫЙ КАТАЛОГ",
             "TEXT_CHN": "主目录",
-            "TEXT_JPN": "メインディレクトリ",
-            "TEXT_UZB": "ASOSIY MA'LUMOT"
+            "TEXT_JPN": "メインディレクトリ"
         },
         {
             "ID": "#choose",
@@ -289,8 +253,7 @@
             "TEXT_POR": "MODIFICAR",
             "TEXT_RUS": "Изменить",
             "TEXT_CHN": "修改",
-            "TEXT_JPN": "変更",
-            "TEXT_UZB": "O'ZGARTIRISH"
+            "TEXT_JPN": "変更"
         },
         {
             "ID": "#site",
@@ -302,8 +265,7 @@
             "TOOLTIP_POR": "Simulações de nível de enredo",
             "TOOLTIP_RUS": "Моделирование уровня участка",
             "TOOLTIP_CHN": "站点/格点模拟",
-            "TOOLTIP_JPN": "プロット レベル シミュレーション",
-            "TOOLTIP_UZB": "Uchastka darajasidagi modellashtirish"
+            "TOOLTIP_JPN": "プロット レベル シミュレーション"
         },
         {
             "ID": "#show",
@@ -315,8 +277,7 @@
             "TOOLTIP_POR": "Criador de enredo",
             "TOOLTIP_RUS": "Создатель участка",
             "TOOLTIP_CHN": "格点模拟结果",
-            "TOOLTIP_JPN": "プロット作成者",
-            "TOOLTIP_UZB": "Uchastka modellari natijalari"
+            "TOOLTIP_JPN": "プロット作成者"
         },
         {
             "ID": "#grid",
@@ -328,8 +289,7 @@
             "TOOLTIP_POR": "Simulações de nível de grelha",
             "TOOLTIP_RUS": "Моделирование уровня сетки",
             "TOOLTIP_CHN": "网格尺度模拟",
-            "TOOLTIP_JPN": "グリッド レベルシミュレーション",
-            "TOOLTIP_UZB": "To'rlar darajasi natijalari"
+            "TOOLTIP_JPN": "グリッド レベルシミュレーション"
         },
         {
             "ID": "#map",
@@ -341,8 +301,7 @@
             "TOOLTIP_POR": "Criador de mapas",
             "TOOLTIP_RUS": "Создатель карты",
             "TOOLTIP_CHN": "地图模拟结果",
-            "TOOLTIP_JPN": "マップ作成者",
-            "TOOLTIP_UZB": "Xarita modeli natijasi"
+            "TOOLTIP_JPN": "マップ作成者"
         },
         {
             "ID": "#sitediv-refresh",
@@ -354,8 +313,7 @@
             "TOOLTIP_POR": "Atualizar o conteúdo dos menus suspensos com base na lista de ficheiros das pastas correspondentes",
             "TOOLTIP_RUS": "Обновление содержимого меню выпадения на основе списка файлов соответствующих папок",
             "TOOLTIP_CHN": "根据相应文件夹的文件列表刷新下拉菜单的内容",
-            "TOOLTIP_JPN": "対応するフォルダのファイル リストに基づいてドロップダウン メニューの内容を更新する",
-            "TOOLTIP_UZB": "Ochiladigan menyular tarkibini yangilang"
+            "TOOLTIP_JPN": "対応するフォルダのファイル リストに基づいてドロップダウン メニューの内容を更新する"
         },
         {
             "ID": "#manModuls",
@@ -367,8 +325,7 @@
             "TEXT_POR": "opções de gestão:",
             "TEXT_RUS": "варианты управления:",
             "TEXT_CHN": "管理选项：",
-            "TEXT_JPN": "管理オプション:",
-            "TEXT_UZB": "boshqaruv imkoniyatlari:"
+            "TEXT_JPN": "管理オプション:"
         },
         {
             "ID": "#shiftIn",
@@ -380,8 +337,7 @@
             "TEXT_POR": "mudança em ...",
             "TEXT_RUS": "сдвиг в ...",
             "TEXT_CHN": "转换...",
-            "TEXT_JPN": "でシフト.",
-            "TEXT_UZB": "siljitish..."
+            "TEXT_JPN": "でシフト."
         },
         {
             "ID": "#sitediv-iniFile_container label",
@@ -393,7 +349,7 @@
             "TEXT_POR": "Ficheiro INI:",
             "TEXT_RUS": "ФАЙЛ INI:",
             "TEXT_CHN": "初始化数据：",
-            "TEXT_UZB": "INI fayli:"
+            "TEXT_JPN": "INI ファイル:"
         },
         {
             "ID": "#sitediv-sitecellid_container label",
@@ -405,8 +361,7 @@
             "TEXT_POR": "CÉLULA id:",
             "TEXT_RUS": "КЛЕТКА id:",
             "TEXT_CHN": "细胞 id:",
-            "TEXT_JPN": "細胞 id:",
-            "TEXT_UZB": "SETKA id:"
+            "TEXT_JPN": "細胞 id:"
         },		
         {
             "ID": "#sitediv-weatherFile_container label",
@@ -418,8 +373,7 @@
             "TEXT_POR": "Ficheiro WEATHER:",
             "TEXT_RUS": "Файл WEATHER:",
             "TEXT_CHN": "气候数据：",
-            "TEXT_JPN": "天気ファイル:",
-            "TEXT_UZB": "OB-HAVO fayli:" 
+            "TEXT_JPN": "天気ファイル:"
         },
         {
             "ID": "#sitediv-soilFile_container label",
@@ -431,8 +385,7 @@
             "TEXT_POR": "Ficheiro SOLO:",
             "TEXT_RUS": "Файл SOIL:",
             "TEXT_CHN": "土壤数据：",
-            "TEXT_JPN": "土壌ファイル:",
-            "TEXT_UZB": "TUPROQ fayli:"
+            "TEXT_JPN": "土壌ファイル:"
         },
         {
             "ID": "#sitediv-managementFile_container label",
@@ -444,8 +397,7 @@
             "TEXT_POR": "Ficheiro MANAGEMENT:",
             "TEXT_RUS": "Файл MANAGEMENT:",
             "TEXT_CHN": "管理数据：",
-            "TEXT_JPN": "管理ファイル:",
-            "TEXT_UZB": "BOSHQARUV fayli:"
+            "TEXT_JPN": "管理ファイル:"
         },
         {
             "ID": "#sitediv-planting_container label",
@@ -457,8 +409,7 @@
             "TEXT_POR": "Plantação:",
             "TEXT_RUS": "Посадки:",
             "TEXT_CHN": "种植：",
-            "TEXT_JPN": "植栽：",
-            "TEXT_UZB": "ekish:"
+            "TEXT_JPN": "植栽："
         },
         {
             "ID": "#sitediv-harvest_container label",
@@ -470,8 +421,7 @@
             "TEXT_POR": "Colheita:",
             "TEXT_RUS": "Урожай:",
             "TEXT_CHN": "收割：",
-            "TEXT_JPN": "収穫：",
-            "TEXT_UZB": "hosil:"
+            "TEXT_JPN": "収穫："
         },
         {
             "ID": "#sitediv-fertilization_container label",
@@ -483,8 +433,7 @@
             "TEXT_POR": "fertilização:",
             "TEXT_RUS": "Оплодотворения:",
             "TEXT_CHN": "施肥：",
-            "TEXT_JPN": "受精：",
-            "TEXT_UZB": "o'g'itlash:"
+            "TEXT_JPN": "受精："
         },
         {
             "ID": "#sitediv-irrigation_container label",
@@ -496,8 +445,7 @@
             "TEXT_POR": "irrigação:",
             "TEXT_RUS": "Орошения:",
             "TEXT_CHN": "灌溉：",
-            "TEXT_JPN": "灌漑：",
-            "TEXT_UZB": "sug'orish:"
+            "TEXT_JPN": "灌漑："
         },
         {
             "ID": "#sitediv-cultivation_container label",
@@ -509,8 +457,7 @@
             "TEXT_POR": "cultivo:",
             "TEXT_RUS": "Выращивания:",
             "TEXT_CHN": "耕作：",
-            "TEXT_JPN": "栽培：",
-            "TEXT_UZB": "ishlov berish:"
+            "TEXT_JPN": "栽培："
         },
         {
             "ID": "#sitediv-grazing_container label",
@@ -522,8 +469,7 @@
             "TEXT_POR": "pastoreio:",
             "TEXT_RUS": "Выпаса:",
             "TEXT_CHN": "放牧：",
-            "TEXT_JPN": "放牧：",
-            "TEXT_UZB": "yaylov:"
+            "TEXT_JPN": "放牧："
         },
         {
             "ID": "#sitediv-mowing_container label",
@@ -535,8 +481,7 @@
             "TEXT_POR": "Corte:",
             "TEXT_RUS": "Скашивания:",
             "TEXT_CHN": "修剪：",
-            "TEXT_JPN": "刈り取り：",
-            "TEXT_UZB": "o't o'rish:"
+            "TEXT_JPN": "刈り取り："
         },
         {
             "ID": "#sitediv-thinning_container label",
@@ -548,8 +493,7 @@
             "TEXT_POR": "desbaste:",
             "TEXT_RUS": "Истончение:",
             "TEXT_CHN": "细化：",
-            "TEXT_JPN": "間伐：",
-            "TEXT_UZB": "yagonalash:"
+            "TEXT_JPN": "間伐："
         },
         {
             "ID": "#outputid-label",
@@ -561,8 +505,7 @@
             "TEXT_POR": "TABELA DE DADOS DE SAÍDA:",
             "TEXT_RUS": "ТАБЛИЦА ВЫВОДНЫХ ДАННЫХ:",
             "TEXT_CHN": "输出数据表：",
-            "TEXT_JPN": "出力データ テーブル:",
-            "TEXT_UZB": "CHIQISH MA'LUMOTLAR JADVALI:"
+            "TEXT_JPN": "出力データ テーブル:"
         },
         {
             "ID": "#sitediv-popRun-runModel",
@@ -574,8 +517,7 @@
             "TEXT_POR": "SIMULAÇÃO DE INÍCIO",
             "TEXT_RUS": "НАЧАЛО МОДЕЛИРОВАНИЯ",
             "TEXT_CHN": "开始模拟",
-            "TEXT_JPN": "シミュレーションを開始する",
-            "TEXT_UZB": "MODELLASHTIRISHNI BOSHLASH:"
+            "TEXT_JPN": "シミュレーションを開始する"
         },
         {
             "ID": "#sitediv-Show",
@@ -596,9 +538,7 @@
             "TEXT_CHN": "绘图",
             "TOOLTIP_CHN": "使用模拟结果创建绘图",
             "TEXT_JPN": "プロット",
-            "TOOLTIP_JPN": "シミュレーション結果を使用してプロットを作成する",
-            "TEXT_UZB": "UCHASTKA:",
-            "TOOLTIP_UZB": "Uchastka modeli natijalari" 
+            "TOOLTIP_JPN": "シミュレーション結果を使用してプロットを作成する"
         },
         {
             "ID": "#sitediv-planshift_date_container label",
@@ -610,8 +550,7 @@
             "TEXT_POR": "data (dia):",
             "TEXT_RUS": "дата (день):",
             "TEXT_CHN": "日期（天）：",
-            "TEXT_JPN": "日付(日):",
-            "TEXT_UZB": "sana (kun):"
+            "TEXT_JPN": "日付(日):"
         },
         {
             "ID": "#sitediv-harvshift_date_container label",
@@ -623,8 +562,7 @@
             "TEXT_POR": "data (dia):",
             "TEXT_RUS": "дата (день):",
             "TEXT_CHN": "日期（天）：",
-            "TEXT_JPN": "日付(日):",
-            "TEXT_UZB": "sana (kun):"
+            "TEXT_JPN": "日付(日):"
         },
         {
             "ID": "#sitediv-fertshift_date_container label",
@@ -636,8 +574,7 @@
             "TEXT_POR": "data (dia):",
             "TEXT_RUS": "дата (день):",
             "TEXT_CHN": "日期（天）：",
-            "TEXT_JPN": "日付(日):",
-            "TEXT_UZB": "sana (kun):"
+            "TEXT_JPN": "日付(日):"
         },
         {
             "ID": "#sitediv-irrshift_date_container label",
@@ -649,8 +586,7 @@
             "TEXT_POR": "data (dia):",
             "TEXT_RUS": "дата (день):",
             "TEXT_CHN": "日期（天）：",
-            "TEXT_JPN": "日付(日):",
-            "TEXT_UZB": "sana (kun):"
+            "TEXT_JPN": "日付(日):"
         },
         {
             "ID": "#sitediv-planshift_density_container label",
@@ -662,8 +598,7 @@
             "TEXT_POR": "densidade (p/m²):",
             "TEXT_RUS": "плотность (p/m²):",
             "TEXT_CHN": "密度（p/m²):",
-            "TEXT_JPN": "密度(p/m²):",
-            "TEXT_UZB": "zichlik (p/m²):"
+            "TEXT_JPN": "密度(p/m²):"
         },
         {
             "ID": "#sitediv-fertshift_amount_container label",
@@ -675,8 +610,7 @@
             "TEXT_POR": "quantidade (kg/ha):",
             "TEXT_RUS": "количество (кг/га):",
             "TEXT_CHN": "数量（kg/ha）：",
-            "TEXT_JPN": "量(kg /ha):",
-            "TEXT_UZB": "miqdori (kg/ga):"
+            "TEXT_JPN": "量(kg /ha):"
         },
         {
             "ID": "#sitediv-irrshift_amount_container label",
@@ -688,8 +622,7 @@
             "TEXT_POR": "montante (mm):",
             "TEXT_RUS": "количество (мм):",
             "TEXT_CHN": "数量（mm）：",
-            "TEXT_JPN": "金額 (mm):",
-            "TEXT_UZB": "miqdori (mm):"
+            "TEXT_JPN": "金額 (mm):"
         },
         {
             "ID": "#observations",
@@ -701,8 +634,7 @@
             "TEXT_POR": "OBSERVAÇÕES:",
             "TEXT_RUS": "Наблюдения:",
             "TEXT_CHN": "观察：",
-            "TEXT_JPN": "観測：",
-            "TEXT_UZB": "KUZATISHLAR:"
+            "TEXT_JPN": "観測："
         },
         {
             "ID": "#simres",
@@ -714,8 +646,7 @@
             "TEXT_POR": "RESULTADOS DA SIMULAÇÃO:",
             "TEXT_RUS": "РЕЗУЛЬТАТЫ МОДЕЛИРОВАНИЯ:",
             "TEXT_CHN": "模拟结果：",
-            "TEXT_JPN": "シミュレーション結果:",
-            "TEXT_UZB": "MODELLASHTIRISH NATIJALARI:"
+            "TEXT_JPN": "シミュレーション結果:"
         },
         {
             "ID": "#createplot",
@@ -727,8 +658,7 @@
             "TEXT_POR": "CRIAR ENREDO COM:",
             "TEXT_RUS": "СОЗДАЙТЕ СЮЖЕТ С ПОМОЩЬЮ:",
             "TEXT_CHN": "绘图：",
-            "TEXT_JPN": "次の方法でプロットを作成します。",
-            "TEXT_UZB": "...YORDAMIDA UCHASTKA YARATISH:"
+            "TEXT_JPN": "次の方法でプロットを作成します。"
         },
         {
             "ID": "#showdiv-experimentID_container label",
@@ -736,8 +666,7 @@
             "TEXT_HUN": "adat fájl:",
             "TEXT_GER": "daten file:",
             "TEXT_FRA": "FICHIER DE DONNÉES",
-            "TEXT_CHN": "数据文件",
-            "TEXT_UZB": "ma'lumotlar fayli:"
+            "TEXT_CHN": "数据文件"
         },
         {
             "ID": "#showdiv-alias_container label",
@@ -749,8 +678,7 @@
             "TEXT_POR": "means only",
             "TEXT_RUS": "means only",
             "TEXT_CHN": "means only",
-            "TEXT_JPN": "means only",
-            "TEXT_UZB": "means only:"
+            "TEXT_JPN": "means only"
         },
         {
             "ID": "#showdiv-del",
@@ -771,9 +699,7 @@
             "TEXT_CHN": "删除所选项",
             "TOOLTIP_CHN": "从列表中删除选定的模拟结果",
             "TEXT_JPN": "選択した削除",
-            "TOOLTIP_JPN": "選択したシミュレーション結果をリストから削除します",
-            "TEXT_UZB": "TANLANGANNI OʻCHIRISH",
-            "TOOLTIP_UZB": "Tanlangan modellashtirish natijalarini roʻyxatdan oʻchirish"
+            "TOOLTIP_JPN": "選択したシミュレーション結果をリストから削除します"
         },
         {
             "ID": "#showdiv-export",
@@ -794,9 +720,7 @@
             "TEXT_CHN": "输出",
             "TOOLTIP_CHN": "将绘图数据导出到 Excel 文件中",
             "TEXT_JPN": "エクスポート",
-            "TOOLTIP_JPN": "Excel ファイルへの印刷データのエクスポート",
-            "TEXT_UZB": "EKSPORT",
-            "TEXT_UZB": "Uchastka ma'lumotlarini Excel fayliga eksport qilish"
+            "TOOLTIP_JPN": "Excel ファイルへの印刷データのエクスポート"
         },
         {
             "ID": "#showdiv-show",
@@ -808,8 +732,7 @@
             "TEXT_POR": "CRIAR ENREDO",
             "TEXT_RUS": "СОЗДАТЬ СЮЖЕТ",
             "TEXT_CHN": "创建绘图",
-            "TEXT_JPN": "プロットを作成する",
-            "TEXT_UZB": "UCHASTKA YARATISH"
+            "TEXT_JPN": "プロットを作成する"
         },
         {
             "ID": "#showdiv-varset_container label",
@@ -821,40 +744,35 @@
             "TEXT_POR": "filtro para:",
             "TEXT_RUS": "фильтр для:",
             "TEXT_CHN": "筛选：",
-            "TEXT_JPN": "フィルタの適用範囲:",
-            "TEXT_UZB": "filtrlash"
+            "TEXT_JPN": "フィルタの適用範囲:"
         },
         {
             "ID": "#colone",
             "TEXT_ENG": "VARIABLE",
             "TEXT_HUN": "VÁLTOZÓ",
             "TEXT_GER": "VARIABLE",
-            "TEXT_FRA": "Variable",
-            "TEXT_UZB": "O'ZGARUVCHAN"
+            "TEXT_FRA": "Variable"
         },
         {
             "ID": "#coltwo",
             "TEXT_ENG": "T-STEP",
             "TEXT_HUN": "LÉPTÉK",
             "TEXT_GER": "ABSTAND",
-            "TEXT_FRA": "échelle",
-            "TEXT_UZB": "VAQT QADAMI"
+            "TEXT_FRA": "échelle"
         },
         {
             "ID": "#colthree",
             "TEXT_ENG": "FUNC",
             "TEXT_HUN": "FÜGGV",
             "TEXT_GER": "FUNK",
-            "TEXT_FRA": "Fonction",
-            "TEXT_UZB": "FUNKSIYA"
+            "TEXT_FRA": "Fonction"
         },
         {
             "ID": "#colfour",
             "TEXT_ENG": "PLOT TYPE",
             "TEXT_HUN": "TÍPUS",
             "TEXT_GER": "TYPUS",
-            "TEXT_FRA": "Type",
-            "TEXT_UZB": "UCHASTKA TURI"
+            "TEXT_FRA": "Type"
         },
         {
             "ID": "#griddiv-story_container label",
@@ -866,8 +784,7 @@
             "TEXT_POR": "ENREDO:",
             "TEXT_RUS": "Сюжет:",
             "TEXT_CHN": "框架：",
-            "TEXT_JPN": "ストーリー：",
-            "TEXT_UZB": "VOQEA CHIZIG'I"
+            "TEXT_JPN": "ストーリー："
         },
         {
             "ID": "#griddiv-climproj_container label",
@@ -879,8 +796,7 @@
             "TEXT_POR": "BASE DE DADOS CLIMÁTICO:",
             "TEXT_RUS": "БАЗА ДАННЫХ ПО КЛИМАТУ:",
             "TEXT_CHN": "气候数据库：",
-            "TEXT_JPN": "気候データベース:",
-            "TEXT_UZB": "IQLIM MA'LUMOTLARI BAZASI:"
+            "TEXT_JPN": "気候データベース:"
         },
         {
             "ID": "#griddiv-soildb_container label",
@@ -892,8 +808,7 @@
             "TEXT_POR": "BASE DE DADOS DO SOLO:",
             "TEXT_RUS": "БАЗА ДАННЫХ ПОЧВЫ:",
             "TEXT_CHN": "土壤数据库：",
-            "TEXT_JPN": "土壌データベース:",
-            "TEXT_UZB": "TUPROQ MA'LUMOTLAR BAZASI:"
+            "TEXT_JPN": "土壌データベース:"
         },
         {
             "ID": "#griddiv-algosel_container label",
@@ -905,8 +820,7 @@
             "TEXT_POR": "SELEÇÃO ALGORYTHM:",
             "TEXT_RUS": "ВЫБОР ALGORYTHM:",
             "TEXT_CHN": "ALGORYTHM 选择：",
-            "TEXT_JPN": "アルゴリスムの選択:",
-            "TEXT_UZB": "ALGORITMNI TANLASH:"
+            "TEXT_JPN": "アルゴリスムの選択:"
         },
         {
             "ID": "#griddiv-outsq_container label",
@@ -918,8 +832,7 @@
             "TEXT_POR": "TABELA DE DADOS DE SAÍDA:",
             "TEXT_RUS": "ТАБЛИЦА ВЫВОДНЫХ ДАННЫХ:",
             "TEXT_CHN": "输出数据表：",
-            "TEXT_JPN": "出力データ テーブル:",
-            "TEXT_UZB": "CHIQISH MA'LUMOTLARI JADVALI:"
+            "TEXT_JPN": "出力データ テーブル:"
         },
         {
             "ID": "#griddiv-StartSim",
@@ -931,8 +844,7 @@
             "TEXT_POR": "SIMULAÇÃO DE INÍCIO",
             "TEXT_RUS": "НАЧАЛО МОДЕЛИРОВАНИЯ",
             "TEXT_CHN": "开始模拟",
-            "TEXT_JPN": "シミュレーションを開始する",
-            "TEXT_UZB": "MODELLASHTIRISHNI BOSHLASH"
+            "TEXT_JPN": "シミュレーションを開始する"
         },
         {
             "ID": "#query",
@@ -944,8 +856,7 @@
             "TEXT_POR": "CONSULTAS:",
             "TEXT_RUS": "Запросов:",
             "TEXT_CHN": "查询：",
-            "TEXT_JPN": "クエリ：",
-            "TEXT_UZB": "SAVOLLAR:"
+            "TEXT_JPN": "クエリ："
         },
         {
             "ID": "#griddiv-queryalias_container label",
@@ -957,8 +868,7 @@
             "TEXT_POR": "PSEUDÓNIMO DE CONSULTA:",
             "TEXT_RUS": "ПСЕВДОНИМ ЗАПРОСА:",
             "TEXT_CHN": "查询别名：",
-            "TEXT_JPN": "クエリ エイリアス:",
-            "TEXT_UZB": "SAVOL TAXALLUSI:"
+            "TEXT_JPN": "クエリ エイリアス:"
         },
         {
             "ID": "#griddiv-metadata_container label",
@@ -970,8 +880,7 @@
             "TEXT_POR": "DESCRIÇÃO:",
             "TEXT_RUS": "Описание:",
             "TEXT_CHN": "描述：",
-            "TEXT_JPN": "説明：",
-            "TEXT_UZB": "TAVSIF："
+            "TEXT_JPN": "説明："
         },
         {
             "ID": "#griddiv-RunQuery",
@@ -981,10 +890,9 @@
             "TEXT_FRA": "QUERY",
             "TEXT_ESP": "CONSULTA DE INICIO",
             "TEXT_POR": "INICIAR CONSULTA",
-            "TEXT_RUS": "C",
+            "TEXT_RUS": "СТАРТОВЫЙ ЗАПРОС",
             "TEXT_CHN": "开始查询",
-            "TEXT_JPN": "クエリの開始",
-            "TEXT_UZB": "SAVOL"
+            "TEXT_JPN": "クエリの開始"
         },
         {
             "ID": "#griddiv-Report",
@@ -996,8 +904,7 @@
             "TEXT_POR": "RELATÓRIO",
             "TEXT_RUS": "Отчет",
             "TEXT_CHN": "结果",
-            "TEXT_JPN": "レポート",
-            "TEXT_UZB": "HISOBOT"
+            "TEXT_JPN": "レポート"
         },
         {
             "ID": "#griddiv-Map",
@@ -1009,8 +916,7 @@
             "TEXT_POR": "MAPA",
             "TEXT_RUS": "Карта",
             "TEXT_CHN": "地图",
-            "TEXT_JPN": "マップ",
-            "TEXT_UZB": "HARITA"
+            "TEXT_JPN": "マップ"
         },
         {
             "ID": "#griddiv-time_container label",
@@ -1022,8 +928,7 @@
             "TEXT_POR": "[início]:",
             "TEXT_RUS": "«Старт-конец»:",
             "TEXT_CHN": "[开始-结束]：",
-            "TEXT_JPN": "[スタートエンド]:",
-            "TEXT_UZB": "[boshlash-tugatish]："
+            "TEXT_JPN": "[スタートエンド]:"
         },
         {
             "ID": "#griddiv-enssoil_container span",
@@ -1031,8 +936,7 @@
             "TEXT_HUN": "csoport",
             "TEXT_GER": "Ensemble",
             "TEXT_FRA": "ensemble",
-            "TEXT_CHN": "全选",
-            "TEXT_UZB": "umumiy taassurot"
+            "TEXT_CHN": "全选"
         },
         {
             "ID": "#griddiv-ensclim_container span",
@@ -1040,8 +944,7 @@
             "TEXT_HUN": "csoport",
             "TEXT_GER": "Ensemble",
             "TEXT_FRA": "ensemble",
-            "TEXT_CHN": "全选",
-            "TEXT_UZB": "umumiy taassurot"
+            "TEXT_CHN": "全选"
         },
         {
             "ID": "#griddiv-ensalg_container span",
@@ -1049,8 +952,7 @@
             "TEXT_HUN": "csoport",
             "TEXT_GER": "Ensemble",
             "TEXT_FRA": "ensemble",
-            "TEXT_CHN": "全选",
-            "TEXT_UZB": "umumiy taassurot"
+            "TEXT_CHN": "全选"
         },
         {
             "ID": "#griddiv-repcheck_container span",
@@ -1058,8 +960,7 @@
             "TEXT_HUN": "mutat & ment",
             "TEXT_GER": "anzeigen & speichern",
             "TEXT_FRA": "le show & sauver",
-            "TEXT_CHN": "示例并保存",
-            "TEXT_UZB": "ko'rsatish va saqlash"
+            "TEXT_CHN": "示例并保存"
         },
         {
             "ID": "#griddiv-annual_container span",
@@ -1067,8 +968,7 @@
             "TEXT_HUN": "éves kimenetek",
             "TEXT_GER": "jährlichen Outputs",
             "TEXT_FRA": "annuel outputs",
-            "TEXT_CHN": "年输出",
-            "TEXT_UZB": "yillik ishlab chiqarish"
+            "TEXT_CHN": "年输出"
         },
         {
             "ID": "#mapdiv-invert_container span",
@@ -1080,8 +980,7 @@
             "TEXT_POR": "invertido",
             "TEXT_RUS": "Перевернутый",
             "TEXT_CHN": "倒置",
-            "TEXT_JPN": "反転",
-            "TEXT_UZB": ""
+            "TEXT_JPN": "反転"
         },
         {
             "ID": "#mapdiv-countrycont_container span",
@@ -1093,8 +992,7 @@
             "TEXT_POR": "contorno país",
             "TEXT_RUS": "контур страны",
             "TEXT_CHN": "国界线",
-            "TEXT_JPN": "国の輪郭",
-            "TEXT_UZB": "mamlakat konturi"
+            "TEXT_JPN": "国の輪郭"
         },
         {
             "ID": "#mapdiv-latlon_container span",
@@ -1106,8 +1004,7 @@
             "TEXT_POR": "linhas lat/lon",
             "TEXT_RUS": "линии лат/лон",
             "TEXT_CHN": "纬度/经度 线",
-            "TEXT_JPN": "ラット/ロンライン",
-            "TEXT_UZB": "lat/lon chizig'i"
+            "TEXT_JPN": "ラット/ロンライン"
         },
         {
             "ID": "#mapdiv-datasource_container label",
@@ -1128,9 +1025,7 @@
             "TEXT_CHN": "数据源：",
             "TOOLTIP_CHN": "在地图上显示选择 sql 文件的查询结果",
             "TEXT_JPN": "データ ソース:",
-            "TOOLTIP_JPN": "マップ上にクエリ結果を表示する SQL ファイルを選択します。",
-            "TEXT_UZB": "ma'lumotlar manbai",
-            "TOOLTIP_ENG": "So'rov natijalarini xaritada ko'rsatish uchun SQL faylini tanlang"
+            "TOOLTIP_JPN": "マップ上にクエリ結果を表示する SQL ファイルを選択します。"
         },
         {
             "ID": "#mapdiv-palette_container label",
@@ -1151,9 +1046,7 @@
             "TEXT_CHN": "调色板：",
             "TOOLTIP_CHN": "选择地图调色板",
             "TEXT_JPN": "パレット：",
-            "TOOLTIP_JPN": "マップのカラー パレットを選択する",
-            "TEXT_UZB": "Palitra:",
-            "TOOLTIP_UZB": "Xarita uchun ranglar palitrasini tanlang"
+            "TOOLTIP_JPN": "マップのカラー パレットを選択する"
         },
         {
             "ID": "#mapdiv-colnumb_container label",
@@ -1174,9 +1067,7 @@
             "TEXT_CHN": "颜色：",
             "TOOLTIP_CHN": "选择地图的颜色和子区域个数",
             "TEXT_JPN": "色：",
-            "TOOLTIP_JPN": "マップ上で識別する色/部分範囲の数を選択します。",
-            "TEXT_UZB": "ranglar:",
-            "TOOLTIP_UZB": "Xaritada farqlanadigan ranglar sonini tanlang"
+            "TOOLTIP_JPN": "マップ上で識別する色/部分範囲の数を選択します。"
         },
         {
             "ID": "#mapdiv-minprec_container label",
@@ -1197,9 +1088,7 @@
             "TEXT_CHN": "小数位数：",
             "TOOLTIP_CHN": "选择显示的值中的小数位数",
             "TEXT_JPN": "小数点：",
-            "TOOLTIP_JPN": "表示された値に表示される小数点以下の桁数を選択します。",
-            "TEXT_UZB": "kasr soni：",
-            "TOOLTIP_UZB": "Taqdim etilgan qiymatlarda ko'rsatilgan kasr sonini tanlang"
+            "TOOLTIP_JPN": "表示された値に表示される小数点以下の桁数を選択します。"
         },
         {
             "ID": "#mapdiv-min_container label",
@@ -1220,9 +1109,7 @@
             "TEXT_CHN": "最小-最大值：",
             "TOOLTIP_CHN": "为地图上显示的数据设置最小值和最大值",
             "TEXT_JPN": "最小の最大値:",
-            "TOOLTIP_JPN": "マップ上に表示されるデータの最小値を設定する",
-            "TEXT_UZB": "min-max qiymati:",
-            "TOOLTIP_UZB": "Xaritada taqdim etilgan ma'lumotlar uchun minimal qiymatni belgilang"
+            "TOOLTIP_JPN": "マップ上に表示されるデータの最小値を設定する"
         },
         {
             "ID": "#mapdiv-bw_container label",
@@ -1243,9 +1130,7 @@
             "TEXT_CHN": "区间：",
             "TOOLTIP_CHN": "设置区间范围",
             "TEXT_JPN": "間隔：",
-            "TOOLTIP_JPN": "間隔を設定する",
-            "TEXT_UZB": "interval：",
-            "TOOLTIP_UZB": "Intervalni o'rnating"
+            "TOOLTIP_JPN": "間隔を設定する"
         },
         {
             "ID": "#mapdiv-maskcol_container label",
@@ -1266,9 +1151,7 @@
             "TEXT_CHN": "掩膜色：",
             "TOOLTIP_CHN": "选择掩膜色（对于没有数据的区域）",
             "TEXT_JPN": "マスク色:",
-            "TOOLTIP_JPN": "マスクの色を選択する(データのない領域の場合)",
-            "TEXT_UZB": "niqob rangi:",
-            "TOOLTIP_UZB": "Niqob rangini tanlang (maʼlumotlarsiz hududlar uchun)"
+            "TOOLTIP_JPN": "マスクの色を選択する(データのない領域の場合)"
         },
         {
             "ID": "#mapdiv-maptitle_container label",
@@ -1289,9 +1172,7 @@
             "TEXT_CHN": "地图标题：",
             "TOOLTIP_CHN": "添加地图标题",
             "TEXT_JPN": "マップタイトル:",
-            "TOOLTIP_JPN": "マップにタイトルを追加する",
-            "TEXT_UZB": "xarita sarlavhasi:",
-            "TOOLTIP_UZB": "Xaritaga sarlavha qo'shing"
+            "TOOLTIP_JPN": "マップにタイトルを追加する"
         },
         {
             "ID": "#mapdiv-metadata_container label",
@@ -1303,8 +1184,7 @@
             "TEXT_POR": "Metadados:",
             "TEXT_RUS": "Метаданных:",
             "TEXT_CHN": "元数据：",
-            "TEXT_JPN": "メタデータ：",
-            "TEXT_UZB": "metama'lumot："
+            "TEXT_JPN": "メタデータ："
         },
         {
             "ID": "#mapdiv-create",
@@ -1316,8 +1196,7 @@
             "TEXT_POR": "CRIAR MAPA",
             "TEXT_RUS": "СОЗДАНИЕ КАРТЫ",
             "TEXT_CHN": "创建地图",
-            "TEXT_JPN": "マップの作成",
-            "TEXT_UZB": "XARITA YARATISH"
+            "TEXT_JPN": "マップの作成"
         },
         {
             "ID": "#paranatype",
@@ -1329,8 +1208,7 @@
             "TEXT_POR": "TIPO DE ANÁLISE DE PARÂMETROS:",
             "TEXT_RUS": "ТИП АНАЛИЗА ПАРАМЕТРОВ:",
             "TEXT_CHN": "参数分析的类型：",
-            "TEXT_JPN": "パラメータ分析のタイプ:",
-            "TEXT_UZB": "PARAMETRLIK TAHLIL TURI："
+            "TEXT_JPN": "パラメータ分析のタイプ:"
         },
         {
             "ID": "#paranadiv-paranaini_container label",
@@ -1338,8 +1216,7 @@
             "TEXT_HUN": "MUNKAKÖNYVTÁR:",
             "TEXT_GER": "ARBEITSVERZEICHNIS:",
             "TEXT_FRA": "directeur de travail",
-            "TEXT_CHN": "工作目录",
-            "TEXT_UZB": "ISHLASH KO'RSATKICHLARI："
+            "TEXT_CHN": "工作目录"
         },
         {
             "ID": "#paranadiv-paranaexp_container label",
@@ -1347,8 +1224,7 @@
             "TEXT_HUN": "MEGFIGYELÉSIADAT fájl:",
             "TEXT_GER": "BEOBACHTUNGSDATEN file:",
             "TEXT_FRA": "FICHIER DE DONNÉES D'OBSERVATION",
-            "TEXT_CHN": "观测数据文件",
-            "TEXT_UZB": "KUZATUV MA'LUMOTLARI fayli:"
+            "TEXT_CHN": "观测数据文件"
         },
         {
             "ID": "#paranadiv-ctlfile_container label",
@@ -1356,8 +1232,7 @@
             "TEXT_HUN": "VEZÉRLŐ fájl:",
             "TEXT_GER": "KONTROLL file:",
             "TEXT_FRA": "FICHIER DE CONTRÔLE",
-            "TEXT_CHN": "控制文件",
-            "TEXT_UZB": "BOSHQARUV fayli："
+            "TEXT_CHN": "控制文件"
         },
         {
             "ID": "#paranadiv-paranait_container label",
@@ -1369,8 +1244,7 @@
             "TEXT_POR": "Número de iterações:",
             "TEXT_RUS": "количество итераций:",
             "TEXT_CHN": "迭代次数：",
-            "TEXT_JPN": "反復回数:",
-            "TEXT_UZB": "Takrorlashlar soni:"
+            "TEXT_JPN": "反復回数:"
         },
         {
             "ID": "#paranadiv-charfunc_container label",
@@ -1382,8 +1256,7 @@
             "TEXT_POR": "função de caracterização para sensibilidade",
             "TEXT_RUS": "функция характеристики чувствительности",
             "TEXT_CHN": "敏感性特征函数",
-            "TEXT_JPN": "感度のための特性評価関数",
-            "TEXT_UZB": "Sezuvchanlik xarakteristikasi funktsiyasi"
+            "TEXT_JPN": "感度のための特性評価関数"
         },
         {
             "ID": "#paranadiv-paranado",
@@ -1395,8 +1268,7 @@
             "TEXT_POR": "FAZER ANÁLISE",
             "TEXT_RUS": "ПРО АНАЛИЗ",
             "TEXT_CHN": "分析",
-            "TEXT_JPN": "分析を行う",
-            "TEXT_UZB": "IJRO TAHLILI"
+            "TEXT_JPN": "分析を行う"
         },
         {
             "ID": "#paranaradsweep",
@@ -1408,8 +1280,7 @@
             "TEXT_POR": "Varredura de Parâmetros",
             "TEXT_RUS": "Параметр Подметать",
             "TEXT_CHN": "参数读取",
-            "TEXT_JPN": "パラメータ スイープ",
-            "TEXT_UZB": "Parametrni tozalash"
+            "TEXT_JPN": "パラメータ スイープ"
         },
         {
             "ID": "#paranaradsens",
@@ -1421,8 +1292,7 @@
             "TEXT_POR": "Análise de Sensibilidade",
             "TEXT_RUS": "Анализ чувствительности",
             "TEXT_CHN": "敏感性分析",
-            "TEXT_JPN": "感度分析",
-            "TEXT_UZB": "Sezuvchanlik tahlili"
+            "TEXT_JPN": "感度分析"
         },
         {
             "ID": "#paranaradcal",
@@ -1434,8 +1304,7 @@
             "TEXT_POR": "Calibração",
             "TEXT_RUS": "Калибровки",
             "TEXT_CHN": "校准",
-            "TEXT_JPN": "校正",
-            "TEXT_UZB": "Kalibrlashlar"
+            "TEXT_JPN": "校正"
         },
         {
             "ID": "#sitegendiv-erareg_container label",
@@ -1447,8 +1316,7 @@
             "TEXT_POR": "CÓDIGO DE REGISTO ERA5:",
             "TEXT_RUS": "КОД РЕГИСТРАЦИИ ERA5:",
             "TEXT_CHN": "ERA5 注册代码：",
-            "TEXT_JPN": "ERA5登録コード:",
-            "TEXT_UZB": "ERA5 RO‘YXATDAN OLISH KODI："
+            "TEXT_JPN": "ERA5登録コード:"
         },
         {
             "ID": "#geocord",
@@ -1460,8 +1328,7 @@
             "TEXT_POR": "COORDENADAS GEOGRÁFICAS:",
             "TEXT_RUS": "ГЕОГРАФИЧЕСКИЕ КООРДИНАТЫ:",
             "TEXT_CHN": "地理坐标：",
-            "TEXT_JPN": "地理座標:",
-            "TEXT_UZB": "GEOGRAFIK KOORDINATLAR:"
+            "TEXT_JPN": "地理座標:"
         },
         {
             "ID": "#timeperiod",
@@ -1473,8 +1340,7 @@
             "TEXT_POR": "PERÍODO DE TEMPO PARA OS DADOS METEOROLÓGICOS:",
             "TEXT_RUS": "ПЕРИОД ВРЕМЕНИ ДЛЯ ДАННЫХ О ПОГОДЕ:",
             "TEXT_CHN": "气象数据的时间段：",
-            "TEXT_JPN": "気象データの期間:",
-            "TEXT_UZB": "OB HAVO MA'LUMOTLARI UCHUN VAQT:"
+            "TEXT_JPN": "気象データの期間:"
         },
         {
             "ID": "#sitegendiv-lat_container label",
@@ -1486,8 +1352,7 @@
             "TEXT_POR": "latitude (deg):",
             "TEXT_RUS": "широта (deg):",
             "TEXT_CHN": "纬度（度）：",
-            "TEXT_JPN": "緯度(デグ):",
-            "TEXT_UZB": "kenglik (gradus):"
+            "TEXT_JPN": "緯度(デグ):"
         },
         {
             "ID": "#sitegendiv-lon_container label",
@@ -1499,8 +1364,7 @@
             "TEXT_POR": "longitude (deg):",
             "TEXT_RUS": "долгота (deg):",
             "TEXT_CHN": "经度（度）：",
-            "TEXT_JPN": "経度 (デグ):",
-            "TEXT_UZB": "uzunlik (gradus):"
+            "TEXT_JPN": "経度 (デグ):"
         },
         {
             "ID": "#sitegendiv-settlement_container label",
@@ -1512,8 +1376,7 @@
             "TEXT_POR": "nome da liquidação:",
             "TEXT_RUS": "название поселения:",
             "TEXT_CHN": "结果命名：",
-            "TEXT_JPN": "決済の名前:",
-            "TEXT_UZB": "aholi punkti nomi:"
+            "TEXT_JPN": "決済の名前:"
         },
         {
             "ID": "#sitegendiv-start_container label",
@@ -1525,8 +1388,7 @@
             "TEXT_POR": "início do ano:",
             "TEXT_RUS": "начало года:",
             "TEXT_CHN": "开始年份：",
-            "TEXT_JPN": "開始年:",
-            "TEXT_UZB": "boshlanish yili:"
+            "TEXT_JPN": "開始年:"
         },
         {
             "ID": "#sitegendiv-end_container label",
@@ -1538,8 +1400,7 @@
             "TEXT_POR": "final do ano:",
             "TEXT_RUS": "конец года:",
             "TEXT_CHN": "结束年份：",
-            "TEXT_JPN": "終年:",
-            "TEXT_UZB": "tugatish yili:"
+            "TEXT_JPN": "終年:"
         },
         {
             "ID": "#sitegendiv-sitename_container label",
@@ -1551,8 +1412,7 @@
             "TEXT_POR": "NOME DO SITE:",
             "TEXT_RUS": "НАЗВАНИЕ САЙТА:",
             "TEXT_CHN": "网站名称：",
-            "TEXT_JPN": "サイト名:",
-            "TEXT_UZB": "JOY NOMI:"
+            "TEXT_JPN": "サイト名:"
         },
         {
             "ID": "#sitegendiv-retdatcreate",
@@ -1564,8 +1424,7 @@
             "TEXT_POR": "RECUPERAR DADOS E CRIAR FICHEIROS(S)",
             "TEXT_RUS": "ИЗВЛЕЧЕНИЕ ДАННЫХ И СОЗДАНИЕ ФАЙЛА (S)",
             "TEXT_CHN": "检索数据并创建文件",
-            "TEXT_JPN": "データを取得してファイルを作成する",
-            "TEXT_UZB": "MA'LUMOTLARNI OLISH VA FAYL(LAR) YARATISH"
+            "TEXT_JPN": "データを取得してファイルを作成する"
         },
         {
             "ID": "#sitegendiv-soil_container span",
@@ -1577,8 +1436,7 @@
             "TEXT_POR": "Recuperar dados do solo da base de dados ISRIC",
             "TEXT_RUS": "Извлечение данных о почве из базы данных ISRIC",
             "TEXT_CHN": "从 ISRIC 数据库中检索土壤数据",
-            "TEXT_JPN": "ISRIC データベースから土壌データを取得する",
-            "TEXT_UZB": "ISRIC ma'lumotlar bazasidan tuproq ma'lumotlarini oling"
+            "TEXT_JPN": "ISRIC データベースから土壌データを取得する"
         },
         {
             "ID": "#sitegendiv-weather_container span",
@@ -1590,8 +1448,7 @@
             "TEXT_POR": "Recuperar dados meteorológicos da base de dados ERA5",
             "TEXT_RUS": "Извлечение данных о погоде из базы данных ERA5",
             "TEXT_CHN": "从 ERA5 数据库中检索天气数据",
-            "TEXT_JPN": "ERA5データベースから気象データを取得する",
-            "TEXT_UZB": "ERA5 ma'lumotlar bazasidan ob-havo ma'lumotlarini oling"
+            "TEXT_JPN": "ERA5データベースから気象データを取得する"
         },
         {
             "ID": "#sitegendiv-ini_container span",
@@ -1603,8 +1460,7 @@
             "TEXT_POR": "Crie o ficheiro ini utilizando o ficheiro selecionado como modelo:",
             "TEXT_RUS": "Создание файла ini с помощью выбранного файла в качестве шаблона:",
             "TEXT_CHN": "以所选文件作为模板创建初始文件：",
-            "TEXT_JPN": "選択したファイルをテンプレートとして使用して ini ファイルを作成します。",
-            "TEXT_UZB": "Tanlangan faylni shablon sifatida olib, ini faylini yarating:"
+            "TEXT_JPN": "選択したファイルをテンプレートとして使用して ini ファイルを作成します。"
         },
         {
             "ID": "#dbmandiv-database_container label",
@@ -1612,8 +1468,7 @@
             "TEXT_HUN": "ADATBÁZIS:",
             "TEXT_GER": "DATABASE:",
             "TEXT_FRA": "BASE DE DONNÉES",
-            "TEXT_CHN": "数据库：",
-            "TEXT_UZB": "MA'LUMOTLAR BAZASI:"
+            "TEXT_CHN": "数据库："
         },
         {
             "ID": "#dbmandiv-datatable_container label",
@@ -1621,8 +1476,7 @@
             "TEXT_HUN": "ADATTÁBLA:",
             "TEXT_GER": "DATENTABELLE:",
             "TEXT_FRA": "TABLEAU DE DONNÉES",
-            "TEXT_CHN": "数据表格：",
-            "TEXT_UZB": "MA'LUMOTLAR JADVALI:"
+            "TEXT_CHN": "数据表格："
         },
         {
             "ID": "#dbmandiv-sqlquery_container label",
@@ -1630,8 +1484,7 @@
             "TEXT_HUN": "SQL LEKÉRDEZÉS:",
             "TEXT_GER": "SQL QUERY:",
             "TEXT_FRA": "Requête SQL",
-            "TEXT_CHN": "SQL查询",
-            "TEXT_UZB": "SQL SO'ROV:"
+            "TEXT_CHN": "SQL查询"
         },
         {
             "ID": "#dbmandiv-showtab",
@@ -1639,8 +1492,7 @@
             "TEXT_HUN": "MEGJELENÍT",
             "TEXT_GER": "ZEIGEN",
             "TEXT_FRA": "MONTRER",
-            "TEXT_CHN": "展示",
-            "TEXT_UZB": "KO'RSATISH"
+            "TEXT_CHN": "展示"
         },
         {
             "ID": "#dbmandiv-querytab",
@@ -1648,7 +1500,6 @@
             "TEXT_HUN": "LEKÉRDEZÉS",
             "TEXT_GER": "QUERY",
             "TEXT_FRA": "REQUETE",
-            "TEXT_CHN": "查询",
-            "TEXT_UZB": "SO'ROV"
+            "TEXT_CHN": "查询"
         }
 ]

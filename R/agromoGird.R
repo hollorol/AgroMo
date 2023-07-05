@@ -257,8 +257,7 @@ agroMoGrid <- function(input, output, session, baseDir, language){
                                 showNotification("Soil file directory (defined in storyLine) not found",type="error")
                          }
 
-                         dat$story <- split(storyRow,storyRow$site)
-                         dat$storyRow <- storyRow
+                         dat$story <-split(storyRow,storyRow$site)
                      }
     })
 
@@ -553,10 +552,7 @@ agroMoGrid <- function(input, output, session, baseDir, language){
             ## runChain(baseDir(),input$story,dat$story[[5]])
             dbDir <- file.path(baseDir(),"output")
             sqlDB <- DBI::dbConnect(RSQLite::SQLite(),file.path(dbDir,"grid.db"))
-            error <- runGrid(baseDir(),input$story,dat$storyRow) # dat$story is a list containing all running groups
-            if(is.list(error)){
-                error <- do.call(c,error)
-            }
+            error <- runGrid(baseDir(),input$story,dat$story) # dat$story is a list containing all running groups
             errorDF <- tapply(error,as.numeric(gsub("_.*","",names(error))),sum)
             errorDF <- data.frame(site=names(errorDF),error=errorDF)
             dbWriteTable(sqlDB,sprintf("%s_error",input$outsq),errorDF,overwrite=TRUE)
@@ -679,8 +675,8 @@ queryCreator <- function(fileN, description, index, optis, connectionBase, dat){
    interpolateInto(dat$replNumbers[[index]],optis,dat$query)
 }
 
-runChain <- function (baseDir, storyName, chain, chainMatrix) {
-   chainMatrix <- chainMatrix[chainMatrix[,"site"] == chain,]
+runChain <- function (baseDir, storyName, chainMatrix) {
+   setwd(baseDir) 
    returnVal <- apply(chainMatrix,1,function(x){
                       suppressWarnings(system2("./muso",
                                             file.path(baseDir,"input/initialization/grid",storyName,paste0(x[2],".ini")),
@@ -697,31 +693,21 @@ runChain <- function (baseDir, storyName, chain, chainMatrix) {
 #' @importFrom doSNOW registerDoSNOW 
 #' @importFrom foreach foreach %dopar%
 
-runGrid <- function(baseDir, storyName, chainMatrixFull){
-
+runGrid <- function(baseDir,storyName,chainMatrixFull){
     showNotification(sprintf("Starting cluster for parallel run with %s cores, please wait for the progress indicator",detectCores()-1))
     cl <- makeCluster(detectCores()-1)
     registerDoSNOW(cl)
     iterations <- length(chainMatrixFull)
     progress <- function(i) incProgress(1/iterations, detail = paste("Doing part", i))
     opts <- list(progress = progress)
-    os  <- Sys.info()["sysname"]
-    if(os == "Windows"){
-        withProgress(message = "simulation", value = 0, {
-                         result <- foreach(site = unique(chainMatrixFull$site), .export="runChain", .combine = c, 
-                                           .options.snow = opts) %dopar% {
-                                runChain(baseDir,storyName, site, chainMatrixFull)
-                         }
-        })
-        stopCluster(cl)
-        print(result)
-   } else {
-       withProgress(message = "simulation", value = 0, min = 0, max = nrow(chainMatrixFull), {
-                paraProgress(unique(chainMatrixFull$site), function(chain){runChain(baseDir, storyName, chain, chainMatrixFull)},
-                                  cores = 100, pb=NULL, pbUpdate = function(x){setProgress(value=x,detail=x)}
-                )
-        })
-   }
+    withProgress(message = "simulation", value = 0, {
+                     result <- foreach(i = 1:length(chainMatrixFull), .export="runChain", .combine = c, 
+                                       .options.snow = opts) %dopar% {
+                        runChain(baseDir,storyName, chainMatrixFull[[i]])
+                     }
+    })
+    stopCluster(cl)
+    print(result)
 }
 
 #' writeChainToDB
@@ -784,7 +770,7 @@ readTable <- function(fName, econofName, variables, type, cell_id, numDays, star
         return(dayoutput)
     } else {
         if(file.exists(econofName)){
-            econonames <- c("year","crop_id","prim_prod","sec_prod","irr_amount","irr_type")
+            econonames <- c("year","crop_id","prim_prod","sec_prod","irr_amaunt","irr_type")
             econoOutput <- read.table(econofName, skip=1, header=FALSE)
             econoOutput[,1] <- as.integer(econoOutput[,1])
             econoOutput[,5] <- as.integer(econoOutput[,5])
@@ -803,157 +789,4 @@ readTable <- function(fName, econofName, variables, type, cell_id, numDays, star
         colnames(annuOutput) <- c("year", variables, "cell_id")
         return(annuOutput)
     }
-}
-
-
-#' decor_fun
-#'
-#' This is a simple decorator for paralell progress bars
-#' @param fun the name of the function
-#' @param tmpdir the temporary file for IPC
-#' @importFrom filelock lock unlock
-#' @keywords internal 
-
-decor_fun <- function(fun, tmpdir){
-  function(X){
-    ret <- fun(X)
-    lck <- lock(paste0(tmpdir,'.lock'))
-    str <- readLines(tmpdir)
-    n <- as.numeric(str[length(str)]) + 1
-    write(n, tmpdir)
-    unlock(lck)
-    return(ret)
-  }
-}
-
-
-#' fut_lapply
-#'
-#' parallel lapply alternative. the difference between this and future_parallel is that the result of this function is a future, not a value
-#' @param li starting list
-#' @param FUN a decor_fun decorated function
-#' @param cores number of cores
-#' @importFrom future future
-#' @keywords internal 
-
-fut_lapply <- function(li, FUN, cores, ...){
-  out <- vector(mode="list",length(li))
-  
-  for(i in seq_along(li)){
-    print(i)
-    out[[i]] <- future({FUN(li[i], ...)})
-  }
-  return(out)
-}
-
-
-#' paraWithProgress
-#'
-#' A simple function which creates the necessery files for the paraprogress bar
-#' @param X starting list
-#' @param fun an arbitary 1D function
-#' @param cores number of cores
-#' @importFrom future future
-#' @importFrom parallel mclapply
-#' @keywords internal 
-
-paraWithProgress <- function(X, fun, cores, ...){
-  tmpdir <-tempfile() 
-  write(0,tmpdir)
-  FUN <- decor_fun(fun, tmpdir)
-  
-  if(Sys.info()["sysname"] == "Windows"){
-      ret <- list(
-        wdir=tmpdir,
-        fun=function(...){
-          return(fut_lapply(li=X, FUN=FUN, ...))
-        }
-      )
-      return(ret)
-  }
-  return(
-    list(wdir=tmpdir,
-         fun=function(...){
-           future({mclapply(X=X, FUN=FUN,..., mc.cores=cores)}) 
-         })
-  )
-}
-
-
-#' paraProgress
-#'
-#' A simple function which creates the necessery files for the paraprogress bar
-#' @param X starting list
-#' @param FUN an arbitary 1D function
-#' @param cores number of cores
-#' @param pb Progress bar
-#' @param pbUpdate Progress bar
-#' @importFrom future value plan sequential multicore multisession
-#' @importFrom parallel mclapply
-#' @export
-
-paraProgress <- function(X, FUN, cores,
-                         pb = txtProgressBar(min=1, max=length(X), style=3),
-                         pbUpdate = setTxtProgressBar, prepB = NULL, prepUpdate = NULL){
-    os <-  Sys.info()["sysname"]
-    if(Sys.getenv("RSTUDIO")=="1" && os != "Windows"){
-        warning("Forking is not supported in Rstudio, fall back to regular process making")
-        os <- "Windows"
-    }
-
-    if(os == "Windows"){
-        plan(multisession, workers=cores)
-    } else {
-        plan(multicore)
-    }
-
-    parfunc <- paraWithProgress(X=X, fun=FUN, cores=cores)
-    print(parfunc$wdir)
-    fut <- parfunc$fun()
-    # browser()
-    progress <- 0
-    size <- length(X)
-    print(size)
-    while(1){
-
-        progress <- (as.numeric(readLines(parfunc$wdir)[1]))
-
-        if(is.null(progress) || is.na(progress) || length(progress) == 0){
-            next()
-        }
-
-        if(progress >= size){
-            break()
-        }
-
-        if(is.null(pb)){
-            pbUpdate(as.numeric(progress))
-        } else {
-            pbUpdate(pb,as.numeric(progress))
-        }
-
-        Sys.sleep(1)
-    }
-
-    if(is.null(pb)){
-        pbUpdate(size)
-    } else {
-        pbUpdate(pb,size)
-    }
-
-    file.remove(parfunc$wdir)
-
-    if(!is.null(pb)){
-        close(pb)
-    }
-
-    if(os != "Windows"){
-        ret <- value(fut)
-        plan(sequential)
-        return(ret)
-    }
-
-    ret <- lapply(fut, value)
-    plan(sequential)
-    return(ret)
 }

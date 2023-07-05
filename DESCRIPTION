@@ -40,8 +40,7 @@ Imports:
   lubridate,
   shinyFiles,
   openxlsx,
-  showtext,
-  filelock
+  showtext
 Suggests: testhat,
   rmarkdown,
   knitr

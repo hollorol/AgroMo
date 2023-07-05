@@ -9,6 +9,6 @@ stringSanitizer <- function(string){
     unwantedChars <- "\'\"+^\\!°/%=()@&#\\[\\]{};×<>?,|"
     string <- iconv(string, "","ASCII//TRANSLIT")
     string <- gsub(sprintf("[%s]",unwantedChars),"",string,perl=TRUE)
-    gsub("[\\s\\-:]","_",string,perl=TRUE)
+    gsub("[\\s-:]","_",string,perl=TRUE)
 
 }   

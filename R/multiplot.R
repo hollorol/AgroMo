@@ -8,7 +8,6 @@ multiPlotUI <- function(id){
   modalDialog(
     uiOutput(ns("plots")),
     uiOutput(ns("profilePlots")),
-    uiOutput(ns("syncScripts")),
     size = "l",
     easyClose = TRUE
   )
@@ -17,10 +16,9 @@ multiPlotUI <- function(id){
 #' multiPlot
 #'
 #' multiPlot
-#' @importFrom plotly renderPlotly plotlyOutput event_data
+#' @importFrom plotly renderPlotly plotlyOutput
 #' @importFrom shiny renderUI
 #' @importFrom DBI dbReadTable
-#' @importFrom glue glue
 #' @param input sdfasdf
 
 multiPlot <- function(input, output, session,
@@ -30,9 +28,6 @@ multiPlot <- function(input, output, session,
   ns <- session$ns
   simplePlots <- outputTable()[grep("Profil",outputTable()$variable,invert = TRUE),] #TODO
   # browser()
-
-  plotly_ready <- reactiveVal(FALSE)
-  plotly_count <- reactiveVal(0)
 
   if(dim(simplePlots)[1]!=0){
       # browser()
@@ -73,10 +68,10 @@ multiPlot <- function(input, output, session,
               mesUnit <- ifelse(filteredCentData[i,4]=="NA","dimless",filteredCentData[i,4])
               yTitle <- sprintf("<b>%s [%s]</br> </b>",filteredCentData[i,2],mesUnit)
               output[[simplePlots[my_i,1]]] <- renderPlotly({
-                  plotly_count(0)
+                   
                   # plotlyProxy(simplePlots[my_i,1], session) %>%
                   #     plotlyProxyInvoke("purge")
-                  pl <- plotSingle(outputNames = outputNames,
+                  plotSingle(outputNames = outputNames,
                   dataenv = dataenv,
                   varName = simplePlots[my_i,1],
                   timeFrame = simplePlots[my_i,2],
@@ -86,22 +81,10 @@ multiPlot <- function(input, output, session,
                   repetationsAveraged = repetAvg(),
                   measurement = measurement(),
                   experiment_id = experimentID(),
-                  treatment = treatmentID(),yTitle,measAlias(), simplifyPoint())
-
-                  if(my_i == (numSimplePlots)){
-                     plotly_ready(TRUE)
-                  }
-                  pl
-
-              })
-
-          })
-
+                  treatment = treatmentID(),yTitle,measAlias(), simplifyPoint())})})
       }
   }
 
-  plotDivs <- paste(glue("let {gsub('-','_',ns(simplePlots[,1]))} = document.getElementById('{ns(simplePlots[,1])}');"),
-                    collapse="")
 
   if(numProfile != 0){
       output$profilePlots <- renderUI({
@@ -165,57 +148,36 @@ multiPlot <- function(input, output, session,
             
           })
       }
-
-
-
-
-
   }
-
-  observeEvent(event_data("plotly_afterplot"), {
-                   plotly_count(plotly_count() + 1)
-
-  })
-
-  output$syncScripts <- renderUI({
-      if(plotly_count() == numSimplePlots){
-          tags$script(HTML(
-                        glue('
-
-                                 __plotDivs__
-                                 divs = [__paste(gsub("-","_",ns(simplePlots[,1])),collapse=",")__];
-                             const relayout = (ed, divs) => {
-                                 if (Object.entries(ed).length == 0) {return;}
-                                 divs.forEach((div, i) => {
-                                                  let x = div.layout.xaxis;
-                                                  let y = div.layout.yaxis;
-                                                  var update = {};
-                                                  if ("xaxis.autorange" in ed && ed["xaxis.autorange"] != x.autorange) {
-                                                      update[\'xaxis.autorange\']= ed["xaxis.autorange"];
-                                                  }
-                                                  if ("xaxis.range[0]" in ed && ed["xaxis.range[0]"] != x.range[0]) {
-                                                      update[\'xaxis.range[0]\'] = ed["xaxis.range[0]"];
-                                                  }
-                                                  if ("xaxis.range[1]" in ed && ed["xaxis.range[1]"] != x.range[1]) {
-                                                      update[\'xaxis.range[1]\'] = ed["xaxis.range[1]"];
-                                                  }
-                                                  Plotly.relayout(div, update);
-});
-                             }
-
-                              divs.forEach(div => {
-                                                        div.on("plotly_relayout", function(ed) {
-                                                                            relayout(ed, divs);
-                                                                           })
-                                                  });
-
-
-
-                             ', .open="__",.close="__"))
-                             )}
-
-    
-  })
+#   if(numProfile > 0){
+#     output$profilePlots <- renderUI({
+#         if(numProfile!=0){
+#           tagList(
+#             dateInput(ns("dateInput"),"date","2000-01-01"),actionButton(ns("ddec"),"day - 1"), actionButton(ns("dinc"),"day + 1"),
+#             plotlyOutput(ns("tsoil")),plotlyOutput(ns("vwc")))
+#         }
+#       })
+#
+#       observeEvent(input$ddec,{
+#         updateDateInput(session, inputId = "dateInput", value = (input$dateInput-1))
+#       })
+#       observeEvent(input$dinc,{
+#         updateDateInput(session, inputId = "dateInput", value = (input$dateInput+1))
+#       })
+#
+#       ## plotProfile <- function(outputNames,dataenv=readRDS("output/outputs.RDS"),selectedDate,profileName = "vwc-profile"){
+#       if(numProfile!=0){
+#         grepvwc <- grep("SWC",profPlots[,1])
+#         greptsoil <- grep("T",profPlots[,1])
+#         if(length(grepvwc)!=0){
+#           output$vwc <-  renderPlotly({plotProfile(outputNames, dataenv = dataenv, selectedDate = input$dateInput, profileName = "SWC profile")})
+#         }
+#         if(length(greptsoil)!=0){
+#           output$tsoil <- renderPlotly({plotProfile(outputNames, dataenv = dataenv, selectedDate = input$dateInput, profileName = "T profile")})
+#         }
+#
+#       }
+# }
 }
 
 
