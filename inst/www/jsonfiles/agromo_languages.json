@@ -1199,7 +1199,7 @@
             "TEXT_JPN": "小数点：",
             "TOOLTIP_JPN": "表示された値に表示される小数点以下の桁数を選択します。",
             "TEXT_UZB": "kasr soni：",
-            "TOOLTIP_UZB": "Taqdim etilgan qiymatlarda ko'rsatilgan kasr sonini tanlang"
+            "TOOLTIP_UZB": "Taqdim etilgan qiymatlardan ko'rsatilgan kasr sonini tanlang"
         },
         {
             "ID": "#mapdiv-min_container label",
