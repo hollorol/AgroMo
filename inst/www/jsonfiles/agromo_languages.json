@@ -316,7 +316,7 @@
             "TOOLTIP_RUS": "Создатель участка",
             "TOOLTIP_CHN": "格点模拟结果",
             "TOOLTIP_JPN": "プロット作成者",
-            "TOOLTIP_UZB": "Uchastka modellari natijalari"
+            "TOOLTIP_UZB": "Uchastka modellar natijasi"
         },
         {
             "ID": "#grid",
@@ -715,7 +715,7 @@
             "TEXT_RUS": "РЕЗУЛЬТАТЫ МОДЕЛИРОВАНИЯ:",
             "TEXT_CHN": "模拟结果：",
             "TEXT_JPN": "シミュレーション結果:",
-            "TEXT_UZB": "MODELLASHTIRISH NATIJALARI:"
+            "TEXT_UZB": "MODELLASHTIRISH NATIJASI:"
         },
         {
             "ID": "#createplot",
@@ -945,7 +945,7 @@
             "TEXT_RUS": "Запросов:",
             "TEXT_CHN": "查询：",
             "TEXT_JPN": "クエリ：",
-            "TEXT_UZB": "SAVOLLAR:"
+            "TEXT_UZB": "SO'ROVLAR:"
         },
         {
             "ID": "#griddiv-queryalias_container label",
@@ -958,7 +958,7 @@
             "TEXT_RUS": "ПСЕВДОНИМ ЗАПРОСА:",
             "TEXT_CHN": "查询别名：",
             "TEXT_JPN": "クエリ エイリアス:",
-            "TEXT_UZB": "SAVOL TAXALLUSI:"
+            "TEXT_UZB": "SO'ROV TAXALLUSI:"
         },
         {
             "ID": "#griddiv-metadata_container label",
@@ -984,7 +984,7 @@
             "TEXT_RUS": "C",
             "TEXT_CHN": "开始查询",
             "TEXT_JPN": "クエリの開始",
-            "TEXT_UZB": "SAVOL"
+            "TEXT_UZB": "SO'ROV"
         },
         {
             "ID": "#griddiv-Report",
